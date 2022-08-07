@@ -1,0 +1,30 @@
+.page-header {
+	font-size: 2rem;
+}
+
+.page-subheader {
+	font-weight: 600;
+}
+
+.section-header {
+	font-size: 2rem;
+}
+
+.header-primary {
+	color: var(--primaryHover);
+}
+
+@media screen and (min-width: 420px) {
+	.page-header {
+		font-size: 3rem;
+		line-height: 1.1;
+	}
+
+	.page-subheader {
+		font-weight: 600;
+	}
+
+	.section-header {
+		font-size: 2.25rem;
+	}
+}

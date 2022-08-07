@@ -2,6 +2,8 @@ import Navbar from './components/Navbar/';
 import Routes from './routes';
 import initFirebaseApp from './firebaseConfig';
 import './App.css';
+import { Footer } from './components/Footer/Footer';
+import Circles from './assets/light_border.png';
 
 /**
  * TODO:
@@ -13,7 +15,14 @@ import './App.css';
 initFirebaseApp();
 
 function App() {
-  return (<><Navbar /><Routes /></>)
+  return (
+    <>
+      <img src={Circles} className='circles-img' />
+      <Navbar />
+      <Routes />
+      <Footer />
+    </>
+  )
 }
 
 export default App;

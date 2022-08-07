@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavHashLink } from 'react-router-hash-link';
 import Logo from '../../assets/edustipend.png';
 import './styles.css';
 
@@ -11,8 +11,22 @@ export const Navbar = () => {
 		</div>
 
 		<div className='nav-links'>
-			<NavLink className='nav-link' to='/'>How it works</NavLink>
-			<NavLink className='nav-cta' to='/'>Make request</NavLink>
+			<NavHashLink
+				className='nav-link'
+				to={{
+					pathname: '/',
+					hash: '#howitworks',
+				}}>
+				How it Works
+			</NavHashLink >
+			<NavHashLink
+				className='nav-cta'
+				to={{
+					pathname: '/',
+					hash: '#makerequest',
+				}}>
+				Request support
+			</NavHashLink>
 		</div>
 	</nav>
 }

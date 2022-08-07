@@ -1,0 +1,59 @@
+.display-card {
+	background-color: white;
+	border-radius: 8px;
+	padding: 1.5rem;
+}
+
+.display-card-text {
+	margin-top: 1rem;
+	text-align: left;
+	font-size: 1.1rem;
+	line-height: 1.5;
+}
+
+.display-card-title {
+	margin-top: .5rem;
+	font-size: 1.25rem;
+	align-items: center;
+	display: flex;
+}
+
+.display-card-title>p {
+	font-weight: 600;
+	margin: 0;
+	margin-left: .5rem;
+}
+
+.logo-text {
+	display: flex;
+	font-family: 'Poppins', sans-serif;
+	font-size: 1.25rem;
+	margin: auto;
+	font-weight: bold;
+}
+
+.page-text {
+	font-size: 1.1rem;
+	line-height: 1.4;
+}
+
+@media screen and (min-width: 420px) {
+	.display-card {
+		height: 260px;
+		min-width: 280px;
+		padding: 1rem;
+	}
+
+
+	.logo-text {
+		display: flex;
+		font-family: 'Poppins', sans-serif;
+		font-size: 1.5rem;
+		margin: auto;
+		font-weight: bold;
+	}
+
+	.page-text {
+		font-size: 1.25rem;
+	}
+}
