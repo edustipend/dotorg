@@ -15,7 +15,7 @@ const TopSection = () => {
 		<div className='top-main'>
 			<div className='top-main-child'>
 				<h1 className='page-header header-primary'>Need support for your learning?</h1>
-				<h3 className='page-subheader'>Get funding for your learning needs from anonymous and from people who care</h3>
+				<h3 className='page-subheader'>Get funding for your learning needs from anonymous folks and from people who care</h3>
 				<div className='top-cta-container'>
 					<NavHashLink
 						className='btn btn-primary'
@@ -59,27 +59,27 @@ const TopSection = () => {
 const displayCards = [
 	{
 		icon: Request,
-		text: `Start by completing the Request Support form stating
-		of what you need the funds for and proof of why you need the support. The
-		form will be made available from the 1st- 8th of every month`,
+		text: `Complete the Request form (see below) stating
+		what type of support you need with proof of why you need the support. The
+		request form will be made open from the 1st - 8th of every month.`,
 		title: 'Request'
 	},
 	{
 		icon: Review,
-		text: `Each request made will be reviewed by the team and by prospective sponsors athenticity.
-		Some request types may have longer review time than others`,
+		text: `Each request will be reviewed by the team and by sponsors for authenticity and genuine need
+		among other criteria. Some request types may have longer review times than others.`,
 		title: 'Review'
 	},
 	{
 		icon: Receive,
-		text: `Once your request approveed to post a request
-		of what you need the funds for and some proof of why you need the support`,
+		text: `Once your request is approved, you will be notified accordingly and the Edustipend team will disburse the support requested.
+		While in some cases actual cash will be disbursed, in some other cases we will disburse the specific need not cash.`,
 		title: 'Receive'
 	},
 	{
 		icon: Achieve,
-		text: `Go on to achieve your dreams you will be expected to post a request
-		of what you need the funds for and some proof of why you need the support`,
+		text: `Our hope is that with this support, you can go on to achieve your dreams. Because that's all we really want
+		- we want you to be the best version of yourself, we are rooting for you!`,
 		title: 'Achieve'
 	}
 ]
@@ -118,19 +118,12 @@ export const RequestSection = () => (
 	<div className='bottom-main' id='makerequest'>
 		<h2 className='section-header'>Submit Request</h2>
 		<div>
-			<iframe class='request-form' title='google-form' src="https://docs.google.com/forms/d/e/1FAIpQLSdfx4--shKmiItghxIttXUMWvbe9i1cjf6kuNi_VR2BqKjyxA/viewform?embedded=true" width="640" height="1010" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+			<iframe class='request-form' title='google-form' src="https://docs.google.com/forms/d/e/1FAIpQLSeFO2YrNTYa9YIHyNlPnh8cruDKVswfu1yLsLXWS-YwDneL0A/viewform?embedded=true" width="640" height="1010" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 		</div>
 	</div>
 )
 
 export const Landing = () => {
-
-	/**
-	 * TODO:
-	 * - Publish to firebase webapp
-	 * - Publish to edustipend.org
-	 */
-
 	return (
 		<main>
 			<TopSection />

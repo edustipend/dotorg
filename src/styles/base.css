@@ -39,7 +39,7 @@
 
 @media screen and (min-width: 420px) {
 	.display-card {
-		height: 260px;
+		height: 280px;
 		min-width: 280px;
 		padding: 1rem;
 	}

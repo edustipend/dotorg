@@ -1,5 +1,4 @@
 import React from 'react';
-// import { NavLink } from 'react-router-dom';
 import './styles.css';
 import { Link } from 'react-router-dom';
 import Logo from '../../assets/edustipend.png';
@@ -12,7 +11,7 @@ export const Footer = (props) => {
 				<div className='footer-icons-container'>
 					<div className='footer-icon'>
 						<Link to={{ pathname: '/', version: props.version }}>
-							<img src={Logo} height='40' alt='edustipend-logo' aria-label='Edustipend Logo' />
+							<img src={Logo} height='32' alt='edustipend-logo' aria-label='Edustipend Logo' />
 						</Link>
 						<p className='logo-text'>edustipend</p>
 					</div>
