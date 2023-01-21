@@ -27,7 +27,7 @@ const TopSection = () => {
 				</div>
 			</div>
 			<div className='top-main-child image-banner'>
-				<div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+				<div className='ambassador-image-wrapper'>
 					<img src={AmbassadorImage} className='ambassador-image' alt='image of many young people' />
 				</div>
 			</div>

@@ -1,20 +1,19 @@
 .ambassador-image {
-	width: 80%;
-
+	width: 100%;
 }
 
+.ambassador-image-wrapper {
+	justify-content: center;
+	margin-right: 1rem;
+}
 
 @media screen and (min-width: 420px) {
-	.page-header {
-		font-size: 3rem;
-		line-height: 1.1;
+	.ambassador-image-wrapper {
+		display: flex;
+		justify-content: flex-end;
 	}
 
-	.page-subheader {
-		font-weight: 500;
-	}
-
-	.section-header {
-		font-size: 2.25rem;
+	.ambassador-image {
+		width: 80%;
 	}
 }
