@@ -2,13 +2,15 @@ import {
 	Routes as AppRoutes,
 	Route,
 } from 'react-router-dom';
-import Landing from './pages/landing';
+import AmbassadorPage from './pages/ambassador';
+import LandingPage from './pages/landing';
 
 
 const Routes = () => {
 	return (
 		<AppRoutes>
-			<Route path='/' element={<Landing />} />
+			<Route path='/ambassador-program' element={<AmbassadorPage />} />
+			<Route path='/' element={<LandingPage />} />
 		</AppRoutes >
 	);
 }

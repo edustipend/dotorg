@@ -14,7 +14,8 @@ const TopSection = () => {
 	return (
 		<div className='top-main'>
 			<div className='top-main-child'>
-				<h1 className='page-header header-primary'>Need support for your learning?</h1>
+				<h1 className='page-header'>
+					<p>Need some <span className='header-primary'>stipend</span> for your learning?</p></h1>
 				<h3 className='page-subheader'>Get funding for your learning needs from anonymous folks and from people who care</h3>
 				<div className='top-cta-container'>
 					<NavHashLink
@@ -23,7 +24,7 @@ const TopSection = () => {
 							pathname: '/',
 							hash: '#makerequest',
 						}}>
-						Request support
+						Request stipend
 					</NavHashLink>
 
 					<NavHashLink
@@ -98,7 +99,7 @@ export const MidSection = () => (
 			<div className='section-child display-cards-container'>
 				{
 					displayCards.map((card) => (
-						<div className='display-card'>
+						<div className='display-card' key={card.text}>
 							<div className='display-card-title'>
 								<img src={card.icon} alt='icon' height={24} />
 								<p>{card.title}</p>
@@ -118,7 +119,8 @@ export const RequestSection = () => (
 	<div className='bottom-main' id='makerequest'>
 		<h2 className='section-header'>Submit Request</h2>
 		<div>
-			<iframe class='request-form' title='google-form' src="https://docs.google.com/forms/d/e/1FAIpQLSeFO2YrNTYa9YIHyNlPnh8cruDKVswfu1yLsLXWS-YwDneL0A/viewform?embedded=true" width="640" height="1010" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+			{/* <iframe class='request-form' title='google-form' src="https://docs.google.com/forms/d/e/1FAIpQLSeFO2YrNTYa9YIHyNlPnh8cruDKVswfu1yLsLXWS-YwDneL0A/viewform?embedded=true" width="640" height="1010" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe> */}
+			<iframe class='request-form' title='google-form' src="https://docs.google.com/forms/d/e/1FAIpQLSeFO2YrNTYa9YIHyNlPnh8cruDKVswfu1yLsLXWS-YwDneL0A/viewform?embedded=true" width="640" height="310" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 		</div>
 	</div>
 )

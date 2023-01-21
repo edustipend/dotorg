@@ -15,6 +15,7 @@
 	display: flex;
 	flex-direction: row;
 	padding: 1rem;
+	padding-right: 0;
 }
 
 .image-desktop-only {
@@ -53,12 +54,12 @@
 }
 
 .top-main {
-	max-width: 1280px;
+	max-width: 1260px;
 	margin: 0 auto;
 	min-height: 540px;
 	display: flex;
 	align-items: center;
-	padding: 2rem;
+	padding: 1rem;
 	flex-direction: column;
 	text-align: center;
 }
@@ -127,7 +128,7 @@
 
 	.top-main {
 		min-height: 560px;
-		padding: 1rem;
+		padding: 2rem 3rem;
 		flex-direction: row;
 		text-align: left;
 	}

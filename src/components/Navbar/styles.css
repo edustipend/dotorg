@@ -3,24 +3,29 @@
 	margin-right: 8px;
 }
 
+.logo-link {
+	text-decoration: none;
+}
+
 .logo-wrapper {
 	display: flex;
 }
 
 .nav-cta {
 	background-color: #5800FF;
-	height: 32px;
 	text-decoration: none;
 	color: white;
-	padding: .5rem;
-	border-radius: 8px;
+	padding: .5rem .75rem;
+	border-radius: 22px;
+	height: 24px;
 }
 
 .nav-link {
 	text-decoration: none;
 	color: black;
 	margin-right: .5rem;
-	padding-bottom: .5rem;
+	font-weight: bold;
+	padding-bottom: .25rem;
 }
 
 .nav-link:hover {
@@ -33,6 +38,7 @@
 
 .nav-wrapper {
 	box-sizing: border-box;
+	height: 70px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -48,7 +54,8 @@
 
 @media screen and (min-width: 420px) {
 	.nav-cta {
-		padding: .75rem;
+		padding: .75rem 1.25rem;
+		font-weight: 600;
 	}
 
 	.nav-link {
@@ -56,7 +63,8 @@
 	}
 
 	.nav-links {
-		display: block;
+		display: flex;
+		align-items: center;
 		font-size: 1.0625rem;
 	}
 

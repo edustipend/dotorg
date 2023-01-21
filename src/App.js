@@ -5,12 +5,6 @@ import './App.css';
 import { Footer } from './components/Footer/Footer';
 import Circles from './assets/light_border.png';
 
-/**
- * TODO:
- * - Hook up to Firebase
- * - Deploy to Heroku
- * - Available for testing by Friday
- */
 
 initFirebaseApp();
 

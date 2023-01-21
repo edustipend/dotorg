@@ -1,9 +1,10 @@
 .page-header {
 	font-size: 2rem;
+	font-family: 'Poppins', sans-serif;
 }
 
 .page-subheader {
-	font-weight: 600;
+	font-weight: 500;
 }
 
 .section-header {
@@ -11,7 +12,11 @@
 }
 
 .header-primary {
-	color: var(--primaryHover);
+	color: var(--primary);
+}
+
+.page-header>p {
+	margin: 0
 }
 
 @media screen and (min-width: 420px) {
@@ -21,7 +26,7 @@
 	}
 
 	.page-subheader {
-		font-weight: 600;
+		font-weight: 500;
 	}
 
 	.section-header {
