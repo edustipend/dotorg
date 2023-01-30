@@ -68,7 +68,7 @@
 	max-width: 300px;
 }
 
-@media screen and (min-width: 420px) {
+@media screen and (min-width: 560px) {
 	.display-cards-container {
 		display: grid;
 		grid-template-columns: auto auto;

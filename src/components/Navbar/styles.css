@@ -52,7 +52,7 @@
 }
 
 
-@media screen and (min-width: 420px) {
+@media screen and (min-width: 560px) {
 	.nav-cta {
 		padding: .75rem 1.25rem;
 		font-weight: 600;

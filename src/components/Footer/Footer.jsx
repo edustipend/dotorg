@@ -1,39 +1,47 @@
 import React from 'react';
 import './styles.css';
 import { Link } from 'react-router-dom';
-import Logo from '../../assets/edustipend.png';
+import Logo from '../../assets/favicon.png';
 
 
 export const Footer = (props) => {
 	return (
 		<footer className='footer-wrapper'>
 			<div className='footer-container'>
-				<div className='footer-icons-container'>
+				<div className='footer-top'>
+					<div>
+						<p style={{ fontWeight: 600 }}>CONTACT</p>
+						<Link className='footer-link' to='/ambassador-program'>Become an Ambassador</Link>
+						<Link className='footer-link' to='/ambassador-program'>Eligbility</Link>
+						<Link className='footer-link' to='/'>Home</Link>
+					</div>
+
+					<div>
+						<p style={{ fontWeight: 600 }}>FOLLOW US</p>
+						<div className='footer-social-icons'>
+							<a href="https://www.facebook.com/edustipend" target="_blank" rel="noopener noreferrer"><div className='social-icon fb-icon'></div></a>
+							<a href="https://www.instagram.com/edustipend" target="_blank" rel="noopener noreferrer"><div className='social-icon ig-icon'></div></a>
+							<a href="https://www.twitter.com/edustipend" target="_blank" rel="noopener noreferrer"><div className='social-icon tw-icon'></div></a>
+						</div>
+					</div>
+				</div>
+
+
+				<div className='footer-icons-container footer-copyright'>
 					<div className='footer-icon'>
 						<Link to={{ pathname: '/', version: props.version }}>
 							<img src={Logo} height='32' alt='edustipend-logo' aria-label='Edustipend Logo' />
+							<p className='logo-text white'>edustipend</p>
 						</Link>
-						<p className='logo-text'>edustipend</p>
 					</div>
-
-					<div className='footer-social-icons'>
-						<a href="https://www.facebook.com/edustipend" target="_blank" rel="noopener noreferrer"><div className='social-icon fb-icon'></div></a>
-						<a href="https://www.instagram.com/edustipend" target="_blank" rel="noopener noreferrer"><div className='social-icon ig-icon'></div></a>
-						<a href="https://www.twitter.com/edustipend" target="_blank" rel="noopener noreferrer"><div className='social-icon tw-icon'></div></a>
+					<div>
+						<p className='paragraph-xs secondary' style={{ fontSize: '.9rem' }}>
+							&copy; 2023 All rights reserved.
+						</p>
 					</div>
-				</div>
-
-				<div className='flex-row-spacebetween footer-copyright'>
-					<p className='paragraph-xs secondary'>
-						&copy; 2022 All rights reserved.
-					</p>
-					<p className='footer-follow-us'>
-						Follow us on social media, we are fun!
-					</p>
 				</div>
 
 			</div>
-
 		</footer>
 	)
 }

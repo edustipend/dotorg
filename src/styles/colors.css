@@ -1,12 +1,20 @@
 /** Brand Colors **/
 :root {
+	--accent: #FF914D;
 	--primary: #5800FF;
 	--primaryHover: #3700A1;
 	--primaryDark: #270072;
 	--lightblue: #E4EDFF;
 }
 
-
 .background-lightblue {
 	background-color: var(--lightblue);
+}
+
+.color-accent {
+	color: var(--accent);
+}
+
+.color-primary {
+	color: var(--primary);
 }

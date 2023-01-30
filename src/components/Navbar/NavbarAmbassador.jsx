@@ -18,25 +18,26 @@ export const NavbarAmbassador = () => {
 			<NavHashLink
 				className='nav-link'
 				to={{
-					pathname: '/',
-				}}>
-				Home
-			</NavHashLink >
-			{/* <NavHashLink
-				className='nav-link'
-				to={{
-					pathname: '/',
-					hash: '#abouttheprogram',
+					pathname: '/ambassador-program',
+					hash: '#about',
 				}}>
 				About the Program
-			</NavHashLink > */}
+			</NavHashLink >
+			<NavHashLink
+				className='nav-link'
+				to={{
+					pathname: '/ambassador-program',
+					hash: '#eligibility',
+				}}>
+				Eligibility
+			</NavHashLink >
 			<NavHashLink
 				className='nav-cta'
 				to={{
 					pathname: '/ambassador-program',
-					// hash: '#makerequest',
+					hash: '#apply-now',
 				}}>
-				Coming soon
+				Apply now
 			</NavHashLink>
 		</div>
 	</nav>
