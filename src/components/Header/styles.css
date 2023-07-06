@@ -1,0 +1,123 @@
+.header {
+  display: flex;
+  max-width: 100%;
+  padding: 20px 160px;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(233, 237, 244, 0.25);
+  background: linear-gradient(161deg, #f15343 0%, #5801ff 52.52%);
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+.headerLogo {
+  display: flex;
+  width: 169px;
+  height: 43px;
+  align-items: center;
+}
+.headerLogo img {
+  width: 54.217px;
+  height: 43px;
+  object-fit: contain;
+}
+.headerLogo p {
+  color: #fff;
+  font-size: 20px;
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  margin-left: 2px;
+}
+
+.headerNav {
+  display: inline-flex;
+  height: 24.24px;
+  align-items: center;
+  gap: 32px;
+}
+.headerNav a,
+.mobile-nav a {
+  text-decoration: none;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  width: max-content;
+}
+
+.headerNav .active-link,
+.mobile-nav .active-link {
+  border-bottom: 2px solid white;
+}
+
+.button {
+  display: flex;
+  padding: 14px 24px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  background: var(--edustipend-yellow, #febd1c);
+  box-shadow: 0px 4px 4px 0px rgba(88, 0, 255, 0.2);
+}
+.menu-icon {
+  display: none;
+  cursor: pointer;
+}
+
+.mobile-nav {
+  display: none;
+}
+
+@media only screen and (max-width: 1300px) {
+  .header {
+    padding: 20px;
+  }
+}
+@media only screen and (max-width: 950px) {
+  .header {
+    padding: 20px 40px;
+  }
+  .header > .button {
+    display: none;
+  }
+}
+@media only screen and (max-width: 850px) {
+  .menu-icon {
+    display: block;
+  }
+  .headerNav {
+    display: none;
+  }
+  .mobile-nav {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: calc(100dvh - 83px);
+    background: #000;
+    opacity: 0.9;
+    justify-content: flex-start;
+    gap: 32px;
+    top: 83px;
+    left: 0;
+    z-index: 100;
+    transition: all 500ms ease-in;
+    transform: translateX(0);
+  }
+  .mobile-nav > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .mobile-nav a {
+    margin-left: 60px;
+  }
+  .mobile-nav a:first-of-type {
+    margin-top: 60px;
+  }
+}
+@media only screen and (max-width: 450px) {
+  .header {
+    padding: 20px 15px;
+  }
+}
