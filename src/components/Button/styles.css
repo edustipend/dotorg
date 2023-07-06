@@ -1,0 +1,37 @@
+.edustipend-button {
+  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  border: 0;
+  border-radius: 3em;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1;
+  backdrop-filter: blur(50px);
+}
+
+.edustipend-button--primary {
+  color: white;
+  background-color: var(--edustipend-purple);
+  box-shadow: 0px 4px 4px 0px rgba(88, 0, 255, 0.2);
+}
+
+.edustipend-button--secondary {
+  color: #333;
+  background-color: var(--edustipend-yellow);
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+}
+
+.edustipend-button--small {
+  font-size: 12px;
+  padding: 10px 16px;
+}
+
+.edustipend-button--medium {
+  font-size: 14px;
+  padding: 11px 20px;
+}
+
+.edustipend-button--large {
+  font-size: 16px;
+  padding: 12px 24px;
+}
