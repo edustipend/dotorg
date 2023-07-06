@@ -5,18 +5,17 @@ import './App.css';
 import { Footer } from './components/Footer/Footer';
 import Circles from './assets/light_border.png';
 
-
 initFirebaseApp();
 
 function App() {
   return (
     <>
-      <img src={Circles} className='circles-img' />
+      <img src={Circles} className="circles-img" />
       <Navbar />
       <Routes />
       <Footer />
     </>
-  )
+  );
 }
 
 export default App;

@@ -1,90 +1,90 @@
 .page-header {
-	font-size: 2rem;
-	font-family: 'Poppins', sans-serif;
+  font-size: 2rem;
+  font-family: 'Poppins', sans-serif;
 }
 
 .page-subheader {
-	font-weight: 500;
+  font-weight: 500;
 }
 
 .section-header {
-	font-size: 1.9rem;
-	margin-bottom: 1rem;
+  font-size: 1.9rem;
+  margin-bottom: 1rem;
 }
 
 .section-header-underline {
-	display: flex;
-	justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
-.section-header-underline>div:nth-child(1) {
-	width: 36px;
-	border-top-width: 8px;
-	border-top-style: solid;
+.section-header-underline > div:nth-child(1) {
+  width: 36px;
+  border-top-width: 8px;
+  border-top-style: solid;
 }
 
-.section-header-underline>div:nth-child(2) {
-	width: 180px;
-	border-top-width: 2px;
-	margin-top: 3px;
-	border-top-style: solid;
+.section-header-underline > div:nth-child(2) {
+  width: 180px;
+  border-top-width: 2px;
+  margin-top: 3px;
+  border-top-style: solid;
 }
 
 .section-header-primary {
-	border-top-color: var(--primary);
+  border-top-color: var(--primary);
 }
 
 .section-header-accent {
-	border-top-color: var(--accent);
+  border-top-color: var(--accent);
 }
 
 .section-header-black {
-	border-top-color: black;
+  border-top-color: black;
 }
 
 .header-primary {
-	color: var(--primary);
+  color: var(--primary);
 }
 
-.page-header>p,
-.section-header>p {
-	margin: 0;
-	margin-top: -.5rem;
+.page-header > p,
+.section-header > p {
+  margin: 0;
+  margin-top: -0.5rem;
 }
 
 @media screen and (min-width: 560px) {
-	.page-header {
-		font-size: 3rem;
-		line-height: 1.1;
-	}
+  .page-header {
+    font-size: 3rem;
+    line-height: 1.1;
+  }
 
-	.page-header>p {
-		margin: 0;
-	}
+  .page-header > p {
+    margin: 0;
+  }
 
-	.page-subheader {
-		font-weight: 500;
-	}
+  .page-subheader {
+    font-weight: 500;
+  }
 
-	.section-header {
-		font-family: 'Poppins';
-		font-size: 2rem;
-	}
+  .section-header {
+    font-family: 'Poppins';
+    font-size: 2rem;
+  }
 
-	.section-header-underline {
-		display: block;
-	}
+  .section-header-underline {
+    display: block;
+  }
 
-	.section-header-underline>div:nth-child(1) {
-		width: 36px;
-		border-top-width: 8px;
-		border-top-style: solid;
-	}
+  .section-header-underline > div:nth-child(1) {
+    width: 36px;
+    border-top-width: 8px;
+    border-top-style: solid;
+  }
 
-	.section-header-underline>div:nth-child(2) {
-		width: 180px;
-		border-top-width: 2px;
-		margin-top: -5px;
-		border-top-style: solid;
-	}
+  .section-header-underline > div:nth-child(2) {
+    width: 180px;
+    border-top-width: 2px;
+    margin-top: -5px;
+    border-top-style: solid;
+  }
 }
