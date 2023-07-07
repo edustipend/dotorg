@@ -1,74 +1,73 @@
 .logo {
-	height: 40px;
-	margin-right: 8px;
+  height: 40px;
+  margin-right: 8px;
 }
 
 .logo-link {
-	text-decoration: none;
+  text-decoration: none;
 }
 
 .logo-wrapper {
-	display: flex;
+  display: flex;
 }
 
 .nav-cta {
-	background-color: #5800FF;
-	text-decoration: none;
-	color: white;
-	padding: .5rem .75rem;
-	border-radius: 22px;
-	height: 24px;
+  background-color: #5800ff;
+  text-decoration: none;
+  color: white;
+  padding: 0.5rem 0.75rem;
+  border-radius: 22px;
+  height: 24px;
 }
 
 .nav-link {
-	text-decoration: none;
-	color: black;
-	margin-right: .5rem;
-	font-weight: bold;
-	padding-bottom: .25rem;
+  text-decoration: none;
+  color: black;
+  margin-right: 0.5rem;
+  font-weight: bold;
+  padding-bottom: 0.25rem;
 }
 
 .nav-link:hover {
-	border-bottom: 2px solid #5800FF;
+  border-bottom: 2px solid #5800ff;
 }
 
 .nav-links {
-	display: none;
+  display: none;
 }
 
 .nav-wrapper {
-	box-sizing: border-box;
-	height: 70px;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	max-width: 1280px;
-	margin: 0 auto;
-	padding: .75rem;
+  box-sizing: border-box;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0.75rem;
 }
 
 .nav-cta:hover {
-	background-color: var(--primaryHover);
+  background-color: var(--primaryHover);
 }
 
-
 @media screen and (min-width: 560px) {
-	.nav-cta {
-		padding: .75rem 1.25rem;
-		font-weight: 600;
-	}
+  .nav-cta {
+    padding: 0.75rem 1.25rem;
+    font-weight: 600;
+  }
 
-	.nav-link {
-		margin-right: 1rem;
-	}
+  .nav-link {
+    margin-right: 1rem;
+  }
 
-	.nav-links {
-		display: flex;
-		align-items: center;
-		font-size: 1.0625rem;
-	}
+  .nav-links {
+    display: flex;
+    align-items: center;
+    font-size: 1.0625rem;
+  }
 
-	.nav-wrapper {
-		padding: 1rem;
-	}
+  .nav-wrapper {
+    padding: 1rem;
+  }
 }
