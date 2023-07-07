@@ -7,6 +7,12 @@
   --primaryHover: #3700a1;
   --primaryDark: #270072;
   --lightblue: #e4edff;
+  --gray: #F5F5F5;
+  --overlay: #110130;
+  --light-accent: #ffde8d;
+  --dark-accent: #fd5a333d;
+  --text-color: #2d3740;
+  --white: #fff;
 }
 
 .background-lightblue {
