@@ -45,16 +45,6 @@
   top: 50px;
 }
 
-/* .hero .top-section .button {
-  background: var(--edustipend-yellow, #febd1c);
-  box-shadow: 0px 4px 4px 0px rgba(88, 0, 255, 0.2);
-  color: var(--edutipend-white, #fff);
-  text-shadow: 0px 8px 25px 0px rgba(13, 10, 44, 0.06);
-  font-size: 18px;
-  font-family: "Manrope", sans-serif;
-  font-style: normal;
-  font-weight: 700;
-} */
 .hero .left {
   position: absolute;
   left: 150px;

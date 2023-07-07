@@ -1,19 +1,8 @@
-import Button from "../Header/Button";
-import {
-  Hero1,
-  Hero2,
-  Hero3,
-  Hero4,
-  Svg1,
-  Svg2,
-  Svg3,
-  Svg4,
-  Svg5,
-  ArrowDown,
-} from "../../assets/index";
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import Button from '../Button';
+import { Hero1, Hero2, Hero3, Hero4, Svg1, Svg2, Svg3, Svg4, Svg5, ArrowDown } from '../../assets/index';
 
-import "./styles.css";
+import './styles.css';
 
 const Hero = () => {
   return (
@@ -26,7 +15,7 @@ const Hero = () => {
           <p>Give your learning goals a BOOST</p>
           <img src={Svg1} alt="svg" />
         </div>
-        <Button />
+        <Button className="button" />
       </div>
       <img src={Svg5} alt="svg" className="left" />
       <img src={Svg4} alt="svg" className="right" />

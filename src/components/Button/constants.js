@@ -1,4 +1,4 @@
-export const DEFAULT_BUTTON_LABEL = 'Add button';
+export const DEFAULT_BUTTON_LABEL = 'Request stipend';
 
 export const ClassName = {
   ROOT_BUTTON: 'edustipend-button',

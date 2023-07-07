@@ -9,15 +9,14 @@ export const Application = () => {
       </h2>
       <div>
         <iframe
-          class="request-form"
+          className="request-form"
           title="google-form"
           src="https://docs.google.com/forms/d/e/1FAIpQLSexxdP7Ylp-wA7OWaOcwJnPjXsuJPfo9Y5XDpDHiVrebaojNw/viewform?embedded=true"
           width="640"
           height="1010"
-          frameborder="0"
-          marginheight="0"
-          marginwidth="0"
-        >
+          frameBorder="0"
+          marginHeight="0"
+          marginWidth="0">
           Loading…
         </iframe>{' '}
       </div>

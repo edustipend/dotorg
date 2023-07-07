@@ -9,7 +9,7 @@ export const TopSection = () => {
         <h1 className="page-header">
           <p>Edustipend</p>
           <p>
-            Ambas<span class="header-primary">sador</span>
+            Ambas<span className="header-primary">sador</span>
           </p>
           <p>Program</p>
         </h1>
@@ -23,8 +23,7 @@ export const TopSection = () => {
             to={{
               pathname: '/ambassador-program',
               hash: '#apply-now'
-            }}
-          >
+            }}>
             Apply now
           </NavHashLink>
         </div>
