@@ -15,6 +15,26 @@ html {
   scroll-behavior: smooth;
 }
 
+li {
+  letter-spacing: 0.5;
+}
+
+input,
+textarea,
+select {
+  outline: none;
+}
+
+input,
+textarea,
+select :hover {
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+}
+
 body {
   margin: 0;
   padding: 0;
