@@ -15,7 +15,8 @@ const HeaderNav = ({ showMenu }) => {
             key={link.label}
             className={({ isActive }) => (isActive ? 'active-link' : '')}
             to={link.to}
-            style={link.label === 'Support A Learner' ? { color: '#FEBD1C' } : {}}>
+            style={link.label === 'Support A Learner' ? { color: '#FEBD1C' } : {}}
+          >
             {link.label}
           </NavLink>
         ))}
@@ -28,12 +29,13 @@ const HeaderNav = ({ showMenu }) => {
                 key={link.label}
                 className={({ isActive }) => (isActive ? 'active-link' : '')}
                 to={link.to}
-                style={link.label === 'Support A Learner' ? { color: '#72FFFF' } : {}}>
+                style={link.label === 'Support A Learner' ? { color: '#72FFFF' } : {}}
+              >
                 {link.label}
               </NavLink>
             ))}
             <div>
-              <Button className="button" />
+              <Button label="Request stipend" className="button" />
             </div>
           </nav>
         ) : (

@@ -1,6 +1,6 @@
-import Logo from "../../assets/edustipend-logo.png";
-import { Link } from "react-router-dom";
-import "./styles.css";
+import Logo from '../../assets/edustipend-logo.png';
+import { Link } from 'react-router-dom';
+import './styles.css';
 
 const HeaderLogo = () => {
   return (

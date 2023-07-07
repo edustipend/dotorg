@@ -23,7 +23,8 @@ export const TopSection = () => {
             to={{
               pathname: '/ambassador-program',
               hash: '#apply-now'
-            }}>
+            }}
+          >
             Apply now
           </NavHashLink>
         </div>
