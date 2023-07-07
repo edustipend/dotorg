@@ -15,13 +15,13 @@ const Beneficiaries = () => {
 
           <div className="right-images">
             <div className="top-images">
-              <div className="image1"></div>
-              <div className="image2"></div>
+              <div className="image1" data-testid="image1"></div>
+              <div className="image2" data-testid="image2"></div>
             </div>
 
             <div className="bottom-images">
-              <div className="image3"></div>
-              <div className="image4"></div>
+              <div className="image3" data-testid="image3"></div>
+              <div className="image4" data-testid="image4"></div>
             </div>
           </div>
         </div>
@@ -51,7 +51,7 @@ const Beneficiaries = () => {
           </div>
         </div>
 
-        <Button className="btn" backgroundColor={'#5801FF'} label={'View the numbers'}/>
+        <Button className="view-numbers-btn" backgroundColor={'#5801FF'} label={'View the numbers'} />
       </div>
 
       <div className="Beneficiaries-bigscreen-container">
@@ -87,7 +87,7 @@ const Beneficiaries = () => {
             </div>
           </div>
 
-          <Button className="btn" backgroundColor={'#5801FF'} label={'View the numbers'} />
+          <Button className="view-numbers-btn-bigscreen" backgroundColor={'#5801FF'} label={'View the number'} />
         </div>
 
         <div className="Beneficiaries-bigscreen-container-right">

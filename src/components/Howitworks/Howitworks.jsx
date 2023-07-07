@@ -23,7 +23,7 @@ const HowItWorks = () => {
       <div className="Card-Main-Wrapper">
         {howitworks.map((item) => {
           return (
-            <div key={item.id} className="Card-Wrapper">
+            <div key={item.id} className="Card-Wrapper" data-testid="rrrr-card">
               <div className="RRRR-Card">
                 <div className="RRRR-SVG-header">
                   <img src={item.svg} alt="RRRR-SVG" />

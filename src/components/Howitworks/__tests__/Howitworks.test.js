@@ -1,12 +1,27 @@
-import { render, fireEvent } from '@testing-library/react';
+import React from 'react';
+import { render, screen } from '@testing-library/react';
 import HowItWorks from '../Howitworks';
-import { TestId } from '../constants';
 
-describe('how it works component', () => {
-  describe('renders the correct text', () => {
-    it('shows the correct header text', () => {
-      const headerText = 'How it Works';
-      const { getByTestId } = render(<HowItWorks label={headerText} />);
-    });
+describe('HowItWorks', () => {
+  it('renders component', () => {
+    render(<HowItWorks />);
+  });
+
+  it('displays the correct header text', () => {
+    render(<HowItWorks />);
+    const headerText = screen.getByText('How it Works');
+    expect(headerText).toBeInTheDocument();
+  });
+
+  it('displays the 3Rs subheader', () => {
+    render(<HowItWorks />);
+    const subheader = screen.getByText('The 3Rs: Request, Review, Receive');
+    expect(subheader).toBeInTheDocument();
+  });
+
+  it('renders the correct number of RRRR cards', () => {
+    render(<HowItWorks />);
+    const rrrrCards = screen.getAllByTestId('rrrr-card');
+    expect(rrrrCards.length).toBe(4);
   });
 });
