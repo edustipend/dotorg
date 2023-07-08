@@ -33,29 +33,23 @@
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-storybook": "^0.6.12",
     "husky": "^8.0.3",
+    "lint-staged": "^13.2.3",
     "prettier": "^3.0.0",
     "prop-types": "15.8.1",
     "storybook": "7.0.26",
     "webpack": "5.88.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "eject": "react-scripts eject",
     "build": "react-scripts build",
+    "build-storybook": "storybook build",
+    "execute-husky": "npx husky install && npx husky add .husky/pre-commit \"npx --no-install lint-staged\"",
     "format": "prettier --write src/**/*.{js,jsx,ts,tsx,css,md,json} --config ./.prettierrc",
     "lint": "eslint .",
     "lint:fix": "eslint --fix",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "start": "react-scripts start",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest",
-      "prettier",
-      "plugin:storybook/recommended"
-    ]
+    "test": "react-scripts test"
   },
   "husky": {
     "hooks": {
