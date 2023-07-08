@@ -48,7 +48,7 @@ const TopSection = () => {
 					</button>*/}
         </div>
       </div>
-      <div className="top-main-child image-banner">
+      <div className="image-banner">
         <div>
           <img src={StudentImage} className="student-image" alt="boy studying" />
         </div>

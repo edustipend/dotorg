@@ -32,17 +32,17 @@
   margin: 0 auto;
 }
 
-.footer-container > div:first-child {
+.footer-container>div:first-child {
   margin-bottom: 2rem;
 }
 
-.footer-icon > a {
+.footer-icon>a {
   display: flex;
   align-items: center;
   text-decoration: none;
 }
 
-.footer-icon > a > .logo-text {
+.footer-icon>a>.logo-text {
   margin: 0;
   margin-left: 0.5rem;
   display: flex;
@@ -76,7 +76,7 @@
   padding-left: 8px;
 }
 
-.footer-social-icons > * {
+.footer-social-icons>* {
   margin-right: 8px;
 }
 
@@ -91,7 +91,7 @@
   padding: 1.5rem;
 }
 
-.footer-top > div {
+.footer-top>div {
   width: 50%;
 }
 
@@ -107,12 +107,6 @@
 }
 
 @media screen and (min-width: 560px) {
-  .display-card {
-    height: 220px;
-    min-width: 220px;
-    padding: 1rem;
-  }
-
   .logo-text {
     display: flex;
     font-family: 'Poppins', sans-serif;

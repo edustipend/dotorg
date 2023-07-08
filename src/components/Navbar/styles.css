@@ -3,25 +3,20 @@
   margin-right: 8px;
 }
 
-.logo-link {
-  text-decoration: none;
-}
-
 .logo-wrapper {
   display: flex;
 }
 
 .nav-cta {
   background-color: #5800ff;
-  text-decoration: none;
+  display: flex;
+  align-items: center;
   color: white;
-  padding: 0.5rem 0.75rem;
   border-radius: 22px;
   height: 24px;
 }
 
 .nav-link {
-  text-decoration: none;
   color: black;
   margin-right: 0.5rem;
   font-weight: bold;
@@ -37,7 +32,6 @@
 }
 
 .nav-wrapper {
-  box-sizing: border-box;
   height: 70px;
   display: flex;
   align-items: center;
@@ -53,7 +47,7 @@
 
 @media screen and (min-width: 560px) {
   .nav-cta {
-    padding: 0.75rem 1.25rem;
+    padding: 1.4rem 1.25rem;
     font-weight: 600;
   }
 
