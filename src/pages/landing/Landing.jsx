@@ -92,7 +92,7 @@ const displayCards = [
 export const MidSection = () => (
   <div className="background-lightblue">
     <div className="middle-main" id="howitworks">
-      <div className="section-child middle-main-left ">
+      <div className="section-child middle-main-left">
         <h2 className="section-header">The 3Rs & 1A</h2>
         <p className="page-text">
           The <b>3Rs</b>: <b>R</b>equest, <b>R</b>eview, <b>R</b>eceive describe the process for requesting support.
