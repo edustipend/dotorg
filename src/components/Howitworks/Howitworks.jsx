@@ -14,10 +14,9 @@ const HowItWorks = () => {
 
       {/* Header Text */}
       <p className="header-text">
-        This describes the process for requesting support. Our goal is to help get you to A - our desired end result,{' '}
-        <span className="header-text-span">which is to Achieve. </span>
-        To achieve your learning goals.
+        This describes the process for requesting support. Our goal is to help get you to A - our desired end result, <b>which is to Achieve.</b>
       </p>
+      <p className="header-text">To achieve your learning goals.</p>
 
       {/* Request, Review, Receive - RRR */}
       <div className="Card-Main-Wrapper">
@@ -25,6 +24,7 @@ const HowItWorks = () => {
           return (
             <div key={item.id} className="Card-Wrapper" data-testid="rrrr-card">
               <div className="RRRR-Card">
+                
                 <div className="RRRR-SVG-header">
                   <img src={item.svg} alt="RRRR-SVG" />
                   <h2 className="RRRR-header">{item.header}</h2>

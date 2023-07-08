@@ -1,7 +1,7 @@
 import request from "../../assets/req.svg"
-import review from "../../assets/revieww.svg"
-import receive from "../../assets/receivee.svg"
-import achieve from "../../assets/achievee.svg"
+import review from "../../assets/review.png"
+import receive from "../../assets/receive.png"
+import achieve from "../../assets/achieve.png"
 
 export const howitworks = [
   {
