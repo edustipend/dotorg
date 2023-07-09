@@ -1,6 +1,8 @@
 import React from 'react';
 import './styles.css';
 import Button from '../Button/index';
+// import Container from "../Container/container.jsx"
+
 
 const Beneficiaries = () => {
   return (
