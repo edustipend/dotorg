@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Logo from '../../assets/favicon.png';
 
 export const Footer = (props) => {
+  
   return (
     <footer className="footer-wrapper">
       <div className="footer-container">
