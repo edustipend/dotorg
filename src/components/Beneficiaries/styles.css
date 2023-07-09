@@ -197,6 +197,7 @@
   .numbers-container {
     width: 60%;
     margin: 50px auto;
+    
   }
 
   .left-texts > p{
@@ -394,12 +395,14 @@
 @media screen and (min-width: 820px) {
   .numbers-container-bigscreen {
     width: 350px;
+    box-shadow: rgba(0, 0, 0, 0.14) 0px 3px 8px;
   }
 }
 
 @media screen and (min-width: 996px) {
   .numbers-container-bigscreen {
     width: 400px;
+    box-shadow: rgba(0, 0, 0, 0.14) 0px 3px 8px;
   }
 
   .left-texts-bigscreen > h2 {
