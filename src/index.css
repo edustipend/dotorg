@@ -1,5 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  text-decoration: none;
+  list-style: none;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+  height: 100%;
+  font-style: normal;
+  scroll-behavior: smooth;
+}
+
+li {
+  letter-spacing: 0.5;
+}
+
+input,
+textarea,
+select {
+  outline: none;
+}
+
+input,
+textarea,
+select :hover {
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+}
+
 body {
   margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  font-weight: 400;
   font-family:
     'Lato',
     -apple-system,
