@@ -181,7 +181,8 @@
   .how-it-works-container > h2 {
     text-align: center;
     font-weight: normal;
-    font-size: 23px;
+    font-size: 32px;
+    margin-top: -20px;
   }
 
   .Card-Main-Wrapper {
