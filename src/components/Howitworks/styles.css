@@ -1,10 +1,9 @@
 .how-it-works-container {
   background-color: #4109ae;
-  padding: 50px 28px;
   padding-bottom: 80px;
 }
 
-.how-it-works-container > h1 {
+.header {
   font-family: 'poppins';
   color: #ffffff;
   font-size: 32px;
