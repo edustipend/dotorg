@@ -30,7 +30,7 @@
 
 .takeoffburden-Transparent-Card {
   background-color: #ffffff;
-  width: 340px;
+  width: 330px;
   height: 300px;
   border-radius: 30px;
   opacity: 0.1;
@@ -55,7 +55,7 @@
   margin: 20px auto;
   line-height: 25px;
   text-align: center;
-  width: 78%;
+  width: 90%;
 }
 
 .takeoffburden-request {
@@ -67,7 +67,7 @@
 
 .burdenarrow {
   position: absolute;
-  bottom: 85px;
+  bottom: 65px;
   right: 25px;
 }
 
@@ -138,6 +138,7 @@
     font-size: 35px;
     line-height: 50px;
     margin: -100px 0 0 0;
+    width: 80%;
   }
   .takeoffburdenright > p {
     text-align: left;
@@ -226,19 +227,26 @@
 
 @media screen and (min-width: 1200px) {
   .takeoffburden-Transparent-Card {
-    width: 500px;
-    height: 350px;
+    width: 550px;
+    height: 400px;
     margin: 50px 14px;
   }
 
   .takeoffburden-Card {
-    width: 400px;
-    height: 550px;
+    width: 450px;
+    height: 600px;
     padding: 90px 38px;
   }
 
+  .takeoffburdenleft{
+    width: 50%;
+  }
+  .takeoffburdenright{
+    width: 40%;
+  }
+
   .takeoffburdenright > h2 {
-    width: 70%;
+    width: 80%;
     font-size: 50px;
     line-height: 60px;
   }

@@ -4,3 +4,5 @@ export default {
   title: 'Edustipend/Beneficiaries',
   component: Beneficiaries,
 };
+
+export const BeneficiariesStory = () => <Beneficiaries />;

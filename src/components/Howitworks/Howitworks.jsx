@@ -12,13 +12,7 @@ const HowItWorks = () => {
         <h1 className='header'>How it Works</h1>
 
         {/* Sub Header */}
-        <h2>The 3Rs: Request, Review, Receive</h2>
-
-        {/* Header Text */}
-        <p className="header-text">
-          This describes the process for requesting support. Our goal is to help get you to A - our desired end result, <b>which is to Achieve.</b>
-        </p>
-        <p className="header-text">To achieve your learning goals.</p>
+        <h2 className='subheader'>The 3Rs: Request, Review, Receive</h2>
 
         {/* Request, Review, Receive - RRR */}
         <div className="Card-Main-Wrapper">

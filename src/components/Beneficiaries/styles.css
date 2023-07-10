@@ -1,4 +1,3 @@
-
 .Beneficiaries-container {
   display: flex;
   flex-direction: column;
@@ -80,7 +79,7 @@
 }
 
 .image3 {
-  background-image: url('../../assets/womansmiles.jpg');
+  background-image: url('../../assets/image3.png');
   background-size: cover;
   background-repeat: no-repeat;
   height: 120px;
@@ -90,7 +89,7 @@
 }
 
 .image4 {
-  background-image: url('../../assets/man-in-glasses.jpg');
+  background-image: url('../../assets/image4.png');
   background-size: cover;
   background-repeat: no-repeat;
   height: 75px;
@@ -190,8 +189,6 @@
   font-weight: 700;
 }
 
-
-
 @media screen and (min-width: 600px) {
   .numbers-container {
     width: 60%;
@@ -218,6 +215,10 @@
 }
 
 @media screen and (min-width: 768px) {
+  .image1 {
+    background-image: url('../../assets/image1.png');
+  }
+
   .image2 {
     background-image: url('../../assets/womanonheadset.jpg');
   }
@@ -238,10 +239,11 @@
     flex-direction: row;
     margin: 0 35px;
     justify-content: space-between;
+    gap: 20px;
   }
 
   .Beneficiaries-bigscreen-container-left {
-    margin: 90px 0px;
+    margin: 90px -20px;
   }
 
   .Beneficiaries-bigscreen-container-right {
@@ -397,13 +399,16 @@
 }
 
 @media screen and (min-width: 996px) {
+  .Beneficiaries-bigscreen-container-left {
+    margin: 90px -60px;
+  }
   .numbers-container-bigscreen {
     width: 400px;
     box-shadow: rgba(0, 0, 0, 0.14) 0px 3px 8px;
   }
 
   .left-texts-bigscreen > h2 {
-    width: 100%;
+    width: 70%;
   }
 
   .Beneficiaries-bigscreen-container {
@@ -413,12 +418,25 @@
 }
 
 @media screen and (min-width: 1024px) {
+  .Beneficiaries-bigscreen-container{
+    padding-left: 25px;
+  }
   .left-texts-bigscreen > h2 {
-    width: 90%;
+    width: 70%;
+  }
+  .left-texts-bigscreen > p{
+   font-size: 18px;
+  }
+  .image1,
+  .image2,
+  .image3,
+  .image4 {
+    width: 200px;
   }
 }
 
-@media screen and (min-width: 1100px) {
+
+@media screen and (min-width: 1300px){
   .left-texts-bigscreen > h2 {
     width: 100%;
   }
