@@ -1,12 +1,11 @@
 import React from 'react';
 import './styles.css';
 import Button from '../Button/index';
-// import Container from "../Container/container.jsx"
 
 
 const Beneficiaries = () => {
   return (
-    <div>
+    <div className="Beneficiaries">
       <div className="Beneficiaries-container">
         <div className="texts-and-images">
           <div className="left-texts">

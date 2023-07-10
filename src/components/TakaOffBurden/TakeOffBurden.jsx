@@ -4,6 +4,7 @@ import arrow from '../../assets/burdenarrow.png';
 import Button from '../Button';
 import Container from '../Container/container';
 
+
 const TakeOffBurden = () => {
   return (
     <div className="takeoffburden-container" data-testid="takeoffburden-container">

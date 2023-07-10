@@ -1,4 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Manrope:wght@200;300;400;500;600;700;800&family=Roboto:ital,wght@0,100;1,100&family=Salsa&display=swap');
+
+.Beneficiaries-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.Beneficiaries-bigscreen-container {
+  display: none;
+}
 
 .texts-and-images {
   display: flex;
@@ -11,28 +21,28 @@
 
 .left-texts > h2 {
   width: 60%;
-  font-family: 'manrope';
+  font-family: 'poppins';
   font-size: 28px;
   font-weight: bold;
   line-height: 30px;
   text-shadow: -0.5vmin -0vmin 0 #cbcdcf;
   color: #2d3740;
-  margin-top: 50px;
+  margin-top: 30px;
 }
 
 .left-texts > h3 {
-  font-family: 'manrope';
+  font-family: 'poppins';
   font-size: 18px;
   text-transform: uppercase;
   margin-top: 20px;
-  font-weight: 700;
+  font-weight: 500;
   color: #2d3740;
 }
 
 .left-texts > p {
   font-family: 'manrope';
   font-size: 14px;
-  margin-top: -10px;
+  margin-top: 5px;
   color: #2d3740;
   width: 100%;
   padding-right: 10px;
@@ -168,7 +178,7 @@
 .bottom-right-numbers > p {
   font-family: 'manrope';
   font-size: 14px;
-  margin-top: -15px;
+  margin-top: 10px;
 }
 
 .view-numbers-btn {
@@ -180,16 +190,7 @@
   font-weight: 700;
 }
 
-.Beneficiaries-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
 
-.Beneficiaries-bigscreen-container {
-  display: none;
-}
 
 @media screen and (min-width: 600px) {
   .numbers-container {
@@ -235,7 +236,7 @@
   .Beneficiaries-bigscreen-container {
     display: flex;
     flex-direction: row;
-    margin: 0 50px;
+    margin: 0 35px;
     justify-content: space-between;
   }
 
@@ -244,26 +245,25 @@
   }
 
   .Beneficiaries-bigscreen-container-right {
-    padding: 0px 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
 
   .left-texts-bigscreen > h2 {
-    font-family: 'manrope';
+    font-family: 'poppins';
     font-size: 50px;
     font-weight: 600;
-    line-height: 40px;
+    line-height: 50px;
     text-shadow: -0.7vmin -0vmin 0 #cbcdcf;
     width: 50%;
   }
 
   .left-texts-bigscreen > h3 {
-    font-family: 'manrope';
+    font-family: 'poppins';
     font-size: 20px;
     text-transform: uppercase;
-    margin-top: -20px;
+    margin-top: 40px;
     font-weight: 700;
     letter-spacing: 3px;
   }
@@ -271,7 +271,7 @@
   .left-texts-bigscreen > p {
     font-family: 'manrope';
     font-size: 14px;
-    margin-top: 30px;
+    margin-top: 10px;
     width: 70%;
   }
 
@@ -284,7 +284,7 @@
     flex-direction: column;
     justify-content: center;
     margin-top: 50px;
-    width: 300px;
+    width: 350px;
   }
 
   .numbers-bigscreen {
@@ -356,7 +356,7 @@
   .bottom-right-numbers-bigscreen > p {
     font-family: 'manrope';
     font-size: 14px;
-    margin-top: -20px;
+    margin-top: 10px;
   }
 
   .view {

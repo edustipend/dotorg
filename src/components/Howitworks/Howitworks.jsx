@@ -3,6 +3,7 @@ import './styles.css';
 import { howitworks } from './constants';
 import dots from '../../assets/dots.png';
 
+
 const HowItWorks = () => {
   return (
     <div className="how-it-works-container">
@@ -24,7 +25,6 @@ const HowItWorks = () => {
           return (
             <div key={item.id} className="Card-Wrapper" data-testid="rrrr-card">
               <div className="RRRR-Card">
-                
                 <div className="RRRR-SVG-header">
                   <img src={item.svg} alt="RRRR-SVG" />
                   <h2 className="RRRR-header">{item.header}</h2>
