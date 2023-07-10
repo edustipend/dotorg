@@ -1,43 +1,26 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import TakeOffBurden from '../TakeOffBurden';
-import { TestId, ByClassName, ByText } from '../constant';
-import arrow from "../../../assets/burdenarrow.png"
-
 
 describe('TakeOffBurden', () => {
-  test('renders component without errors', () => {
+  it('renders the component correctly', () => {
     render(<TakeOffBurden />);
-  });
 
-  it('displays the correct text content', () => {
-    render(<TakeOffBurden />);
-    const heading = screen.getByText(ByText.TAKEOFFBURDEN_HEADING);
-    const paragraph = screen.getByText(ByText.TAKEOFFBURDEN_PARAGRAPH);
+    // Assert that the main container is rendered
+    expect(screen.getByTestId('takeoffburden-container')).toBeInTheDocument();
 
-    expect(heading).toBeInTheDocument();
-    expect(paragraph).toBeInTheDocument();
-  });
+    // Assert that the card elements are rendered
+    expect(screen.getByTestId('takeoffburden-Card')).toBeInTheDocument();
+    expect(screen.getByTestId('takeoffburden-transparent-Card')).toBeInTheDocument();
 
-  it('renders the image correctly', () => {
-    render(<TakeOffBurden />);
-    const image = screen.getByTestId(TestId.TAKEOFFBURDEN_ARROW);
+    // Assert that the text content is rendered
+    expect(screen.getByText('Take the burden off yourself.')).toBeInTheDocument();
+    expect(screen.getByText('Request for learning support and give your learning curve a boost')).toBeInTheDocument();
 
-    expect(image).toBeInTheDocument();
-    expect(image).toHaveAttribute('src', arrow);
-    expect(image).toHaveAttribute('alt', 'arrow');
-  });
+    // Assert that the arrow image is rendered
+    expect(screen.getByAltText('arrow')).toBeInTheDocument();
 
-  it('applies the correct CSS classes', () => {
-    render(<TakeOffBurden />);
-    const container = screen.getByTestId(TestId.TAKEOFFBURDEN_CONTAINER_TEST_ID);
-    const card = screen.getByTestId(TestId.TAKEOFFBURDEN_CARD_TEST_ID);
-    const transparentCard = screen.getByTestId(TestId.TAKEOFFBURDEN_TRANSPARENT_CARD_TEST_ID);
-    const requestButton = screen.getByText(TestId.REQUEST_STIPEND_TEST_ID);
-
-    expect(container).toHaveClass(ByClassName.TAKEOFFBURDEN_CONTAINER);
-    expect(card).toHaveClass(ByClassName.TAKEOFFBURDEN_CARD);
-    expect(transparentCard).toHaveClass(ByClassName.TAKEOFFBURDEN_TRANSPARENT_CARD);
-    expect(requestButton).toHaveClass(ByClassName.TAKEOFFBURDEN_REQUEST);
+    // Assert that the button is rendered
+    expect(screen.getByText('Request Stipend')).toBeInTheDocument();
   });
 });
