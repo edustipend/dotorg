@@ -227,25 +227,25 @@
 @media screen and (min-width: 1200px) {
   .takeoffburden-Transparent-Card {
     width: 500px;
-    height: 400px;
+    height: 350px;
     margin: 50px 14px;
   }
 
   .takeoffburden-Card {
     width: 400px;
-    height: 600px;
+    height: 550px;
     padding: 90px 38px;
   }
 
   .takeoffburdenright > h2 {
-    width: 90%;
-    font-size: 60px;
-    line-height: 84px;
+    width: 70%;
+    font-size: 50px;
+    line-height: 60px;
   }
 
   .takeoffburdenright > p {
-    width: 55%;
-    font-size: 20px;
+    width: 50%;
+    font-size: 18px;
     line-height: 30px;
   }
 
