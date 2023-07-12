@@ -6,7 +6,7 @@
   align-items: center;
   padding: 50px;
   padding-bottom: 0;
-  background: url('../../../../assets/hero-bg.png') no-repeat;
+  background: url('../../assets/hero-bg.png') no-repeat;
   background-size: cover;
   overflow-x: hidden;
 }

@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import Container from '../../../../components/Container/container';
-import Button from '../../../../components/Button';
+import Container from '../../components/Container/container';
+import Button from '../../components/Button';
 import { Link } from 'react-router-dom';
-import { Hero1, Hero2, Hero3, Hero4, Svg1, Svg2, Svg3, Svg4, Svg5, ArrowDown } from '../../../../assets/index';
+import { Hero1, Hero2, Hero3, Hero4, Svg1, Svg2, Svg3, Svg4, Svg5, ArrowDown } from '../../assets/index';
 import { stipends, stipendsColors } from './constants';
 
 import './styles.css';
@@ -33,7 +33,8 @@ const Hero = () => {
             <span
               style={{
                 color: stipendsColors[currentStipend]
-              }}>
+              }}
+            >
               {stipends[currentStipend]}
             </span>{' '}
             to support your learning?

@@ -1,6 +1,7 @@
 export const TestId = {
   DEFAULT_NAVBAR_TEST_ID: 'navbar-id',
-  NAVBAR_LOGO: '<p>edustipend</p>'
+  NAVBAR_LOGO: '<p>edustipend</p>',
+  NAVBAR_LINKS_ID: 'navbar-links'
 };
 
 export const links = [

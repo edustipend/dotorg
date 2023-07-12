@@ -2,12 +2,12 @@ import { BrowserRouter } from 'react-router-dom';
 import Hero from './Hero';
 
 export default {
-  title: 'Edustipend/Hero',
+  title: 'Edustipend/Sections/Hero',
   component: Hero,
   tags: ['autodocs']
 };
 
-export const HeroComponent = () => (
+export const HeroSection = () => (
   <BrowserRouter>
     <Hero />
   </BrowserRouter>

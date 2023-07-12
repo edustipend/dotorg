@@ -21,5 +21,13 @@ describe('Navbar component', () => {
       );
       expect(getByTestId(TestId.DEFAULT_NAVBAR_TEST_ID)).toContainHTML(TestId.NAVBAR_LOGO);
     });
+    it('contains the nav links element for easy navigation', () => {
+      const { getByTestId } = render(
+        <BrowserRouter>
+          <Navbar />
+        </BrowserRouter>
+      );
+      expect(getByTestId(TestId.NAVBAR_LINKS_ID)).toBeInTheDocument();
+    });
   });
 });

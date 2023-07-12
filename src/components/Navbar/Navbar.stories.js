@@ -1,14 +1,14 @@
 import { BrowserRouter } from 'react-router-dom';
-import { Header } from './Header';
+import { Navbar } from './Navbar';
 
 export default {
-  title: 'Edustipend/Header',
-  component: Header,
+  title: 'Edustipend/Components/Navbar',
+  component: Navbar,
   tags: ['autodocs']
 };
 
-export const HeaderComponent = () => (
+export const NavbarComponent = () => (
   <BrowserRouter>
-    <Header />
+    <Navbar />
   </BrowserRouter>
 );

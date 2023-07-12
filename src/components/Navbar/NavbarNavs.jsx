@@ -6,10 +6,10 @@ import { links } from './constants';
 
 import './styles.css';
 
-const HeaderNav = ({ showMenu }) => {
+const HeaderNav = ({ showMenu, testId }) => {
   return (
     <>
-      <nav className="navbarNavs">
+      <nav className="navbarNavs" data-testid={testId}>
         {links.map((link) => (
           <Link key={link.label} to={link.to}>
             {link.label}
@@ -39,5 +39,6 @@ const HeaderNav = ({ showMenu }) => {
 export default HeaderNav;
 
 HeaderNav.propTypes = {
-  showMenu: PropTypes.bool
+  showMenu: PropTypes.bool,
+  testId: PropTypes.string
 };

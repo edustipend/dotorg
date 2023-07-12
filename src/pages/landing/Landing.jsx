@@ -1,4 +1,4 @@
-import Hero from './internals/Hero/Hero';
+import Hero from '../../sections/Hero/Hero';
 
 export const Landing = () => {
   return (
