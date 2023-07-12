@@ -1,0 +1,123 @@
+.card {
+  width: 265.57px;
+  height: 360.67px;
+  outline: 1px solid;
+  background-color: #FFDE8D;
+  grid-area: 1/-1;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  outline: none;
+  transform: translateX(calc(90% * var(--offset))) translateX(calc(3rem * var(--offset))) rotateY(calc(-45deg * var(--skew)));
+  transition: all 0.5s ease-in-out;
+}
+
+.card[data-active] {
+  background-color: var(--edustipend-yellow);
+  scale: 1.1;
+  z-index: 2;
+}
+
+.top {
+  margin-top: 26px;
+  margin-inline: 1.5rem;
+  text-align: justify;
+}
+
+.imgContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.imgPerson {
+  width: 90px;
+  height: 90px;
+  justify-self: center;
+}
+
+.testimonial {
+  font-size: 14px;
+  font-family: 'Manrope';
+
+}
+
+.hr {
+  margin-inline: 1.5rem;
+  width: 50%;
+  margin-top: 19px;
+  margin-bottom: 7px;
+  height: 0.6px;
+  background-color: #2d3740;
+}
+
+.card[data-active] .hr {
+  background-color: #ffffff;
+}
+
+.bottom {
+  margin-inline: 1.5rem;
+}
+
+.name {
+  font-size: 14px;
+  color: #2d3740;
+  font-weight: 500;
+}
+
+.socialsContainer {
+  margin-top: 10px;
+}
+
+.socialMedia {
+  width: 18px;
+  height: 18px;
+  margin-right: 11px;
+  transition: all 500ms ease-in-out;
+}
+
+.card[data-active] .socialMedia:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+@media screen and (min-width: 1440px) {
+  .card {
+    width: 370px;
+    height: 450px;
+  }
+
+  .imgPerson {
+    width: 120px;
+    height: 120px;
+    justify-self: center;
+  }
+
+  .top {
+    margin-top: 38px;
+  }
+
+  .testimonial {
+    font-size: 16px;
+  }
+
+  .imgContainer {
+    margin-bottom: 20px;
+  }
+
+  .name {
+    font-size: 18px;
+    margin-bottom: 14px;
+  }
+
+  .socialMedia {
+    width: 28px;
+    height: 28px;
+  }
+
+  .hr {
+    margin-top: 28px;
+    margin-bottom: 16px;
+  }
+}
