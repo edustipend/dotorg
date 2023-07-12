@@ -11,7 +11,7 @@ const HeaderNav = ({ showMenu }) => {
     <>
       <nav className="navbarNavs">
         {links.map((link) => (
-          <Link key={link.label} to={link.to} style={link.label === 'Support A Learner' ? { color: '#FEBD1C' } : {}}>
+          <Link key={link.label} to={link.to}>
             {link.label}
           </Link>
         ))}
@@ -21,7 +21,7 @@ const HeaderNav = ({ showMenu }) => {
       {showMenu ? (
         <nav className="mobile-nav" style={{ transform: 'translateX(0)' }}>
           {links.map((link) => (
-            <Link key={link.label} to={link.to} style={link.label === 'Support A Learner' ? { color: '#FEBD1C' } : {}}>
+            <Link key={link.label} to={link.to}>
               {link.label}
             </Link>
           ))}

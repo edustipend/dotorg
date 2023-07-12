@@ -44,10 +44,9 @@ a {
   font-family: 'Poppins', sans-serif;
   width: max-content;
 }
-
-.navbarNavs .active-link,
-.mobile-nav .active-link {
-  border-bottom: 2px solid white;
+.navbarNavs a:hover,
+.mobile-nav a:hover {
+  color: #febd1c;
 }
 
 .menu-icon {

@@ -29,12 +29,11 @@ const Hero = () => {
       <Container>
         <div className="top-section">
           <h1>
-            In need of some{' '}
+            In need of {stipends[currentStipend] === 'laptop' ? 'a' : 'some'}{' '}
             <span
               style={{
                 color: stipendsColors[currentStipend]
-              }}
-            >
+              }}>
               {stipends[currentStipend]}
             </span>{' '}
             to support your learning?
