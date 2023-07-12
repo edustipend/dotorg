@@ -28,7 +28,7 @@ export const About = () => {
             Edustipend. <b>These persons will serve as Ambassadors for Edustipend for 3 months from February 13 to April 28, 2023.</b>
           </h3>
           <h3 className="page-subheader">
-            We will work closely with each ambassador to understand their story, their learning goals and how much progress they&apos;ve been able to
+            We will work closely with each ambassador to understand their story, their learning goals and how much progress they&lsquo;ve been able to
             make through the support of Edustipend.
           </h3>
           <h3 className="page-subheader">
