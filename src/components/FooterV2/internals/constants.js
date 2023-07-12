@@ -21,7 +21,6 @@ export const socialLinks = [
     media: 'twitter',
     icon: twitter,
     link: '#'
-
   }
 ];
 
