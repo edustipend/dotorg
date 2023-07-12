@@ -53,9 +53,9 @@ const Beneficiaries = () => {
             </div>
           </div>
 
-         <div className='view-numbers-btn'>
-         <Button primary={true} size={"large"} label={'View the numbers'}  />
-         </div>
+          <div className="view-numbers-btn">
+            <Button primary={true} size="large" label={'View the numbers'} effect="primary" />
+          </div>
         </div>
 
         <div className="Beneficiaries-bigscreen-container">
@@ -91,7 +91,9 @@ const Beneficiaries = () => {
               </div>
             </div>
 
-            <Button className="view-numbers-btn-bigscreen" backgroundColor={'#5801FF'} label={'View the number'} />
+            <div className="view-numbers-btn">
+              <Button primary={true} size="large" label={'View the numbers'} effect="primary" />
+            </div>
           </div>
 
           <div className="Beneficiaries-bigscreen-container-right">

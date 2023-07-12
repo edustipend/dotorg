@@ -18,7 +18,7 @@
 .left-texts > h2 {
   width: 60%;
   font-family: 'poppins';
-  font-size: 25px;
+  font-size: 32px;
   font-weight: bold;
   line-height: 30px;
   color: #2d3740;
@@ -27,7 +27,7 @@
 
 .left-texts > h3 {
   font-family: 'poppins';
-  font-size: 16px;
+  font-size: 20px;
   text-transform: uppercase;
   margin-top: 20px;
   font-weight: 500;
@@ -36,7 +36,7 @@
 
 .left-texts > p {
   font-family: 'manrope';
-  font-size: 13px;
+  font-size: 16px;
   margin-top: 5px;
   color: #2d3740;
   width: 100%;
@@ -95,7 +95,7 @@
 
 .numbers-container {
   height: 280px;
-  margin: 40px 0px 50px;
+  margin: 40px 0px 0px;
   box-shadow: rgba(0, 0, 0, 0.14) 0px 3px 8px;
   border-radius: 30px;
   display: flex;
@@ -178,25 +178,37 @@
 }
 
 .view-numbers-btn {
-  margin-bottom: 40px;
+  margin: 40px 0;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 425px) {
+  .left-texts > p {
+    width: 60%;
+  }
+
+  .view-numbers-btn {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+  }
+}
+
+/* @media screen and (min-width: 600px) {
   .numbers-container {
     width: 60%;
     margin: 50px auto;
   }
 
   .left-texts > p {
-    width: 80%;
+    width: 90%;
   }
-  .view {
-    padding: 0px 28px 50px;
-    text-align: center;
-    margin-top: 40px;
+
+  .view-numbers-btn {
+    align-self: center;
   }
+
   .texts-and-images {
-    width: 70%;
+    width: 60%;
     margin: 0 auto;
   }
   .right-images {
@@ -204,7 +216,7 @@
     flex-direction: column;
     align-items: center;
   }
-}
+} */
 
 @media screen and (min-width: 768px) {
   .image1 {
@@ -246,7 +258,7 @@
 
   .left-texts-bigscreen > h2 {
     font-family: 'poppins';
-    font-size: 50px;
+    font-size: 48px;
     font-weight: 600;
     line-height: 50px;
     width: 50%;
@@ -254,7 +266,7 @@
 
   .left-texts-bigscreen > h3 {
     font-family: 'poppins';
-    font-size: 20px;
+    font-size: 24px;
     text-transform: uppercase;
     margin-top: 40px;
     font-weight: 700;
@@ -263,9 +275,9 @@
 
   .left-texts-bigscreen > p {
     font-family: 'manrope';
-    font-size: 14px;
+    font-size: 18px;
     margin-top: 10px;
-    width: 70%;
+    width: 80%;
   }
 
   .numbers-container-bigscreen {
@@ -352,11 +364,6 @@
     margin-top: 10px;
   }
 
-  .view {
-    text-align: left;
-    margin-top: 40px;
-  }
-
   .image1 {
     height: 450px;
     width: 150px;
@@ -414,13 +421,15 @@
   }
   .left-texts-bigscreen > h2 {
     width: 70%;
-    font-size: 64px;
+    font-size: 48px;
+    line-height: 50px;
   }
   .left-texts-bigscreen > h3 {
-    font-size: 32px;
+    font-size: 24px;
   }
   .left-texts-bigscreen > p {
-    font-size: 20px;
+    font-size: 18px;
+    width: 75%;
   }
   .image1,
   .image2,
@@ -430,11 +439,17 @@
   }
 }
 
-@media screen and (min-width: 1300px) {
+@media screen and (min-width: 1440px) {
   .left-texts-bigscreen > h2 {
-    width: 100%;
+    font-size: 64px;
+    width: 90%;
+    
+  }
+  .left-texts-bigscreen > h3 {
+    font-size: 32px;
   }
   .left-texts-bigscreen > p {
     width: 50%;
+    font-size: 20px;
   }
 }

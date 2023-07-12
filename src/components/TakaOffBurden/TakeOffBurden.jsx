@@ -20,7 +20,7 @@ const TakeOffBurden = () => {
             <img data-testid="burdenarrow" className="burdenarrow" src={arrow} alt="arrow" />
 
             <div className="request-stipend-btn-div">
-              <Button className="request-stipend-btn" backgroundColor={'#FEBD1C'} label={'Request Stipend'} />
+              <Button effect="secondary" label='Request Stipend'  />
             </div>
           </div>
         </div>

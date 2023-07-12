@@ -32,7 +32,7 @@
 
 .takeoffburden-Transparent-Card {
   background-color: #ffffff;
-  width: 280px;
+  width: 290px;
   height: 300px;
   border-radius: 30px;
   opacity: 0.1;
@@ -44,7 +44,7 @@
   color: #ffffff;
   font-size: 32px;
   font-weight: 600;
-  margin-top: 20px;
+  margin-top: 30px;
   line-height: 30px;
   text-align: center;
 }
@@ -54,23 +54,16 @@
   color: #ffffff;
   font-size: 16px;
   font-weight: lighter;
-  margin: 20px auto;
+  margin: 15px auto;
   line-height: 25px;
   text-align: center;
   width: 100%;
 }
 
-.takeoffburden-request {
-  padding: 0px 28px 50px;
-  text-align: center;
-  margin-top: 50px;
-  color: white;
-}
-
 .burdenarrow {
   position: absolute;
-  bottom: 75px;
-  right: 25px;
+  bottom: 95px;
+  right: 15px;
   height: 30px;
 }
 
@@ -78,32 +71,51 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  margin: 50px 0 20px;
 }
 
-.request-stipend-btn {
-  color: #2d3740;
-  font-family: 'Manrope';
-  font-weight: 700;
-  font-size: 18px;
-  width: 100%;
-  margin-top: 40px;
+@media screen and (min-width: 425px){
+  .takeoffburdenright > h2 {
+    margin: 20px auto;
+    width: 70%;
+  }
+  .takeoffburdenright > p {
+    width: 60%;
+  }
+  .burdenarrow {
+    position: absolute;
+    bottom: 85px;
+    right: 50px;
+  }
 }
 
 @media screen and (min-width: 600px) {
   .takeoffburdenright > h2 {
     margin: 20px auto;
+    width: 60%;
   }
   .takeoffburdenright > p {
     width: 50%;
   }
-}
 
-@media screen and (min-width: 600px) {
   .burdenarrow {
     position: absolute;
-    bottom: 55px;
+    bottom: 85px;
     right: 125px;
   }
+
+  .takeoffburden-Transparent-Card {
+    width: 350px;
+    height: 330px;
+  
+  }
+
+  .takeoffburden-Card {
+    width: 300px;
+    height: 400px;
+    
+  }
+
 }
 
 @media screen and (min-width: 768px) {
@@ -133,45 +145,43 @@
   }
 
   .takeoffburden-Transparent-Card {
-    width: 400px;
+    width: 350px;
     height: 200px;
     margin: 20px 14px;
   }
 
   .takeoffburden-Card {
-    width: 350px;
+    width: 300px;
     height: 500px;
     top: -260px;
   }
 
   .takeoffburdenright > h2 {
     text-align: left;
-    font-size: 35px;
+    font-size: 48px;
     line-height: 50px;
     margin: -100px 0 0 0;
     width: 80%;
   }
   .takeoffburdenright > p {
     text-align: left;
-    margin: 10px 0 10px 0;
-    font-size: 14px;
+    margin: 20px 0 10px 0;
+    font-size: 18px;
+    width: 80%;
   }
 
   .request-stipend-btn-div {
     width: 100%;
     display: flex;
     justify-content: left;
+    margin-top: 40px;
   }
 
-  .takeoffburden-request {
-    text-align: left;
-    padding: 0px 0px 50px;
-  }
 
   .burdenarrow {
     position: absolute;
-    bottom: 70px;
-    left: 170px;
+    bottom: 100px;
+    left: 250px;
   }
 }
 
@@ -210,41 +220,39 @@
 
   .takeoffburdenright > h2 {
     text-align: left;
-    font-size: 45px;
-    width: 80%;
+    font-size: 48px;
+    width: 85%;
     line-height: 50px;
   }
   .takeoffburdenright > p {
     text-align: left;
-    width: 45%;
+    width: 60%;
     margin-top: 30px;
+    font-size: 18px;
   }
   .request-stipend-btn-div {
     width: 100%;
     display: flex;
     justify-content: left;
-  }
-  .takeoffburden-request {
-    text-align: left;
-    padding: 0px 0px 50px;
+    margin-top: 40px;
   }
 
   .burdenarrow {
     position: absolute;
-    bottom: 70px;
-    left: 180px;
+    bottom: 100px;
+    left: 250px;
   }
 }
 
 @media screen and (min-width: 1200px) {
   .takeoffburden-Transparent-Card {
-    width: 550px;
+    width: 500px;
     height: 400px;
     margin: 50px 14px;
   }
 
   .takeoffburden-Card {
-    width: 450px;
+    width: 400px;
     height: 600px;
     padding: 90px 38px;
   }
@@ -257,26 +265,27 @@
   }
 
   .takeoffburdenright > h2 {
-    width: 90%;
-    font-size: 50px;
+    font-size: 64px;
     line-height: 60px;
   }
 
   .takeoffburdenright > p {
-    width: 50%;
-    font-size: 18px;
+    width: 70%;
+    font-size: 20px;
     line-height: 30px;
   }
 
   .burdenarrow {
     position: absolute;
-    bottom: 70px;
+    bottom: 100px;
     left: 260px;
   }
 }
 
 @media screen and (min-width: 1440px) {
   .takeoffburdenright > h2 {
-    width: 80%;
+    width: 100%;
   }
+  
+  
 }
