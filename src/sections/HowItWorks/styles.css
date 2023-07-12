@@ -6,23 +6,11 @@
   background-position: center;
 }
 
-.header {
-  font-family: 'poppins';
-  color: #ffffff;
-  font-size: 32px;
-  font-weight: 600;
+.header-div {
   text-align: center;
-  margin-bottom: 5px;
 }
-
-.subheader {
-  font-family: 'poppins';
-  color: #ffffff;
-  font-size: 20px;
-  font-weight: 500;
-  text-transform: uppercase;
+.subheader-div {
   text-align: center;
-  margin-bottom: 20px;
 }
 
 .Card-Wrapper {
@@ -104,13 +92,6 @@
     gap: 30px;
     margin: 40px 0 0px;
   }
-  .header {
-    font-size: 48px;
-  }
-
-  .subheader {
-    font-size: 24px;
-  }
 
   .RRRR-Transparent-Card {
     width: 100%;
@@ -125,18 +106,6 @@
 }
 
 @media screen and (min-width: 1024px) {
-  .header {
-    font-size: 64px;
-    margin-bottom: 20px;
-  }
-
-  .subheader {
-    text-align: center;
-    font-weight: normal;
-    font-size: 32px;
-    margin-top: -20px;
-  }
-
   .Card-Main-Wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -176,5 +145,11 @@
   .RRRR-Card {
     height: 400px;
     width: 85%;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .subheader-div {
+    margin-top: 20px;
   }
 }

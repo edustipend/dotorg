@@ -11,36 +11,21 @@
 
 .texts-and-images {
   display: flex;
-  display: flex;
   justify-content: space-between;
 }
 
-.left-texts > h2 {
-  width: 60%;
-  font-family: 'poppins';
-  font-size: 32px;
-  font-weight: bold;
-  line-height: 30px;
-  color: #2d3740;
+.Beneficiaries-header-div {
   margin-top: 30px;
+  line-height: 30px;
 }
 
-.left-texts > h3 {
-  font-family: 'poppins';
-  font-size: 20px;
-  text-transform: uppercase;
-  margin-top: 20px;
-  font-weight: 500;
-  color: #2d3740;
+.Beneficiaries-text-div {
+  margin-top: 4px;
 }
 
-.left-texts > p {
-  font-family: 'manrope';
-  font-size: 16px;
-  margin-top: 5px;
-  color: #2d3740;
-  width: 100%;
-  padding-right: 10px;
+.Beneficiaries-text {
+  font-size: 14px;
+  width: 80%;
 }
 
 .top-images {
@@ -182,49 +167,43 @@
 }
 
 @media screen and (min-width: 425px) {
-  .left-texts > p {
-    width: 60%;
-  }
-
   .view-numbers-btn {
     display: flex;
     flex-direction: column;
     align-self: flex-start;
   }
+
+  .Beneficiaries-text{
+   width: 50%;
+  }
 }
-
-/* @media screen and (min-width: 600px) {
-  .numbers-container {
-    width: 60%;
-    margin: 50px auto;
-  }
-
-  .left-texts > p {
-    width: 90%;
-  }
-
-  .view-numbers-btn {
-    align-self: center;
-  }
-
-  .texts-and-images {
-    width: 60%;
-    margin: 0 auto;
-  }
-  .right-images {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-} */
 
 @media screen and (min-width: 768px) {
   .image1 {
     background-image: url('../../assets/image1.png');
+    height: 410px;
+    width: 150px;
   }
 
   .image2 {
     background-image: url('../../assets/womanonheadset.jpg');
+    height: 510px;
+    width: 150px;
+  }
+
+  .image3 {
+    height: 350px;
+    margin-top: -100px;
+    width: 150px;
+  }
+  .image4 {
+    height: 250px;
+    width: 150px;
+  }
+
+  .top-images,
+  .bottom-images {
+    gap: 20px;
   }
 
   .view-numbers-btn-bigscreen {
@@ -241,13 +220,8 @@
   .Beneficiaries-bigscreen-container {
     display: flex;
     flex-direction: row;
-    margin: 0 35px;
     justify-content: space-between;
     gap: 20px;
-  }
-
-  .Beneficiaries-bigscreen-container-left {
-    margin: 90px -20px;
   }
 
   .Beneficiaries-bigscreen-container-right {
@@ -255,29 +229,8 @@
     flex-direction: column;
     justify-content: space-between;
   }
-
-  .left-texts-bigscreen > h2 {
-    font-family: 'poppins';
-    font-size: 48px;
-    font-weight: 600;
-    line-height: 50px;
-    width: 50%;
-  }
-
-  .left-texts-bigscreen > h3 {
-    font-family: 'poppins';
-    font-size: 24px;
-    text-transform: uppercase;
-    margin-top: 40px;
-    font-weight: 700;
-    letter-spacing: 3px;
-  }
-
-  .left-texts-bigscreen > p {
-    font-family: 'manrope';
-    font-size: 18px;
-    margin-top: 10px;
-    width: 80%;
+  .Beneficiaries-bigscreen-container-left {
+    margin-top: 50px;
   }
 
   .numbers-container-bigscreen {
@@ -363,30 +316,6 @@
     font-size: 14px;
     margin-top: 10px;
   }
-
-  .image1 {
-    height: 450px;
-    width: 150px;
-  }
-  .image2 {
-    height: 550px;
-    width: 150px;
-  }
-
-  .top-images,
-  .bottom-images {
-    gap: 20px;
-  }
-
-  .image3 {
-    height: 390px;
-    margin-top: -100px;
-    width: 150px;
-  }
-  .image4 {
-    height: 290px;
-    width: 150px;
-  }
 }
 
 @media screen and (min-width: 820px) {
@@ -394,24 +323,17 @@
     width: 350px;
     box-shadow: rgba(0, 0, 0, 0.14) 0px 3px 8px;
   }
+
+  .Beneficiaries-text {
+    font-size: 14px;
+    width: 50%;
+  }
 }
 
 @media screen and (min-width: 996px) {
-  .Beneficiaries-bigscreen-container-left {
-    margin: 90px -60px;
-  }
   .numbers-container-bigscreen {
     width: 400px;
     box-shadow: rgba(0, 0, 0, 0.14) 0px 3px 8px;
-  }
-
-  .left-texts-bigscreen > h2 {
-    width: 70%;
-  }
-
-  .Beneficiaries-bigscreen-container {
-    margin-left: 100px;
-    margin-right: 50px;
   }
 }
 
@@ -419,37 +341,57 @@
   .Beneficiaries-bigscreen-container {
     padding-left: 25px;
   }
-  .left-texts-bigscreen > h2 {
-    width: 70%;
-    font-size: 48px;
-    line-height: 50px;
+
+  .Beneficiaries-bigscreen-container {
+    margin-left: 40px;
+    margin-right: 70px;
   }
-  .left-texts-bigscreen > h3 {
-    font-size: 24px;
+
+  
+  .Beneficiaries-text {
+    font-size: 14px;
+    width: 60%;
   }
-  .left-texts-bigscreen > p {
-    font-size: 18px;
-    width: 75%;
+}
+
+@media screen and (min-width: 1440px) {
+  .Beneficiaries-header-div {
+    margin-top: 50px;
   }
+
+  .Beneficiaries-subheader-div {
+    margin-top: 20px;
+  }
+
+  .Beneficiaries-text-div {
+    margin-top: 20px;
+  }
+
+  .Beneficiaries-text {
+    font-size: 20px;
+    width: 50%;
+  }
+
   .image1,
   .image2,
   .image3,
   .image4 {
     width: 200px;
   }
-}
 
-@media screen and (min-width: 1440px) {
-  .left-texts-bigscreen > h2 {
-    font-size: 64px;
-    width: 90%;
-    
+
+  .image1 {
+    height: 450px;
   }
-  .left-texts-bigscreen > h3 {
-    font-size: 32px;
+
+  .image2 {
+    height: 550px;
   }
-  .left-texts-bigscreen > p {
-    width: 50%;
-    font-size: 20px;
+
+  .image3 {
+    height: 390px;
+  }
+  .image4 {
+    height: 290px;
   }
 }

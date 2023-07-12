@@ -4,8 +4,9 @@ import request from '../../assets/req.svg';
 import review from '../../assets/review.png';
 import receive from '../../assets/receive.png';
 import achieve from '../../assets/achieve.png';
-import Container from '../Container/container';
+import Container from '../../components/Container/container';
 import RRRRCard from './internals/RRRRCard';
+import { Header } from '../../components/Header/Header';
 
 const HowItWorks = () => {
   const howitworks = [
@@ -40,13 +41,15 @@ const HowItWorks = () => {
   ];
 
   return (
-    <div id='' className="how-it-works-container">
+    <div id="" className="how-it-works-container">
       <Container>
-        {/* Header */}
-        <h1 className="header">How it Works</h1>
+        <div className="header-div">
+          <Header text="How it Works" color="secondary" />
+        </div>
 
-        {/* Sub Header */}
-        <h2 className="subheader">The 3Rs: Request, Review, Receive</h2>
+        <div className="subheader-div">
+          <Header subheader={true} text="The 3Rs: Request, Review, Receive" color="secondary" />
+        </div>
 
         {/* Request, Review, Receive - RRR */}
         <div className="Card-Main-Wrapper">

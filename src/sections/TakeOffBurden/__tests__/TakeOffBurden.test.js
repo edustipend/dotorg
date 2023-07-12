@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import TakeOffBurden from '../TakeOffBurden';
-import { TestId, ByClassName, ByText } from '../constant';
+import TakeOffBurden from '../TakeOffBurden
+import { TestId, ByText } from '../constant';
 
 
 describe('TakeOffBurden', () => {

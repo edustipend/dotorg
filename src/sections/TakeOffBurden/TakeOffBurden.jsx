@@ -1,8 +1,10 @@
 import React from 'react';
 import './styles.css';
 import arrow from '../../assets/burdenarrow.png';
-import Button from '../Button';
-import Container from '../Container/container';
+import { Button } from '../../components/Button/Button';
+import Container from '../../components/Container/container';
+import { Header } from '../../components/Header/Header';
+import { Text } from '../../components/Text/Text';
 
 const TakeOffBurden = () => {
   return (
@@ -15,12 +17,18 @@ const TakeOffBurden = () => {
           </div>
 
           <div className="takeoffburdenright">
-            <h2>Take the burden off yourself.</h2>
-            <p>Request for learning support and give your learning curve a boost</p>
             <img data-testid="burdenarrow" className="burdenarrow" src={arrow} alt="arrow" />
 
+            <div className="takeoffburden-header-div">
+              <Header className="takeoffburden-header" text="Take the burden off yourself." color="secondary" />
+            </div>
+
+            <div className="takeoffburden-text-div">
+              <Text content="Request for learning support and give your learning curve a boost" className="takeoffburden-text" />
+            </div>
+
             <div className="request-stipend-btn-div">
-              <Button effect="secondary" label='Request Stipend'  />
+              <Button effect="secondary" label="Request Stipend" />
             </div>
           </div>
         </div>
