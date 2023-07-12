@@ -7,5 +7,5 @@ export const ClassName = {
 };
 
 export const TestId = {
-  DEFAULT_BUTTON_TEST_ID: 'default-button-id'
+  DEFAULT_BUTTON_TEST_ID: 'default-button-test-id'
 };

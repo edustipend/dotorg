@@ -10,6 +10,8 @@ const Routes = () => {
   const v2TurnedOn = searchParams.get('v2');
   V2_FEATURE_FLAG_ON = v2TurnedOn === 'true';
 
+  console.log('is on', V2_FEATURE_FLAG_ON);
+
   return (
     <AppRoutes>
       <Route path="/ambassador-program" element={<AmbassadorPage />} />

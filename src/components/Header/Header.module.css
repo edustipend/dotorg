@@ -1,0 +1,21 @@
+.header {
+  font-family: 'Poppins', sans-serif;
+  text-shadow: 1px 1px 2px white;
+}
+
+.header-large {
+  font-size: 64px;
+}
+
+.header-medium {
+  font-size: 48px;
+}
+
+.header-small {
+  font-size: 32px;
+}
+
+.subheader {
+  font-weight: 500;
+  text-transform: uppercase;
+}
