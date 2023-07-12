@@ -1,0 +1,129 @@
+.contentWrapper {
+  background: url(/src/assets/people_footer.png) no-repeat;
+  background-size: cover;
+  margin-top: -6.5px;
+}
+
+.overlay {
+  padding: 50px 0;
+  background: #110130;
+  opacity: .85;
+}
+
+.footerWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  color: #F5F5F5;
+}
+
+.topSection {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  column-gap: 2rem;
+  row-gap: 3rem;
+}
+
+.head {
+  font-size: 16px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.linksContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.link {
+  color: #F5F5F5;
+  font-size: 14px;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+}
+
+.link:hover {
+  color: #ff914d;
+}
+
+.socials {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.socialLinks {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.socialLink {
+  transition: all 500ms ease-in-out;
+}
+
+.socialLink:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+.bottomSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.rights {
+  font-size: 12px;
+}
+
+.edustipend {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 12px;
+}
+
+
+@media screen and (min-width: 425px) {
+  .topSection {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}
+
+
+
+@media screen and (min-width: 768px) {
+  .head {
+    font-size: 18px;
+  }
+
+  .rights {
+    font-size: 15px;
+  }
+
+  .edustipend {
+    font-size: 15px;
+  }
+
+  .link {
+    font-size: 16px;
+  }
+
+  .footerWrapper {
+    gap: 10rem;
+  }
+
+  .topSection {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
