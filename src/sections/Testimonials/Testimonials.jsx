@@ -15,7 +15,9 @@ export const Testimonials = () => {
       <section className={styles.testimonialContent}>
         <section className={styles.section}>
           <Header size="large" text="Testimonials" />
-          <Header size="medium" text="HEAR FROM OUR AMBASSADORS AND BENEFICIARIES" subheader />
+          <div className={styles.sub_header}>
+            <Header size="medium" text="HEAR FROM OUR AMBASSADORS AND BENEFICIARIES" subheader />
+          </div>
         </section>
         <Carousel cardData={cardData} />
       </section>

@@ -18,6 +18,12 @@
   margin-bottom: 32px;
 }
 
+.sub_header {
+  max-width: 285px;
+  text-align: center;
+  background: #000;
+}
+
 .title {
   font-weight: 600;
   font-size: 32px;
