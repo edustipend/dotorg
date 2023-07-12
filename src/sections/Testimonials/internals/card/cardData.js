@@ -1,9 +1,9 @@
-import ubong from '../../../../../assets/ubon.png';
-import chi from '../../../../../assets/chi.png';
-import guy from '../../../../../assets/guy.png';
-import instagram from '../../../../../assets/social/InstagramLogoNew.svg';
-import twitter from '../../../../../assets/social/TwitterLogoNew.svg';
-import linkedin from '../../../../../assets/social/LinkedinLogoNew.svg';
+import ubong from '../../../../assets/ubon.png';
+import chi from '../../../../assets/chi.png';
+import guy from '../../../../assets/guy.png';
+import instagram from '../../../../assets/social/InstagramLogoNew.svg';
+import twitter from '../../../../assets/social/TwitterLogoNew.svg';
+import linkedin from '../../../../assets/social/LinkedinLogoNew.svg';
 
 export const cardData = [
   {
