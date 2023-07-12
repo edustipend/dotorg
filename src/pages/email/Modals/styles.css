@@ -1,0 +1,61 @@
+.Modal-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  padding: 0 15rem;
+}
+.Modal-outer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #000;
+  opacity: 0.4;
+}
+
+.Modal-inner {
+  background-color: white;
+  border-radius: 2rem;
+  padding: 2rem 1.5rem;
+  padding-bottom: 2rem;
+  text-align: center;
+  position: relative;
+}
+.modal-arrow-back {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.modal-info p {
+  width: 73%;
+  margin: 0 auto;
+}
+
+.mail-qoutes {
+  max-width: 55%;
+  font-style: italic;
+}
+
+.btn-area {
+  margin: 1rem 0;
+}
+.btn-area .edustipend-button--secondary,
+.btn-area .edustipend-button--primary {
+  border: 5px solid white;
+  margin: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .Modal-container {
+    padding: 0 2rem;
+  }
+}
