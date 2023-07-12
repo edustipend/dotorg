@@ -1,16 +1,16 @@
 import React from 'react';
-import { Button } from '../../../components/Button/Button';
+import { Button } from '../../components/Button/Button';
 import { title } from './internals/constants';
-import Container from '../../../components/Container/container';
-import rocket from '../../../assets/rocket emoji 3.svg';
+import Container from '../../components/Container/container';
+import rocket from '../../assets/rocket emoji 3.svg';
 import styles from './RequestNow.module.css';
-import clock from '../../../assets/clock.png'
-import blobLeft from '../../../assets/blob-left.png'
-import blobRight from '../../../assets/blob-right.png'
+import clock from '../../assets/clock.png'
+import blobLeft from '../../assets/blob-left.png'
+import blobRight from '../../assets/blob-right.png'
 import { testConstants } from './internals/constants';
 const { componentTestId } = testConstants
 
-const RequestNow = () => {
+const Request = () => {
   return (
     <main data-testid={componentTestId} className={styles.main}>
       <Container>
@@ -29,4 +29,4 @@ const RequestNow = () => {
   );
 };
 
-export default RequestNow;
+export default Request;

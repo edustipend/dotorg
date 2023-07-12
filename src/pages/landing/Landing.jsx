@@ -8,6 +8,7 @@ import Review from '../../assets/review.svg';
 import StudentImage from '../../assets/image_student.png';
 import PhoneImage from '../../assets/image_phone.png';
 import HandshakeImage from '../../assets/image_handshake.png';
+import RequestNow from '../../sections/RequestNow/RequestNow';
 
 const TopSection = () => {
   return (
@@ -146,7 +147,8 @@ export const Landing = () => {
     <main>
       <TopSection />
       <MidSection />
-      <RequestSection/>
+      <RequestSection />
+      <RequestNow />
     </main>
   );
 };
