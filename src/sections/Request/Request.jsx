@@ -3,7 +3,7 @@ import { Button } from '../../components/Button/Button';
 import { title } from './internals/constants';
 import Container from '../../components/Container/container';
 import rocket from '../../assets/rocket emoji 3.svg';
-import styles from './RequestNow.module.css';
+import styles from './Request.module.css';
 import clock from '../../assets/clock.png'
 import blobLeft from '../../assets/blob-left.png'
 import blobRight from '../../assets/blob-right.png'
