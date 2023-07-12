@@ -46,7 +46,7 @@
     "execute-husky": "npx husky install && npx husky add .husky/pre-commit \"npx --no-install lint-staged\"",
     "format": "prettier --write src/**/*.{js,jsx,ts,tsx,css,md,json} --config ./.prettierrc",
     "lint": "eslint .",
-    "lint:fix": "eslint --fix",
+    "lint:fix": "eslint --ext .js --fix",
     "start": "react-scripts start",
     "storybook": "storybook dev -p 6006",
     "test": "react-scripts test"
@@ -57,9 +57,12 @@
     }
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx,css,md,json}": [
+    "src/**/*.{js,jsx,ts,tsx,md,json}": [
       "prettier --write",
-      "eslint --fix"
+      "eslint --ext .js --fix"
+    ],
+    "src/**/*.{css,}": [
+      "prettier --write"
     ]
   },
   "browserslist": {
