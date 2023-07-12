@@ -33,7 +33,8 @@ const Hero = () => {
             <span
               style={{
                 color: stipendsColors[currentStipend]
-              }}>
+              }}
+            >
               {stipends[currentStipend]}
             </span>{' '}
             to support your learning?
