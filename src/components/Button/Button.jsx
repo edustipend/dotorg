@@ -7,7 +7,7 @@ import './styles.css';
  * Button component for use on Edustipend pages
  */
 export const Button = ({ backgroundColor, dataTest, primary, size, label, ...props }) => {
-  const mode = primary ? ClassName.PRIMARY_BUTTON : ClassName.SECONDARY_BUTTON;
+  const mode = primary ? ClassName.PRIMARY_BUTTON : ClassName.SECONDARY_BUTTON ;
   return (
     <button
       data-testid={dataTest}
