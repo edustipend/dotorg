@@ -2,14 +2,12 @@
   font-family: 'Poppins', sans-serif;
   text-shadow: 1px 1px 2px white;
   font-size: 32px;
-  line-height: 31px;
   font-weight: 600;
 }
 
 .subheader {
   font-weight: 500;
   font-size: 18px;
-  line-height: 21.5px;
   text-transform: uppercase;
 }
 
@@ -24,11 +22,9 @@
 @media screen and (min-width:1440px) {
   .header {
     font-size: 64px;
-    line-height: 75px;
   }
 
   .subheader {
     font-size: 32px;
-    line-height: 25.5px;
   }
 }
