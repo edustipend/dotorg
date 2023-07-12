@@ -7,6 +7,7 @@
   padding: 50px;
   padding-bottom: 0;
   background: url('../../../../assets/hero-bg.png') no-repeat center;
+  overflow-x: hidden;
 }
 .hero .top-section {
   display: flex;
@@ -62,13 +63,13 @@
 }
 .hero .left2 {
   position: absolute;
-  left: -33px;
-  top: 70%;
+  left: 33px;
+  top: 85%;
 }
 .hero .right2 {
   position: absolute;
-  right: -30px;
-  top: 65%;
+  right: 30px;
+  top: 80%;
 }
 .hero .btn-container {
   margin-bottom: 2rem;
@@ -82,11 +83,11 @@
 }
 
 .hero .down-section .img1 {
-  min-width: 100px;
+  min-width: 150px;
   max-width: 230px;
 }
 .hero .down-section .img2 {
-  min-width: 100px;
+  min-width: 150px;
   max-width: 230px;
 }
 .hero .down-section .btn-down {
@@ -98,7 +99,7 @@
   padding: 10px 10px 9px 10px;
   justify-content: center;
   align-items: center;
-  left: 48%;
+  left: 47%;
   border-radius: 64px;
   border: 2px solid var(--edustipend-black, #161616);
   background: #fff;
@@ -135,6 +136,7 @@
 }
 @media only screen and (max-width: 670px) {
   .hero .top-section h1 {
+    width: 400px;
     font-size: 42px;
     line-height: 60px;
   }
@@ -156,19 +158,42 @@
 }
 @media only screen and (max-width: 450px) {
   .hero {
-    padding: 50px 20px 0;
+    padding: 60px 20px 0;
+    width: 100vw;
+    height: calc(100dvh - 83px);
+    justify-content: space-between;
+  }
+
+  .hero .down-section {
+    margin-bottom: 0px;
   }
   .hero .top-section h1 {
-    width: 400px;
-    font-size: 40px;
-    line-height: 60px;
+    font-size: 36px;
+    line-height: 40px;
+    width: 300px;
   }
   .hero .top-section > div > p {
     font-size: 20px;
     margin-top: 20px;
   }
+  .boost-container img {
+    width: 45px;
+  }
+  .hero .left {
+    left: 130px;
+    top: 0;
+  }
+  .hero .right {
+    right: 140px;
+    top: 100%;
+  }
+  .left2,
+  .right2 {
+    display: none;
+  }
   .hero .down-section {
-    gap: 3px;
+    width: 100%;
+    gap: 10px;
     overflow: hidden;
   }
 }

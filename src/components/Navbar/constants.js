@@ -1,5 +1,6 @@
 export const TestId = {
-  DEFAULT_HEADER_TEST_ID: 'header-id'
+  DEFAULT_NAVBAR_TEST_ID: 'navbar-id',
+  NAVBAR_LOGO: '<p>edustipend</p>'
 };
 
 export const links = [
@@ -9,7 +10,7 @@ export const links = [
   },
   {
     label: 'Learn How It Works',
-    to: '/howitworks'
+    to: '/#how-it-works'
   },
   {
     label: 'Support A Learner',

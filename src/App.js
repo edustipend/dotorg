@@ -1,6 +1,6 @@
 import Routes from './routes';
 import initFirebaseApp from './firebaseConfig';
-import Header from './components/Header';
+import Navbar from './components/Navbar';
 import './App.css';
 
 initFirebaseApp();
@@ -8,7 +8,7 @@ initFirebaseApp();
 function App() {
   return (
     <>
-      <Header />
+      <Navbar />
       <Routes />
     </>
   );

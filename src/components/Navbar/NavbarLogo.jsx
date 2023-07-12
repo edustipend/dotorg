@@ -5,7 +5,7 @@ import './styles.css';
 const HeaderLogo = () => {
   return (
     <Link to="/">
-      <div className="headerLogo">
+      <div className="navbarLogo">
         <img src={Logo} alt="edustipend logo" />
         <p>edustipend</p>
       </div>

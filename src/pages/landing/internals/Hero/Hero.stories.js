@@ -1,3 +1,4 @@
+import { BrowserRouter } from 'react-router-dom';
 import Hero from './Hero';
 
 export default {
@@ -6,4 +7,8 @@ export default {
   tags: ['autodocs']
 };
 
-export const Primary = {};
+export const HeroComponent = () => (
+  <BrowserRouter>
+    <Hero />
+  </BrowserRouter>
+);
