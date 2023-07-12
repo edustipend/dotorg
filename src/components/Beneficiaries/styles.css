@@ -11,27 +11,23 @@
 
 .texts-and-images {
   display: flex;
-  gap: 20px;
   display: flex;
   justify-content: space-between;
-  margin-left: 25px;
-  margin-right: 25px;
 }
 
 .left-texts > h2 {
   width: 60%;
   font-family: 'poppins';
-  font-size: 28px;
+  font-size: 25px;
   font-weight: bold;
   line-height: 30px;
-  text-shadow: -0.5vmin -0vmin 0 #cbcdcf;
   color: #2d3740;
   margin-top: 30px;
 }
 
 .left-texts > h3 {
   font-family: 'poppins';
-  font-size: 18px;
+  font-size: 16px;
   text-transform: uppercase;
   margin-top: 20px;
   font-weight: 500;
@@ -40,7 +36,7 @@
 
 .left-texts > p {
   font-family: 'manrope';
-  font-size: 14px;
+  font-size: 13px;
   margin-top: 5px;
   color: #2d3740;
   width: 100%;
@@ -99,19 +95,18 @@
 
 .numbers-container {
   height: 280px;
-  margin: 40px 28px 50px;
+  margin: 40px 0px 50px;
   box-shadow: rgba(0, 0, 0, 0.14) 0px 3px 8px;
   border-radius: 30px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 88%;
+  width: 100%;
 }
 
 .numbers {
   height: 250px;
   background: #fff;
-  margin: 0px 10px;
   border-top-width: 1px;
   border-bottom-width: 1px;
   border-left-width: 1px;
@@ -122,6 +117,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  width: 90%;
+  margin: 0 auto;
 }
 
 .top-numbers {
@@ -181,12 +178,7 @@
 }
 
 .view-numbers-btn {
-  color: white;
-  font-family: 'manrope';
-  font-size: 18px;
   margin-bottom: 40px;
-  width: 100%;
-  font-weight: 700;
 }
 
 @media screen and (min-width: 600px) {
@@ -257,7 +249,6 @@
     font-size: 50px;
     font-weight: 600;
     line-height: 50px;
-    text-shadow: -0.7vmin -0vmin 0 #cbcdcf;
     width: 50%;
   }
 
@@ -418,14 +409,18 @@
 }
 
 @media screen and (min-width: 1024px) {
-  .Beneficiaries-bigscreen-container{
+  .Beneficiaries-bigscreen-container {
     padding-left: 25px;
   }
   .left-texts-bigscreen > h2 {
     width: 70%;
+    font-size: 64px;
   }
-  .left-texts-bigscreen > p{
-   font-size: 18px;
+  .left-texts-bigscreen > h3 {
+    font-size: 32px;
+  }
+  .left-texts-bigscreen > p {
+    font-size: 20px;
   }
   .image1,
   .image2,
@@ -435,9 +430,11 @@
   }
 }
 
-
-@media screen and (min-width: 1300px){
+@media screen and (min-width: 1300px) {
   .left-texts-bigscreen > h2 {
     width: 100%;
+  }
+  .left-texts-bigscreen > p {
+    width: 50%;
   }
 }

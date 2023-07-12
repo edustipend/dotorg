@@ -25,7 +25,7 @@ Button.propTypes = {
   primary: PropTypes.bool,
   backgroundColor: PropTypes.string,
   dataTest: PropTypes.string,
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  size: PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']),
   label: PropTypes.string.isRequired,
   onClick: PropTypes.func
 };

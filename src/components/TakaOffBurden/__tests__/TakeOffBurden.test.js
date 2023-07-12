@@ -1,18 +1,20 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import TakeOffBurden from '../TakeOffBurden';
+import { TestId, ByClassName, ByText } from '../constant';
+
 
 describe('TakeOffBurden', () => {
   it('renders the component correctly', () => {
     render(<TakeOffBurden />);
-    expect(screen.getByTestId('takeoffburden-container')).toBeInTheDocument();
-    expect(screen.getByTestId('takeoffburden-Card')).toBeInTheDocument();
-    expect(screen.getByTestId('takeoffburden-transparent-Card')).toBeInTheDocument();
+    expect(screen.getByTestId(TestId.TAKEOFFBURDEN_CONTAINER_TEST_ID)).toBeInTheDocument();
+    expect(screen.getByTestId(TestId.TAKEOFFBURDEN_CARD_TEST_ID)).toBeInTheDocument();
+    expect(screen.getByTestId(TestId.TAKEOFFBURDEN_TRANSPARENT_CARD_TEST_ID)).toBeInTheDocument();
 
-    expect(screen.getByText('Take the burden off yourself.')).toBeInTheDocument();
-    expect(screen.getByText('Request for learning support and give your learning curve a boost')).toBeInTheDocument();
+    expect(screen.getByText(ByText.TAKEOFFBURDEN_HEADING)).toBeInTheDocument();
+    expect(screen.getByText(ByText.TAKEOFFBURDEN_PARAGRAPH)).toBeInTheDocument();
 
-    expect(screen.getByAltText('arrow')).toBeInTheDocument();
+    expect(screen.getByAltText(ByText.TAKEOFFBURDEN_ARROW)).toBeInTheDocument();
 
     expect(screen.getByText('Request Stipend')).toBeInTheDocument();
   });
