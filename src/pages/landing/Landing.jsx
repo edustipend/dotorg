@@ -146,7 +146,7 @@ export const Landing = () => {
     <main>
       <TopSection />
       <MidSection />
-      <RequestSection />
+      <RequestSection/>
     </main>
   );
 };
