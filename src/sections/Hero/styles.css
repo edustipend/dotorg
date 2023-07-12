@@ -162,7 +162,6 @@
   .hero {
     padding: 60px 20px 0;
     width: 100vw;
-    /* height: calc(100dvh - 83px); */
     justify-content: space-between;
   }
 
