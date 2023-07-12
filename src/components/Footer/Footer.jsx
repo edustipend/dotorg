@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Logo from '../../assets/favicon.png';
-
 import './styles.css';
 
 export const Footer = (props) => {
@@ -58,5 +57,9 @@ export const Footer = (props) => {
 };
 
 Footer.propTypes = {
-  version: PropTypes.number
+  version: PropTypes.string
+};
+
+Footer.defaultProps = {
+  version: ''
 };

@@ -1,12 +1,21 @@
-import { Routes as AppRoutes, Route } from 'react-router-dom';
+import { Routes as AppRoutes, Route, useSearchParams } from 'react-router-dom';
 import AmbassadorPage from './pages/ambassador';
 import LandingPage from './pages/landing';
+import LandingPageV2 from './pages/landing-v2';
+
+let V2_FEATURE_FLAG_ON = false;
 
 const Routes = () => {
+  let [searchParams] = useSearchParams();
+  const v2TurnedOn = searchParams.get('v2');
+  V2_FEATURE_FLAG_ON = v2TurnedOn === 'true';
+
+  console.log('is on', V2_FEATURE_FLAG_ON);
+
   return (
     <AppRoutes>
       <Route path="/ambassador-program" element={<AmbassadorPage />} />
-      <Route path="/" element={<LandingPage />} />
+      <Route path="/" element={V2_FEATURE_FLAG_ON ? <LandingPageV2 /> : <LandingPage />} />
     </AppRoutes>
   );
 };
