@@ -4,21 +4,25 @@
   border: 0;
   border-radius: 3em;
   cursor: pointer;
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   line-height: 1;
-  backdrop-filter: blur(50px);
+  box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.1);
+  width: 280px;
 }
+
 
 .edustipend-button--primary {
   color: white;
   background-color: var(--edustipend-purple);
-  box-shadow: 0px 4px 4px 0px rgba(88, 0, 255, 0.2);
+
 }
 
 .edustipend-button--secondary {
   color: #333;
   background-color: var(--edustipend-yellow);
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+
 }
 
 .edustipend-button--small {
@@ -33,5 +37,45 @@
 
 .edustipend-button--large {
   font-size: 16px;
-  padding: 12px 24px;
+  padding: 14px 30px;
+}
+
+
+.effect {
+  width: max-content;
+  padding: 8px 10px;
+  border-radius: 3em;
+  background: #FFFFFF40;
+  box-shadow: 0px 14px 13px -4px rgba(0, 0, 0, 0.1);
+  transition: all .3s ease-in-out;
+}
+
+.effect:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.effect_alt {
+  background: rgba(255, 255, 255, 0.09);
+  backdrop-filter: blur(0.7px);
+  -webkit-backdrop-filter: blur(0.7px);
+  border-top: 2px solid rgba(255, 255, 255, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+}
+
+@media screen and (max-width:350px) {
+  .edustipend-button {
+    width: 240px;
+  }
+
+  .effect {
+    padding: 10px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .edustipend-button {
+    width: 248px;
+  }
 }
