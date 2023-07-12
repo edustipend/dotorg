@@ -6,7 +6,7 @@ import './styles.css';
 
 export const Footer = (props) => {
   return (
-    <footer className="footer-wrapper">
+    <footer className="footer-wrapper ">
       <div className="footer-container">
         <div className="footer-top">
           <div>
