@@ -22,7 +22,7 @@ export const Navbar = ({ dataTest, navLinksId }) => {
 
 Navbar.propTypes = {
   dataTest: PropTypes.string,
-  NavLinks: PropTypes.string
+  navLinksId: PropTypes.string
 };
 
 Navbar.defaultProps = {

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import Container from '../../components/Container/container';
 import Button from '../../components/Button';
 import { Link } from 'react-router-dom';
@@ -8,22 +8,23 @@ import { stipends, stipendsColors } from './constants';
 import './styles.css';
 
 const Hero = () => {
-  const [currentStipend, setcurrentStipend] = useState(0);
-  const nextStipend = () => {
-    setcurrentStipend(currentStipend === stipends.length - 1 ? 0 : (prev) => prev + 1);
-  };
+  const [currentStipend, setCurrentStipend] = useState(0);
+
+  const nextStipend = useCallback(() => {
+    setCurrentStipend((prev) => (prev === stipends.length - 1 ? 0 : prev + 1));
+  }, [setCurrentStipend]);
 
   useEffect(() => {
     const timeInterval = setInterval(() => {
       nextStipend();
       if (currentStipend > stipends.length - 1) {
-        setcurrentStipend(0);
+        setCurrentStipend(0);
       }
     }, 2000);
     return () => {
       clearInterval(timeInterval);
     };
-  }, [currentStipend]);
+  }, [currentStipend, nextStipend]);
   return (
     <section className="hero">
       <Container>
