@@ -10,7 +10,7 @@ import blobRight from '../../assets/blob-right.png'
 import { testConstants } from './internals/constants';
 const { componentTestId } = testConstants
 
-const Request = () => {
+export const Request = () => {
   return (
     <main data-testid={componentTestId} className={styles.main}>
       <Container>
