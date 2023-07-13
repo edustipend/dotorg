@@ -29,7 +29,7 @@
 }
 
 .sub_header {
-  max-width: 285px;
+  width: 285px;
 }
 
 .title {
@@ -47,7 +47,7 @@
 
 @media screen and (min-width: 768px) {
   .sub_header {
-    max-width: 100%;
+    width: 100%;
   }
 }
 
