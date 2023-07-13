@@ -3,7 +3,7 @@ import Container from '../../components/Container/container';
 import Button from '../../components/Button';
 import { Link } from 'react-router-dom';
 import { Hero1, Hero2, Hero3, Hero4, Svg1, Svg2, Svg3, Svg4, Svg5, ArrowDown } from '../../assets/index';
-import { stipends, stipendsColors } from './constants';
+import { stipends, stipendsColors, buttonLabel, secondaryEffect } from './constants';
 
 import './styles.css';
 
@@ -45,7 +45,7 @@ const Hero = () => {
             <img src={Svg1} alt="boost icon" />
           </div>
           <div className="btn-container">
-            <Button label="Request stipend" />
+            <Button label={buttonLabel} effect={secondaryEffect} />
           </div>
           <img src={Svg5} alt="icon" className="left" />
           <img src={Svg4} alt="icon" className="right" />

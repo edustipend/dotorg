@@ -20,7 +20,7 @@
 .hero .top-section h1 {
   color: #2d3740;
   text-align: center;
-  font-family: Poppins;
+  font-family: 'Poppins';
   font-size: 70px;
   font-style: normal;
   font-weight: 600;
@@ -30,9 +30,7 @@
   max-height: 168px;
   margin-bottom: 2rem;
 }
-.hero .top-section h1 span {
-  color: #5801ff;
-}
+
 .hero .top-section > div {
   display: flex;
   position: relative;

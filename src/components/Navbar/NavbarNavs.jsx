@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 import PropTypes from 'prop-types';
 import Button from '../Button';
-import { buttonLabel, NAVBAR_LINKS, TestId } from './constants';
+import { buttonLabel, secondaryEffect, NAVBAR_LINKS, TestId } from './constants';
 
 import './styles.css';
 
@@ -16,22 +16,22 @@ const NavbarNavs = ({ showMenu }) => {
             {link.label}
           </Link>
         ))}
-        <Button label={buttonLabel} />
+        <Button label={buttonLabel} effect={secondaryEffect} />
       </nav>
 
       {showMenu ? (
-        <nav className="mobile-nav" style={{ transform: 'translateX(0)' }}>
+        <nav className="mobile-nav">
           {NAVBAR_LINKS.map((link) => (
             <Link key={link.label} to={link.to}>
               {link.label}
             </Link>
           ))}
           <div className="mobile-nav-btn">
-            <Button label={buttonLabel} />
+            <Button label={buttonLabel} effect={secondaryEffect} />
           </div>
         </nav>
       ) : (
-        <nav className="mobile-nav" style={{ transform: 'translateX(-100vw)' }} />
+        <nav className="mobile-nav out" />
       )}
     </>
   );

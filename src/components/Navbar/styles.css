@@ -46,7 +46,7 @@ a {
 }
 .navbarNavs a:hover,
 .mobile-nav a:hover {
-  color: #febd1c;
+  color: var(--edustipend-yellow);
 }
 
 .menu-icon {
@@ -63,7 +63,7 @@ a {
     padding: 20px;
   }
 }
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1100px) {
   .navbar {
     padding: 20px 40px;
   }
@@ -88,6 +88,9 @@ a {
     z-index: 100;
     transition: all 500ms ease-in;
     transform: translateX(0);
+  }
+  .mobile-nav.out {
+    transform: translateX(-100vw);
   }
   .mobile-nav > div {
     display: flex;

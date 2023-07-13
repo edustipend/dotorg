@@ -18,7 +18,7 @@ const NavbarAmbassadorNavs = ({ showMenu }) => {
       </nav>
 
       {showMenu ? (
-        <nav className="mobile-nav" style={{ transform: 'translateX(0)' }}>
+        <nav className="mobile-nav">
           {NAVBAR_AMBASSADOR_LINKS.map((link) => (
             <Link key={link.label} to={link.to}>
               {link.label}
@@ -26,7 +26,7 @@ const NavbarAmbassadorNavs = ({ showMenu }) => {
           ))}
         </nav>
       ) : (
-        <nav className="mobile-nav" style={{ transform: 'translateX(-100vw)' }} />
+        <nav className="mobile-nav out" />
       )}
     </>
   );

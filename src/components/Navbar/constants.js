@@ -34,3 +34,4 @@ export const NAVBAR_AMBASSADOR_LINKS = [
 ];
 
 export const buttonLabel = 'Request stipend';
+export const secondaryEffect = 'secondary';
