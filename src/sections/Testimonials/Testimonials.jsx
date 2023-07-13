@@ -5,9 +5,7 @@ import { cardData } from './internals/card/cardData';
 import Carousel from './internals/carousel/Carousel';
 import frame from '../../assets/arrow_frame.png'
 
-import React from 'react'
-
-const Testimonials = () => {
+export const Testimonials = () => {
   const { componentTestId } = TestConstants
   return (
     <main data-testid={componentTestId} className={styles.main}>
@@ -26,5 +24,3 @@ const Testimonials = () => {
     </main>
   )
 }
-
-export default Testimonials
