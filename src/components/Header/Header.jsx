@@ -34,15 +34,6 @@ export const Header = ({ dataTest, size = 'large', color = 'primary', subheader,
     </div>
   );
 };
-
-/**
- * className={[`${ styles.header } `, `${ styles[`header-${size}`] }
-}`,
-      subheader ? `${ styles.subheader } ` : !subheader & color === 'primary' ? `${ styles.effect } `
-        : !subheader & color === 'secondary' ? `${ styles.effect } ${ styles.secondary } ` : ''
-        , `${ className } `].join(' ')}
-      data-testid={dataTest}
- */
 Header.propTypes = {
   className: PropTypes.string,
   dataTest: PropTypes.string,
