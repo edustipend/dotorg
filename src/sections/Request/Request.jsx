@@ -15,7 +15,7 @@ export const Request = () => {
     <main data-testid={componentTestId} className={styles.main}>
       <Container>
         <div className={styles.requestContent}>
-          <h2 className={styles.title}>{title}</h2>
+          <h2 data={title} className={styles.title}>{title}</h2>
           <Button label="Request Now" size='large' effect='secondary' />
           <img src={rocket} alt="rocket_emoji" className={styles.rocket} />
         </div>

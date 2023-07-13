@@ -23,6 +23,27 @@
   margin-bottom: 26px;
   color: #2D3740;
   max-width: 500px;
+  position: relative;
+
+
+}
+
+.title::before {
+  content: attr(data);
+  font-size: inherit;
+  width: inherit;
+  height: inherit;
+  text-align: inherit;
+  margin-bottom: inherit;
+  max-width: inherit;
+  position: absolute;
+  color: #2D3740;
+  text-shadow:
+    1px 0 #FFFFFF,
+    0 -1px #FFFFFF,
+    -1px 0 #FFFFFF,
+    0 1px #FFFFFF;
+  right: -3.5px;
 }
 
 .rocket {
@@ -66,6 +87,7 @@
   .title {
     margin-bottom: 50px;
   }
+
 }
 
 @media screen and (min-width: 1024px) {
