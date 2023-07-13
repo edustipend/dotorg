@@ -1,139 +1,138 @@
 .relativeContainer {
-    position: relative;
-    max-width: 1440px;
+  position: relative;
+  max-width: 1440px;
 }
 
 .carouselContainer {
-    display: grid;
-    justify-content: center;
-    place-items: center;
-    padding: 2rem 3rem;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    perspective: 1500px;
-    transform-style: preserve-3d;
+  display: grid;
+  justify-content: center;
+  place-items: center;
+  padding: 2rem 3rem;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  perspective: 1500px;
+  transform-style: preserve-3d;
 }
 
 .btns {
-    position: absolute;
-    top: 40%;
-    display: none;
-    padding: 1rem;
+  position: absolute;
+  top: 40%;
+  display: none;
+  padding: 1rem;
 }
 
 .btns:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .outterContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-block: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-block: 20px;
 }
 
 .pagination {
-    position: relative;
+  position: relative;
 }
 
 .paginationContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8.5px;
-    background-color: #FFDE8D;
-    border-radius: 20px;
-    padding: 10px 29px;
-    width: max-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8.5px;
+  background-color: #ffde8d;
+  border-radius: 20px;
+  padding: 10px 29px;
+  width: max-content;
 }
 
 .currentPag {
-    width: 7.2px;
-    height: 5px;
-    background-color: #fd5a333d;
-    border-radius: 20px;
+  width: 7.2px;
+  height: 5px;
+  background-color: #fd5a333d;
+  border-radius: 20px;
 }
 
 .currentPag:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .currentPagActive {
-    width: 7.7px;
-    height: 12px;
-    background-color: var(--edustipend-yellow);
+  width: 7.7px;
+  height: 12px;
+  background-color: var(--edustipend-yellow);
 }
 
 .eclipse {
-    width: 100%;
-    height: 24px;
-    position: absolute;
-    border-radius: 50%;
-    background-color: #fff;
+  width: 100%;
+  height: 24px;
+  position: absolute;
+  border-radius: 50%;
+  background-color: #fff;
 }
 
 .eclipseTop {
-    top: -20.5px;
+  top: -20.5px;
 }
 
 .eclipseBottom {
-    bottom: -20.5px;
+  bottom: -20.5px;
 }
 
+@media screen and (min-width: 1024px) {
+  .btns {
+    display: block;
+  }
 
-@media screen and (min-width:1024px) {
-    .btns {
-        display: block;
-    }
+  .preBtn {
+    left: 0;
+  }
 
-    .preBtn {
-        left: 0;
-    }
+  .nextBtn {
+    right: 0;
+  }
 
-    .nextBtn {
-        right: 0;
-    }
+  .relativeContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-inline: auto;
+  }
 
-    .relativeContainer {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin-inline: auto;
-    }
+  .carouselContainer {
+    width: 80%;
+  }
 
-    .carouselContainer {
-        width: 80%;
-    }
-
-    .btns {
-        top: 35%;
-    }
+  .btns {
+    top: 35%;
+  }
 }
 
 @media screen and (min-width: 1440px) {
-    .testimonialContent {
-        margin-inline: auto;
-    }
+  .testimonialContent {
+    margin-inline: auto;
+  }
 
-    .outterContainer {
-        margin-block: 32px;
-    }
+  .outterContainer {
+    margin-block: 32px;
+  }
 
-    .paginationContainer {
-        background-color: #FEBD1C3B;
-    }
+  .paginationContainer {
+    background-color: #febd1c3b;
+  }
 
-    .currentPag {
-        width: 11px;
-        height: 10px;
-    }
+  .currentPag {
+    width: 11px;
+    height: 10px;
+  }
 
-    .currentPagActive {
-        height: 24px;
-    }
+  .currentPagActive {
+    height: 24px;
+  }
 
-    .eclipse {
-        display: none;
-    }
+  .eclipse {
+    display: none;
+  }
 }

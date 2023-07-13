@@ -1,4 +1,4 @@
-import { cardData } from "../../sections/Testimonials/internals/card/cardData";
+import { cardData } from '../../sections/Testimonials/internals/card/cardData';
 
 export const types = {
   TOUCHSTART: 'TOUCHSTART',
@@ -38,13 +38,13 @@ export const slideReducer = (state, action) => {
       return {
         ...state,
         touchStartEvent: payload
-      }
+      };
     }
     case TOUCHEND: {
       return {
         ...state,
         touchEndEvent: payload
-      }
+      };
     }
     default:
       return state;

@@ -33,7 +33,7 @@ export const cardData = [
         media: 'twitter',
         img: twitter,
         link: '#'
-      },
+      }
     ]
   },
   {
@@ -63,7 +63,7 @@ export const cardData = [
         media: 'twitter',
         img: twitter,
         link: '#'
-      },
+      }
     ]
   },
   {
@@ -93,7 +93,7 @@ export const cardData = [
         media: 'twitter',
         img: twitter,
         link: '#'
-      },
+      }
     ]
   },
   {
@@ -123,7 +123,7 @@ export const cardData = [
         media: 'twitter',
         img: twitter,
         link: '#'
-      },
+      }
     ]
   },
   {
@@ -153,7 +153,7 @@ export const cardData = [
         media: 'twitter',
         img: twitter,
         link: '#'
-      },
+      }
     ]
   }
 ];

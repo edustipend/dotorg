@@ -3,12 +3,10 @@ export const TestConstants = {
   leftBtnTestId: 'leftBtnTestId',
   rightBtnTestId: 'rightBtnTestId',
   paginationTestId: 'paginationTestId',
-  pagTestId: 'pagtionTestId',
-}
+  pagTestId: 'pagtionTestId'
+};
 
 export const testimonialStatic = {
   title: 'Testimonials',
   subtitle: 'HEAR FROM OUR AMBASSADORS AND BENEFICIARIES'
 };
-
-

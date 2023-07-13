@@ -12,8 +12,9 @@ export const Header = ({ className, dataTest, size = 'large', color, subheader, 
   const HeaderComponent = HeaderSizes[size];
   return (
     <HeaderComponent
-      className={[`${styles.header}`, `${styles[`header-${size}`]} ${styles[color]}`,
-      subheader ? `${styles.subheader}` : '', `${className}`].join(' ')}
+      className={[`${styles.header}`, `${styles[`header-${size}`]} ${styles[color]}`, subheader ? `${styles.subheader}` : '', `${className}`].join(
+        ' '
+      )}
       data-testid={dataTest}
     >
       {text}
@@ -36,5 +37,5 @@ Header.defaultProps = {
   size: 'large',
   subheader: false,
   text: 'Default header text',
-  color: 'primary',
+  color: 'primary'
 };

@@ -1,12 +1,12 @@
 import Header from '../../components/Header';
-import styles from './Testimonials.module.css'
+import styles from './Testimonials.module.css';
 import { TestConstants } from './internals/testimonialsData';
 import { cardData } from './internals/card/cardData';
 import Carousel from '../../components/Carousel/Carousel';
-import frame from '../../assets/arrow_frame.png'
+import frame from '../../assets/arrow_frame.png';
 
 export const Testimonials = () => {
-  const { componentTestId } = TestConstants
+  const { componentTestId } = TestConstants;
   return (
     <main data-testid={componentTestId} className={styles.main}>
       <div className={styles.frame}>
@@ -22,5 +22,5 @@ export const Testimonials = () => {
         <Carousel cardData={cardData} />
       </section>
     </main>
-  )
-}
+  );
+};
