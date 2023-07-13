@@ -18,10 +18,13 @@
   margin-bottom: 32px;
 }
 
+.con {
+  display: flex;
+  justify-content: center;
+}
+
 .sub_header {
   max-width: 285px;
-  text-align: center;
-  background: #000;
 }
 
 .title {
@@ -39,6 +42,11 @@
 
 
 
+@media screen and (min-width: 768px) {
+  .sub_header {
+    max-width: 100%;
+  }
+}
 
 @media screen and (min-width:1024px) {
   .btns {

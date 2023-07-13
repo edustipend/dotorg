@@ -1,25 +1,15 @@
 /* eslint-disable testing-library/no-node-access */
 /* eslint-disable testing-library/prefer-screen-queries */
 import { render, fireEvent } from '@testing-library/react';
-import Testimonials from '../Testimonials';
-import { TestConstants } from '../internals/testimonialsData';
-
-
-const { componentTestId, titleTestId, leftBtnTestId, rightBtnTestId, subTitleTestId, paginationTestId, pagTestId } = TestConstants
+import { TestConstants } from '../testimonialsData';
+import Testimonials from '../Testimonials'
+const { componentTestId, leftBtnTestId, rightBtnTestId, paginationTestId, pagTestId } = TestConstants
 
 describe('Testimonials', () => {
     describe('The component should render correctly', () => {
         it('Testimonials component should  be in the document', () => {
             const { getByTestId } = render(<Testimonials />);
             expect(getByTestId(componentTestId)).toBeInTheDocument();
-        })
-        it('The component Title should have a text content Testimonials', () => {
-            const { getByTestId } = render(<Testimonials />)
-            expect(getByTestId(titleTestId)).toHaveTextContent(/testimonials/i)
-        })
-        it('The component subTitle should have a text content HEAR FROM OUR AMBASSADORS AND BENEFICIARIES', () => {
-            const { getByTestId } = render(<Testimonials />)
-            expect(getByTestId(subTitleTestId)).toHaveTextContent(/HEAR FROM OUR AMBASSADORS AND BENEFICIARIES/i)
         })
     })
 

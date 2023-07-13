@@ -2,7 +2,7 @@ import Carousel from "./Carousel";
 import { cardData } from "../card/cardData";
 
 export default {
-    title: 'Edustipend/Carousel',
+    title: 'Edustipend/Components/Carousel',
     component: Carousel,
     tags: ['autodocs']
 }

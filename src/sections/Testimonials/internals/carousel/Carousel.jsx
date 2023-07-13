@@ -4,7 +4,7 @@ import Card from '../card/Card';
 import PropTypes from 'prop-types'
 import arrLeft from '../../../../assets/arrow-left.svg';
 import arrRight from '../../../../assets/arrow-right.svg';
-import { TestConstants } from '../testimonialsData';
+import { TestConstants } from '../../testimonialsData';
 import { slideReducer, initialState, types } from './carouselReducer';
 
 
