@@ -10,7 +10,7 @@ initFirebaseApp();
 function App() {
   return (
     <>
-      <img src={Circles} className="circles-img" />
+      <img src={Circles} className="circles-img" alt="background-image" />
       <Navbar />
       <Routes />
       <Footer />
