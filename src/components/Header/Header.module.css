@@ -1,8 +1,38 @@
 .header {
   font-family: 'Poppins', sans-serif;
-  text-shadow: 1px 1px 2px white;
+  text-align: center;
   font-size: 32px;
-  font-weight: 600;
+  font-family: 600;
+  margin-bottom: 26px;
+  max-width: 500px;
+  position: relative;
+}
+
+.effect {
+  font-size: 32px;
+  font-family: 600;
+  margin-bottom: 26px;
+  color: #2D3740;
+  max-width: 500px;
+  position: relative;
+}
+
+.effect::before {
+  content: attr(data-attr);
+  font-size: inherit;
+  width: inherit;
+  height: inherit;
+  text-align: inherit;
+  margin-bottom: inherit;
+  max-width: inherit;
+  position: absolute;
+  color: #2D3740;
+  text-shadow:
+    1px 0 #FFFFFF,
+    0 -1px #FFFFFF,
+    -1px 0 #FFFFFF,
+    0 1px #FFFFFF;
+  left: 0px;
 }
 
 .subheader {
@@ -11,13 +41,6 @@
   text-transform: uppercase;
 }
 
-.primary {
-  color: #2D3740;
-}
-
-.secondary {
-  color: #FFFFFF;
-}
 
 @media screen and (min-width:1440px) {
   .header {

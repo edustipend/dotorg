@@ -11,9 +11,11 @@ const HeaderSizes = {
 export const Header = ({ className, dataTest, size = 'large', color, subheader, text }) => {
   const HeaderComponent = HeaderSizes[size];
   return (
-    <HeaderComponent
-      className={[`${styles.header}`, `${styles[`header-${size}`]} ${styles[color]}`,
-      subheader ? `${styles.subheader}` : '', `${className}`].join(' ')}
+    <HeaderComponent data-attr={text}
+      className={[`${styles.header}`, `${styles[`header-${size}`]}}`,
+      subheader ? `${styles.subheader}` : !subheader & color === 'primary' ? `${styles.effect}`
+        : !subheader & color === 'secondary' ? `${styles.effect} ${styles.secondary}` : ''
+        , `${className}`].join(' ')}
       data-testid={dataTest}
     >
       {text}
