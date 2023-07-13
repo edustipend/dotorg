@@ -29,7 +29,7 @@
 }
 
 .sub_header {
-  width: 285px;
+  width: 320px;
 }
 
 .title {
@@ -43,6 +43,12 @@
   font-size: 18px;
   font-weight: 700;
   color: #2d3740;
+}
+
+@media screen and (max-width: 350px) {
+  .sub_header {
+    width: 100%;
+  }
 }
 
 @media screen and (min-width: 768px) {
