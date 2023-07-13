@@ -1,5 +1,5 @@
 import Carousel from "./Carousel";
-import { cardData } from "../card/cardData";
+import { cardData } from "../../sections/Testimonials/internals/card/cardData";
 
 export default {
     title: 'Edustipend/Components/Carousel',

@@ -1,14 +1,14 @@
 import React from 'react';
 import styles from './Card.module.css';
 import PropTypes from 'prop-types';
-//import { Link } from 'react-router-dom';
+
 
 const Card = ({ itm, offset }) => {
 
   let active = offset === 0 ? true : null;
   const { id, name, status, testimonial, socials, image } = itm;
   return (
-    <div key={id} className={styles.card} data-active={active}
+    <div data-testid='card' key={id} className={styles.card} data-active={active}
       style={{ '--offset': offset, '--skew': offset === 0 ? 0 : offset > 0 ? 1 : -1 }}
     >
       <div>
@@ -25,9 +25,11 @@ const Card = ({ itm, offset }) => {
           </p>
           <div className={styles.socialsContainer}>
             {socials.map((itm) => {
-              const { id, media, img } = itm
+              const { id, media, img, link } = itm
               return (
-                <img key={id} src={img} alt={media} className={styles.socialMedia} />
+                <a key={id} href={link}>
+                  <img src={img} alt={media} className={styles.socialMedia} />
+                </a>
               )
             })}
           </div>
