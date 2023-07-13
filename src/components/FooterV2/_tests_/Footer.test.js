@@ -1,0 +1,1 @@
+import FooterV2 from "../FooterV2";
