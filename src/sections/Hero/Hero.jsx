@@ -42,16 +42,16 @@ const Hero = () => {
           </h1>
           <div className="boost-container">
             <p>Give your learning goals a BOOST</p>
-            <img src={Svg1} alt="svg" />
+            <img src={Svg1} alt="boost icon" />
           </div>
           <div className="btn-container">
             <Button label="Request stipend" />
           </div>
-          <img src={Svg5} alt="svg" className="left" />
-          <img src={Svg4} alt="svg" className="right" />
+          <img src={Svg5} alt="icon" className="left" />
+          <img src={Svg4} alt="icon" className="right" />
         </div>
-        <img src={Svg3} alt="svg" className="left2" />
-        <img src={Svg2} alt="svg" className="right2" />
+        <img src={Svg3} alt="icon" className="left2" />
+        <img src={Svg2} alt="icon" className="right2" />
         <div className="down-section">
           <div className="img1">
             <img src={Hero1} alt="student" />

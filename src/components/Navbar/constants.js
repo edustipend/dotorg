@@ -4,7 +4,7 @@ export const TestId = {
   NAVBAR_LINKS_ID: 'navbar-links'
 };
 
-export const links = [
+export const NAVBAR_LINKS = [
   {
     label: 'Ambassador Program',
     to: '/ambassador-program'
@@ -18,3 +18,19 @@ export const links = [
     to: '/support-a-learner'
   }
 ];
+export const NAVBAR_AMBASSADOR_LINKS = [
+  {
+    label: 'About the Program',
+    to: '/ambassador-program#about'
+  },
+  {
+    label: 'Eligibility',
+    to: '/ambassador-program#eligibility'
+  },
+  {
+    label: 'Apply now',
+    to: '/ambassador-program#apply-now'
+  }
+];
+
+export const buttonLabel = 'Request stipend';
