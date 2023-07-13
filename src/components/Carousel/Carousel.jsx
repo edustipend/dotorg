@@ -9,6 +9,9 @@ import { slideReducer, initialState, types } from './carouselReducer';
 
 
 const Carousel = ({ cardData }) => {
+    const [state, dispatch] = useReducer(slideReducer, initialState);
+    const { slideIndex, touchStartEvent, touchEndEvent } = state;
+    const { leftBtnTestId, rightBtnTestId, paginationTestId, pagTestId } = TestConstants
     // the minimum diffrence between touchStartEvent and touchEndEvent
     const minSwipeDiffrence = 0
 
@@ -43,9 +46,7 @@ const Carousel = ({ cardData }) => {
         }
     }
 
-    const [state, dispatch] = useReducer(slideReducer, initialState);
-    const { slideIndex, touchStartEvent, touchEndEvent } = state;
-    const { leftBtnTestId, rightBtnTestId, paginationTestId, pagTestId } = TestConstants
+
 
     return (
         <div onTouchStart={onTouchStartEvent} onTouchMove={onTouchMoveEvent}

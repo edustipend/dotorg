@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Card.module.css';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 
 const Card = ({ itm, offset }) => {
 
@@ -25,11 +25,9 @@ const Card = ({ itm, offset }) => {
           </p>
           <div className={styles.socialsContainer}>
             {socials.map((itm) => {
-              const { id, media, img, link } = itm
+              const { id, media, img } = itm
               return (
-                <Link key={id} to={link} >
-                  <img src={img} alt={media} className={styles.socialMedia} />
-                </Link>
+                <img key={id} src={img} alt={media} className={styles.socialMedia} />
               )
             })}
           </div>
@@ -50,3 +48,4 @@ Card.defaultProps = {
   itm: null,
   offset: 0
 };
+
