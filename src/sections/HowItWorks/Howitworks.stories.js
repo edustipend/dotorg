@@ -1,9 +1,13 @@
-import HowitWorks from "./Howitworks"
+import { HowItWorks as HowItWorksComponent } from './Howitworks';
 
 export default {
-  title: 'Edustipend/HowitWorks',
-  component: HowitWorks,
+  title: 'Edustipend/Sections/HowItWorks',
+  component: HowItWorksComponent,
+  tags: ['autodocs']
 };
 
-export const HowitWorksStory = () => <HowitWorks />;
-
+export const HowItWorks = {
+  args: {
+    content: 'Request stipend'
+  }
+};

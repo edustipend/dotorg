@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import TakeOffBurden from '../TakeOffBurden
+import TakeOffBurden from "../TakeOffBurden"
 import { TestId, ByText } from '../constant';
 
 

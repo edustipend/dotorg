@@ -1,12 +1,16 @@
-import BeneficiariesSection from '../../sections/Beneficiaries';
-import TestimonialsSection from '../../sections/Testimonials';
+import HowItWorksSection from '../../sections/HowItWorks/Howitworks';
+import BeneficiariesSection from '../../sections/Beneficiaries/Beneficiaries';
+import TakeOffBurdenSection from '../../sections/TakeOffBurden/TakeOffBurden';
+
+
 
 export const LandingV2 = () => {
   return (
     <div>
       Edustipend v2.0 coming...
+      <HowItWorksSection />
       <BeneficiariesSection />
-      <TestimonialsSection />
+      <TakeOffBurdenSection />
     </div>
   );
 };

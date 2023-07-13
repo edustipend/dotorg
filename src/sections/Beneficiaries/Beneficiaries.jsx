@@ -4,11 +4,14 @@ import Button from '../../components/Button/index';
 import Container from '../../components/Container/container';
 import { Header } from '../../components/Header/Header';
 import { Text } from '../../components/Text/Text';
+import NumbersGrid from './Internals/NumbersGrid';
 
 const Beneficiaries = () => {
   return (
     <section className="Beneficiaries">
       <Container>
+        {/* Mobile */}
+
         <div className="Beneficiaries-container">
           <div className="texts-and-images">
             <div className="left-texts">
@@ -42,35 +45,14 @@ const Beneficiaries = () => {
             </div>
           </div>
 
-          <div className="numbers-container">
-            <div className="numbers">
-              <div className="top-numbers">
-                <div className="top-left-numbers">
-                  <h3>5000+</h3>
-                  <p>Applications</p>
-                </div>
-                <div className="top-right-numbers">
-                  <h3>100+</h3>
-                  <p>Beneficiaries</p>
-                </div>
-              </div>
-              <div className="bottom-numbers">
-                <div className="bottom-left-numbers">
-                  <h3>7+</h3>
-                  <p>Ambassadors</p>
-                </div>
-                <div className="bottom-right-numbers">
-                  <h3>2k+</h3>
-                  <p>Happy Learners</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <NumbersGrid />
 
           <div className="view-numbers-btn">
             <Button primary={true} size="large" label={'View the numbers'} effect="primary" />
           </div>
         </div>
+
+        {/* Bigger Screen */}
 
         <div className="Beneficiaries-bigscreen-container">
           <div className="Beneficiaries-bigscreen-container-left">
@@ -92,30 +74,7 @@ const Beneficiaries = () => {
               </div>
             </div>
 
-            <div className="numbers-container-bigscreen">
-              <div className="numbers-bigscreen">
-                <div className="top-numbers-bigscreen">
-                  <div className="top-left-numbers-bigscreen">
-                    <h3>5000+</h3>
-                    <p>Applications</p>
-                  </div>
-                  <div className="top-right-numbers-bigscreen">
-                    <h3>100+</h3>
-                    <p>Beneficiaries</p>
-                  </div>
-                </div>
-                <div className="bottom-numbers-bigscreen">
-                  <div className="bottom-left-numbers-bigscreen">
-                    <h3>7+</h3>
-                    <p>Ambassadors</p>
-                  </div>
-                  <div className="bottom-right-numbers-bigscreen">
-                    <h3>2k+</h3>
-                    <p>Happy Learners</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <NumbersGrid />
 
             <div className="view-numbers-btn">
               <Button primary={true} size="large" label={'View the numbers'} effect="primary" />

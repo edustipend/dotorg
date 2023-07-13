@@ -5,6 +5,7 @@ import './App.css';
 import { Footer } from './components/Footer/Footer';
 import Circles from './assets/light_border.png';
 
+
 initFirebaseApp();
 
 function App() {

@@ -1,11 +1,13 @@
-import TakeOffBurden from "./TakeOffBurden"
+import { TakeOffBurden as TakeOffBurdenComponent } from './TakeOffBurden';
 
 export default {
-  title: 'Edustipend/TakeOffBurden',
-  component: TakeOffBurden,
+  title: 'Edustipend/Sections/TakeOffBurden',
+  component: TakeOffBurdenComponent,
+  tags: ['autodocs']
 };
 
-export const TakeOffBurdenStory = () => <TakeOffBurden />;
-
-
-
+export const TakeOffBurden = {
+  args: {
+    content: 'Request stipend'
+  }
+};
