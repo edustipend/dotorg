@@ -1,24 +1,25 @@
-.header {
-  font-family: 'Poppins', sans-serif;
-  text-align: center;
-  font-size: 32px;
-  font-family: 600;
-  margin-bottom: 26px;
-  max-width: 500px;
+.position {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #2d3740;
+  text-align: center;
+}
+
+.alt {
+  color: #ffffff;
 }
 
 .effect {
   font-size: 32px;
   font-family: 600;
-  margin-bottom: 26px;
-  color: #2D3740;
-  max-width: 500px;
   position: relative;
 }
 
 .effect::before {
-  content: attr(data-attr);
+  content: attr(data);
   font-size: inherit;
   width: inherit;
   height: inherit;
@@ -26,13 +27,22 @@
   margin-bottom: inherit;
   max-width: inherit;
   position: absolute;
-  color: #2D3740;
+  color: inherit;
   text-shadow:
-    1px 0 #FFFFFF,
-    0 -1px #FFFFFF,
-    -1px 0 #FFFFFF,
-    0 1px #FFFFFF;
-  left: 0px;
+    1px 0 #ffffff,
+    0 -1px #ffffff,
+    -1px 0 #ffffff,
+    0 1px #ffffff;
+  right: -4px;
+}
+
+.secondary::before {
+  text-shadow:
+    1px 0 #2d3740,
+    0 -1px #2d3740,
+    -1px 0 #2d3740,
+    0 1px #2d3740;
+  right: -2.5px;
 }
 
 .subheader {
@@ -41,13 +51,22 @@
   text-transform: uppercase;
 }
 
-
-@media screen and (min-width:1440px) {
-  .header {
+@media screen and (min-width: 1440px) {
+  .effect {
     font-size: 64px;
+  }
+
+  .effect::before {
+    right: -6px;
   }
 
   .subheader {
     font-size: 32px;
+  }
+}
+
+@media screen and (min-width: 1680px) {
+  .effect::before {
+    right: -4px;
   }
 }

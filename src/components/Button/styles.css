@@ -12,17 +12,14 @@
   width: 310px;
 }
 
-
 .edustipend-button--primary {
   color: white;
   background-color: var(--edustipend-purple);
-
 }
 
 .edustipend-button--secondary {
   color: #333;
   background-color: var(--edustipend-yellow);
-
 }
 
 .edustipend-button--small {
@@ -40,14 +37,13 @@
   padding: 14px 30px;
 }
 
-
 .effect {
   width: max-content;
   padding: 8px 10px;
   border-radius: 3em;
-  background: #FFFFFF40;
+  background: #ffffff40;
   box-shadow: 0px 14px 13px -4px rgba(0, 0, 0, 0.1);
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .effect:hover {
@@ -61,10 +57,9 @@
   -webkit-backdrop-filter: blur(0.7px);
   border-top: 2px solid rgba(255, 255, 255, 0.3);
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-
 }
 
-@media screen and (max-width:350px) {
+@media screen and (max-width: 350px) {
   .edustipend-button {
     width: 240px;
   }

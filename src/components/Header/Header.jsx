@@ -8,21 +8,41 @@ const HeaderSizes = {
   large: 'h1'
 };
 
-export const Header = ({ className, dataTest, size = 'large', color, subheader, text }) => {
+export const Header = ({ dataTest, size = 'large', color = 'primary', subheader, text }) => {
   const HeaderComponent = HeaderSizes[size];
   return (
-    <HeaderComponent data-attr={text}
-      className={[`${styles.header}`, `${styles[`header-${size}`]}}`,
-      subheader ? `${styles.subheader}` : !subheader & color === 'primary' ? `${styles.effect}`
-        : !subheader & color === 'secondary' ? `${styles.effect} ${styles.secondary}` : ''
-        , `${className}`].join(' ')}
-      data-testid={dataTest}
-    >
-      {text}
-    </HeaderComponent>
+    <div className={color === 'primary' ? `${styles.position}` : color === 'secondary' ? `${styles.position} ${styles.alt}` : ''}>
+      <HeaderComponent
+        data={text}
+        className={
+          subheader
+            ? `${styles.subheader}`
+            : !subheader & (color === 'primary')
+            ? `${styles.effect} `
+            : !subheader & (color === 'secondary')
+            ? `${styles.effect} ${styles.secondary} `
+            : color === 'primary'
+            ? `${styles.priColor} `
+            : color === 'secondary'
+            ? `${styles.secColor} `
+            : ''
+        }
+        data-testid={dataTest}
+      >
+        {text}
+      </HeaderComponent>
+    </div>
   );
 };
 
+/**
+ * className={[`${ styles.header } `, `${ styles[`header-${size}`] }
+}`,
+      subheader ? `${ styles.subheader } ` : !subheader & color === 'primary' ? `${ styles.effect } `
+        : !subheader & color === 'secondary' ? `${ styles.effect } ${ styles.secondary } ` : ''
+        , `${ className } `].join(' ')}
+      data-testid={dataTest}
+ */
 Header.propTypes = {
   className: PropTypes.string,
   dataTest: PropTypes.string,
@@ -38,5 +58,5 @@ Header.defaultProps = {
   size: 'large',
   subheader: false,
   text: 'Default header text',
-  color: 'primary',
+  color: 'primary'
 };
