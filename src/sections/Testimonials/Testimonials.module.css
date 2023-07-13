@@ -22,6 +22,11 @@
   justify-content: center;
 }
 
+.headerContainer {
+  display: flex;
+  justify-content: center;
+}
+
 .sub_header {
   max-width: 285px;
 }
