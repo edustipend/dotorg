@@ -1,10 +1,10 @@
 import React, { useReducer } from 'react'
 import styles from './Carousel.module.css'
-import Card from '../card/Card';
+import Card from '../../sections/Testimonials/internals/card/Card';
 import PropTypes from 'prop-types'
-import arrLeft from '../../../../assets/arrow-left.svg';
-import arrRight from '../../../../assets/arrow-right.svg';
-import { TestConstants } from '../../testimonialsData';
+import arrLeft from '../../assets/arrow-left.svg';
+import arrRight from '../../assets/arrow-right.svg';
+import { TestConstants } from './constants';
 import { slideReducer, initialState, types } from './carouselReducer';
 
 

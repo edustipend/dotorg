@@ -1,4 +1,4 @@
-import { cardData } from "../card/cardData";
+import { cardData } from "../../sections/Testimonials/internals/card/cardData";
 
 export const types = {
   TOUCHSTART: 'TOUCHSTART',

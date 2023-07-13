@@ -1,8 +1,8 @@
 import Header from '../../components/Header';
 import styles from './Testimonials.module.css'
-import { TestConstants } from './testimonialsData';
+import { TestConstants } from './internals/testimonialsData';
 import { cardData } from './internals/card/cardData';
-import Carousel from './internals/carousel/Carousel';
+import Carousel from '../../components/Carousel/Carousel';
 import frame from '../../assets/arrow_frame.png'
 
 export const Testimonials = () => {
