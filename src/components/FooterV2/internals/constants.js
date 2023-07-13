@@ -3,7 +3,6 @@ import facebook from '../../../assets/social/facebook_light.svg';
 import twitter from '../../../assets/social/twitter_light.svg';
 
 
-export 
 
 export const socialLinks = [
   {
