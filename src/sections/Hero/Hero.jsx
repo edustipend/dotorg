@@ -1,7 +1,7 @@
 import { useEffect, useState, useCallback } from 'react';
 import Container from '../../components/Container/container';
 import Button from '../../components/Button';
-import { Link } from 'react-router-dom';
+import { NavHashLink } from 'react-router-hash-link';
 import { Hero1, Hero2, Hero3, Hero4, Svg1, Svg2, Svg3, Svg4, Svg5, ArrowDown } from '../../assets/index';
 import { stipends, stipendsColors, buttonLabel, secondaryEffect } from './constants';
 
@@ -65,11 +65,11 @@ const Hero = () => {
           <div className="img1">
             <img src={Hero4} alt="student" />
           </div>
-          <Link to="#how-it-works">
+          <NavHashLink to={{ pathname: '/', hash: '#how-it-works' }}>
             <div className="btn-down">
               <img src={ArrowDown} alt="arrowdown" />
             </div>
-          </Link>
+          </NavHashLink>
         </div>
       </Container>
     </section>

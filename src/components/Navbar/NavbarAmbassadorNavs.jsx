@@ -1,5 +1,4 @@
-import { Link } from 'react-router-dom';
-
+import { NavHashLink } from 'react-router-hash-link';
 import PropTypes from 'prop-types';
 import { NAVBAR_AMBASSADOR_LINKS, TestId } from './constants';
 
@@ -11,18 +10,18 @@ const NavbarAmbassadorNavs = ({ showMenu }) => {
     <>
       <nav className="navbarNavs" data-testid={NAVBAR_LINKS_ID}>
         {NAVBAR_AMBASSADOR_LINKS.map((link) => (
-          <Link key={link.label} to={link.to}>
+          <NavHashLink className={link.label === 'Apply now' ? 'nav-cta' : ''} key={link.label} to={{ pathname: link.path, hash: link.hash }}>
             {link.label}
-          </Link>
+          </NavHashLink>
         ))}
       </nav>
 
       {showMenu ? (
         <nav className="mobile-nav">
           {NAVBAR_AMBASSADOR_LINKS.map((link) => (
-            <Link key={link.label} to={link.to}>
+            <NavHashLink key={link.label} to={{ pathname: link.path, hash: link.hash }}>
               {link.label}
-            </Link>
+            </NavHashLink>
           ))}
         </nav>
       ) : (

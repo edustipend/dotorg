@@ -21,17 +21,22 @@ export const NAVBAR_LINKS = [
 export const NAVBAR_AMBASSADOR_LINKS = [
   {
     label: 'About the Program',
-    to: '/ambassador-program#about'
+    path: '/ambassador-program',
+    hash: '#about'
   },
   {
     label: 'Eligibility',
-    to: '/ambassador-program#eligibility'
+    path: '/ambassador-program',
+    hash: '#eligibility'
   },
   {
     label: 'Apply now',
-    to: '/ambassador-program#apply-now'
+    path: '/ambassador-program',
+    hash: '#apply-now'
   }
 ];
 
 export const buttonLabel = 'Request stipend';
 export const secondaryEffect = 'secondary';
+export const applyLabel = 'Apply Now';
+export const edustipendPurple = '#5800ff';
