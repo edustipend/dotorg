@@ -2,12 +2,13 @@ import React from 'react';
 import { NavHashLink } from 'react-router-hash-link';
 import './styles.css';
 import Achieve from '../../assets/achieve.svg';
-import Request from '../../assets/request.svg';
+//import Request from '../../assets/request.svg';
 import Receive from '../../assets/receive.svg';
 import Review from '../../assets/review.svg';
 import StudentImage from '../../assets/image_student.png';
 import PhoneImage from '../../assets/image_phone.png';
 import HandshakeImage from '../../assets/image_handshake.png';
+import Request from '../../sections/Request/Request';
 
 const TopSection = () => {
   return (
@@ -147,6 +148,7 @@ export const Landing = () => {
       <TopSection />
       <MidSection />
       <RequestSection />
+      <Request />
     </main>
   );
 };
