@@ -33,7 +33,7 @@
     0 -1px #ffffff,
     -1px 0 #ffffff,
     0 1px #ffffff;
-  right: -4px;
+  right: -3px;
 }
 
 .secondary::before {
@@ -53,20 +53,14 @@
 
 @media screen and (min-width: 1440px) {
   .effect {
-    font-size: 64px;
+    font-size: 60px;
   }
 
   .effect::before {
-    right: -6px;
+    right: -3.5px;
   }
 
   .subheader {
     font-size: 32px;
-  }
-}
-
-@media screen and (min-width: 1680px) {
-  .effect::before {
-    right: -4px;
   }
 }
