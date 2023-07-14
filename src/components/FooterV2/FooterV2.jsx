@@ -3,10 +3,12 @@ import styles from './FooterV2.module.css';
 import { footerLinks, socialLinks } from './internals/constants';
 import { Link } from 'react-router-dom';
 import Container from '../Container/container';
+import { TestConstants } from './internals/constants';
+const { Component_testid, Links_testid } = TestConstants
 
 const FooterV2 = () => {
   return (
-    <footer>
+    <footer data-testid={Component_testid}>
       <div className={styles.contentWrapper}>
         <div className={styles.overlay}>
           <Container>
@@ -21,7 +23,7 @@ const FooterV2 = () => {
                         {links.map((links) => {
                           const { id, link, text } = links;
                           return (
-                            <li key={id}>
+                            <li key={id} data-testid={Links_testid}>
                               <Link to={link} className={styles.link}>
                                 {text}
                               </Link>

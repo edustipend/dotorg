@@ -2,7 +2,10 @@ import insta from '../../../assets/social/insta_light.svg';
 import facebook from '../../../assets/social/facebook_light.svg';
 import twitter from '../../../assets/social/twitter_light.svg';
 
-
+export const TestConstants = {
+  Component_testid: 'Component_testid',
+  Links_testid: 'Links_testid',
+}
 
 export const socialLinks = [
   {
