@@ -13,6 +13,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 40px;
 }
 
 .title {
@@ -22,7 +23,8 @@
   font-family: 'Poppins';
   margin-bottom: 26px;
   color: #2D3740;
-  width: 500px;
+  line-height: 40px;
+  width: 281px;
   position: relative;
 }
 
@@ -41,7 +43,7 @@
     0 -1px #FFFFFF,
     -1px 0 #FFFFFF,
     0 1px #FFFFFF;
-  right: -3.5px;
+  right: -2px;
 }
 
 .rocket {
@@ -69,6 +71,12 @@
   height: 300px;
 }
 
+@media screen and (min-width: 500px) {
+  .title {
+    width: 450px;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .requestContent {
     position: absolute;
@@ -89,6 +97,10 @@
     width: 450px;
     font-size: 32px;
     margin-bottom: 10px;
+  }
+
+  .title::before {
+    right: -3px;
   }
 }
 
@@ -120,8 +132,8 @@
   }
 
   .title {
-    width: 830px;
-    font-size: 60px;
+    width: 890px;
+    font-size: 64px;
     line-height: 75px;
     margin-bottom: 64px;
   }
