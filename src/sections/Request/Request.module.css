@@ -99,9 +99,6 @@
     margin-bottom: 10px;
   }
 
-  .title::before {
-    right: -3.5px;
-  }
 }
 
 @media screen and (min-width: 1024px) {
@@ -136,6 +133,10 @@
     font-size: 64px;
     line-height: 75px;
     margin-bottom: 64px;
+  }
+
+  .title::before {
+    right: -3.5px;
   }
 
   .requestContent {
