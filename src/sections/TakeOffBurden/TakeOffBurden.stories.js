@@ -1,4 +1,4 @@
-import { TakeOffBurden as TakeOffBurdenComponent } from './TakeOffBurden';
+import TakeOffBurdenComponent from './TakeOffBurden';
 
 export default {
   title: 'Edustipend/Sections/TakeOffBurden',

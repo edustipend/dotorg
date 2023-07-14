@@ -11,7 +11,6 @@ const Beneficiaries = () => {
     <section className="Beneficiaries">
       <Container>
         {/* Mobile */}
-
         <div className="Beneficiaries-container">
           <div className="texts-and-images">
             <div className="left-texts">
@@ -53,15 +52,14 @@ const Beneficiaries = () => {
         </div>
 
         {/* Bigger Screen */}
-
         <div className="Beneficiaries-bigscreen-container">
           <div className="Beneficiaries-bigscreen-container-left">
             <div className="left-texts-bigscreen">
-              <div className="Beneficiaries-header-div">
+              <div className="Beneficiaries-header-bigscreen">
                 <Header text="Our Beneficiaries so far" color="primary" />
               </div>
 
-              <div className="Beneficiaries-subheader-div">
+              <div className="Beneficiaries-subheader-bigscreen">
                 <Header subheader={true} text="Our Beneficiaries" color="primary" />
               </div>
 

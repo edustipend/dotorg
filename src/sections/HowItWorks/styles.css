@@ -11,6 +11,7 @@
 }
 .subheader-div {
   text-align: center;
+  margin-top: -10px;
 }
 
 .Card-Wrapper {
@@ -24,7 +25,7 @@
 .RRRR-Transparent-Card {
   background-color: #ffffff;
   width: 100%;
-  height: 350px;
+  height: 270px;
   border-radius: 30px;
   opacity: 0.1;
   box-shadow: rgba(0, 0, 0, 0.9) 0px 3px 8px;
@@ -33,7 +34,7 @@
 .RRRR-Card {
   background-color: #ffffff;
   width: 92%;
-  height: 350px;
+  height: 270px;
   margin: -50px auto;
   border-radius: 30px;
   position: absolute;
@@ -42,7 +43,7 @@
 }
 
 .RRRR-SVG-header {
-  margin: 30px 30px 0px;
+  margin: 30px 20px 0px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -53,15 +54,17 @@
   font-size: 18px;
   text-transform: uppercase;
   font-weight: 600;
-  font-family: 'Manrope';
+  font-family: 'Poppins', sans-serif;
+  color: #2D3740;
 }
 
 .RRRR-headerText {
-  margin: 5px 30px 30px;
+  margin: 5px 20px 30px;
   font-family: 'Manrope';
   line-height: 25px;
   text-align: justify;
   font-size: 14px;
+  color: #2D3740;
 }
 
 @media screen and (min-width: 375px) {
@@ -73,19 +76,19 @@
   }
 }
 
-@media screen and (min-width: 425px) {
+@media screen and (min-width: 400px) {
   .RRRR-Transparent-Card {
     width: 100%;
-    height: 250px;
+    height: 210px;
   }
 
   .RRRR-Card {
     width: 92%;
-    height: 240px;
+    height: 210px;
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 600px){
   .Card-Main-Wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -100,12 +103,27 @@
 
   .RRRR-Card {
     width: 90%;
+    height: 290px;
+    margin: -90px 12px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+
+
+  .RRRR-Transparent-Card {
+    width: 100%;
+    height: 250px;
+  }
+
+  .RRRR-Card {
+    width: 90%;
     height: 280px;
     margin: -90px 12px;
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 800px) {
   .Card-Main-Wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -129,6 +147,27 @@
     align-items: center;
     gap: 20px;
   }
+
+  .RRRR-Transparent-Card {
+    width: 100%;
+    height: 270px;
+  }
+
+  .RRRR-Card {
+    width: 90%;
+    height: 300px;
+  }
+ 
+}
+
+@media screen and (min-width: 10240px){
+  .RRRR-Transparent-Card {
+    height: 220px;
+  }
+
+  .RRRR-Card {
+    height: 250px;
+  }
 }
 
 @media screen and (min-width: 1300px) {
@@ -146,10 +185,26 @@
     height: 400px;
     width: 85%;
   }
+
+  .RRRR-Card {
+    padding-top: 5px;
+   }
+ 
+   .RRRR-headerText{
+     line-height: 28px;
+   }
 }
 
 @media screen and (min-width: 1440px) {
   .subheader-div {
     margin-top: 20px;
+  }
+
+  .RRRR-Card {
+   padding-top: 30px;
+  }
+
+  .RRRR-headerText{
+    line-height: 32px;
   }
 }

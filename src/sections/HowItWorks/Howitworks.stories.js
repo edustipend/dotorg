@@ -1,4 +1,4 @@
-import { HowItWorks as HowItWorksComponent } from './Howitworks';
+import HowItWorksComponent from './Howitworks';
 
 export default {
   title: 'Edustipend/Sections/HowItWorks',

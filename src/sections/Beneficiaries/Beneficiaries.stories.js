@@ -1,4 +1,4 @@
-import { Beneficiaries as BeneficiariesComponent } from './Beneficiaries';
+import BeneficiariesComponent from './Beneficiaries';
 
 export default {
   title: 'Edustipend/Sections/Beneficiaries',

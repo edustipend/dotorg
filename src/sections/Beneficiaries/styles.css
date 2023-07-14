@@ -25,7 +25,7 @@
 
 .Beneficiaries-text {
   font-size: 14px;
-  width: 80%;
+  width: 85%;
 }
 
 .top-images {
@@ -40,7 +40,7 @@
 }
 
 .image1 {
-  background-image: url('../../assets/smilingman.jpg');
+  background-image: url('../../assets/iimage1.png');
   background-size: cover;
   background-repeat: no-repeat;
   height: 110px;
@@ -50,7 +50,7 @@
 }
 
 .image2 {
-  background-image: url('../../assets/smilingwoman.jpg');
+  background-image: url('../../assets/iimage2.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position-x: center;
@@ -102,7 +102,7 @@
   }
 
   .image2 {
-    background-image: url('../../assets/womanonheadset.jpg');
+    background-image: url('../../assets/image2.png');
     height: 510px;
     width: 150px;
   }
@@ -148,6 +148,14 @@
   .Beneficiaries-bigscreen-container-left {
     margin-top: 50px;
   }
+
+  .Beneficiaries-text {
+    width: 70%;
+  }
+
+  .Beneficiaries-subheader-bigscreen{
+   margin: -20px 0 20px; 
+  }
 }
 
 @media screen and (min-width: 820px) {
@@ -160,6 +168,10 @@
     font-size: 14px;
     width: 50%;
   }
+
+  .Beneficiaries-subheader-bigscreen{
+    margin: -20px 0 20px; 
+   }
 }
 
 @media screen and (min-width: 996px) {
@@ -181,21 +193,21 @@
 
   .Beneficiaries-text {
     font-size: 14px;
-    width: 60%;
+    width: 55%;
   }
 }
 
 @media screen and (min-width: 1440px) {
-  .Beneficiaries-header-div {
+  .Beneficiaries-header-bigscreen {
     margin-top: 50px;
   }
 
-  .Beneficiaries-subheader-div {
-    margin-top: 20px;
+  .Beneficiaries-subheader-bigscreen {
+    margin: -20px 0 20px; 
   }
 
   .Beneficiaries-text-div {
-    margin-top: 20px;
+    margin-top: 40px;
   }
 
   .Beneficiaries-text {

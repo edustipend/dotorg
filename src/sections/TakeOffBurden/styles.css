@@ -75,9 +75,18 @@
     bottom: 85px;
     right: 50px;
   }
+  .takeoffburden-text{
+    text-align: center;
+    width: 80%;
+    margin: 20px auto;
+  }
 }
 
 @media screen and (min-width: 600px) {
+  .takeoffburden-text{
+    width: 80%;
+    margin: 20px 0;
+  }
   .burdenarrow {
     position: absolute;
     bottom: 85px;
@@ -93,6 +102,12 @@
     width: 300px;
     height: 400px;
   }
+  .takeoffburden-text{
+    text-align: center;
+    width: 60%;
+    margin: 20px auto;
+  }
+  
 }
 
 @media screen and (min-width: 768px) {
@@ -110,35 +125,38 @@
   }
 
   .takeoffburdenleft {
-    width: 70%;
+    width: 50%;
     display: flex;
     align-items: center;
     justify-content: left;
   }
 
   .takeoffburdenright {
-    margin-top: -200px;
+    margin-top: -300px;
     position: relative;
+    width: 40%;
   }
 
   .takeoffburden-Transparent-Card {
-    width: 400px;
+    width: 360px;
     height: 200px;
     margin: 20px 14px;
   }
 
   .takeoffburden-Card {
-    width: 320px;
+    width: 300px;
     height: 500px;
     top: -260px;
   }
 
   .takeoffburden-header-div {
     text-align: left;
+    width: 90%;
   }
   
   .takeoffburden-text{
     text-align: left;
+    margin: 20px 0;
   }
 
   .request-stipend-btn-div {
@@ -156,36 +174,7 @@
 }
 
 @media screen and (min-width: 1024px) {
-  .takeoffburden-Wrapper {
-    display: flex;
-    flex-direction: row;
-    margin-top: 230px;
-    align-items: center;
-    justify-content: center;
-  }
 
-  .takeoffburdenleft {
-    width: 50%;
-  }
-
-  .takeoffburdenright {
-    margin-top: -170px;
-    position: relative;
-    width: 50%;
-  }
-
-  .takeoffburden-Transparent-Card {
-    width: 400px;
-    height: 250px;
-    margin: 20px 14px;
-  }
-
-  .takeoffburden-Card {
-    width: 350px;
-    height: 450px;
-    top: -160px;
-    margin: -50px 38px;
-  }
 
   .request-stipend-btn-div {
     width: 100%;
@@ -195,15 +184,11 @@
   }
 
   .takeoffburden-header{
+    width: 90%;
+  }
+
+  .takeoffburden-text{
     width: 70%;
-  }
-
-  .takeoffburden-text-div{
-    width: 50%;
-  }
-
-  .takeoffburden-text-div{
-    width: 60%;
   }
 
   .burdenarrow {
@@ -214,32 +199,25 @@
 }
 
 @media screen and (min-width: 1200px) {
-  .takeoffburdenleft {
-    width: 50%;
-  }
-  .takeoffburdenright {
-    width: 40%;
-  }
-
-  .takeoffburden-header{
-    width: 70%;
-  }
-
-  .takeoffburden-text-div{
-    width: 50%;
-  }
 
   .burdenarrow {
     position: absolute;
     bottom: 100px;
     left: 260px;
   }
+  .takeoffburden-text-div{
+    width: 60%;
+    font-size: 20px;
+  }
+  .takeoffburden-header-div{
+    width: 80%;
+  }
 }
 
 @media screen and (min-width: 1440px) {
   .takeoffburden-Transparent-Card {
     width: 500px;
-    height: 400px;
+    height: 300px;
     margin: 50px 14px;
   }
 
@@ -254,11 +232,22 @@
     line-height: 84px;
   }
 
+  .takeoffburden-header-div{
+    width: 100%;
+  }
+
   .takeoffburden-text-div{
     width: 70%;
     font-size: 20px;
   }
   .takeoffburden-text{
     font-size: 20px;
+    width: 100%;
+  }
+
+  .burdenarrow {
+    position: absolute;
+    bottom: 120px;
+    left: 220px;
   }
 }
