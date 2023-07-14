@@ -15,7 +15,7 @@ const Beneficiaries = () => {
           <div className="texts-and-images">
             <div className="left-texts">
               <div className="Beneficiaries-header-div">
-                <Header text="Our Beneficiaries so far" color="primary" />
+                <Header data-testid={"Our Beneficiaries so far"} text="Our Beneficiaries so far" color="primary" />
               </div>
 
               <div className="Beneficiaries-subheader-div">

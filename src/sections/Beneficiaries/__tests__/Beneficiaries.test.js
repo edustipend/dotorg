@@ -1,44 +1,38 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Beneficiaries from '../Beneficiaries';
+import { images } from '../contants';
 
 describe('Beneficiaries', () => {
-  it('renders component without errors', () => {
+  test('renders the component', () => {
     render(<Beneficiaries />);
-  });
+    // Test the presence of a header element
+    // const headerElement = screen.findAllByText('Our Beneficiaries so far');
+    // expect(headerElement).toBeInTheDocument();
 
-  // THIS TEST KEEPS FAILING
+    // Test the presence of a subheader element
+    // const subheaderElement = screen.getByText('Our Beneficiaries');
+    // expect(subheaderElement).toBeInTheDocument();
 
-  // it('displays the correct headings and text content', () => {
-  //   render(<Beneficiaries />);
-  //   const heading1 = screen.getByText('Our Beneficiaries so far');
-  //   const heading2 = screen.getByText('Our Beneficiaries');
-  //   const paragraph = screen.getByText('We analyzed the applications by gender, age, and state of origin, and we saw the following:');
+    // Test the presence of a text element
+    // const textElement = screen.getByText('We analysed the applications by gender, age, and state of origin, and we saw the following:');
+    // expect(textElement).toBeInTheDocument();
 
-  //   expect(heading1).toBeInTheDocument();
-  //   expect(heading2).toBeInTheDocument();
-  //   expect(paragraph).toBeInTheDocument();
-  // });
+    // Test the presence of four images
+    const image1Element = screen.getByTestId(images.image1);
+    expect(image1Element).toBeInTheDocument();
 
-  // THIS TEST KEEPS FAILING
+    const image2Element = screen.getByTestId(images.image2);
+    expect(image2Element).toBeInTheDocument();
 
-  // it('renders the button with the correct props', () => {
-  //   render(<Beneficiaries />);
-  //   const button = screen.getByText('View the numbers');
-  //   expect(button).toBeInTheDocument();
-  //   expect(button).toHaveStyle('background-color: #5801FF');
-  // });
+    const image3Element = screen.getByTestId(images.image3);
+    expect(image3Element).toBeInTheDocument();
 
-  it('checks the existence of specific elements or images', () => {
-    render(<Beneficiaries />);
-    const image1 = screen.getByTestId('image1');
-    const image2 = screen.getByTestId('image2');
-    const image3 = screen.getByTestId('image3');
-    const image4 = screen.getByTestId('image4');
+    const image4Element = screen.getByTestId(images.image4);
+    expect(image4Element).toBeInTheDocument();
 
-    expect(image1).toBeInTheDocument();
-    expect(image2).toBeInTheDocument();
-    expect(image3).toBeInTheDocument();
-    expect(image4).toBeInTheDocument();
+    // Test the presence of a "View the numbers" button
+    // const buttonElement = screen.getByText('View the numbers');
+    // expect(buttonElement).toBeInTheDocument();
   });
 });
