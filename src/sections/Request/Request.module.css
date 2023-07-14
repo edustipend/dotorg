@@ -24,8 +24,6 @@
   color: #2D3740;
   max-width: 500px;
   position: relative;
-
-
 }
 
 .title::before {
@@ -113,7 +111,7 @@
     width: initial;
     height: initial;
     top: -12.5rem;
-    right: -10rem;
+    right: -10.6rem;
   }
 
   .title {

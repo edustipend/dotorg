@@ -1,7 +1,7 @@
 import RequestNow from "./RequestNow";
 
 export default {
-    title: 'Edustipend/RequestNow',
+    title: 'Edustipend/Sections/RequestNow',
     component: RequestNow
 }
 
