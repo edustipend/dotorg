@@ -100,7 +100,7 @@
   }
 
   .title::before {
-    right: -3px;
+    right: -3.5px;
   }
 }
 
@@ -128,7 +128,7 @@
     width: initial;
     height: initial;
     top: -12.5rem;
-    left: 10.8rem;
+    left: 11.2rem;
   }
 
   .title {
