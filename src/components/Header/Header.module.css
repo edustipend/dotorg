@@ -14,14 +14,14 @@
 }
 
 .primary {
-  color: #2D3740;
+  color: #2d3740;
 }
 
 .secondary {
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
-@media screen and (min-width:1440px) {
+@media screen and (min-width: 1440px) {
   .header {
     font-size: 64px;
   }
