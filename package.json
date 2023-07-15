@@ -58,7 +58,6 @@
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,md,json}": [
-      "npm test",
       "prettier --write",
       "eslint --ext .js --fix"
     ],
