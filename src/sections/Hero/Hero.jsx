@@ -1,7 +1,7 @@
 import { useEffect, useState, useCallback } from 'react';
-import Container from '../../components/Container/container';
-import Button from '../../components/Button';
 import { NavHashLink } from 'react-router-hash-link';
+import Container from '../../components/Container';
+import Button from '../../components/Button';
 import { Hero1, Hero2, Hero3, Hero4, Svg1, Svg2, Svg3, Svg4, Svg5, ArrowDown } from '../../assets/index';
 import { stipends, stipendsColors, buttonLabel, secondaryEffect } from './constants';
 
@@ -25,6 +25,7 @@ const Hero = () => {
       clearInterval(timeInterval);
     };
   }, [currentStipend, nextStipend]);
+
   return (
     <section className="hero">
       <Container>
