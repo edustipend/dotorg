@@ -1,5 +1,5 @@
 .takeoffburden-container {
-  background-image: url('../../assets/takeoffburdenBG.png');
+  background-image: url('../../assets/takeoffburdenbg.png');
   background-repeat: no-repeat;
   background-size: cover;
   padding: 50px 0px;
@@ -18,7 +18,7 @@
 }
 
 .takeoffburden-Card {
-  background-image: url('../../assets//manonbooks.jpg');
+  background-image: url('../../assets//manonbooks.png');
   background-size: cover;
   background-repeat: no-repeat;
   width: 260px;
@@ -151,12 +151,15 @@
 
   .takeoffburden-header-div {
     text-align: left;
-    width: 90%;
   }
   
   .takeoffburden-text{
     text-align: left;
     margin: 20px 0;
+  }
+
+  .takeoffburden-text{
+    width: 100%;
   }
 
   .request-stipend-btn-div {
@@ -199,19 +202,32 @@
 }
 
 @media screen and (min-width: 1200px) {
+  .takeoffburden-Transparent-Card {
+    width: 450px;
+    height: 280px;
+    margin: -50px 14px 50px;
+  }
+
+  .takeoffburden-Card {
+    width: 400px;
+    height: 500px;
+    padding: 90px 38px;
+  }
 
   .burdenarrow {
     position: absolute;
     bottom: 100px;
     left: 260px;
   }
+  .takeoffburden-header{
+    width: 70%;
+  }
+
   .takeoffburden-text-div{
     width: 60%;
     font-size: 20px;
   }
-  .takeoffburden-header-div{
-    width: 80%;
-  }
+  
 }
 
 @media screen and (min-width: 1440px) {

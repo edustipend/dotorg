@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 
 const RRRRCard = ({ item }) => {
   return (
-    <div className="Card-Wrapper" data-testid="rrrr-card">
-      <div className="RRRR-Card">
-        <div className="RRRR-SVG-header">
-          <img src={item.svg} alt="RRRR-SVG" />
-          <h2 className="RRRR-header">{item.header}</h2>
+    <div className="card-wrapper" data-testid="rrrr-card">
+      <div className="rrrr-card">
+        <div className="rrrr-svg-header">
+          <img src={item.svg} alt="rrrr-svg" />
+          <h2 className="rrrr-header">{item.header}</h2>
         </div>
-        <p className="RRRR-headerText">{item.headerText}</p>
+        <p className="rrrr-header-text">{item.headerText}</p>
       </div>
-      <div className="RRRR-Transparent-Card"></div>
+      <div className="rrrr-transparent-card"></div>
     </div>
   );
 };

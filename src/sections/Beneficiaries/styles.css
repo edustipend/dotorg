@@ -40,7 +40,7 @@
 }
 
 .image1 {
-  background-image: url('../../assets/iimage1.png');
+  background-image: url('../../assets/smilingman.svg');
   background-size: cover;
   background-repeat: no-repeat;
   height: 110px;
@@ -50,7 +50,7 @@
 }
 
 .image2 {
-  background-image: url('../../assets/iimage2.png');
+  background-image: url('../../assets/smilingwoman.svg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position-x: center;
@@ -60,9 +60,10 @@
 }
 
 .image3 {
-  background-image: url('../../assets/image3.png');
+  background-image: url('../../assets/womanwithpcc.svg');
   background-size: cover;
   background-repeat: no-repeat;
+  background-position-x: center;
   height: 120px;
   width: 50px;
   border-radius: 114px 114px 0px 0px;
@@ -70,9 +71,10 @@
 }
 
 .image4 {
-  background-image: url('../../assets/image4.png');
+  background-image: url('../../assets/manwithphonenpc.png');
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
   height: 75px;
   width: 50px;
   border-radius: 114px 114px 0px 0px;
@@ -96,13 +98,13 @@
 
 @media screen and (min-width: 768px) {
   .image1 {
-    background-image: url('../../assets/image1.png');
+    background-image: url('../../assets/manonglasses.png');
     height: 410px;
     width: 150px;
   }
 
   .image2 {
-    background-image: url('../../assets/image2.png');
+    background-image: url('../../assets/womanonheadset.png');
     height: 510px;
     width: 150px;
   }
@@ -153,8 +155,8 @@
     width: 70%;
   }
 
-  .Beneficiaries-subheader-bigscreen{
-   margin: -20px 0 20px; 
+  .Beneficiaries-subheader-bigscreen {
+    margin: -20px 0 20px;
   }
 }
 
@@ -169,9 +171,9 @@
     width: 50%;
   }
 
-  .Beneficiaries-subheader-bigscreen{
-    margin: -20px 0 20px; 
-   }
+  .Beneficiaries-subheader-bigscreen {
+    margin: -20px 0 20px;
+  }
 }
 
 @media screen and (min-width: 996px) {
@@ -203,7 +205,7 @@
   }
 
   .Beneficiaries-subheader-bigscreen {
-    margin: -20px 0 20px; 
+    margin: -20px 0 20px;
   }
 
   .Beneficiaries-text-div {
