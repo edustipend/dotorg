@@ -1,8 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import TakeOffBurden from "../TakeOffBurden"
+import TakeOffBurden from '../TakeOffBurden';
 import { TestId, ByText } from '../constant';
-
 
 describe('TakeOffBurden', () => {
   it('renders the component correctly', () => {
@@ -16,6 +15,6 @@ describe('TakeOffBurden', () => {
 
     expect(screen.getByAltText(ByText.TAKEOFFBURDEN_ARROW)).toBeInTheDocument();
 
-    expect(screen.getByText('Request Stipend')).toBeInTheDocument();
+    expect(screen.getByText(ByText.BUTTON_TEXT)).toBeInTheDocument();
   });
 });

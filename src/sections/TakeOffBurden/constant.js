@@ -1,7 +1,8 @@
 export const ByText = {
   TAKEOFFBURDEN_HEADING: 'Take the burden off yourself.',
   TAKEOFFBURDEN_PARAGRAPH: 'Request for learning support and give your learning curve a boost',
-  TAKEOFFBURDEN_ARROW: "arrow"
+  TAKEOFFBURDEN_ARROW: "arrow",
+  BUTTON_TEXT: "Request Stipend"
 };
 
 export const ByClassName = {
