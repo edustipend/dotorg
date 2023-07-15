@@ -38,11 +38,11 @@
 }
 
 .header--large {
-  font-size: 64px;
+  font-size: 50px;
 }
 
 .header--medium {
-  font-size: 48px;
+  font-size: 44px;
 }
 
 .header--small {
@@ -80,6 +80,14 @@
   text-transform: uppercase;
 }
 
+@media screen and (min-width: 500px) {
+  .header--large {
+    font-size: 64px;
+  }
+  .header--medium {
+    font-size: 48px;
+  }
+}
 @media screen and (min-width: 1440px) {
   .effect {
     font-size: 60px;
