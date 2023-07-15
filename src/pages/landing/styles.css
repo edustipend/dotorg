@@ -60,6 +60,7 @@
   display: flex;
   align-items: center;
   padding: 1rem;
+  padding-top: 9rem;
   flex-direction: column;
   text-align: center;
 }
@@ -129,6 +130,7 @@
   .top-main {
     min-height: 560px;
     padding: 2rem 3rem;
+    padding-top: 8rem;
     flex-direction: row;
     text-align: left;
   }
