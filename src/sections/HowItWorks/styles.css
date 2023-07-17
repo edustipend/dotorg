@@ -157,7 +157,7 @@
   }
 }
 
-@media screen and (min-width: 10240px) {
+@media screen and (min-width: 1024px) {
   .rrrr-transparent-card {
     height: 220px;
   }
@@ -174,12 +174,12 @@
     gap: 30px;
   }
   .rrrr-transparent-card {
-    height: 450px;
+    height: 400px;
     width: 100%;
   }
 
   .rrrr-card {
-    height: 480px;
+    height: 420px;
     width: 85%;
     padding-top: 5px;
   }

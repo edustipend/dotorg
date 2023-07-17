@@ -44,11 +44,11 @@
   margin-top: 20px;
 }
 
-.takeoffburden-header{
+.takeoffburden-header {
   line-height: 30px;
 }
 
-.takeoffburden-text{
+.takeoffburden-text {
   color: white;
   font-size: 14px;
   margin-top: 20px;
@@ -75,7 +75,7 @@
     bottom: 85px;
     right: 50px;
   }
-  .takeoffburden-text{
+  .takeoffburden-text {
     text-align: center;
     width: 80%;
     margin: 20px auto;
@@ -83,7 +83,7 @@
 }
 
 @media screen and (min-width: 600px) {
-  .takeoffburden-text{
+  .takeoffburden-text {
     width: 80%;
     margin: 20px 0;
   }
@@ -102,12 +102,11 @@
     width: 300px;
     height: 400px;
   }
-  .takeoffburden-text{
+  .takeoffburden-text {
     text-align: center;
     width: 60%;
     margin: 20px auto;
   }
-  
 }
 
 @media screen and (min-width: 768px) {
@@ -152,14 +151,15 @@
   .takeoffburden-header-div {
     text-align: left;
   }
-  
-  .takeoffburden-text{
-    text-align: left;
-    margin: 20px 0;
+
+  .takeoffburden-header {
+    width: 100%;
   }
 
-  .takeoffburden-text{
-    width: 100%;
+  .takeoffburden-text {
+    text-align: left;
+    margin: 20px 0;
+    width: 90%;
   }
 
   .request-stipend-btn-div {
@@ -177,8 +177,6 @@
 }
 
 @media screen and (min-width: 1024px) {
-
-
   .request-stipend-btn-div {
     width: 100%;
     display: flex;
@@ -186,11 +184,11 @@
     margin-top: 50px;
   }
 
-  .takeoffburden-header{
-    width: 90%;
+  .takeoffburden-header {
+    width: 70%;
   }
 
-  .takeoffburden-text{
+  .takeoffburden-text {
     width: 70%;
   }
 
@@ -219,15 +217,13 @@
     bottom: 100px;
     left: 260px;
   }
-  .takeoffburden-header{
-    width: 70%;
+  .takeoffburden-header {
+    width: 60%;
   }
 
-  .takeoffburden-text-div{
-    width: 60%;
-    font-size: 20px;
+  .takeoffburden-text {
+    width: 55%;
   }
-  
 }
 
 @media screen and (min-width: 1440px) {
@@ -243,20 +239,21 @@
     padding: 90px 38px;
   }
 
-  .takeoffburden-header{
+  .takeoffburden-header {
     width: 100%;
     line-height: 84px;
   }
 
-  .takeoffburden-header-div{
+  .takeoffburden-header-div {
     width: 100%;
   }
 
-  .takeoffburden-text-div{
+  .takeoffburden-text-div {
     width: 70%;
     font-size: 20px;
   }
-  .takeoffburden-text{
+
+  .takeoffburden-text {
     font-size: 20px;
     width: 100%;
   }

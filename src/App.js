@@ -1,9 +1,12 @@
-import Navbar from './components/Navbar/';
-import Routes from './routes';
+// import Navbar from './components/Navbar/';
+// import Routes from './routes';
 import initFirebaseApp from './firebaseConfig';
 import './App.css';
-import { Footer } from './components/Footer/Footer';
-import Circles from './assets/light_border.png';
+// import { Footer } from './components/Footer/Footer';
+// import Circles from './assets/light_border.png';
+import HowItWorks from "./sections/HowItWorks/Howitworks"
+import Beneficiaries from "./sections/Beneficiaries/Beneficiaries"
+import TakeOffBurden from "./sections/TakeOffBurden/TakeOffBurden"
 
 
 initFirebaseApp();
@@ -11,10 +14,13 @@ initFirebaseApp();
 function App() {
   return (
     <>
-      <img src={Circles} className="circles-img" alt="background circles" />
+      {/* <img src={Circles} className="circles-img" alt="background circles" />
       <Navbar />
       <Routes />
-      <Footer /> 
+      <Footer />  */}
+      <HowItWorks/>
+      <Beneficiaries />
+      <TakeOffBurden/>
     </>
   );
 }
