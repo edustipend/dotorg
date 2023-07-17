@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles.css';
 import Button from '../../components/Button/index';
-import Container from '../../components/Container/container';
+import Container from '../../components/Container';
 import { Header } from '../../components/Header/Header';
 import { Text } from '../../components/Text/Text';
 import NumbersGrid from './Internals/NumbersGrid';
@@ -14,21 +14,19 @@ const Beneficiaries = () => {
         <div className="Beneficiaries-container">
           <div className="texts-and-images">
             <div className="left-texts">
-              <div className="Beneficiaries-header-div">
-                <Header text="Our Beneficiaries so far" color="primary" />
-              </div>
+              <Header className="Beneficiaries-header" color="primary" size="small">
+                Our Beneficiaries so far
+              </Header>
 
-              <div className="Beneficiaries-subheader-div">
-                <Header subheader={true} text="Our Beneficiaries" color="primary" />
-              </div>
+              <Header size="small" subheader color="primary">
+                <h3 className="Beneficiaries-subheader">Our Beneficiaries</h3>
+              </Header>
 
-              <div className="Beneficiaries-text-div">
-                <Text
-                  color="primary"
-                  content="We analysed the applications by gender, age, and state of origin, and we saw the following:"
-                  className="Beneficiaries-text"
-                />
-              </div>
+              <Text
+                color="primary"
+                content="We analysed the applications by gender, age, and state of origin, and we saw the following:"
+                className="Beneficiaries-text"
+              />
             </div>
 
             <div className="right-images">
@@ -55,21 +53,19 @@ const Beneficiaries = () => {
         <div className="Beneficiaries-bigscreen-container">
           <div className="Beneficiaries-bigscreen-container-left">
             <div className="left-texts-bigscreen">
-              <div className="Beneficiaries-header-bigscreen">
-                <Header text="Our Beneficiaries so far" color="primary" />
-              </div>
+              <Header className="Beneficiaries-header-bigscreen" color="primary" size="small">
+                Our Beneficiaries so far
+              </Header>
 
-              <div className="Beneficiaries-subheader-bigscreen">
-                <Header subheader={true} text="Our Beneficiaries" color="primary" />
-              </div>
+              <Header className="Beneficiaries-subheader-bigscreen" subheader={true} size="small" color="primary">
+                Our Beneficiaries
+              </Header>
 
-              <div className="Beneficiaries-text-div">
-                <Text
-                  color="primary"
-                  content="We analysed the applications by gender, age, and state of origin, and we saw the following:"
-                  className="Beneficiaries-text"
-                />
-              </div>
+              <Text
+                color="primary"
+                content="We analysed the applications by gender, age, and state of origin, and we saw the following:"
+                className="Beneficiaries-text-bigscreen"
+              />
             </div>
 
             <NumbersGrid />

@@ -1,28 +1,19 @@
 {
-	"env": {
-		"browser": true,
-		"es2021": true,
-		"jest": true
-	},
-	"extends": [
-		"react-app",
-		"react-app/jest",
-		"prettier",
-		"plugin:storybook/recommended",
-		"eslint:recommended",
-		"plugin:react/recommended"
-	],
-	"parserOptions": {
-		"ecmaVersion": "latest",
-		"sourceType": "module"
-	},
-	"plugins": [
-		"react"
-	],
-	"rules": {
-		"react/react-in-jsx-scope": "off",
-		"react/no-unescaped-entities": "off",
-		"react/no-unknown-property": "off",
-		" testing-library/prefer-screen-queries": "off"
-	}
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "jest": true
+  },
+  "extends": ["react-app", "react-app/jest", "prettier", "plugin:storybook/recommended", "eslint:recommended", "plugin:react/recommended"],
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["react"],
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "react/no-unescaped-entities": "off",
+    "react/no-unknown-property": "off",
+    " testing-library/prefer-screen-queries": "off"
+  }
 }

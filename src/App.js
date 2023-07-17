@@ -1,9 +1,11 @@
-import Navbar from './components/Navbar/';
-import Routes from './routes';
+// import Routes from './routes';
 import initFirebaseApp from './firebaseConfig';
+// import Navbar from './components/Navbar';
 import './App.css';
-import { Footer } from './components/Footer/Footer';
-import Circles from './assets/light_border.png';
+
+import Beneficiaries from "./sections/Beneficiaries";
+import HowItWorks from "./sections/HowItWorks";
+import TakeOffBurden from "./sections/TakeOffBurden";
 
 
 
@@ -12,10 +14,11 @@ initFirebaseApp();
 function App() {
   return (
     <>
-      <img src={Circles} className="circles-img" alt="background circles" />
-      <Navbar />
-      <Routes />
-      <Footer /> 
+      {/* <Navbar />
+      <Routes /> */}
+      <HowItWorks />
+      <Beneficiaries />
+      <TakeOffBurden />
     </>
   );
 }

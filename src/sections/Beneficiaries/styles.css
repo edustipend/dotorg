@@ -14,18 +14,20 @@
   justify-content: space-between;
 }
 
-.Beneficiaries-header-div {
+.Beneficiaries-header {
   margin-top: 30px;
   line-height: 30px;
 }
 
-.Beneficiaries-text-div {
-  margin-top: 4px;
+.Beneficiaries-subheader {
+  font-size: 18px;
+  margin-top: 20px;
 }
 
 .Beneficiaries-text {
   font-size: 14px;
-  width: 85%;
+  width: 90%;
+  margin-top: 4px;
 }
 
 .top-images {
@@ -84,6 +86,7 @@
   margin: 40px 0;
 }
 
+
 @media screen and (min-width: 425px) {
   .view-numbers-btn {
     display: flex;
@@ -92,7 +95,7 @@
   }
 
   .Beneficiaries-text {
-    width: 50%;
+    width: 80%;
   }
 }
 
@@ -151,12 +154,13 @@
     margin-top: 50px;
   }
 
-  .Beneficiaries-text {
+  .Beneficiaries-text-bigscreen {
     width: 70%;
   }
 
   .Beneficiaries-subheader-bigscreen {
-    margin: -20px 0 20px;
+    margin: 20px 0;
+    font-size: 18px;
   }
 }
 
@@ -166,7 +170,7 @@
     box-shadow: rgba(0, 0, 0, 0.14) 0px 3px 8px;
   }
 
-  .Beneficiaries-text {
+  .Beneficiaries-text-bigscreen {
     font-size: 14px;
     width: 50%;
   }
@@ -193,7 +197,7 @@
     margin-right: 70px;
   }
 
-  .Beneficiaries-text {
+  .Beneficiaries-text-bigscreen {
     font-size: 14px;
     width: 55%;
   }
@@ -208,13 +212,10 @@
     margin: -20px 0 20px;
   }
 
-  .Beneficiaries-text-div {
-    margin-top: 40px;
-  }
-
   .Beneficiaries-text {
     font-size: 20px;
     width: 50%;
+    margin-top: 40px;
   }
 
   .image1,

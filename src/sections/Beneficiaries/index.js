@@ -1,3 +1,3 @@
-import { Beneficiaries } from './Beneficiaries';
+import Beneficiaries from './Beneficiaries';
 
 export default Beneficiaries;

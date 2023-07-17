@@ -1,8 +1,6 @@
-import HowItWorksSection from '../../sections/HowItWorks/Howitworks';
-import BeneficiariesSection from '../../sections/Beneficiaries/Beneficiaries';
-import TakeOffBurdenSection from '../../sections/TakeOffBurden/TakeOffBurden';
-
-
+import HowItWorksSection from '../../sections/HowItWorks';
+import BeneficiariesSection from '../../sections/Beneficiaries';
+import TakeOffBurdenSection from '../../sections/TakeOffBurden';
 
 export const LandingV2 = () => {
   return (

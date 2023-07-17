@@ -2,7 +2,7 @@ import React from 'react';
 import './styles.css';
 import arrow from '../../assets/burdenarrow.png';
 import { Button } from '../../components/Button/Button';
-import Container from '../../components/Container/container';
+import Container from '../../components/Container';
 import { Header } from '../../components/Header/Header';
 import { Text } from '../../components/Text/Text';
 
@@ -20,7 +20,7 @@ const TakeOffBurden = () => {
             <img data-testid="burdenarrow" className="burdenarrow" src={arrow} alt="arrow" />
 
             <div className="takeoffburden-header-div">
-              <Header className="takeoffburden-header" text="Take the burden off yourself." color="secondary" />
+              <Header className="takeoffburden-header" size="small" color="secondary">Take the burden off yourself.</Header>
             </div>
 
             <div className="takeoffburden-text-div">
