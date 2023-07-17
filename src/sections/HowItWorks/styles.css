@@ -11,7 +11,8 @@
   font-size: 32px;
 }
 
-.subheader-div {
+h3.how-it-works-subheader {
+  font-size: 18px;
   text-align: center;
 }
 
@@ -100,12 +101,12 @@
 
   .rrrr-transparent-card {
     width: 100%;
-    height: 250px;
+    height: 280px;
   }
 
   .rrrr-card {
     width: 90%;
-    height: 290px;
+    height: 320px;
     margin: -90px 12px;
   }
 }
@@ -120,7 +121,7 @@
     width: 90%;
     height: 280px;
     margin: -90px 12px;
-  } 
+  }
 }
 
 @media screen and (min-width: 800px) {
@@ -193,11 +194,11 @@
 }
 
 @media screen and (min-width: 1440px) {
-  .how-it-works-header {
+  h3.how-it-works-header {
     font-size: 64px;
   }
 
-  .how-it-works-subheader {
+  h3.how-it-works-subheader {
     font-size: 32px;
   }
 }

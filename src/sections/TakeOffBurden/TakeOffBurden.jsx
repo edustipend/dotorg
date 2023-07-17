@@ -20,7 +20,7 @@ const TakeOffBurden = () => {
             <img data-testid="burdenarrow" className="burdenarrow" src={arrow} alt="arrow" />
 
             <div className="takeoffburden-header-div">
-              <Header className="v2-section-header" color="secondary" size="medium">
+              <Header className="takeoffburden-header" color="secondary" size="small">
                 Take the burden off yourself
               </Header>
             </div>

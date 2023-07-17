@@ -18,8 +18,8 @@ const Beneficiaries = () => {
                 Our Beneficiaries so far
               </Header>
 
-              <Header size="small" subheader color="primary">
-                <h3 className="Beneficiaries-subheader">Our Beneficiaries</h3>
+              <Header className="Beneficiaries-subheader" size="small" subheader color="primary">
+                Our Beneficiaries
               </Header>
 
               <Text
@@ -53,12 +53,12 @@ const Beneficiaries = () => {
         <div className="beneficiaries-bigscreen-container">
           <div className="beneficiaries-bigscreen-container-left">
             <div className="left-texts-bigscreen">
-              <Header  color="primary" size="small">
-               <h2 className="Beneficiaries-header-bigscreen"> Our Beneficiaries so far</h2>
+              <Header className="Beneficiaries-header-bigscreen" color="primary" size="small">
+                Our Beneficiaries so far
               </Header>
 
-              <Header  subheader={true} size="small" color="primary">
-                <h3 className="Beneficiaries-subheader-bigscreen">Our Beneficiaries</h3>
+              <Header className="Beneficiaries-subheader-bigscreen" subheader={true} size="small" color="primary">
+                Our Beneficiaries
               </Header>
 
               <Text
