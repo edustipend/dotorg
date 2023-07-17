@@ -186,6 +186,7 @@
 
   .takeoffburden-header {
     width: 70%;
+    font-size: 32px;
   }
 
   .takeoffburden-text {
@@ -219,6 +220,7 @@
   }
   .takeoffburden-header {
     width: 60%;
+    
   }
 
   .takeoffburden-text {
@@ -242,6 +244,7 @@
   .takeoffburden-header {
     width: 100%;
     line-height: 84px;
+    font-size: 64px;
   }
 
   .takeoffburden-header-div {

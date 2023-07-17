@@ -9,12 +9,12 @@ const HowItWorks = () => {
   return (
     <div id="how-it-works" className="how-it-works-container">
       <Container>
-        <Header className="how-it-works-header" size="small" color="secondary">
-          How It Works
+        <Header size="small" color="secondary">
+          <h2 className="how-it-works-header">How It Works</h2>
         </Header>
 
-        <Header className="how-it-works-subheader" subheader color="secondary">
-          The 3Rs: Request, Review, Receive
+        <Header  subheader color="secondary">
+         <h3 className="how-it-works-subheader"> The 3Rs: Request, Review, Receive</h3>
         </Header>
 
         {/* Request, Review, Receive - RRR */}

@@ -53,12 +53,12 @@ const Beneficiaries = () => {
         <div className="Beneficiaries-bigscreen-container">
           <div className="Beneficiaries-bigscreen-container-left">
             <div className="left-texts-bigscreen">
-              <Header className="Beneficiaries-header-bigscreen" color="primary" size="small">
-                Our Beneficiaries so far
+              <Header  color="primary" size="small">
+               <h2 className="Beneficiaries-header-bigscreen"> Our Beneficiaries so far</h2>
               </Header>
 
-              <Header className="Beneficiaries-subheader-bigscreen" subheader={true} size="small" color="primary">
-                Our Beneficiaries
+              <Header  subheader={true} size="small" color="primary">
+                <h3 className="Beneficiaries-subheader-bigscreen">Our Beneficiaries</h3>
               </Header>
 
               <Text

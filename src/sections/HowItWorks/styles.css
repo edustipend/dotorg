@@ -8,6 +8,7 @@
 
 .how-it-works-header {
   text-align: center;
+  font-size: 32px;
 }
 
 .how-it-works-subheader {
@@ -119,7 +120,7 @@
     width: 90%;
     height: 280px;
     margin: -90px 12px;
-  }
+  } 
 }
 
 @media screen and (min-width: 800px) {
@@ -166,14 +167,6 @@
   .rrrr-card {
     height: 250px;
   }
-
-  .how-it-works-header {
-    font-size: 64px;
-  }
-
-  .how-it-works-subheader {
-    font-size: 32px;
-  }
 }
 
 @media screen and (min-width: 1300px) {
@@ -191,11 +184,19 @@
     height: 460px;
     width: 85%;
     padding-top: 5px;
-
   }
 
   .rrrr-header-text {
     line-height: 28px;
   }
+}
 
+@media screen and (min-width: 1440px) {
+  .how-it-works-header {
+    font-size: 64px;
+  }
+
+  .how-it-works-subheader {
+    font-size: 32px;
+  }
 }

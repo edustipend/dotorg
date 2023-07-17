@@ -17,6 +17,7 @@
 .Beneficiaries-header {
   margin-top: 30px;
   line-height: 30px;
+  width: 50%;
 }
 
 .Beneficiaries-subheader {
@@ -86,7 +87,6 @@
   margin: 40px 0;
 }
 
-
 @media screen and (min-width: 425px) {
   .view-numbers-btn {
     display: flex;
@@ -95,7 +95,13 @@
   }
 
   .Beneficiaries-text {
-    width: 80%;
+    width: 70%;
+  }
+
+  .Beneficiaries-header {
+    margin-top: 30px;
+    line-height: 30px;
+    width: 40%;
   }
 }
 
@@ -158,6 +164,11 @@
     width: 70%;
   }
 
+  .Beneficiaries-header-bigscreen{
+    line-height: 50px;
+    font-size: 32px;
+  }
+
   .Beneficiaries-subheader-bigscreen {
     margin: 20px 0;
     font-size: 18px;
@@ -168,15 +179,6 @@
   .numbers-container-bigscreen {
     width: 350px;
     box-shadow: rgba(0, 0, 0, 0.14) 0px 3px 8px;
-  }
-
-  .Beneficiaries-text-bigscreen {
-    font-size: 14px;
-    width: 50%;
-  }
-
-  .Beneficiaries-subheader-bigscreen {
-    margin: -20px 0 20px;
   }
 }
 
@@ -201,18 +203,22 @@
     font-size: 14px;
     width: 55%;
   }
+
+ 
 }
 
 @media screen and (min-width: 1440px) {
+
   .Beneficiaries-header-bigscreen {
+    font-size: 64px;
     margin-top: 50px;
   }
 
   .Beneficiaries-subheader-bigscreen {
-    margin: -20px 0 20px;
+    font-size: 32px;
   }
-
-  .Beneficiaries-text {
+  .Beneficiaries-text-bigscreen {
+    font-size: 20px;
     font-size: 20px;
     width: 50%;
     margin-top: 40px;
