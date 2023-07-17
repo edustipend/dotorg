@@ -1,13 +1,14 @@
 import React from 'react';
 import { Button } from '../../components/Button/Button';
 import { title } from './internals/constants';
-import Container from '../../components/Container/container';
+import Container from '../../components/Container';
 import rocket from '../../assets/rocket emoji 3.svg';
 import styles from './Request.module.css';
 import clock from '../../assets/clock.png'
 import blobLeft from '../../assets/blob-left.png'
 import blobRight from '../../assets/blob-right.png'
 import { testConstants } from './internals/constants';
+import Header from '../../components/Header';
 const { componentTestId } = testConstants
 
 export const Request = () => {
@@ -15,7 +16,9 @@ export const Request = () => {
     <main data-testid={componentTestId} className={styles.main}>
       <Container>
         <div className={styles.requestContent}>
-          <h2 data={title} className={styles.title}>{title}</h2>
+          <Header>
+            <h2 data={title} className={styles.title}>{title}</h2>
+          </Header>
           <Button label="Request Now" size='large' effect='secondary' />
           <img src={rocket} alt="rocket_emoji" className={styles.rocket} />
         </div>

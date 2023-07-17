@@ -25,23 +25,7 @@
   position: relative;
 }
 
-.title::before {
-  content: attr(data);
-  font-size: inherit;
-  width: inherit;
-  height: inherit;
-  text-align: inherit;
-  margin-bottom: inherit;
-  max-width: inherit;
-  position: absolute;
-  color: #2d3740;
-  text-shadow:
-    1px 0 #ffffff,
-    0 -1px #ffffff,
-    -1px 0 #ffffff,
-    0 1px #ffffff;
-  right: -3.5px;
-}
+
 
 .rocket {
   position: absolute;
@@ -109,7 +93,7 @@
     width: initial;
     height: initial;
     top: -12.5rem;
-    right: -10rem;
+    right: -10.5rem;
   }
 
   .title {

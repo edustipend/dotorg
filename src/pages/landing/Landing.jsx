@@ -8,11 +8,8 @@ import Review from '../../assets/review.svg';
 import StudentImage from '../../assets/image_student.png';
 import PhoneImage from '../../assets/image_phone.png';
 import HandshakeImage from '../../assets/image_handshake.png';
-<<<<<<< HEAD
-import Request from '../../sections/Request/Request';
-=======
 import { Testimonials } from '../../sections/Testimonials/Testimonials';
->>>>>>> 7f0bf8436a5f0f95d5b9ac43614a667558c0ed56
+import Request from '../../sections/Request/Request';
 
 const TopSection = () => {
   return (
@@ -149,11 +146,8 @@ export const Landing = () => {
       <TopSection />
       <MidSection />
       <RequestSection />
-<<<<<<< HEAD
-      <Request />
-=======
       <Testimonials />
->>>>>>> 7f0bf8436a5f0f95d5b9ac43614a667558c0ed56
+      <Request />
     </main>
   );
 };
