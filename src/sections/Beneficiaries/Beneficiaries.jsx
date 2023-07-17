@@ -1,12 +1,12 @@
 import React from 'react';
 import './styles.css';
-import Button from '../../components/Button/index';
-import Container from '../../components/Container/container';
-import { Header } from '../../components/Header/Header';
-import { Text } from '../../components/Text/Text';
+import Button from '../../components/Button';
+import Container from '../../components/Container';
+import Header from '../../components/Header';
+import Text from '../../components/Text';
 import NumbersGrid from './Internals/NumbersGrid';
 
-const Beneficiaries = () => {
+export const Beneficiaries = () => {
   return (
     <section className="Beneficiaries">
       <Container>
@@ -15,11 +15,13 @@ const Beneficiaries = () => {
           <div className="texts-and-images">
             <div className="left-texts">
               <div className="Beneficiaries-header-div">
-                <Header color="primary">Our Beneficiaries so far</Header>
+                <Header color="primary" size="medium">
+                  Our Beneficiaries so far
+                </Header>
               </div>
 
               <div className="Beneficiaries-subheader-div">
-                <Header color="primary" subheader>
+                <Header color="primary" size="small" subheader>
                   Our Beneficiaries
                 </Header>
               </div>
@@ -99,5 +101,3 @@ const Beneficiaries = () => {
     </section>
   );
 };
-
-export default Beneficiaries;

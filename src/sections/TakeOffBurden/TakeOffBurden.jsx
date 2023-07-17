@@ -1,10 +1,10 @@
 import React from 'react';
 import './styles.css';
 import arrow from '../../assets/burdenarrow.png';
-import { Button } from '../../components/Button/Button';
-import Container from '../../components/Container/container';
-import { Header } from '../../components/Header/Header';
-import { Text } from '../../components/Text/Text';
+import Button from '../../components/Button';
+import Container from '../../components/Container';
+import Header from '../../components/Header';
+import Text from '../../components/Text';
 
 const TakeOffBurden = () => {
   return (
