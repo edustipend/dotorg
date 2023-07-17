@@ -36,7 +36,7 @@ export const footerLinks = [
       {
         id: 0,
         text: 'Become an Ambassador',
-        link: '/Become an Ambassador'
+        link: '/ambassador-program'
       },
       {
         id: 1,
@@ -46,7 +46,7 @@ export const footerLinks = [
       {
         id: 2,
         text: 'Eligibility',
-        link: '#'
+        link: '/ambassador-program'
       }
     ]
   },
@@ -57,7 +57,7 @@ export const footerLinks = [
       {
         id: 0,
         text: 'Become an Ambassador',
-        link: '/Become an Ambassador'
+        link: '/ambassador-program'
       },
       {
         id: 1,
@@ -67,7 +67,7 @@ export const footerLinks = [
       {
         id: 2,
         text: 'Eligibility',
-        link: '#'
+        link: '/ambassador-program'
       }
     ]
   },
@@ -78,7 +78,7 @@ export const footerLinks = [
       {
         id: 0,
         text: 'Become an Ambassador',
-        link: '/Become an Ambassador'
+        link: '/ambassador-program'
       },
       {
         id: 1,
@@ -88,7 +88,7 @@ export const footerLinks = [
       {
         id: 2,
         text: 'Eligibility',
-        link: '#'
+        link: '/ambassador-program'
       }
     ]
   },
@@ -99,7 +99,7 @@ export const footerLinks = [
       {
         id: 0,
         text: 'Become an Ambassador',
-        link: '/Become an Ambassador'
+        link: '/ambassador-program'
       },
       {
         id: 1,
@@ -109,7 +109,7 @@ export const footerLinks = [
       {
         id: 2,
         text: 'Eligibility',
-        link: '#'
+        link: '/ambassador-program'
       }
     ]
   }
