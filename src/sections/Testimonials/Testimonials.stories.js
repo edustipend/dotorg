@@ -1,7 +1,7 @@
 import { Testimonials as TestimonialsComponent } from './Testimonials';
 
 export default {
-  title: 'Edustipend/Sections/Testimonials',
+  title: 'Edustipend/Sections/Testimonial',
   component: TestimonialsComponent,
   tags: ['autodocs']
 };

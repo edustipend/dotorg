@@ -9,8 +9,7 @@ import './styles.css';
 export const Button = ({ backgroundColor, dataTest, primary, size, label, effect, ...props }) => {
   const mode = primary ? ClassName.PRIMARY_BUTTON : ClassName.SECONDARY_BUTTON;
   return (
-    <div className={effect === 'primary' ? 'effect' : effect === 'secondary'
-      ? 'effect effect_alt' : ''}>
+    <div className={effect === 'primary' ? 'effect' : effect === 'secondary' ? 'effect effect_alt' : ''}>
       <button
         data-testid={dataTest}
         type="button"
