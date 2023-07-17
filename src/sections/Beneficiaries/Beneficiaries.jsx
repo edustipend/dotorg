@@ -15,11 +15,13 @@ const Beneficiaries = () => {
           <div className="texts-and-images">
             <div className="left-texts">
               <div className="Beneficiaries-header-div">
-                <Header text="Our Beneficiaries so far" color="primary" />
+                <Header color="primary">Our Beneficiaries so far</Header>
               </div>
 
               <div className="Beneficiaries-subheader-div">
-                <Header subheader={true} text="Our Beneficiaries" color="primary" />
+                <Header color="primary" subheader>
+                  Our Beneficiaries
+                </Header>
               </div>
 
               <div className="Beneficiaries-text-div">
@@ -56,11 +58,13 @@ const Beneficiaries = () => {
           <div className="Beneficiaries-bigscreen-container-left">
             <div className="left-texts-bigscreen">
               <div className="Beneficiaries-header-bigscreen">
-                <Header text="Our Beneficiaries so far" color="primary" />
+                <Header color="primary">Our Beneficiaries so far</Header>
               </div>
 
               <div className="Beneficiaries-subheader-bigscreen">
-                <Header subheader={true} text="Our Beneficiaries" color="primary" />
+                <Header color="primary" subheader>
+                  Our Beneficiaries
+                </Header>
               </div>
 
               <div className="Beneficiaries-text-div">

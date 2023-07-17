@@ -19,12 +19,36 @@
   position: relative;
 }
 
-.subheader {
-  font-weight: 500;
-  font-size: 18px;
-  text-transform: uppercase;
-  margin-top: 30px;
+/** Keeping this for now but we
+might need to remove it later **/
+.xx::before {
+  content: attr(data);
+  font-size: inherit;
+  width: inherit;
+  height: inherit;
+  text-align: inherit;
+  margin-bottom: inherit;
+  max-width: inherit;
+  position: absolute;
+  color: inherit;
+  text-shadow:
+    1px 0 var(--white),
+    0 -1px var(--white),
+    -1px 0 var(--white),
+    0 1px var(--white);
+  right: -3px;
+}
 
+.header--large {
+  font-size: 50px;
+}
+
+.header--medium {
+  font-size: 44px;
+}
+
+.header--small {
+  font-size: 32px;
 }
 
 .primary {
@@ -62,10 +86,12 @@
   .header--large {
     font-size: 64px;
   }
+
   .header--medium {
     font-size: 48px;
   }
 }
+
 @media screen and (min-width: 1440px) {
   .effect {
     font-size: 60px;

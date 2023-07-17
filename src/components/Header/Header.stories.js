@@ -7,6 +7,7 @@ export default {
 };
 
 export const HeaderLarge = {
+  render: (args) => <Header {...args}>{args.text}</Header>,
   args: {
     size: 'large',
     text: 'Request stipend'
@@ -14,6 +15,7 @@ export const HeaderLarge = {
 };
 
 export const HeaderMedium = {
+  render: (args) => <Header {...args}>{args.text}</Header>,
   args: {
     size: 'medium',
     text: 'Request stipend'
@@ -21,6 +23,7 @@ export const HeaderMedium = {
 };
 
 export const HeaderSmall = {
+  render: (args) => <Header {...args}>{args.text}</Header>,
   args: {
     size: 'small',
     text: 'Request stipend'
@@ -28,6 +31,7 @@ export const HeaderSmall = {
 };
 
 export const Subheader = {
+  render: (args) => <Header {...args}>{args.text}</Header>,
   args: {
     size: 'small',
     subheader: true,
