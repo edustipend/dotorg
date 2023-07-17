@@ -8,10 +8,10 @@ import NumbersGrid from './Internals/NumbersGrid';
 
 const Beneficiaries = () => {
   return (
-    <section className="Beneficiaries">
+    <section className="beneficiaries">
       <Container>
         {/* Mobile */}
-        <div className="Beneficiaries-container">
+        <div className="beneficiaries-container">
           <div className="texts-and-images">
             <div className="left-texts">
               <Header className="Beneficiaries-header" color="primary" size="small">
@@ -50,8 +50,8 @@ const Beneficiaries = () => {
         </div>
 
         {/* Bigger Screen */}
-        <div className="Beneficiaries-bigscreen-container">
-          <div className="Beneficiaries-bigscreen-container-left">
+        <div className="beneficiaries-bigscreen-container">
+          <div className="beneficiaries-bigscreen-container-left">
             <div className="left-texts-bigscreen">
               <Header  color="primary" size="small">
                <h2 className="Beneficiaries-header-bigscreen"> Our Beneficiaries so far</h2>
@@ -75,7 +75,7 @@ const Beneficiaries = () => {
             </div>
           </div>
 
-          <div className="Beneficiaries-bigscreen-container-right">
+          <div className="beneficiaries-bigscreen-container-right">
             <div className="top-images">
               <div className="image1"></div>
               <div className="image2"></div>

@@ -11,8 +11,7 @@
   font-size: 32px;
 }
 
-.how-it-works-subheader {
-  font-size: 18px;
+.subheader-div {
   text-align: center;
 }
 
@@ -64,7 +63,7 @@
   margin: 5px 20px 30px;
   font-family: 'Manrope';
   line-height: 25px;
-  text-align: justify;
+  text-align: left;
   font-size: 14px;
   color: #2d3740;
 }
@@ -73,6 +72,7 @@
   .rrrr-transparent-card {
     height: 280px;
   }
+
   .rrrr-card {
     height: 280px;
   }
@@ -135,7 +135,7 @@
     margin: 0px 15px 30px;
     font-family: 'Manrope';
     line-height: 25px;
-    text-align: justify;
+    text-align: left;
     margin-top: 10px;
     font-size: 18px;
   }
@@ -175,6 +175,7 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 30px;
   }
+
   .rrrr-transparent-card {
     height: 430px;
     width: 100%;

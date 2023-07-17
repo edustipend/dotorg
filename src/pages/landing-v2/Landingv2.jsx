@@ -1,13 +1,13 @@
-import HowItWorksSection from '../../sections/HowItWorks';
-import BeneficiariesSection from '../../sections/Beneficiaries';
-import TakeOffBurdenSection from '../../sections/TakeOffBurden';
+import Footer from '../../components/Footer';
+import Hero from '../../sections/Hero';
+import TestimonialsSection from '../../sections/Testimonials';
 
 export const LandingV2 = () => {
   return (
     <div>
-      <HowItWorksSection />
-      <BeneficiariesSection />
-      <TakeOffBurdenSection />
+      <Hero />
+      <TestimonialsSection />
+      <Footer />
     </div>
   );
 };

@@ -1,11 +1,11 @@
-.Beneficiaries-container {
+.beneficiaries-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.Beneficiaries-bigscreen-container {
+.beneficiaries-bigscreen-container {
   display: none;
 }
 
@@ -25,7 +25,7 @@
   margin-top: 20px;
 }
 
-.Beneficiaries-text {
+.beneficiaries-text {
   font-size: 14px;
   width: 90%;
   margin-top: 4px;
@@ -123,6 +123,7 @@
     margin-top: -100px;
     width: 150px;
   }
+
   .image4 {
     height: 250px;
     width: 150px;
@@ -140,23 +141,24 @@
     margin-top: 50px;
   }
 
-  .Beneficiaries-container {
+  .beneficiaries-container {
     display: none;
   }
 
-  .Beneficiaries-bigscreen-container {
+  .beneficiaries-bigscreen-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     gap: 20px;
   }
 
-  .Beneficiaries-bigscreen-container-right {
+  .beneficiaries-bigscreen-container-right {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
-  .Beneficiaries-bigscreen-container-left {
+
+  .beneficiaries-bigscreen-container-left {
     margin-top: 50px;
   }
 
@@ -190,11 +192,11 @@
 }
 
 @media screen and (min-width: 1024px) {
-  .Beneficiaries-bigscreen-container {
+  .beneficiaries-bigscreen-container {
     padding-left: 25px;
   }
 
-  .Beneficiaries-bigscreen-container {
+  .beneficiaries-bigscreen-container {
     margin-left: 40px;
     margin-right: 70px;
   }
@@ -242,6 +244,7 @@
   .image3 {
     height: 390px;
   }
+
   .image4 {
     height: 290px;
   }

@@ -2,7 +2,7 @@ import React from 'react';
 import './styles.css';
 import Container from '../../components/Container';
 import RRRRCard from './internals/RRRRCard';
-import { Header } from '../../components/Header/Header';
+import Header from '../../components/Header';
 import { Howitworks } from './constants';
 
 const HowItWorks = () => {
