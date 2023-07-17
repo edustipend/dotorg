@@ -19,7 +19,9 @@
   position: relative;
 }
 
-.header::before {
+/** Keeping this for now but we
+might need to remove it later **/
+.xx::before {
   content: attr(data);
   font-size: inherit;
   width: inherit;
@@ -84,10 +86,12 @@
   .header--large {
     font-size: 64px;
   }
+
   .header--medium {
     font-size: 48px;
   }
 }
+
 @media screen and (min-width: 1440px) {
   .effect {
     font-size: 60px;

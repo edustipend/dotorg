@@ -14,10 +14,12 @@ export const Testimonials = () => {
       </div>
       <section className={styles.testimonialContent}>
         <section className={styles.section}>
-          <Header size="large" text="Testimonials" />
+          <Header size="medium">Testimonials</Header>
           <div className={styles.headerContainer}>
             <div className={styles.sub_header}>
-              <Header size="medium" text="HEAR FROM OUR AMBASSADORS AND BENEFICIARIES" subheader />
+              <Header size="small" subheader>
+                Hear from our ambassadors and Beneficiaries
+              </Header>
             </div>
           </div>
         </section>
