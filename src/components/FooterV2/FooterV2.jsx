@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './FooterV2.module.css';
 import { footerLinks, socialLinks } from './internals/constants';
 import { Link } from 'react-router-dom';
-import Container from '../Container/container';
+import Container from '../Container';
 import { TestConstants } from './internals/constants';
 const { Component_testid, Links_testid } = TestConstants
 
