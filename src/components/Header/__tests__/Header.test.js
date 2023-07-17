@@ -6,12 +6,16 @@ describe('Header component', () => {
   const mockHeaderText = 'Request stipend';
 
   it('renders the right text', () => {
-    render(<Header text={mockHeaderText} dataTest={TestId.DEFAULT_HEADER_TEST_ID} />);
+    render(<Header dataTest={TestId.DEFAULT_HEADER_TEST_ID}>{mockHeaderText}</Header>);
     expect(screen.getByTestId(TestId.DEFAULT_HEADER_TEST_ID)).toHaveTextContent(mockHeaderText);
   });
 
   it('renders upper case text for subheader', () => {
-    render(<Header dataTest={TestId.DEFAULT_HEADER_TEST_ID} text={mockHeaderText} subheader={true} />);
+    render(
+      <Header dataTest={TestId.DEFAULT_HEADER_TEST_ID} subheader={true}>
+        {mockHeaderText}
+      </Header>
+    );
     expect(screen.getByTestId(TestId.DEFAULT_HEADER_TEST_ID)).toHaveTextContent(mockHeaderText);
   });
 });

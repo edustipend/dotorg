@@ -3,8 +3,10 @@ import Text from '../../components/Text/';
 
 export const Beneficiaries = () => (
   <section>
-    <Header size="large" text="Our Beneficiaries so far" />
-    <Header size="small" text="Our Beneficiaries" upperCase={true} />
+    <Header size="medium">Our Beneficiaries so far</Header>
+    <Header size="small" subheader={true}>
+      Our Beneficiaries
+    </Header>
     <Text content="We analysed the applications by gender, age, and state of origin, and we saw the following:" />
   </section>
 );

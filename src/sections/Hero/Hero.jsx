@@ -1,11 +1,13 @@
 import { useEffect, useState, useCallback } from 'react';
-import Container from '../../components/Container/container';
-import Button from '../../components/Button';
 import { NavHashLink } from 'react-router-hash-link';
+import Container from '../../components/Container';
+import Button from '../../components/Button';
 import { Hero1, Hero2, Hero3, Hero4, Svg1, Svg2, Svg3, Svg4, Svg5, ArrowDown } from '../../assets/index';
 import { stipends, stipendsColors, buttonLabel, secondaryEffect } from './constants';
 
 import './styles.css';
+import Header from '../../components/Header';
+import Text from '../../components/Text';
 
 const Hero = () => {
   const [currentStipend, setCurrentStipend] = useState(0);
@@ -25,11 +27,12 @@ const Hero = () => {
       clearInterval(timeInterval);
     };
   }, [currentStipend, nextStipend]);
+
   return (
     <section className="hero">
       <Container>
         <div className="top-section">
-          <h1>
+          <Header>
             In need of {stipends[currentStipend] === 'laptop' ? 'a' : 'some'}{' '}
             <span
               style={{
@@ -39,9 +42,9 @@ const Hero = () => {
               {stipends[currentStipend]}
             </span>{' '}
             to support your learning?
-          </h1>
+          </Header>
           <div className="boost-container">
-            <p>Give your learning goals a BOOST</p>
+            <Text content="Give your learning goals a BOOST" />
             <img src={Svg1} alt="boost icon" />
           </div>
           <div className="btn-container">

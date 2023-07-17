@@ -1,29 +1,104 @@
-.header {
-  font-family: 'Poppins', sans-serif;
-  text-shadow: 1px 1px 2px white;
-  font-size: 32px;
-  line-height: 84px;
-  font-weight: 600;
+.alt {
+  color: var(--white);
 }
 
-.subheader {
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 25.5px;
-  text-transform: uppercase;
+.position {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--navy-blue);
+  text-align: center;
+}
+
+.header {
+  font-family: 'Poppins', sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  position: relative;
+}
+
+/** Keeping this for now but we
+might need to remove it later **/
+.xx::before {
+  content: attr(data);
+  font-size: inherit;
+  width: inherit;
+  height: inherit;
+  text-align: inherit;
+  margin-bottom: inherit;
+  max-width: inherit;
+  position: absolute;
+  color: inherit;
+  text-shadow:
+    1px 0 var(--white),
+    0 -1px var(--white),
+    -1px 0 var(--white),
+    0 1px var(--white);
+  right: -3px;
+}
+
+.header--large {
+  font-size: 50px;
+}
+
+.header--medium {
+  font-size: 44px;
+}
+
+.header--small {
+  font-size: 32px;
 }
 
 .primary {
-  color: #2d3740;
+  color: var(--navy-blue);
 }
 
 .secondary {
-  color: #ffffff;
+  color: var(--white);
+}
+
+.secondary::before {
+  text-shadow:
+    1px 0 var(--navy-blue),
+    0 -1px var(--navy-blue),
+    -1px 0 var(--navy-blue),
+    0 1px var(--navy-blue);
+  right: -2.5px;
+}
+
+.subheader {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 32px;
+  text-transform: uppercase;
+}
+
+.subheader--medium {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: 500px) {
+  .header--large {
+    font-size: 64px;
+  }
+
+  .header--medium {
+    font-size: 48px;
+  }
 }
 
 @media screen and (min-width: 1440px) {
-  .header {
-    font-size: 64px;
+  .effect {
+    font-size: 60px;
+  }
+
+  .effect::before {
+    right: -3.5px;
   }
 
   .subheader {

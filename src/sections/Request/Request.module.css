@@ -5,26 +5,23 @@
 
 .clockImg {
   width: 100%;
-
 }
 
 .requestContent {
   position: relative;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  margin-bottom: 40px;
 }
 
 .title {
   text-align: center;
   font-size: 32px;
-  font-weight: 600;
-  font-family: 'Poppins';
+  font-family: 600;
   margin-bottom: 26px;
-  color: #2D3740;
-  line-height: 40px;
-  width: 281px;
+  color: #2d3740;
+  max-width: 500px;
   position: relative;
 }
 
@@ -37,13 +34,13 @@
   margin-bottom: inherit;
   max-width: inherit;
   position: absolute;
-  color: #2D3740;
+  color: #2d3740;
   text-shadow:
-    1px 0 #FFFFFF,
-    0 -1px #FFFFFF,
-    -1px 0 #FFFFFF,
-    0 1px #FFFFFF;
-  right: -2px;
+    1px 0 #ffffff,
+    0 -1px #ffffff,
+    -1px 0 #ffffff,
+    0 1px #ffffff;
+  right: -3.5px;
 }
 
 .rocket {
@@ -71,12 +68,6 @@
   height: 300px;
 }
 
-@media screen and (min-width: 500px) {
-  .title {
-    width: 450px;
-  }
-}
-
 @media screen and (min-width: 768px) {
   .requestContent {
     position: absolute;
@@ -87,18 +78,12 @@
 
   .rocket {
     position: relative;
-    top: -7.5rem;
-    left: 6rem;
-    width: 32px;
-    height: 32px;
+    top: -8rem;
   }
 
   .title {
-    width: 450px;
-    font-size: 32px;
-    margin-bottom: 10px;
+    margin-bottom: 50px;
   }
-
 }
 
 @media screen and (min-width: 1024px) {
@@ -115,7 +100,6 @@
   }
 }
 
-
 @media screen and (min-width: 1440px) {
   .main {
     padding-top: 50px;
@@ -125,18 +109,14 @@
     width: initial;
     height: initial;
     top: -12.5rem;
-    left: 11.2rem;
+    right: -10rem;
   }
 
   .title {
-    width: 890px;
-    font-size: 64px;
+    max-width: 820px;
+    font-size: 60px;
     line-height: 75px;
     margin-bottom: 64px;
-  }
-
-  .title::before {
-    right: -3.5px;
   }
 
   .requestContent {
