@@ -8,29 +8,29 @@ import NumbersGrid from './Internals/NumbersGrid';
 
 export const Beneficiaries = () => {
   return (
-    <section className="Beneficiaries">
+    <section className="beneficiaries">
       <Container>
         {/* Mobile */}
-        <div className="Beneficiaries-container">
+        <div className="beneficiaries-container">
           <div className="texts-and-images">
             <div className="left-texts">
-              <div className="Beneficiaries-header-div">
-                <Header color="primary" size="medium">
+              <div className="beneficiaries-header-div">
+                <Header className="v2-section-header" color="primary" size="medium">
                   Our Beneficiaries so far
                 </Header>
               </div>
 
-              <div className="Beneficiaries-subheader-div">
-                <Header color="primary" size="small" subheader>
+              <div className="beneficiaries-subheader-div">
+                <Header className="v2-section-subheader" color="primary" size="small">
                   Our Beneficiaries
                 </Header>
               </div>
 
-              <div className="Beneficiaries-text-div">
+              <div className="beneficiaries-text-div">
                 <Text
                   color="primary"
                   content="We analysed the applications by gender, age, and state of origin, and we saw the following:"
-                  className="Beneficiaries-text"
+                  className="beneficiaries-text"
                 />
               </div>
             </div>
@@ -56,24 +56,26 @@ export const Beneficiaries = () => {
         </div>
 
         {/* Bigger Screen */}
-        <div className="Beneficiaries-bigscreen-container">
-          <div className="Beneficiaries-bigscreen-container-left">
+        <div className="beneficiaries-bigscreen-container">
+          <div className="beneficiaries-bigscreen-container-left">
             <div className="left-texts-bigscreen">
-              <div className="Beneficiaries-header-bigscreen">
-                <Header color="primary">Our Beneficiaries so far</Header>
+              <div className="beneficiaries-header-bigscreen">
+                <Header className="v2-section-header" color="primary" size="medium">
+                  Our Beneficiaries so far
+                </Header>
               </div>
 
-              <div className="Beneficiaries-subheader-bigscreen">
-                <Header color="primary" subheader>
+              <div className="beneficiaries-subheader-bigscreen">
+                <Header className="v2-section-subheader" color="primary" size="small" subheader>
                   Our Beneficiaries
                 </Header>
               </div>
 
-              <div className="Beneficiaries-text-div">
+              <div className="beneficiaries-text-div">
                 <Text
                   color="primary"
                   content="We analysed the applications by gender, age, and state of origin, and we saw the following:"
-                  className="Beneficiaries-text"
+                  className="beneficiaries-text"
                 />
               </div>
             </div>
@@ -85,7 +87,7 @@ export const Beneficiaries = () => {
             </div>
           </div>
 
-          <div className="Beneficiaries-bigscreen-container-right">
+          <div className="beneficiaries-bigscreen-container-right">
             <div className="top-images">
               <div className="image1"></div>
               <div className="image2"></div>

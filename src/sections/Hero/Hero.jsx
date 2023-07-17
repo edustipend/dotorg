@@ -68,7 +68,7 @@ const Hero = () => {
           <div className="img1">
             <img src={Hero4} alt="student" />
           </div>
-          <NavHashLink to={{ pathname: '/', hash: '#how-it-works' }}>
+          <NavHashLink to={{ pathname: '/', query: { v2: 'true' }, hash: '#how-it-works' }}>
             <div className="btn-down">
               <img src={ArrowDown} alt="arrowdown" />
             </div>

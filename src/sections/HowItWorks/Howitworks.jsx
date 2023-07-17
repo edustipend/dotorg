@@ -10,14 +10,14 @@ const HowItWorks = () => {
     <div id="how-it-works" className="how-it-works-container">
       <Container>
         <div className="header-div">
-          <Header color="secondary" size="medium">
+          <Header className="v2-section-header" color="secondary" size="medium">
             How it Works
           </Header>
         </div>
 
         <div className="subheader-div">
-          <Header color="secondary" size="small" subheader>
-            The 3Rs: Request, Review, Receive
+          <Header className="v2-section-subheader" color="secondary" size="small">
+            The 3Rs & 1A
           </Header>
         </div>
 
