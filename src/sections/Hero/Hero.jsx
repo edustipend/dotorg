@@ -3,7 +3,7 @@ import { NavHashLink } from 'react-router-hash-link';
 import Container from '../../components/Container';
 import Button from '../../components/Button';
 import { Hero1, Hero2, Hero3, Hero4, Svg1, Svg2, Svg3, Svg4, Svg5, ArrowDown } from '../../assets/index';
-import { stipends, stipendsColors, buttonLabel, secondaryEffect } from './constants';
+import { stipends, stipendsColors, buttonLabel, secondaryEffect, DEFAULT_HERO_TEST_ID } from './constants';
 
 import './styles.css';
 
@@ -27,7 +27,7 @@ const Hero = () => {
   }, [currentStipend, nextStipend]);
 
   return (
-    <section className="hero">
+    <section className="hero" data-testid={DEFAULT_HERO_TEST_ID}>
       <Container>
         <div className="top-section">
           <h1>
