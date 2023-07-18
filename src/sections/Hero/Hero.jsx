@@ -6,6 +6,9 @@ import { Hero1, Hero2, Hero3, Hero4, Svg1, Svg2, Svg3, Svg4, Svg5, ArrowDown } f
 import { stipends, stipendsColors, buttonLabel, secondaryEffect, DEFAULT_HERO_TEST_ID } from './constants';
 
 import './styles.css';
+import Header from '../../components/Header';
+import Text from '../../components/Text';
+import { getCurrentStipend } from './utils';
 
 const Hero = () => {
   const [currentStipend, setCurrentStipend] = useState(0);
@@ -30,18 +33,18 @@ const Hero = () => {
     <section className="hero" data-testid={DEFAULT_HERO_TEST_ID}>
       <Container>
         <div className="top-section">
-          <h1>
-            In need of {stipends[currentStipend] === 'laptop' ? 'a' : 'some'}{' '}
+          <Header>
+            In need of {getCurrentStipend(currentStipend)}{' '}
             <span
               style={{
                 color: stipendsColors[currentStipend]
               }}>
               {stipends[currentStipend]}
             </span>{' '}
-            to support your learning?
-          </h1>
+            for your learning?
+          </Header>
           <div className="boost-container">
-            <p>Give your learning goals a BOOST</p>
+            <Text content="Give your learning goals a BOOST" />
             <img src={Svg1} alt="boost icon" />
           </div>
           <div className="btn-container">
@@ -65,7 +68,7 @@ const Hero = () => {
           <div className="img1">
             <img src={Hero4} alt="student" />
           </div>
-          <NavHashLink to={{ pathname: '/', hash: '#how-it-works' }}>
+          <NavHashLink to={{ pathname: '/', query: { v2: 'true' }, hash: '#how-it-works' }}>
             <div className="btn-down">
               <img src={ArrowDown} alt="arrowdown" />
             </div>

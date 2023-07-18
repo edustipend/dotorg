@@ -9,21 +9,22 @@
   background-size: cover;
   overflow-x: hidden;
 }
+
 .hero .top-section {
   display: flex;
   position: relative;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 3rem;
 }
+
 .hero .top-section h1 {
   color: #2d3740;
   text-align: center;
-  font-family: 'Poppins';
-  font-size: 70px;
   font-style: normal;
   font-weight: 600;
-  line-height: 84px;
+  line-height: 72px;
   letter-spacing: -2.1px;
   max-width: 887px;
   max-height: 168px;
@@ -34,15 +35,16 @@
   display: flex;
   position: relative;
 }
+
 .hero .top-section > div > p {
   color: var(--edustipend-text-black, #2d3740);
   text-align: center;
   font-size: 22px;
-  font-family: 'Manrope', sans-serif;
   font-style: normal;
   font-weight: 500;
   margin-bottom: 2rem;
 }
+
 .hero .top-section .boost-container img {
   position: absolute;
   right: -10px;
@@ -54,24 +56,29 @@
   left: 10px;
   top: 45%;
 }
+
 .hero .right {
   position: absolute;
   right: 10px;
   top: 50%;
 }
+
 .hero .left2 {
   position: absolute;
   left: 33px;
   top: 85%;
 }
+
 .hero .right2 {
   position: absolute;
   right: 30px;
   top: 80%;
 }
+
 .hero .btn-container {
   margin-bottom: 2rem;
 }
+
 .hero .down-section {
   position: relative;
   display: flex;
@@ -84,10 +91,12 @@
   min-width: 150px;
   max-width: 230px;
 }
+
 .hero .down-section .img2 {
   min-width: 150px;
   max-width: 230px;
 }
+
 .hero .down-section .btn-down {
   position: absolute;
   bottom: 40px;
@@ -103,6 +112,7 @@
   background: #fff;
   cursor: pointer;
 }
+
 .hero .down-section .btn-down img {
   width: 24px;
   height: 24px;
@@ -114,27 +124,34 @@
     font-size: 55px;
     margin-bottom: 5px;
   }
+
   .hero .top-section > div > p {
     font-size: 18px;
   }
 }
+
 @media only screen and (max-width: 800px) {
   .hero .top-section h1 {
     font-size: 45px;
+    line-height: 60px;
   }
+
   .hero .top-section > div > p {
     font-size: 20px;
   }
 }
+
 @media only screen and (max-width: 670px) {
   .hero .top-section h1 {
     width: 400px;
     font-size: 42px;
     line-height: 60px;
   }
+
   .hero .down-section {
     margin-top: 80px;
   }
+
   .hero .down-section .btn-down {
     bottom: 25px;
     width: 35px;
@@ -143,12 +160,14 @@
     border: 1px solid var(--edustipend-black, #161616);
     left: 46.5%;
   }
+
   .hero .down-section .btn-down img {
     width: 24px;
     height: 24px;
     flex-shrink: 0;
   }
 }
+
 @media only screen and (max-width: 450px) {
   .hero {
     padding: 183px 20px 0;
@@ -159,34 +178,45 @@
   .hero .down-section {
     margin-bottom: 0px;
   }
-  .hero .top-section h1 {
+
+  .hero .top-section > h1 {
     font-size: 36px;
     line-height: 40px;
     width: 300px;
   }
+
   .hero .top-section > div > p {
     font-size: 20px;
     margin-top: 20px;
   }
+
   .boost-container img {
     width: 45px;
   }
+
   .hero .left {
     left: 140px;
     top: 0;
   }
+
   .hero .right {
     right: 155px;
     top: 100%;
   }
+
   .left2,
   .right2 {
     display: none;
   }
+
   .hero .down-section {
     width: 100%;
     gap: 10px;
     overflow: hidden;
+  }
+
+  .hero .top-section {
+    margin-top: 1rem;
   }
 }
 
@@ -195,6 +225,7 @@
     width: 280px;
     font-size: 20px;
   }
+
   .hero .top-section > div > p {
     font-size: 15px;
   }

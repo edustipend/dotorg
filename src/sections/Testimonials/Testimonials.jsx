@@ -14,11 +14,13 @@ export const Testimonials = () => {
       </div>
       <section className={styles.testimonialContent}>
         <section className={styles.section}>
-          <Header size="large" text="Testimonials" />
+          <Header className="v2-section-header" color="primary" size="medium">
+            Testimonials
+          </Header>
           <div className={styles.headerContainer}>
-            <div className={styles.sub_header}>
-              <Header size="medium" text="HEAR FROM OUR AMBASSADORS AND BENEFICIARIES" subheader />
-            </div>
+            <Header className="v2-section-subheader" color="primary" size="small" subheader>
+              Hear from our ambassadors and beneficiaries
+            </Header>
           </div>
         </section>
         <Carousel cardData={cardData} />
