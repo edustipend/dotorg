@@ -5,6 +5,7 @@ import Container from '../../components/Container';
 import { Header } from '../../components/Header/Header';
 import { Text } from '../../components/Text/Text';
 import NumbersGrid from './Internals/NumbersGrid';
+import { TestId } from './constants';
 
 const Beneficiaries = () => {
   return (
@@ -14,11 +15,11 @@ const Beneficiaries = () => {
         <div className="beneficiaries-container">
           <div className="texts-and-images">
             <div className="left-texts">
-              <Header className="Beneficiaries-header" color="primary" size="small">
+              <Header className="Beneficiaries-header" dataTest={TestId.HEADER_MOBILE_TEST_ID} color="primary" size="small">
                 Our Beneficiaries so far
               </Header>
 
-              <Header className="Beneficiaries-subheader" size="small" subheader color="primary">
+              <Header className="Beneficiaries-subheader" color="primary" dataTest={TestId.SUB_HEADER_MOBILE_TEST_ID} size="small" subheader>
                 Our Beneficiaries
               </Header>
 
@@ -53,11 +54,11 @@ const Beneficiaries = () => {
         <div className="beneficiaries-bigscreen-container">
           <div className="beneficiaries-bigscreen-container-left">
             <div className="left-texts-bigscreen">
-              <Header className="Beneficiaries-header-bigscreen" color="primary" size="small">
+              <Header className="v2-section-header" color="primary" dataTest={TestId.HEADER_TEST_ID} size="small">
                 Our Beneficiaries so far
               </Header>
 
-              <Header className="Beneficiaries-subheader-bigscreen" subheader={true} size="small" color="primary">
+              <Header className="v2-section-subheader" color="primary" dataTest={TestId.SUB_HEADER_TEST_ID} subheader={true} size="small">
                 Our Beneficiaries
               </Header>
 

@@ -72,6 +72,14 @@
   line-height: 1.4;
 }
 
+.ta-left {
+  text-align: left;
+}
+
+.ta-center {
+  text-align: center;
+}
+
 @media screen and (min-width: 560px) {
   .display-card {
     height: 280px;

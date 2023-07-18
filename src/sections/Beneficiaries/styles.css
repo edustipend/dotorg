@@ -92,7 +92,6 @@
   .view-numbers-btn {
     display: flex;
     flex-direction: column;
-    align-self: flex-start;
   }
 
   .Beneficiaries-text {
@@ -166,16 +165,6 @@
   .Beneficiaries-text-bigscreen {
     width: 70%;
   }
-
-  .Beneficiaries-header-bigscreen{
-    line-height: 50px;
-    font-size: 32px;
-  }
-
-  .Beneficiaries-subheader-bigscreen {
-    margin: 20px 0;
-    font-size: 18px;
-  }
 }
 
 @media screen and (min-width: 820px) {
@@ -206,21 +195,9 @@
     font-size: 14px;
     width: 55%;
   }
-
- 
 }
 
 @media screen and (min-width: 1440px) {
-
-  .Beneficiaries-header-bigscreen {
-    font-size: 64px;
-    margin-top: 50px;
-  }
-
-  .Beneficiaries-subheader-bigscreen {
-    font-size: 32px;
-  }
-
   .Beneficiaries-text-bigscreen {
     font-size: 20px;
     width: 50%;

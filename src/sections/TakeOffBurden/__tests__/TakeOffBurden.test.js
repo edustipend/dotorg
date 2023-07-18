@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import TakeOffBurden from '../TakeOffBurden';
-import { TestId, ByText } from '../constant';
+import { TestId, TextCopy } from '../constants';
 
 describe('TakeOffBurden', () => {
   it('renders the component correctly', () => {
@@ -10,11 +10,11 @@ describe('TakeOffBurden', () => {
     expect(screen.getByTestId(TestId.TAKEOFFBURDEN_CARD_TEST_ID)).toBeInTheDocument();
     expect(screen.getByTestId(TestId.TAKEOFFBURDEN_TRANSPARENT_CARD_TEST_ID)).toBeInTheDocument();
 
-    expect(screen.getByText(ByText.TAKEOFFBURDEN_HEADING)).toBeInTheDocument();
-    expect(screen.getByText(ByText.TAKEOFFBURDEN_PARAGRAPH)).toBeInTheDocument();
+    expect(screen.getByText(TextCopy.TAKEOFFBURDEN_HEADING)).toBeInTheDocument();
+    expect(screen.getByText(TextCopy.TAKEOFFBURDEN_PARAGRAPH)).toBeInTheDocument();
 
-    expect(screen.getByAltText(ByText.TAKEOFFBURDEN_ARROW)).toBeInTheDocument();
+    expect(screen.getByAltText(TextCopy.TAKEOFFBURDEN_ARROW)).toBeInTheDocument();
 
-    expect(screen.getByText(ByText.BUTTON_TEXT)).toBeInTheDocument();
+    expect(screen.getByText(TextCopy.BUTTON_TEXT)).toBeInTheDocument();
   });
 });

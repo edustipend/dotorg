@@ -5,6 +5,7 @@ import Button from '../../components/Button';
 import Container from '../../components/Container';
 import Header from '../../components/Header';
 import Text from '../../components/Text';
+import { TextCopy } from './constants';
 
 const TakeOffBurden = () => {
   return (
@@ -20,8 +21,8 @@ const TakeOffBurden = () => {
             <img data-testid="burdenarrow" className="burdenarrow" src={arrow} alt="arrow" />
 
             <div className="takeoffburden-header-div">
-              <Header className="takeoffburden-header" color="secondary" size="small">
-                Take the burden off yourself
+              <Header className="v2-section-header take-off-burden-header" color="secondary" size="small">
+                {TextCopy.TAKEOFFBURDEN_HEADING}
               </Header>
             </div>
 

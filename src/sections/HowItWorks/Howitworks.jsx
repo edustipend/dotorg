@@ -9,11 +9,11 @@ const HowItWorks = () => {
   return (
     <div id="how-it-works" className="how-it-works-container">
       <Container>
-        <Header className="how-it-works-header" color="secondary" size="small">
+        <Header className="v2-section-header ta-center" color="secondary" size="small">
           {Text.HEADER_TEXT}
         </Header>
 
-        <Header className="how-it-works-subheader" subheader size="small" color="secondary">
+        <Header className="v2-section-subheader ta-center" subheader size="small" color="secondary">
           {Text.SUBHEADER_TEXT}
         </Header>
 
