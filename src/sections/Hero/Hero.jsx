@@ -4,10 +4,10 @@ import Container from '../../components/Container';
 import Button from '../../components/Button';
 import { Hero1, Hero2, Hero3, Hero4, Svg1, Svg2, Svg3, Svg4, Svg5, ArrowDown } from '../../assets/index';
 import { stipends, stipendsColors, buttonLabel, secondaryEffect } from './constants';
-
 import './styles.css';
 import Header from '../../components/Header';
 import Text from '../../components/Text';
+import { getCurrentStipend } from './utils';
 
 const Hero = () => {
   const [currentStipend, setCurrentStipend] = useState(0);
@@ -33,7 +33,7 @@ const Hero = () => {
       <Container>
         <div className="top-section">
           <Header>
-            In need of {stipends[currentStipend] === 'laptop' ? 'a' : 'some'}{' '}
+            In need of {getCurrentStipend(currentStipend)}{' '}
             <span
               style={{
                 color: stipendsColors[currentStipend]
@@ -41,7 +41,7 @@ const Hero = () => {
             >
               {stipends[currentStipend]}
             </span>{' '}
-            to support your learning?
+            for your learning?
           </Header>
           <div className="boost-container">
             <Text content="Give your learning goals a BOOST" />
@@ -68,7 +68,7 @@ const Hero = () => {
           <div className="img1">
             <img src={Hero4} alt="student" />
           </div>
-          <NavHashLink to={{ pathname: '/', hash: '#how-it-works' }}>
+          <NavHashLink to={{ pathname: '/', query: { v2: 'true' }, hash: '#how-it-works' }}>
             <div className="btn-down">
               <img src={ArrowDown} alt="arrowdown" />
             </div>

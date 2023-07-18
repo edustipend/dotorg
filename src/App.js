@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import FooterV2 from './components/FooterV2/FooterV2';
 import './App.css';
 
+
 initFirebaseApp();
 
 function App() {

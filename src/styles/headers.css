@@ -52,6 +52,26 @@
   margin-top: -0.5rem;
 }
 
+.v2-section-header {
+  font-size: 2.25rem;
+  line-height: 1;
+}
+
+.v2-section-subheader {
+  font-size: 1.25rem;
+}
+
+@media screen and (min-width: 560px) {
+  .v2-section-header {
+    font-size: 2.5rem;
+    line-height: 1;
+  }
+
+  .v2-section-subheader {
+    font-size: 1.5rem;
+  }
+}
+
 @media screen and (min-width: 560px) {
   .page-header {
     font-size: 3rem;
