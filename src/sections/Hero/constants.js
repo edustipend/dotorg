@@ -12,4 +12,4 @@ export const StipendCategory = {
 export const DEFAULT_HERO_TEST_ID = 'hero-test-id';
 export const BTN_TEST_ID = 'btn-test-id';
 export const HERO_PARAGRAPH = 'Give your learning goals a BOOST';
-export const STATIC_HERO_TEXT = 'In need of some stipend to support your learning?';
+export const STATIC_HERO_TEXT = 'In need of some stipend for your learning?';
