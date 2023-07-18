@@ -7,6 +7,7 @@ import Header from '../../components/Header';
 import Text from '../../components/Text';
 import { TextCopy } from './constants';
 
+
 const TakeOffBurden = () => {
   return (
     <div className="takeoffburden-container" data-testid="takeoffburden-container">
