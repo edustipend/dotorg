@@ -1,0 +1,210 @@
+.numbers-container {
+  display: block;
+}
+
+.numbers-container-bigscreen {
+  display: none;
+}
+
+.numbers-container {
+  height: 280px;
+  margin: 40px 0px 0px;
+  box-shadow: rgba(0, 0, 0, 0.14) 0px 3px 8px;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.numbers {
+  height: 250px;
+  background: #fff;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-color: #2d3740;
+  border-style: dashed;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.top-numbers {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.bottom-numbers {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.top-left-numbers,
+.top-right-numbers {
+  height: 90px;
+  width: 170px;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.bottom-left-numbers,
+.bottom-right-numbers {
+  height: 90px;
+  width: 170px;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.top-left-numbers > h3,
+.top-right-numbers > h3,
+.bottom-left-numbers > h3,
+.bottom-right-numbers > h3 {
+  font-family: 'manrope';
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.top-left-numbers > p,
+.top-right-numbers > p,
+.bottom-left-numbers > p,
+.bottom-right-numbers > p {
+  font-family: 'manrope';
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+@media screen and (min-width: 600px){
+  .top-left-numbers,
+  .top-right-numbers{
+    width: 300px;
+  }
+
+
+  .bottom-left-numbers,
+.bottom-right-numbers{
+  width: 300px;
+}
+}
+
+@media screen and (min-width: 768px) {
+  .numbers-container {
+    display: none;
+  }
+
+  .numbers-container-bigscreen {
+    display: block;
+  }
+
+  .numbers-container-bigscreen {
+    height: 280px;
+    margin-right: 30px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 50px;
+    width: 350px;
+  }
+
+  .numbers-bigscreen {
+    margin: 0px 30px 0px 30px;
+    height: 250px;
+    background: #fff;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-color: #2d3740;
+    border-style: dashed;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .top-numbers-bigscreen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 50px;
+  }
+
+  .bottom-numbers-bigscreen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 50px;
+  }
+
+  .top-left-numbers-bigscreen,
+  .top-right-numbers-bigscreen {
+    height: 90px;
+    width: 150px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .bottom-left-numbers-bigscreen,
+  .bottom-right-numbers-bigscreen {
+    height: 90px;
+    width: 150px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .top-left-numbers-bigscreen > h3,
+  .top-right-numbers-bigscreen > h3,
+  .bottom-left-numbers-bigscreen > h3,
+  .bottom-right-numbers-bigscreen > h3 {
+    font-family: 'manrope';
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  .top-left-numbers-bigscreen > p,
+  .top-right-numbers-bigscreen > p,
+  .bottom-left-numbers-bigscreen > p,
+  .bottom-right-numbers-bigscreen > p {
+    font-family: 'manrope';
+    font-size: 14px;
+    margin-top: 10px;
+  }
+}
+
+@media screen and (min-width: 820px) {
+  .numbers-container-bigscreen {
+    width: 350px;
+  }
+}
+
+@media screen and (min-width: 996px) {
+  .numbers-container-bigscreen {
+    width: 400px;
+  }
+}

@@ -8,8 +8,7 @@ import Review from '../../assets/review.svg';
 import StudentImage from '../../assets/image_student.png';
 import PhoneImage from '../../assets/image_phone.png';
 import HandshakeImage from '../../assets/image_handshake.png';
-import { Testimonials } from '../../sections/Testimonials/Testimonials';
-import Request from '../../sections/Request/Request';
+import Footer from '../../components/Footer';
 
 const TopSection = () => {
   return (
@@ -27,7 +26,8 @@ const TopSection = () => {
             to={{
               pathname: '/',
               hash: '#makerequest'
-            }}>
+            }}
+          >
             Request stipend
           </NavHashLink>
 
@@ -36,7 +36,8 @@ const TopSection = () => {
             to={{
               pathname: '/',
               hash: '#howitworks'
-            }}>
+            }}
+          >
             Learn how it works
           </NavHashLink>
 
@@ -132,7 +133,8 @@ export const RequestSection = () => (
         height="1010"
         frameborder="0"
         marginheight="0"
-        marginwidth="0">
+        marginwidth="0"
+      >
         Loading…
       </iframe>
       {/* <iframe class='request-form' title='google-form' src="https://docs.google.com/forms/d/e/1FAIpQLSeFO2YrNTYa9YIHyNlPnh8cruDKVswfu1yLsLXWS-YwDneL0A/viewform?embedded=true" width="640" height="310" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe> */}
@@ -146,8 +148,7 @@ export const Landing = () => {
       <TopSection />
       <MidSection />
       <RequestSection />
-      <Testimonials />
-      <Request />
+      <Footer />
     </main>
   );
 };
