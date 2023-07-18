@@ -3,18 +3,18 @@ import './styles.css';
 import Container from '../../components/Container';
 import RRRRCard from './internals/RRRRCard';
 import Header from '../../components/Header';
-import { Howitworks } from './constants';
+import { Howitworks, Text } from './constants';
 
 const HowItWorks = () => {
   return (
     <div id="how-it-works" className="how-it-works-container">
       <Container>
         <Header className="how-it-works-header" color="secondary" size="small">
-          How It Works
+          {Text.HEADER_TEXT}
         </Header>
 
         <Header className="how-it-works-subheader" subheader size="small" color="secondary">
-          The 3Rs: Request, Review, Receive
+          {Text.SUBHEADER_TEXT}
         </Header>
 
         {/* Request, Review, Receive - RRR */}

@@ -36,7 +36,7 @@ export const Howitworks = [
 
 export const Text = {
   HEADER_TEXT: 'How it Works',
-  SUBHEADER_TEXT: 'The 3Rs: Request, Review, Receive'
+  SUBHEADER_TEXT: "The 3R's and 1A"
 };
 
 export const TestId = {

@@ -1,5 +1,5 @@
 .takeoffburden-container {
-  background-image: url('../../assets/takeoffburdenBG.png');
+  background-image: url('../../assets/takeoffburdenbg.png');
   background-repeat: no-repeat;
   background-size: cover;
   padding: 50px 0px;
@@ -46,7 +46,6 @@
 
 .takeoffburden-header {
   line-height: 30px;
-
 }
 
 .takeoffburden-text {
@@ -76,6 +75,7 @@
     bottom: 85px;
     right: 50px;
   }
+
   .takeoffburden-text {
     text-align: center;
     width: 80%;
@@ -88,6 +88,7 @@
     width: 80%;
     margin: 20px 0;
   }
+
   .burdenarrow {
     position: absolute;
     bottom: 85px;
@@ -103,6 +104,7 @@
     width: 300px;
     height: 400px;
   }
+
   .takeoffburden-text {
     text-align: center;
     width: 60%;
@@ -219,9 +221,9 @@
     bottom: 100px;
     left: 260px;
   }
+
   .takeoffburden-header {
     width: 60%;
-    
   }
 
   .takeoffburden-text {
