@@ -6,12 +6,7 @@ const Card = ({ itm, offset }) => {
   let active = offset === 0 ? true : null;
   const { id, name, status, testimonial, socials, image } = itm;
   return (
-    <div
-      key={id}
-      className={styles.card}
-      data-active={active}
-      style={{ '--offset': offset, '--skew': offset === 0 ? 0 : offset > 0 ? 1 : -1 }}
-    >
+    <div key={id} className={styles.card} data-active={active} style={{ '--offset': offset, '--skew': offset === 0 ? 0 : offset > 0 ? 1 : -1 }}>
       <div>
         <div className={styles.top}>
           <div className={styles.imgContainer}>

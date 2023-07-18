@@ -36,7 +36,6 @@ const Carousel = ({ cardData }) => {
     if (!touchStartEvent || !touchEndEvent) return;
     const swipeLeft = diffrence > minSwipeDiffrence;
     const swipeRight = diffrence < minSwipeDiffrence;
-    
 
     if (swipeLeft) {
       return dispatch({ type: types.PREV });
