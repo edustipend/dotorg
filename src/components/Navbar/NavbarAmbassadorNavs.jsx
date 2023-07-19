@@ -4,7 +4,7 @@ import { NAVBAR_AMBASSADOR_LINKS, TestId } from './constants';
 
 import './styles.css';
 
-const NavbarAmbassadorNavs = ({ showMenu }) => {
+const NavbarAmbassadorNavs = ({ showMenu, closeMenuFunc }) => {
   const { NAVBAR_LINKS_ID } = TestId;
   return (
     <>
@@ -19,7 +19,7 @@ const NavbarAmbassadorNavs = ({ showMenu }) => {
       {showMenu ? (
         <nav className="mobile-nav">
           {NAVBAR_AMBASSADOR_LINKS.map((link) => (
-            <NavHashLink key={link.label} to={{ pathname: link.path, hash: link.hash }}>
+            <NavHashLink key={link.label} to={{ pathname: link.path, hash: link.hash }} onClick={() => closeMenuFunc(!showMenu)}>
               {link.label}
             </NavHashLink>
           ))}
@@ -34,5 +34,6 @@ const NavbarAmbassadorNavs = ({ showMenu }) => {
 export default NavbarAmbassadorNavs;
 
 NavbarAmbassadorNavs.propTypes = {
-  showMenu: PropTypes.bool
+  showMenu: PropTypes.bool,
+  closeMenuFunc: PropTypes.func
 };
