@@ -22,9 +22,24 @@ export const Select = ({ dispatch, label, placeholder, options, type, size, valu
       </label>
       <div className={`${styles.defaultContainer} ${styles[size]}`}>
         <div className={styles.selectInput}>
-          <input data-testid={inputId} className={styles.select} value={option} placeholder={placeholder} onClick={() => setActive((pre) => !pre)} />
+          <input
+            data-testid={inputId}
+            value={option}
+            placeholder={placeholder}
+            onClick={() => setActive((pre) => !pre)}
+            className={styles.select}
+          />
           <div className={styles.dropDown}>
-            <img src={dropDown} alt="drop-down-icon" className={active ? `${styles.dropDownArr} ${styles.dropDownAlt}` : `${styles.dropDownArr}`} />
+            <img
+              src={dropDown}
+              alt="drop-down-icon"
+              className={
+                active
+                  ? `${styles.dropDownArr} 
+            ${styles.dropDownAlt}`
+                  : `${styles.dropDownArr}`
+              }
+            />
           </div>
         </div>
         {active && (
@@ -54,7 +69,7 @@ Select.propTypes = {
 };
 
 Select.defaultProps = {
-  dispatch: () => {},
+  dispatch: () => { },
   label: 'Some label',
   placeholder: 'Select an option',
   options: [],
