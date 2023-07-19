@@ -6,13 +6,13 @@ import dropDown from '../../assets/drop-down.svg';
 import { testIds } from './constants';
 const { labelId, inputId, optionsId } = testIds;
 
-export const Select = ({ dispatch, label, placeholder, options, type, size }) => {
-  const [option, setOption] = useState('');
+export const Select = ({ dispatch, label, placeholder, options, type, size, value }) => {
+  const [option, setOption] = useState(value);
   const [active, setActive] = useState(false);
 
-  const handleDispatch = (option) => {
-    setOption(option);
-    dispatch({ type: type, payload: option });
+  const handleDispatch = (Option) => {
+    setOption(Option);
+    dispatch({ type: type, payload: Option });
     setActive((pre) => !pre);
   };
   return (
@@ -49,7 +49,8 @@ Select.propTypes = {
   placeholder: PropTypes.string,
   options: PropTypes.array,
   type: PropTypes.string,
-  size: PropTypes.string
+  size: PropTypes.string,
+  value: PropTypes.string
 };
 
 Select.defaultProps = {
@@ -58,5 +59,6 @@ Select.defaultProps = {
   placeholder: 'Select an option',
   options: [],
   type: '',
-  size: ''
+  size: '',
+  value: ''
 };
