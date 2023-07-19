@@ -1,60 +1,69 @@
 .main {
     display: flex;
     flex-direction: column;
-    gap: 14px;
     font-weight: 400;
 }
 
 .label {
     font-size: 16px;
+    display: flex;
+    align-items: center;
     color: var(--navy-blue);
 }
 
-.select {
+.required {
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 24px;
+    color: #F20B07;
+    font-weight: 700;
+}
+
+.defaultContainer {
     width: 15%;
     position: relative;
 }
 
-.defaultContainer {
+.select {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 16px;
-    border: 1px solid #2D374033;
+    border: 1px solid #2d374033;
     padding: 17px 19px;
     border-radius: 10px;
     caret-color: transparent;
     color: var(--navy-blue);
+    box-shadow: 0px 11px 50px 0px #076DF30D;
 }
 
-.defaultContainer:hover {
+.select::placeholder {
+    color: #1B1B1B4D;
+}
+
+.select .select:hover {
     cursor: pointer;
-
 }
 
-.defaultContainer:focus {
+.select:focus {
     border: 0.5px solid transparent;
     border-radius: 10px;
-    background:
-        linear-gradient(to right, white, white),
-        linear-gradient(to right, #5801FF33, #00BABB33);
+    background: linear-gradient(to right, white, white), linear-gradient(to right, #5801ff33, #00babb33);
     background-clip: padding-box, border-box;
     background-origin: padding-box, border-box;
 }
 
-.defaultContainer:active {
+.select:active {
     border: 0.5px solid transparent;
     border-radius: 10px;
-    background:
-        linear-gradient(to right, white, white),
-        linear-gradient(to right, #5801FF33, #00BABB33);
+    background: linear-gradient(to right, white, white), linear-gradient(to right, #5801ff33, #00babb33);
     background-clip: padding-box, border-box;
     background-origin: padding-box, border-box;
 }
 
 .default {
-    color: #1B1B1B4D;
+    color: #1b1b1b4d;
 }
 
 .dropDown {
@@ -73,8 +82,12 @@
 .dropDownArr {
     width: 17.7px;
     height: 10.5px;
+    transition: all 300ms ease-in-out;
 }
 
+.dropDownAlt {
+    transform: rotate(180deg);
+}
 
 .optionsContainer {
     position: absolute;
@@ -85,14 +98,11 @@
     border: 0.5px solid transparent;
     border-radius: 10px;
     color: var(--navy-blue);
-    background:
-        linear-gradient(to right, white, white),
-        linear-gradient(to right, #5801FF33, #00BABB33);
+    background: linear-gradient(to right, white, white), linear-gradient(to right, #5801ff33, #00babb33);
     background-clip: padding-box, border-box;
     background-origin: padding-box, border-box;
     scrollbar-width: 5px;
-    scrollbar-color: linear-gradient(to bottom, #5801FF33, #00BABB33);
-    ;
+    scrollbar-color: linear-gradient(to bottom, #5801ff33, #00babb33);
 }
 
 .optionsContainer::-webkit-scrollbar {
@@ -106,7 +116,7 @@
 }
 
 .optionsContainer::-webkit-scrollbar-thumb {
-    background: linear-gradient(to bottom, #5801FF33, #00BABB33);
+    background: linear-gradient(to bottom, #5801ff33, #00babb33);
     border-radius: 10px;
 }
 
@@ -118,16 +128,15 @@
 .itm {
     padding: 1rem;
     width: 100%;
-    border-bottom: 1px solid #C4C4C433;
+    border-bottom: 1px solid #c4c4c433;
 }
 
 .itm:hover {
     cursor: pointer;
 }
 
-
 .small {
-    width: 15%
+    width: 15%;
 }
 
 .medium {

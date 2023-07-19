@@ -15,27 +15,30 @@ export const Select = ({ dispatch, label, placeholder, options, type, size }) =>
   };
   return (
     <main className={styles.main}>
-      <label className={styles.label}>{label}</label>
-      <div className={`${styles.select} ${styles[size]}`}>
+      <label className={styles.label}>{label} <span className={styles.required}>*</span></label>
+      <div className={`${styles.defaultContainer} ${styles[size]}`}>
         <div className={styles.selectInput}>
-          <input className={styles.defaultContainer} value={option} placeholder={placeholder} onClick={() => setActive((pre) => !pre)} />
+          <input className={styles.select} value={option} placeholder={placeholder}
+            onClick={() => setActive((pre) => !pre)}
+          />
           <div className={styles.dropDown}>
-            <img src={dropDown} alt="drop-down-icon" className={styles.dropDownArr} />
+            <img src={dropDown} alt="drop-down-icon"
+              className={active ? `${styles.dropDownArr} ${styles.dropDownAlt}`
+                : `${styles.dropDownArr}`}
+            />
           </div>
         </div>
-        {
-          active &&
+        {active && (
           <div className={styles.optionsContainer}>
-            {
-              options?.map((itm, idx) => {
-                return (
-                  <div key={idx} className={styles.option} onClick={() => handleDispatch(itm)}>
-                    <span className={styles.itm}>{itm}</span>
-                  </div>
-                );
-              })}
+            {options?.map((itm, idx) => {
+              return (
+                <div key={idx} className={styles.option} onClick={() => handleDispatch(itm)}>
+                  <span className={styles.itm}>{itm}</span>
+                </div>
+              );
+            })}
           </div>
-        }
+        )}
       </div>
     </main>
   );
@@ -52,7 +55,7 @@ Select.propTypes = {
 
 Select.defaultProps = {
   dispatch: () => { },
-  label: 'Some string',
+  label: 'Some label',
   placeholder: 'Select an option',
   options: [],
   type: '',

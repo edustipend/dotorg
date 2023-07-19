@@ -142,7 +142,7 @@ export const RequestSection = () => (
     </div>
   </div>
 );
-const arr = ['Ade', 'Tayo', 'Bisi']
+const arr = ['Ade', 'Tayo', 'Bisi'];
 
 export const Landing = () => {
   return (
