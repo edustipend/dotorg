@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import styles from './Select.module.css';
 import dropDown from '../../assets/drop-down.svg';
-import { testIds } from './constants'
+import { testIds } from './constants';
 const { labelId, inputId, optionsId } = testIds;
 
 export const Select = ({ dispatch, label, placeholder, options, type, size }) => {
@@ -17,17 +17,14 @@ export const Select = ({ dispatch, label, placeholder, options, type, size }) =>
   };
   return (
     <main className={styles.main}>
-      <label data-testid={labelId} className={styles.label}>{label} <span className={styles.required}>*</span></label>
+      <label data-testid={labelId} className={styles.label}>
+        {label} <span className={styles.required}>*</span>
+      </label>
       <div className={`${styles.defaultContainer} ${styles[size]}`}>
         <div className={styles.selectInput}>
-          <input data-testid={inputId} className={styles.select} value={option} placeholder={placeholder}
-            onClick={() => setActive((pre) => !pre)}
-          />
+          <input data-testid={inputId} className={styles.select} value={option} placeholder={placeholder} onClick={() => setActive((pre) => !pre)} />
           <div className={styles.dropDown}>
-            <img src={dropDown} alt="drop-down-icon"
-              className={active ? `${styles.dropDownArr} ${styles.dropDownAlt}`
-                : `${styles.dropDownArr}`}
-            />
+            <img src={dropDown} alt="drop-down-icon" className={active ? `${styles.dropDownArr} ${styles.dropDownAlt}` : `${styles.dropDownArr}`} />
           </div>
         </div>
         {active && (
@@ -56,7 +53,7 @@ Select.propTypes = {
 };
 
 Select.defaultProps = {
-  dispatch: () => { },
+  dispatch: () => {},
   label: 'Some label',
   placeholder: 'Select an option',
   options: [],

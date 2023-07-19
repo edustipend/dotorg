@@ -1,148 +1,147 @@
 .main {
-    display: flex;
-    flex-direction: column;
-    font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  font-weight: 400;
 }
 
 .label {
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    color: var(--navy-blue);
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  color: var(--navy-blue);
 }
 
 .required {
-    margin-top: 10px;
-    margin-left: 10px;
-    font-size: 24px;
-    color: #F20B07;
-    font-weight: 700;
+  margin-top: 10px;
+  margin-left: 10px;
+  font-size: 24px;
+  color: #f20b07;
+  font-weight: 700;
 }
 
 .defaultContainer {
-    width: 15%;
-    position: relative;
+  position: relative;
 }
 
 .select {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 16px;
-    border: 1px solid #2d374033;
-    padding: 17px 19px;
-    border-radius: 10px;
-    caret-color: transparent;
-    color: var(--navy-blue);
-    box-shadow: 0px 11px 50px 0px #076DF30D;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  border: 1px solid #2d374033;
+  padding: 17px 19px;
+  border-radius: 10px;
+  caret-color: transparent;
+  color: var(--navy-blue);
+  box-shadow: 0px 11px 50px 0px #076df30d;
 }
 
 .select::placeholder {
-    color: #1B1B1B4D;
+  color: #1b1b1b4d;
 }
 
 .select .select:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .select:focus {
-    border: 0.5px solid transparent;
-    border-radius: 10px;
-    background: linear-gradient(to right, white, white), linear-gradient(to right, #5801ff33, #00babb33);
-    background-clip: padding-box, border-box;
-    background-origin: padding-box, border-box;
+  border: 0.5px solid transparent;
+  border-radius: 10px;
+  background: linear-gradient(to right, white, white), linear-gradient(to right, #5801ff33, #00babb33);
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
 }
 
 .select:active {
-    border: 0.5px solid transparent;
-    border-radius: 10px;
-    background: linear-gradient(to right, white, white), linear-gradient(to right, #5801ff33, #00babb33);
-    background-clip: padding-box, border-box;
-    background-origin: padding-box, border-box;
+  border: 0.5px solid transparent;
+  border-radius: 10px;
+  background: linear-gradient(to right, white, white), linear-gradient(to right, #5801ff33, #00babb33);
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
 }
 
 .default {
-    color: #1b1b1b4d;
+  color: #1b1b1b4d;
 }
 
 .dropDown {
-    background: transparent;
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 1rem;
-    top: 0;
-    right: 0;
-    height: 100%;
-    pointer-events: none;
+  background: transparent;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+  top: 0;
+  right: 0;
+  height: 100%;
+  pointer-events: none;
 }
 
 .dropDownArr {
-    width: 17.7px;
-    height: 10.5px;
-    transition: all 300ms ease-in-out;
+  width: 17.7px;
+  height: 10.5px;
+  transition: all 300ms ease-in-out;
 }
 
 .dropDownAlt {
-    transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 .optionsContainer {
-    position: absolute;
-    width: 100%;
-    max-height: 110px;
-    overflow: auto;
-    top: 4rem;
-    border: 0.5px solid transparent;
-    border-radius: 10px;
-    color: var(--navy-blue);
-    background: linear-gradient(to right, white, white), linear-gradient(to right, #5801ff33, #00babb33);
-    background-clip: padding-box, border-box;
-    background-origin: padding-box, border-box;
-    scrollbar-width: 5px;
-    scrollbar-color: linear-gradient(to bottom, #5801ff33, #00babb33);
+  position: absolute;
+  width: 100%;
+  max-height: 110px;
+  overflow: auto;
+  top: 4rem;
+  border: 0.5px solid transparent;
+  border-radius: 10px;
+  color: var(--navy-blue);
+  background: linear-gradient(to right, white, white), linear-gradient(to right, #5801ff33, #00babb33);
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+  scrollbar-width: 5px;
+  scrollbar-color: linear-gradient(to bottom, #5801ff33, #00babb33);
 }
 
 .optionsContainer::-webkit-scrollbar {
-    width: 5px;
-    border-radius: 10px;
+  width: 5px;
+  border-radius: 10px;
 }
 
 .optionsContainer::-webkit-scrollbar-track {
-    border-radius: 10px;
-    margin: 5px;
+  border-radius: 10px;
+  margin: 5px;
 }
 
 .optionsContainer::-webkit-scrollbar-thumb {
-    background: linear-gradient(to bottom, #5801ff33, #00babb33);
-    border-radius: 10px;
+  background: linear-gradient(to bottom, #5801ff33, #00babb33);
+  border-radius: 10px;
 }
 
 .option {
-    width: 100%;
-    display: flex;
+  width: 100%;
+  display: flex;
 }
 
 .itm {
-    padding: 1rem;
-    width: 100%;
-    border-bottom: 1px solid #c4c4c433;
+  padding: 1rem;
+  width: 100%;
+  border-bottom: 1px solid #c4c4c433;
 }
 
 .itm:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .small {
-    width: 15%;
+  width: 15%;
 }
 
 .medium {
-    width: 25%;
+  width: 25%;
 }
 
 .large {
-    width: 100%;
+  width: 100%;
 }

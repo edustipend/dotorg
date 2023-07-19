@@ -9,7 +9,6 @@ import StudentImage from '../../assets/image_student.png';
 import PhoneImage from '../../assets/image_phone.png';
 import HandshakeImage from '../../assets/image_handshake.png';
 import Footer from '../../components/Footer';
-import Select from '../../components/Select';
 
 const TopSection = () => {
   return (
@@ -142,14 +141,12 @@ export const RequestSection = () => (
     </div>
   </div>
 );
-const arr = ['Ade', 'Tayo', 'Bisi'];
 
 export const Landing = () => {
   return (
     <main>
       <TopSection />
       <MidSection />
-      <Select options={arr} />
       <RequestSection />
       <Footer />
     </main>
