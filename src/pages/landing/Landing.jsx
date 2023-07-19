@@ -9,7 +9,6 @@ import StudentImage from '../../assets/image_student.png';
 import PhoneImage from '../../assets/image_phone.png';
 import HandshakeImage from '../../assets/image_handshake.png';
 import Footer from '../../components/Footer';
-import { Select } from '../../components/Select/Select';
 const TopSection = () => {
   return (
     <div className="top-main">
@@ -147,7 +146,6 @@ export const Landing = () => {
     <main>
       <TopSection />
       <MidSection />
-      <Select />
       <RequestSection />
       <Footer />
     </main>
