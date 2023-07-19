@@ -9,6 +9,7 @@ import StudentImage from '../../assets/image_student.png';
 import PhoneImage from '../../assets/image_phone.png';
 import HandshakeImage from '../../assets/image_handshake.png';
 import Footer from '../../components/Footer';
+import Input from '../../components/Input';
 
 const TopSection = () => {
   return (
@@ -147,6 +148,7 @@ export const Landing = () => {
     <main>
       <TopSection />
       <MidSection />
+      <Input />
       <RequestSection />
       <Footer />
     </main>
