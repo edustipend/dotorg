@@ -4,9 +4,10 @@ import { footerLinks, socialLinks } from './internals/constants';
 import { Link } from 'react-router-dom';
 import Container from '../Container';
 import { TestConstants } from './internals/constants';
+import logo from '../../assets/edustipend-logo.png'
 const { Component_testid, Links_testid } = TestConstants
 
-const FooterV2 = () => {
+export const FooterV2 = () => {
   return (
     <footer data-testid={Component_testid}>
       <div className={styles.contentWrapper}>
@@ -40,19 +41,31 @@ const FooterV2 = () => {
                     {socialLinks.map((socials) => {
                       const { id, icon, link, media } = socials;
                       return (
-                        <Link key={id} to={link} className={styles.socialLink}>
+                        <a key={id} href={link} rel="noreferrer" target="_blank" className={styles.socialLink}>
                           <img src={icon} alt={media} />
-                        </Link>
+                        </a>
                       );
                     })}
                   </div>
                 </div>
               </div>
+
               <div className={styles.bottomSection}>
-                <span className={styles.rights}>All rights Reserved</span>
-                <p className={styles.edustipend}>
-                  <span>©</span>edustipend 2023
-                </p>
+                <div className={styles.hr} />
+                <div className={styles.allRights}>
+                  <Link to='/' className={styles.logoSection}>
+                    <div className={styles.logoContainer}>
+                      <img src={logo} alt="edustipend-logo" className={styles.logo} />
+                    </div>
+                    <span className={styles.logoText}>edustipend</span>
+                  </Link>
+                  <div className={styles.rightsContainer}>
+                    <span className={styles.rights}>All rights Reserved</span>
+                    <p className={styles.edustipend}>
+                      <span>©</span>edustipend 2023
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </Container>
@@ -61,4 +74,3 @@ const FooterV2 = () => {
     </footer>
   );
 };
-export default FooterV2;

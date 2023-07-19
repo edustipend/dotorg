@@ -1,6 +1,7 @@
 import insta from '../../../assets/social/insta_light.svg';
 import facebook from '../../../assets/social/facebook_light.svg';
 import twitter from '../../../assets/social/twitter_light.svg';
+import linkedin from '../../../assets/social/linkedin-in.svg';
 
 export const TestConstants = {
   Component_testid: 'Component_testid',
@@ -12,19 +13,25 @@ export const socialLinks = [
     id: 0,
     media: 'instagram',
     icon: insta,
-    link: '#'
+    link: 'https://www.instagram.com/edustipend/'
   },
   {
     id: 1,
     media: 'facebook',
     icon: facebook,
-    link: '#'
+    link: 'https://www.facebook.com/edustipend/'
   },
   {
     id: 2,
     media: 'twitter',
     icon: twitter,
-    link: '#'
+    link: 'https://www.twitter.com/edustipend/'
+  },
+  {
+    id: 3,
+    media: 'linkedin',
+    icon: linkedin,
+    link: 'https://www.linkedin.com/company/edustipend'
   }
 ];
 

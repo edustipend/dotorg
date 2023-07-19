@@ -8,7 +8,8 @@ import Review from '../../assets/review.svg';
 import StudentImage from '../../assets/image_student.png';
 import PhoneImage from '../../assets/image_phone.png';
 import HandshakeImage from '../../assets/image_handshake.png';
-import Footer from '../../components/Footer';
+//import Footer from '../../components/Footer';
+import FooterV2 from '../../components/FooterV2';
 
 const TopSection = () => {
   return (
@@ -148,7 +149,7 @@ export const Landing = () => {
       <TopSection />
       <MidSection />
       <RequestSection />
-      <Footer />
+      <FooterV2 />
     </main>
   );
 };
