@@ -1,38 +1,48 @@
-import React, { useState } from 'react'
-import PropTypes from 'prop-types'
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import styles from './Input.module.css';
 
-export const Input = ({ dispatch, placeholder, lable, value, dispatchType, type }) => {
-    const [initialValue, setInitialValue] = useState(value)
+export const Input = ({ dispatch, placeholder, lable, value, dispatchType, type, size }) => {
+  const [initialValue, setInitialValue] = useState(value);
 
-    const handleOnchange = (e) => {
-        setInitialValue(e.target.value)
-        dispatch({ type: dispatchType, payload: e.target.value })
-    }
+  const handleOnchange = (e) => {
+    setInitialValue(e.target.value);
+    dispatch({ type: dispatchType, payload: e.target.value });
+  };
 
-    return (
-        <main>
-            <label htmlFor="input">{lable}</label>
-            <input type={type} name='input' placeholder={placeholder} value={initialValue}
-                onChange={(e) => handleOnchange(e)}
-            />
-        </main>
-    )
-}
+  return (
+    <main className={styles.main}>
+      <label htmlFor="input" className={styles.label}>
+        {lable} <span className={styles.required}>*</span>
+      </label>
+      <input
+        type={type}
+        name="input"
+        placeholder={placeholder}
+        value={initialValue}
+        onChange={(e) => handleOnchange(e)}
+        className={`${styles.input} ${styles[size]}`}
+      />
+    </main>
+  );
+};
 
 Input.propTypes = {
-    dispatch: PropTypes.func,
-    placeholder: PropTypes.string,
-    lable: PropTypes.string,
-    value: PropTypes.string,
-    dispatchType: PropTypes.string,
-    type: PropTypes.string,
-}
+  dispatch: PropTypes.func,
+  placeholder: PropTypes.string,
+  lable: PropTypes.string,
+  value: PropTypes.string,
+  dispatchType: PropTypes.string,
+  type: PropTypes.string,
+  size: PropTypes.string
+};
 
 Input.defaultProps = {
-    dispatch: () => { },
-    placeholder: 'Placeholder...',
-    lable: 'Some label',
-    value: '',
-    dispatchType: '',
-    type: 'text'
-}
+  dispatch: () => {},
+  placeholder: 'Placeholder...',
+  lable: 'Some label',
+  value: '',
+  dispatchType: '',
+  type: 'text',
+  size: ''
+};

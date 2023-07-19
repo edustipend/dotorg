@@ -1,3 +1,3 @@
-import TakeOffBurden from "../TakeOffBurden/TakeOffBurden";
+import TakeOffBurden from '../TakeOffBurden/TakeOffBurden';
 
-export default TakeOffBurden
+export default TakeOffBurden;
