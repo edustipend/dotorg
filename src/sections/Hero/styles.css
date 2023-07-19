@@ -85,16 +85,21 @@
   justify-content: space-between;
   align-items: baseline;
   gap: 21px;
+  padding-bottom: 0;
 }
 
 .hero .down-section .img1 {
   min-width: 150px;
   max-width: 230px;
+  display: flex;
+  align-items: baseline;
 }
 
 .hero .down-section .img2 {
   min-width: 150px;
   max-width: 230px;
+  display: flex;
+  align-items: baseline;
 }
 
 .hero .down-section .btn-down {
