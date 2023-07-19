@@ -1,0 +1,139 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    font-weight: 400;
+}
+
+.label {
+    font-size: 16px;
+    color: var(--navy-blue);
+}
+
+.select {
+    width: 15%;
+    position: relative;
+}
+
+.defaultContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    border: 1px solid #2D374033;
+    padding: 17px 19px;
+    border-radius: 10px;
+    caret-color: transparent;
+    color: var(--navy-blue);
+}
+
+.defaultContainer:hover {
+    cursor: pointer;
+
+}
+
+.defaultContainer:focus {
+    border: 0.5px solid transparent;
+    border-radius: 10px;
+    background:
+        linear-gradient(to right, white, white),
+        linear-gradient(to right, #5801FF33, #00BABB33);
+    background-clip: padding-box, border-box;
+    background-origin: padding-box, border-box;
+}
+
+.defaultContainer:active {
+    border: 0.5px solid transparent;
+    border-radius: 10px;
+    background:
+        linear-gradient(to right, white, white),
+        linear-gradient(to right, #5801FF33, #00BABB33);
+    background-clip: padding-box, border-box;
+    background-origin: padding-box, border-box;
+}
+
+.default {
+    color: #1B1B1B4D;
+}
+
+.dropDown {
+    background: transparent;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem;
+    top: 0;
+    right: 0;
+    height: 100%;
+    pointer-events: none;
+}
+
+.dropDownArr {
+    width: 17.7px;
+    height: 10.5px;
+}
+
+
+.optionsContainer {
+    position: absolute;
+    width: 100%;
+    max-height: 110px;
+    overflow: auto;
+    top: 4rem;
+    border: 0.5px solid transparent;
+    border-radius: 10px;
+    color: var(--navy-blue);
+    background:
+        linear-gradient(to right, white, white),
+        linear-gradient(to right, #5801FF33, #00BABB33);
+    background-clip: padding-box, border-box;
+    background-origin: padding-box, border-box;
+    scrollbar-width: 5px;
+    scrollbar-color: linear-gradient(to bottom, #5801FF33, #00BABB33);
+    ;
+}
+
+.optionsContainer::-webkit-scrollbar {
+    width: 5px;
+    border-radius: 10px;
+}
+
+.optionsContainer::-webkit-scrollbar-track {
+    border-radius: 10px;
+    margin: 5px;
+}
+
+.optionsContainer::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #5801FF33, #00BABB33);
+    border-radius: 10px;
+}
+
+.option {
+    width: 100%;
+    display: flex;
+}
+
+.itm {
+    padding: 1rem;
+    width: 100%;
+    border-bottom: 1px solid #C4C4C433;
+}
+
+.itm:hover {
+    cursor: pointer;
+}
+
+
+.small {
+    width: 15%
+}
+
+.medium {
+    width: 25%;
+}
+
+.large {
+    width: 100%;
+}

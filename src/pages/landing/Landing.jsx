@@ -142,13 +142,14 @@ export const RequestSection = () => (
     </div>
   </div>
 );
+const arr = ['Ade', 'Tayo', 'Bisi']
 
 export const Landing = () => {
   return (
     <main>
       <TopSection />
       <MidSection />
-      <Select />
+      <Select options={arr} />
       <RequestSection />
       <Footer />
     </main>
