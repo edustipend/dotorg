@@ -26,7 +26,7 @@ export const NAVBAR_AMBASSADOR_LINKS = [
   },
   {
     label: 'Eligibility',
-    path: '/ambassador-program',
+    path: '/ambassador-program' ,
     hash: '#eligibility'
   },
   {
