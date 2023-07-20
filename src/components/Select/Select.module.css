@@ -33,6 +33,7 @@
   border: 1px solid #2d374033;
   padding: 17px 19px;
   border-radius: 10px;
+  outline: none;
   caret-color: transparent;
   color: var(--navy-blue);
   box-shadow: 0px 11px 50px 0px #076df30d;
