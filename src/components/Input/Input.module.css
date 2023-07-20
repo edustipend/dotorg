@@ -25,6 +25,7 @@
     color: var(--navy-blue);
     border: 1px solid #2d374033;
     border-radius: 15px;
+    outline: none;
 }
 
 .input::placeholder {
