@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from './Input.module.css';
+import { testIds } from './constants';
+const { labelId, InputId } = testIds
 
 export const Input = ({ dispatch, placeholder, lable, value, dispatchType, type, size }) => {
   const [initialValue, setInitialValue] = useState(value);
@@ -12,10 +14,11 @@ export const Input = ({ dispatch, placeholder, lable, value, dispatchType, type,
 
   return (
     <main className={styles.main}>
-      <label htmlFor="input" className={styles.label}>
+      <label data-testid={labelId} htmlFor="input" className={styles.label}>
         {lable} <span className={styles.required}>*</span>
       </label>
       <input
+        data-testid={InputId}
         type={type}
         name="input"
         placeholder={placeholder}
@@ -38,7 +41,7 @@ Input.propTypes = {
 };
 
 Input.defaultProps = {
-  dispatch: () => {},
+  dispatch: () => { },
   placeholder: 'Placeholder...',
   lable: 'Some label',
   value: '',
