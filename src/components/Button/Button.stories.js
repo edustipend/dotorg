@@ -7,7 +7,7 @@ export default {
   tags: ['autodocs'],
   argTypes: {
     backgroundColor: { control: 'color' },
-    effect: { control: 'select', options: ['primary', 'secondary'] }
+    effect: { control: 'select', options: ['primary', 'secondary'] },
   }
 };
 

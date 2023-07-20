@@ -8,12 +8,12 @@ import arrow_right from '../../assets/arrow-right.svg';
 /**
  * Button component for use on Edustipend pages
  */
-export const Button = ({ backgroundColor, dataTest, primary, size, label, effect, disabled, back, forward, ...props }) => {
+export const Button = ({ backgroundColor, dataTest, primary, size, label, effect, disabled, back, forward, plain, request, ...props }) => {
   const mode = primary ? ClassName.PRIMARY_BUTTON : ClassName.SECONDARY_BUTTON;
   return (
     <div
       className={`${effect === 'primary' ? 'effect' : effect === 'secondary' ? 'effect effect_alt' : ''}
-    ${disabled ? 'disabled' : ''}`}
+    ${disabled ? 'disabled' : ''} ${request ? 'request' : ''}`}
     >
       <button
         data-testid={dataTest}
@@ -22,19 +22,20 @@ export const Button = ({ backgroundColor, dataTest, primary, size, label, effect
         className={[
           `${back | forward ? `${ClassName.REQUEST_SECTION} ${ClassName.ROOT_BUTTON}` : ClassName.ROOT_BUTTON}`,
           `${ClassName.ROOT_BUTTON}--${size}`,
+          `${plain && ClassName.PLAIN}`,
           mode
         ].join(' ')}
         style={backgroundColor && { backgroundColor }}
         {...props}
       >
         {back && (
-          <div className='arrow'>
+          <div className="arrow arrow_left">
             <img src={arrow_left} alt="go-back" />
           </div>
         )}
         {label || DEFAULT_BUTTON_LABEL}
         {forward && (
-          <div className='arrow'>
+          <div className="arrow arrow_right">
             <img src={arrow_right} alt="continue" />
           </div>
         )}
@@ -53,7 +54,9 @@ Button.propTypes = {
   effect: PropTypes.string,
   disabled: PropTypes.bool,
   back: PropTypes.bool,
-  forward: PropTypes.bool
+  forward: PropTypes.bool,
+  plain: PropTypes.bool,
+  request: PropTypes.bool
 };
 
 Button.defaultProps = {
@@ -65,5 +68,7 @@ Button.defaultProps = {
   effect: '',
   disabled: false,
   back: false,
-  forward: false
+  forward: false,
+  plain: false,
+  request: false
 };
