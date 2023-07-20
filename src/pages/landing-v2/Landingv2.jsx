@@ -11,8 +11,8 @@ export const LandingV2 = () => {
   return (
     <div>
       {/* <Hero /> */}
-      {/* <HowItWorksSection />
-      <BeneficiariesSection />
+       {/* <HowItWorksSection /> */}
+      {/*<BeneficiariesSection />
       <TakeOffBurdenSection />
       <TestimonialsSection />
       <RequestSection /> */}
