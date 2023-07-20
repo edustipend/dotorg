@@ -12,7 +12,11 @@ export const NavbarToShow = () => {
   const isAmbassador = pathname === '/ambassador-program';
   return (
     <>
-      {isAmbassador ? <NavbarAmbassadorNavs showMenu={isToggle} /> : <NavbarNavs showMenu={isToggle} />}
+      {isAmbassador ? (
+        <NavbarAmbassadorNavs showMenu={isToggle} closeMenuFunc={setIsToggle} />
+      ) : (
+        <NavbarNavs showMenu={isToggle} closeMenuFunc={setIsToggle} />
+      )}
       <div className="menu-icon" onClick={() => setIsToggle(!isToggle)}>
         <img src={isToggle ? Close : Menu} alt="menu-close" />
       </div>
