@@ -35,9 +35,14 @@ export const progress = [
 
 
 export const Text = {
-  DEFAULT_TEXT_TEST_ID: 'default-text-id'
+  BACK_ICON_TEXT: 'Back'
 };
 
 export const TestId = {
-  DEFAULT_TEXT_TEST_ID: 'default-text-id'
+  BACK_ICON_TEST_ID: 'backarrow',
+  CIRCULAR_STEPPER_TEST_ID: 'circular stepper',
+  PARAGRAPH_1_TEST_ID: 'step 1',
+  PARAGRAPH_2_TEST_ID: 'select stipend category',
+  LINE_TEST_ID: 'line',
+  HORIZONTAL_STEPPER_TEST_ID: 'horizontal stepper'
 };
