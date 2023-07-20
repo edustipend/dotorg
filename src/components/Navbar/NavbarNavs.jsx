@@ -1,13 +1,12 @@
 import { Link } from 'react-router-dom';
-
 import PropTypes from 'prop-types';
 import Button from '../Button';
 import { buttonLabel, secondaryEffect, NAVBAR_LINKS, TestId } from './constants';
-
 import './styles.css';
 
-const NavbarNavs = ({ showMenu }) => {
-  const { NAVBAR_LINKS_ID } = TestId;
+const { NAVBAR_LINKS_ID } = TestId;
+
+const NavbarNavs = ({ showMenu, closeMenu }) => {
   return (
     <>
       <nav className="navbarNavs" data-testid={NAVBAR_LINKS_ID}>
@@ -22,7 +21,7 @@ const NavbarNavs = ({ showMenu }) => {
       {showMenu ? (
         <nav className="mobile-nav">
           {NAVBAR_LINKS.map((link) => (
-            <Link key={link.label} to={link.to}>
+            <Link key={link.label} to={link.to} onClick={() => closeMenu(!showMenu)}>
               {link.label}
             </Link>
           ))}
@@ -40,5 +39,6 @@ const NavbarNavs = ({ showMenu }) => {
 export default NavbarNavs;
 
 NavbarNavs.propTypes = {
-  showMenu: PropTypes.bool
+  showMenu: PropTypes.bool,
+  closeMenu: PropTypes.func
 };
