@@ -1,5 +1,5 @@
-export const testIds = {
-    labelId: 'labelId',
-    InputId: 'InputId',
+export const TestId = {
+    LABEL_ID: 'label-id',
+    INPUT_ID: 'input-id',
 }
 
