@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import styles from './Select.module.css';
 import dropDown from '../../assets/drop-down.svg';
-import { testIds } from './constants';
-const { labelId, inputId, optionsId } = testIds;
+import { TestId } from './constants';
+const { LABEL_ID, INPUT_ID, OPTIONS_ID } = TestId;
 
 export const Select = ({ dispatch, dispatchType, label, placeholder, options, size, value }) => {
   const [option, setOption] = useState(value);
@@ -17,13 +17,13 @@ export const Select = ({ dispatch, dispatchType, label, placeholder, options, si
   };
   return (
     <main className={styles.main}>
-      <label data-testid={labelId} className={styles.label}>
+      <label data-testid={LABEL_ID} className={styles.label}>
         {label} <span className={styles.required}>*</span>
       </label>
       <div className={`${styles.defaultContainer} ${styles[size]}`}>
         <div className={styles.selectInput}>
           <input
-            data-testid={inputId}
+            data-testid={INPUT_ID}
             value={option}
             placeholder={placeholder}
             onClick={() => setActive((pre) => !pre)}
@@ -43,7 +43,7 @@ export const Select = ({ dispatch, dispatchType, label, placeholder, options, si
           </div>
         </div>
         {active && (
-          <div data-testid={optionsId} className={styles.optionsContainer}>
+          <div data-testid={OPTIONS_ID} className={styles.optionsContainer}>
             {options?.map((itm, idx) => {
               return (
                 <div key={idx} className={styles.option} onClick={() => handleDispatch(itm)}>
