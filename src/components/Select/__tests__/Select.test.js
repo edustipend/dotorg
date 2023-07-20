@@ -9,7 +9,7 @@ describe('Select component', () => {
       const mockLabel = 'Select an option';
       render(<Select label={mockLabel} />);
       const label = screen.getByTestId(labelId);
-      expect(label).toBeInTheDocument(mockLabel);
+      expect(label).toHaveTextContent(mockLabel);
     });
 
     it('should render a default label if nothing is passed', () => {
@@ -17,7 +17,7 @@ describe('Select component', () => {
       const defaultLabel = 'Some label';
       render(<Select label={mockLabel} />);
       const label = screen.getByTestId(labelId);
-      expect(label).toBeInTheDocument(defaultLabel);
+      expect(label).toHaveTextContent(defaultLabel);
     });
   });
 
