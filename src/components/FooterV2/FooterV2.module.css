@@ -6,7 +6,7 @@
 
 .overlay {
   padding: 50px 0;
-  background: #110130;
+  background: var(--overlay);
   opacity: .85;
 }
 
@@ -14,7 +14,7 @@
   display: flex;
   flex-direction: column;
   gap: 5rem;
-  color: #F5F5F5;
+  color: var(--darkerWhite);
 }
 
 .topSection {
@@ -44,14 +44,14 @@
 }
 
 .link {
-  color: #F5F5F5;
+  color: var(--darkerWhite);
   font-size: 14px;
   transition: all 0.2s ease-in-out;
   text-decoration: none;
 }
 
 .link:hover {
-  color: #ff914d;
+  color: var(--accent);
 }
 
 .socials {
