@@ -11,6 +11,11 @@
   box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.1);
   width: 310px;
 }
+.edustipend-button:disabled {
+  cursor: not-allowed;
+  filter: blur(1px);
+  opacity: 0.7;
+}
 
 .edustipend-button--primary {
   color: white;

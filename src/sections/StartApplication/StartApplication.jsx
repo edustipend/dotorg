@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Button from '../../components/Button';
 import Header from '../../components/Header';
 import Text from '../../components/Text';
@@ -10,10 +10,19 @@ import { Book, Hero3, ArrowDown } from '../../assets/index';
 export const StartApplication = () => {
   const [value, setValue] = useState('');
   const [isValid, setIsValid] = useState(false);
+  const [showScrollIndicator, setShowScrollIndicator] = useState(true);
 
-  const scrollDown = () => {
-    // window.scrollY();
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      const isBottom = window.innerHeight + window.pageYOffset >= document.body.offsetHeight;
+      setShowScrollIndicator(!isBottom);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
     <div className={styles.container} data-testid={TestId.DATA_TEST}>
@@ -44,15 +53,17 @@ export const StartApplication = () => {
               onChange={(e) => setValue(e.target.value)}
             />
           </div>
-          <Button label={TestId.BTN.content} backgroundColor={TestId.BTN.bg} disabled={!isValid} className={styles.btn} />
+          <Button label={TestId.BTN.content} backgroundColor={TestId.BTN.bg} disabled={!isValid} />
         </form>
       </div>
       <p className={styles.quotes}>{TestId.QUOTE}</p>
       <img className={styles.book} src={Book} alt="book" />
       <img className={styles.student} src={Hero3} alt="student" />
-      <div className={styles.downArrow} onClick={scrollDown}>
-        <img src={ArrowDown} alt="down" />
-      </div>
+      {showScrollIndicator && (
+        <div className={styles.downArrow}>
+          <img src={ArrowDown} alt="down" />
+        </div>
+      )}
     </div>
   );
 };
