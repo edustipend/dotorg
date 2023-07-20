@@ -1,0 +1,60 @@
+.container {
+  padding: 25px 25px 0px;
+}
+
+.bigscreen{
+  display: none;
+}
+
+.backarrow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.backarrowimg {
+  width: 10px;
+}
+
+.backarrowtext {
+  font-size: 16px;
+  font-weight: 400;
+  font-family: 'manrope';
+}
+
+.line {
+  height: 1px;
+  background: linear-gradient(90deg, #5801ff 13.19%, #00babb 62.4%), linear-gradient(0deg, #ffffff, #ffffff);
+  margin-top: 5px;
+}
+
+.circletext {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.step {
+  font-size: 20px;
+  font-weight: 500;
+  font-family: 'manrope';
+  margin-top: 5px;
+}
+
+.select {
+  font-size: 16px;
+  font-weight: 500;
+  font-family: 'manrope';
+  margin-top: 4px;
+}
+
+@media screen and (min-width: 768px) {
+  .bigscreen {
+    display: block;
+  }
+
+  .mobile{
+    display: none;
+  }
+}
