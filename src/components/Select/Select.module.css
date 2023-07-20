@@ -16,7 +16,7 @@
   margin-top: 10px;
   margin-left: 10px;
   font-size: 24px;
-  color: #f20b07;
+  color: var(--red-accent);
   font-weight: 700;
 }
 
@@ -30,13 +30,13 @@
   justify-content: space-between;
   align-items: center;
   font-size: 16px;
-  border: 1px solid #2d374033;
+  border: 1px solid var(--darker-navy-blue);
   padding: 17px 19px;
   border-radius: 15px;
   outline: none;
   caret-color: transparent;
   color: var(--navy-blue);
-  box-shadow: 0px 11px 50px 0px #076df30d;
+  box-shadow: 0px 11px 50px 0px var(--box-shadow);
 }
 
 .select::placeholder {
