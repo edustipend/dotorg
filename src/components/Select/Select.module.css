@@ -40,7 +40,7 @@
 }
 
 .select::placeholder {
-  color: #1b1b1b4d;
+  color: var(--darker-accent);
   font-size: 16px;
 }
 
@@ -65,7 +65,7 @@
 }
 
 .default {
-  color: #1b1b1b4d;
+  color: var(--darker-accent);
 }
 
 .dropDown {
@@ -130,7 +130,7 @@
 .itm {
   padding: 1rem;
   width: 100%;
-  border-bottom: 1px solid #c4c4c433;
+  border-bottom: 1px solid var(--line);
 }
 
 .itm:hover {
