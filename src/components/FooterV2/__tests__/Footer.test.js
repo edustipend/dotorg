@@ -1,5 +1,5 @@
 import { BrowserRouter as Router } from "react-router-dom";
-import FooterV2 from "../FooterV2";
+import { FooterV2 } from "../FooterV2";
 import { render, screen } from "@testing-library/react";
 import { TestConstants } from "../internals/constants";
 const { Component_testid, Links_testid } = TestConstants
