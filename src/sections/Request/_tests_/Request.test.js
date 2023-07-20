@@ -1,11 +1,10 @@
 import { render, screen } from '@testing-library/react';
 import { Request } from '../Request';
-import { testConstants } from '../internals/constants';
-const { componentTestId } = testConstants
+import { TestId } from '../constants';
 
 describe('RequestNow conponent', () => {
-    it('The component should be rendered', () => {
-        render(<Request />)
-        expect(screen.getByTestId(componentTestId)).toBeInTheDocument()
-    })
-})
+  it('The component should be rendered', () => {
+    render(<Request />);
+    expect(screen.getByTestId(TestId.REQUEST_SECTION)).toBeInTheDocument();
+  });
+});
