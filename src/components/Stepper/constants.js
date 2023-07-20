@@ -34,6 +34,10 @@ export const progress = [
 ];
 
 
-// export const TestId = {
-//   DEFAULT_TEXT_TEST_ID: 'default-text-id'
-// };
+export const Text = {
+  DEFAULT_TEXT_TEST_ID: 'default-text-id'
+};
+
+export const TestId = {
+  DEFAULT_TEXT_TEST_ID: 'default-text-id'
+};
