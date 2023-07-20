@@ -17,14 +17,11 @@
 
 .title {
   text-align: center;
-  font-size: 32px;
-  font-family: 600;
   margin-bottom: 26px;
-  color: #2d3740;
+  color: var(--navy-blue);
   max-width: 500px;
   position: relative;
 }
-
 
 .rocket {
   position: absolute;
