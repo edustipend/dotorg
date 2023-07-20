@@ -13,8 +13,9 @@ describe('Input component', () => {
         })
 
         it('should render a default label if none is passed', () => {
-            const defaultLabel = 'Some label *'
-            render(<Input />)
+            const mocklabel = ''
+            const defaultLabel = 'Some label'
+            render(<Input lable={mocklabel} />)
             const input = screen.getByTestId(labelId)
             expect(input).toHaveTextContent(defaultLabel)
         })
@@ -23,6 +24,7 @@ describe('Input component', () => {
     describe('Should have an empty initial value', () => {
         it('initial value should be empty', () => {
             const mockValue = ''
+            render(<Input />)
             const input = screen.getByTestId(InputId)
             expect(input).toHaveValue(mockValue)
         })
