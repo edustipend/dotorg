@@ -1,10 +1,9 @@
 import { NavHashLink } from 'react-router-hash-link';
 import PropTypes from 'prop-types';
 import { NAVBAR_AMBASSADOR_LINKS, TestId } from './constants';
-
 import './styles.css';
 
-const NavbarAmbassadorNavs = ({ showMenu, closeMenuFunc }) => {
+const NavbarAmbassadorNavs = ({ showMenu, closeMenu }) => {
   const { NAVBAR_LINKS_ID } = TestId;
   return (
     <>
@@ -19,7 +18,7 @@ const NavbarAmbassadorNavs = ({ showMenu, closeMenuFunc }) => {
       {showMenu ? (
         <nav className="mobile-nav">
           {NAVBAR_AMBASSADOR_LINKS.map((link) => (
-            <NavHashLink key={link.label} to={{ pathname: link.path, hash: link.hash }} onClick={() => closeMenuFunc(!showMenu)}>
+            <NavHashLink key={link.label} to={{ pathname: link.path, hash: link.hash }} onClick={() => closeMenu(!showMenu)}>
               {link.label}
             </NavHashLink>
           ))}
@@ -35,5 +34,5 @@ export default NavbarAmbassadorNavs;
 
 NavbarAmbassadorNavs.propTypes = {
   showMenu: PropTypes.bool,
-  closeMenuFunc: PropTypes.func
+  closeMenu: PropTypes.func
 };
