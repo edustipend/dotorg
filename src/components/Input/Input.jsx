@@ -4,7 +4,7 @@ import styles from './Input.module.css';
 import { TestId } from './constants';
 const { LABEL_ID, INPUT_ID } = TestId
 
-export const Input = ({ dispatch, placeholder, lable, value, dispatchType, type, size }) => {
+export const Input = ({ dispatch, placeholder, label, value, dispatchType, type, size }) => {
   const [initialValue, setInitialValue] = useState(value);
 
   const handleOnchange = (e) => {
@@ -15,7 +15,7 @@ export const Input = ({ dispatch, placeholder, lable, value, dispatchType, type,
   return (
     <main className={styles.main}>
       <label data-testid={LABEL_ID} htmlFor="input" className={styles.label}>
-        {lable} <span className={styles.required}>*</span>
+        {label} <span className={styles.required}>*</span>
       </label>
       <input
         data-testid={INPUT_ID}
@@ -33,7 +33,7 @@ export const Input = ({ dispatch, placeholder, lable, value, dispatchType, type,
 Input.propTypes = {
   dispatch: PropTypes.func,
   placeholder: PropTypes.string,
-  lable: PropTypes.string,
+  label: PropTypes.string,
   value: PropTypes.string,
   dispatchType: PropTypes.string,
   type: PropTypes.string,
@@ -43,7 +43,7 @@ Input.propTypes = {
 Input.defaultProps = {
   dispatch: () => { },
   placeholder: 'Placeholder...',
-  lable: 'Some label',
+  label: 'Some label',
   value: '',
   dispatchType: '',
   type: 'text',
