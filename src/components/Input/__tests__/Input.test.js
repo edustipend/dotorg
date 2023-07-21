@@ -6,7 +6,7 @@ const { LABEL_ID, INPUT_ID } = TestId
 describe('Input component', () => {
     describe('should render the right label', () => {
         it('a label should be rendered', () => {
-            const mocklabel = 'FullName'
+            const mocklabel = 'Some label'
             render(<Input lable={mocklabel} />)
             const input = screen.getByTestId(LABEL_ID)
             expect(input).toHaveTextContent(mocklabel)
