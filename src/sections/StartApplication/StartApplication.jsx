@@ -42,6 +42,7 @@ export const StartApplication = () => {
               {TestId.INPUT_LABEL} <span className={styles.required}>*</span>
             </label>
             <input
+              data-testid={TestId.INPUT_ID}
               id={TestId.INPUT_ID}
               type={TestId.INPUT_NAME}
               name={TestId.INPUT_NAME}
@@ -53,7 +54,7 @@ export const StartApplication = () => {
               onChange={(e) => setValue(e.target.value)}
             />
           </div>
-          <Button label={TestId.BTN.content} backgroundColor={TestId.BTN.bg} disabled={!isValid} />
+          <Button dataTest={TestId.BTN_ID} label={TestId.BTN_CONTENT} backgroundColor={TestId.BTN_BG} disabled={!isValid} />
         </form>
       </div>
       <p className={styles.quotes}>{TestId.QUOTE}</p>

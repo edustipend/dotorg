@@ -10,16 +10,19 @@ export const NavbarToShow = () => {
   const [isToggle, setIsToggle] = useState(false);
   const { pathname } = useLocation();
   const isAmbassador = pathname === '/ambassador-program';
+  const isRequestStipend = pathname === '/request-stipend';
   return (
-    <>
-      {isAmbassador ? (
-        <NavbarAmbassadorNavs showMenu={isToggle} closeMenuFunc={setIsToggle} />
-      ) : (
-        <NavbarNavs showMenu={isToggle} closeMenuFunc={setIsToggle} />
-      )}
-      <div className="menu-icon" onClick={() => setIsToggle(!isToggle)}>
-        <img src={isToggle ? Close : Menu} alt="menu-close" />
-      </div>
-    </>
+    !isRequestStipend && (
+      <>
+        {isAmbassador ? (
+          <NavbarAmbassadorNavs showMenu={isToggle} closeMenuFunc={setIsToggle} />
+        ) : (
+          <NavbarNavs showMenu={isToggle} closeMenuFunc={setIsToggle} />
+        )}
+        <div className="menu-icon" onClick={() => setIsToggle(!isToggle)}>
+          <img src={isToggle ? Close : Menu} alt="menu-close" />
+        </div>
+      </>
+    )
   );
 };

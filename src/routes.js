@@ -17,7 +17,7 @@ const Routes = () => {
     <AppRoutes>
       <Route path="/ambassador-program" element={<AmbassadorPage />} />
       <Route path="/" element={V2_FEATURE_FLAG_ON ? <LandingPageV2 /> : <LandingPage />} />
-      <Route path="/start-application" element={<StartApplication />} />
+      <Route path="/request-stipend" element={<StartApplication />} />
     </AppRoutes>
   );
 };

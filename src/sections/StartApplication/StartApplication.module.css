@@ -132,14 +132,6 @@
   margin-left: 5px;
 }
 
-.btn:disabled {
-  /* background: #d9d9d9; */
-  /* cursor: not-allowed; */
-  /* padding: 14px 30px;
-  border: 2px solid #d9d9d9;
-  background: var(--edustipend-yellow, #febd1c); */
-}
-
 .quote {
   color: var(--edustipend-text-black, #2d3740);
   text-align: center;
@@ -175,13 +167,13 @@
     padding: 33px 20px;
   }
 }
-@media only screen and (max-width: 550px) {
+@media only screen and (max-width: 450px) {
   .container {
-    padding: 120px 20px;
+    padding: 120px 10px;
   }
-  /* .book {
+  .book {
     display: none;
-  } */
+  }
   .downArrow {
     position: fixed;
     display: flex;

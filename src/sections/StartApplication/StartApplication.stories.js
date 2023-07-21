@@ -1,4 +1,4 @@
-import StartApplication from './StartApplication';
+import { StartApplication } from './StartApplication';
 
 export default {
   title: 'Edustipend/Sections/StartApplication',
@@ -6,4 +6,4 @@ export default {
   tags: ['autodocs']
 };
 
-export const StartApplicationSection = () => <StartApplication />;
+export const StartApplicationComponent = () => <StartApplication />;
