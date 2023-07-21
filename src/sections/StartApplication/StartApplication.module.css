@@ -167,7 +167,7 @@
 }
 @media only screen and (max-width: 500px) {
   .container {
-    padding: 120px 10px 80px;
+    padding: 110px 10px 80px;
   }
   .book {
     display: none;
