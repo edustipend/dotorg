@@ -23,22 +23,29 @@ export const StartApplication = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Send POST request to the API endpoint
+    console.log(value);
+  };
 
   return (
     <div className={styles.container} data-testid={TestId.DATA_TEST}>
       <div className={styles.top}>
-        <Header className={styles.header}>{TestId.HEAD_TEXT}</Header>
+        <Header className={styles.header} data={TestId.HEAD_TEXT}>
+          {TestId.HEAD_TEXT}
+        </Header>
         <div className={styles.desc}>
           {TestId.DESC.map((p, index) => {
-            return <Text key={p} content={p} className={index === TestId.DESC.length - 2 ? styles.salutation : ''} />;
+            return <Text key={p} content={p} className={index === 2 ? styles.important : index === TestId.DESC.length - 2 ? styles.close : ''} />;
           })}
         </div>
       </div>
       <div className={styles.bottom}>
         <Text className={styles.textB} content={TestId.PARAGRAPH} />
-        <form className={styles.form}>
+        <form className={styles.form} onSubmit={handleSubmit}>
           <div className={styles.inputContainer}>
-            <label htmlFor={TestId.INPUT_ID}>
+            <label htmlFor={TestId.INPUT_ID} className={styles.label}>
               {TestId.INPUT_LABEL} <span className={styles.required}>*</span>
             </label>
             <input
@@ -54,10 +61,17 @@ export const StartApplication = () => {
               onChange={(e) => setValue(e.target.value)}
             />
           </div>
-          <Button dataTest={TestId.BTN_ID} label={TestId.BTN_CONTENT} backgroundColor={TestId.BTN_BG} disabled={!isValid} />
+          <Button
+            dataTest={TestId.BTN_ID}
+            label={TestId.BTN_CONTENT}
+            backgroundColor={TestId.BTN_BG}
+            disabled={!isValid}
+            next
+            type={TestId.BTN_SUBMIT}
+          />
         </form>
       </div>
-      <p className={styles.quotes}>{TestId.QUOTE}</p>
+      <Text className={styles.quotes} content={TestId.QUOTE} />
       <img className={styles.book} src={Book} alt="book" />
       <img className={styles.student} src={Hero3} alt="student" />
       {showScrollIndicator && (

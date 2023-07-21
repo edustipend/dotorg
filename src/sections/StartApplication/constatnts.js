@@ -2,7 +2,7 @@ const dataTest = 'start_application-id';
 const headText = 'Stipend Application May 2023';
 const p1 = 'Hello there, Welcome to the month of May, how time flies! 🎉🎊';
 const p2 =
-  'As always, Edustipend is here to support you to fulfill your learning goals this month. To help us support you, we ask that you fill this form as completely as you can providing as much details as possible. Kindly note that this form will be closed for the June window by 11.00pm (Nigerian time) on Thursday, May 8, 2023 ';
+  'As always, Edustipend is here to support you to fulfill your learning goals this month. To help us support you, we ask that you fill this form as completely as you can providing as much details as possible.';
 const p3 = 'Kindly note that this form will be closed for the June window by 11.00pm (Nigerian time) on Thursday, May 8, 2023';
 const p4 = 'so do well to complete it before that time. We wish you all the best of the new month!';
 const p5 = 'In Your Service,';
@@ -18,11 +18,12 @@ const quote = '“The secret to getting ahead is getting started." - Mark Twain'
 const btn = {
   content: 'Continue',
   bg: '#febd1c',
-  id: 'button_id'
+  id: 'button_id',
+  submit: 'submit'
 };
 const input = {
   inputID: 'e=ail_id',
-  inputLabel: 'Email address',
+  inputLabel: 'Email Address',
   inputName: 'email',
   mockValidEmail: 'isaq@gmail.com',
   mockInvalidEmail: 'test.com'
@@ -38,6 +39,7 @@ export const TestId = {
   BTN_ID: btn.id,
   BTN_CONTENT: btn.content,
   BTN_BG: btn.bg,
+  BTN_SUBMIT: btn.submit,
   INPUT_ID: input.inputID,
   INPUT_LABEL: input.inputLabel,
   INPUT_NAME: input.inputName,

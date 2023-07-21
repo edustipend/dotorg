@@ -20,10 +20,15 @@ describe('StartApplication component', () => {
       render(<StartApplication />);
       expect(screen.getByTestId(TestId.BTN_ID)).toBeDisabled();
     });
-    it('shows a disabled button, if input field has an icorrect email type', () => {
+    it('shows a disabled button, if input field has an icorrect email value', () => {
       render(<StartApplication />);
-      fireEvent.change(screen.getByTestId(TestId.INPUT_ID), { target: { value: TestId.MOCK_INVALID_EMAIL } });
+      fireEvent.input(screen.getByTestId(TestId.INPUT_ID), { target: { value: TestId.MOCK_INVALID_EMAIL } });
       expect(screen.getByTestId(TestId.BTN_ID)).toBeDisabled();
+    });
+    it('shows an enabled button, if input field has a correct email value', () => {
+      render(<StartApplication />);
+      fireEvent.input(screen.getByTestId(TestId.INPUT_ID), { target: { value: TestId.MOCK_VALID_EMAIL } });
+      expect(screen.getByTestId(TestId.BTN_ID)).toBeEnabled();
     });
   });
 });

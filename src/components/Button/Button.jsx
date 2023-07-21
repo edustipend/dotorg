@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ClassName, DEFAULT_BUTTON_LABEL, TestId } from './constants';
+import { RightArrow } from '../../assets';
 import './styles.css';
 
 /**
  * Button component for use on Edustipend pages
  */
-export const Button = ({ backgroundColor, dataTest, primary, size, label, effect, ...props }) => {
+export const Button = ({ backgroundColor, dataTest, primary, size, label, effect, next, ...props }) => {
   const mode = primary ? ClassName.PRIMARY_BUTTON : ClassName.SECONDARY_BUTTON;
   return (
     <div className={effect === 'primary' ? 'effect' : effect === 'secondary' ? 'effect effect_alt' : ''}>
@@ -15,9 +16,11 @@ export const Button = ({ backgroundColor, dataTest, primary, size, label, effect
         type="button"
         className={[ClassName.ROOT_BUTTON, `${ClassName.ROOT_BUTTON}--${size}`, mode].join(' ')}
         style={backgroundColor && { backgroundColor }}
-        {...props}
-      >
+        {...props}>
         {label || DEFAULT_BUTTON_LABEL}
+        {next && 
+        <img className='right-arrow' src={RightArrow} alt="continue" />
+        }
       </button>
     </div>
   );
@@ -29,6 +32,7 @@ Button.propTypes = {
   dataTest: PropTypes.string,
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   label: PropTypes.string.isRequired,
+  next: PropTypes.bool,
   onClick: PropTypes.func,
   effect: PropTypes.string
 };
@@ -39,5 +43,5 @@ Button.defaultProps = {
   primary: false,
   size: 'medium',
   onClick: undefined,
-  effect: ''
+  effect: '',
 };
