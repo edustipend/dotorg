@@ -14,7 +14,7 @@ export const StartApplication = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const isBottom = window.innerHeight + window.pageYOffset >= document.body.offsetHeight;
+      const isBottom = window.innerHeight + window.pageYOffset >= document.body.scrollHeight;
       setShowScrollIndicator(!isBottom);
     };
 

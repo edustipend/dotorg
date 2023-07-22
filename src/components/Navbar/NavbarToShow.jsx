@@ -15,9 +15,9 @@ export const NavbarToShow = () => {
     !isRequestStipend && (
       <>
         {isAmbassador ? (
-          <NavbarAmbassadorNavs showMenu={isToggle} closeMenuFunc={setIsToggle} />
+          <NavbarAmbassadorNavs showMenu={isToggle} closeMenu={setIsToggle} />
         ) : (
-          <NavbarNavs showMenu={isToggle} closeMenuFunc={setIsToggle} />
+          <NavbarNavs showMenu={isToggle} closeMenu={setIsToggle} />
         )}
         <div className="menu-icon" onClick={() => setIsToggle(!isToggle)}>
           <img src={isToggle ? Close : Menu} alt="menu-close" />
