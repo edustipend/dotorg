@@ -5,19 +5,19 @@
 // import BeneficiariesSection from '../../sections/Beneficiaries';
 // import TakeOffBurdenSection from '../../sections/TakeOffBurden';
 // import RequestSection from '../../sections/Request';
-import StepperComponent from "../../components/Stepper"
+import Stepper from '../../components/Stepper';
 
 export const LandingV2 = () => {
   return (
     <div>
-      {/* <Hero /> */}
-       {/* <HowItWorksSection /> */}
-      {/*<BeneficiariesSection />
+      {/* <Hero />
+      <HowItWorksSection />
+      <BeneficiariesSection />
       <TakeOffBurdenSection />
       <TestimonialsSection />
-      <RequestSection /> */}
-      <StepperComponent />
-      {/* <Footer /> */}
+      <RequestSection />
+      <Footer /> */}
+      <Stepper />
     </div>
   );
 };
