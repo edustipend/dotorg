@@ -1,5 +1,5 @@
 import React from 'react';
-import "./NumbersGrid.css"
+import './NumbersGrid.css';
 
 const NumbersGrid = () => {
   const numbersGrid = [

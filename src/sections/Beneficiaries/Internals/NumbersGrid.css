@@ -90,17 +90,16 @@
   margin-top: 10px;
 }
 
-@media screen and (min-width: 600px){
+@media screen and (min-width: 600px) {
   .top-left-numbers,
-  .top-right-numbers{
+  .top-right-numbers {
     width: 300px;
   }
 
-
   .bottom-left-numbers,
-.bottom-right-numbers{
-  width: 300px;
-}
+  .bottom-right-numbers {
+    width: 300px;
+  }
 }
 
 @media screen and (min-width: 768px) {

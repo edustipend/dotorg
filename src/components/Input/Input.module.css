@@ -1,0 +1,60 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Manrope';
+}
+
+.label {
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  color: var(--navy-blue);
+}
+
+.required {
+  margin-top: 10px;
+  margin-left: 10px;
+  font-size: 24px;
+  color: var(--red-accent);
+  font-weight: 700;
+}
+
+.input {
+  padding: 17px 19px;
+  font-size: 16px;
+  color: var(--navy-blue);
+  border: 1px solid var(--darker-navy-blue);
+  border-radius: 15px;
+  outline: none;
+}
+
+.input::placeholder {
+  color: var(--darker-accent);
+  font-size: 16px;
+}
+
+.small {
+  width: 15%;
+}
+
+.medium {
+  width: 20%;
+}
+
+.large {
+  width: 25%;
+}
+
+@media screen and (min-width: 768px) {
+  .label {
+    font-size: 18px;
+  }
+
+  .input {
+    font-size: 18px;
+  }
+
+  .input::placeholder {
+    font-size: 18px;
+  }
+}
