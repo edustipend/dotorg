@@ -1,4 +1,3 @@
-import Footer from '../../components/Footer';
 import Hero from '../../sections/Hero';
 import TestimonialsSection from '../../sections/Testimonials';
 import HowItWorksSection from '../../sections/HowItWorks';
@@ -15,7 +14,6 @@ export const LandingV2 = () => {
       <TakeOffBurdenSection />
       <TestimonialsSection />
       <RequestSection />
-      <Footer />
     </div>
   );
 };
