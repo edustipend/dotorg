@@ -6,7 +6,7 @@ import dropDown from '../../assets/drop-down.svg';
 import { TestId } from './constants';
 const { LABEL_ID, INPUT_ID, OPTIONS_ID } = TestId;
 
-export const Select = ({ dispatch, dispatchType, label, placeholder, options, size, value }) => {
+export const Select = ({ dispatch, dispatchType, label, placeholder, options, size, value, className }) => {
   const [option, setOption] = useState(value);
   const [active, setActive] = useState(false);
 
@@ -16,7 +16,7 @@ export const Select = ({ dispatch, dispatchType, label, placeholder, options, si
     setActive((pre) => !pre);
   };
   return (
-    <main className={styles.main}>
+    <main className={`${styles.main} ${className}`}>
       <label data-testid={LABEL_ID} className={styles.label}>
         {label} <span className={styles.required}>*</span>
       </label>
@@ -43,7 +43,10 @@ export const Select = ({ dispatch, dispatchType, label, placeholder, options, si
           </div>
         </div>
         {active && (
-          <div data-testid={OPTIONS_ID} className={styles.optionsContainer}>
+          <div data-testid={OPTIONS_ID}
+            className={`${styles.optionsContainer} ${options.length > 2 ?
+              `${styles.optionsContainer}  ${styles.optionsContainerAlt} ` : ''}`}
+          >
             {options?.map((itm, idx) => {
               return (
                 <div key={idx} className={styles.option} onClick={() => handleDispatch(itm)}>
@@ -65,7 +68,8 @@ Select.propTypes = {
   placeholder: PropTypes.string,
   options: PropTypes.array,
   size: PropTypes.string,
-  value: PropTypes.string
+  value: PropTypes.string,
+  className: PropTypes.string
 };
 
 Select.defaultProps = {
@@ -75,5 +79,6 @@ Select.defaultProps = {
   placeholder: 'Select an option',
   options: [],
   size: '',
-  value: ''
+  value: '',
+  className: ''
 };

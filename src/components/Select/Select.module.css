@@ -103,21 +103,30 @@
   background: linear-gradient(to right, white, white), linear-gradient(to right, #5801ff33, #00babb33);
   background-clip: padding-box, border-box;
   background-origin: padding-box, border-box;
+  scrollbar-width: 0;
+  scrollbar-color: transparent;
+}
+
+.optionsContainerAlt {
   scrollbar-width: 5px;
   scrollbar-color: linear-gradient(to bottom, #5801ff33, #00babb33);
 }
 
 .optionsContainer::-webkit-scrollbar {
+  width: 0;
+}
+
+.optionsContainerAlt::-webkit-scrollbar {
   width: 5px;
   border-radius: 10px;
 }
 
-.optionsContainer::-webkit-scrollbar-track {
+.optionsContainerAlt::-webkit-scrollbar-track {
   border-radius: 10px;
   margin: 5px;
 }
 
-.optionsContainer::-webkit-scrollbar-thumb {
+.optionsContainerAlt::-webkit-scrollbar-thumb {
   background: linear-gradient(to bottom, #5801ff33, #00babb33);
   border-radius: 10px;
 }
