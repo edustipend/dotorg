@@ -1,8 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import HowItWorks from '../Howitworks';
-import { Text, TestId  } from '../constants';
-
+import { Text, TestId } from '../constants';
 
 describe('HowItWorks', () => {
   it('renders component', () => {

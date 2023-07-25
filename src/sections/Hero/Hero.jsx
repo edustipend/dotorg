@@ -3,12 +3,13 @@ import { NavHashLink } from 'react-router-hash-link';
 import Container from '../../components/Container';
 import Button from '../../components/Button';
 import { Hero1, Hero2, Hero3, Hero4, Svg1, Svg2, Svg3, Svg4, Svg5, ArrowDown } from '../../assets/index';
-import { stipends, stipendsColors, buttonLabel, secondaryEffect, DEFAULT_HERO_TEST_ID } from './constants';
-
+import { stipends, stipendsColors, ButtonLabelCopy, secondaryEffect, APP_WINDOW_CLOSED_BANNER_TEXT, TestId } from './constants';
 import './styles.css';
+import Banner from '../../components/Banner';
 import Header from '../../components/Header';
 import Text from '../../components/Text';
 import { getCurrentStipend } from './utils';
+import { isApplicationWindowClosed } from '../../utils';
 
 const Hero = () => {
   const [currentStipend, setCurrentStipend] = useState(0);
@@ -29,8 +30,17 @@ const Hero = () => {
     };
   }, [currentStipend, nextStipend]);
 
+  const isWindowClosed = isApplicationWindowClosed();
+
   return (
-    <section className="hero" data-testid={DEFAULT_HERO_TEST_ID}>
+    <section className="hero" data-testid={TestId.DEFAULT_HERO_TEST_ID}>
+      {isWindowClosed ? (
+        <Banner dataTest={TestId.BANNER_TEST_ID} type="alert">
+          {APP_WINDOW_CLOSED_BANNER_TEXT}
+        </Banner>
+      ) : (
+        <></>
+      )}
       <Container>
         <div className="top-section">
           <Header>
@@ -38,7 +48,8 @@ const Hero = () => {
             <span
               style={{
                 color: stipendsColors[currentStipend]
-              }}>
+              }}
+            >
               {stipends[currentStipend]}
             </span>{' '}
             for your learning?
@@ -48,7 +59,7 @@ const Hero = () => {
             <img src={Svg1} alt="boost icon" />
           </div>
           <div className="btn-container">
-            <Button label={buttonLabel} effect={secondaryEffect} />
+            <Button label={isWindowClosed ? ButtonLabelCopy.WINDOW_CLOSED : ButtonLabelCopy.WINDOW_OPEN} effect={secondaryEffect} />
           </div>
           <img src={Svg5} alt="icon" className="left" />
           <img src={Svg4} alt="icon" className="right" />

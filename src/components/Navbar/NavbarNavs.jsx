@@ -1,10 +1,13 @@
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Button from '../Button';
-import { buttonLabel, secondaryEffect, NAVBAR_LINKS, TestId } from './constants';
+import { ButtonLabelCopy, secondaryEffect, NAVBAR_LINKS, TestId } from './constants';
+import { isApplicationWindowClosed } from '../../utils';
 import './styles.css';
 
 const { NAVBAR_LINKS_ID } = TestId;
+const isWindowClosed = isApplicationWindowClosed();
+const buttonLabel = isWindowClosed ? ButtonLabelCopy.WINDOW_CLOSED : ButtonLabelCopy.WINDOW_OPEN;
 
 const NavbarNavs = ({ showMenu, closeMenu }) => {
   return (
@@ -26,7 +29,7 @@ const NavbarNavs = ({ showMenu, closeMenu }) => {
             </Link>
           ))}
           <div className="mobile-nav-btn">
-            <Button label={buttonLabel} effect={secondaryEffect} />
+            <Button label={buttonLabel} effect={secondaryEffect} onClick={() => closeMenu(!showMenu)} />
           </div>
         </nav>
       ) : (
