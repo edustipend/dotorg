@@ -5,9 +5,12 @@ import Button from '../../components/Button';
 import Container from '../../components/Container';
 import Header from '../../components/Header';
 import Text from '../../components/Text';
-import { TextCopy } from './constants';
+import { ButtonLabelCopy, TextCopy } from './constants';
+import { isApplicationWindowClosed } from '../../utils';
 
 const TakeOffBurden = () => {
+  const isWindowClosed = isApplicationWindowClosed();
+
   return (
     <div className="takeoffburden-container" data-testid="takeoffburden-container">
       <Container>
@@ -31,7 +34,7 @@ const TakeOffBurden = () => {
             </div>
 
             <div className="request-stipend-btn-div">
-              <Button effect="secondary" label="Request Stipend" />
+              <Button label={isWindowClosed ? ButtonLabelCopy.WINDOW_CLOSED : ButtonLabelCopy.WINDOW_OPEN} effect="secondary" />
             </div>
           </div>
         </div>
