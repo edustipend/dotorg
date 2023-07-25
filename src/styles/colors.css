@@ -1,8 +1,10 @@
 /** Brand Colors **/
 :root {
   --accent: #ff914d;
+  --edustipend-black: #2d3740;
   --edustipend-yellow: #febd1c;
   --edustipend-purple: #5800ff;
+  --edustipend-turquioise: #cbffff;
   --primary: #5800ff;
   --primaryHover: #3700a1;
   --primaryDark: #270072;
@@ -11,9 +13,14 @@
   --navy-blue: #2d3740;
   --red-accent: #f20b07;
   --darker-navy-blue: #2d374033;
+<<<<<<< HEAD
   --box-shadow: #076df30d;
   --darker-accent: #1b1b1b4d;
   --line: #c4c4c433;
+=======
+  --darker-accent: #1b1b1b4d;
+  --light-gray: #f2f2f2;
+>>>>>>> 5ab8330002f09b0aecce115097a3e49f6cbda8fc
 }
 
 .background-lightblue {

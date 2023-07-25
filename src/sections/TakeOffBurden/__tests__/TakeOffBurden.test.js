@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import TakeOffBurden from '../TakeOffBurden';
-import { TestId, TextCopy } from '../constants';
+import { ButtonLabelCopy, TestId, TextCopy } from '../constants';
 
 describe('TakeOffBurden', () => {
   it('renders the component correctly', () => {
@@ -15,6 +15,6 @@ describe('TakeOffBurden', () => {
 
     expect(screen.getByAltText(TextCopy.TAKEOFFBURDEN_ARROW)).toBeInTheDocument();
 
-    expect(screen.getByText(TextCopy.BUTTON_TEXT)).toBeInTheDocument();
+    expect(screen.getByText(ButtonLabelCopy.WINDOW_CLOSED)).toBeInTheDocument();
   });
 });

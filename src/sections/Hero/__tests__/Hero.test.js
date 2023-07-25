@@ -1,7 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import Hero from '../Hero';
-import { DEFAULT_HERO_TEST_ID, HERO_PARAGRAPH, STATIC_HERO_TEXT } from '../constants';
+import { HERO_PARAGRAPH, STATIC_HERO_TEXT, TestId } from '../constants';
 import { BrowserRouter } from 'react-router-dom';
+
+const { DEFAULT_HERO_TEST_ID } = TestId;
 
 describe('Hero component', () => {
   describe('renders the correct Hero component', () => {

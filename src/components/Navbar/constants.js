@@ -36,6 +36,11 @@ export const NAVBAR_AMBASSADOR_LINKS = [
   }
 ];
 
+export const ButtonLabelCopy = {
+  WINDOW_CLOSED: 'Notify me',
+  WINDOW_OPEN: 'Request stipend'
+};
+
 export const buttonLabel = 'Request stipend';
 export const secondaryEffect = 'secondary';
 export const applyLabel = 'Apply Now';
