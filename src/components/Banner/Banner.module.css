@@ -6,8 +6,9 @@
   justify-content: center;
   top: 84px;
   padding: 0 1.5rem;
-  position: absolute;
+  position: fixed;
   width: 100%;
+  z-index: 1000;
 }
 
 .banner--alert {
