@@ -2,41 +2,50 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ClassName, DEFAULT_BUTTON_LABEL, TestId } from './constants';
 import './styles.css';
-import arrow_left from '../../assets/arrow-left.svg';
-import arrow_right from '../../assets/arrow-right.svg';
 
 /**
  * Button component for use on Edustipend pages
  */
-export const Button = ({ backgroundColor, dataTest, primary, size, label, effect, disabled, back, forward, plain, request, ...props }) => {
+export const Button = ({
+  backgroundColor,
+  dataTest,
+  primary,
+  size,
+  label,
+  effect,
+  disabled,
+  plain,
+  effectAlt,
+  icon,
+  iconPosition,
+  className,
+  ...props
+}) => {
   const mode = primary ? ClassName.PRIMARY_BUTTON : ClassName.SECONDARY_BUTTON;
   return (
     <div
       className={`${effect === 'primary' ? 'effect' : effect === 'secondary' ? 'effect effect_alt' : ''}
-    ${disabled ? 'disabled' : ''} ${request ? 'request' : ''}`}
+    ${disabled ? 'disabled' : ''} ${effectAlt ? 'effectAlt' : ''}`}
     >
       <button
         data-testid={dataTest}
         type="button"
         disabled={disabled}
         className={[
-          `${back | forward ? `${ClassName.REQUEST_SECTION} ${ClassName.ROOT_BUTTON}` : ClassName.ROOT_BUTTON}`,
+          `${ClassName.ROOT_BUTTON}`,
           `${ClassName.ROOT_BUTTON}--${size}`,
           `${plain && ClassName.PLAIN}`,
+          `${iconPosition && `${ClassName.ICON} ${ClassName.ROOT_BUTTON}`}`,
+          `${className && `${className} ${ClassName.ROOT_BUTTON}`}`,
           mode
         ].join(' ')}
         style={backgroundColor && { backgroundColor }}
         {...props}
       >
-        {back && (
-          <div className="arrow arrow_left">
-            <img src={arrow_left} alt="go-back" />
-          </div>
-        )}
         {label || DEFAULT_BUTTON_LABEL}
-        {forward && (
-          <div className="arrow arrow_right">
-            <img src={arrow_right} alt="continue" />
+        {icon && (
+          <div className={iconPosition === 'back' ? 'icon back-icon' : iconPosition === 'front' ? 'icon front-icon' : ''}>
+            <img src={icon} alt="icon" />
           </div>
         )}
       </button>
@@ -53,10 +62,11 @@ Button.propTypes = {
   onClick: PropTypes.func,
   effect: PropTypes.string,
   disabled: PropTypes.bool,
-  back: PropTypes.bool,
-  forward: PropTypes.bool,
   plain: PropTypes.bool,
-  request: PropTypes.bool
+  effectAlt: PropTypes.bool,
+  icon: PropTypes.string,
+  iconPosition: PropTypes.string,
+  className: PropTypes.string
 };
 
 Button.defaultProps = {
@@ -67,8 +77,9 @@ Button.defaultProps = {
   onClick: undefined,
   effect: '',
   disabled: false,
-  back: false,
-  forward: false,
   plain: false,
-  request: false
+  effectAlt: false,
+  icon: '',
+  iconPosition: '',
+  className: ''
 };

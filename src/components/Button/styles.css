@@ -12,11 +12,6 @@
   width: 310px;
 }
 
-.request-section {
-  width: 308px;
-  position: relative;
-}
-
 .disabled .edustipend-button {
   cursor: not-allowed;
 }
@@ -61,7 +56,7 @@
   transition: all 0.3s ease-in-out;
 }
 
-.request {
+.effectAlt {
   padding: 6px;
 }
 
@@ -87,18 +82,23 @@
   opacity: 0.3;
 }
 
-.arrow {
+.icon-button {
+  width: 308px;
+  position: relative;
+}
+
+.icon {
+  position: absolute;
   width: 9.38px;
   height: 18.75px;
-  position: absolute;
   top: 34%;
 }
 
-.arrow_left {
+.back-icon {
   left: 3rem;
 }
 
-.arrow_right {
+.front-icon {
   right: 3rem;
 }
 
@@ -117,15 +117,15 @@
     width: 248px;
   }
 
-  .request-section {
+  .icon-button {
     width: 174px;
   }
 
-  .arrow_left {
-    left: 1.8rem;
+  .back-icon {
+    left: 30px;
   }
 
-  .arrow_right {
-    right: 1.8rem;
+  .front-icon {
+    right: 25px;
   }
 }
