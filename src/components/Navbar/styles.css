@@ -8,30 +8,37 @@
   border-bottom: 1px solid rgba(233, 237, 244, 0.25);
   background: linear-gradient(161deg, #f15343 0%, #5801ff 52.52%);
   z-index: 1000;
+  top: 0;
 }
+
 a {
   text-decoration: none;
   color: inherit;
 }
+
 .nav-cta {
   background: var(--edustipend-yellow);
   padding: 0.6rem 0.9rem;
   border-radius: 22px;
 }
+
 .nav-cta:hover {
   background-color: var(--primaryHover);
 }
+
 .navbarLogo {
   display: flex;
   width: 169px;
   height: 43px;
   align-items: center;
 }
+
 .navbarLogo img {
   width: 54.217px;
   height: 43px;
   object-fit: contain;
 }
+
 .navbarLogo p {
   color: #fff;
   font-size: 20px;
@@ -47,6 +54,7 @@ a {
   align-items: center;
   gap: 32px;
 }
+
 .navbarNavs a,
 .mobile-nav a {
   text-decoration: none;
@@ -54,6 +62,7 @@ a {
   font-family: 'Poppins', sans-serif;
   width: max-content;
 }
+
 .navbarNavs a:hover,
 .mobile-nav a:hover {
   color: var(--edustipend-yellow);
@@ -73,16 +82,20 @@ a {
     padding: 20px;
   }
 }
+
 @media only screen and (max-width: 1100px) {
   .navbar {
     padding: 20px 40px;
   }
+
   .menu-icon {
     display: block;
   }
+
   .navbarNavs {
     display: none;
   }
+
   .mobile-nav {
     position: absolute;
     display: flex;
@@ -99,21 +112,26 @@ a {
     transition: all 500ms ease-in;
     transform: translateX(0);
   }
+
   .mobile-nav.out {
     transform: translateX(-200vw);
   }
+
   .mobile-nav > div {
     display: flex;
     justify-content: center;
     align-items: center;
   }
+
   .mobile-nav a {
     margin-left: 60px;
   }
+
   .mobile-nav a:first-of-type {
     margin-top: 60px;
   }
 }
+
 @media only screen and (max-width: 450px) {
   .navbar {
     padding: 20px 15px;

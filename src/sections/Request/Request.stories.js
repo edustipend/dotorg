@@ -1,4 +1,4 @@
-import RequestNow from './RequestNow';
+import RequestNow from './Request';
 
 export default {
   title: 'Edustipend/Sections/RequestNow',
