@@ -6,10 +6,13 @@ import styles from './Request.module.css';
 import clock from '../../assets/clock.png';
 import blobLeft from '../../assets/blob-left.png';
 import blobRight from '../../assets/blob-right.png';
-import { TestId, REQUEST_SECTION_HEADER } from './constants';
+import { ButtonLabelCopy, TestId, REQUEST_SECTION_HEADER } from './constants';
 import Header from '../../components/Header';
+import { isApplicationWindowClosed } from '../../utils';
 
 export const Request = () => {
+  const isWindowClosed = isApplicationWindowClosed();
+
   return (
     <main data-testid={TestId.REQUEST_SECTION} className={styles.main}>
       <Container>
@@ -17,7 +20,7 @@ export const Request = () => {
           <Header dataTest={TestId.REQUEST_SECTION_HEADER} className={`v2-section-header ${styles.title}`}>
             {REQUEST_SECTION_HEADER}
           </Header>
-          <Button label="Request Now" size="large" effect="secondary" />
+          <Button label={isWindowClosed ? ButtonLabelCopy.WINDOW_CLOSED : ButtonLabelCopy.WINDOW_OPEN} effect="secondary" size="large" />
           <img src={rocket} alt="rocket_emoji" className={styles.rocket} />
         </div>
       </Container>

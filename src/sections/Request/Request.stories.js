@@ -1,8 +1,8 @@
-import { Request } from './Request';
+import RequestNow from './Request';
 
 export default {
-  title: 'Edustipend/Sections/Request',
-  component: Request
+  title: 'Edustipend/Sections/RequestNow',
+  component: RequestNow
 };
 
-export const Request_Now = () => <Request />;
+export const Request_Now = () => <RequestNow />;
