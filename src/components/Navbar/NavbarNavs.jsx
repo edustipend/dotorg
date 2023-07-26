@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Button from '../Button';
-import { ButtonLabelCopy, secondaryEffect, NAVBAR_LINKS, TestId } from './constants';
+import { ButtonLabelCopy, BUTTON_TYPE, NAVBAR_LINKS, TestId } from './constants';
 import { isApplicationWindowClosed } from '../../utils';
 import './styles.css';
 
@@ -18,7 +18,7 @@ const NavbarNavs = ({ showMenu, closeMenu }) => {
             {link.label}
           </Link>
         ))}
-        <Button label={buttonLabel} effect={secondaryEffect} />
+        <Button label={buttonLabel} type={BUTTON_TYPE} />
       </nav>
 
       {showMenu ? (
@@ -29,7 +29,7 @@ const NavbarNavs = ({ showMenu, closeMenu }) => {
             </Link>
           ))}
           <div className="mobile-nav-btn">
-            <Button label={buttonLabel} effect={secondaryEffect} onClick={() => closeMenu(!showMenu)} />
+            <Button label={buttonLabel} type={BUTTON_TYPE} onClick={() => closeMenu(!showMenu)} />
           </div>
         </nav>
       ) : (

@@ -20,7 +20,7 @@ export const Request = () => {
           <Header dataTest={TestId.REQUEST_SECTION_HEADER} className={`v2-section-header ${styles.title}`}>
             {REQUEST_SECTION_HEADER}
           </Header>
-          <Button label={isWindowClosed ? ButtonLabelCopy.WINDOW_CLOSED : ButtonLabelCopy.WINDOW_OPEN} effect="secondary" size="large" />
+          <Button label={isWindowClosed ? ButtonLabelCopy.WINDOW_CLOSED : ButtonLabelCopy.WINDOW_OPEN} type="secondary" size="large" />
           <img src={rocket} alt="rocket_emoji" className={styles.rocket} />
         </div>
       </Container>
