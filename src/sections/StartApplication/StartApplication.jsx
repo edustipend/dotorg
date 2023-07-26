@@ -6,7 +6,6 @@ import styles from './StartApplication.module.css';
 import { TestId } from './constatnts';
 
 import { Book, Hero3, ArrowDown } from '../../assets/index';
-
 export const StartApplication = () => {
   const [value, setValue] = useState('');
   const [isValid, setIsValid] = useState(false);
@@ -25,8 +24,6 @@ export const StartApplication = () => {
   }, []);
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Send POST request to the API endpoint
-    console.log(value);
   };
 
   return (
