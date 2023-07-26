@@ -1,6 +1,6 @@
 export const stipends = ['stipend', 'laptop', 'data', 'fees'];
 export const stipendsColors = ['#5801ff', '#FD5A33', '#08B7B7', '#FFB600'];
-export const secondaryEffect = 'secondary';
+export const BUTTON_TYPE = 'secondary';
 
 export const ButtonLabelCopy = {
   WINDOW_CLOSED: 'Notify me',

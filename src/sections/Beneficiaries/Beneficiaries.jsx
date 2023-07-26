@@ -46,7 +46,7 @@ const Beneficiaries = () => {
           <NumbersGrid />
 
           <div className="view-numbers-btn">
-            <Button primary={true} size="large" label={'View the numbers'} effect="primary" />
+            <Button size="large" label="View the numbers" type="primary" />
           </div>
         </div>
 
@@ -72,7 +72,7 @@ const Beneficiaries = () => {
             <NumbersGrid />
 
             <div className="view-numbers-btn">
-              <Button primary={true} size="large" label={'View the numbers'} effect="primary" />
+              <Button size="large" label="View the numbers" type="primary" />
             </div>
           </div>
 
