@@ -6,20 +6,29 @@ export default {
   component: Button,
   tags: ['autodocs'],
   argTypes: {
-    backgroundColor: { control: 'color' },
-    effect: { control: 'select', options: ['primary', 'secondary'] }
+    // backgroundColor: { control: 'color' },
+    effect: { control: 'select', options: ['primary', 'secondary'] },
+    type: { control: 'select', options: ['plain', 'primary', 'secondary'] }
   }
 };
 
 export const Primary = {
   args: {
-    primary: true,
+    type: 'primary',
+    label: 'Request stipend'
+  }
+};
+
+export const Plain = {
+  args: {
+    type: 'plain',
     label: 'Request stipend'
   }
 };
 
 export const Secondary = {
   args: {
+    type: 'secondary',
     label: 'Request stipend'
   }
 };
