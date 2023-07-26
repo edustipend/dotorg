@@ -46,3 +46,15 @@ export const TestId = {
   LINE_TEST_ID: 'line',
   HORIZONTAL_STEPPER_TEST_ID: 'horizontal stepper'
 };
+
+export const steps = [
+  { number: 1, label: 'Step 1' },
+  { number: 2, label: 'Step 2' },
+  { number: 3, label: 'Step 3' },
+  { number: 4, label: 'Step 4' },
+  { number: 5, label: 'Step 5' }
+];
+
+export const radius = 15;
+export const circleWidth = 50;
+export const dashArray = radius * Math.PI * 2;

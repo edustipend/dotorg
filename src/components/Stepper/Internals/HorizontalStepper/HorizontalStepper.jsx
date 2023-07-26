@@ -5,7 +5,7 @@ import { progress } from '../../constants';
 const HorizontalStepper = () => {
   return (
    
-      <div className={styles.container}>
+      <div data-testid="horizontal stepper" className={styles.container}>
         {progress.map((item, index) => {
           return (
             <div key={item.id} className={styles.progressmain}>
