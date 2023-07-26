@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from './Input.module.css';
 import { TestId } from './constants';
-const { LABEL_ID, INPUT_ID } = TestId
+const { LABEL_ID, INPUT_ID } = TestId;
 
 export const Input = ({ dispatch, placeholder, label, value, dispatchType, type, size }) => {
   const [initialValue, setInitialValue] = useState(value);
@@ -41,7 +41,7 @@ Input.propTypes = {
 };
 
 Input.defaultProps = {
-  dispatch: () => { },
+  dispatch: () => {},
   placeholder: 'Placeholder...',
   label: 'Some label',
   value: '',

@@ -34,7 +34,7 @@ const TakeOffBurden = () => {
             </div>
 
             <div className="request-stipend-btn-div">
-              <Button label={isWindowClosed ? ButtonLabelCopy.WINDOW_CLOSED : ButtonLabelCopy.WINDOW_OPEN} effect="secondary" />
+              <Button label={isWindowClosed ? ButtonLabelCopy.WINDOW_CLOSED : ButtonLabelCopy.WINDOW_OPEN} type="secondary" />
             </div>
           </div>
         </div>

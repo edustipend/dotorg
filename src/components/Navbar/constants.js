@@ -41,7 +41,7 @@ export const ButtonLabelCopy = {
   WINDOW_OPEN: 'Request stipend'
 };
 
-export const buttonLabel = 'Request stipend';
-export const secondaryEffect = 'secondary';
+export const BUTTON_LABEL = 'Request stipend';
+export const BUTTON_TYPE = 'secondary';
 export const applyLabel = 'Apply Now';
 export const edustipendPurple = '#5800ff';

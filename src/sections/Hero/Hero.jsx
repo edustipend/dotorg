@@ -3,7 +3,7 @@ import { NavHashLink } from 'react-router-hash-link';
 import Container from '../../components/Container';
 import Button from '../../components/Button';
 import { Hero1, Hero2, Hero3, Hero4, Svg1, Svg2, Svg3, Svg4, Svg5, ArrowDown } from '../../assets/index';
-import { stipends, stipendsColors, ButtonLabelCopy, secondaryEffect, APP_WINDOW_CLOSED_BANNER_TEXT, TestId } from './constants';
+import { stipends, stipendsColors, ButtonLabelCopy, BUTTON_TYPE, APP_WINDOW_CLOSED_BANNER_TEXT, TestId } from './constants';
 import './styles.css';
 import Banner from '../../components/Banner';
 import Header from '../../components/Header';
@@ -59,7 +59,7 @@ const Hero = () => {
             <img src={Svg1} alt="boost icon" />
           </div>
           <div className="btn-container">
-            <Button label={isWindowClosed ? ButtonLabelCopy.WINDOW_CLOSED : ButtonLabelCopy.WINDOW_OPEN} effect={secondaryEffect} />
+            <Button label={isWindowClosed ? ButtonLabelCopy.WINDOW_CLOSED : ButtonLabelCopy.WINDOW_OPEN} type={BUTTON_TYPE} />
           </div>
           <img src={Svg5} alt="icon" className="left" />
           <img src={Svg4} alt="icon" className="right" />
