@@ -1,34 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './Stepper.module.css';
 import backarrow from '../../assets/stepperbackarrow.svg';
 import CircularStepper from './Internals/CircularStepper/CircularStepper';
 import HorizontalStepper from './Internals/HorizontalStepper/HorizontalStepper';
+import { Text, stepsData } from './constants';
 
 const Stepper = () => {
+  const [activeStep /**setActiveStep**/] = useState(1);
+
   return (
     <>
       <div className={styles.mobile}>
-        {/* Mobile Circular Stepper */}
         <div className={styles.container}>
           <div className={styles.backarrow}>
             <img data-testid="backarrow" className={styles.backarrowimg} src={backarrow} alt="back" />
-            <p className={styles.backarrowtext}>Back</p>
+            <p className={styles.backarrowtext}>{Text.BACK_ICON_TEXT}</p>
           </div>
 
           <div className={styles.circletext}>
-            <CircularStepper />
+            <CircularStepper activeStep={activeStep} stepsData={stepsData} />
 
             <div className={styles.texts}>
-              <p data-testid="step 1" className={styles.step}>Step 1</p>
-              <p data-testid="select stipend category" className={styles.select}>Select Stipend Category</p>
+              <p data-testid="step 1" className={styles.step}>
+                {Text.TITLE + ' ' + activeStep}
+              </p>
+              <p data-testid="select stipend category" className={styles.select}>
+                {stepsData[activeStep - 1].select}
+              </p>
             </div>
           </div>
         </div>
-        <div data-testid="line" className={styles.line}></div>
       </div>
-      {/* Big Screen Horizontal Stepper */}
+
       <div className={styles.bigscreen}>
-        <HorizontalStepper />
+        <HorizontalStepper activeStep={activeStep} stepsData={stepsData} />
       </div>
     </>
   );

@@ -16,14 +16,11 @@ it('Stepper component renders correctly', () => {
   const circularStepper = screen.getByTestId(TestId.CIRCULAR_STEPPER_TEST_ID);  
   expect(circularStepper).toBeInTheDocument();
   
-  const paragraph1 = screen.getByTestId(TestId.PARAGRAPH_1_TEST_ID);
-  expect(paragraph1).toBeInTheDocument();
+  const title = screen.getByTestId(TestId.TITLE_TEST_ID);
+  expect(title).toBeInTheDocument();
 
-  const paragraph2 = screen.getByTestId(TestId.PARAGRAPH_2_TEST_ID);
-  expect(paragraph2).toBeInTheDocument();
-
-  const line = screen.getByTestId(TestId.LINE_TEST_ID);
-  expect(line).toBeInTheDocument();
+  const paragraph = screen.getByTestId(TestId.PARAGRAPH_TEST_ID);
+  expect(paragraph).toBeInTheDocument();
 
   const horizontalStepper = screen.getByTestId(TestId.HORIZONTAL_STEPPER_TEST_ID);  
   expect(horizontalStepper).toBeInTheDocument();

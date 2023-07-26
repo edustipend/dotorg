@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from '../CircularStepper/CircularStepper..module.css';
-import { steps } from '../../constants';
 import { radius } from '../../constants';
 import { circleWidth } from '../../constants';
 import { dashArray } from '../../constants';
+import PropTypes from 'prop-types';
 
-const CircularBar = () => {
-  const [step /**setStep**/] = useState(1);
-  const dashOffset = (step / steps.length) * -2 * Math.PI * radius;
+const CircularBar = ({activeStep, stepsData}) => {
+  const dashOffset = (activeStep / stepsData.length) * -2 * Math.PI * radius;
 
   return (
     <div data-testid="circular stepper" className={styles.container}>
@@ -27,11 +26,21 @@ const CircularBar = () => {
         />
 
         <text x="50%" y="50%" dy="0.3em" textAnchor="middle" className={styles.circletext}>
-          {step}/{steps.length}
+          {activeStep}/{stepsData.length}
         </text>
       </svg>
     </div>
   );
+};
+
+CircularBar.propTypes = {
+  activeStep: PropTypes.number.isRequired,
+  stepsData: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 };
 
 export default CircularBar;

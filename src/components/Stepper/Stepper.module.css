@@ -1,5 +1,10 @@
 .container {
   padding: 25px 0 0 20px;
+  box-shadow: 0px 30px 40px 0px #076DF30D;
+  border-bottom: 0.5px solid transparent;
+  background: linear-gradient(to right, white, white), linear-gradient(to right, #5801ff33, #00babb33);
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
 }
 
 .bigscreen{
@@ -21,12 +26,6 @@
   font-size: 16px;
   font-weight: 400;
   font-family: 'manrope';
-}
-
-.line {
-  height: 1px;
-  background: linear-gradient(90deg, #5801ff 13.19%, #00babb 62.4%), linear-gradient(0deg, #ffffff, #ffffff);
-  margin-top: 5px;
 }
 
 .circletext {
