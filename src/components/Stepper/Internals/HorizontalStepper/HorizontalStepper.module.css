@@ -1,15 +1,17 @@
 .container {
   width: 90%;
   margin: -25px auto 0;
-  height: 220px;
-  border: 1px solid transparent;
+  padding-top: 60px;
+  padding-bottom: 10px;
+  border: 0.5px solid transparent;
   border-radius: 30px;
-  background-image: linear-gradient(white, white), linear-gradient(to right, #5801FF, #00BABB);
-  background-origin: border-box;
-  background-clip: content-box, border-box;
+  background: linear-gradient(to right, white, white), linear-gradient(to right, #5801ff33, #00babb33);
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0px 30px 40px 0px #076DF30D;
 }
 
 .transparentcircle {
@@ -34,13 +36,15 @@
 
 .colouredcircle {
   background: #5801ff;
+  border-radius: 50%;
   width: 20px;
   height: 20px;
   border-radius: 50%;
 }
 
 .disabledcolouredcircle {
-  background: #dcd2ee;
+  background: #2d3740;
+  opacity: 10%;
   width: 20px;
   height: 20px;
   border-radius: 50%;
@@ -51,23 +55,24 @@
   flex-direction: column;
   align-items: center;
   gap: 20px;
+  height: 150px;
 }
 
 .step,
 .select {
   font-size: 16px;
-  font-family: 'manrope';
   font-weight: 500;
   text-align: center;
+  color: #2d3740;
 }
 
 .disabledstep,
 .disabledselect {
   font-size: 16px;
-  font-family: 'manrope';
   font-weight: 500;
   text-align: center;
-  color: #dcd2ee;
+  color: #2d3740;
+  opacity: 30%;
 }
 
 .progressmain {
@@ -79,14 +84,20 @@
   margin-top: -28px;
 }
 
+.disabledselect, .select{
+  width: 103px;
+}
+
 @media screen and (min-width: 1024px) {
   .gaparrow {
-    margin-top: -30px;
+    margin-top: -40px;
   }
 }
 
-@media screen and (min-width: 1100px) {
-  .gaparrow {
-    margin-top: -5px;
+@media screen and (min-width: 1200px) {
+  .container{
+    max-width: 1100px;
   }
 }
+
+

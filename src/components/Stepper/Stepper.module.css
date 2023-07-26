@@ -1,5 +1,5 @@
 .container {
-  padding: 25px 25px 0px;
+  padding: 25px 0 0 20px;
 }
 
 .bigscreen{
@@ -49,7 +49,7 @@
   margin-top: 4px;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   .bigscreen {
     display: block;
   }

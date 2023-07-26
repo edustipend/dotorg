@@ -11,6 +11,7 @@ const CircularBar = () => {
     { number: 4, label: 'Step 4' },
     { number: 5, label: 'Step 5' }
   ];
+  
   const radius = 15;
   const circleWidth = 50;
   const dashArray = radius * Math.PI * 2;
