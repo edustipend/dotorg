@@ -41,6 +41,7 @@ export const Select = ({ dispatch, dispatchType, label, placeholder, options, si
               }
             />
           </div>
+          <div className={styles.effect} />
         </div>
         {active && (
           <div data-testid={OPTIONS_ID}

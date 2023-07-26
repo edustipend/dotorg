@@ -141,7 +141,6 @@ export const RequestSection = () => (
   </div>
 );
 export const Landing = () => {
-
   return (
     <main>
       <TopSection />

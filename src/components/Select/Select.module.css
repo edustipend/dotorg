@@ -22,7 +22,6 @@
 
 .defaultContainer {
   position: relative;
-  height: 73px;
 }
 
 .select {
@@ -38,7 +37,8 @@
   outline: none;
   caret-color: transparent;
   color: var(--navy-blue);
-  box-shadow: 0px 11px 50px 0px var(--box-shadow);
+  -webkit-border-radius: 15px;
+  border-radius: 15px;
 }
 
 .select::placeholder {
