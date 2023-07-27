@@ -17,10 +17,12 @@ const quote = '“The secret to getting ahead is getting started." - Mark Twain'
 
 const btn = {
   content: 'Continue',
-  bg: '#febd1c',
   id: 'button_id',
   submit: 'submit'
 };
+
+const front = 'front';
+
 const input = {
   inputID: 'e=ail_id',
   inputLabel: 'Email Address',
@@ -40,6 +42,7 @@ export const TestId = {
   BTN_CONTENT: btn.content,
   BTN_BG: btn.bg,
   BTN_SUBMIT: btn.submit,
+  ICON_FRONT: front,
   INPUT_ID: input.inputID,
   INPUT_LABEL: input.inputLabel,
   INPUT_NAME: input.inputName,

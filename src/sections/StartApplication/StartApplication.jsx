@@ -4,8 +4,8 @@ import Header from '../../components/Header';
 import Text from '../../components/Text';
 import styles from './StartApplication.module.css';
 import { TestId } from './constatnts';
+import { Book, Hero3, ArrowDown, RightArrow } from '../../assets/index';
 
-import { Book, Hero3, ArrowDown } from '../../assets/index';
 export const StartApplication = () => {
   const [value, setValue] = useState('');
   const [isValid, setIsValid] = useState(false);
@@ -25,7 +25,6 @@ export const StartApplication = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
   };
-
   return (
     <div className={styles.container} data-testid={TestId.DATA_TEST}>
       <div className={styles.top}>
@@ -59,12 +58,13 @@ export const StartApplication = () => {
             />
           </div>
           <Button
+            className={styles.btn}
             dataTest={TestId.BTN_ID}
-            label={TestId.BTN_CONTENT}
-            backgroundColor={TestId.BTN_BG}
             disabled={!isValid}
-            next
-            type={TestId.BTN_SUBMIT}
+            icon={RightArrow}
+            iconPosition={TestId.ICON_FRONT}
+            label={TestId.BTN_CONTENT}
+            onClick={handleSubmit}
           />
         </form>
       </div>
