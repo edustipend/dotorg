@@ -1,47 +1,73 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ClassName, DEFAULT_BUTTON_LABEL, TestId } from './constants';
-import { RightArrow } from '../../assets';
+import { ButtonType, ClassName, DEFAULT_BUTTON_LABEL, IconPosition, TestId } from './constants';
 import './styles.css';
+
+const getButtonMode = (type) => {
+  if (type === 'plain') {
+    return ClassName.PLAIN_BUTTON;
+  }
+  if (type === 'secondary') {
+    return ClassName.SECONDARY_BUTTON;
+  }
+  return ClassName.PRIMARY_BUTTON;
+};
 
 /**
  * Button component for use on Edustipend pages
  */
-export const Button = ({ backgroundColor, dataTest, primary, size, label, effect, next, ...props }) => {
-  const mode = primary ? ClassName.PRIMARY_BUTTON : ClassName.SECONDARY_BUTTON;
+export const Button = ({ className, dataTest, disabled, effectAlt, label, icon, iconPosition, size, type, ...props }) => {
+  const mode = getButtonMode(type);
   return (
-    <div className={effect === 'primary' ? 'effect' : effect === 'secondary' ? 'effect effect_alt' : ''}>
+    <div
+      className={`${type === ButtonType.PRIMARY ? 'effect' : type === ButtonType.SECONDARY ? 'effect effect_alt' : ''}
+  ${disabled ? 'disabled' : ''} ${effectAlt ? 'effectAlt' : ''}`}>
       <button
         data-testid={dataTest}
         type="button"
-        className={[ClassName.ROOT_BUTTON, `${ClassName.ROOT_BUTTON}--${size}`, mode].join(' ')}
-        style={backgroundColor && { backgroundColor }}
+        disabled={disabled}
+        className={[
+          `${ClassName.ROOT_BUTTON}`,
+          `${ClassName.ROOT_BUTTON}--${size}`,
+          `${icon && `${ClassName.ICON} ${ClassName.ROOT_BUTTON}`}`,
+          `${className}`,
+          mode
+        ].join(' ')}
         {...props}>
         {label || DEFAULT_BUTTON_LABEL}
-        {next && 
-        <img className='right-arrow' src={RightArrow} alt="continue" />
-        }
+        {icon && (
+          <div className={iconPosition === IconPosition.BACK ? 'icon back-icon' : iconPosition === IconPosition.FRONT ? 'icon front-icon' : ''}>
+            <img src={icon} alt="icon" />
+          </div>
+        )}
       </button>
     </div>
   );
 };
 
 Button.propTypes = {
-  primary: PropTypes.bool,
-  backgroundColor: PropTypes.string,
+  className: PropTypes.string,
   dataTest: PropTypes.string,
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  disabled: PropTypes.bool,
+  effectAlt: PropTypes.bool,
+  icon: PropTypes.string,
+  iconPosition: PropTypes.oneOf(['back', 'front']),
   label: PropTypes.string.isRequired,
   next: PropTypes.bool,
   onClick: PropTypes.func,
-  effect: PropTypes.string
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  type: PropTypes.oneOf(['plain', 'primary', 'secondary'])
 };
 
 Button.defaultProps = {
-  backgroundColor: null,
+  className: '',
   dataTest: TestId.DEFAULT_BUTTON_TEST_ID,
-  primary: false,
-  size: 'medium',
+  disabled: false,
+  effectAlt: false,
+  icon: '',
+  iconPosition: 'front',
+  label: 'Click me',
   onClick: undefined,
-  effect: '',
+  size: 'medium',
+  plain: false
 };
