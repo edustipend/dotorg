@@ -4,7 +4,7 @@ import styles from './Input.module.css';
 import { TestId } from './constants';
 const { LABEL_ID, INPUT_ID } = TestId;
 
-export const Input = ({ dispatch, placeholder, label, value, dispatchType, type, size }) => {
+export const Input = ({ dispatch, placeholder, label, value, dispatchType, type, size, className }) => {
   const [initialValue, setInitialValue] = useState(value);
 
   const handleOnchange = (e) => {
@@ -24,7 +24,7 @@ export const Input = ({ dispatch, placeholder, label, value, dispatchType, type,
         placeholder={placeholder}
         value={initialValue}
         onChange={(e) => handleOnchange(e)}
-        className={`${styles.input} ${styles[size]}`}
+        className={`${styles.input} ${styles[size]} ${className}`}
       />
     </main>
   );
@@ -37,15 +37,17 @@ Input.propTypes = {
   value: PropTypes.string,
   dispatchType: PropTypes.string,
   type: PropTypes.string,
-  size: PropTypes.string
+  size: PropTypes.string,
+  className: PropTypes.string,
 };
 
 Input.defaultProps = {
-  dispatch: () => {},
+  dispatch: () => { },
   placeholder: 'Placeholder...',
   label: 'Some label',
   value: '',
   dispatchType: '',
   type: 'text',
-  size: ''
+  size: '',
+  className: ''
 };

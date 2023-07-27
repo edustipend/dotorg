@@ -4,12 +4,17 @@ import Step3 from './Step3';
 import Step4 from './Step4';
 import Step5 from './Step5';
 import { useState } from 'react';
+import StartApplication from '../../sections/StartApplication';
 
 export const RequestStipend = () => {
   const [activeStep, setActiveStep] = useState(1);
   return (
     <main>
-      <section>
+      {/*
+				Place request stipend components here
+			 */}
+      <StartApplication />
+        <section>
         {(() => {
           switch (activeStep) {
             case 1:

@@ -1,4 +1,5 @@
 .edustipend-button {
+  position: relative;
   font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 700;
   border: 0;
@@ -10,6 +11,17 @@
   line-height: 1;
   box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.1);
   width: 310px;
+}
+.edustipend-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.right-arrow {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 30px;
 }
 
 .disabled .edustipend-button {
