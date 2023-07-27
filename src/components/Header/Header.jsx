@@ -13,8 +13,7 @@ export const Header = ({ className, children, color = 'primary', dataTest, size,
   return (
     <HeaderComponent
       className={[`${styles[`header--${size}`]} ${styles[color]}`, subheader ? `${styles.subheader}` : `${styles.header}`, `${className}`].join(' ')}
-      data-testid={dataTest}
-    >
+      data-testid={dataTest}>
       {children}
     </HeaderComponent>
   );
