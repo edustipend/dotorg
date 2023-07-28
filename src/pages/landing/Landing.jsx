@@ -112,7 +112,7 @@ export const MidSection = () => (
               <img src={card.icon} alt="icon" height={24} />
               <p>{card.title}</p>
             </div>
-            <div className="display-card-text">{card.text}</div>
+            <div className="display-card-text">{card.text} </div>
           </div>
         ))}
       </div>

@@ -10,5 +10,7 @@ import Svg5 from './svg5.svg';
 import ArrowDown from './line.svg';
 import Menu from './menu.svg';
 import Close from './close.svg';
+import Book from './book.svg';
+import RightArrow from './btn-arrow-right.svg';
 
-export { Hero1, Hero2, Hero3, Hero4, Svg1, Svg2, Svg3, Svg4, Svg5, ArrowDown, Menu, Close };
+export { Hero1, Hero2, Hero3, Hero4, Svg1, Svg2, Svg3, Svg4, Svg5, ArrowDown, Menu, Close, Book, RightArrow };

@@ -21,8 +21,7 @@ export const Button = ({ className, dataTest, disabled, effectAlt, label, icon, 
   return (
     <div
       className={`${type === ButtonType.PRIMARY ? 'effect' : type === ButtonType.SECONDARY ? 'effect effect_alt' : ''}
-    ${disabled ? 'disabled' : ''} ${effectAlt ? 'effectAlt' : ''}`}
-    >
+  ${disabled ? 'disabled' : ''} ${effectAlt ? 'effectAlt' : ''}`}>
       <button
         data-testid={dataTest}
         type="button"
@@ -34,8 +33,7 @@ export const Button = ({ className, dataTest, disabled, effectAlt, label, icon, 
           `${className}`,
           mode
         ].join(' ')}
-        {...props}
-      >
+        {...props}>
         {label || DEFAULT_BUTTON_LABEL}
         {icon && (
           <div className={iconPosition === IconPosition.BACK ? 'icon back-icon' : iconPosition === IconPosition.FRONT ? 'icon front-icon' : ''}>
@@ -55,6 +53,7 @@ Button.propTypes = {
   icon: PropTypes.string,
   iconPosition: PropTypes.oneOf(['back', 'front']),
   label: PropTypes.string.isRequired,
+  next: PropTypes.bool,
   onClick: PropTypes.func,
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   type: PropTypes.oneOf(['plain', 'primary', 'secondary'])
