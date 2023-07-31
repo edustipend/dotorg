@@ -3,12 +3,13 @@ import styles from '../HorizontalStepper/HorizontalStepper.module.css';
 import PropTypes from 'prop-types';
 import gaparrow from '../../../../assets/gaparrow.svg';
 import check from '../../../../assets/check.svg';
+import { TestId } from '../../constants';
 
 const HorizontalStepper = ({ activeStep, stepsData }) => {
   return (
-    <div data-testid="horizontal stepper" className={styles.container}>
-      {stepsData.map((currentStep, index) => {
-        const { id, step, select } = currentStep;
+    <div data-testid={TestId.HORIZONTAL_STEPPER_TEST_ID} className={styles.container}>
+      {stepsData?.map((currentStep, index) => {
+        const { id, step, label } = currentStep;
         return (
           <div key={id} className={styles.stepsmain}>
             <div className={styles.steps}>
@@ -16,9 +17,7 @@ const HorizontalStepper = ({ activeStep, stepsData }) => {
 
               {activeStep >= id ? (
                 <div className={styles.transparentcircle}>
-                  <div className={styles.colouredcircle}>
-                    {activeStep > id && <img src={check} alt="check mark" />}
-                    </div>
+                  <div className={styles.colouredcircle}>{activeStep > id && <img src={check} alt="check mark" />}</div>
                 </div>
               ) : (
                 <div className={styles.disabledtransparentcircle}>
@@ -26,7 +25,7 @@ const HorizontalStepper = ({ activeStep, stepsData }) => {
                 </div>
               )}
 
-              {activeStep >= id ? <p className={styles.bottomselecttitle}>{select}</p> : <p className={styles.disabledbottomselecttitle}>{select}</p>}
+              {activeStep >= id ? <p className={styles.bottomselecttitle}>{label}</p> : <p className={styles.disabledbottomselecttitle}>{label}</p>}
             </div>
             {index !== stepsData.length - 1 && <img className={styles.gaparrow} src={gaparrow} alt="gap arrow" />}
           </div>
@@ -42,7 +41,7 @@ HorizontalStepper.propTypes = {
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       step: PropTypes.string.isRequired,
-      select: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
       arrow: PropTypes.string.isRequired
     })
   ).isRequired

@@ -1,6 +1,6 @@
 .circlebackground {
   fill: none;
-  stroke: #5801ff;
+  stroke: var(--primary);
 }
 
 .circle {
@@ -14,6 +14,6 @@
 
 .circletext {
   font-size: 10px;
-  font-size: 'poppins';
+  font-family: 'poppins';
   font-weight: 400;
 }

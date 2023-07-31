@@ -1,15 +1,16 @@
 import React from 'react';
-import styles from '../CircularStepper/CircularStepper..module.css';
+import styles from '../CircularStepper/CircularStepper.module.css';
 import { radius } from '../../constants';
 import { circleWidth } from '../../constants';
 import { dashArray } from '../../constants';
 import PropTypes from 'prop-types';
+import { TestId } from '../../constants';
 
-const CircularBar = ({activeStep, stepsData}) => {
-  const dashOffset = (activeStep / stepsData.length) * -2 * Math.PI * radius;
+const CircularStepper = ({activeStep, stepsData}) => {
+  const dashOffset = (activeStep / stepsData?.length) * -2 * Math.PI * radius;
 
   return (
-    <div data-testid="circular stepper" className={styles.container}>
+    <div data-testid={TestId.CIRCULAR_STEPPER_TEST_ID} className={styles.container}>
       <svg width="80" height="80" viewBox={`7 0 ${circleWidth} ${circleWidth}`} className={styles.circle}>
         <circle cx={circleWidth / 2} cy={circleWidth / 2} strokeWidth="4px" r={radius} className={styles.circlebackground} />
         <circle
@@ -26,14 +27,14 @@ const CircularBar = ({activeStep, stepsData}) => {
         />
 
         <text x="50%" y="50%" dy="0.3em" textAnchor="middle" className={styles.circletext}>
-          {activeStep}/{stepsData.length}
+          {activeStep}/{stepsData?.length}
         </text>
       </svg>
     </div>
   );
 };
 
-CircularBar.propTypes = {
+CircularStepper.propTypes = {
   activeStep: PropTypes.number.isRequired,
   stepsData: PropTypes.arrayOf(
     PropTypes.shape({
@@ -41,6 +42,7 @@ CircularBar.propTypes = {
       title: PropTypes.string.isRequired,
     })
   ).isRequired,
+  stepsDataLength: PropTypes.number.isRequired, 
 };
 
-export default CircularBar;
+export default CircularStepper;

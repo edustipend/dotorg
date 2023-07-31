@@ -24,8 +24,8 @@ const Stepper = () => {
               <p data-testid="step 1" className={styles.step}>
                 {Text.TITLE + ' ' + activeStep}
               </p>
-              <p data-testid="select stipend category" className={styles.select}>
-                {stepsData[activeStep - 1].select}
+              <p data-testid="select stipend category" className={styles.label}>
+                {stepsData[activeStep - 1].label}
               </p>
             </div>
           </div>

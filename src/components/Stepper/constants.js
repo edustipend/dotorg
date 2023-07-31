@@ -1,30 +1,28 @@
-
-
 export const stepsData = [
   {
     id: 1,
     step: 'Step 1',
-    select: 'Select Stipend Category',
+    label: 'Select Stipend Category',
   },
   {
     id: 2,
     step: 'Step 2',
-    select: 'Stipend Request',
+    label: 'Stipend Request',
   },
   {
     id: 3,
     step: 'Step 3',
-    select: 'Data Consent',
+    label: 'Data Consent',
   },
   {
     id: 4,
     step: 'Step 4',
-    select: "Let's Meet You",
+    label: "Let's Meet You",
   },
   {
     id: 5,
     step: 'Step 5',
-    select: 'Submit',
+    label: 'Submit',
   }
 ];
 
@@ -39,7 +37,8 @@ export const TestId = {
   CIRCULAR_STEPPER_TEST_ID: 'circular stepper',
   TITLE_TEST_ID: 'step 1',
   PARAGRAPH_TEST_ID: 'select stipend category',
-  HORIZONTAL_STEPPER_TEST_ID: 'horizontal stepper'
+  HORIZONTAL_STEPPER_TEST_ID: 'horizontal stepper',
+  ACTIVE_STEP_TEST_ID: 'activeStep'
 };
 
 export const radius = 15;
