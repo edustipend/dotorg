@@ -1,0 +1,19 @@
+.circlebackground {
+  fill: none;
+  stroke: var(--primary);
+}
+
+.circle {
+  margin-top: 16px;
+}
+
+.circleprogress {
+  fill: none;
+  stroke: #d9d9d9;
+}
+
+.circletext {
+  font-size: 10px;
+  font-family: 'poppins';
+  font-weight: 400;
+}

@@ -1,3 +1,4 @@
+import Stepper from '../../components/Stepper';
 import StartApplication from '../../sections/StartApplication';
 
 export const RequestStipend = () => {
@@ -5,7 +6,9 @@ export const RequestStipend = () => {
     <main>
       {/*
 				Place request stipend components here
+        
 			 */}
+      <Stepper />
       <StartApplication />
     </main>
   );
