@@ -1,2 +1,2 @@
-import { LearnerDashboard } from "./LearnerDashboard";
-export default LearnerDashboard
+import { LearnerDashboard } from './LearnerDashboard';
+export default LearnerDashboard;

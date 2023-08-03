@@ -1,2 +1,2 @@
-import { Submissions } from "./Submissions";
-export default Submissions
+import { Submissions } from './Submissions';
+export default Submissions;

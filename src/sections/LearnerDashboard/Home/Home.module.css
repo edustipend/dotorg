@@ -1,0 +1,55 @@
+.Main {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.greet {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.dashboard {
+    font-size: 16px;
+}
+
+.hello {
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.imgContainer {
+    width: 20px;
+    height: 20px;
+}
+
+.img {
+    width: 100%;
+}
+
+.waveSection {
+    display: flex;
+    align-items: center;
+}
+
+.table {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+}
+
+.tab {
+    max-width: 327px;
+    font-size: 16px;
+    background-color: var(--tab-btn);
+    color: var(--edustipend-purple);
+    font-weight: 700;
+}
+
+.tabAlt {
+    background-color: rgba(0, 0, 0, .1);
+    opacity: .5;
+    font-weight: 400;
+    color: var(--navy-blue);
+}

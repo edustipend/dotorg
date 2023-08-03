@@ -1,0 +1,10 @@
+.main {
+  min-height: 100vh;
+  display: flex;
+  background-color: var(--dashboard-bg);
+}
+
+.Outlet {
+  width: 100%;
+  margin: 29px 24px;
+}

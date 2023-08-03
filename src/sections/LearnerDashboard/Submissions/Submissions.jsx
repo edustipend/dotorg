@@ -1,7 +1,5 @@
-import React from 'react'
+import React from 'react';
 
 export const Submissions = () => {
-    return (
-        <div>Submissions</div>
-    )
-}
+  return <div>Submissions</div>;
+};
