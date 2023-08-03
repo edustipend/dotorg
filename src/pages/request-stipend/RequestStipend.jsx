@@ -4,6 +4,7 @@ import Step2Application from '../../sections/Step2Application';
 import Step3Application from '../../sections/Step3Application';
 import Step4Application from '../../sections/Step4Application';
 import Step5Application from '../../sections/Step5Application';
+import Stepper from '../../components/Stepper';
 import StartApplication from '../../sections/StartApplication';
 
 export const RequestStipend = () => {
@@ -12,7 +13,9 @@ export const RequestStipend = () => {
     <main>
       {/*
 				Place request stipend components here
+        
 			 */}
+      <Stepper />
       <StartApplication />
       <section>
         {(() => {
