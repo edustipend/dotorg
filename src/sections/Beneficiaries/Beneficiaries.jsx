@@ -7,6 +7,7 @@ import { Text } from '../../components/Text/Text';
 import NumbersGrid from './Internals/NumbersGrid';
 import { TestId } from './constants';
 
+
 const Beneficiaries = () => {
   return (
     <section className="beneficiaries">
