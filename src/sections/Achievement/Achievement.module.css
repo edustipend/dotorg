@@ -23,7 +23,7 @@
   max-height: 393px;
   flex-direction: column;
   align-items: flex-start;
-  gap: 8px;
+  gap: 16px;
 }
 
 .headText {
