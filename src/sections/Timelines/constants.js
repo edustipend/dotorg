@@ -10,8 +10,10 @@ export const BTN = {
 export const BACK = 'back';
 export const EDUSTIPEND = {
   AT_ONE: '#EdustipendatOne',
-  PROFILE: 'https://tiwtter.com/edustipend'
+  PROFILE: 'https://twitter.com/edustipend'
 };
+
+export const TWITTER = 'https://twitter.com/';
 
 export const content =
   'I was fortunate to be a beneficiary of the June data stipend, and I must say that @edustipend has had a profound impact on my learning journey. It has been an excellent resource that significantly enhanced my learning experience.';

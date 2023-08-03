@@ -3,7 +3,7 @@ import Text from '../../../../components/Text';
 import styles from './Note.module.css';
 import Header from '../../../../components/Header';
 import { Avatar, DarkCurve, LightCurve, Pin, Twitter } from '../../../../assets';
-import { TestId, EDUSTIPEND, content, userName, userProfile } from '../../constants';
+import { TestId, EDUSTIPEND, content, userName, userProfile, TWITTER } from '../../constants';
 import { Link } from 'react-router-dom';
 import { styleNote } from '../../utils';
 
@@ -19,9 +19,9 @@ export const Note = ({ index, content, userName, userProfile }) => {
       </div>
       <div className={styles.user}>
         <Header className={styles.userName}>{userName}</Header>
-        <div className={styles.social}>
-          <img src={Twitter} alt="twitter" />
-          <Link to={`http://twitter.com/${userProfile}`}>
+        <div>
+          <Link to={`${TWITTER}${userProfile}`} className={styles.link}>
+            <img src={Twitter} alt="twitter" />
             <Text className={styles.userProfile} content={userProfile} />
           </Link>
         </div>
