@@ -1,0 +1,72 @@
+.container {
+  width: 100%;
+  padding: 58px 34px 53px 34px;
+  background: var(--edustipend-black);
+}
+
+.headText {
+  color: var(--white, #fff);
+  text-align: center;
+  text-shadow: 0px 2px 0px 0px #ff914d;
+  font-family: 'Poppins';
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 84px; /* 175% */
+  letter-spacing: -1.44px;
+  margin-bottom: 30px;
+}
+
+.notes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 120px;
+  padding: 100px 0;
+  transition: all 2s;
+}
+
+.btnContainer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.back {
+  color: var(--edustipend-black);
+  border: 0.406px solid rgba(45, 55, 64, 0.5);
+  background: rgba(255, 255, 255, 0.5);
+}
+
+@media only screen and (max-width: 860px) {
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .notes {
+    max-height: 1800px;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .btn {
+    width: 130px;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .container {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .headText {
+    font-size: 40px;
+    line-height: 60px;
+  }
+}
