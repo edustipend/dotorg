@@ -40,26 +40,36 @@
   background: rgba(255, 255, 255, 0.5);
 }
 
-@media only screen and (max-width: 860px) {
+@media only screen and (max-width: 1400px) {
+  .notes {
+    gap: 80px;
+  }
+}
+@media only screen and (max-width: 1300px) {
   .container {
     padding-left: 20px;
     padding-right: 20px;
   }
 
   .notes {
-    max-height: 1800px;
-    overflow-x: hidden;
-    overflow-y: auto;
+    gap: 70px;
   }
 }
 
-@media only screen and (max-width: 700px) {
-  .btn {
-    width: 130px;
+@media only screen and (max-width: 887px) {
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .notes {
+    display: none;
+  }
+  .btnContainer {
+    display: none;
   }
 }
 
-@media only screen and (max-width: 420px) {
+@media only screen and (max-width: 600px) {
   .container {
     padding-left: 5px;
     padding-right: 5px;
@@ -67,6 +77,6 @@
 
   .headText {
     font-size: 40px;
-    line-height: 60px;
+    line-height: 50px;
   }
 }

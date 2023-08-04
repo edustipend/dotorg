@@ -1,21 +1,22 @@
 import Button from '../../components/Button';
 import Header from '../../components/Header';
 import styles from './Timelines.module.css';
-import { BTN, HEAD_TEXT, BACK, TestId, data } from './constants';
+import { BTN, HEAD_TEXT, BACK, TestId, mockData } from './constants';
 import { BackArrow } from '../../assets';
 import Note from './internals/Note';
 import { useState } from 'react';
+import { MobileTimeline } from './internals/MobileTimelines/MobileTimeline';
 
 export const Timelines = () => {
-  const [notes, setNotes] = useState(data.slice(0, 6));
+  const [notes, setNotes] = useState(mockData.slice(0, 6));
   const [loadMore, setLoadMore] = useState(false);
 
   const readMoreHandler = () => {
-    setNotes(data.slice(0));
+    setNotes(mockData.slice(0));
     setLoadMore(!loadMore);
   };
   const backHandler = () => {
-    setNotes(data.slice(0, 6));
+    setNotes(mockData.slice(0, 6));
     setLoadMore(!loadMore);
   };
 
@@ -24,7 +25,7 @@ export const Timelines = () => {
       <Header className={styles.headText}>{HEAD_TEXT}</Header>
       <div className={styles.notes}>
         {notes.map((note, index) => {
-          return <Note key={index} index={index} />;
+          return <Note key={index} index={index} userName={note.userName} userProfile={note.userProfile} content={note.content} />;
         })}
       </div>
       <div className={styles.btnContainer}>
@@ -39,6 +40,7 @@ export const Timelines = () => {
         />
         <Button className={styles.btn} disabled={loadMore} label={BTN.MORE} onClick={readMoreHandler} type={BTN.SEC} />
       </div>
+      <MobileTimeline timelines={mockData} />
     </div>
   );
 };

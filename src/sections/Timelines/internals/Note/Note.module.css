@@ -2,14 +2,14 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 350px;
+  width: 340px;
   height: 320px;
   padding: 20px;
   justify-content: center;
   align-items: center;
   filter: drop-shadow(0px 1px 8px rgba(0, 0, 0, 0.11)) drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.21));
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  border-bottom-left-radius: 39px;
+  border-bottom-left-radius: 25px;
 }
 
 .pin {
@@ -74,8 +74,8 @@
 
 .curves {
   position: absolute;
-  bottom: 0;
-  left: 0;
+  bottom: -6px;
+  left: -1px;
 }
 
 .avatar {

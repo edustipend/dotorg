@@ -30,5 +30,13 @@ describe('Timelines', () => {
       );
       expect(screen.getByTestId(TestId.NOTE_ID)).toBeInTheDocument();
     });
+    it('should contain the mobile timeline component', () => {
+      render(
+        <BrowserRouter>
+          <Timelines />
+        </BrowserRouter>
+      );
+      expect(screen.getByTestId(TestId.MOBILE_ID)).toBeInTheDocument();
+    });
   });
 });
