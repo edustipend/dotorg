@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import styles from './Quote.module.css';
 
-const Quote = ({ content, className, dataTest }) => {
+export const Quote = ({ content, className, dataTest }) => {
   return (
     <p className={[styles.quote, className].join(' ')} data-testid={dataTest}>
       {content}
@@ -20,4 +20,3 @@ Quote.defaultProps = {
   className: ''
 };
 
-export default Quote;

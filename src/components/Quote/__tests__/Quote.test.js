@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import Quote from '../Quote';
+import {Quote} from '../Quote';
 import { TestId } from '../constants';
 
 describe('Quote component', () => {
