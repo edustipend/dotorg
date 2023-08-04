@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
-import Quote from '../Quote';
 import { TestId } from '../constants';
+import { Quote } from '../Quote';
 
 describe('Quote component', () => {
   it('shows the right quote', () => {

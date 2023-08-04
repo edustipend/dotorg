@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
 import styles from './Quote.module.css';
 
-const Quote = ({ content, className, dataTest }) => {
+export const Quote = ({ content, className, dataTest}) => {
   return (
     <p className={[styles.quote, className].join(' ')} data-testid={dataTest}>
+      {/* {boldcontent} */}
       {content}
     </p>
   );
@@ -11,13 +12,14 @@ const Quote = ({ content, className, dataTest }) => {
 
 Quote.propTypes = {
   content: PropTypes.string,
+  boldcontent: PropTypes.string,
   className: PropTypes.string,
   dataTest: PropTypes.string
 };
 
 Quote.defaultProps = {
+  // boldcontent: 'Bold Text',
   content: 'Default Quote Text',
   className: ''
 };
 
-export default Quote;
