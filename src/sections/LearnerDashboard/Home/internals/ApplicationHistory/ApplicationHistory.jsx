@@ -1,11 +1,11 @@
 import React from 'react';
 import Table from '../../../../../components/Table';
-import { history } from '../constants';
+import { history, tableHead } from '../constants';
 
 export const ApplicationHistory = () => {
   return (
     <>
-      <Table entries={history} />
+      <Table entries={history} tableHead={tableHead} />
     </>
   );
 };

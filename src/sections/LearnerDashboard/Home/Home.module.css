@@ -60,14 +60,23 @@
   color: var(--navy-blue);
 }
 
-@media screen and (min-width:600px) {
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (min-width: 600px) {
   .tabs {
     flex-direction: row;
     gap: 30px;
   }
+
+  .buttonContainer {
+    justify-content: end;
+  }
 }
 
-@media screen and (min-width:1024px) {
+@media screen and (min-width: 1024px) {
   .tab {
     width: 271px;
     height: 43px;

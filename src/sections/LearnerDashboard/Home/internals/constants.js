@@ -4,6 +4,7 @@ export const constants = {
 };
 
 export const tab = ['Most recent application', 'My application history'];
+export const tableHead = ['ID', 'Stipend Category', 'Application Status', 'Date of submission', 'Time of submission', 'Action'];
 
 export const recent = [
   {
@@ -20,7 +21,7 @@ export const history = [
   {
     id: 1,
     Stipend_Category: 'Laptop stipend',
-    Application_Status: 'In review',
+    Application_Status: 'Approved',
     Date_of_submission: '10 / June / 2023',
     Time_of_submission: '11:00 AM WAT',
     Action: 'View Submission'

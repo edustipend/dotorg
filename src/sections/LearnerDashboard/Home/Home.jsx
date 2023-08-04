@@ -6,6 +6,7 @@ import hand from '../../../assets/waving hand.png';
 import { tab } from './internals/constants';
 import RecentApplication from './internals/RecentApplication';
 import ApplicationHistory from './internals/ApplicationHistory';
+import Button from '../../../components/Button';
 const { dashboard, username } = constants;
 
 export const Home = () => {
@@ -52,6 +53,9 @@ export const Home = () => {
           }
         })()}
       </section>
+      <div className={styles.buttonContainer}>
+        <Button disabled={true} label="New Stipend Application" type="secondary" effectAlt />
+      </div>
     </div>
   );
 };

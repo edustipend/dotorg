@@ -71,5 +71,4 @@ Button.defaultProps = {
   label: 'Click me',
   onClick: undefined,
   size: 'medium',
-  plain: false
 };
