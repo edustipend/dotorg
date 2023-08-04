@@ -14,7 +14,7 @@ export const Home = () => {
   return (
     <div className={styles.Main}>
       <section className={styles.greet}>
-        <div className={styles.imgContainer}>
+        <div className={styles.imgContainer1}>
           <img src={folder} alt="folder" className={styles.img} />
         </div>
         <div className={styles.userContainer}>
@@ -27,7 +27,13 @@ export const Home = () => {
           </div>
         </div>
       </section>
-      <section className={styles.quote}></section>
+      <section className={styles.quote}>
+        {/**Placeholder quote*/}
+        <p className={styles.quoteText}>
+          "Believe in yourself, take on your challenges, dig deep within yourself to conquer fears.
+          Never let anyone bring you down. You got this." - <i className={styles.italic}>Chantal Sutherland</i>
+        </p>
+      </section>
       <section className={styles.table}>
         <div className={styles.tabs}>
           {tab.map((itm, idx) => {

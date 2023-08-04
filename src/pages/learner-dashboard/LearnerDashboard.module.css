@@ -1,6 +1,7 @@
 .main {
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   background-color: var(--dashboard-bg);
 }
 
@@ -11,6 +12,10 @@
 
 @media screen and (min-width: 1024px) {
   .Outlet {
-    padding: 80px 71px;
+    padding: 50px 60px;
+  }
+
+  .main {
+    flex-direction: row;
   }
 }
