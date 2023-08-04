@@ -1,2 +1,2 @@
-import { RecentApplication } from "./RecentApplication";
-export default RecentApplication
+import { RecentApplication } from './RecentApplication';
+export default RecentApplication;

@@ -1,2 +1,2 @@
-import { ApplicationHistory } from "./ApplicationHistory";
-export default ApplicationHistory
+import { ApplicationHistory } from './ApplicationHistory';
+export default ApplicationHistory;

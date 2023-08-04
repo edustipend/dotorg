@@ -6,5 +6,11 @@
 
 .Outlet {
   width: 100%;
-  margin: 29px 24px;
+  padding: 29px 12px;
+}
+
+@media screen and (min-width: 1024px) {
+  .Outlet {
+    padding: 80px 71px;
+  }
 }
