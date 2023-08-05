@@ -26,17 +26,17 @@ export const SideBarData = [
 export const quoteData = [
   {
     id: 1,
-    boldquote: 'Did you know?',
+    header: 'Did you know?',
     quote: 'The more you teach others what you know the better you become at it.'
   },
   {
     id: 2,
-    boldquote: 'Did you know?',
+    header: 'Did you know?',
     quote: 'In the journey of life, only you have the final say?'
   },
   {
     id: 3,
-    boldquote: 'Did you know?',
+    header: 'Did you know?',
     quote: 'The more you teach others what you know the better you become at it.'
   }
 ];

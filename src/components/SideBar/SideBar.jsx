@@ -28,7 +28,7 @@ const SideBar = () => {
           {quoteData.map((item) => {
             return (
               <div key={item.id} className={styles.quotemain}>
-                <p className={styles.boldquote}>{item.boldquote}</p>
+                <p className={styles.header}>{item.header}</p>
                 <Quote className={styles.quote} content={item.quote} />
               </div>
             );
