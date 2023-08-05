@@ -1,17 +1,17 @@
-.table1 {
+.mobileTable {
     width: 100%;
 }
 
-.table2 {
+.desktopTable {
     display: none;
 }
 
 @media screen and (min-width: 1024px) {
-    .table1 {
+    .mobileTable {
         display: none;
     }
 
-    .table2 {
+    .desktopTable {
         display: initial;
     }
 }

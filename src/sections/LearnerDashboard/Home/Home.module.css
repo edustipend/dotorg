@@ -59,7 +59,7 @@
 }
 
 .tabAlt {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: var(--tab-btn-alt);
   opacity: 0.5;
   font-weight: 400;
   color: var(--navy-blue);
@@ -75,7 +75,7 @@
   font-family: 'Manrope';
   padding: 2rem;
   border-radius: 30px;
-  color: #FFFFFF;
+  color: var(--white);
   text-align: center;
   display: flex;
   justify-content: center;

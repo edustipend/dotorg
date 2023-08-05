@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import styles from './Table1.module.css';
+import styles from './MobileTable.module.css';
 import arrowleft from '../../../../assets/arrow-left.svg';
 import arrowright from '../../../../assets/arrow-right.svg';
+import { applicationStatus } from '../constants';
+const { APPROVED, IN_VIEW, RECEIVED, DENIED } = applicationStatus
 
-export const Table1 = ({ entries, tableHead }) => {
+export const MobileTable = ({ entries, tableHead }) => {
     const [entry, setEntry] = useState(0);
     const currentEntry = entries[entry];
     const status = currentEntry.Application_Status
@@ -17,11 +19,11 @@ export const Table1 = ({ entries, tableHead }) => {
     };
     return (
         <div className={styles.Main}>
-            <table className={styles.table}>
+            <table className={styles.mobileTable}>
                 <thead>
                     <tr>
                         <th className={styles.head}>{tableHead[0]}</th>
-                        <th className={styles.role}>
+                        <th className={styles.row}>
                             <div className={styles.entryNav}>
                                 <button
                                     disabled={entry === 0 ? true : false}
@@ -45,37 +47,37 @@ export const Table1 = ({ entries, tableHead }) => {
                 <tbody>
                     <tr>
                         <td className={`${styles.head} ${styles.headAlt}`}>{tableHead[1]}</td>
-                        <td className={`${styles.role} ${styles.roleAlt}`}>
+                        <td className={`${styles.row} ${styles.rowAlt}`}>
                             {currentEntry && currentEntry.Stipend_Category}
                         </td>
                     </tr>
                     <tr>
                         <td className={`${styles.head} ${styles.headAlt}`}>{tableHead[2]}</td>
-                        <td className={`${styles.role} ${styles.roleAlt}`}>
-                            <span className={status === 'Approved' ?
+                        <td className={`${styles.row} ${styles.rowAlt}`}>
+                            <span className={status === `${APPROVED}` ?
                                 'approved bold_weight'
-                                : status === 'In review' ? 'in_view bold_weight'
-                                    : status === 'Received (Under Review)' ? 'in_view bold_weight'
-                                        : status === 'Denied' ? 'denied bold_weight' : ''}>
+                                : status === `${IN_VIEW}` ? 'in_view bold_weight'
+                                    : status === `${RECEIVED}` ? 'in_view bold_weight'
+                                        : status === `${DENIED}` ? 'denied bold_weight' : ''}>
                                 {currentEntry && currentEntry.Application_Status}
                             </span>
                         </td>
                     </tr>
                     <tr>
                         <td className={`${styles.head} ${styles.headAlt}`}>{tableHead[3]}</td>
-                        <td className={`${styles.role} ${styles.roleAlt}`}>
+                        <td className={`${styles.row} ${styles.rowAlt}`}>
                             {currentEntry && currentEntry.Date_of_submission}
                         </td>
                     </tr>
                     <tr>
                         <td className={`${styles.head} ${styles.headAlt}`}>{tableHead[4]}</td>
-                        <td className={`${styles.role} ${styles.roleAlt}`}>
+                        <td className={`${styles.row} ${styles.rowAlt}`}>
                             {currentEntry && currentEntry.Time_of_submission}
                         </td>
                     </tr>
                     <tr>
-                        <td className={`${styles.head} ${styles.headAlt}`}>{tableHead[5]}</td>
-                        <td className={`${styles.role} ${styles.roleAlt}`}>
+                        <td className={`${styles.head} ${styles.headAlt} ${styles.row1}`}>{tableHead[5]}</td>
+                        <td className={`${styles.row} ${styles.rowAlt} ${styles.row2}`}>
                             {currentEntry && currentEntry.Action}
                         </td>
                     </tr>
@@ -85,11 +87,11 @@ export const Table1 = ({ entries, tableHead }) => {
     );
 };
 
-Table1.propTypes = {
+MobileTable.propTypes = {
     entries: PropTypes.array,
     tableHead: PropTypes.array
 };
-Table1.defaultProps = {
+MobileTable.defaultProps = {
     entries: [],
     tableHead: []
 };
