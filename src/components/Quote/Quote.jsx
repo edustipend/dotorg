@@ -4,7 +4,6 @@ import styles from './Quote.module.css';
 export const Quote = ({ content, className, dataTest }) => {
   return (
     <p className={[styles.quote, className].join(' ')} data-testid={dataTest}>
-      {/* {boldcontent} */}
       {content}
     </p>
   );
@@ -18,7 +17,6 @@ Quote.propTypes = {
 };
 
 Quote.defaultProps = {
-  // boldcontent: 'Bold Text',
   content: 'Default Quote Text',
   className: ''
 };
