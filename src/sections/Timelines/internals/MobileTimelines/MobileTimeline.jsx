@@ -19,12 +19,11 @@ export const MobileTimeline = ({ timelines }) => {
 
   useEffect(() => {
     setNote(timelines.slice(currentNoteIndex, currentNoteIndex + 1));
-    // console.log(note);
   }, [timelines, currentNoteIndex]);
 
   return (
     <div className={styles.container} data-testid={TestId.MOBILE_ID}>
-      <div className={styles.note}>
+      <div className={styles.note} data-testid={TestId.MOBILE_NOTES_CONTAINER_ID}>
         <Note
           key={currentNoteIndex}
           index={currentNoteIndex}
@@ -32,19 +31,34 @@ export const MobileTimeline = ({ timelines }) => {
           userProfile={note[0].userProfile}
           content={note[0].content}
         />
-        ;
       </div>
       <div className={styles.btnContainer}>
         <div className={styles.effect}>
-          <Button className={[`${styles.prev} ${styles.btn}`].join(' ')} label={BTN.PREV} onClick={prevHandler} type={BTN.PLAIN} />
+          <Button
+            className={[`${styles.prev} ${styles.btn}`].join(' ')}
+            label={BTN.PREV}
+            onClick={prevHandler}
+            type={BTN.PLAIN}
+            dataTest={TestId.PREV_ID}
+          />
         </div>
-        <div className={styles.pagination}>
-          <span className={styles.num}>{currentNoteIndex + 1}</span>
+        <div className={styles.pagination} data-testid={TestId.PAGES}>
+          <span className={styles.num} data-testid={TestId.INDEX_PAGE}>
+            {currentNoteIndex + 1}
+          </span>
           {'/'}
-          <span className={styles.num}>{timelines.length}</span>
+          <span className={styles.num} data-testid={TestId.TOTAL_PAGES}>
+            {timelines.length}
+          </span>
         </div>
         <div className={styles.effect}>
-          <Button className={[`${styles.next} ${styles.btn}`].join(' ')} label={BTN.NEXT} onClick={nextHandler} type={BTN.PLAIN} />
+          <Button
+            className={[`${styles.next} ${styles.btn}`].join(' ')}
+            label={BTN.NEXT}
+            onClick={nextHandler}
+            type={BTN.PLAIN}
+            dataTest={TestId.NEXT_ID}
+          />
         </div>
       </div>
     </div>

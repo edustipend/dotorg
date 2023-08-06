@@ -23,7 +23,7 @@ export const Timelines = () => {
   return (
     <div className={styles.container} data-testid={TestId.TIMELINE_ID}>
       <Header className={styles.headText}>{HEAD_TEXT}</Header>
-      <div className={styles.notes}>
+      <div className={styles.notes} data-testid={TestId.NOTES_CONTAINER_ID}>
         {notes.map((note, index) => {
           return <Note key={index} index={index} userName={note.userName} userProfile={note.userProfile} content={note.content} />;
         })}
@@ -31,6 +31,7 @@ export const Timelines = () => {
       <div className={styles.btnContainer}>
         <Button
           className={[`${styles.back} ${styles.btn}`].join(' ')}
+          dataTest={TestId.BACK_ID}
           disabled={!loadMore}
           icon={BackArrow}
           iconPosition={BACK}
@@ -38,7 +39,7 @@ export const Timelines = () => {
           onClick={backHandler}
           type={BTN.PLAIN}
         />
-        <Button className={styles.btn} disabled={loadMore} label={BTN.MORE} onClick={readMoreHandler} type={BTN.SEC} />
+        <Button className={styles.btn} dataTest={TestId.READ_MORE_ID} disabled={loadMore} label={BTN.MORE} onClick={readMoreHandler} type={BTN.SEC} />
       </div>
       <MobileTimeline timelines={mockData} />
     </div>

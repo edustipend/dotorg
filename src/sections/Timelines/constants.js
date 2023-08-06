@@ -28,7 +28,16 @@ export const userProfile = 'Cipherprog';
 export const TestId = {
   TIMELINE_ID: 'timeline',
   NOTE_ID: 'note',
-  MOBILE_ID: 'mobile'
+  MOBILE_ID: 'mobile',
+  MOBILE_NOTES_CONTAINER_ID: 'mobileNotesContainer',
+  NOTES_CONTAINER_ID: 'notesContainer',
+  READ_MORE_ID: 'readMore',
+  BACK_ID: 'back',
+  NEXT_ID: 'next',
+  PREV_ID: 'prev',
+  PAGES: 'pages',
+  INDEX_PAGE: 'indexPage',
+  TOTAL_PAGES: 'totalPages'
 };
 
 export const mockData = [
@@ -60,6 +69,66 @@ export const mockData = [
   {
     userName: 'Edustipend',
     userProfile: 'edustipend',
+    content
+  },
+  {
+    userName,
+    userProfile,
+    content
+  },
+  {
+    userName,
+    userProfile,
+    content
+  },
+  {
+    userName,
+    userProfile,
+    content
+  },
+  {
+    userName,
+    userProfile,
+    content
+  },
+  {
+    userName,
+    userProfile,
+    content
+  },
+  {
+    userName,
+    userProfile,
+    content
+  },
+  {
+    userName,
+    userProfile,
+    content
+  },
+  {
+    userName,
+    userProfile,
+    content
+  },
+  {
+    userName,
+    userProfile,
+    content
+  },
+  {
+    userName,
+    userProfile,
+    content
+  },
+  {
+    userName,
+    userProfile,
+    content
+  },
+  {
+    userName,
+    userProfile,
     content
   },
   {
