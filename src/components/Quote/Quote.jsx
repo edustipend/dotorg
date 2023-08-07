@@ -11,6 +11,7 @@ export const Quote = ({ content, className, dataTest }) => {
 
 Quote.propTypes = {
   content: PropTypes.string,
+  boldcontent: PropTypes.string,
   className: PropTypes.string,
   dataTest: PropTypes.string
 };
