@@ -12,5 +12,34 @@ import Menu from './menu.svg';
 import Close from './close.svg';
 import Book from './book.svg';
 import RightArrow from './btn-arrow-right.svg';
+import BackArrow from './back-arr.svg';
+import AtOneImg from './at-one.png';
+import Avatar from './Avatar.svg';
+import DarkCurve from './dark_curve.jpg';
+import LightCurve from './light_curve.svg';
+import Pin from './Red Pin.svg';
+import Twitter from './social/twitter.png';
 
-export { Hero1, Hero2, Hero3, Hero4, Svg1, Svg2, Svg3, Svg4, Svg5, ArrowDown, Menu, Close, Book, RightArrow };
+export {
+  Hero1,
+  Hero2,
+  Hero3,
+  Hero4,
+  Svg1,
+  Svg2,
+  Svg3,
+  Svg4,
+  Svg5,
+  ArrowDown,
+  Menu,
+  Close,
+  Book,
+  RightArrow,
+  BackArrow,
+  AtOneImg,
+  Avatar,
+  DarkCurve,
+  LightCurve,
+  Pin,
+  Twitter
+};

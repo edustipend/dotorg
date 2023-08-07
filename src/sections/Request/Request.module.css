@@ -18,8 +18,10 @@
 .title {
   text-align: center;
   margin-bottom: 26px;
+  max-width: 820px;
   color: var(--navy-blue);
-  max-width: 500px;
+  font-size: 32px;
+  line-height: 35px;
   position: relative;
 }
 
@@ -27,7 +29,7 @@
   position: absolute;
   width: 39px;
   height: 39px;
-  top: -19%;
+  top: -4rem;
 }
 
 .blob {
@@ -58,7 +60,7 @@
 
   .rocket {
     position: relative;
-    top: -8rem;
+    top: -15rem;
   }
 
   .title {
@@ -93,9 +95,8 @@
   }
 
   .title {
-    max-width: 820px;
     font-size: 60px;
-    line-height: 75px;
+    line-height: 70px;
     margin-bottom: 64px;
   }
 
