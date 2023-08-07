@@ -1,5 +1,5 @@
-import HorizontalStepperComponent from "../HorizontalStepper"
-import { stepsData } from "../../constants";
+import HorizontalStepperComponent from '../HorizontalStepper';
+import { stepsData } from '../../constants';
 
 export default {
   title: 'Edustipend/Components/HorizontalStepper',

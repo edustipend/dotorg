@@ -1,0 +1,17 @@
+.mobileTable {
+    width: 100%;
+}
+
+.desktopTable {
+    display: none;
+}
+
+@media screen and (min-width: 1024px) {
+    .mobileTable {
+        display: none;
+    }
+
+    .desktopTable {
+        display: initial;
+    }
+}
