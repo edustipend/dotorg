@@ -1,0 +1,93 @@
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 340px;
+  height: 320px;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  filter: drop-shadow(0px 1px 8px rgba(0, 0, 0, 0.11)) drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.21));
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  border-bottom-left-radius: 25px;
+}
+
+.pin {
+  position: absolute;
+  top: -25px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.textContainer {
+  width: 100%;
+}
+
+.edustipend {
+  margin-right: 4px;
+  text-decoration-line: underline;
+}
+
+.text {
+  display: inline;
+  color: var(--edustipend-text-black, #2d3740);
+  font-family: 'Annie Use Your Telescope';
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 137.4%; /* 27.48px */
+  letter-spacing: 0.2px;
+}
+
+.user {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+}
+
+.userName {
+  color: var(--black, #2d3740);
+  font-family: 'Annie Use Your Telescope';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 137.4%; /* 21.984px */
+}
+
+.link {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 3px;
+}
+
+.userProfile {
+  color: var(--gray-60, rgba(45, 55, 64, 0.6));
+  font-family: 'Annie Use Your Telescope';
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 137.4%; /* 16.488px */
+}
+
+.curves {
+  position: absolute;
+  bottom: -6px;
+  left: -1px;
+}
+
+.avatar {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+}
+
+@media only screen and (max-width: 420px) {
+  .container {
+    width: 300px;
+    height: 380px;
+    padding: 20px 15px;
+  }
+}
