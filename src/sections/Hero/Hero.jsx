@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback, useContext } from 'react';
 import { NavHashLink } from 'react-router-hash-link';
 import Container from '../../components/Container';
 import Button from '../../components/Button';
@@ -10,9 +10,11 @@ import Header from '../../components/Header';
 import Text from '../../components/Text';
 import { getCurrentStipend } from './utils';
 import { isApplicationWindowClosed } from '../../utils';
+import { ModalContext } from '../../context/ModalContext';
 
 const Hero = () => {
   const [currentStipend, setCurrentStipend] = useState(0);
+  const { handlePopModal } = useContext(ModalContext)
 
   const nextStipend = useCallback(() => {
     setCurrentStipend((prev) => (prev === stipends.length - 1 ? 0 : prev + 1));
@@ -59,7 +61,9 @@ const Hero = () => {
             <img src={Svg1} alt="boost icon" />
           </div>
           <div className="btn-container">
-            <Button label={isWindowClosed ? ButtonLabelCopy.WINDOW_CLOSED : ButtonLabelCopy.WINDOW_OPEN} type={BUTTON_TYPE} />
+            <Button label={isWindowClosed ? ButtonLabelCopy.WINDOW_CLOSED : ButtonLabelCopy.WINDOW_OPEN} type={BUTTON_TYPE}
+              onClick={handlePopModal}
+            />
           </div>
           <img src={Svg5} alt="icon" className="left" />
           <img src={Svg4} alt="icon" className="right" />

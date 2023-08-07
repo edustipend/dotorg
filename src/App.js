@@ -3,7 +3,6 @@ import initFirebaseApp from './firebaseConfig';
 import Navbar from './components/Navbar';
 import './App.css';
 import Footer from './components/Footer';
-
 initFirebaseApp();
 
 function App() {
