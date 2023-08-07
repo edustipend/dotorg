@@ -16,7 +16,7 @@ const Routes = () => {
     <AppRoutes>
       <Route path="/ambassador-program" element={<AmbassadorPage />} />
       <Route path="/request-stipend" element={<RequestStipendPage />} />
-      <Route path="/" element={V2_FEATURE_FLAG_ON ? <LandingPageV2 /> : <LandingPage />} />
+      <Route path="/" element={V2_FEATURE_FLAG_ON ? <LandingPageV2 /> : <LandingPage />}/>
       <Route path="/at-one" element={<AtOne />} />
     </AppRoutes>
   );
