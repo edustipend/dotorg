@@ -7,6 +7,7 @@ import LearnerDashboard from './pages/learner-dashboard';
 import Home from './sections/LearnerDashboard/Home';
 import Submissions from './sections/LearnerDashboard/Submissions';
 import MyAccount from './sections/LearnerDashboard/MyAccount';
+import AtOne from './pages/at-one';
 
 let V2_FEATURE_FLAG_ON = false;
 
@@ -26,7 +27,7 @@ const Routes = () => {
         <Route path="account" element={<MyAccount />} />
       </Route>
       <Route path="/" element={V2_FEATURE_FLAG_ON ? <LandingPageV2 /> : <LandingPage />} />
-      <Route path="*" element={<>404 error component</>}></Route>
+      <Route path="/at-one" element={<AtOne />} />
     </AppRoutes>
   );
 };
