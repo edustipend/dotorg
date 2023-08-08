@@ -7,11 +7,11 @@ initFirebaseApp();
 
 function App() {
   return (
-    <>
+    <div style={{ position: 'relative' }}>
       <Navbar />
       <Routes />
       <Footer />
-    </>
+    </div>
   );
 }
 export default App;

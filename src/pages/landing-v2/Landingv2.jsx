@@ -8,7 +8,6 @@ import Modal from '../../components/Modal';
 import NotifyMe from '../../sections/NotifyMe';
 
 export const LandingV2 = () => {
-
   return (
     <div>
       <Hero />

@@ -1,2 +1,2 @@
-import { NotifyMe } from "./NotifyMe";
-export default NotifyMe
+import { NotifyMe } from './NotifyMe';
+export default NotifyMe;

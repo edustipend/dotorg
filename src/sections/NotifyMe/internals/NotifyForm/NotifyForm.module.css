@@ -1,0 +1,110 @@
+.formArea {
+  font-family: 'Manrope';
+}
+
+.top {
+  padding-top: 20px;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.heading {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.subtitle {
+  font-weight: 400;
+  font-size: 14px;
+  margin: 7px 0 15px;
+  max-width: 471px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.formField {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.label {
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  margin-left: 0.45rem;
+  color: var(--navy-blue);
+}
+
+.required {
+  margin-top: 10px;
+  margin-left: 10px;
+  font-size: 24px;
+  color: var(--red-accent);
+  font-weight: 700;
+}
+
+.Input {
+  padding: 10px 19px;
+  height: 60px;
+  font-size: 16px;
+  color: var(--navy-blue);
+  border: 1px solid var(--darker-navy-blue);
+  border-radius: 15px;
+  outline: none;
+}
+
+.Input::placeholder {
+  color: var(--darker-accent);
+  font-size: 16px;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  padding: 23px 0 15px;
+}
+
+.button {
+  width: 250px;
+}
+
+@media screen and (min-width: 500px) {
+  .button {
+    width: 288px;
+  }
+
+  .buttonContainer {
+    padding: 10px 0 30px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .formArea {
+    margin-inline: 177px;
+  }
+
+  .top {
+    padding-top: 25px;
+  }
+
+  .form {
+    gap: 30px;
+  }
+
+  .Input {
+    height: 73px;
+  }
+
+  .heading {
+    font-size: 36px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+  }
+}

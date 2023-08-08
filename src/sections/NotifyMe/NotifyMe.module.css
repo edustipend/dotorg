@@ -1,51 +1,38 @@
 .notify {
-    margin-inline: 1.5rem;
-    max-width: 854px;
-    margin-top: 10rem;
-    padding: 2rem;
-    background-color: var(--white);
-    border-radius: 30px;
+  position: relative;
+  margin-inline: 1.5rem;
+  max-width: 854px;
+  margin-top: 7.5rem;
+  padding: 2rem;
+  background-color: var(--white);
+  border-radius: 30px;
 }
 
 .closeContainer {
-    width: 18px;
-    height: 18px;
-    background-color: transparent;
+  position: absolute;
+  right: 2rem;
+  width: 18px;
+  height: 18px;
+  background-color: transparent;
 }
-.closeContainer:hover{
-    cursor: pointer;
+
+.closeContainer:hover {
+  cursor: pointer;
 }
 
 .closeModal {
-    width: 100%;
-    height: 100%;
-}
-
-.buttonContainer {
-    display: flex;
-    justify-content: center;
-
-}
-
-.button {
-    width: 250px;
-}
-
-
-@media screen and (min-width: 500px) {
-    .button {
-        width: 288px;
-    }
+  width: 100%;
+  height: 100%;
 }
 
 @media screen and (min-width: 854px) {
-    .notify {
-        margin-inline: auto;
-        margin-top: 250px;
-    }
+  .notify {
+    margin-inline: auto;
+    margin-top: 135px;
+  }
 
-    .closeContainer {
-        width: 25px;
-        height: 25px;
-    }
+  .closeContainer {
+    width: 25px;
+    height: 25px;
+  }
 }

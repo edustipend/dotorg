@@ -1,25 +1,24 @@
 .hideModal {
-    display: none;
-
+  display: none;
 }
 
 .modal {
-    position: absolute;
-    inset: 0;
-    z-index: 10001;
-    background: #000000CC;
+  position: fixed;
+  inset: 0;
+  z-index: 10001;
+  background: #000000cc;
 }
 
 .animate {
-    animation: animate-modal 350ms linear forwards;
+  animation: animate-modal 300ms linear forwards;
 }
 
 @keyframes animate-modal {
-    0% {
-        transform: scale(0);
-    }
+  0% {
+    transform: scale(0);
+  }
 
-    100% {
-        transform: scale(1);
-    }
+  100% {
+    transform: scale(1);
+  }
 }
