@@ -33,6 +33,33 @@ export const cardData = [
   },
   {
     id: 2,
+    name: 'Blessing Agabus',
+    status: 'Public',
+    testimonial: `@edustipend community is doing a lot better to the heart and career-building of its beneficiaries. I introduced my girlfriend last month, she got a voucher aid. Mine is a laptop, I'm never giving up.`,
+    image: 'https://pbs.twimg.com/profile_images/1645929666434281473/fLt2QeJL.jpg',
+    socials: [
+      {
+        id: 0,
+        media: 'twitter',
+        img: twitter,
+        link: 'https://twitter.com/FineAgabus/status/1622955318362734593'
+      },
+      {
+        id: 1,
+        media: 'linkedin',
+        img: linkedin,
+        link: '#'
+      },
+      {
+        id: 2,
+        media: 'instagram',
+        img: instagram,
+        link: '#'
+      }
+    ]
+  },
+  {
+    id: 3,
     name: 'Ubon Udonkang ',
     status: 'Ambassador',
     testimonial: `With @edustipend, I went from an applicant to becoming a beneficiary, then an ambassador then securing my first offer as a UX designer`,
@@ -58,33 +85,7 @@ export const cardData = [
       }
     ]
   },
-  {
-    id: 3,
-    name: 'Blessing Agabus',
-    status: 'Public',
-    testimonial: `"@edustipend community is doing a lot better to the heart and career-building of its beneficiaries. I introduced my girlfriend last month, she got a voucher aid. Mine is a laptop, I'm never giving up.`,
-    image: 'https://pbs.twimg.com/profile_images/1645929666434281473/fLt2QeJL.jpg',
-    socials: [
-      {
-        id: 0,
-        media: 'twitter',
-        img: twitter,
-        link: 'https://twitter.com/FineAgabus/status/1622955318362734593'
-      },
-      {
-        id: 1,
-        media: 'linkedin',
-        img: linkedin,
-        link: '#'
-      },
-      {
-        id: 2,
-        media: 'instagram',
-        img: instagram,
-        link: '#'
-      }
-    ]
-  },
+
   {
     id: 4,
     name: 'Priscilla Adindeh',
