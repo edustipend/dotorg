@@ -14,7 +14,7 @@ import { ModalContext } from '../../context/ModalContext';
 
 const Hero = () => {
   const [currentStipend, setCurrentStipend] = useState(0);
-  const { handlePopModal } = useContext(ModalContext);
+  const { handleNotifyModal } = useContext(ModalContext);
 
   const nextStipend = useCallback(() => {
     setCurrentStipend((prev) => (prev === stipends.length - 1 ? 0 : prev + 1));
@@ -37,7 +37,7 @@ const Hero = () => {
   //function to display the modal if the window is closed
   const handleOnclick = () => {
     if (isWindowClosed) {
-      handlePopModal()
+      handleNotifyModal()
     }
   }
   return (

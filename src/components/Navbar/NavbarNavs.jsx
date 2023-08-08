@@ -13,11 +13,11 @@ const buttonLabel = isWindowClosed ? ButtonLabelCopy.WINDOW_CLOSED : ButtonLabel
 
 
 const NavbarNavs = ({ showMenu, closeMenu }) => {
-  const { handlePopModal } = useContext(ModalContext);
+  const { handleNotifyModal } = useContext(ModalContext);
 
   const handleOnclick = () => {
     if (isWindowClosed) {
-      handlePopModal()
+      handleNotifyModal()
     }
   };
   return (

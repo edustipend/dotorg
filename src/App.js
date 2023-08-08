@@ -3,7 +3,7 @@ import initFirebaseApp from './firebaseConfig';
 import Navbar from './components/Navbar';
 import './App.css';
 import Footer from './components/Footer';
-import Modal from './components/Modal';
+import NotifyModal from './components/NotifyModal';
 import NotifyMe from './sections/NotifyMe';
 initFirebaseApp();
 
@@ -13,9 +13,9 @@ function App() {
       <Navbar />
       <Routes />
       <Footer />
-      <Modal>
-        <NotifyMe/>
-      </Modal>
+      <NotifyModal>
+        <NotifyMe />
+      </NotifyModal>
     </>
   );
 }

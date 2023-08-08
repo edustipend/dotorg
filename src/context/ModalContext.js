@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 export const ModalContext = createContext();
 
 export const ModalContextProvider = ({ children }) => {
-  const [popModal, setPopModal] = useState(false);
+  const [notifyPopModal, setNotifyPopModal] = useState(false);
 
-  const handlePopModal = () => {
-    setPopModal((prev) => !prev);
+  const handleNotifyModal = () => {
+    setNotifyPopModal((prev) => !prev);
   };
-  const value = { handlePopModal, popModal };
+  const value = { handleNotifyModal, notifyPopModal };
 
   return <ModalContext.Provider value={value}>{children}</ModalContext.Provider>;
 };

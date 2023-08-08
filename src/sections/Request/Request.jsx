@@ -13,12 +13,12 @@ import { ModalContext } from '../../context/ModalContext';
 
 export const Request = () => {
   const isWindowClosed = isApplicationWindowClosed();
-  const { handlePopModal } = useContext(ModalContext);
+  const { handleNotifyModal } = useContext(ModalContext);
 
   //function to display the modal if the window is closed
   const handleOnclick = () => {
     if (isWindowClosed) {
-      handlePopModal()
+      handleNotifyModal()
     }
   }
 

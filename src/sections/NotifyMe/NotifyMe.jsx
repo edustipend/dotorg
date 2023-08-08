@@ -5,10 +5,10 @@ import NotifyForm from './internals/NotifyForm';
 import { ModalContext } from '../../context/ModalContext';
 
 export const NotifyMe = () => {
-  const { handlePopModal } = useContext(ModalContext);
+  const { handleNotifyModal } = useContext(ModalContext);
   return (
     <main className={styles.notify}>
-      <div className={styles.closeContainer} onClick={handlePopModal}>
+      <div className={styles.closeContainer} onClick={handleNotifyModal}>
         <img src={closeIcon} alt="closeModal" className={styles.closeModal} />
       </div>
       <NotifyForm />

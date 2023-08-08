@@ -96,6 +96,35 @@
   color: var(--denied);
 }
 
+/********************************General Modal Styles*******************************/
+.modal_modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10001;
+  background: var(--modal-background);
+}
+
+.hideModal_hideModal {
+  display: none;
+}
+
+
+.animate_modal_modal {
+  animation: animate-modal 300ms linear forwards;
+}
+
+@keyframes animate-modal {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/*************************************************************************************/
+
 @media screen and (min-width: 560px) {
   .display-card {
     height: 280px;
