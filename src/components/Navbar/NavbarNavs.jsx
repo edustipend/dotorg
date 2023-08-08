@@ -11,14 +11,15 @@ const { NAVBAR_LINKS_ID } = TestId;
 const isWindowClosed = isApplicationWindowClosed();
 const buttonLabel = isWindowClosed ? ButtonLabelCopy.WINDOW_CLOSED : ButtonLabelCopy.WINDOW_OPEN;
 
-const handleOnclick = (action) => {
-  if (isWindowClosed) {
-    action();
-  }
-};
 
 const NavbarNavs = ({ showMenu, closeMenu }) => {
   const { handlePopModal } = useContext(ModalContext);
+
+  const handleOnclick = () => {
+    if (isWindowClosed) {
+      handlePopModal()
+    }
+  };
   return (
     <>
       <nav className="navbarNavs" data-testid={NAVBAR_LINKS_ID}>
@@ -27,7 +28,7 @@ const NavbarNavs = ({ showMenu, closeMenu }) => {
             {link.label}
           </Link>
         ))}
-        <Button label={buttonLabel} type={BUTTON_TYPE} onClick={() => handleOnclick(handlePopModal)} />
+        <Button label={buttonLabel} type={BUTTON_TYPE} onClick={() => handleOnclick()} />
       </nav>
 
       {showMenu ? (
@@ -43,7 +44,7 @@ const NavbarNavs = ({ showMenu, closeMenu }) => {
               type={BUTTON_TYPE}
               onClick={() => {
                 closeMenu(!showMenu);
-                handleOnclick(handlePopModal);
+                handleOnclick();
               }}
             />
           </div>

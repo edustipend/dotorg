@@ -13,6 +13,13 @@ const TakeOffBurden = () => {
   const isWindowClosed = isApplicationWindowClosed();
   const { handlePopModal } = useContext(ModalContext);
 
+  //function to display the modal if the window is closed
+  const handleOnclick = () => {
+    if (isWindowClosed) {
+      handlePopModal()
+    }
+  }
+
   return (
     <div className="takeoffburden-container" data-testid="takeoffburden-container">
       <Container>
@@ -39,7 +46,7 @@ const TakeOffBurden = () => {
               <Button
                 label={isWindowClosed ? ButtonLabelCopy.WINDOW_CLOSED : ButtonLabelCopy.WINDOW_OPEN}
                 type="secondary"
-                onClick={handlePopModal}
+                onClick={() => handleOnclick()}
               />
             </div>
           </div>

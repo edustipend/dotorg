@@ -15,6 +15,13 @@ export const Request = () => {
   const isWindowClosed = isApplicationWindowClosed();
   const { handlePopModal } = useContext(ModalContext);
 
+  //function to display the modal if the window is closed
+  const handleOnclick = () => {
+    if (isWindowClosed) {
+      handlePopModal()
+    }
+  }
+
   return (
     <main data-testid={TestId.REQUEST_SECTION} className={styles.main}>
       <Container>
@@ -26,7 +33,7 @@ export const Request = () => {
             label={isWindowClosed ? ButtonLabelCopy.WINDOW_CLOSED : ButtonLabelCopy.WINDOW_OPEN}
             type="secondary"
             size="large"
-            onClick={handlePopModal}
+            onClick={() => handleOnclick()}
           />
           <img src={rocket} alt="rocket_emoji" className={styles.rocket} />
         </div>

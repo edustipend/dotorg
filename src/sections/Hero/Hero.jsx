@@ -34,6 +34,12 @@ const Hero = () => {
 
   const isWindowClosed = isApplicationWindowClosed();
 
+  //function to display the modal if the window is closed
+  const handleOnclick = () => {
+    if (isWindowClosed) {
+      handlePopModal()
+    }
+  }
   return (
     <section className="hero" data-testid={TestId.DEFAULT_HERO_TEST_ID}>
       {isWindowClosed ? (
@@ -64,7 +70,7 @@ const Hero = () => {
             <Button
               label={isWindowClosed ? ButtonLabelCopy.WINDOW_CLOSED : ButtonLabelCopy.WINDOW_OPEN}
               type={BUTTON_TYPE}
-              onClick={handlePopModal}
+              onClick={() => handleOnclick()}
             />
           </div>
           <img src={Svg5} alt="icon" className="left" />
