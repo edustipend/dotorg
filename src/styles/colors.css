@@ -16,7 +16,15 @@
   --box-shadow: #076df30d;
   --darker-accent: #1b1b1b4d;
   --line: #c4c4c433;
+  --line-alt: #00000014;
   --light-gray: #f2f2f2;
+  --dashboard-bg: #e9edf440;
+  --tab-btn: #5801ff1a;
+  --tab-btn-alt:#0000001a;
+  --table-head-bg: #ECEDEF;
+  --approved: #008753;
+  --in-view: #FF8000;
+  --denied: #F20B07;
 }
 
 .background-lightblue {

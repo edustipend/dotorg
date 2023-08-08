@@ -48,7 +48,7 @@
   display: flex;
 }
 
-.display-card-title > p {
+.display-card-title>p {
   font-weight: 600;
   margin: 0;
   margin-left: 0.5rem;
@@ -78,6 +78,22 @@
 
 .ta-center {
   text-align: center;
+}
+
+.bold_weight {
+  font-weight: 600;
+}
+
+.approved {
+  color: var(--approved);
+}
+
+.in_view {
+  color: var(--in-view);
+}
+
+.denied {
+  color: var(--denied);
 }
 
 @media screen and (min-width: 560px) {
