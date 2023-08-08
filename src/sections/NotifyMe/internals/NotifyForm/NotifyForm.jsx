@@ -3,7 +3,7 @@ import bell from '../../../../assets/bell.svg';
 import styles from './NotifyForm.module.css';
 import { formConstants } from '../constants';
 import Button from '../../../../components/Button';
-const { HEADING, SUBTITLE } = formConstants;
+const { HEADING, SUBTITLE, FULLNAME, EMAIL } = formConstants;
 
 export const NotifyForm = () => {
     const initialValue = {
@@ -46,7 +46,7 @@ export const NotifyForm = () => {
             <form className={styles.form}>
                 <div className={styles.formField}>
                     <label htmlFor="fullname" className={styles.label}>
-                        Your First name & Last name <span className={styles.required}>*</span>
+                        {FULLNAME}<span className={styles.required}>*</span>
                     </label>
                     <input
                         value={fullname}
@@ -59,7 +59,7 @@ export const NotifyForm = () => {
                 </div>
                 <div className={styles.formField}>
                     <label htmlFor="email" className={styles.label}>
-                        Your First name & Last name <span className={styles.required}>*</span>
+                        {EMAIL} <span className={styles.required}>*</span>
                     </label>
                     <input
                         value={email}
