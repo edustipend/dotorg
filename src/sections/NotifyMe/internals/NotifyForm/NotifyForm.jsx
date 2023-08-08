@@ -52,7 +52,7 @@ export const NotifyForm = () => {
                         value={fullname}
                         type="text"
                         name="fullname"
-                        placeholder="Fullname"
+                        placeholder="Full Name"
                         onChange={(e) => setUserData({ ...userData, fullname: e.target.value })}
                         className={styles.Input}
                     />
