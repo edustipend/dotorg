@@ -6,7 +6,7 @@ import { dashArray } from '../../constants';
 import PropTypes from 'prop-types';
 import { TestId } from '../../constants';
 
-const CircularStepper = ({activeStep, stepsData}) => {
+const CircularStepper = ({ activeStep, stepsData }) => {
   const dashOffset = (activeStep / stepsData?.length) * -2 * Math.PI * radius;
 
   return (
@@ -39,10 +39,10 @@ CircularStepper.propTypes = {
   stepsData: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
-      title: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired
     })
   ).isRequired,
-  stepsDataLength: PropTypes.number.isRequired, 
+  stepsDataLength: PropTypes.number.isRequired
 };
 
 export default CircularStepper;

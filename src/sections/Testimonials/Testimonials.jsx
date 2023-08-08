@@ -18,7 +18,7 @@ export const Testimonials = () => {
             Testimonials
           </Header>
           <div className={styles.headerContainer}>
-            <Header className="v2-section-subheader" color="primary" size="small" subheader>
+            <Header className={`v2-section-subheader ${styles.subTitle}`} color="primary" size="small" subheader>
               Hear from our ambassadors and beneficiaries
             </Header>
           </div>

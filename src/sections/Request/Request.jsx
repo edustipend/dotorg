@@ -17,7 +17,7 @@ export const Request = () => {
     <main data-testid={TestId.REQUEST_SECTION} className={styles.main}>
       <Container>
         <div className={styles.requestContent}>
-          <Header dataTest={TestId.REQUEST_SECTION_HEADER} className={`v2-section-header ${styles.title}`}>
+          <Header dataTest={TestId.REQUEST_SECTION_HEADER} className={` ${styles.title}`}>
             {REQUEST_SECTION_HEADER}
           </Header>
           <Button label={isWindowClosed ? ButtonLabelCopy.WINDOW_CLOSED : ButtonLabelCopy.WINDOW_OPEN} type="secondary" size="large" />

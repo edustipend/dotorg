@@ -1,3 +1,3 @@
-import { StartApplication } from "./StartApplication";
+import { StartApplication } from './StartApplication';
 
 export default StartApplication;

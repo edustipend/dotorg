@@ -38,11 +38,11 @@ Input.propTypes = {
   dispatchType: PropTypes.string,
   type: PropTypes.string,
   size: PropTypes.string,
-  className: PropTypes.string,
+  className: PropTypes.string
 };
 
 Input.defaultProps = {
-  dispatch: () => { },
+  dispatch: () => {},
   placeholder: 'Placeholder...',
   label: 'Some label',
   value: '',

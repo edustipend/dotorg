@@ -4,8 +4,6 @@ import CircularStepper from '../CircularStepper';
 import { stepsData } from '../../../constants';
 import { TestId } from '../../../constants';
 
-
-
 test('renders CircularStepper with correct activeStep value', () => {
   render(<CircularStepper activeStep={1} stepsData={stepsData} />);
   const activeStep = screen.getByTestId(TestId.CIRCULAR_STEPPER_TEST_ID);
