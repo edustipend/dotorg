@@ -12,11 +12,10 @@ export const BTN = {
 export const BACK = 'back';
 
 export const EDUSTIPEND = {
-  AT_ONE: '#EdustipendatOne',
-  PROFILE: 'https://twitter.com/edustipend'
+  AT_ONE: '#EdustipendAtOne',
+  PROFILE: 'https://twitter.com/hashtag/EdustipendAtOne?s=09',
+  SOCIAL: 'Twitter'
 };
-
-export const TWITTER = 'https://twitter.com/';
 
 export const content =
   'I was fortunate to be a beneficiary of the June data stipend, and I must say that @edustipend has had a profound impact on my learning journey. It has been an excellent resource that significantly enhanced my learning experience.';
@@ -40,126 +39,84 @@ export const TestId = {
   TOTAL_PAGES: 'totalPages'
 };
 
-export const mockData = [
+export const timelineData = [
   {
-    userName,
-    userProfile,
-    content
+    userName: 'Edeke Emmanuel',
+    content:
+      'The consistency of Edustipend is what amazes me the most, for me that top notch. I am joining @edustipend to celebrate their one year anniversary and also to express my gratitude to all the donors and team, and wish them all the best.',
+    userProfile: '@EBakeCode',
+    link: 'https://twitter.com/EBakeCode/status/1687423151280369664',
+    social: 'Twitter'
   },
   {
-    userName,
-    userProfile,
-    content
+    userName: 'Habib Yusuf',
+    content:
+      'I was fortunate to be a beneficiary of the June data stipend, and I must say that @edustipend has had a profound impact on my learning journey. It has been an excellent resource that significantly enhanced my learning experience."',
+    userProfile: '@Cipherprog',
+    link: 'https://twitter.com/Cipherprog/status/1684212370594320385',
+    social: 'Twitter'
   },
   {
-    userName: 'Ridwan Isiaq',
-    userProfile,
-    content
+    userName: 'Ifeanyichukwu Osuji',
+    content:
+      'What a great platform! Edustipend have been providing resources and stipends to support learning though I am yet to benefit from them,but testimonies abound, they have touched lives and are still doing so. May God continue to bless all those who are championing this great course in helping to shape the future of so many people out there',
+    userProfile: 'Ifeanyichukwu Osuji',
+    link: 'https://www.linkedin.com/posts/ifeanyichukwu-osuji-84696bba_edustipendatone-activity-7093833795728007168-iIGI',
+    social: 'LinkedIn'
   },
   {
-    userName,
-    userProfile,
-    content
+    userName: 'Oluwatobiloba Adebayo',
+    content:
+      'From having no hope of getting my certificates and Laptop back to getting a brand new laptop worth over 200k…I want to appreciate the founder of this initiative for their willingness to invest and impact the lives of youth in Nigeria by providing resources to aid their learning and giving them a chance to dream and become the best they can be irrespective of their socio-economic background.',
+    userProfile: 'Oluwatobiloba Adebayo',
+    link: 'https://www.linkedin.com/pulse/dont-write-year-off-god-still-does-miracles-oluwatobiloba-adebayo',
+    social: 'LinkedIn'
   },
   {
-    userName: 'Isiaq Ridwan',
-    userProfile,
-    content
+    userName: 'Priscilla Andideh',
+    content:
+      "You've impacted the lives of so many and I'm so grateful to be a part of those that have benefited from the monthly stipend. Thanks for believing in us, our passion and dreams. Many more years to celebrate. Congratulations 🎉",
+    userProfile: '@PAndideh',
+    link: 'https://twitter.com/PAdindeh/status/1684293641823477766?',
+    social: 'Twitter'
   },
   {
-    userName: 'Edustipend',
-    userProfile: 'edustipend',
-    content
+    userName: 'David Kelechi',
+    content: 'These guys are really awesome doing what they do👏👏👏',
+    userProfile: '@david1kelechi',
+    link: 'https://twitter.com/david1kelechi/status/1639568311959601152',
+    social: 'Twitter'
   },
   {
-    userName,
-    userProfile,
-    content
+    userName: 'Blessing Agabus',
+    content:
+      "@edustipend community is doing a lot better to the heart and career-building of its beneficiaries. I introduced my girlfriend last month, she got a voucher aid. Mine is a laptop, I'm never giving up.",
+    userProfile: '@FineAgabus',
+    link: 'https://twitter.com/FineAgabus/status/1622955318362734593',
+    social: 'Twitter'
   },
   {
-    userName,
-    userProfile,
-    content
+    userName: 'Obika Viola',
+    content:
+      "I'm really really grateful to @edustipend for this great opportunity they've given me🥳🎊🥳. I'm really loving it and I'm looking forward to improving on my learning with this new learning device and of course take a chance on others 🥰.",
+    userProfile: '@Obika_viola',
+    link: 'https://twitter.com/obika_viola/status/1609493836526501890',
+    social: 'Twitter'
   },
   {
-    userName,
-    userProfile,
-    content
+    userName: 'Philip Ishola',
+    content:
+      'Angels still exists in humans. @edustipend is an angelic organisation. I want to appreciate the @edustipend team for believing in my dream and giving a proportional support to my career. Thank you, I will definitely pay it forward.',
+    userProfile: '@Prereloluwa',
+    link: 'https://twitter.com/prereloluwa/status/1601244577520046082',
+    social: 'Twitter'
   },
   {
-    userName,
-    userProfile,
-    content
-  },
-  {
-    userName,
-    userProfile,
-    content
-  },
-  {
-    userName,
-    userProfile,
-    content
-  },
-  {
-    userName,
-    userProfile,
-    content
-  },
-  {
-    userName,
-    userProfile,
-    content
-  },
-  {
-    userName,
-    userProfile,
-    content
-  },
-  {
-    userName,
-    userProfile,
-    content
-  },
-  {
-    userName,
-    userProfile,
-    content
-  },
-  {
-    userName,
-    userProfile,
-    content
-  },
-  {
-    userName,
-    userProfile,
-    content
-  },
-  {
-    userName,
-    userProfile,
-    content
-  },
-  {
-    userName,
-    userProfile,
-    content
-  },
-  {
-    userName,
-    userProfile,
-    content
-  },
-  {
-    userName,
-    userProfile,
-    content
-  },
-  {
-    userName,
-    userProfile,
-    content
+    userName: 'Chidiebere D. Ekwedike',
+    content: 'Perfect definition of we rise by lifting others. @edustipend setting the pace by helping the needs of techies. 👏🏽',
+    userProfile: '@DamianEkwedike',
+    link: 'https://twitter.com/DamianEkwedike/status/1571145363381448704',
+    social: 'Twitter'
   }
 ];
 

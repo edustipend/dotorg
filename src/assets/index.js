@@ -15,10 +15,10 @@ import RightArrow from './btn-arrow-right.svg';
 import BackArrow from './back-arr.svg';
 import AtOneImg from './at-one.png';
 import Avatar from './Avatar.svg';
-import DarkCurve from './dark_curve.jpg';
 import LightCurve from './light_curve.svg';
 import Pin from './Red Pin.svg';
 import Twitter from './social/twitter.png';
+import LinkedIn from './social/linkedin.png';
 
 export {
   Hero1,
@@ -38,8 +38,8 @@ export {
   BackArrow,
   AtOneImg,
   Avatar,
-  DarkCurve,
   LightCurve,
   Pin,
-  Twitter
+  Twitter,
+  LinkedIn
 };
