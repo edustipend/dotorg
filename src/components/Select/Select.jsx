@@ -16,7 +16,7 @@ export const Select = ({ dispatch, dispatchType, label, placeholder, options, si
     setActive((pre) => !pre);
   };
   return (
-    <main className={`${styles.main} ${className}`}>
+    <div className={`${styles.main} ${className}`}>
       <label data-testid={LABEL_ID} className={styles.label}>
         {label} <span className={styles.required}>*</span>
       </label>
@@ -52,7 +52,7 @@ export const Select = ({ dispatch, dispatchType, label, placeholder, options, si
           </div>
         )}
       </div>
-    </main>
+    </div>
   );
 };
 

@@ -3,7 +3,7 @@ export const stipendsColors = ['#5801ff', '#FD5A33', '#08B7B7', '#FFB600'];
 export const BUTTON_TYPE = 'secondary';
 
 export const ButtonLabelCopy = {
-  WINDOW_CLOSED: 'Notify me',
+  WINDOW_CLOSED: 'Notify me', // 'Request stipend',
   WINDOW_OPEN: 'Request stipend'
 };
 
@@ -23,4 +23,4 @@ export const TestId = {
 export const HERO_PARAGRAPH = 'Give your learning goals a BOOST';
 export const STATIC_HERO_TEXT = 'In need of some stipend for your learning?';
 export const APP_WINDOW_CLOSED_BANNER_TEXT =
-  'Application window is currently closed and opens on the 1st. Click the “Notify me” button to be notified when the window opens.';
+  'Application window is currently closed and opens on the 1st of next month. Click the “Notify me” button to be notified when the window opens.';

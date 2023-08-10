@@ -109,6 +109,7 @@
   background-origin: padding-box, border-box;
   scrollbar-width: 0;
   scrollbar-color: transparent;
+  z-index: 1;
 }
 
 .optionsContainerAlt {
@@ -140,10 +141,16 @@
   display: flex;
 }
 
+.option:hover,
+option:active {
+  background-color: lightyellow;
+}
+
 .itm {
   padding: 1rem;
   width: 100%;
   border-bottom: 1px solid var(--line);
+  background-color: white;
 }
 
 .itm:hover {

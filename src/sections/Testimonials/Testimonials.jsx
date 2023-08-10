@@ -4,6 +4,7 @@ import { TestConstants } from './internals/testimonialsData';
 import { cardData } from './internals/card/cardData';
 import frame from '../../assets/arrow_frame.png';
 import Carousel from '../../components/Carousel/Carousel';
+// import Button from '../../components/Button';
 
 export const Testimonials = () => {
   const { componentTestId } = TestConstants;
@@ -24,6 +25,9 @@ export const Testimonials = () => {
           </div>
         </section>
         <Carousel cardData={cardData} />
+        {/* <div className={styles.ctaButtonContainer}>
+          <Button size="large" label="Read more" type="primary" />
+        </div> */}
       </section>
     </main>
   );
