@@ -34,7 +34,9 @@
 .imgPerson {
   width: 90px;
   height: 90px;
+  border-radius: 50%;
   justify-self: center;
+  object-fit: contain;
 }
 
 .testimonial {
@@ -63,6 +65,10 @@
   font-size: 14px;
   color: #2d3740;
   font-weight: 500;
+}
+
+.status {
+  margin-left: 7px;
 }
 
 .socialsContainer {

@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { Timelines } from '../Timelines';
-import { HEAD_TEXT, TestId, mockData } from '../constants';
+import { HEAD_TEXT, TestId, timelineData } from '../constants';
 import { BrowserRouter } from 'react-router-dom';
 import Note from '../internals/Note';
 import { MobileTimeline } from '../internals/MobileTimelines/MobileTimeline';
@@ -57,7 +57,7 @@ describe('Timelines', () => {
         </BrowserRouter>
       );
       fireEvent.click(screen.getByTestId(TestId.READ_MORE_ID));
-      expect(screen.getByTestId(TestId.NOTES_CONTAINER_ID).childNodes.length).toBe(24);
+      expect(screen.getByTestId(TestId.NOTES_CONTAINER_ID).childNodes.length).toBe(timelineData.length);
     });
     it('should should show the initial six nodes in the notes container when the back button is clicked, it then shows a disabled back button and enabled read more button', () => {
       render(
@@ -76,7 +76,7 @@ describe('Timelines', () => {
     it('should show a single note component in the mobile notes container', () => {
       render(
         <BrowserRouter>
-          <MobileTimeline timelines={mockData} />
+          <MobileTimeline timelines={timelineData} />
         </BrowserRouter>
       );
       expect(screen.getByTestId(TestId.MOBILE_NOTES_CONTAINER_ID).childNodes.length).toBe(1);
@@ -84,7 +84,7 @@ describe('Timelines', () => {
     it('should should show the indexing page, and the total pages', () => {
       render(
         <BrowserRouter>
-          <MobileTimeline timelines={mockData} />
+          <MobileTimeline timelines={timelineData} />
         </BrowserRouter>
       );
       expect(screen.getByTestId(TestId.PAGES)).toContainHTML(TestId.INDEX_PAGE);
@@ -93,10 +93,10 @@ describe('Timelines', () => {
     it('total number of pages should be equal to the timelines data length', () => {
       render(
         <BrowserRouter>
-          <MobileTimeline timelines={mockData} />
+          <MobileTimeline timelines={timelineData} />
         </BrowserRouter>
       );
-      expect(screen.getByTestId(TestId.TOTAL_PAGES).textContent).toBe(JSON.stringify(mockData.length));
+      expect(screen.getByTestId(TestId.TOTAL_PAGES).textContent).toBe(JSON.stringify(timelineData.length));
     });
   });
 });

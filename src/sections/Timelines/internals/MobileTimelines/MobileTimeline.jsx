@@ -30,6 +30,8 @@ export const MobileTimeline = ({ timelines }) => {
           userName={note[0].userName}
           userProfile={note[0].userProfile}
           content={note[0].content}
+          link={note[0].link}
+          social={note[0].social}
         />
       </div>
       <div className={styles.btnContainer}>
