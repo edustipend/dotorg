@@ -11,27 +11,19 @@ const { EMAIL, HEADING, FULLNAME, REASON, SUBTITLE, SUCCESS, WAITLIST_SUCCESS } 
 const REGEXP_EMAIL =
   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-const REFERRAL_SOURCES = [
-  'Laptop Giveway - Facebook',
-  'Laptop Giveway - LinkedIn',
-  'Laptop Giveway - Instagram',
-  'Laptop Giveway - Twitter',
-  'Google Search'
-];
+const REFERRAL_SOURCES = ['Facebook', 'LinkedIn', 'Instagram', 'Twitter', 'Google Search'];
 
 const SuccessDisplay = () => {
   return (
-    <section className={styles.formArea}>
-      <div className={styles.top}>
-        <div className={styles.head}>
-          <div className={styles.bellContainer}>
-            <img className={styles.bell} src={success} alt="success indicator" />
-          </div>
-          <p className={styles.heading}>{SUCCESS}</p>
+    <div className={styles.top}>
+      <div className={styles.head}>
+        <div className={styles.bellContainer}>
+          <img className={styles.bell} src={success} alt="success indicator" />
         </div>
-        <p className={styles.subtitle}>{WAITLIST_SUCCESS}</p>
+        <p className={styles.heading}>{SUCCESS}</p>
       </div>
-    </section>
+      <p className={styles.subtitle}>{WAITLIST_SUCCESS}</p>
+    </div>
   );
 };
 
@@ -43,7 +35,7 @@ export const NotifyForm = () => {
   const [userData, setUserData] = useState(initialValue);
   const [disabled, setDisabled] = useState(true);
   const [source, setSource] = useState('');
-  const [notificationSuccess, setNotificationSuccess] = useState(false);
+  const [notificationSuccess, setNotificationSuccess] = useState(true);
   const [loading, setLoading] = useState(false);
 
   // const [status, setStatus] = useState({
