@@ -47,6 +47,11 @@
   max-width: 320px;
 }
 
+.ctaButtonContainer {
+  display: flex;
+  justify-content: center;
+}
+
 @media screen and (max-width: 350px) {
   .sub_header {
     width: 100%;

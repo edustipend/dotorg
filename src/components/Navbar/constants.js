@@ -12,11 +12,11 @@ export const NAVBAR_LINKS = [
   {
     label: 'Learn How It Works',
     to: '/#how-it-works'
-  },
-  {
-    label: 'Support A Learner',
-    to: '/support-a-learner'
   }
+  // {
+  //   label: 'Support A Learner',
+  //   to: '/support-a-learner'
+  // }
 ];
 export const NAVBAR_AMBASSADOR_LINKS = [
   {
@@ -37,7 +37,7 @@ export const NAVBAR_AMBASSADOR_LINKS = [
 ];
 
 export const ButtonLabelCopy = {
-  WINDOW_CLOSED: 'Notify me',
+  WINDOW_CLOSED: 'Request stipend', // 'Notify me',
   WINDOW_OPEN: 'Request stipend'
 };
 
