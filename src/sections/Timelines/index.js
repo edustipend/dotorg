@@ -1,3 +1,3 @@
-import { Timelines } from "./Timelines";
+import { Timelines } from './Timelines';
 
-export default Timelines
+export default Timelines;

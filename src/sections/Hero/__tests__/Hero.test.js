@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/react';
 import Hero from '../Hero';
 import { HERO_PARAGRAPH, STATIC_HERO_TEXT, TestId } from '../constants';
 import { BrowserRouter } from 'react-router-dom';
+import { ModalContextProvider } from '../../../context/ModalContext';
 
 const { DEFAULT_HERO_TEST_ID } = TestId;
 
@@ -10,7 +11,9 @@ describe('Hero component', () => {
     it('shows the Hero component in the document', () => {
       render(
         <BrowserRouter>
-          <Hero />
+          <ModalContextProvider>
+            <Hero />
+          </ModalContextProvider>
         </BrowserRouter>
       );
       expect(screen.getByTestId(DEFAULT_HERO_TEST_ID)).toBeInTheDocument();
@@ -18,7 +21,9 @@ describe('Hero component', () => {
     it('shows the Hero main text', () => {
       render(
         <BrowserRouter>
-          <Hero />
+          <ModalContextProvider>
+            <Hero />
+          </ModalContextProvider>
         </BrowserRouter>
       );
       expect(screen.getByTestId(DEFAULT_HERO_TEST_ID)).toHaveTextContent(STATIC_HERO_TEXT);
@@ -27,7 +32,9 @@ describe('Hero component', () => {
     it('shows a paraagraph', () => {
       render(
         <BrowserRouter>
-          <Hero />
+          <ModalContextProvider>
+            <Hero />
+          </ModalContextProvider>
         </BrowserRouter>
       );
       expect(screen.getByTestId(DEFAULT_HERO_TEST_ID)).toHaveTextContent(HERO_PARAGRAPH);
