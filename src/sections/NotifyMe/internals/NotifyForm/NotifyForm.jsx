@@ -51,6 +51,7 @@ export const NotifyForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setErrorMessage("")
     setLoading(true);
     const res = await postData('waitlist/join-waitlist', {
       name: userData.name,
