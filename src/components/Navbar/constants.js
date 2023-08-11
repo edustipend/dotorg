@@ -11,7 +11,8 @@ export const NAVBAR_LINKS = [
   },
   {
     label: 'Learn How It Works',
-    to: '/#how-it-works'
+    to: '/',
+    hash: '#how-it-works'
   }
   // {
   //   label: 'Support A Learner',

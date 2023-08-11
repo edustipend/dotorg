@@ -37,9 +37,9 @@ const Hero = () => {
   //function to display the modal if the window is closed
   const handleOnclick = () => {
     if (isWindowClosed) {
-      handleNotifyModal()
+      handleNotifyModal();
     }
-  }
+  };
   return (
     <section className="hero" data-testid={TestId.DEFAULT_HERO_TEST_ID}>
       {isWindowClosed ? (
@@ -91,7 +91,7 @@ const Hero = () => {
           <div className="img1">
             <img src={Hero4} alt="student" />
           </div>
-          <NavHashLink to={{ pathname: '/', query: { v2: 'true' }, hash: '#how-it-works' }}>
+          <NavHashLink to={{ pathname: '/', hash: '#how-it-works' }}>
             <div className="btn-down">
               <img src={ArrowDown} alt="arrowdown" />
             </div>
