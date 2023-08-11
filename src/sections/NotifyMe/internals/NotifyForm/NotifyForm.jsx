@@ -113,12 +113,12 @@ export const NotifyForm = () => {
                 className={styles.Input}
               />
             </div>
-            <div className={styles.formField}>
-              <Select label={REASON} dispatch={handleSelect} options={REFERRAL_SOURCES} />
-            </div>
             {
               errorMessage && <small className={styles.error}>{errorMessage}</small>
             }
+            <div className={styles.formField}>
+              <Select label={REASON} dispatch={handleSelect} options={REFERRAL_SOURCES} />
+            </div>
             <section className={styles.buttonContainer}>
               <Button disabled={disabled || loading} label="Notify me" effectAlt type="secondary" className={styles.button} onClick={handleSubmit} />
             </section>
