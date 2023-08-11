@@ -1,6 +1,6 @@
 .card {
-  width: 265.57px;
-  height: 360.67px;
+  width: 280.57px;
+  height: 380.67px;
   outline: 1px solid;
   background-color: #ffde8d;
   grid-area: 1/-1;
@@ -18,8 +18,17 @@
   z-index: 2;
 }
 
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+
 .top {
-  margin-top: 26px;
+  padding-top: 20px;
   margin-inline: 1.5rem;
 }
 
@@ -58,6 +67,7 @@
 
 .bottom {
   margin-inline: 1.5rem;
+  padding-bottom: 20px;
 }
 
 .name {
@@ -71,7 +81,7 @@
 }
 
 .socialsContainer {
-  margin-top: 10px;
+  padding-top: 10px;
 }
 
 .socialMedia {
@@ -92,6 +102,7 @@
     height: 450px;
   }
 
+
   .imgPerson {
     width: 120px;
     height: 120px;
@@ -99,7 +110,11 @@
   }
 
   .top {
-    margin-top: 38px;
+    padding-top: 25px;
+  }
+
+  .bottom {
+    padding-bottom: 25px;
   }
 
   .testimonial {
@@ -113,6 +128,10 @@
   .name {
     font-size: 18px;
     margin-bottom: 14px;
+  }
+
+  .socialsContainer {
+    padding-top: 0px;
   }
 
   .socialMedia {
