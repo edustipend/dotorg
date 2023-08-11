@@ -29,7 +29,7 @@ const SuccessDisplay = () => {
 
 export const NotifyForm = () => {
   const initialValue = {
-    name: '',
+    name: '', 
     email: ''
   };
   const [userData, setUserData] = useState(initialValue);
