@@ -2,10 +2,15 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Beneficiaries from '../Beneficiaries';
 import { Text, TestId } from '../constants';
+import { BrowserRouter } from 'react-router-dom';
 
 describe('Beneficiaries', () => {
   it('renders the component', () => {
-    render(<Beneficiaries />);
+    render(
+      <BrowserRouter>
+        <Beneficiaries />
+      </BrowserRouter>
+    );
     // Test the presence of a header element
     const headerElement = screen.getByTestId(TestId.HEADER_TEST_ID);
     expect(headerElement).toBeInTheDocument();
