@@ -35,14 +35,8 @@ export const NotifyForm = () => {
   const [userData, setUserData] = useState(initialValue);
   const [disabled, setDisabled] = useState(true);
   const [source, setSource] = useState('');
-  const [notificationSuccess, setNotificationSuccess] = useState(true);
+  const [notificationSuccess, setNotificationSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
-
-  // const [status, setStatus] = useState({
-  //   loading: false,
-  //   failure: false
-  // })
-
   const { name, email } = userData;
 
   //validate email and check if the fullname is atleast > 2
