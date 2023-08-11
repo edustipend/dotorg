@@ -70,11 +70,15 @@
   display: flex;
   justify-content: center;
   padding: 23px 0 15px;
-  margin-top: 2rem;
 }
 
 .button {
   width: 250px;
+}
+
+.error {
+  color: var(--red-accent);
+  font-weight: 600;
 }
 
 @media screen and (min-width: 500px) {
@@ -84,6 +88,7 @@
 
   .buttonContainer {
     padding: 10px 0 30px;
+    margin-top: 2rem;
   }
 }
 
@@ -96,10 +101,6 @@
     padding-top: 25px;
   }
 
-  .form {
-    gap: 30px;
-  }
-
   .Input {
     height: 73px;
   }
@@ -110,5 +111,9 @@
 
   .subtitle {
     font-size: 15px;
+  }
+
+  .error {
+    font-size: 16px;
   }
 }

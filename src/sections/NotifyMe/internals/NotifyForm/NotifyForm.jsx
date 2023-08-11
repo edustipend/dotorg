@@ -29,13 +29,14 @@ const SuccessDisplay = () => {
 
 export const NotifyForm = () => {
   const initialValue = {
-    name: '', 
+    name: '',
     email: ''
   };
   const [userData, setUserData] = useState(initialValue);
   const [disabled, setDisabled] = useState(true);
   const [source, setSource] = useState('');
   const [notificationSuccess, setNotificationSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("")
   const [loading, setLoading] = useState(false);
   const { name, email } = userData;
 
@@ -56,10 +57,12 @@ export const NotifyForm = () => {
       email: userData.email,
       howDidYouHearAboutUs: source
     });
-    console.log('API response', res);
-
     if (res.success) {
       setNotificationSuccess(true);
+      setLoading(false)
+    } else if (!res.success) {
+      setErrorMessage(res.error[0].email)
+      setLoading(false)
     }
   };
 
@@ -113,6 +116,9 @@ export const NotifyForm = () => {
             <div className={styles.formField}>
               <Select label={REASON} dispatch={handleSelect} options={REFERRAL_SOURCES} />
             </div>
+            {
+              errorMessage && <small className={styles.error}>{errorMessage}</small>
+            }
             <section className={styles.buttonContainer}>
               <Button disabled={disabled || loading} label="Notify me" effectAlt type="secondary" className={styles.button} onClick={handleSubmit} />
             </section>
