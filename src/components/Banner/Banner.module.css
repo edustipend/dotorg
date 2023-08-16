@@ -1,0 +1,27 @@
+.banner {
+  font-family: Poppins;
+  font-size: 0.75rem;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  top: 84px;
+  padding: 0 1.5rem;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+
+.banner--alert {
+  background-color: var(--edustipend-turquioise);
+  color: var(--edustipend-black);
+}
+
+.banner--info {
+  background-color: var(--light-gray);
+  color: var(--edustipend-black);
+}
+
+.banner--error {
+  background-color: var(--red-accent);
+  color: white;
+}

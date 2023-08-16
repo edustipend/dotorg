@@ -1,0 +1,60 @@
+.container {
+  padding: 25px 0 0 30px;
+  box-shadow: 0px 30px 40px 0px rgba(7, 109, 243, 0.05);
+  border-bottom: 0.5px solid transparent;
+  background: linear-gradient(to right, white, white), linear-gradient(to right, #5801ff33, #00babb33);
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+}
+
+.bigscreen {
+  display: none;
+}
+
+.backarrow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.backarrowimg {
+  width: 10px;
+}
+
+.backarrowtext {
+  font-size: 16px;
+  font-weight: 400;
+  font-family: 'manrope';
+}
+
+.circletext {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.step {
+  font-size: 20px;
+  font-weight: 500;
+  font-family: 'manrope';
+  margin-top: 5px;
+}
+
+.label {
+  font-size: 16px;
+  font-weight: 500;
+  font-family: 'manrope';
+  margin-top: 4px;
+}
+
+@media screen and (min-width: 1024px) {
+  .bigscreen {
+    display: block;
+    background: url('../../assets/hero-bg.png') no-repeat;
+  }
+
+  .mobile {
+    display: none;
+  }
+}

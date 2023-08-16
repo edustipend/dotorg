@@ -1,95 +1,154 @@
 .bullet {
-	height: 20px;
-	width: 20px;
-	border-radius: 50%;
-	border: 1px solid black;
-	margin-right: 12px;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 1px solid black;
+  margin-right: 12px;
 }
 
 .bullet-check {
-	width: 18px;
-	height: 8px;
-	border-right: 1px solid black;
-	border-top: 1px solid black;
-	transform: rotate(140deg);
-	margin-left: 5px;
+  width: 18px;
+  height: 8px;
+  border-right: 1px solid black;
+  border-top: 1px solid black;
+  transform: rotate(140deg);
+  margin-left: 5px;
 }
 
 .bullet-primary {
-	border-color: var(--primary);
+  border-color: var(--primary);
 }
 
 .bullet-accent {
-	border-color: var(--accent);
+  border-color: var(--accent);
 }
 
 .bullet-wrapper {
-	display: flex;
-	align-items: center;
-	;
+  display: flex;
+  align-items: center;
 }
 
 .display-card {
-	background-color: white;
-	border-radius: 8px;
-	padding: 1.5rem;
+  background-color: white;
+  border-radius: 8px;
+  padding: 1.5rem;
 }
 
 .display-card-text {
-	margin-top: 1rem;
-	text-align: left;
-	font-size: 1.1rem;
-	line-height: 1.5;
+  margin-top: 1rem;
+  text-align: left;
+  font-size: 1.1rem;
+  line-height: 1.5;
 }
 
 .display-card-title {
-	margin-top: .5rem;
-	font-size: 1.25rem;
-	align-items: center;
-	display: flex;
+  margin-top: 0.5rem;
+  font-size: 1.25rem;
+  align-items: center;
+  display: flex;
 }
 
 .display-card-title>p {
-	font-weight: 600;
-	margin: 0;
-	margin-left: .5rem;
+  font-weight: 600;
+  margin: 0;
+  margin-left: 0.5rem;
 }
 
 .logo-text {
-	display: flex;
-	font-family: 'Poppins', sans-serif;
-	font-size: 1.25rem;
-	margin: auto;
-	font-weight: bold;
-	color: black;
+  display: flex;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.25rem;
+  margin: auto;
+  font-weight: bold;
+  color: black;
 }
 
 .logo-text.white {
-	color: white;
+  color: white;
 }
 
 .page-text {
-	font-size: 1.1rem;
-	line-height: 1.4;
+  font-size: 1.1rem;
+  line-height: 1.4;
 }
 
+.ta-left {
+  text-align: left;
+}
+
+.ta-center {
+  text-align: center;
+}
+
+.bold_weight {
+  font-weight: 600;
+}
+
+.approved {
+  color: var(--approved);
+}
+
+.in_view {
+  color: var(--in-view);
+}
+
+.denied {
+  color: var(--denied);
+}
+
+/********************************General Modal Styles*******************************/
+.modal_modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10001;
+  background: var(--modal-background);
+  overflow: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.modal_modal::-webkit-scrollbar {
+  background: transparent;
+  width: 0px;
+}
+
+.hideModal_hideModal {
+  display: none;
+}
+
+
+.animate_modal_modal {
+  animation: animate-modal 300ms linear forwards;
+}
+
+@keyframes animate-modal {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/*************************************************************************************/
+
 @media screen and (min-width: 560px) {
-	.display-card {
-		height: 280px;
-		min-width: 280px;
-		padding: 1rem;
-	}
+  .display-card {
+    height: 280px;
+    min-width: 280px;
+    padding: 1rem;
+  }
 
+  .logo-text {
+    display: flex;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    margin: auto;
+    font-weight: bold;
+  }
 
-	.logo-text {
-		display: flex;
-		font-family: 'Poppins', sans-serif;
-		font-size: 1.5rem;
-		margin: auto;
-		font-weight: bold;
-	}
-
-	.page-text {
-		font-size: 1.25rem;
-	}
+  .page-text {
+    font-size: 1.25rem;
+  }
 }
