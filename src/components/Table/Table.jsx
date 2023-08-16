@@ -1,6 +1,6 @@
 import MobileTable from './internals/MobileTable';
 import DesktopTable from './internals/DesktopTable';
-import styles from './Table.module.css'
+import styles from './Table.module.css';
 import PropTypes from 'prop-types';
 
 export const Table = ({ entries, tableHead }) => {
@@ -13,7 +13,7 @@ export const Table = ({ entries, tableHead }) => {
         <DesktopTable entries={entries} tableHead={tableHead} />
       </section>
     </>
-  )
+  );
 };
 
 Table.propTypes = {

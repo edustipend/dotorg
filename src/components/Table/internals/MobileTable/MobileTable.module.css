@@ -1,6 +1,6 @@
 .mobileTable {
   border-collapse: collapse;
-  font-size: .95em;
+  font-size: 0.95em;
   width: 100%;
   margin: 0;
   border-radius: 30px;
@@ -25,11 +25,9 @@
   border-radius: 0;
 }
 
-
 .mobileTable tbody tr:last-child {
   border-bottom-right-radius: 30px;
 }
-
 
 .row {
   background-color: var(--white);

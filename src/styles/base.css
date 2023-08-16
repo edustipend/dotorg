@@ -48,7 +48,7 @@
   display: flex;
 }
 
-.display-card-title>p {
+.display-card-title > p {
   font-weight: 600;
   margin: 0;
   margin-left: 0.5rem;
@@ -115,7 +115,6 @@
 .hideModal_hideModal {
   display: none;
 }
-
 
 .animate_modal_modal {
   animation: animate-modal 300ms linear forwards;

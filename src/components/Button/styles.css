@@ -14,7 +14,7 @@
 }
 
 .disabled {
-  opacity: .75;
+  opacity: 0.75;
 }
 
 .disabled .edustipend-button {
@@ -89,8 +89,6 @@
   border-top: 2px solid rgba(255, 255, 255, 0.3);
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
-
-
 
 .icon-button {
   width: 308px;

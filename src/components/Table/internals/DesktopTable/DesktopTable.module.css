@@ -1,74 +1,74 @@
 .desktopTable {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: .8em;
-    border-radius: 30px;
-    margin: 0;
-    font-family: 'Manrope';
-    box-shadow: 0px 9px 38px 0px var(--box-shadow);
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8em;
+  border-radius: 30px;
+  margin: 0;
+  font-family: 'Manrope';
+  box-shadow: 0px 9px 38px 0px var(--box-shadow);
 }
 
 .desktopTable thead th {
-    text-align: left;
-    border-bottom: 1px solid var(--line-alt);
-    font-weight: 600;
-    color: var(--edustipend-black);
+  text-align: left;
+  border-bottom: 1px solid var(--line-alt);
+  font-weight: 600;
+  color: var(--edustipend-black);
 }
 
 .head {
-    background-color: var(--table-head-bg);
+  background-color: var(--table-head-bg);
 }
 
 .desktopTable thead th:first-child {
-    border-top-left-radius: 30px;
+  border-top-left-radius: 30px;
 }
 
 .desktopTable thead th:last-child {
-    border-top-right-radius: 30px;
+  border-top-right-radius: 30px;
 }
 
 .desktopTable th,
 .desktopTable td {
-    padding: 1rem 1.6rem;
-    border-right: 1px solid var(--line-alt);
+  padding: 1rem 1.6rem;
+  border-right: 1px solid var(--line-alt);
 }
 
 .desktopTable td {
-    background-color: var(--white);
-    font-weight: 400;
+  background-color: var(--white);
+  font-weight: 400;
 }
 
 .desktopTable th:last-child,
 .desktopTable td:last-child {
-    border-right: 1px solid transparent;
+  border-right: 1px solid transparent;
 }
 
 .desktopTable tr:last-child {
-    border-bottom-left-radius: 30px;
+  border-bottom-left-radius: 30px;
 }
 
 .desktopTable td {
-    padding: 1.5rem;
+  padding: 1.5rem;
 }
 
 .firstColumn {
-    border-bottom-left-radius: 30px;
+  border-bottom-left-radius: 30px;
 }
 
 .lastColumn {
-    border-bottom-right-radius: 30px;
+  border-bottom-right-radius: 30px;
 }
 
 .desktopTable tbody tr {
-    border-bottom: 1px solid var(--line-alt);
+  border-bottom: 1px solid var(--line-alt);
 }
 
 .desktopTable tbody tr:last-child {
-    border-bottom: 1px solid transparent;
+  border-bottom: 1px solid transparent;
 }
 
 @media screen and (min-width: 1400px) {
-    .desktopTable {
-        font-size: .95em;
-    }
+  .desktopTable {
+    font-size: 0.95em;
+  }
 }

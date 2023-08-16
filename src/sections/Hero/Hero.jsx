@@ -70,10 +70,6 @@ const Hero = () => {
             <Button
               label={isWindowClosed ? ButtonLabelCopy.WINDOW_CLOSED : ButtonLabelCopy.WINDOW_OPEN}
               type={BUTTON_TYPE}
-              isLoading={true}
-              loaderSize={'small'}
-              disabled={true}
-              loaderVariant={'secondary'}
               onClick={() => handleOnclick()}
             />
           </div>

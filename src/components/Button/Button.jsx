@@ -17,8 +17,21 @@ const getButtonMode = (type) => {
 /**
  * Button component for use on Edustipend pages
  */
-export const Button = ({ className, dataTest, disabled, effectAlt, label, icon, iconPosition, isLoading,
-  loaderSize, loaderVariant, size, type, ...props }) => {
+export const Button = ({
+  className,
+  dataTest,
+  disabled,
+  effectAlt,
+  label,
+  icon,
+  iconPosition,
+  isLoading,
+  loaderSize,
+  loaderVariant,
+  size,
+  type,
+  ...props
+}) => {
   const mode = getButtonMode(type);
   return (
     <div
@@ -38,11 +51,7 @@ export const Button = ({ className, dataTest, disabled, effectAlt, label, icon, 
         ].join(' ')}
         {...props}
       >
-        {
-          isLoading
-            ? <Loader variant={loaderVariant} size={loaderSize} />
-            : label || DEFAULT_BUTTON_LABEL
-        }
+        {isLoading ? <Loader variant={loaderVariant} size={loaderSize} /> : label || DEFAULT_BUTTON_LABEL}
         {icon && (
           <div className={iconPosition === IconPosition.BACK ? 'icon back-icon' : iconPosition === IconPosition.FRONT ? 'icon front-icon' : ''}>
             <img src={icon} alt="icon" />
@@ -82,5 +91,5 @@ Button.defaultProps = {
   loaderSize: 'medium',
   loaderVariant: 'primary',
   onClick: undefined,
-  size: 'medium',
+  size: 'medium'
 };
