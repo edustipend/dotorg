@@ -2,6 +2,7 @@
     font-family: 'Manrope';
     color: var(--white);
     line-height: 33px;
+    font-weight: 400;
     font-size: 16px;
     padding-inline: 1rem;
     display: flex;
