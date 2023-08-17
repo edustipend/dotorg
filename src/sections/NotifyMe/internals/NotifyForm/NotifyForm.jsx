@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import bell from '../../../../assets/bell.svg';
 import success from '../../../../assets/success.png';
 import styles from './NotifyForm.module.css';
@@ -6,6 +6,7 @@ import { formConstants } from '../constants';
 import Button from '../../../../components/Button';
 import Select from '../../../../components/Select';
 import { postData } from '../../../../services/ApiClient';
+import { ModalContext } from '../../../../context/ModalContext';
 const { EMAIL, HEADING, FULLNAME, REASON, SUBTITLE, SUCCESS, WAITLIST_SUCCESS } = formConstants;
 
 const REGEXP_EMAIL =
@@ -32,11 +33,11 @@ export const NotifyForm = () => {
     name: '',
     email: ''
   };
+  const { notifyLoading, setNotifyLoading } = useContext(ModalContext);
   const [userData, setUserData] = useState(initialValue);
   const [disabled, setDisabled] = useState(true);
   const [source, setSource] = useState('');
   const [notificationSuccess, setNotificationSuccess] = useState(false);
-  const [loading, setLoading] = useState(false);
   const { name, email } = userData;
 
   //validate email and check if the fullname is atleast > 2
@@ -50,14 +51,12 @@ export const NotifyForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
+    setNotifyLoading(true);
     const res = await postData('waitlist/join-waitlist', {
       name: userData.name,
       email: userData.email,
       howDidYouHearAboutUs: source
     });
-    console.log('API response', res);
-
     if (res.success) {
       setNotificationSuccess(true);
     }
@@ -114,7 +113,14 @@ export const NotifyForm = () => {
               <Select label={REASON} dispatch={handleSelect} options={REFERRAL_SOURCES} />
             </div>
             <section className={styles.buttonContainer}>
-              <Button disabled={disabled || loading} label="Notify me" effectAlt type="secondary" className={styles.button} onClick={handleSubmit} />
+              <Button
+                disabled={disabled || notifyLoading}
+                label="Notify me"
+                effectAlt
+                type="secondary"
+                className={styles.button}
+                onClick={handleSubmit}
+              />
             </section>
           </form>
         </div>

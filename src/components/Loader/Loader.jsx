@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Loader.module.css';
-import Primary from '../../assets/spinner-primary.gif';
-import Secondary from '../../assets/spinner-secondary.gif';
+import Primary from '../../assets/spinner-primary.svg';
+import Secondary from '../../assets/spinner-secondary.svg';
 
 const LoaderVariant = (variant) => {
   if (variant === 'primary') {
@@ -10,7 +10,7 @@ const LoaderVariant = (variant) => {
   } else if (variant === 'secondary') {
     return Secondary;
   } else {
-    return Primary;
+    return Primary
   }
 };
 export const Loader = ({ variant, size, ...props }) => {
