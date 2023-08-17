@@ -5,17 +5,17 @@ const NumbersGrid = () => {
   const numbersGrid = [
     {
       id: '1',
-      count: '5000+',
+      count: '21000+',
       text: 'Applications'
     },
     {
       id: '2',
-      count: '100+',
+      count: '440+',
       text: 'Beneficiaries'
     },
     {
       id: '3',
-      count: '7+',
+      count: '5',
       text: 'Ambasssadors'
     },
     {

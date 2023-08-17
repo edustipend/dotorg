@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './styles.css';
 import Button from '../../components/Button/index';
 import Container from '../../components/Container';
@@ -6,6 +7,8 @@ import { Header } from '../../components/Header/Header';
 import { Text } from '../../components/Text/Text';
 import NumbersGrid from './Internals/NumbersGrid';
 import { TestId } from './constants';
+
+const MONTHLY_REPORTS_LINK = 'https://drive.google.com/drive/folders/1QBPt4S2RU67LNr8gJIx-t_Y6OEeM2hoy?usp=sharing';
 
 const Beneficiaries = () => {
   return (
@@ -46,7 +49,9 @@ const Beneficiaries = () => {
           <NumbersGrid />
 
           <div className="view-numbers-btn">
-            <Button size="large" label="View the numbers" type="primary" />
+            <Link to={MONTHLY_REPORTS_LINK} target="_blank" rel="noopener noreferrer">
+              <Button size="large" label="View the numbers" type="primary" />
+            </Link>
           </div>
         </div>
 
@@ -72,7 +77,9 @@ const Beneficiaries = () => {
             <NumbersGrid />
 
             <div className="view-numbers-btn">
-              <Button size="large" label="View the numbers" type="primary" />
+              <Link to={MONTHLY_REPORTS_LINK} target="_blank" rel="noopener noreferrer">
+                <Button size="large" label="View the numbers" type="primary" />
+              </Link>
             </div>
           </div>
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './styles.css';
 import arrow from '../../assets/burdenarrow.png';
 import Button from '../../components/Button';
@@ -7,9 +7,18 @@ import Header from '../../components/Header';
 import Text from '../../components/Text';
 import { ButtonLabelCopy, TextCopy } from './constants';
 import { isApplicationWindowClosed } from '../../utils';
+import { ModalContext } from '../../context/ModalContext';
 
 const TakeOffBurden = () => {
   const isWindowClosed = isApplicationWindowClosed();
+  const { handleNotifyModal } = useContext(ModalContext);
+
+  //function to display the modal if the window is closed
+  const handleOnclick = () => {
+    if (isWindowClosed) {
+      handleNotifyModal()
+    }
+  }
 
   return (
     <div className="takeoffburden-container" data-testid="takeoffburden-container">
@@ -34,7 +43,11 @@ const TakeOffBurden = () => {
             </div>
 
             <div className="request-stipend-btn-div">
-              <Button label={isWindowClosed ? ButtonLabelCopy.WINDOW_CLOSED : ButtonLabelCopy.WINDOW_OPEN} type="secondary" />
+              <Button
+                label={isWindowClosed ? ButtonLabelCopy.WINDOW_CLOSED : ButtonLabelCopy.WINDOW_OPEN}
+                type="secondary"
+                onClick={() => handleOnclick()}
+              />
             </div>
           </div>
         </div>

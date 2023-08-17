@@ -20,4 +20,3 @@ Quote.defaultProps = {
   content: 'Default Quote Text',
   className: ''
 };
-

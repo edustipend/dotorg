@@ -2,27 +2,27 @@ export const stepsData = [
   {
     id: 1,
     step: 'Step 1',
-    label: 'Select Stipend Category',
+    label: 'Select Stipend Category'
   },
   {
     id: 2,
     step: 'Step 2',
-    label: 'Stipend Request',
+    label: 'Stipend Request'
   },
   {
     id: 3,
     step: 'Step 3',
-    label: 'Data Consent',
+    label: 'Data Consent'
   },
   {
     id: 4,
     step: 'Step 4',
-    label: "Let's Meet You",
+    label: "Let's Meet You"
   },
   {
     id: 5,
     step: 'Step 5',
-    label: 'Submit',
+    label: 'Submit'
   }
 ];
 
