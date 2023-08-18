@@ -6,7 +6,8 @@
 }
 
 .menu {
-  margin-left: 92%;
+  position: fixed;
+  margin-left: 90%;
   cursor: pointer;
   background: var(--edustipend-purple);
   width: 24px;
