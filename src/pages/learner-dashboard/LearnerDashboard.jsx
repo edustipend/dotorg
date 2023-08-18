@@ -1,14 +1,17 @@
-import React from 'react';
 import { Outlet } from 'react-router-dom';
 import styles from './LearnerDashboard.module.css';
+import SideBar from '../../components/SideBar';
+import { SidebarProvider } from '../../context/SidebarContext';
 
 export const LearnerDashboard = () => {
   return (
-    <div className={styles.main}>
-      {/**Side-bar goes here */}
-      <div className={styles.Outlet}>
-        <Outlet />
+    <SidebarProvider>
+      <div className={styles.main}>
+        <SideBar />
+        <div className={styles.Outlet}>
+          <Outlet />
+        </div>
       </div>
-    </div>
+    </SidebarProvider>
   );
 };

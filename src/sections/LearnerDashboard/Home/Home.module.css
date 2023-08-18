@@ -2,8 +2,17 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+  margin-top: 80px;
 }
 
+.menu {
+  margin-left: 92%;
+  cursor: pointer;
+  background: var(--edustipend-purple);
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+}
 .greet {
   display: flex;
   flex-direction: column;
@@ -71,7 +80,7 @@
 }
 
 .quote {
-  background: linear-gradient(90.41deg, #D54564 1.1%, #5801FF 96.69%);
+  background: linear-gradient(90.41deg, #d54564 1.1%, #5801ff 96.69%);
   font-family: 'Manrope';
   padding: 2rem;
   border-radius: 30px;
@@ -133,5 +142,9 @@
 
   .quoteText {
     font-size: 20px;
+  }
+
+  .menu {
+    display: none;
   }
 }

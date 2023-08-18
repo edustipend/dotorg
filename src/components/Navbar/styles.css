@@ -68,6 +68,18 @@ a {
   color: var(--edustipend-yellow);
 }
 
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 75px;
+  height: 50px;
+}
+
+.log-out {
+  cursor: pointer;
+}
+
 .menu-icon {
   display: none;
   cursor: pointer;
@@ -117,7 +129,7 @@ a {
     transform: translateX(-200vw);
   }
 
-  .mobile-nav>div {
+  .mobile-nav > div {
     display: flex;
     justify-content: center;
     align-items: center;

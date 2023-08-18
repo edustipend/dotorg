@@ -1,8 +1,10 @@
 .main {
   min-height: 100vh;
-  position: sticky;
-  top: 0;
+  position: fixed;
+  margin-top: 80px;
   width: max-content;
+  background: var(--white);
+  z-index: 2;
 }
 
 .container {

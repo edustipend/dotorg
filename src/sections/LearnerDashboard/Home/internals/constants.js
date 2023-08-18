@@ -3,8 +3,14 @@ export const constants = {
   username: 'Chiehiura'
 };
 
+export const Quote = {
+  content: 'Believe in yourself, take on your challenges, dig deep within yourself to conquer fears. Never let anyone bring you down. You got this.',
+  author: 'Chantal Sutherland'
+};
 export const tab = ['Most recent application', 'My application history'];
+export const submitted = 'Here is what you submitted';
 export const tableHead = ['ID', 'Stipend Category', 'Application Status', 'Date of submission', 'Time of submission', 'Action'];
+export const submissionTableHead = ['ID', 'Stipend Category', 'Application Status', 'Date of submission', 'Time of submission'];
 
 export const recent = [
   {
@@ -14,6 +20,15 @@ export const recent = [
     Date_of_submission: '10 / June / 2023',
     Time_of_submission: '11:00 AM WAT',
     Action: 'View Submission'
+  }
+];
+export const sub = [
+  {
+    id: 1,
+    Stipend_Category: 'Laptop stipend',
+    Application_Status: 'In review',
+    Date_of_submission: '10 / June / 2023',
+    Time_of_submission: '11:00 AM WAT'
   }
 ];
 
