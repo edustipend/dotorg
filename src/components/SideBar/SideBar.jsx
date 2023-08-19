@@ -6,41 +6,46 @@ import Quote from '../Quote/index';
 import { SidebarCtx } from '../../context/SidebarContext';
 
 const SideBar = () => {
-  const [isActive, setItActive] = useState(1);
+  const [isActive, setIsActive] = useState(1);
 
-  const { showSidebar } = useContext(SidebarCtx);
+  const { showSidebar, setShowSidebar } = useContext(SidebarCtx);
 
-  return (
-    showSidebar && (
-      <div className={styles.main}>
-        <div className={styles.container}>
-          <ul className={styles.sidebarlist}>
-            {SideBarData.map((item) => {
-              return (
-                <Link key={item.id} to={item.link} onClick={() => setItActive(item.id)}>
-                  <li className={`${styles.sidebarlist_row} ${isActive === item.id ? styles.active : styles.inactive}`}>
-                    {isActive === item.id && <div className={styles.sidecolor}></div>}
-                    <img className={styles.sidebaricon} src={item.icon} alt="icon" />
-                    <div className={styles.sidebartitle}>{item.title}</div>
-                  </li>
-                </Link>
-              );
-            })}
-          </ul>
-          <div className={styles.line}></div>
-          <div className={styles.quotecontainer}>
-            {quoteData.map((item) => {
-              return (
-                <div key={item.id} className={styles.quotemain}>
-                  <p className={styles.header}>{item.header}</p>
-                  <Quote className={styles.quote} content={item.quote} />
-                </div>
-              );
-            })}
-          </div>
+  const handleClick = (id) => {
+    setIsActive(id);
+    setShowSidebar(!showSidebar);
+  };
+
+  return showSidebar ? (
+    <div className={styles.main}>
+      <div className={styles.container}>
+        <ul className={styles.sidebarlist}>
+          {SideBarData.map((item) => {
+            return (
+              <Link key={item.id} to={item.link} onClick={() => handleClick(item.id)}>
+                <li className={`${styles.sidebarlist_row} ${isActive === item.id ? styles.active : styles.inactive}`}>
+                  {isActive === item.id && <div className={styles.sidecolor}></div>}
+                  <img className={styles.sidebaricon} src={item.icon} alt="icon" />
+                  <div className={styles.sidebartitle}>{item.title}</div>
+                </li>
+              </Link>
+            );
+          })}
+        </ul>
+        <div className={styles.line}></div>
+        <div className={styles.quotecontainer}>
+          {quoteData.map((item) => {
+            return (
+              <div key={item.id} className={styles.quotemain}>
+                <p className={styles.header}>{item.header}</p>
+                <Quote className={styles.quote} content={item.quote} />
+              </div>
+            );
+          })}
         </div>
       </div>
-    )
+    </div>
+  ) : (
+    <div className={`${styles.main} ${styles.hideSidebar}`} />
   );
 };
 

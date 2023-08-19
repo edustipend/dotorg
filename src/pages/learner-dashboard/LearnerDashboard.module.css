@@ -10,6 +10,18 @@
   padding: 29px 12px;
 }
 
+.menu {
+  position: fixed;
+  right: 0;
+  top: 115px;
+  margin-right: 15px;
+  cursor: pointer;
+  background: var(--edustipend-purple);
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+}
+
 @media screen and (min-width: 1024px) {
   .Outlet {
     padding: 50px 60px;
@@ -18,5 +30,9 @@
 
   .main {
     flex-direction: row;
+  }
+
+  .menu {
+    display: none;
   }
 }

@@ -5,6 +5,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ModalContextProvider } from './context/ModalContext';
+import { SidebarProvider } from './context/SidebarContext';
 const container = document.getElementById('root');
 const root = createRoot(container);
 
@@ -12,7 +13,9 @@ root.render(
   <BrowserRouter>
     <React.StrictMode>
       <ModalContextProvider>
-        <App />
+        <SidebarProvider>
+          <App />
+        </SidebarProvider>
       </ModalContextProvider>
     </React.StrictMode>
   </BrowserRouter>

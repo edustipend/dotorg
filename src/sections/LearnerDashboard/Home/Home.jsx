@@ -1,22 +1,16 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import styles from './Home.module.css';
 import { Quote, constants, history, recent, submissionTableHead, submitted, tableHead } from './internals/constants';
 import hand from '../../../assets/waving hand.png';
 import { tab } from './internals/constants';
-// import RecentApplication from './internals/RecentApplication';
-// import ApplicationHistory from './internals/ApplicationHistory';
-// import ViewSubmission from './internals/ViewSubmission';
 import Button from '../../../components/Button';
 import Table from '../../../components/Table';
-import { Close, Menu } from '../../../assets';
-import { SidebarCtx } from '../../../context/SidebarContext';
 const { dashboard, username } = constants;
 
 export const Home = () => {
   const [currentTable, setCurrentTable] = useState(0);
   const [applicationTable, setApplicationTable] = useState(true);
   const [singleEntry, setSingleEntry] = useState(history);
-  const { showSidebar, setShowSidebar } = useContext(SidebarCtx);
 
   const handleOneClick = (id) => {
     setApplicationTable(!applicationTable);
@@ -26,9 +20,6 @@ export const Home = () => {
 
   return (
     <div className={styles.Main}>
-      <div className={styles.menu} onClick={() => setShowSidebar(!showSidebar)}>
-        <img src={showSidebar ? Close : Menu} alt="menu" />
-      </div>
       <section className={styles.greet}>
         <div className={styles.userContainer}>
           <p className={styles.dashboard}>{dashboard}</p>

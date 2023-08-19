@@ -148,4 +148,9 @@ a {
   .navbar {
     padding: 20px 15px;
   }
+
+  .user-profile-img {
+    width: 45px;
+    height: 45px;
+  }
 }

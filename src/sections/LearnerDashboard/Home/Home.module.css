@@ -5,15 +5,6 @@
   margin-top: 80px;
 }
 
-.menu {
-  position: fixed;
-  margin-left: 90%;
-  cursor: pointer;
-  background: var(--edustipend-purple);
-  width: 24px;
-  height: 24px;
-  border-radius: 4px;
-}
 .greet {
   display: flex;
   flex-direction: column;

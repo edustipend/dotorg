@@ -26,7 +26,7 @@ export const NavbarToShow = () => {
     </>
   ) : isDashboard ? (
     <div className="user-profile">
-      <img src={Profile} alt="profile" />
+      <img src={Profile} alt="profile" className="user-profile-img" />
       <div className="log-out">
         <img src={Logout} alt="logout dropdown" />
       </div>

@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 export const SidebarCtx = createContext();
 
 export const SidebarProvider = ({ children }) => {
-  const [showSidebar, setShowSidebar] = useState(true);
+  const [showSidebar, setShowSidebar] = useState(false);
 
-  const value = { setShowSidebar, showSidebar };
+  const value = { showSidebar, setShowSidebar };
   return <SidebarCtx.Provider value={value}>{children}</SidebarCtx.Provider>;
 };
 
