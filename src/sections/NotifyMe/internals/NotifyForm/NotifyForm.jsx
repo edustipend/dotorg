@@ -38,6 +38,7 @@ export const NotifyForm = () => {
   const [disabled, setDisabled] = useState(true);
   const [source, setSource] = useState('');
   const [notificationSuccess, setNotificationSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("")
   const { name, email } = userData;
 
   //validate email and check if the fullname is atleast > 2
@@ -51,6 +52,7 @@ export const NotifyForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setErrorMessage("")
     setNotifyLoading(true);
     const res = await postData('waitlist/join-waitlist', {
       name: userData.name,
@@ -59,6 +61,10 @@ export const NotifyForm = () => {
     });
     if (res.success) {
       setNotificationSuccess(true);
+      setNotifyLoading(false)
+    } else if (!res.success) {
+      setErrorMessage(res.error[0].email)
+      setNotifyLoading(false)
     }
   };
 
@@ -109,6 +115,9 @@ export const NotifyForm = () => {
                 className={styles.Input}
               />
             </div>
+            {
+              errorMessage && <small className={styles.error}>{errorMessage}</small>
+            }
             <div className={styles.formField}>
               <Select label={REASON} dispatch={handleSelect} options={REFERRAL_SOURCES} />
             </div>
