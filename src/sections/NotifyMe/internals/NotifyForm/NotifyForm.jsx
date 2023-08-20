@@ -33,7 +33,7 @@ export const NotifyForm = () => {
     name: '',
     email: ''
   };
-  const { notifyLoading, setNotifyLoading } = useContext(ModalContext);
+  const { isLoading, setIsLoading } = useContext(ModalContext);
   const [userData, setUserData] = useState(initialValue);
   const [disabled, setDisabled] = useState(true);
   const [source, setSource] = useState('');
@@ -53,7 +53,7 @@ export const NotifyForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrorMessage("")
-    setNotifyLoading(true);
+    setIsLoading(true);
     const res = await postData('waitlist/join-waitlist', {
       name: userData.name,
       email: userData.email,
@@ -61,10 +61,10 @@ export const NotifyForm = () => {
     });
     if (res.success) {
       setNotificationSuccess(true);
-      setNotifyLoading(false)
+      setIsLoading(false)
     } else if (!res.success) {
       setErrorMessage(res.error[0].email)
-      setNotifyLoading(false)
+      setIsLoading(false)
     }
   };
 
@@ -123,7 +123,7 @@ export const NotifyForm = () => {
             </div>
             <section className={styles.buttonContainer}>
               <Button
-                disabled={disabled || notifyLoading}
+                disabled={disabled || isLoading}
                 label="Notify me"
                 effectAlt
                 type="secondary"

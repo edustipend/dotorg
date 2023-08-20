@@ -2,7 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types';
 import Loader from '../Loader'
 import styles from './LoadingMessage.module.css'
-import { messages, randomMessage } from './internals/constants';
+import { messages } from './internals/constants';
+import randomMessage from '../../utils/GenerateRandomMessage';
 
 export const LoadingMessage = ({ loaderVariant, size, className }) => {
     const message = randomMessage(messages, messages.length)

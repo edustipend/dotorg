@@ -12,7 +12,7 @@ import LoadingMessage from './components/LoadingMessage';
 initFirebaseApp();
 
 function App() {
-  const { notifyLoading } = useContext(ModalContext);
+  const { isLoading } = useContext(ModalContext);
   return (
     <>
       <Navbar />
@@ -21,11 +21,7 @@ function App() {
       <NotifyModal>
         <NotifyMe />
       </NotifyModal>
-      {notifyLoading && (
-        <Modal>
-          <LoadingMessage size={'large'} />
-        </Modal>
-      )}
+      {isLoading ? <Modal><LoadingMessage size={'large'} /></Modal> : undefined}
     </>
   );
 }
