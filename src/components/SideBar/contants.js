@@ -1,4 +1,4 @@
-import Home from '../../assets/home.png';
+import Home from '../../assets/home.svg';
 import Submissions from '../../assets/submissions.png';
 import User from '../../assets/User.svg';
 

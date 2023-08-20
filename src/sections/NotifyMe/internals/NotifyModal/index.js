@@ -1,2 +1,2 @@
-import { NotifyModal } from "./NotifyModal";
-export default NotifyModal
+import { NotifyModal } from './NotifyModal';
+export default NotifyModal;

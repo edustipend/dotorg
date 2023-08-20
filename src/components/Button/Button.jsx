@@ -70,5 +70,5 @@ Button.defaultProps = {
   iconPosition: 'front',
   label: 'Click me',
   onClick: undefined,
-  size: 'medium',
+  size: 'medium'
 };
