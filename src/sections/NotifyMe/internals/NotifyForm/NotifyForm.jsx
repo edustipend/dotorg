@@ -36,6 +36,7 @@ export const NotifyForm = () => {
   const [disabled, setDisabled] = useState(true);
   const [source, setSource] = useState('');
   const [notificationSuccess, setNotificationSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("")
   const [loading, setLoading] = useState(false);
   const { name, email } = userData;
 
@@ -50,16 +51,19 @@ export const NotifyForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setErrorMessage("")
     setLoading(true);
     const res = await postData('waitlist/join-waitlist', {
       name: userData.name,
       email: userData.email,
       howDidYouHearAboutUs: source
     });
-    console.log('API response', res);
-
     if (res.success) {
       setNotificationSuccess(true);
+      setLoading(false)
+    } else if (!res.success) {
+      setErrorMessage(res.error[0].email)
+      setLoading(false)
     }
   };
 
@@ -110,6 +114,9 @@ export const NotifyForm = () => {
                 className={styles.Input}
               />
             </div>
+            {
+              errorMessage && <small className={styles.error}>{errorMessage}</small>
+            }
             <div className={styles.formField}>
               <Select label={REASON} dispatch={handleSelect} options={REFERRAL_SOURCES} />
             </div>
