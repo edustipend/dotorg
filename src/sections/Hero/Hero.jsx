@@ -23,7 +23,7 @@ const Hero = () => {
   useEffect(() => {
     const timeInterval = setInterval(() => {
       nextStipend();
-      if (currentStipend > stipends.length - 1){
+      if (currentStipend > stipends.length - 1) {
         setCurrentStipend(0);
       }
     }, 2000);

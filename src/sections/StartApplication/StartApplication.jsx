@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, } from 'react';
+import { useNavigate } from 'react-router-dom'
 import Button from '../../components/Button';
 import Header from '../../components/Header';
 import Text from '../../components/Text';
@@ -9,6 +10,7 @@ import { Book, Hero3, ArrowDown, RightArrow } from '../../assets/index';
 export const StartApplication = () => {
   const [value, setValue] = useState('');
   const [isValid, setIsValid] = useState(false);
+  const nav = useNavigate()
   const [showScrollIndicator, setShowScrollIndicator] = useState(true);
 
   useEffect(() => {
@@ -22,8 +24,10 @@ export const StartApplication = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    nav('/request-stipend')
   };
   return (
     <div className={styles.container} data-testid={TestId.DATA_TEST}>

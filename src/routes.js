@@ -6,12 +6,14 @@ import LearnerDashboard from './pages/learner-dashboard';
 import Home from './sections/LearnerDashboard/Home';
 import Submissions from './sections/LearnerDashboard/Submissions';
 import MyAccount from './sections/LearnerDashboard/MyAccount';
+import StartApplication from './sections/StartApplication';
 import AtOne from './pages/at-one';
 
 const Routes = () => {
   return (
     <AppRoutes>
       <Route path="/ambassador-program" element={<AmbassadorPage />} />
+      <Route path='/request' element={<StartApplication />} />
       <Route path="/request-stipend" element={<RequestStipendPage />} />
       <Route path="/dashboard" element={<LearnerDashboard />}>
         <Route index element={<Home />} />

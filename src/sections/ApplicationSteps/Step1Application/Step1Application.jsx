@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from '../../components/Container/ContainerComponent';
+import Container from '../../../components/Container';
 
 export const Step1Application = () => {
   return (
