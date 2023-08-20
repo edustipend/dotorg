@@ -6,6 +6,7 @@ import { SidebarCtx } from '../../context/SidebarContext';
 import { Close, Menu } from '../../assets';
 import { useContext } from 'react';
 import { useEffect } from 'react';
+import InstallPrompt from '../../components/InstallPrompt';
 
 export const LearnerDashboard = () => {
   const { showSidebar, setShowSidebar } = useContext(SidebarCtx);
@@ -26,6 +27,7 @@ export const LearnerDashboard = () => {
       <div className={styles.Outlet}>
         <Outlet />
       </div>
+      <InstallPrompt />
     </div>
   );
 };
