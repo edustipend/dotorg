@@ -1,6 +1,7 @@
 import { BrowserRouter } from 'react-router-dom';
 import SideBar from './SideBar';
-import { SidebarProvider } from '../../context/SidebarContext';
+import { SidebarCtx } from '../../context/SidebarContext';
+import { useState } from 'react';
 
 export default {
   title: 'Edustipend/COmponents/SideBar',
@@ -8,10 +9,15 @@ export default {
   tags: ['autodocs']
 };
 
-export const SideBarSection = () => (
-  <BrowserRouter>
-    <SidebarProvider>
-      <SideBar />
-    </SidebarProvider>
-  </BrowserRouter>
-);
+export const SideBarSection = () => {
+  const [showSidebar, setShowSidebar] = useState(true);
+
+  const value = { showSidebar, setShowSidebar };
+  return (
+    <BrowserRouter>
+      <SidebarCtx.Provider value={value}>
+        <SideBar />
+      </SidebarCtx.Provider>
+    </BrowserRouter>
+  );
+};

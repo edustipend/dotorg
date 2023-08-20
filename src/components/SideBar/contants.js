@@ -40,3 +40,9 @@ export const quoteData = [
     quote: 'The more you teach others what you know the better you become at it.'
   }
 ];
+
+export const TestId = {
+  SIDE_BAR: 'sidebarId',
+  SIDE_BAR_LIST: 'sidebarList',
+  QUOTE_CONTAINER: 'quoteContainer'
+};

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './Home.module.css';
-import { Quote, constants, history, recent, submissionTableHead, submitted, tableHead } from './internals/constants';
+import { Quote, TestId, constants, history, recent, submissionTableHead, submitted, tableHead } from './internals/constants';
 import hand from '../../../assets/waving hand.png';
 import { tab } from './internals/constants';
 import Button from '../../../components/Button';
@@ -19,12 +19,14 @@ export const Home = () => {
   };
 
   return (
-    <div className={styles.Main}>
+    <div className={styles.Main} data-testid={TestId.HOME}>
       <section className={styles.greet}>
         <div className={styles.userContainer}>
           <p className={styles.dashboard}>{dashboard}</p>
           <div className={styles.waveSection}>
-            <p className={styles.hello}>Hello, {username}</p>
+            <p className={styles.hello} data-testid={TestId.USER}>
+              Hello, {username}
+            </p>
             <div className={`${styles.imgContainer} ${styles.imgAlt}`}>
               <img src={hand} alt="hand" className={styles.img} />
             </div>
@@ -33,12 +35,12 @@ export const Home = () => {
       </section>
       <section className={styles.quote}>
         {/**Placeholder quote*/}
-        <p className={styles.quoteText}>
+        <p className={styles.quoteText} data-testid={TestId.QUOTE}>
           "{Quote.content}" - <i className={styles.italic}>{Quote.author}</i>
         </p>
       </section>
       {applicationTable && (
-        <section className={styles.table}>
+        <section className={styles.table} data-testid={TestId.TABLE}>
           <div className={styles.tabs}>
             {tab.map((itm, idx) => {
               return (

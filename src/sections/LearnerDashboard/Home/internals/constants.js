@@ -22,15 +22,6 @@ export const recent = [
     Action: 'View Submission'
   }
 ];
-export const sub = [
-  {
-    id: 1,
-    Stipend_Category: 'Laptop stipend',
-    Application_Status: 'In review',
-    Date_of_submission: '10 / June / 2023',
-    Time_of_submission: '11:00 AM WAT'
-  }
-];
 
 export const history = [
   {
@@ -66,3 +57,10 @@ export const history = [
     Action: 'View Submission'
   }
 ];
+
+export const TestId = {
+  HOME: 'homeId',
+  USER: 'userId',
+  QUOTE: 'quoteId',
+  TABLE: 'tableId'
+};
