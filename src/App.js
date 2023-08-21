@@ -1,3 +1,4 @@
+import React from 'react';
 import Routes from './routes';
 import initFirebaseApp from './firebaseConfig';
 import Navbar from './components/Navbar';
@@ -5,6 +6,7 @@ import './App.css';
 import Footer from './components/Footer';
 import NotifyModal from './sections/NotifyMe/internals/NotifyModal';
 import NotifyMe from './sections/NotifyMe';
+
 initFirebaseApp();
 
 function App() {
@@ -19,4 +21,5 @@ function App() {
     </>
   );
 }
+
 export default App;
