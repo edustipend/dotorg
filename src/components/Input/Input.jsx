@@ -13,7 +13,7 @@ export const Input = ({ dispatch, placeholder, label, value, dispatchType, type,
   };
 
   return (
-    <main className={styles.main}>
+    <section className={styles.main}>
       <label data-testid={LABEL_ID} htmlFor="input" className={styles.label}>
         {label} <span className={styles.required}>*</span>
       </label>
@@ -26,7 +26,7 @@ export const Input = ({ dispatch, placeholder, label, value, dispatchType, type,
         onChange={(e) => handleOnchange(e)}
         className={`${styles.input} ${styles[size]} ${className}`}
       />
-    </main>
+    </section>
   );
 };
 
@@ -42,7 +42,7 @@ Input.propTypes = {
 };
 
 Input.defaultProps = {
-  dispatch: () => {},
+  dispatch: () => { },
   placeholder: 'Placeholder...',
   label: 'Some label',
   value: '',
