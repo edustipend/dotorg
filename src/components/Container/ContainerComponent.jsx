@@ -2,14 +2,25 @@ import React from 'react';
 import styles from './container.module.css';
 import PropTypes from 'prop-types';
 
-export const Container = ({ children }) => {
-  return <div className={styles.container}>{children}</div>;
+export const Container = ({ children, alternate, className }) => {
+  return (
+    <div className={`${alternate
+      ? `${styles.container} ${styles.containerAlt}`
+      : `${styles.container}`} ${className}`}
+    >
+      {children}
+    </div>
+  )
 };
 
 Container.propTypes = {
-  children: PropTypes.node
+  alternate: PropTypes.bool,
+  children: PropTypes.node,
+  className: PropTypes.string
 };
 
 Container.defaultProps = {
-  children: null
+  alternate: false,
+  children: null,
+  className: ''
 };

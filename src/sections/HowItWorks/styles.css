@@ -41,7 +41,7 @@ h3.how-it-works-subheader {
   border-radius: 30px;
   position: absolute;
   top: 28px;
-  z-index: 999;
+  z-index: 900;
 }
 
 .rrrr-svg-header {
