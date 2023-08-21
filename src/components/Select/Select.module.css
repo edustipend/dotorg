@@ -55,7 +55,7 @@
 .select:focus {
   border: 0.5px solid transparent;
   border-radius: 15px;
-  background: linear-gradient(to right, white, white), linear-gradient(to right, #5801ff33, #00babb33);
+  background: linear-gradient(to right, white, white), linear-gradient(to right, #5801ff77, #00babb77);
   background-clip: padding-box, border-box;
   background-origin: padding-box, border-box;
 }
@@ -63,7 +63,7 @@
 .select:active {
   border: 0.5px solid transparent;
   border-radius: 15px;
-  background: linear-gradient(to right, white, white), linear-gradient(to right, #5801ff33, #00babb33);
+  background: linear-gradient(to right, white, white), linear-gradient(to right, #5801ff77, #00babb77);
   background-clip: padding-box, border-box;
   background-origin: padding-box, border-box;
 }
@@ -104,7 +104,7 @@
   border: 0.5px solid transparent;
   border-radius: 15px;
   color: var(--navy-blue);
-  background: linear-gradient(to right, white, white), linear-gradient(to right, #5801ff33, #00babb33);
+  background: linear-gradient(to right, white, white), linear-gradient(to right, #5801ff77, #00babb77);
   background-clip: padding-box, border-box;
   background-origin: padding-box, border-box;
   scrollbar-width: 0;
@@ -114,7 +114,7 @@
 
 .optionsContainerAlt {
   scrollbar-width: 5px;
-  scrollbar-color: linear-gradient(to bottom, #5801ff33, #00babb33);
+  scrollbar-color: linear-gradient(to bottom, #5801ff77, #00babb77);
 }
 
 .optionsContainer::-webkit-scrollbar {
@@ -132,7 +132,7 @@
 }
 
 .optionsContainerAlt::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #5801ff33, #00babb33);
+  background: linear-gradient(to bottom, #5801ff44, #00babb44);
   border-radius: 10px;
 }
 

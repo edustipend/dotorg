@@ -1,0 +1,5 @@
+.main {
+    min-height: 100Vh;
+    background: url('../../assets/hero-bg.png') no-repeat;
+    background-size: cover;
+}
