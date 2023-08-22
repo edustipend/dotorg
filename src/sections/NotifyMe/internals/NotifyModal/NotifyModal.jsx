@@ -12,7 +12,7 @@ export const NotifyModal = ({ children, className }) => {
 
   return (
     <div className={notifyPopModal ? `modal_modal ${className}` : 'hideModal_hideModal'}>
-      <div className='animate_modal_modal'>{children}</div>
+      <div className="animate_modal_modal">{children}</div>
     </div>
   );
 };

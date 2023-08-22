@@ -5,9 +5,14 @@ import './App.css';
 import Footer from './components/Footer';
 import NotifyModal from './sections/NotifyMe/internals/NotifyModal';
 import NotifyMe from './sections/NotifyMe';
+import Modal from './components/Modal';
+import { ModalContext } from './context/ModalContext';
+import { useContext } from 'react';
+import LoadingMessage from './components/LoadingMessage';
 initFirebaseApp();
 
 function App() {
+  const { isLoading } = useContext(ModalContext);
   return (
     <>
       <Navbar />
@@ -16,6 +21,7 @@ function App() {
       <NotifyModal>
         <NotifyMe />
       </NotifyModal>
+      {isLoading ? <Modal><LoadingMessage size={'large'} /></Modal> : undefined}
     </>
   );
 }

@@ -30,8 +30,8 @@ export const Home = () => {
       <section className={styles.quote}>
         {/**Placeholder quote*/}
         <p className={styles.quoteText}>
-          "Believe in yourself, take on your challenges, dig deep within yourself to conquer fears.
-          Never let anyone bring you down. You got this." - <i className={styles.italic}>Chantal Sutherland</i>
+          "Believe in yourself, take on your challenges, dig deep within yourself to conquer fears. Never let anyone bring you down. You got this." -{' '}
+          <i className={styles.italic}>Chantal Sutherland</i>
         </p>
       </section>
       <section className={styles.table}>

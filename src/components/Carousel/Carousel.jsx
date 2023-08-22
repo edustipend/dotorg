@@ -72,7 +72,7 @@ const Carousel = ({ cardData }) => {
           <div data-testid={paginationTestId} className={styles.paginationContainer}>
             {cardData.map((_, idx) => {
               return (
-                <div 
+                <div
                   data-testid={pagTestId}
                   key={idx}
                   className={slideIndex === idx ? `${styles.currentPag} ${styles.currentPagActive}` : `${styles.currentPag}`}

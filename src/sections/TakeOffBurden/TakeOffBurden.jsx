@@ -16,9 +16,9 @@ const TakeOffBurden = () => {
   //function to display the modal if the window is closed
   const handleOnclick = () => {
     if (isWindowClosed) {
-      handleNotifyModal()
+      handleNotifyModal();
     }
-  }
+  };
 
   return (
     <div className="takeoffburden-container" data-testid="takeoffburden-container">

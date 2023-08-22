@@ -18,14 +18,12 @@
   z-index: 2;
 }
 
-
 .content {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
 }
-
 
 .top {
   padding-top: 20px;
@@ -101,7 +99,6 @@
     width: 370px;
     height: 450px;
   }
-
 
   .imgPerson {
     width: 120px;
