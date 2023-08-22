@@ -21,6 +21,7 @@ import Twitter from './social/twitter.png';
 import LinkedIn from './social/linkedin.png';
 import Profile from './profile.svg';
 import Logout from './logout.svg';
+import Flower from './flower.png';
 
 export {
   Hero1,
@@ -45,5 +46,6 @@ export {
   Twitter,
   LinkedIn,
   Profile,
-  Logout
+  Logout,
+  Flower
 };
