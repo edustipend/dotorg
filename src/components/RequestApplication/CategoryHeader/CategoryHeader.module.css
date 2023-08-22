@@ -1,0 +1,54 @@
+.main {
+    font-family: 'Manrope';
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    color: var(--edustipend-black);
+}
+
+.subtitle {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 16px;
+    text-transform: capitalize;
+}
+
+.title {
+    font-size: 32px;
+    line-height: 35px;
+    font-family: 'Poppins';
+}
+
+.bottomSection {
+    display: flex;
+    flex-direction: column;
+    font-weight: 400;
+    font-size: 16px;
+    gap: 28px;
+}
+
+.support {
+    max-width: 550px;
+}
+
+.text {
+    max-width: 600px;
+    background-color: #5801FF0D;
+    font-weight: 300;
+    padding: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+    .subtitle {
+        font-size: 20px;
+    }
+
+    .title {
+        font-size: 36px;
+    }
+
+    .bottomSection {
+        font-size: 18px;
+        gap: 22px;
+    }
+}

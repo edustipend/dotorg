@@ -27,11 +27,7 @@
 }
 
 @media all and (orientation: portrait) {
-<<<<<<< HEAD
-  @media screen and (max-height: 768px) {
-=======
   @media screen and (max-height: 1024px) {
->>>>>>> 2b68c8b7a91e2d3bd1d9d35df148749d8ddab44a
     .notify {
       margin: 1rem;
     }

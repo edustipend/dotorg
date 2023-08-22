@@ -38,12 +38,7 @@ export const NotifyForm = () => {
   const [disabled, setDisabled] = useState(true);
   const [source, setSource] = useState('');
   const [notificationSuccess, setNotificationSuccess] = useState(false);
-<<<<<<< HEAD
-  const [errorMessage, setErrorMessage] = useState('');
-  const [loading, setLoading] = useState(false);
-=======
   const [errorMessage, setErrorMessage] = useState("")
->>>>>>> 2b68c8b7a91e2d3bd1d9d35df148749d8ddab44a
   const { name, email } = userData;
 
   //validate email and check if the fullname is atleast > 2
@@ -57,13 +52,8 @@ export const NotifyForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-<<<<<<< HEAD
-    setErrorMessage('');
-    setLoading(true);
-=======
     setErrorMessage("")
     setIsLoading(true);
->>>>>>> 2b68c8b7a91e2d3bd1d9d35df148749d8ddab44a
     const res = await postData('waitlist/join-waitlist', {
       name: userData.name,
       email: userData.email,
@@ -71,17 +61,10 @@ export const NotifyForm = () => {
     });
     if (res.success) {
       setNotificationSuccess(true);
-<<<<<<< HEAD
-      setLoading(false);
-    } else if (!res.success) {
-      setErrorMessage(res.error[0].email);
-      setLoading(false);
-=======
       setIsLoading(false)
     } else if (!res.success) {
       setErrorMessage(res.error[0].email)
       setIsLoading(false)
->>>>>>> 2b68c8b7a91e2d3bd1d9d35df148749d8ddab44a
     }
   };
 
