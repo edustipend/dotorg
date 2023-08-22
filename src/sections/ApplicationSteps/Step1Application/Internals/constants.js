@@ -4,3 +4,8 @@ export const content = {
     LABEL: `Please select one. For now, we can only support ONE at a time.`,
     QUOTE: '“The secret to getting ahead is getting started." - Mark Twain'
 }
+
+export const TESTIDS = {
+    COMPONENT_ID: 'component_id',
+    HEADER_ID: 'header_id'
+}

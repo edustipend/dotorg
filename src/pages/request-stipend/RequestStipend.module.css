@@ -4,3 +4,24 @@
   background: url('../../assets/hero-bg.png') no-repeat;
   background-size: cover;
 }
+
+.imgContainer {
+  position: absolute;
+  right: .5rem;
+  bottom: -1.45rem;
+  width: 60px;
+  height: 96px;
+}
+
+.img {
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .imgContainer {
+    width: 95px;
+    height: 100px;
+    bottom: .9rem;
+    right: 4rem;
+  }
+}

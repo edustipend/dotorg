@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import Header from '../../../components/Header';
 import { content } from './Internals/constants';
+import { TESTIDS } from './Internals/constants';
 import ContentContainer from '../Internals/ContentContainer';
 import Select from '../../../components/Select';
 import Button from '../../../components/Button';
@@ -11,6 +12,7 @@ import styles from './Step1Application.module.css';
 import { RightArrow, BackArrow } from '../../../assets';
 
 const { HEADING, OPTIONS, LABEL, QUOTE } = content
+const { COMPONENT_ID, HEADER_ID } = TESTIDS
 
 export const Step1Application = ({ setActiveStep }) => {
   const nav = useNavigate()
@@ -20,10 +22,10 @@ export const Step1Application = ({ setActiveStep }) => {
   }
 
   return (
-    <>
+    <div data-testid={COMPONENT_ID}>
       <ContentContainer>
         <section className={styles.step1}>
-          <Header size={'small'} className={styles.heading}>
+          <Header size={'small'} className={styles.heading} dataTest={HEADER_ID}>
             {HEADING}
           </Header>
           <div className={styles.selectCategory}>
@@ -49,8 +51,10 @@ export const Step1Application = ({ setActiveStep }) => {
           </div>
         </section>
       </ContentContainer >
-      <Quote content={QUOTE} className={styles.quote} />
-    </>
+      <section className={styles.quoteSection}>
+        <Quote content={QUOTE} className={styles.quote} />
+      </section>
+    </div>
   );
 };
 

@@ -77,22 +77,3 @@ export const StartApplication = () => {
     </div>
   );
 };
-
-/**
- * 
- * <label htmlFor={TestId.INPUT_ID} className={styles.label}>
-                {TestId.INPUT_LABEL} <span className={styles.required}>*</span>
-              </label>
-              <input
-                data-testid={TestId.INPUT_ID}
-                id={TestId.INPUT_ID}
-                type={TestId.INPUT_NAME}
-                name={TestId.INPUT_NAME}
-                className={styles.input}
-                placeholder={TestId.PLACEHOLDER}
-                required
-                value={value}
-                onInput={(e) => setIsValid(e.target.validity.valid)}
-                onChange={(e) => setValue(e.target.value)}
-              />
- */
