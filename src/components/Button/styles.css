@@ -13,9 +13,12 @@
   width: 310px;
 }
 
-.edustipend-button:disabled {
+.disabled {
+  opacity: 0.75;
+}
+
+.disabled .edustipend-button {
   cursor: not-allowed;
-  opacity: 0.5;
 }
 
 .right-arrow {
@@ -23,10 +26,6 @@
   height: 20px;
   position: absolute;
   right: 30px;
-}
-
-.disabled .edustipend-button {
-  cursor: not-allowed;
 }
 
 .edustipend-button--primary {
@@ -90,10 +89,6 @@
   -webkit-backdrop-filter: blur(0.7px);
   border-top: 2px solid rgba(255, 255, 255, 0.3);
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.disabled {
-  opacity: 0.3;
 }
 
 .icon-button {

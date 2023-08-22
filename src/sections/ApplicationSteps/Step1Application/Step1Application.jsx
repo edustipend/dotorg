@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import Header from '../../../components/Header';
 import { content } from './Internals/constants';
-import { TESTIDS } from './Internals/constants';
+import { TestId } from './Internals/constants';
 import ContentContainer from '../Internals/ContentContainer';
 import Select from '../../../components/Select';
 import Button from '../../../components/Button';
@@ -12,7 +12,7 @@ import styles from './Step1Application.module.css';
 import { RightArrow, BackArrow } from '../../../assets';
 
 const { HEADING, OPTIONS, LABEL, QUOTE } = content
-const { COMPONENT_ID, HEADER_ID } = TESTIDS
+const { COMPONENT_ID, HEADER_ID } = TestId
 
 export const Step1Application = ({ setActiveStep }) => {
   const nav = useNavigate()

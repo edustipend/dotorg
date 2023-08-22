@@ -1,9 +1,9 @@
 import { Step1Application } from "../Step1Application";
 import { render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
-import { TESTIDS } from "../Internals/constants";
+import { TestId } from "../Internals/constants";
 import { content } from "../Internals/constants";
-const { COMPONENT_ID, HEADER_ID } = TESTIDS
+const { COMPONENT_ID, HEADER_ID } = TestId
 
 describe("Tests for the step1 application component", () => {
     it("The component should render", () => {
