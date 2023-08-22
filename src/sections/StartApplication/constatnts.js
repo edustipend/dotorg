@@ -1,4 +1,3 @@
-
 const dataTest = 'start_application-id';
 const headText = 'Stipend Application May 2023';
 const p1 = 'Hello there, Welcome to the month of May, how time flies! 🎉🎊';
@@ -25,7 +24,7 @@ const btn = {
 const front = 'front';
 
 const input = {
-  inputID: 'e=ail_id',
+  inputID: 'email_id',
   inputLabel: 'Email Address',
   inputName: 'email',
   mockValidEmail: 'isaq@gmail.com',

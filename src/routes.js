@@ -13,7 +13,7 @@ const Routes = () => {
   return (
     <AppRoutes>
       <Route path="/ambassador-program" element={<AmbassadorPage />} />
-      <Route path='/request' element={<StartApplication />} />
+      <Route path="/request" element={<StartApplication />} />
       <Route path="/application" element={<RequestStipendPage />} />
       <Route path="/dashboard" element={<LearnerDashboard />}>
         <Route index element={<Home />} />

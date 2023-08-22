@@ -2,7 +2,8 @@ export const DEFAULT_BUTTON_LABEL = 'Add button';
 
 export const ButtonType = {
   PRIMARY: 'primary',
-  SECONDARY: 'secondary'
+  SECONDARY: 'secondary',
+  PLAIN: 'plain'
 };
 
 export const ClassName = {

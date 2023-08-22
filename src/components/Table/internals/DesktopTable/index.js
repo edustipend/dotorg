@@ -1,2 +1,2 @@
-import { DesktopTable } from "./DesktopTable";
-export default DesktopTable
+import { DesktopTable } from './DesktopTable';
+export default DesktopTable;

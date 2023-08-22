@@ -20,18 +20,20 @@ export const Button = ({ className, dataTest, disabled, effectAlt, label, icon, 
   const mode = getButtonMode(type);
   return (
     <div
-      className={`${type === ButtonType.PRIMARY ? 'effect' : type === ButtonType.SECONDARY ? 'effect effect_alt' : ''}
-  ${disabled ? 'disabled' : ''} ${effectAlt ? 'effectAlt' : ''}`}
+      className={`${type === ButtonType.PRIMARY ? 'effect' : type === ButtonType.SECONDARY ? 'effect effect_alt' :
+        type === ButtonType.PLAIN ? 'effect' : ''
+        }
+  ${disabled ? 'disabled' : ''} ${effectAlt ? 'effectAlt' : ''} `}
     >
       <button
         data-testid={dataTest}
         type="button"
         disabled={disabled}
         className={[
-          `${ClassName.ROOT_BUTTON}`,
-          `${ClassName.ROOT_BUTTON}--${size}`,
-          `${icon && `${ClassName.ICON} ${ClassName.ROOT_BUTTON}`}`,
-          `${className}`,
+          `${ClassName.ROOT_BUTTON} `,
+          `${ClassName.ROOT_BUTTON}--${size} `,
+          `${icon && `${ClassName.ICON} ${ClassName.ROOT_BUTTON}`} `,
+          `${className} `,
           mode
         ].join(' ')}
         {...props}
@@ -70,5 +72,5 @@ Button.defaultProps = {
   iconPosition: 'front',
   label: 'Click me',
   onClick: undefined,
-  size: 'medium',
+  size: 'medium'
 };

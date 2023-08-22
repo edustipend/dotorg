@@ -42,7 +42,7 @@ Input.propTypes = {
 };
 
 Input.defaultProps = {
-  dispatch: () => { },
+  dispatch: () => {},
   placeholder: 'Placeholder...',
   label: 'Some label',
   value: '',

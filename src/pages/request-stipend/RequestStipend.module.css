@@ -1,5 +1,6 @@
 .main {
-    min-height: 100Vh;
-    background: url('../../assets/hero-bg.png') no-repeat;
-    background-size: cover;
+  min-height: 100vh;
+  position: relative;
+  background: url('../../assets/hero-bg.png') no-repeat;
+  background-size: cover;
 }

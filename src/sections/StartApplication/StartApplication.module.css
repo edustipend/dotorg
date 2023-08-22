@@ -99,7 +99,6 @@
   justify-content: center;
 }
 
-
 .quotes {
   color: var(--edustipend-text-black, #2d3740);
   text-align: center;
@@ -130,7 +129,6 @@
   right: 20px;
   bottom: 0;
 }
-
 
 .downArrow {
   display: none;

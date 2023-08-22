@@ -22,7 +22,7 @@ export const Select = ({ dispatch, dispatchType, label, placeholder, options, si
       </label>
       <div className={`${styles.defaultContainer} ${styles[size]}`}>
         <div className={styles.selectInput}>
-          <input data-testid={INPUT_ID} value={option} placeholder={placeholder} onClick={() => setActive((pre) => !pre)} className={styles.select} />
+          <input readOnly data-testid={INPUT_ID} value={option} placeholder={placeholder} onClick={() => setActive((pre) => !pre)} className={styles.select} />
           <div className={styles.dropDown}>
             <img
               src={dropDown}
@@ -68,7 +68,7 @@ Select.propTypes = {
 };
 
 Select.defaultProps = {
-  dispatch: () => {},
+  dispatch: () => { },
   dispatchType: '',
   label: 'Some label',
   placeholder: 'Select an option',

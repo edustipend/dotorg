@@ -1,5 +1,5 @@
-import { useState, useEffect, } from 'react';
-import { useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Button from '../../components/Button';
 import Header from '../../components/Header';
 import Text from '../../components/Text';
@@ -13,7 +13,7 @@ export const StartApplication = () => {
   //const [value, setValue] = useState('');
   //const [isValid, setIsValid] = useState(false);
   //const [isLoading, setIsLoading] = useState(false);
-  const nav = useNavigate()
+  const nav = useNavigate();
   const [showScrollIndicator, setShowScrollIndicator] = useState(true);
 
   useEffect(() => {
@@ -30,7 +30,7 @@ export const StartApplication = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    nav('/application')
+    nav('/application');
   };
   return (
     <div className={styles.container} data-testid={TestId.DATA_TEST}>
@@ -48,16 +48,11 @@ export const StartApplication = () => {
         <div className={styles.bottom}>
           <Text className={styles.textB} content={TestId.PARAGRAPH} />
           <form className={styles.form} onSubmit={handleSubmit}>
-            <div className={styles.inputContainer} >
-              <Input
-                label={'Email Address'}
-                placeholder={'Enter your email address'}
-                className={styles.Input}
-              />
+            <div className={styles.inputContainer}>
+              <Input label={'Email Address'} placeholder={'Enter your email address'} className={styles.Input} />
             </div>
             <div className={styles.btnContainer}>
               <Button
-                className={styles.btn}
                 dataTest={TestId.BTN_ID}
                 type={'secondary'}
                 icon={RightArrow}

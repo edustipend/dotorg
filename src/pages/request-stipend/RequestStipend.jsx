@@ -6,7 +6,7 @@ import Step4Application from '../../sections/ApplicationSteps/Step4Application';
 import Step5Application from '../../sections/ApplicationSteps/Step5Application';
 import Stepper from '../../components/Stepper';
 import Container from '../../components/Container';
-import styles from './RequestStipend.module.css'
+import styles from './RequestStipend.module.css';
 
 export const RequestStipend = () => {
   const [activeStep, setActiveStep] = useState(1);

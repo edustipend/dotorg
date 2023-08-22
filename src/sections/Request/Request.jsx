@@ -18,9 +18,9 @@ export const Request = () => {
   //function to display the modal if the window is closed
   const handleOnclick = () => {
     if (isWindowClosed) {
-      handleNotifyModal()
+      handleNotifyModal();
     }
-  }
+  };
 
   return (
     <main data-testid={TestId.REQUEST_SECTION} className={styles.main}>

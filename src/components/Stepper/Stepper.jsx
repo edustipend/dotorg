@@ -8,7 +8,6 @@ import Container from '../Container';
 import { Text, stepsData } from './constants';
 
 const Stepper = ({ activeStep }) => {
-
   return (
     <>
       <div className={styles.mobile}>
@@ -46,8 +45,8 @@ export default Stepper;
 
 Stepper.propTypes = {
   activeStep: PropTypes.number
-}
+};
 
 Stepper.defaultProps = {
   activeStep: 1
-}
+};
