@@ -1,2 +1,2 @@
-import { LaptopStipend } from "./LaptopStipend";
-export default LaptopStipend
+import { LaptopStipend } from './LaptopStipend';
+export default LaptopStipend;

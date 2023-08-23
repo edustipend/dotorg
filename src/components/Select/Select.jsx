@@ -10,7 +10,7 @@ const { LABEL_ID, INPUT_ID, OPTIONS_ID } = TestId;
 export const Select = ({ dispatchType, label, placeholder, options, size, value, className }) => {
   const [option, setOption] = useState(value);
   const [active, setActive] = useState(false);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const handleDispatch = (Option) => {
     setOption(Option);
@@ -76,7 +76,7 @@ Select.propTypes = {
 };
 
 Select.defaultProps = {
-  dispatchType: () => { },
+  dispatchType: () => {},
   label: 'Some label',
   placeholder: 'Select an option',
   options: [],

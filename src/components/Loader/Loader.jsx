@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './Loader.module.css';
 import Primary from '../../assets/spinner-primary.svg';
 import Secondary from '../../assets/spinner-secondary.svg';
-import Neutral from '../../assets/spinner-neutral.svg'
+import Neutral from '../../assets/spinner-neutral.svg';
 
 const LoaderVariant = (variant) => {
   if (variant === 'primary') {
@@ -11,9 +11,9 @@ const LoaderVariant = (variant) => {
   } else if (variant === 'secondary') {
     return Secondary;
   } else if (variant === 'neutral') {
-    return Neutral
+    return Neutral;
   } else {
-    return Neutral
+    return Neutral;
   }
 };
 export const Loader = ({ variant, size, ...props }) => {

@@ -1,2 +1,2 @@
-import { randomMessage } from "./generateRandomMessage";
-export default randomMessage
+import { randomMessage } from './generateRandomMessage';
+export default randomMessage;

@@ -7,7 +7,7 @@ const { LABEL_ID, INPUT_ID } = TestId;
 
 export const Input = ({ placeholder, label, value, dispatchType, type, size, className }) => {
   const [initialValue, setInitialValue] = useState(value);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const handleOnchange = (e) => {
     setInitialValue(e.target.value);
@@ -46,7 +46,7 @@ Input.defaultProps = {
   placeholder: 'Placeholder...',
   label: 'Some label',
   value: '',
-  dispatchType: () => { },
+  dispatchType: () => {},
   type: 'text',
   size: '',
   className: ''

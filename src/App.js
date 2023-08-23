@@ -21,7 +21,11 @@ function App() {
       <NotifyModal>
         <NotifyMe />
       </NotifyModal>
-      {isLoading ? <Modal><LoadingMessage size={'large'} /></Modal> : undefined}
+      {isLoading ? (
+        <Modal>
+          <LoadingMessage size={'large'} />
+        </Modal>
+      ) : undefined}
     </>
   );
 }

@@ -38,7 +38,7 @@ export const NotifyForm = () => {
   const [disabled, setDisabled] = useState(true);
   const [source, setSource] = useState('');
   const [notificationSuccess, setNotificationSuccess] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("")
+  const [errorMessage, setErrorMessage] = useState('');
   const { name, email } = userData;
 
   //validate email and check if the fullname is atleast > 2
@@ -52,7 +52,7 @@ export const NotifyForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setErrorMessage("")
+    setErrorMessage('');
     setIsLoading(true);
     const res = await postData('waitlist/join-waitlist', {
       name: userData.name,
@@ -61,10 +61,10 @@ export const NotifyForm = () => {
     });
     if (res.success) {
       setNotificationSuccess(true);
-      setIsLoading(false)
+      setIsLoading(false);
     } else if (!res.success) {
-      setErrorMessage(res.error[0].email)
-      setIsLoading(false)
+      setErrorMessage(res.error[0].email);
+      setIsLoading(false);
     }
   };
 

@@ -24,12 +24,11 @@
   flex-direction: column;
 }
 
-
 .buttons {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: .5rem;
+  gap: 0.5rem;
   justify-content: center;
   align-items: center;
 }
@@ -68,7 +67,7 @@
   }
 }
 
-@media screen and (max-width:350px) {
+@media screen and (max-width: 350px) {
   .quote {
     font-size: 12px;
   }

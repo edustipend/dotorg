@@ -1,2 +1,2 @@
-import { DataStipend } from "./DataStipend";
-export default DataStipend
+import { DataStipend } from './DataStipend';
+export default DataStipend;

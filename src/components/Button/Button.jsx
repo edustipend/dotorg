@@ -35,9 +35,9 @@ export const Button = ({
   const mode = getButtonMode(type);
   return (
     <div
-      className={`${type === ButtonType.PRIMARY ? 'effect' : type === ButtonType.SECONDARY ? 'effect effect_alt' :
-        type === ButtonType.PLAIN ? 'effect' : ''
-        }
+      className={`${
+        type === ButtonType.PRIMARY ? 'effect' : type === ButtonType.SECONDARY ? 'effect effect_alt' : type === ButtonType.PLAIN ? 'effect' : ''
+      }
   ${disabled ? 'disabled' : ''} ${effectAlt ? 'effectAlt' : ''} `}
     >
       <button

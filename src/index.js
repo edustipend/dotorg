@@ -7,6 +7,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ModalContextProvider } from './context/ModalContext';
 import store from './store';
+import ScrollToTop from './ScrollToTop';
 const container = document.getElementById('root');
 const root = createRoot(container);
 
@@ -15,6 +16,7 @@ root.render(
     <React.StrictMode>
       <Provider store={store}>
         <ModalContextProvider>
+          <ScrollToTop />
           <App />
         </ModalContextProvider>
       </Provider>

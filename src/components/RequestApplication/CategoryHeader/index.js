@@ -1,2 +1,2 @@
-import { CategoryHeader } from "./CategoryHeader";
-export default CategoryHeader
+import { CategoryHeader } from './CategoryHeader';
+export default CategoryHeader;

@@ -9,13 +9,12 @@ import { TestId } from './constatnts';
 import Container from '../../components/Container';
 import Input from '../../components/Input';
 import { Book, Hero3, ArrowDown, RightArrow } from '../../assets/index';
-import { email } from '../../redux/ApplicationReducer/ApplicationRuducer'
+import { email } from '../../redux/ApplicationReducer/ApplicationRuducer';
 import { checkEmail } from '../../utils/EmailChecker/emailChecker';
 
 export const StartApplication = () => {
   const state = useSelector((state) => state.application);
   const [showScrollIndicator, setShowScrollIndicator] = useState(true);
-  const [isDisabled, setIsDisabled] = useState(true);
   const nav = useNavigate();
 
   useEffect(() => {
@@ -31,14 +30,7 @@ export const StartApplication = () => {
   }, []);
 
   //enable the button if the email is valid
-  useEffect(() => {
-    const isTrue = checkEmail(state.email)
-    if (isTrue) {
-      setIsDisabled(false)
-    } else {
-      setIsDisabled(true)
-    }
-  }, [state.email]);
+  const isTrue = checkEmail(state.email);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -66,7 +58,8 @@ export const StartApplication = () => {
                 label={'Email Address'}
                 placeholder={'Enter your email address'}
                 dispatchType={email}
-                className={styles.Input} />
+                className={styles.Input}
+              />
             </div>
             <div className={styles.btnContainer}>
               <Button
@@ -75,7 +68,7 @@ export const StartApplication = () => {
                 icon={RightArrow}
                 iconPosition={'front'}
                 effectAlt
-                disabled={isDisabled}
+                disabled={isTrue ? false : true}
                 label={TestId.BTN_CONTENT}
                 className={styles.btn}
                 onClick={handleSubmit}

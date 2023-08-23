@@ -1,2 +1,2 @@
-import { CourseStipend } from "./CourseStipend";
-export default CourseStipend
+import { CourseStipend } from './CourseStipend';
+export default CourseStipend;
