@@ -8,7 +8,7 @@ import { BackArrow, RightArrow } from '../../../assets';
 import CategoryHeader from '../CategoryHeader'
 import QuestionAndAnswer from '../QuestionAndAnswer'
 import Quote from '../../Quote'
-import { back, progress } from '../../../redux/RequestApplication/RequestApplication'
+import { back, progress } from '../../../redux/ApplicationReducer/ApplicationRuducer'
 const { TITLE, SUPPORT_TYPE, FOOT_NOTE1, FOOT_NOTE2, FOOT_NOTE3, FOOT_NOTE4, QUESTION1, QUESTION2, QUESTION3, QUESTION4, QUOTE } = courseConstants
 
 export const CourseStipend = () => {

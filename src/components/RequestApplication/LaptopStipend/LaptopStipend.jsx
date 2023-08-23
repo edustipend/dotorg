@@ -9,7 +9,7 @@ import Button from '../../Button';
 import { BackArrow, RightArrow } from '../../../assets';
 import { laptopConstants } from './Internals/constants'
 import Quote from '../../Quote'
-import { back, progress } from '../../../redux/RequestApplication/RequestApplication'
+import { back, progress } from '../../../redux/ApplicationReducer/ApplicationRuducer'
 const { TITLE, SUPPORT_TYPE, QUOTE, QUESTION1, QUESTION2, QUESTION3, QUESTION4, FOOT_NOTE1, FOOT_NOTE2, FOOT_NOTE3, FOOT_NOTE4 } = laptopConstants
 
 export const LaptopStipend = () => {

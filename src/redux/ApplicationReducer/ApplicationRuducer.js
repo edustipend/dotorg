@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { initialState } from "./initialState";
 
-const requestApplication = createSlice({
+const application = createSlice({
     name: 'Application',
     initialState,
     reducers: {
@@ -20,5 +20,5 @@ const requestApplication = createSlice({
     }
 })
 
-export default requestApplication.reducer
-export const { back, progress, email, category } = requestApplication.actions
+export default application.reducer
+export const { back, progress, email, category } = application.actions

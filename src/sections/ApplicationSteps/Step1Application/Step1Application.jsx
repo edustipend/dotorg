@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Header from '../../../components/Header';
@@ -10,14 +10,23 @@ import Button from '../../../components/Button';
 import Quote from '../../../components/Quote';
 import styles from './Step1Application.module.css';
 import { RightArrow, BackArrow } from '../../../assets';
-import { progress, category } from '../../../redux/RequestApplication/RequestApplication'
+import { progress, category } from '../../../redux/ApplicationReducer/ApplicationRuducer'
 const { HEADING, OPTIONS, LABEL, QUOTE } = content
 const { COMPONENT_ID, HEADER_ID } = TestId
 
 export const Step1Application = () => {
   const dispatch = useDispatch()
   const { stipendCategory } = useSelector(state => state.application)
+  const [isDisabled, setIsDisabled] = useState(true)
   const nav = useNavigate()
+
+  //enable the continue button if a stipendCategory has been selected
+  useEffect(() => {
+    if (stipendCategory.length > 0) {
+      setIsDisabled(false)
+    }
+  }, [stipendCategory.length])
+
 
   return (
     <div data-testid={COMPONENT_ID}>
@@ -48,6 +57,7 @@ export const Step1Application = () => {
                 label={'Continue'}
                 icon={RightArrow}
                 type={'secondary'}
+                disabled={isDisabled}
                 onClick={() => dispatch(progress())}
                 className={styles.btn}
               />

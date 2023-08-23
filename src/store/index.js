@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import requestApplication from '../redux/RequestApplication/RequestApplication'
+import requestApplication from '../redux/ApplicationReducer/ApplicationRuducer'
 
 // Example - This should be cleaned up
 import { createSlice } from '@reduxjs/toolkit';
