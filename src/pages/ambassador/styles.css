@@ -66,6 +66,7 @@
   align-items: center;
   text-align: center;
   padding: 2rem;
+  gap: 1rem;
 }
 
 .apply-now > button {
@@ -78,6 +79,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding: 2rem 1rem;
 }
 
 .top-cta-btn {
@@ -108,8 +110,21 @@
   text-align: center;
 }
 
+.eligibilty {
+  padding-top: 1rem;
+}
+
 .application-form {
   max-width: 300px;
+}
+
+.request-form-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  max-width: 500px;
 }
 
 @media screen and (min-width: 560px) {
