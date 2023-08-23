@@ -1,4 +1,4 @@
-.laptopStipend {
+.stipend {
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -19,6 +19,41 @@
     font-weight: 300;
 }
 
+.buttonContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 28px;
+    gap: .5rem;
+    align-items: center;
+}
+
+.button {
+    max-width: 275px;
+
+}
+
+.quoteContainer {
+    display: flex;
+    justify-content: center;
+
+}
+
+.quote {
+    text-align: center;
+    color: var(--edustipend-black);
+    font-size: 14px;
+    padding: 24px 0;
+    max-width: 285px;
+    font-weight: 300;
+    font-style: italic;
+}
+
+@media screen and (min-width: 500px) {
+    .buttonContainer {
+        align-items: flex-end;
+    }
+}
+
 @media screen and (min-width: 768px) {
     .main {
         gap: 66px;
@@ -28,7 +63,24 @@
         font-size: 16px;
     }
 
-    .laptopStipend {
+    .stipend {
         gap: 30px;
+    }
+
+    .buttonContainer {
+        flex-direction: row;
+        gap: 1rem;
+        justify-content: flex-end;
+    }
+
+    .quote {
+        font-size: 16px;
+        padding: 55px 0;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .quote {
+        max-width: 100%;
     }
 }

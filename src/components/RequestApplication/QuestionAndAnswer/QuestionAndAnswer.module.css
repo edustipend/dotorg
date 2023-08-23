@@ -17,6 +17,10 @@
     border-radius: 15px;
 }
 
+.textarea:hover {
+    cursor: text;
+}
+
 .textarea:focus {
     border: 0.5px solid transparent;
     border-radius: 15px;

@@ -60,6 +60,7 @@ export const StartApplication = () => {
                 effectAlt
                 disabled={false}
                 label={TestId.BTN_CONTENT}
+                className={styles.btn}
                 onClick={handleSubmit}
               />
             </div>

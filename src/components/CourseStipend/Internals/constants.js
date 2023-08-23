@@ -1,5 +1,5 @@
-export const laptopConstants = {
-    TITLE: 'Laptop / Learning Device',
+export const courseConstants = {
+    TITLE: 'Course/Certifications',
     SUPPORT_TYPE: 'a brand new laptop',
     QUESTION1: `We understand how difficult it can be to learn without a laptop/learning device.
     Can you please share how much NOT having a laptop has slowed down your progress?`,

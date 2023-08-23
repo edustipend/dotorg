@@ -1,6 +1,6 @@
-export const laptopConstants = {
-    TITLE: 'Laptop / Learning Device',
-    SUPPORT_TYPE: 'a brand new laptop',
+export const dataConstants = {
+    TITLE: 'Data/Internet subscription',
+    SUPPORT_TYPE: 'data of your preferred network',
     QUESTION1: `We understand how difficult it can be to learn without a laptop/learning device.
     Can you please share how much NOT having a laptop has slowed down your progress?`,
     QUESTION2: ` Are there any steps you've taken so far to keep making progress despite not having 

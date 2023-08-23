@@ -8,6 +8,7 @@
   font-size: 28px;
   max-width: 240px;
   line-height: 38px;
+  color: var(--edustipend-black);
 }
 
 .select {
@@ -28,13 +29,14 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: .5rem;
   justify-content: center;
   align-items: center;
 }
 
 .btn {
   max-width: 275px;
+  color: var(--edustipend-black);
 }
 
 .quoteSection {
@@ -87,6 +89,7 @@
   .buttons {
     flex-direction: row;
     justify-content: flex-end;
+    gap: 1rem;
   }
 
   .select {
