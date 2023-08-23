@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Button from '../../components/Button';
 import Header from '../../components/Header';
@@ -8,11 +9,10 @@ import { TestId } from './constatnts';
 import Container from '../../components/Container';
 import Input from '../../components/Input';
 import { Book, Hero3, ArrowDown, RightArrow } from '../../assets/index';
+import { email } from '../../redux/RequestApplication/RequestApplication'
 
 export const StartApplication = () => {
-  //const [value, setValue] = useState('');
-  //const [isValid, setIsValid] = useState(false);
-  //const [isLoading, setIsLoading] = useState(false);
+  const state = useSelector((state) => state.application);
   const nav = useNavigate();
   const [showScrollIndicator, setShowScrollIndicator] = useState(true);
 
@@ -49,7 +49,12 @@ export const StartApplication = () => {
           <Text className={styles.textB} content={TestId.PARAGRAPH} />
           <form className={styles.form} onSubmit={handleSubmit}>
             <div className={styles.inputContainer}>
-              <Input label={'Email Address'} placeholder={'Enter your email address'} className={styles.Input} />
+              <Input
+                value={state.email}
+                label={'Email Address'}
+                placeholder={'Enter your email address'}
+                dispatchType={email}
+                className={styles.Input} />
             </div>
             <div className={styles.btnContainer}>
               <Button

@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Header from '../../../components/Header';
 import { content } from './Internals/constants';
@@ -10,16 +10,14 @@ import Button from '../../../components/Button';
 import Quote from '../../../components/Quote';
 import styles from './Step1Application.module.css';
 import { RightArrow, BackArrow } from '../../../assets';
-
+import { progress, category } from '../../../redux/RequestApplication/RequestApplication'
 const { HEADING, OPTIONS, LABEL, QUOTE } = content
 const { COMPONENT_ID, HEADER_ID } = TestId
 
-export const Step1Application = ({ setActiveStep }) => {
+export const Step1Application = () => {
+  const dispatch = useDispatch()
+  const { stipendCategory } = useSelector(state => state.application)
   const nav = useNavigate()
-
-  const handleNextStep = () => {
-    setActiveStep((pre) => pre + 1)
-  }
 
   return (
     <div data-testid={COMPONENT_ID}>
@@ -29,7 +27,13 @@ export const Step1Application = ({ setActiveStep }) => {
             {HEADING}
           </Header>
           <div className={styles.selectCategory}>
-            <Select label={LABEL} options={OPTIONS} className={styles.select} />
+            <Select
+              value={stipendCategory}
+              label={LABEL}
+              options={OPTIONS}
+              dispatchType={category}
+              className={styles.select}
+            />
             <div className={styles.buttons}>
               <Button
                 effectAlt
@@ -44,7 +48,7 @@ export const Step1Application = ({ setActiveStep }) => {
                 label={'Continue'}
                 icon={RightArrow}
                 type={'secondary'}
-                onClick={handleNextStep}
+                onClick={() => dispatch(progress())}
                 className={styles.btn}
               />
             </div>
@@ -57,11 +61,3 @@ export const Step1Application = ({ setActiveStep }) => {
     </div>
   );
 };
-
-Step1Application.propTypes = {
-  setActiveStep: PropTypes.func
-}
-
-Step1Application.defaultProps = {
-  setActiveStep: () => { }
-}

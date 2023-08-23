@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import styles from './Input.module.css';
 import { TestId } from './constants';
 const { LABEL_ID, INPUT_ID } = TestId;
 
-export const Input = ({ dispatch, placeholder, label, value, dispatchType, type, size, className }) => {
+export const Input = ({ placeholder, label, value, dispatchType, type, size, className }) => {
   const [initialValue, setInitialValue] = useState(value);
+  const dispatch = useDispatch()
 
   const handleOnchange = (e) => {
     setInitialValue(e.target.value);
-    dispatch({ type: dispatchType, payload: e.target.value });
+    dispatch(dispatchType(e.target.value));
   };
 
   return (
@@ -31,22 +33,20 @@ export const Input = ({ dispatch, placeholder, label, value, dispatchType, type,
 };
 
 Input.propTypes = {
-  dispatch: PropTypes.func,
   placeholder: PropTypes.string,
   label: PropTypes.string,
   value: PropTypes.string,
-  dispatchType: PropTypes.string,
+  dispatchType: PropTypes.func,
   type: PropTypes.string,
   size: PropTypes.string,
   className: PropTypes.string
 };
 
 Input.defaultProps = {
-  dispatch: () => {},
   placeholder: 'Placeholder...',
   label: 'Some label',
   value: '',
-  dispatchType: '',
+  dispatchType: () => { },
   type: 'text',
   size: '',
   className: ''

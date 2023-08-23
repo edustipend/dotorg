@@ -1,16 +1,19 @@
 import React from 'react'
-import PropTypes from 'prop-types';
-import ContentContainer from '../../sections/ApplicationSteps/Internals/ContentContainer'
-import CategoryHeader from '../RequestApplication/CategoryHeader'
-import QuestionAndAnswer from '../RequestApplication/QuestionAndAnswer'
-import styles from './LaptopStipend.module.css'
-import Button from '../Button'
-import { BackArrow, RightArrow } from '../../assets'
-import { laptopConstants } from './Internals/constants'
-import Quote from '../Quote'
-const { TITLE, SUPPORT_TYPE, QUOTE, QUESTION1, QUESTION2, QUESTION3, QUESTION4, FOOT_NOTE1, FOOT_NOTE2, FOOT_NOTE3, FOOT_NOTE4 } = laptopConstants
+import { useDispatch } from 'react-redux';
+import ContentContainer from '../../../sections/ApplicationSteps/Internals/ContentContainer';
+import CategoryHeader from '../CategoryHeader'
+import QuestionAndAnswer from '../QuestionAndAnswer'
+import { dataConstants } from './Internals/constants'
+import Button from '../../Button'
+import { BackArrow, RightArrow } from '../../../assets';
+import styles from '../LaptopStipend/LaptopStipend.module.css'
+import Quote from '../../Quote'
+import { back, progress } from '../../../redux/RequestApplication/RequestApplication'
+const { TITLE, SUPPORT_TYPE, FOOT_NOTE1, FOOT_NOTE2, FOOT_NOTE3, FOOT_NOTE4, QUESTION1, QUESTION2, QUESTION3, QUESTION4, QUOTE } = dataConstants
 
-export const LaptopStipend = ({ setActiveStep }) => {
+export const DataStipend = () => {
+  const dispatch = useDispatch()
+
   return (
     <div className={styles.stipend}>
       <ContentContainer>
@@ -46,14 +49,14 @@ export const LaptopStipend = ({ setActiveStep }) => {
             icon={BackArrow}
             iconPosition={'back'}
             type={'plain'}
-            onClick={() => setActiveStep(prev => prev - 1)}
+            onClick={() => dispatch(back())}
             className={styles.button}
           />
           <Button
             label={'Continue'}
             icon={RightArrow}
             type={'secondary'}
-            onClick={() => setActiveStep(prev => prev + 1)}
+            onClick={() => dispatch(progress())}
             className={styles.button}
           />
         </div>
@@ -63,12 +66,4 @@ export const LaptopStipend = ({ setActiveStep }) => {
       </div>
     </div>
   )
-}
-
-LaptopStipend.propTypes = {
-  setActiveStep: PropTypes.func
-}
-
-LaptopStipend.defaultProps = {
-  setActiveStep: () => { }
 }

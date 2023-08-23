@@ -1,39 +1,29 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import LaptopStipend from '../../../components/LaptopStipend';
-import CourseStipend from '../../../components/CourseStipend';
-import DataStipend from '../../../components/DataStipend';
+import { useSelector } from 'react-redux';
+import LaptopStipend from '../../../components/RequestApplication/LaptopStipend';
+import CourseStipend from '../../../components/RequestApplication/CourseStipend';
+import DataStipend from '../../../components/RequestApplication/DataStipend';
 import { constant } from './Internals/constants';
 const { LAPTOP, DATA, COURSE } = constant
 
-export const Step2Application = ({ setActiveStep }) => {
-
-  const [selection] = useState(DATA)
+export const Step2Application = () => {
+  const { stipendCategory } = useSelector(state => state.application)
 
   return (
     <>
       {
         (() => {
-          switch (selection) {
+          switch (stipendCategory) {
             case LAPTOP:
-              return <LaptopStipend setActiveStep={setActiveStep} />;
+              return <LaptopStipend />;
             case DATA:
-              return <DataStipend setActiveStep={setActiveStep} />;
+              return <DataStipend />;
             case COURSE:
-              return <CourseStipend setActiveStep={setActiveStep} />;
+              return <CourseStipend />;
             default:
-              return <LaptopStipend setActiveStep={setActiveStep} />
+              return <LaptopStipend />
           }
         })()
       }
     </>
   );
 };
-
-Step2Application.propTypes = {
-  setActiveStep: PropTypes.func
-}
-
-Step2Application.defaultProps = {
-  setActiveStep: () => { }
-}
