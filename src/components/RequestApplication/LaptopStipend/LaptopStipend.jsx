@@ -1,6 +1,5 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import PropTypes from 'prop-types';
 import ContentContainer from '../../../sections/ApplicationSteps/Internals/ContentContainer';
 import CategoryHeader from '../CategoryHeader';
 import QuestionAndAnswer from '../QuestionAndAnswer';
@@ -74,17 +73,9 @@ export const LaptopStipend = () => {
           <Button disabled={isTrue ? false : true} label={'Continue'} icon={RightArrow} type={'secondary'} onClick={() => dispatch(progress())} className={styles.button} />
         </div>
       </ContentContainer>
-      <div className={styles.quoteContainer}>
-        <Quote content={QUOTE} className={styles.quote} />
+      <div className='quoteContainer'>
+        <Quote content={QUOTE} className='quote' />
       </div>
     </div>
   );
-};
-
-LaptopStipend.propTypes = {
-  setActiveStep: PropTypes.func
-};
-
-LaptopStipend.defaultProps = {
-  setActiveStep: () => { }
 };

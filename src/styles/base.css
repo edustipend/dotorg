@@ -48,7 +48,7 @@
   display: flex;
 }
 
-.display-card-title > p {
+.display-card-title>p {
   font-weight: 600;
   margin: 0;
   margin-left: 0.5rem;
@@ -107,10 +107,11 @@
   -ms-overflow-style: none;
 }
 
-.hig {
+.modal_content {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-inline: 1rem;
   background: #000000e5;
 }
 
@@ -138,6 +139,20 @@
 }
 
 /*************************************************************************************/
+.quoteContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.quote {
+  text-align: center;
+  color: var(--edustipend-black);
+  font-size: 14px;
+  padding: 26px 0;
+  max-width: 285px;
+  font-weight: 300;
+  font-style: italic;
+}
 
 @media screen and (min-width: 560px) {
   .display-card {
@@ -156,5 +171,14 @@
 
   .page-text {
     font-size: 1.25rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+
+  .quote {
+    font-size: 16px;
+    max-width: 100%;
+    padding: 60px 0;
   }
 }

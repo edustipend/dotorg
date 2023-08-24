@@ -10,6 +10,7 @@ import Button from '../../../components/Button';
 import Quote from '../../../components/Quote';
 import styles from './Step1Application.module.css';
 import { RightArrow, BackArrow } from '../../../assets';
+import { ScrollOnMount } from '../Internals/ScrollOnMount/ScrollOnMount';
 import { progress, category } from '../../../redux/ApplicationReducer/ApplicationRuducer';
 const { HEADING, OPTIONS, LABEL, QUOTE } = content;
 const { COMPONENT_ID, HEADER_ID } = TestId;
@@ -18,6 +19,8 @@ export const Step1Application = () => {
   const dispatch = useDispatch();
   const { stipendCategory } = useSelector((state) => state.application);
   const nav = useNavigate();
+  //scroll to the top on step mount
+  ScrollOnMount()
 
   //enable the continue button if a stipendCategory has been selected
   const isTrue = stipendCategory.length > 0

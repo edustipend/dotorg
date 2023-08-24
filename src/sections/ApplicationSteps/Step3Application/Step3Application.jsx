@@ -1,5 +1,102 @@
-import React from 'react';
+import { useState, useContext } from 'react';
+import { useDispatch } from 'react-redux';
+import ContentContainer from '../Internals/ContentContainer';
+import Header from '../../../components/Header';
+import handShake from '../../../assets/handShake.svg'
+import Modal from '../../../components/Modal';
+import Consent from './Internals/Consent';
+import { constants } from './Internals/constants';
+import Button from '../../../components/Button';
+import { BackArrow, RightArrow } from '../../../assets';
+import Quote from '../../../components/Quote';
+import styles from './Step3.module.css'
+import { ScrollOnMount } from '../Internals/ScrollOnMount/ScrollOnMount';
+import { ModalContext } from '../../../context/ModalContext';
+import { back, progress } from '../../../redux/ApplicationReducer/ApplicationRuducer'
+const { HEADER, DATA_PRIVACY, ACKNOWLEDGE, ACCEPT, REJECT, QUOTE } = constants
 
 export const Step3Application = () => {
-  return <div>Step3</div>;
+  const dispatch = useDispatch()
+  const [selectedOption, setSelectedOption] = useState('');
+  const { setIsActive } = useContext(ModalContext)
+
+  //scroll to the top on step mount
+  ScrollOnMount()
+
+  const handleChange = (event) => {
+    setSelectedOption(event.target.value);
+  };
+
+  //popup a prompt if the learner rejects else progress with the application
+  const handleOnClick = () => {
+    if (selectedOption === 'reject') {
+      setIsActive(prev => !prev);
+      return;
+    }
+    dispatch(progress())
+  }
+
+  return (
+    <>
+      <ContentContainer>
+        <section className={styles.dataConsent}>
+          <div className={styles.headerSection}>
+            <Header className={styles.header}>{HEADER}</Header>
+            <img src={handShake} alt="handShake" className={styles.handShake} />
+          </div>
+          <p className={styles.text}>{DATA_PRIVACY}</p>
+          <div className={styles.acknowledge}>
+            <p className={styles.text}>{ACKNOWLEDGE}</p>
+            <div className={styles.options}>
+              <label className={styles.label}>
+                <input
+                  type="radio"
+                  value="accept"
+                  checked={selectedOption === 'accept'}
+                  className={styles.radioInput}
+                  onChange={handleChange}
+                />
+                <span className={styles.custom_radio}>{ACCEPT}</span>
+              </label>
+              <label className={styles.label}>
+                <input
+                  type="radio"
+                  value="reject"
+                  checked={selectedOption === 'reject'}
+                  className={styles.radioInput}
+                  onChange={handleChange}
+                />
+                <span className={styles.custom_radio}>{REJECT}</span>
+              </label>
+            </div>
+          </div>
+          <div className={styles.btnContainer}>
+            <Button
+              type={'plain'}
+              label={'Back'}
+              effectAlt
+              icon={BackArrow}
+              iconPosition={'back'}
+              onClick={() => dispatch(back())}
+              className={styles.btn} />
+            <Button
+              type={'secondary'}
+              label={'Continue'}
+              effectAlt
+              icon={RightArrow}
+              iconPosition={'front'}
+              disabled={selectedOption.length > 0 ? false : true}
+              onClick={handleOnClick}
+              className={styles.btn} />
+          </div>
+        </section>
+      </ContentContainer>
+      <div className='quoteContainer'>
+        <Quote content={QUOTE} className='quote' />
+      </div>
+      <Modal>
+        <Consent setIsActive={setIsActive} />
+      </Modal>
+    </>
+  );
 };

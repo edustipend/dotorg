@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import bell from '../../../../assets/bell.svg';
 import success from '../../../../assets/success.png';
 import styles from './NotifyForm.module.css';
@@ -7,6 +8,7 @@ import Button from '../../../../components/Button';
 import Select from '../../../../components/Select';
 import { postData } from '../../../../services/ApiClient';
 import { ModalContext } from '../../../../context/ModalContext';
+import { howDidYouHear } from '../../../../redux/ApplicationReducer/ApplicationRuducer'
 const { EMAIL, HEADING, FULLNAME, REASON, SUBTITLE, SUCCESS, WAITLIST_SUCCESS } = formConstants;
 
 const REGEXP_EMAIL =
@@ -29,6 +31,7 @@ const SuccessDisplay = () => {
 };
 
 export const NotifyForm = () => {
+  const { HowDidYouHear } = useSelector(state => state.application)
   const initialValue = {
     name: '',
     email: ''
@@ -36,19 +39,18 @@ export const NotifyForm = () => {
   const { isLoading, setIsLoading } = useContext(ModalContext);
   const [userData, setUserData] = useState(initialValue);
   const [disabled, setDisabled] = useState(true);
-  const [source, setSource] = useState('');
   const [notificationSuccess, setNotificationSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const { name, email } = userData;
 
   //validate email and check if the fullname is atleast > 2
   useEffect(() => {
-    if (REGEXP_EMAIL.test(email) && name.length > 2 && REFERRAL_SOURCES.includes(source)) {
+    if (REGEXP_EMAIL.test(email) && name.length > 2 && REFERRAL_SOURCES.includes(HowDidYouHear)) {
       setDisabled(false);
     } else {
       setDisabled(true);
     }
-  }, [email, name, source]);
+  }, [email, name, HowDidYouHear]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -57,7 +59,7 @@ export const NotifyForm = () => {
     const res = await postData('waitlist/join-waitlist', {
       name: userData.name,
       email: userData.email,
-      howDidYouHearAboutUs: source
+      howDidYouHearAboutUs: HowDidYouHear
     });
     if (res.success) {
       setNotificationSuccess(true);
@@ -68,9 +70,7 @@ export const NotifyForm = () => {
     }
   };
 
-  const handleSelect = (option) => {
-    setSource(option.payload);
-  };
+
 
   return (
     <section className={styles.formArea}>
@@ -117,7 +117,7 @@ export const NotifyForm = () => {
             </div>
             {errorMessage && <small className={styles.error}>{errorMessage}</small>}
             <div className={styles.formField}>
-              <Select label={REASON} dispatch={handleSelect} options={REFERRAL_SOURCES} />
+              <Select value={HowDidYouHear} label={REASON} dispatchType={howDidYouHear} options={REFERRAL_SOURCES} />
             </div>
             <section className={styles.buttonContainer}>
               <Button

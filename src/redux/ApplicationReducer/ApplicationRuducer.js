@@ -11,6 +11,9 @@ const application = createSlice({
     progress: (state) => {
       state.activeStep += 1;
     },
+    howDidYouHear: (state, action) => {
+      state.HowDidYouHear = action.payload
+    },
     email: (state, action) => {
       state.email = action.payload;
     },
@@ -33,4 +36,4 @@ const application = createSlice({
 });
 
 export default application.reducer;
-export const { back, progress, email, category, reasonForRequest, stepsTaken, potentialBenefits, futureHelp } = application.actions;
+export const { back, progress, email, category, reasonForRequest, stepsTaken, potentialBenefits, futureHelp, howDidYouHear } = application.actions;
