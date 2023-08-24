@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Loader from '../Loader';
 import { ButtonType, ClassName, DEFAULT_BUTTON_LABEL, IconPosition, TestId } from './constants';
 import './styles.css';
 
@@ -16,12 +17,26 @@ const getButtonMode = (type) => {
 /**
  * Button component for use on Edustipend pages
  */
-export const Button = ({ className, dataTest, disabled, effectAlt, label, icon, iconPosition, size, type, ...props }) => {
+export const Button = ({
+  className,
+  dataTest,
+  disabled,
+  effectAlt,
+  label,
+  icon,
+  iconPosition,
+  isLoading,
+  loaderSize,
+  loaderVariant,
+  size,
+  type,
+  ...props
+}) => {
   const mode = getButtonMode(type);
   return (
     <div
       className={`${type === ButtonType.PRIMARY ? 'effect' : type === ButtonType.SECONDARY ? 'effect effect_alt' : ''}
-  ${disabled ? 'disabled' : ''} ${effectAlt ? 'effectAlt' : ''}`}
+      ${disabled ? 'disabled' : ''}  ${effectAlt ? 'effectAlt' : ''}`}
     >
       <button
         data-testid={dataTest}
@@ -36,7 +51,7 @@ export const Button = ({ className, dataTest, disabled, effectAlt, label, icon, 
         ].join(' ')}
         {...props}
       >
-        {label || DEFAULT_BUTTON_LABEL}
+        {isLoading ? <Loader variant={loaderVariant} size={loaderSize} /> : label || DEFAULT_BUTTON_LABEL}
         {icon && (
           <div className={iconPosition === IconPosition.BACK ? 'icon back-icon' : iconPosition === IconPosition.FRONT ? 'icon front-icon' : ''}>
             <img src={icon} alt="icon" />
@@ -54,7 +69,10 @@ Button.propTypes = {
   effectAlt: PropTypes.bool,
   icon: PropTypes.string,
   iconPosition: PropTypes.oneOf(['back', 'front']),
+  isLoading: PropTypes.bool,
   label: PropTypes.string.isRequired,
+  loaderSize: PropTypes.string,
+  loaderVariant: PropTypes.string,
   next: PropTypes.bool,
   onClick: PropTypes.func,
   size: PropTypes.oneOf(['small', 'medium', 'large']),
@@ -68,7 +86,10 @@ Button.defaultProps = {
   effectAlt: false,
   icon: '',
   iconPosition: 'front',
+  isLoading: false,
   label: 'Click me',
+  loaderSize: 'medium',
+  loaderVariant: 'primary',
   onClick: undefined,
-  size: 'medium',
+  size: 'medium'
 };

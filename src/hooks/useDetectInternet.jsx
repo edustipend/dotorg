@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const CustomNoInternet = () => {
+const useDetectInternet = () => {
   const [isOnline, setIsOnline] = useState(navigator.onLine);
 
   useEffect(() => {
@@ -20,4 +20,4 @@ const CustomNoInternet = () => {
   return (isOnline)
 };
 
-export default CustomNoInternet;
+export default useDetectInternet;
