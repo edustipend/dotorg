@@ -7,7 +7,7 @@ export const Application = () => {
       <h2 className="section-header">
         <p>Application Form</p>
       </h2>
-      <div>
+      <div className="request-form-container">
         <iframe
           className="request-form"
           title="google-form"
@@ -16,8 +16,7 @@ export const Application = () => {
           height="1010"
           frameBorder="0"
           marginHeight="0"
-          marginWidth="0"
-        >
+          marginWidth="0">
           Loading…
         </iframe>{' '}
       </div>

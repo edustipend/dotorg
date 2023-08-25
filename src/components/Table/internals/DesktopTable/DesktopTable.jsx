@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import { applicationStatus } from '../constants';
 const { APPROVED, IN_VIEW, RECEIVED, DENIED } = applicationStatus;
 
-export const DesktopTable = ({ entries, tableHead, oneClickApply }) => {
+export const DesktopTable = ({ entries, tableHead }) => {
   const lastItem = entries?.length - 1;
+
   return (
     <section className={styles.Main}>
       <table className={styles.desktopTable}>
@@ -38,20 +39,13 @@ export const DesktopTable = ({ entries, tableHead, oneClickApply }) => {
                         : Application_Status === `${DENIED}`
                         ? 'denied bold_weight'
                         : ''
-                    }
-                  >
+                    }>
                     {Application_Status}
                   </span>
                 </td>
                 <td>{Date_of_submission}</td>
                 <td>{Time_of_submission}</td>
-                {tableHead[5] && (
-                  <td className={idx === lastItem ? `${styles.lastColumn}` : undefined}>
-                    <button className={styles.btn} onClick={() => oneClickApply(idx + 1)}>
-                      {Action}
-                    </button>
-                  </td>
-                )}
+                <td className={idx === lastItem ? `${styles.lastColumn}` : undefined}>{Action}</td>
               </tr>
             );
           })}
@@ -63,8 +57,7 @@ export const DesktopTable = ({ entries, tableHead, oneClickApply }) => {
 
 DesktopTable.propTypes = {
   entries: PropTypes.array,
-  tableHead: PropTypes.array,
-  oneClickApply: PropTypes.func
+  tableHead: PropTypes.array
 };
 DesktopTable.defaultProps = {
   entries: [],

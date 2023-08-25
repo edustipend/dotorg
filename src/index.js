@@ -1,22 +1,26 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ModalContextProvider } from './context/ModalContext';
 import { SidebarProvider } from './context/SidebarContext';
+import store from './store';
 const container = document.getElementById('root');
 const root = createRoot(container);
 
 root.render(
   <BrowserRouter>
     <React.StrictMode>
-      <ModalContextProvider>
-        <SidebarProvider>
-          <App />
-        </SidebarProvider>
-      </ModalContextProvider>
+      <Provider store={store}>
+        <ModalContextProvider>
+          <SidebarProvider>
+            <App />
+          </SidebarProvider>
+        </ModalContextProvider>
+      </Provider>
     </React.StrictMode>
   </BrowserRouter>
 );

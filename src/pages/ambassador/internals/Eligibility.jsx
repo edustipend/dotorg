@@ -3,7 +3,7 @@ import '../styles.css';
 
 export const Eligibility = () => {
   return (
-    <div className="top-main" style={{ backgroundColor: 'paleturquoise' }} id="eligibility">
+    <div className="top-main eligibilty" style={{ backgroundColor: 'paleturquoise' }} id="eligibility">
       <div className="top-main-child">
         <h2 className="section-header">Eligibility</h2>
         <div className="section-header-underline color-accent">
