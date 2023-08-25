@@ -9,7 +9,7 @@ import { BackArrow, RightArrow } from '../../../assets';
 import styles from '../LaptopStipend/LaptopStipend.module.css';
 import Quote from '../../Quote';
 import { application } from '../../../utils/CheckStipendApplication/checkStipendApplication';
-import { back, progress, reasonForRequest, stepsTaken, potentialBenefits, futureHelp } from '../../../redux/ApplicationReducer/ApplicationRuducer';
+import { back, progress, reasonForRequest, stepsTaken, potentialBenefits, futureHelp } from '../../../redux/ApplicationReducer';
 const { TITLE, SUPPORT_TYPE, FOOT_NOTE1, FOOT_NOTE2, FOOT_NOTE3, FOOT_NOTE4, QUESTION1, QUESTION2, QUESTION3, QUESTION4, QUOTE } = dataConstants;
 
 export const DataStipend = () => {

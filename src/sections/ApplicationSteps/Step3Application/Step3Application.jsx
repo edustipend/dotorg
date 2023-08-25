@@ -12,7 +12,7 @@ import Quote from '../../../components/Quote';
 import styles from './Step3.module.css'
 import { ScrollOnMount } from '../Internals/ScrollOnMount/ScrollOnMount';
 import { ModalContext } from '../../../context/ModalContext';
-import { back, progress } from '../../../redux/ApplicationReducer/ApplicationRuducer'
+import { back, progress } from '../../../redux/ApplicationReducer'
 const { HEADER, DATA_PRIVACY, ACKNOWLEDGE, ACCEPT, REJECT, QUOTE } = constants
 
 export const Step3Application = () => {

@@ -10,7 +10,7 @@ import Header from '../../../components/Header';
 import Text from '../../../components/Text';
 import Quote from '../../../components/Quote';
 import Submit from './Internals/Submit';
-import { back } from '../../../redux/ApplicationReducer/ApplicationRuducer'
+import { back } from '../../../redux/ApplicationReducer'
 import { ScrollOnMount } from '../Internals/ScrollOnMount/ScrollOnMount';
 import { BackArrow } from '../../../assets';
 import { constants } from './Internals/constants';

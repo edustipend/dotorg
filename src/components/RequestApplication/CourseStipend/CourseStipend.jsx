@@ -9,7 +9,7 @@ import CategoryHeader from '../CategoryHeader';
 import QuestionAndAnswer from '../QuestionAndAnswer';
 import { application } from '../../../utils/CheckStipendApplication/checkStipendApplication';
 import Quote from '../../Quote';
-import { back, progress, reasonForRequest, stepsTaken, potentialBenefits, futureHelp } from '../../../redux/ApplicationReducer/ApplicationRuducer';
+import { back, progress, reasonForRequest, stepsTaken, potentialBenefits, futureHelp } from '../../../redux/ApplicationReducer';
 const { TITLE, SUPPORT_TYPE, FOOT_NOTE1, FOOT_NOTE2, FOOT_NOTE3, FOOT_NOTE4, QUESTION1, QUESTION2, QUESTION3, QUESTION4, QUOTE } = courseConstants;
 
 export const CourseStipend = () => {

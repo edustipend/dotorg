@@ -11,7 +11,7 @@ import Quote from '../../../components/Quote';
 import styles from './Step1Application.module.css';
 import { RightArrow, BackArrow } from '../../../assets';
 import { ScrollOnMount } from '../Internals/ScrollOnMount/ScrollOnMount';
-import { progress, category } from '../../../redux/ApplicationReducer/ApplicationRuducer';
+import { progress, category } from '../../../redux/ApplicationReducer';
 const { HEADING, OPTIONS, LABEL, QUOTE } = content;
 const { COMPONENT_ID, HEADER_ID } = TestId;
 

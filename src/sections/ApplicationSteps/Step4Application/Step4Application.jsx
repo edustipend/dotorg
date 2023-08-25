@@ -12,12 +12,12 @@ import { BackArrow, RightArrow } from '../../../assets';
 import { constants } from './Internals/constants';
 import { Hug } from '../../../assets';
 import { ScrollOnMount } from '../Internals/ScrollOnMount/ScrollOnMount';
-import { back, progress } from '../../../redux/ApplicationReducer/ApplicationRuducer'
+import { back, progress } from '../../../redux/ApplicationReducer'
 import {
   fullName, email, monthOfBirth,
   dayOfBirth, yearOfBirth, gender,
   stateOfOrigin, twitterHandle, howDidYouHear
-} from '../../../redux/UserDetailsReducer/UserDetailsReducer';
+} from '../../../redux/UserDetailsReducer';
 
 const {
   HEADER, SUBHEADER, FULLNAME, FULLNAME_PH, EMAIL, EMAIL_PH,

@@ -14,7 +14,8 @@
 }
 
 .title {
-  font-size: 32px;
+  font-size: 20px;
+  flex-wrap: wrap;
   line-height: 35px;
   font-family: 'Poppins';
 }
@@ -36,6 +37,12 @@
   background-color: #5801ff0d;
   font-weight: 300;
   padding: 1rem;
+}
+
+@media screen and (min-width: 375px) {
+  .title {
+    font-size: 24px;
+  }
 }
 
 @media screen and (min-width: 768px) {
