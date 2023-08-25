@@ -65,7 +65,6 @@
 
 .desktopTable tbody tr:last-child {
   border-bottom: 1px solid transparent;
-<<<<<<< HEAD
 }
 
 .btn {
@@ -73,8 +72,6 @@
   padding: 0;
   font-size: 14px;
   height: 0;
-=======
->>>>>>> 52ea5651a6558dda3e0f30d2224bde31d8b5b03b
 }
 
 @media screen and (min-width: 1400px) {

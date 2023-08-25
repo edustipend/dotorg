@@ -6,11 +6,7 @@ import arrowright from '../../../../assets/arrow-right.svg';
 import { applicationStatus } from '../constants';
 const { APPROVED, IN_VIEW, RECEIVED, DENIED } = applicationStatus;
 
-<<<<<<< HEAD
 export const MobileTable = ({ entries, tableHead, oneClickApply }) => {
-=======
-export const MobileTable = ({ entries, tableHead }) => {
->>>>>>> 52ea5651a6558dda3e0f30d2224bde31d8b5b03b
   const [entry, setEntry] = useState(0);
   const currentEntry = entries[entry];
   const status = currentEntry.Application_Status;
@@ -21,6 +17,7 @@ export const MobileTable = ({ entries, tableHead }) => {
   const handleArrowRight = () => {
     setEntry((prev) => prev + 1);
   };
+
   return (
     <div className={styles.Main}>
       <table className={styles.mobileTable}>
@@ -32,24 +29,14 @@ export const MobileTable = ({ entries, tableHead }) => {
                 <button
                   disabled={entry === 0 ? true : false}
                   className={entry === 0 ? `${styles.disabled} ${styles.arrowContainer}` : `${styles.arrowContainer}`}
-<<<<<<< HEAD
                   onClick={handleArrowLeft}>
-=======
-                  onClick={handleArrowLeft}
-                >
->>>>>>> 52ea5651a6558dda3e0f30d2224bde31d8b5b03b
                   <img src={arrowleft} alt="arrowleft" className={styles.arrow_img} />
                 </button>
                 <span className={styles.id}>{currentEntry && currentEntry.id}</span>
                 <button
                   disabled={entry + 1 === entries.length ? true : false}
                   className={entry + 1 === entries.length ? `${styles.disabled} ${styles.arrowContainer}` : `${styles.arrowContainer}`}
-<<<<<<< HEAD
                   onClick={handleArrowRight}>
-=======
-                  onClick={handleArrowRight}
-                >
->>>>>>> 52ea5651a6558dda3e0f30d2224bde31d8b5b03b
                   <img src={arrowright} alt="arrowright" className={styles.arrow_img} />
                 </button>
               </div>
@@ -75,12 +62,7 @@ export const MobileTable = ({ entries, tableHead }) => {
                     : status === `${DENIED}`
                     ? 'denied bold_weight'
                     : ''
-<<<<<<< HEAD
                 }>
-=======
-                }
-              >
->>>>>>> 52ea5651a6558dda3e0f30d2224bde31d8b5b03b
                 {currentEntry && currentEntry.Application_Status}
               </span>
             </td>
@@ -93,7 +75,6 @@ export const MobileTable = ({ entries, tableHead }) => {
             <td className={`${styles.head} ${styles.headAlt}`}>{tableHead[4]}</td>
             <td className={`${styles.row} ${styles.rowAlt}`}>{currentEntry && currentEntry.Time_of_submission}</td>
           </tr>
-<<<<<<< HEAD
           {tableHead[5] && (
             <tr>
               <td className={`${styles.head} ${styles.headAlt} ${styles.row1}`}>{tableHead[5]}</td>
@@ -104,12 +85,6 @@ export const MobileTable = ({ entries, tableHead }) => {
               </td>
             </tr>
           )}
-=======
-          <tr>
-            <td className={`${styles.head} ${styles.headAlt} ${styles.row1}`}>{tableHead[5]}</td>
-            <td className={`${styles.row} ${styles.rowAlt} ${styles.row2}`}>{currentEntry && currentEntry.Action}</td>
-          </tr>
->>>>>>> 52ea5651a6558dda3e0f30d2224bde31d8b5b03b
         </tbody>
       </table>
     </div>
@@ -118,12 +93,8 @@ export const MobileTable = ({ entries, tableHead }) => {
 
 MobileTable.propTypes = {
   entries: PropTypes.array,
-<<<<<<< HEAD
   tableHead: PropTypes.array,
   oneClickApply: PropTypes.func
-=======
-  tableHead: PropTypes.array
->>>>>>> 52ea5651a6558dda3e0f30d2224bde31d8b5b03b
 };
 MobileTable.defaultProps = {
   entries: [],

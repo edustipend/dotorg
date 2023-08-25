@@ -6,10 +6,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ModalContextProvider } from './context/ModalContext';
-<<<<<<< HEAD
 import { SidebarProvider } from './context/SidebarContext';
-=======
->>>>>>> 52ea5651a6558dda3e0f30d2224bde31d8b5b03b
 import store from './store';
 const container = document.getElementById('root');
 const root = createRoot(container);
@@ -19,13 +16,9 @@ root.render(
     <React.StrictMode>
       <Provider store={store}>
         <ModalContextProvider>
-<<<<<<< HEAD
           <SidebarProvider>
             <App />
           </SidebarProvider>
-=======
-          <App />
->>>>>>> 52ea5651a6558dda3e0f30d2224bde31d8b5b03b
         </ModalContextProvider>
       </Provider>
     </React.StrictMode>

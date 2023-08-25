@@ -35,14 +35,8 @@ export const Home = () => {
       </section>
       <section className={styles.quote}>
         {/**Placeholder quote*/}
-<<<<<<< HEAD
         <p className={styles.quoteText} data-testid={TestId.QUOTE}>
           "{Quote.content}" - <i className={styles.italic}>{Quote.author}</i>
-=======
-        <p className={styles.quoteText}>
-          "Believe in yourself, take on your challenges, dig deep within yourself to conquer fears. Never let anyone bring you down. You got this." -{' '}
-          <i className={styles.italic}>Chantal Sutherland</i>
->>>>>>> 52ea5651a6558dda3e0f30d2224bde31d8b5b03b
         </p>
       </section>
       {applicationTable && (
