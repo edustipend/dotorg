@@ -9,11 +9,11 @@ import { TestId } from './constatnts';
 import Container from '../../components/Container';
 import Input from '../../components/Input';
 import { Book, Hero3, ArrowDown, RightArrow } from '../../assets/index';
-import { email } from '../../redux/ApplicationReducer/ApplicationRuducer';
+import { email } from '../../redux/UserDetailsReducer/UserDetailsReducer';
 import { checkEmail } from '../../utils/EmailChecker/emailChecker';
 
 export const StartApplication = () => {
-  const state = useSelector((state) => state.application);
+  const state = useSelector((state) => state.userDetails);
   const [showScrollIndicator, setShowScrollIndicator] = useState(true);
   const nav = useNavigate();
 
@@ -30,7 +30,7 @@ export const StartApplication = () => {
   }, []);
 
   //enable the button if the email is valid
-  const isTrue = checkEmail(state.email);
+  const isTrue = checkEmail(state.Email);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -54,7 +54,7 @@ export const StartApplication = () => {
           <form className={styles.form} onSubmit={handleSubmit}>
             <div className={styles.inputContainer}>
               <Input
-                value={state.email}
+                value={state.Email}
                 label={'Email Address'}
                 placeholder={'Enter your email address'}
                 dispatchType={email}

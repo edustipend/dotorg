@@ -14,9 +14,6 @@ const application = createSlice({
     howDidYouHear: (state, action) => {
       state.HowDidYouHear = action.payload
     },
-    email: (state, action) => {
-      state.email = action.payload;
-    },
     category: (state, action) => {
       state.stipendCategory = action.payload;
     },
@@ -36,4 +33,4 @@ const application = createSlice({
 });
 
 export default application.reducer;
-export const { back, progress, email, category, reasonForRequest, stepsTaken, potentialBenefits, futureHelp, howDidYouHear } = application.actions;
+export const { back, progress, category, reasonForRequest, stepsTaken, potentialBenefits, futureHelp, howDidYouHear } = application.actions;

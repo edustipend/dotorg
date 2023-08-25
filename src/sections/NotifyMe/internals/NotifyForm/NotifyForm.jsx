@@ -31,7 +31,7 @@ const SuccessDisplay = () => {
 };
 
 export const NotifyForm = () => {
-  const { HowDidYouHear } = useSelector(state => state.application)
+  const { HowDidYouHear } = useSelector(state => state.userDetails)
   const initialValue = {
     name: '',
     email: ''

@@ -1,10 +1,8 @@
 export const initialState = {
-  activeStep: 3,
-  email: '',
+  activeStep: 4,
   stipendCategory: '',
   ReasonForRequest: '',
   StepsTakenToEaseProblem: '',
   PotentialBenefits: '',
   FutureHelpFromUser: '',
-  HowDidYouHear: ''
 };

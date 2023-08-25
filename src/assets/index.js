@@ -21,6 +21,7 @@ import Twitter from './social/twitter.png';
 import LinkedIn from './social/linkedin.png';
 import Eyes from './eyeballs emoji.svg'
 import Tears from './crying face.svg'
+import Hug from './hugging-face_emoji.svg'
 
 export {
   Hero1,
@@ -45,5 +46,6 @@ export {
   Twitter,
   LinkedIn,
   Eyes,
-  Tears
+  Tears,
+  Hug
 };

@@ -5,7 +5,7 @@ import styles from './Input.module.css';
 import { TestId } from './constants';
 const { LABEL_ID, INPUT_ID } = TestId;
 
-export const Input = ({ placeholder, label, value, dispatchType, type, size, className }) => {
+export const Input = ({ placeholder, label, includeLabel, value, dispatchType, type, size, className }) => {
   const [initialValue, setInitialValue] = useState(value);
   const dispatch = useDispatch();
 
@@ -16,9 +16,11 @@ export const Input = ({ placeholder, label, value, dispatchType, type, size, cla
 
   return (
     <section className={styles.main}>
-      <label data-testid={LABEL_ID} htmlFor="input" className={styles.label}>
-        {label} <span className={styles.required}>*</span>
-      </label>
+      {
+        includeLabel ? <label data-testid={LABEL_ID} htmlFor="input" className={styles.label}>
+          {label} <span className={styles.required}>*</span>
+        </label> : undefined
+      }
       <input
         data-testid={INPUT_ID}
         type={type}
@@ -35,6 +37,7 @@ export const Input = ({ placeholder, label, value, dispatchType, type, size, cla
 Input.propTypes = {
   placeholder: PropTypes.string,
   label: PropTypes.string,
+  includeLabel: PropTypes.bool,
   value: PropTypes.string,
   dispatchType: PropTypes.func,
   type: PropTypes.string,
@@ -45,8 +48,9 @@ Input.propTypes = {
 Input.defaultProps = {
   placeholder: 'Placeholder...',
   label: 'Some label',
+  includeLabel: true,
   value: '',
-  dispatchType: () => {},
+  dispatchType: () => { },
   type: 'text',
   size: '',
   className: ''
