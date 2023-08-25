@@ -1,0 +1,70 @@
+.headerContainer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.header {
+    font-size: 32px;
+}
+
+.emoji {
+    width: 64px;
+    height: 34px;
+}
+
+.textContainer {
+    margin-top: 18px;
+    max-width: 827px;
+    font-family: 'Manrope';
+    font-size: 16px;
+    color: var(--edustipend-black);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.diffrent {
+    max-width: 155px;
+}
+
+.btnContainer {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.btn {
+    max-width: 270px;
+    color: var(--edustipend-black);
+}
+
+@media screen and (min-width:600px) {
+    .btnContainer {
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+
+    .btn {
+        width: 183px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .header {
+        font-size: 36px;
+    }
+
+    .emoji {
+        width: 72px;
+        height: 49px;
+        margin-left: 5px;
+    }
+
+    .textContainer {
+        font-size: 18px;
+        gap: 3.5rem;
+    }
+}

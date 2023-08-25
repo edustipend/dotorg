@@ -22,6 +22,9 @@ import LinkedIn from './social/linkedin.png';
 import Eyes from './eyeballs emoji.svg'
 import Tears from './crying face.svg'
 import Hug from './hugging-face_emoji.svg'
+import DancingEmoji from './dancing_emoji.svg'
+import UserPlus from './UserPlus.svg'
+import PaperPlane from './PaperPlaneTilt.svg'
 
 export {
   Hero1,
@@ -47,5 +50,8 @@ export {
   LinkedIn,
   Eyes,
   Tears,
-  Hug
+  Hug,
+  DancingEmoji,
+  UserPlus,
+  PaperPlane
 };

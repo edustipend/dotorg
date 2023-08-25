@@ -74,6 +74,7 @@
   color: var(--navy-blue);
 }
 
+
 .disabledtopsteptitle,
 .disabledbottomselecttitle {
   font-size: 16px;
@@ -95,6 +96,10 @@
 .disabledbottomselecttitle,
 .bottomselecttitle {
   width: 105px;
+}
+
+.bottomselecttitle {
+  width: 122px;
 }
 
 @media screen and (min-width: 1024px) {

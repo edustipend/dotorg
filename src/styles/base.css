@@ -154,6 +154,45 @@
   font-style: italic;
 }
 
+.quote2 {
+  max-width: 275px;
+}
+
+/****************************************************************************************/
+.animated {
+  animation: animate 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95) forwards;
+}
+
+.animatedAlt {
+  animation: animateAlt 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95) forwards;
+}
+
+@keyframes animate {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes animateAlt {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/******************************************************************************************/
+
 @media screen and (min-width: 560px) {
   .display-card {
     height: 280px;
@@ -180,5 +219,45 @@
     font-size: 16px;
     max-width: 100%;
     padding: 60px 0;
+  }
+
+  .quote2 {
+    max-width: 400px;
+  }
+
+  @keyframes animate {
+    0% {
+      opacity: 0;
+      transform: translateX(-100px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateX(0px);
+    }
+  }
+
+  @keyframes animateAlt {
+    0% {
+      opacity: 0;
+      transform: translateX(100px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateX(0px);
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .quote2 {
+    max-width: 700px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .quote2 {
+    max-width: 100%;
   }
 }

@@ -27,8 +27,9 @@ const {
 } = constants
 
 export const Step4Application = () => {
+  //scroll on mount
+  ScrollOnMount()
   const dispatch = useDispatch()
-
   const {
     FullName,
     Email,
@@ -41,10 +42,6 @@ export const Step4Application = () => {
     HowDidYouHear
   } = useSelector(state => state.userDetails)
 
-  //scroll on mount
-  ScrollOnMount()
-
-  
   const userDetails = {
     FullName,
     Email,
@@ -78,7 +75,6 @@ export const Step4Application = () => {
    * 
    * @returns  either true or false
    */
-
   const minmumRequired = Object.keys(userDetails).every(item => {
     if (item === 'Email') {
       return checkEmail(userDetails[item]) && userDetails[item].length >= minLengths[item];
@@ -219,24 +215,3 @@ export const Step4Application = () => {
     </>
   );
 };
-
-/**
- * 
- const fullNameIsValid = FullName.length > 2
-  const emailIsValid = checkEmail(Email)
-  //const monthOfBirthIsValid = MonthOfBirth.length > 3
-  const dayOfBirthIsValid = DayOfBirth.length > 1
-  const yearOfBirthIsValid = YearOfBirth.length > 3
-  //const genderIsValid = Gender.length >= 4
-  const twitterIsValid = TwitterHandle.length >= 1
-
-  useEffect(() => {
-    if (fullNameIsValid && emailIsValid
-      && MonthOfBirth && dayOfBirthIsValid
-      && yearOfBirthIsValid && Gender && StateOfOrigin && twitterIsValid && HowDidYouHear) {
-      setIsdisabled(false)
-    } else {
-      setIsdisabled(true)
-    }
-  }, [fullNameIsValid, emailIsValid, MonthOfBirth, dayOfBirthIsValid, yearOfBirthIsValid, Gender, StateOfOrigin, twitterIsValid, HowDidYouHear])
- */

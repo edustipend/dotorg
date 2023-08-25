@@ -27,7 +27,7 @@ export const Consent = ({ setIsActive }) => {
         <div className={styles.consent}>
             <img src={BackArrow} alt="goBack" onClick={handleClose} className={styles.arrow} />
             {refused ?
-                <div className={`${styles.declined} ${styles.animated}`}>
+                <div className={`${styles.declined} animated`}>
                     <img src={Tears} alt="tears" />
                     <Header className={styles.header}>{DECLINE2}</Header>
                     <p className={styles.prompt}>{PROMPT2}</p>
@@ -49,7 +49,7 @@ export const Consent = ({ setIsActive }) => {
                     </div>
                 </div>
                 :
-                <div className={`${styles.declined} ${styles.animatedAlt}`}>
+                <div className={`${styles.declined} animatedAlt`}>
                     <img src={Eyes} alt="eyes" className={styles.emoji} />
                     <Header className={styles.header}>{DECLINE}</Header>
                     <p className={styles.prompt}>{PROMPT}</p>

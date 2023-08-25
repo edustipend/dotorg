@@ -28,9 +28,12 @@ const application = createSlice({
     },
     futureHelp: (state, action) => {
       state.FutureHelpFromUser = action.payload;
+    },
+    success: (state, action) => {
+      state.Success = action.payload;
     }
   }
 });
 
 export default application.reducer;
-export const { back, progress, category, reasonForRequest, stepsTaken, potentialBenefits, futureHelp, howDidYouHear } = application.actions;
+export const { back, progress, category, reasonForRequest, stepsTaken, potentialBenefits, futureHelp, howDidYouHear, success } = application.actions;
