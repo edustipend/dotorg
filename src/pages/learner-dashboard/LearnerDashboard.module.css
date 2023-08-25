@@ -31,8 +31,11 @@
   .main {
     flex-direction: row;
   }
+<<<<<<< HEAD
 
   .menu {
     display: none;
   }
+=======
+>>>>>>> 52ea5651a6558dda3e0f30d2224bde31d8b5b03b
 }

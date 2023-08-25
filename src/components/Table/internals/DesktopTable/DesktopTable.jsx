@@ -39,7 +39,12 @@ export const DesktopTable = ({ entries, tableHead }) => {
                         : Application_Status === `${DENIED}`
                         ? 'denied bold_weight'
                         : ''
+<<<<<<< HEAD
                     }>
+=======
+                    }
+                  >
+>>>>>>> 52ea5651a6558dda3e0f30d2224bde31d8b5b03b
                     {Application_Status}
                   </span>
                 </td>
