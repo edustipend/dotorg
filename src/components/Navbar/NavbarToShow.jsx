@@ -36,7 +36,7 @@ export const NavbarToShow = () => {
       <div className="log-out-container">
         <img src={Logout} alt="logout dropdown" className="log-out" onClick={() => setDropDown((prev) => !prev)} />
 
-        {dropDown && <div className="drop-down">Log out</div>}
+        {dropDown && <button className="drop-down">Log out</button>}
       </div>
     </div>
   ) : null;
