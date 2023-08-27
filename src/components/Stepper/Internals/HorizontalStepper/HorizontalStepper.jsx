@@ -39,12 +39,18 @@ HorizontalStepper.propTypes = {
   activeStep: PropTypes.number.isRequired,
   stepsData: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      step: PropTypes.string.isRequired,
-      label: PropTypes.string.isRequired,
-      arrow: PropTypes.string.isRequired
+      id: PropTypes.number,
+      step: PropTypes.string,
+      label: PropTypes.string,
+      arrow: PropTypes.string
     })
   ).isRequired
 };
+
+HorizontalStepper.defaultProps = {
+  activeStep: 1,
+  stepsData: []
+};
+
 
 export default HorizontalStepper;
