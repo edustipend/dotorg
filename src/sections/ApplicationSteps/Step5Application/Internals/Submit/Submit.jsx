@@ -55,7 +55,7 @@ export const Submit = () => {
     const handleSubmit = () => {
         setIsLoading(true);
         const promise = routes.map((url, idx) => postData(url, dataBody[idx]))
-        
+
         Promise.all(promise)
             .then(responses => {
                 responses.forEach((response) => {
@@ -65,8 +65,8 @@ export const Submit = () => {
                     } else if (!response.success) {
                         console.log('Error something went wrong', response);
                     }
+                    setIsLoading(false)
                 });
-                setIsLoading(false)
             }).catch(error => {
                 console.log('Error', error);
                 setIsLoading(false)

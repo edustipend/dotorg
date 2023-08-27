@@ -13,8 +13,12 @@ export const constants = {
     GENDER_PH: 'Select Gender',
     STATE: 'State Of Origin',
     STATE_PH: 'Select Your State Of Origin',
-    TWITTER: 'Twitter handle',
+    TWITTER: 'Twitter Handle',
     TWITTER_PH: '@',
+    PASSWORD: 'Password',
+    PASSWORD_PH: 'Create your password',
+    CONFIRM_PASSWORD: "Confirm Password",
+    CONFIRM_PASSWORD_PH: "Re-enter your password",
     AD: `One last question, well almost the last one.
     How did you hear about Edustipend?`,
     AD_PH: 'Please select',

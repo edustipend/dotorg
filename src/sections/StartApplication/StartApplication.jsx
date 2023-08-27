@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Button from '../../components/Button';
 import Header from '../../components/Header';
@@ -16,6 +16,7 @@ export const StartApplication = () => {
   const state = useSelector((state) => state.userDetails);
   const [showScrollIndicator, setShowScrollIndicator] = useState(true);
   const nav = useNavigate();
+  const dispatch = useDispatch()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -57,7 +58,7 @@ export const StartApplication = () => {
                 value={state.Email}
                 label={'Email Address'}
                 placeholder={'Enter your email address'}
-                dispatchType={email}
+                onChange={(e) => dispatch(email(e.target.value))}
                 className={styles.Input}
               />
             </div>

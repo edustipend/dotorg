@@ -6,7 +6,7 @@ import styles from '../Submit/Submit.module.css'
 import Header from '../../../../../components/Header'
 import Button from '../../../../../components/Button'
 import Quote from '../../../../../components/Quote'
-import { constants } from './Internals/constants'
+import { constants } from './constants'
 import { PaperPlane, BackArrow } from '../../../../../assets'
 
 const { HEADER, PARA1, PARA2, EMAIL, QUOTE } = constants

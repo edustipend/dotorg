@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './Step4Application.module.css'
 import { useDispatch, useSelector } from 'react-redux';
 import ContentContainer from '../Internals/ContentContainer';
@@ -23,13 +23,23 @@ const {
   HEADER, SUBHEADER, FULLNAME, FULLNAME_PH, EMAIL, EMAIL_PH,
   MTH_PH, DAY_PH, YR_PH, GENDER, GENDER_PH, STATE, STATE_PH, DOB,
   TWITTER, TWITTER_PH, AD, AD_PH, QUOTE, DOB_TEXT, GENDER_TEXT,
-  TWITTER_TEXT, MONTHS_OPTION, GENDER_OPTION, STATE_OPTION, REFERRAL_SOURCES
+  TWITTER_TEXT, MONTHS_OPTION, GENDER_OPTION, STATE_OPTION, REFERRAL_SOURCES,
+  PASSWORD, PASSWORD_PH, CONFIRM_PASSWORD, CONFIRM_PASSWORD_PH
 } = constants
 
+const passwordState = {
+  password: '',
+  passwordErr: '',
+  confirmPassword: '',
+  confirmPasswordErr: '',
+}
 export const Step4Application = () => {
   //scroll on mount
   ScrollOnMount()
   const dispatch = useDispatch()
+  const [isPassword, setIsPassword] = useState(passwordState)
+  const { password, passwordErr, confirmPassword, confirmPasswordErr } = isPassword
+
   const {
     FullName,
     Email,
@@ -68,8 +78,8 @@ export const Step4Application = () => {
   /**
    * Carry out this check to ensure that the 
    * minimum requirements are met before the button is enabled
-   * both objects, userDetails and minLengths keys are used to get the values
-   * the values of the userDetails object are then used to match the minimum lengths held
+   * both objects, userDetails and minLengths keys are used to get the values.
+   * The values of userDetails object are then used to match the minimum lengths held
    * as values of the minLengths object.
    * If the value of the userDetails object is 'Email', use the checkEmail function to check it.
    * 
@@ -81,6 +91,17 @@ export const Step4Application = () => {
     }
     return userDetails[item].length >= minLengths[item];
   });
+
+  const handleDispatch = () => {
+    if (password !== confirmPassword) {
+      setIsPassword({ ...isPassword, confirmPasswordErr: 'password mismatch' });
+      return;
+    } else if (password.length < 8) {
+      setIsPassword({ ...isPassword, passwordErr: 'A minimum of 8 char is required' });
+      return
+    }
+    dispatch(progress())
+  }
 
 
   return (
@@ -101,14 +122,14 @@ export const Step4Application = () => {
                 value={FullName}
                 label={FULLNAME}
                 placeholder={FULLNAME_PH}
-                dispatchType={fullName}
+                onChange={e => dispatch(fullName(e.target.value))}
                 className={styles.entry}
               />
               <Input
                 value={Email}
                 label={EMAIL}
                 placeholder={EMAIL_PH}
-                dispatchType={email}
+                onChange={e => dispatch(email(e.target.value))}
                 className={styles.entry}
               />
             </div>
@@ -132,7 +153,7 @@ export const Step4Application = () => {
                     includeLabel={false}
                     placeholder={DAY_PH}
                     type={'number'}
-                    dispatchType={dayOfBirth}
+                    onChange={e => dispatch(dayOfBirth(e.target.value))}
                     className={styles.entry}
                   />
                   <Input
@@ -140,7 +161,7 @@ export const Step4Application = () => {
                     includeLabel={false}
                     placeholder={YR_PH}
                     type={'number'}
-                    dispatchType={yearOfBirth}
+                    onChange={e => dispatch(yearOfBirth(e.target.value))}
                     className={styles.entry}
                   />
                 </div>
@@ -173,10 +194,34 @@ export const Step4Application = () => {
                   value={TwitterHandle}
                   label={TWITTER}
                   placeholder={TWITTER_PH}
-                  dispatchType={twitterHandle}
+                  onChange={e => dispatch(twitterHandle(e.target.value))}
                   className={styles.entry}
                 />
                 <small className={styles.small}>{TWITTER_TEXT}</small>
+              </div>
+            </div>
+            <div className={styles.formArea}>
+              <div>
+                <Input
+                  value={password}
+                  label={PASSWORD}
+                  type={'password'}
+                  placeholder={PASSWORD_PH}
+                  onChange={e => setIsPassword({ ...isPassword, password: e.target.value })}
+                  className={styles.entry}
+                />
+                <small className={styles.small}>{passwordErr}</small>
+              </div>
+              <div>
+                <Input
+                  value={confirmPassword}
+                  label={CONFIRM_PASSWORD}
+                  type={'password'}
+                  placeholder={CONFIRM_PASSWORD_PH}
+                  onChange={e => setIsPassword({ ...isPassword, confirmPassword: e.target.value })}
+                  className={styles.entry}
+                />
+                <small className={styles.small}>{confirmPasswordErr}</small>
               </div>
             </div>
             <Select
@@ -204,7 +249,7 @@ export const Step4Application = () => {
             label={'Continue'}
             disabled={!minmumRequired}
             effectAlt
-            onClick={() => dispatch(progress())}
+            onClick={handleDispatch}
             className={styles.btn}
           />
         </section>

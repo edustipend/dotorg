@@ -1,5 +1,5 @@
 export const initialState = {
-  activeStep: 1,
+  activeStep: 4,
   stipendCategory: '',
   ReasonForRequest: '',
   StepsTakenToEaseProblem: '',

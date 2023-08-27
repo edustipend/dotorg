@@ -11,6 +11,9 @@ const userDetails = createSlice({
         email: (state, action) => {
             state.Email = action.payload;
         },
+        password: (state, action) => {
+            state.Password = action.payload;
+        },
         monthOfBirth: (state, action) => {
             state.MonthOfBirth = action.payload
         },
@@ -36,4 +39,4 @@ const userDetails = createSlice({
 });
 
 export default userDetails.reducer;
-export const { fullName, email, monthOfBirth, dayOfBirth, yearOfBirth, gender, stateOfOrigin, twitterHandle, howDidYouHear } = userDetails.actions;
+export const { fullName, email, password, monthOfBirth, dayOfBirth, yearOfBirth, gender, stateOfOrigin, twitterHandle, howDidYouHear } = userDetails.actions;
