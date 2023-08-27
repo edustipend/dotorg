@@ -68,6 +68,12 @@
     color: var(--edustipend-black);
 }
 
+.err {
+    color: var(--denied);
+    font-size: 14px;
+    font-weight: 500;
+}
+
 .btnContainer {
     display: flex;
     margin-top: 22px;

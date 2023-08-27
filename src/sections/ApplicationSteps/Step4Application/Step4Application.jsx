@@ -14,7 +14,7 @@ import { Hug } from '../../../assets';
 import { ScrollOnMount } from '../Internals/ScrollOnMount/ScrollOnMount';
 import { back, progress } from '../../../redux/ApplicationReducer'
 import {
-  fullName, email, monthOfBirth,
+  fullName, email, password, monthOfBirth,
   dayOfBirth, yearOfBirth, gender,
   stateOfOrigin, twitterHandle, howDidYouHear
 } from '../../../redux/UserDetailsReducer';
@@ -28,7 +28,6 @@ const {
 } = constants
 
 const passwordState = {
-  password: '',
   passwordErr: '',
   confirmPassword: '',
   confirmPasswordErr: '',
@@ -38,11 +37,12 @@ export const Step4Application = () => {
   ScrollOnMount()
   const dispatch = useDispatch()
   const [isPassword, setIsPassword] = useState(passwordState)
-  const { password, passwordErr, confirmPassword, confirmPasswordErr } = isPassword
+  const { passwordErr, confirmPassword, confirmPasswordErr } = isPassword
 
   const {
     FullName,
     Email,
+    Password,
     MonthOfBirth,
     DayOfBirth,
     YearOfBirth,
@@ -93,11 +93,11 @@ export const Step4Application = () => {
   });
 
   const handleDispatch = () => {
-    if (password !== confirmPassword) {
+    if (Password !== confirmPassword) {
       setIsPassword({ ...isPassword, confirmPasswordErr: 'password mismatch' });
       return;
-    } else if (password.length < 8) {
-      setIsPassword({ ...isPassword, passwordErr: 'A minimum of 8 char is required' });
+    } else if (Password.length < 8) {
+      setIsPassword({ ...isPassword, passwordErr: 'A minimum of 8 characters is required' });
       return
     }
     dispatch(progress())
@@ -203,14 +203,14 @@ export const Step4Application = () => {
             <div className={styles.formArea}>
               <div>
                 <Input
-                  value={password}
+                  value={Password}
                   label={PASSWORD}
                   type={'password'}
                   placeholder={PASSWORD_PH}
-                  onChange={e => setIsPassword({ ...isPassword, password: e.target.value })}
+                  onChange={e => dispatch(password(e.target.value))}
                   className={styles.entry}
                 />
-                <small className={styles.small}>{passwordErr}</small>
+                <small className={`${styles.small} ${styles.err}`}>{passwordErr}</small>
               </div>
               <div>
                 <Input
@@ -221,7 +221,7 @@ export const Step4Application = () => {
                   onChange={e => setIsPassword({ ...isPassword, confirmPassword: e.target.value })}
                   className={styles.entry}
                 />
-                <small className={styles.small}>{confirmPasswordErr}</small>
+                <small className={`${styles.small} ${styles.err}`}>{confirmPasswordErr}</small>
               </div>
             </div>
             <Select

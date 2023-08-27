@@ -8,6 +8,7 @@ import { postData } from '../../../../../services/ApiClient';
 export const Submit = () => {
     const dispatch = useDispatch()
     const [isLoading, setIsLoading] = useState(false)
+    console.log(isLoading);
     const {
         Success,
         stipendCategory,
@@ -20,6 +21,7 @@ export const Submit = () => {
     const {
         FullName,
         Email,
+        Password,
         MonthOfBirth,
         DayOfBirth,
         YearOfBirth,
@@ -43,11 +45,11 @@ export const Submit = () => {
         {
             name: FullName,
             email: Email,
+            password: Password,
             dateOfBirth: DOB,
             gender: Gender,
             stateOfOrigin: StateOfOrigin,
             howDidYouHearAboutUs: HowDidYouHear
-
         }
     ]
 
@@ -70,9 +72,7 @@ export const Submit = () => {
             }).catch(error => {
                 console.log('Error', error);
                 setIsLoading(false)
-            }).finally(
-                setIsLoading(false)
-            )
+            })
     }
 
 
