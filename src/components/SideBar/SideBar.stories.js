@@ -1,4 +1,4 @@
-import SideBarComponent from "../SideBar"
+import SideBarComponent from '../SideBar';
 
 export default {
   title: 'Edustipend/Components/SideBar',
