@@ -1,13 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  activeStep: 4,
+  activeStep: 5,
   stipendCategory: '',
   reasonForRequest: '',
   stepsTakenToEaseProblem: '',
   potentialBenefits: '',
   futureHelpFromUser: '',
-  success: true
+  success: true,
+  isVerified: false
 };
 
 const application = createSlice({
@@ -37,9 +38,12 @@ const application = createSlice({
     },
     successful: (state, action) => {
       state.success = action.payload;
+    },
+    emailVerification: (state, action) => {
+      state.isVerified = action.payload
     }
   }
 });
 
 export default application.reducer;
-export const { back, progress, category, reason, steps, benefits, futureHelp, successful } = application.actions;
+export const { back, progress, category, reason, steps, benefits, futureHelp, successful, emailVerification } = application.actions;

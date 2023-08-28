@@ -120,10 +120,10 @@ export const Step4Application = () => {
   const PASSWORD_MIN_LENGTH = 8;
   const handleDispatch = () => {
     if (password !== confirmPassword) {
-      setIsPassword({ ...isPassword, confirmPasswordErr: { PASSWORD_MISMATCH_ERR } });
+      setIsPassword({ ...isPassword, confirmPasswordErr: PASSWORD_MISMATCH_ERR });
       return;
     } else if (password.length < PASSWORD_MIN_LENGTH) {
-      setIsPassword({ ...isPassword, passwordErr: { PASSWORD_MIN_LENGTH_ERR } });
+      setIsPassword({ ...isPassword, passwordErr: PASSWORD_MIN_LENGTH_ERR });
       return;
     }
     dispatch(progress());

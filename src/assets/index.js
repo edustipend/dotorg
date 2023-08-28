@@ -27,7 +27,7 @@ import UserPlus from './UserPlus.svg';
 import PaperPlane from './PaperPlaneTilt.svg';
 import Profile from './profile.svg';
 import Logout from './logout.svg';
-
+import Valid from './valid.svg'
 export {
   Hero1,
   Hero2,
@@ -57,5 +57,6 @@ export {
   UserPlus,
   PaperPlane,
   Profile,
-  Logout
+  Logout,
+  Valid
 };

@@ -50,7 +50,7 @@ export const Submit = () => {
         responses.forEach((response) => {
           //do something with the response
           if (response.success) {
-            dispatch(success(true));
+            dispatch(successful(true));
           } else if (!response.success) {
             //do something with the response
           }
@@ -62,5 +62,11 @@ export const Submit = () => {
       });
   };
 
-  return <>{successful ? <VerifyEmail /> : <SubmitUI handleSubmit={handleSubmit} isLoading={isLoading} />}</>;
+  return (
+    <>
+      {
+        success ? <VerifyEmail /> : <SubmitUI handleSubmit={handleSubmit} isLoading={isLoading} />
+      }
+    </>
+  )
 };
