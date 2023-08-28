@@ -19,6 +19,8 @@ import LightCurve from './light_curve.svg';
 import Pin from './Red Pin.svg';
 import Twitter from './social/twitter.png';
 import LinkedIn from './social/linkedin.png';
+import Profile from './profile.svg';
+import Logout from './logout.svg';
 
 export {
   Hero1,
@@ -41,5 +43,7 @@ export {
   LightCurve,
   Pin,
   Twitter,
-  LinkedIn
+  LinkedIn,
+  Profile,
+  Logout
 };

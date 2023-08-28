@@ -115,9 +115,7 @@ export const NotifyForm = () => {
                 className={styles.Input}
               />
             </div>
-            {
-              errorMessage && <small className={styles.error}>{errorMessage}</small>
-            }
+            {errorMessage && <small className={styles.error}>{errorMessage}</small>}
             <div className={styles.formField}>
               <Select label={REASON} dispatch={handleSelect} options={REFERRAL_SOURCES} />
             </div>

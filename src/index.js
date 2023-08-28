@@ -6,6 +6,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ModalContextProvider } from './context/ModalContext';
+import { SidebarProvider } from './context/SidebarContext';
 import store from './store';
 const container = document.getElementById('root');
 const root = createRoot(container);
@@ -15,7 +16,9 @@ root.render(
     <React.StrictMode>
       <Provider store={store}>
         <ModalContextProvider>
-          <App />
+          <SidebarProvider>
+            <App />
+          </SidebarProvider>
         </ModalContextProvider>
       </Provider>
     </React.StrictMode>

@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { NavHashLink } from 'react-router-hash-link';
 import Button from '../Button';
@@ -37,9 +36,9 @@ const NavbarNavs = ({ showMenu, closeMenu }) => {
       {showMenu ? (
         <nav className="mobile-nav">
           {NAVBAR_LINKS.map((link) => (
-            <Link key={link.label} to={link.to} onClick={() => closeMenu(!showMenu)}>
+            <NavHashLink key={link.label} to={{ pathname: link.to, hash: link.hash }} onClick={() => closeMenu(!showMenu)}>
               {link.label}
-            </Link>
+            </NavHashLink>
           ))}
           <div className="mobile-nav-btn">
             <Button
