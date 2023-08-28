@@ -1,8 +1,12 @@
 .main {
-  min-height: 100vh;
-  position: sticky;
-  top: 0;
+  height: 100vh;
+  position: fixed;
+  margin-top: 80px;
   width: max-content;
+  background: var(--white);
+  z-index: 2;
+  transition: all 1s;
+  transform: translateX(0);
 }
 
 .container {
@@ -90,14 +94,21 @@
   border-radius: 10px;
 }
 
+.quotecontainer {
+  height: 280px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: gray lightgray;
+}
+
 .header {
   font-weight: bold;
 }
 
-@media screen and (min-width: 768px) {
-  .main {
-    display: block;
-  }
+.main.hideSidebar {
+  transform: translateX(-105vw);
+  min-height: 100vh;
+  width: 200px;
 }
 
 @media screen and (min-width: 1024px) {
