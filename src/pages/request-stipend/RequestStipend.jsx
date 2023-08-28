@@ -1,8 +1,8 @@
-import Step1Application from '../../sections/ApplicationSteps/Step1Application';
-import Step2Application from '../../sections/ApplicationSteps/Step2Application';
-import Step3Application from '../../sections/ApplicationSteps/Step3Application';
-import Step4Application from '../../sections/ApplicationSteps/Step4Application';
-import Step5Application from '../../sections/ApplicationSteps/Step5Application';
+import Step1Application from '../../components/ApplicationSteps/Step1Application';
+import Step2Application from '../../components/ApplicationSteps/Step2Application';
+import Step3Application from '../../components/ApplicationSteps/Step3Application';
+import Step4Application from '../../components/ApplicationSteps/Step4Application';
+import Step5Application from '../../components/ApplicationSteps/Step5Application';
 import { useSelector } from 'react-redux';
 import Stepper from '../../components/Stepper';
 import Container from '../../components/Container';

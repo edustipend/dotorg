@@ -5,11 +5,11 @@ import Button from '../../components/Button';
 import Header from '../../components/Header';
 import Text from '../../components/Text';
 import styles from './StartApplication.module.css';
-import { TestId } from './constatnts';
+import { TestId } from './constants';
 import Container from '../../components/Container';
 import Input from '../../components/Input';
 import { Book, Hero3, ArrowDown, RightArrow } from '../../assets/index';
-import { email } from '../../redux/UserDetailsReducer/UserDetailsReducer';
+import { Email } from '../../store/reducers/UserDetailsReducer';
 import { checkEmail } from '../../utils/EmailChecker/emailChecker';
 
 export const StartApplication = () => {
@@ -31,7 +31,7 @@ export const StartApplication = () => {
   }, []);
 
   //enable the button if the email is valid
-  const isTrue = checkEmail(state.Email);
+  const isTrue = checkEmail(state.email);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -55,10 +55,10 @@ export const StartApplication = () => {
           <form className={styles.form} onSubmit={handleSubmit}>
             <div className={styles.inputContainer}>
               <Input
-                value={state.Email}
+                value={state.email}
                 label={'Email Address'}
                 placeholder={'Enter your email address'}
-                onChange={(e) => dispatch(email(e.target.value))}
+                onChange={(e) => dispatch(Email(e.target.value))}
                 className={styles.Input}
               />
             </div>

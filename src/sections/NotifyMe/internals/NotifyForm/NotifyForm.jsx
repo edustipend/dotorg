@@ -8,7 +8,7 @@ import Button from '../../../../components/Button';
 import Select from '../../../../components/Select';
 import { postData } from '../../../../services/ApiClient';
 import { ModalContext } from '../../../../context/ModalContext';
-import { howDidYouHear } from '../../../../redux/ApplicationReducer/ApplicationRuducer'
+import { howdidyouhear } from '../../../../store/reducers/UserDetailsReducer/UserDetailsReducer'
 const { EMAIL, HEADING, FULLNAME, REASON, SUBTITLE, SUCCESS, WAITLIST_SUCCESS } = formConstants;
 
 const REGEXP_EMAIL =
@@ -118,7 +118,7 @@ export const NotifyForm = () => {
             </div>
             {errorMessage && <small className={styles.error}>{errorMessage}</small>}
             <div className={styles.formField}>
-              <Select value={HowDidYouHear} label={REASON} dispatchType={howDidYouHear} options={REFERRAL_SOURCES} />
+              <Select value={HowDidYouHear} label={REASON} dispatchType={howdidyouhear} options={REFERRAL_SOURCES} />
             </div>
             <section className={styles.buttonContainer}>
               <Button

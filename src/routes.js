@@ -7,7 +7,6 @@ import Home from './sections/LearnerDashboard/Home';
 import Submissions from './sections/LearnerDashboard/Submissions';
 import MyAccount from './sections/LearnerDashboard/MyAccount';
 import StartApplication from './sections/StartApplication';
-import VerifyEmail from './pages/verify-email';
 import AtOne from './pages/at-one';
 
 const Routes = () => {
@@ -16,7 +15,6 @@ const Routes = () => {
       <Route path="/ambassador-program" element={<AmbassadorPage />} />
       <Route path="/request" element={<StartApplication />} />
       <Route path="/application" element={<RequestStipendPage />} />
-      <Route path="/verify" element={<VerifyEmail />} />
       <Route path="/dashboard" element={<LearnerDashboard />}>
         <Route index element={<Home />} />
         <Route path="home" element={<Home />} />

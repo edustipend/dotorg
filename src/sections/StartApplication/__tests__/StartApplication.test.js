@@ -3,7 +3,7 @@ import { StartApplication } from '../StartApplication';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from '../../../store';
-import { TestId } from '../constatnts';
+import { TestId } from '../constants';
 
 describe('StartApplication component', () => {
   describe('renders the correct StartApplication component', () => {

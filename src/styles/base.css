@@ -1,3 +1,8 @@
+:root {
+  --font-family-manrope: 'Manrope';
+  --font-family-poppins: 'Poppins';
+}
+
 .bullet {
   height: 20px;
   width: 20px;
