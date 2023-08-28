@@ -4,14 +4,13 @@ import { TestId } from './constants';
 const { LABEL_ID, INPUT_ID } = TestId;
 
 export const Input = ({ placeholder, label, includeLabel, value, type, size, className, ...props }) => {
-
   return (
     <section className={styles.main}>
-      {
-        includeLabel ? <label data-testid={LABEL_ID} htmlFor="input" className={styles.label}>
+      {includeLabel ? (
+        <label data-testid={LABEL_ID} htmlFor="input" className={styles.label}>
           {label} <span className={styles.required}>*</span>
-        </label> : undefined
-      }
+        </label>
+      ) : undefined}
       <input
         data-testid={INPUT_ID}
         type={type}

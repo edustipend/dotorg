@@ -9,7 +9,7 @@ const { LAPTOP, DATA, COURSE } = constant;
 export const Step2Application = () => {
   const { stipendCategory } = useSelector((state) => state.application);
   //scroll to the top on step mount
-  ScrollOnMount()
+  ScrollOnMount();
 
   return (
     <>

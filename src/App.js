@@ -1,3 +1,4 @@
+import React from 'react';
 import Routes from './routes';
 import initFirebaseApp from './firebaseConfig';
 import Navbar from './components/Navbar';
@@ -14,7 +15,7 @@ initFirebaseApp();
 
 function App() {
   const { isLoading } = useContext(ModalContext);
-  const scrollOnRoute = useScrollToTop()
+  const scrollOnRoute = useScrollToTop();
   return (
     <>
       {scrollOnRoute}

@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-
 const initialState = {
   activeStep: 4,
   stipendCategory: '',
@@ -10,7 +9,6 @@ const initialState = {
   futureHelpFromUser: '',
   success: true
 };
-
 
 const application = createSlice({
   name: 'Application',

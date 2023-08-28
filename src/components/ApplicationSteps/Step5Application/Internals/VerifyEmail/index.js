@@ -1,2 +1,2 @@
-import { VerifyEmail } from "./VerifyEmail";
-export default VerifyEmail
+import { VerifyEmail } from './VerifyEmail';
+export default VerifyEmail;

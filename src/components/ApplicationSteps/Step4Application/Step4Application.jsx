@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './Step4Application.module.css'
+import styles from './Step4Application.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import ContentContainer from '../ContentContainer';
 import Header from '../../Header';
@@ -12,45 +12,70 @@ import { BackArrow, RightArrow } from '../../../assets';
 import { constants } from './Internals/constants';
 import { Hug } from '../../../assets';
 import { ScrollOnMount } from '../ScrollOnMount/ScrollOnMount';
-import { back, progress } from '../../../store/reducers/ApplicationReducer'
+import { back, progress } from '../../../store/reducers/ApplicationReducer';
 import {
-  fullname, Email, Password, monthofbirth,
-  dayofbirth, yearofbirth, Gender,
-  stateoforigin, twitterhandle, howdidyouhear
+  fullname,
+  Email,
+  Password,
+  monthofbirth,
+  dayofbirth,
+  yearofbirth,
+  Gender,
+  stateoforigin,
+  twitterhandle,
+  howdidyouhear
 } from '../../../store/reducers/UserDetailsReducer';
 
 const {
-  HEADER, SUBHEADER, FULLNAME, FULLNAME_PH, EMAIL, EMAIL_PH,
-  MTH_PH, DAY_PH, YR_PH, GENDER, GENDER_PH, STATE, STATE_PH, DOB,
-  TWITTER, TWITTER_PH, AD, AD_PH, QUOTE, DOB_TEXT, GENDER_TEXT,
-  TWITTER_TEXT, MONTHS_OPTION, GENDER_OPTION, STATE_OPTION, REFERRAL_SOURCES,
-  PASSWORD, PASSWORD_PH, CONFIRM_PASSWORD, CONFIRM_PASSWORD_PH, PASSWORD_MIN_LENGTH_ERR, PASSWORD_MISMATCH_ERR
-} = constants
+  HEADER,
+  SUBHEADER,
+  FULLNAME,
+  FULLNAME_PH,
+  EMAIL,
+  EMAIL_PH,
+  MTH_PH,
+  DAY_PH,
+  YR_PH,
+  GENDER,
+  GENDER_PH,
+  STATE,
+  STATE_PH,
+  DOB,
+  TWITTER,
+  TWITTER_PH,
+  AD,
+  AD_PH,
+  QUOTE,
+  DOB_TEXT,
+  GENDER_TEXT,
+  TWITTER_TEXT,
+  MONTHS_OPTION,
+  GENDER_OPTION,
+  STATE_OPTION,
+  REFERRAL_SOURCES,
+  PASSWORD,
+  PASSWORD_PH,
+  CONFIRM_PASSWORD,
+  CONFIRM_PASSWORD_PH,
+  PASSWORD_MIN_LENGTH_ERR,
+  PASSWORD_MISMATCH_ERR
+} = constants;
 
 const passwordState = {
   passwordErr: '',
   confirmPassword: '',
-  confirmPasswordErr: '',
-}
+  confirmPasswordErr: ''
+};
 export const Step4Application = () => {
   //scroll on mount
-  ScrollOnMount()
-  const dispatch = useDispatch()
-  const [isPassword, setIsPassword] = useState(passwordState)
-  const { passwordErr, confirmPassword, confirmPasswordErr } = isPassword
+  ScrollOnMount();
+  const dispatch = useDispatch();
+  const [isPassword, setIsPassword] = useState(passwordState);
+  const { passwordErr, confirmPassword, confirmPasswordErr } = isPassword;
 
-  const {
-    fullName,
-    email,
-    password,
-    monthOfBirth,
-    dayOfBirth,
-    yearOfBirth,
-    gender,
-    stateOfOrigin,
-    twitterHandle,
-    howDidYouHear
-  } = useSelector(state => state.userDetails)
+  const { fullName, email, password, monthOfBirth, dayOfBirth, yearOfBirth, gender, stateOfOrigin, twitterHandle, howDidYouHear } = useSelector(
+    (state) => state.userDetails
+  );
 
   const userDetails = {
     fullName,
@@ -62,7 +87,7 @@ export const Step4Application = () => {
     stateOfOrigin,
     twitterHandle,
     howDidYouHear
-  }
+  };
 
   const minLengths = {
     fullName: 2,
@@ -74,36 +99,35 @@ export const Step4Application = () => {
     stateOfOrigin: 3,
     twitterHandle: 2,
     howDidYouHear: 3
-  }
+  };
   /**
-   * Carry out this check to ensure that the 
+   * Carry out this check to ensure that the
    * minimum requirements are met before the button is enabled
    * both objects, userDetails and minLengths keys are used to get the values.
    * The values of userDetails object are then used to match the minimum lengths held
    * as values of the minLengths object.
    * If the value of the userDetails object is 'Email', use the checkEmail function to check it.
-   * 
+   *
    * @returns  either true or false
    */
-  const minmumRequired = Object.keys(userDetails).every(item => {
+  const minmumRequired = Object.keys(userDetails).every((item) => {
     if (item === 'email') {
       return checkEmail(userDetails[item]) && userDetails[item].length >= minLengths[item];
     }
     return userDetails[item].length >= minLengths[item];
   });
 
-  const PASSWORD_MIN_LENGTH = 8
+  const PASSWORD_MIN_LENGTH = 8;
   const handleDispatch = () => {
     if (password !== confirmPassword) {
       setIsPassword({ ...isPassword, confirmPasswordErr: { PASSWORD_MISMATCH_ERR } });
       return;
     } else if (password.length < PASSWORD_MIN_LENGTH) {
       setIsPassword({ ...isPassword, passwordErr: { PASSWORD_MIN_LENGTH_ERR } });
-      return
+      return;
     }
-    dispatch(progress())
-  }
-
+    dispatch(progress());
+  };
 
   return (
     <>
@@ -117,22 +141,15 @@ export const Step4Application = () => {
             <p className={styles.subHeader}>{SUBHEADER}</p>
           </div>
           <form className={styles.form}>
-
             <div className={styles.formArea}>
               <Input
                 value={fullName}
                 label={FULLNAME}
                 placeholder={FULLNAME_PH}
-                onChange={e => dispatch(fullname(e.target.value))}
+                onChange={(e) => dispatch(fullname(e.target.value))}
                 className={styles.entry}
               />
-              <Input
-                value={email}
-                label={EMAIL}
-                placeholder={EMAIL_PH}
-                onChange={e => dispatch(Email(e.target.value))}
-                className={styles.entry}
-              />
+              <Input value={email} label={EMAIL} placeholder={EMAIL_PH} onChange={(e) => dispatch(Email(e.target.value))} className={styles.entry} />
             </div>
 
             <div className={styles.formArea}>
@@ -154,7 +171,7 @@ export const Step4Application = () => {
                     includeLabel={false}
                     placeholder={DAY_PH}
                     type={'number'}
-                    onChange={e => dispatch(dayofbirth(e.target.value))}
+                    onChange={(e) => dispatch(dayofbirth(e.target.value))}
                     className={styles.entry}
                   />
                   <Input
@@ -162,7 +179,7 @@ export const Step4Application = () => {
                     includeLabel={false}
                     placeholder={YR_PH}
                     type={'number'}
-                    onChange={e => dispatch(yearofbirth(e.target.value))}
+                    onChange={(e) => dispatch(yearofbirth(e.target.value))}
                     className={styles.entry}
                   />
                 </div>
@@ -195,7 +212,7 @@ export const Step4Application = () => {
                   value={twitterHandle}
                   label={TWITTER}
                   placeholder={TWITTER_PH}
-                  onChange={e => dispatch(twitterhandle(e.target.value))}
+                  onChange={(e) => dispatch(twitterhandle(e.target.value))}
                   className={styles.entry}
                 />
                 <small className={styles.small}>{TWITTER_TEXT}</small>
@@ -208,7 +225,7 @@ export const Step4Application = () => {
                   label={PASSWORD}
                   type={'password'}
                   placeholder={PASSWORD_PH}
-                  onChange={e => dispatch(Password(e.target.value))}
+                  onChange={(e) => dispatch(Password(e.target.value))}
                   className={styles.entry}
                 />
                 <small className={`${styles.small} ${styles.err}`}>{passwordErr}</small>
@@ -219,19 +236,13 @@ export const Step4Application = () => {
                   label={CONFIRM_PASSWORD}
                   type={'password'}
                   placeholder={CONFIRM_PASSWORD_PH}
-                  onChange={e => setIsPassword({ ...isPassword, confirmPassword: e.target.value })}
+                  onChange={(e) => setIsPassword({ ...isPassword, confirmPassword: e.target.value })}
                   className={styles.entry}
                 />
                 <small className={`${styles.small} ${styles.err}`}>{confirmPasswordErr}</small>
               </div>
             </div>
-            <Select
-              value={howDidYouHear}
-              label={AD}
-              placeholder={AD_PH}
-              options={REFERRAL_SOURCES}
-              dispatchType={howdidyouhear}
-            />
+            <Select value={howDidYouHear} label={AD} placeholder={AD_PH} options={REFERRAL_SOURCES} dispatchType={howdidyouhear} />
           </form>
         </section>
         <section className={styles.btnContainer}>
@@ -255,8 +266,8 @@ export const Step4Application = () => {
           />
         </section>
       </ContentContainer>
-      <section className='quoteContainer'>
-        <Quote content={QUOTE} className='quote' />
+      <section className="quoteContainer">
+        <Quote content={QUOTE} className="quote" />
       </section>
     </>
   );

@@ -16,7 +16,7 @@ export const StartApplication = () => {
   const state = useSelector((state) => state.userDetails);
   const [showScrollIndicator, setShowScrollIndicator] = useState(true);
   const nav = useNavigate();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const handleScroll = () => {

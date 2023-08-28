@@ -70,8 +70,11 @@
 }
 
 .id {
+  width: 20px;
   font-size: 18px;
   margin-inline: 30px;
+  text-align: center;
+  border-bottom: 2px solid black;
 }
 
 .arrowContainer {
@@ -87,4 +90,11 @@
 .arrow_img {
   width: 15px;
   height: 15px;
+}
+
+.btn {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  height: 0;
 }

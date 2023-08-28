@@ -20,10 +20,10 @@ export const Step1Application = () => {
   const { stipendCategory } = useSelector((state) => state.application);
   const nav = useNavigate();
   //scroll to the top on step mount
-  ScrollOnMount()
+  ScrollOnMount();
 
   //enable the continue button if a stipendCategory has been selected
-  const isTrue = stipendCategory.length > 0
+  const isTrue = stipendCategory.length > 0;
 
   return (
     <div data-testid={COMPONENT_ID}>

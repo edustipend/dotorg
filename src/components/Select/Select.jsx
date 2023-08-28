@@ -19,11 +19,11 @@ export const Select = ({ dispatchType, label, includeLabel, placeholder, options
   };
   return (
     <div className={`${styles.main} ${className}`}>
-      {
-        includeLabel ? <label data-testid={LABEL_ID} className={styles.label}>
+      {includeLabel ? (
+        <label data-testid={LABEL_ID} className={styles.label}>
           {label} <span className={styles.required}>*</span>
-        </label> : undefined
-      }
+        </label>
+      ) : undefined}
       <div className={`${styles.defaultContainer} ${styles[size]}`}>
         <div className={styles.selectInput}>
           <input
@@ -79,7 +79,7 @@ Select.propTypes = {
 };
 
 Select.defaultProps = {
-  dispatchType: () => { },
+  dispatchType: () => {},
   label: 'Some label',
   includeLabel: true,
   placeholder: 'Select an option',

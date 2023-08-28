@@ -1,12 +1,10 @@
-import React from 'react';
 import styles from './DesktopTable.module.css';
 import PropTypes from 'prop-types';
 import { applicationStatus } from '../constants';
 const { APPROVED, IN_VIEW, RECEIVED, DENIED } = applicationStatus;
 
-export const DesktopTable = ({ entries, tableHead }) => {
+export const DesktopTable = ({ entries, tableHead, oneClickApply }) => {
   const lastItem = entries?.length - 1;
-
   return (
     <section className={styles.Main}>
       <table className={styles.desktopTable}>
@@ -47,7 +45,13 @@ export const DesktopTable = ({ entries, tableHead }) => {
                 </td>
                 <td>{Date_of_submission}</td>
                 <td>{Time_of_submission}</td>
-                <td className={idx === lastItem ? `${styles.lastColumn}` : undefined}>{Action}</td>
+                {tableHead[5] && (
+                  <td className={idx === lastItem ? `${styles.lastColumn}` : undefined}>
+                    <button className={styles.btn} onClick={() => oneClickApply(idx + 1)}>
+                      {Action}
+                    </button>
+                  </td>
+                )}
               </tr>
             );
           })}
@@ -59,7 +63,8 @@ export const DesktopTable = ({ entries, tableHead }) => {
 
 DesktopTable.propTypes = {
   entries: PropTypes.array,
-  tableHead: PropTypes.array
+  tableHead: PropTypes.array,
+  oneClickApply: PropTypes.func
 };
 DesktopTable.defaultProps = {
   entries: [],

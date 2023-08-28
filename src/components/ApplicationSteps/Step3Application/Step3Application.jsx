@@ -2,27 +2,27 @@ import { useState, useContext } from 'react';
 import { useDispatch } from 'react-redux';
 import ContentContainer from '../ContentContainer';
 import Header from '../../Header';
-import handShake from '../../../assets/handShake.svg'
+import handShake from '../../../assets/handShake.svg';
 import Modal from '../../Modal';
 import Consent from './Internals/Consent';
 import { constants } from './Internals/constants';
 import Button from '../../Button';
 import { BackArrow, RightArrow } from '../../../assets';
 import Quote from '../../Quote';
-import styles from './Step3.module.css'
+import styles from './Step3.module.css';
 import { ScrollOnMount } from '../ScrollOnMount/ScrollOnMount';
 import { ModalContext } from '../../../context/ModalContext';
-import { back, progress } from '../../../store/reducers/ApplicationReducer'
-const { HEADER, DATA_PRIVACY, ACKNOWLEDGE, ACCEPT, REJECT, QUOTE } = constants
+import { back, progress } from '../../../store/reducers/ApplicationReducer';
+const { HEADER, DATA_PRIVACY, ACKNOWLEDGE, ACCEPT, REJECT, QUOTE } = constants;
 
 export const Step3Application = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const [selectedOption, setSelectedOption] = useState('');
-  const { setIsActive } = useContext(ModalContext)
+  const { setIsActive } = useContext(ModalContext);
 
   console.log(selectedOption);
   //scroll to the top on step mount
-  ScrollOnMount()
+  ScrollOnMount();
 
   const handleChange = (event) => {
     setSelectedOption(event.target.value);
@@ -31,11 +31,11 @@ export const Step3Application = () => {
   //popup a prompt if the learner rejects else progress with the application
   const handleOnClick = () => {
     if (selectedOption === 'reject') {
-      setIsActive(prev => !prev);
+      setIsActive((prev) => !prev);
       return;
     }
-    dispatch(progress())
-  }
+    dispatch(progress());
+  };
 
   return (
     <>
@@ -50,23 +50,11 @@ export const Step3Application = () => {
             <p className={styles.text}>{ACKNOWLEDGE}</p>
             <div className={styles.options}>
               <label className={styles.label}>
-                <input
-                  type="radio"
-                  value="accept"
-                  checked={selectedOption === 'accept'}
-                  className={styles.radioInput}
-                  onChange={handleChange}
-                />
+                <input type="radio" value="accept" checked={selectedOption === 'accept'} className={styles.radioInput} onChange={handleChange} />
                 <span className={styles.custom_radio}>{ACCEPT}</span>
               </label>
               <label className={styles.label}>
-                <input
-                  type="radio"
-                  value="reject"
-                  checked={selectedOption === 'reject'}
-                  className={styles.radioInput}
-                  onChange={handleChange}
-                />
+                <input type="radio" value="reject" checked={selectedOption === 'reject'} className={styles.radioInput} onChange={handleChange} />
                 <span className={styles.custom_radio}>{REJECT}</span>
               </label>
             </div>
@@ -79,7 +67,8 @@ export const Step3Application = () => {
               icon={BackArrow}
               iconPosition={'back'}
               onClick={() => dispatch(back())}
-              className={styles.btn} />
+              className={styles.btn}
+            />
             <Button
               type={'secondary'}
               label={'Continue'}
@@ -88,12 +77,13 @@ export const Step3Application = () => {
               iconPosition={'front'}
               disabled={selectedOption.length > 0 ? false : true}
               onClick={handleOnClick}
-              className={styles.btn} />
+              className={styles.btn}
+            />
           </div>
         </section>
       </ContentContainer>
-      <div className='quoteContainer'>
-        <Quote content={QUOTE} className='quote' />
+      <div className="quoteContainer">
+        <Quote content={QUOTE} className="quote" />
       </div>
       <Modal>
         <Consent setIsActive={setIsActive} />

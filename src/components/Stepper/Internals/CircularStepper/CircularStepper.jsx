@@ -38,11 +38,17 @@ CircularStepper.propTypes = {
   activeStep: PropTypes.number.isRequired,
   stepsData: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      title: PropTypes.string.isRequired
+      id: PropTypes.number,
+      title: PropTypes.string
     })
   ).isRequired,
   stepsDataLength: PropTypes.number.isRequired
+};
+
+CircularStepper.defaultProps = {
+  activeStep: 1,
+  stepsData: [],
+  stepsDataLength: 0
 };
 
 export default CircularStepper;

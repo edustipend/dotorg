@@ -1,25 +1,14 @@
 import {
-    fullname,
-    Email,
-    Password,
-    monthofbirth,
-    dayofbirth,
-    yearofbirth,
-    Gender,
-    stateoforigin,
-    twitterhandle,
-    howdidyouhear
-} from "./UserDetailsReducer";
+  fullname,
+  Email,
+  Password,
+  monthofbirth,
+  dayofbirth,
+  yearofbirth,
+  Gender,
+  stateoforigin,
+  twitterhandle,
+  howdidyouhear
+} from './UserDetailsReducer';
 
-export {
-    fullname,
-    Email,
-    Password,
-    monthofbirth,
-    dayofbirth,
-    yearofbirth,
-    Gender,
-    stateoforigin,
-    twitterhandle,
-    howdidyouhear
-}
+export { fullname, Email, Password, monthofbirth, dayofbirth, yearofbirth, Gender, stateoforigin, twitterhandle, howdidyouhear };

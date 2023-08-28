@@ -1,2 +1,2 @@
-import { Consent } from "./Consent";
-export default Consent
+import { Consent } from './Consent';
+export default Consent;

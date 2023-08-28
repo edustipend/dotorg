@@ -1,7 +1,7 @@
 import React from 'react';
 import { useContext } from 'react';
 import { useDispatch } from 'react-redux';
-import styles from './Step5Application.module.css'
+import styles from './Step5Application.module.css';
 import { ModalContext } from '../../../context/ModalContext';
 import Modal from '../../Modal';
 import Button from '../../Button';
@@ -10,18 +10,17 @@ import Header from '../../../components/Header';
 import Text from '../../Text';
 import Quote from '../../../components/Quote';
 import Submit from './Internals/Submit';
-import { back } from '../../../store/reducers/ApplicationReducer'
+import { back } from '../../../store/reducers/ApplicationReducer';
 import { ScrollOnMount } from '../ScrollOnMount/ScrollOnMount';
 import { BackArrow } from '../../../assets';
 import { constants } from './Internals/constants';
 import { DancingEmoji } from '../../../assets';
-const { HEADER, PARA1, PARA2, PARA3, PARA4, PARA5, PARA6, QUOTE } = constants
-
+const { HEADER, PARA1, PARA2, PARA3, PARA4, PARA5, PARA6, QUOTE } = constants;
 
 export const Step5Application = () => {
-  ScrollOnMount()
-  const { setIsActive } = useContext(ModalContext)
-  const dispatch = useDispatch()
+  ScrollOnMount();
+  const { setIsActive } = useContext(ModalContext);
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -55,17 +54,17 @@ export const Step5Application = () => {
             iconPosition={'front'}
             type={'secondary'}
             effectAlt
-            onClick={() => setIsActive(prev => !prev)}
+            onClick={() => setIsActive((prev) => !prev)}
             className={styles.btn}
           />
         </div>
       </ContentContainer>
-      <section className='quoteContainer'>
-        <Quote content={QUOTE} className='quote quote2' />
+      <section className="quoteContainer">
+        <Quote content={QUOTE} className="quote quote2" />
       </section>
       <Modal>
         <Submit />
       </Modal>
     </>
-  )
+  );
 };

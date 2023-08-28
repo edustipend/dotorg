@@ -65,4 +65,3 @@ export const courseConstants = {
   FOOT_NOTE4: 'If you have no response to this, please type in N/A',
   QUOTE: `"The harder you work for something, the greater you'll feel when you achieve it."`
 };
-

@@ -19,12 +19,14 @@ import LightCurve from './light_curve.svg';
 import Pin from './Red Pin.svg';
 import Twitter from './social/twitter.png';
 import LinkedIn from './social/linkedin.png';
-import Eyes from './eyeballs emoji.svg'
-import Tears from './crying face.svg'
-import Hug from './hugging-face_emoji.svg'
-import DancingEmoji from './dancing_emoji.svg'
-import UserPlus from './UserPlus.svg'
-import PaperPlane from './PaperPlaneTilt.svg'
+import Eyes from './eyeballs emoji.svg';
+import Tears from './crying face.svg';
+import Hug from './hugging-face_emoji.svg';
+import DancingEmoji from './dancing_emoji.svg';
+import UserPlus from './UserPlus.svg';
+import PaperPlane from './PaperPlaneTilt.svg';
+import Profile from './profile.svg';
+import Logout from './logout.svg';
 
 export {
   Hero1,
@@ -53,5 +55,7 @@ export {
   Hug,
   DancingEmoji,
   UserPlus,
-  PaperPlane
+  PaperPlane,
+  Profile,
+  Logout
 };

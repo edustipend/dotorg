@@ -4,11 +4,11 @@ import styles from './QuestionAndAnswer.module.css';
 import { useDispatch } from 'react-redux';
 
 export const QuestionAndAnswer = ({ number, question, dispatchType, className, value, ...props }) => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const handleOnchange = (e) => {
-    dispatch(dispatchType(e.target.value))
-  }
+    dispatch(dispatchType(e.target.value));
+  };
 
   return (
     <div className={styles.main}>
@@ -38,12 +38,12 @@ QuestionAndAnswer.propTypes = {
   dispatchType: PropTypes.func,
   number: PropTypes.number,
   question: PropTypes.string,
-  value: PropTypes.string,
+  value: PropTypes.string
 };
 
 QuestionAndAnswer.defaultProps = {
   className: '',
-  dispatchType: () => { },
+  dispatchType: () => {},
   number: 1,
   question: 'Default question',
   value: ''

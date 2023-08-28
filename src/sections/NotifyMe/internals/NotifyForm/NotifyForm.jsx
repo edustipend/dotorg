@@ -8,7 +8,7 @@ import Button from '../../../../components/Button';
 import Select from '../../../../components/Select';
 import { postData } from '../../../../services/ApiClient';
 import { ModalContext } from '../../../../context/ModalContext';
-import { howdidyouhear } from '../../../../store/reducers/UserDetailsReducer/UserDetailsReducer'
+import { howdidyouhear } from '../../../../store/reducers/UserDetailsReducer/UserDetailsReducer';
 const { EMAIL, HEADING, FULLNAME, REASON, SUBTITLE, SUCCESS, WAITLIST_SUCCESS } = formConstants;
 
 const REGEXP_EMAIL =
@@ -31,7 +31,7 @@ const SuccessDisplay = () => {
 };
 
 export const NotifyForm = () => {
-  const { HowDidYouHear } = useSelector(state => state.userDetails)
+  const { HowDidYouHear } = useSelector((state) => state.userDetails);
   const initialValue = {
     name: '',
     email: ''
@@ -70,8 +70,6 @@ export const NotifyForm = () => {
       setIsLoading(false);
     }
   };
-
-
 
   return (
     <section className={styles.formArea}>

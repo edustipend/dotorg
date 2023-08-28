@@ -25,7 +25,7 @@ export const store = configureStore({
   reducer: {
     counter: counterReducer,
     application: requestApplication,
-    userDetails: userDetails,
+    userDetails: userDetails
   }
 });
 
