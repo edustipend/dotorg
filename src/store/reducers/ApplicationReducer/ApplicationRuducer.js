@@ -40,7 +40,7 @@ const application = createSlice({
       state.success = action.payload;
     },
     emailVerification: (state, action) => {
-      state.isVerified = action.payload
+      state.isVerified = action.payload;
     }
   }
 });

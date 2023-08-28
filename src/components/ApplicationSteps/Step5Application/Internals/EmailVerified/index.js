@@ -1,2 +1,2 @@
-import { EmailVerified } from "./EmailVerified";
-export default EmailVerified
+import { EmailVerified } from './EmailVerified';
+export default EmailVerified;

@@ -62,11 +62,5 @@ export const Submit = () => {
       });
   };
 
-  return (
-    <>
-      {
-        success ? <VerifyEmail /> : <SubmitUI handleSubmit={handleSubmit} isLoading={isLoading} />
-      }
-    </>
-  )
+  return <>{success ? <VerifyEmail /> : <SubmitUI handleSubmit={handleSubmit} isLoading={isLoading} />}</>;
 };
