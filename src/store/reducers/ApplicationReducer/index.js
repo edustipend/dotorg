@@ -1,3 +1,3 @@
-import { back, progress, category, reason, steps, benefits, futureHelp, successful, emailVerification } from './ApplicationRuducer';
+import { back, progress, setActiveStep, category, reason, steps, benefits, futureHelp, successful, emailVerification } from './ApplicationRuducer';
 
-export { back, progress, category, reason, steps, benefits, futureHelp, successful, emailVerification };
+export { back, progress, setActiveStep, category, reason, steps, benefits, futureHelp, successful, emailVerification };

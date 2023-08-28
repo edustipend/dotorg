@@ -11,7 +11,7 @@ import Loader from '../../../../Loader';
 import { Valid } from '../../../../../assets';
 import { constants } from './constants';
 import ContentContainer from '../../../ContentContainer';
-import { emailVerification } from '../../../../../store/reducers/ApplicationReducer';
+import { emailVerification, setActiveStep } from '../../../../../store/reducers/ApplicationReducer';
 const { HEADER, ERR_HEADER, SUCCESS_BTN, ERR_BTN } = constants;
 
 export const EmailVerified = () => {
@@ -30,11 +30,11 @@ export const EmailVerified = () => {
   const handleReturn = () => {
     setIsActive(false);
     nav('/application');
-    nav(0);
+    dispatch(setActiveStep(5));
   };
   return (
     <Modal>
-      {isVerified ? (
+      {!isVerified ? (
         <Loader size={'large'} />
       ) : (
         <ContentContainer>

@@ -7,7 +7,7 @@ const initialState = {
   stepsTakenToEaseProblem: '',
   potentialBenefits: '',
   futureHelpFromUser: '',
-  success: true,
+  success: false,
   isVerified: false
 };
 
@@ -20,6 +20,9 @@ const application = createSlice({
     },
     progress: (state) => {
       state.activeStep += 1;
+    },
+    setActiveStep: (state, action) => {
+      state.activeStep = action.payload;
     },
     category: (state, action) => {
       state.stipendCategory = action.payload;
@@ -46,4 +49,4 @@ const application = createSlice({
 });
 
 export default application.reducer;
-export const { back, progress, category, reason, steps, benefits, futureHelp, successful, emailVerification } = application.actions;
+export const { back, progress, setActiveStep, category, reason, steps, benefits, futureHelp, successful, emailVerification } = application.actions;
