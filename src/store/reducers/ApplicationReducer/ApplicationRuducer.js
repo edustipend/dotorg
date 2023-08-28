@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  activeStep: 5,
+  activeStep: 1,
   stipendCategory: '',
   reasonForRequest: '',
   stepsTakenToEaseProblem: '',

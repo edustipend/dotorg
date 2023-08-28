@@ -27,13 +27,18 @@ export const EmailVerified = () => {
     }, 1000);
   }, [setIsActive, dispatch]);
 
+  const handleReturn = () => {
+    setIsActive(false);
+    nav('/application');
+    nav(0);
+  };
   return (
     <Modal>
-      {!isVerified ? (
+      {isVerified ? (
         <Loader size={'large'} />
       ) : (
         <ContentContainer>
-          {isVerified ? (
+          {!isVerified ? (
             <div className={`${styles.submit} ${styles.submitAlt} animated`}>
               <div className={styles.headerContainer}>
                 <img src={Valid} alt="valid" className={styles.emojiAlt} />
@@ -50,7 +55,7 @@ export const EmailVerified = () => {
                 <Header className={`${styles.header} ${styles.header2}`}>{ERR_HEADER}</Header>
               </div>
               <div className={`${styles.btnContainer} ${styles.btnContainerAltt}`}>
-                <Button type={'secondary'} size={'large'} label={ERR_BTN} onClick={() => nav('/application')} className={styles.btn} />
+                <Button type={'secondary'} size={'large'} label={ERR_BTN} onClick={handleReturn} className={styles.btn} />
               </div>
             </div>
           )}

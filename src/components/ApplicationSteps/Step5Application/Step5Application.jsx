@@ -25,8 +25,8 @@ export const Step5Application = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const sa = window.location.search.split('=')[1];
-    if (sa) {
+    const searchParams = window.location.search.split('=')[1];
+    if (searchParams) {
       setVerificationModal(true);
     }
   }, [setVerificationModal]);
