@@ -4,7 +4,7 @@ import { SidebarCtx } from '../../context/SidebarContext';
 import { useState } from 'react';
 
 export default {
-  title: 'Edustipend/COmponents/SideBar',
+  title: 'Edustipend/Components/SideBar',
   component: SideBar,
   tags: ['autodocs']
 };

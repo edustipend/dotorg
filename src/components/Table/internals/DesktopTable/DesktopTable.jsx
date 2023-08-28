@@ -38,8 +38,7 @@ export const DesktopTable = ({ entries, tableHead, oneClickApply }) => {
                         : Application_Status === `${DENIED}`
                         ? 'denied bold_weight'
                         : ''
-                    }
-                  >
+                    }>
                     {Application_Status}
                   </span>
                 </td>

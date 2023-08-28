@@ -29,16 +29,14 @@ export const MobileTable = ({ entries, tableHead, oneClickApply }) => {
                 <button
                   disabled={entry === 0 ? true : false}
                   className={entry === 0 ? `${styles.disabled} ${styles.arrowContainer}` : `${styles.arrowContainer}`}
-                  onClick={handleArrowLeft}
-                >
+                  onClick={handleArrowLeft}>
                   <img src={arrowleft} alt="arrowleft" className={styles.arrow_img} />
                 </button>
                 <span className={styles.id}>{currentEntry && currentEntry.id}</span>
                 <button
                   disabled={entry + 1 === entries.length ? true : false}
                   className={entry + 1 === entries.length ? `${styles.disabled} ${styles.arrowContainer}` : `${styles.arrowContainer}`}
-                  onClick={handleArrowRight}
-                >
+                  onClick={handleArrowRight}>
                   <img src={arrowright} alt="arrowright" className={styles.arrow_img} />
                 </button>
               </div>
@@ -64,8 +62,7 @@ export const MobileTable = ({ entries, tableHead, oneClickApply }) => {
                     : status === `${DENIED}`
                     ? 'denied bold_weight'
                     : ''
-                }
-              >
+                }>
                 {currentEntry && currentEntry.Application_Status}
               </span>
             </td>

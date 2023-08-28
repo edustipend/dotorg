@@ -27,9 +27,17 @@
 }
 
 @media all and (orientation: portrait) {
-  @media screen and (max-height: 768px) {
+  @media screen and (max-height: 1024px) {
     .notify {
-      margin-top: 1rem;
+      margin: 1rem;
+    }
+  }
+}
+
+@media all and (orientation: landscape) {
+  @media screen and (max-height: 400px) {
+    .notify {
+      margin: 1rem;
     }
   }
 }

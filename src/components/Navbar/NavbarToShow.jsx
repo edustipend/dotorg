@@ -2,12 +2,14 @@ import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import NavbarNavs from './NavbarNavs';
 import NavbarAmbassadorNavs from './NavbarAmbassadorNavs';
-import { Menu, Close, Profile, Logout } from '../../assets/index';
+import { Menu, Close, Logout } from '../../assets/index';
 
 import './styles.css';
+import Text from '../Text';
 
 export const NavbarToShow = () => {
   const [isToggle, setIsToggle] = useState(false);
+  const [dropDown, setDropDown] = useState(false);
   const { pathname } = useLocation();
   const isAmbassador = pathname === '/ambassador-program';
   const isRequestStipend = pathname === '/request-stipend';
@@ -26,10 +28,16 @@ export const NavbarToShow = () => {
     </>
   ) : isDashboard ? (
     <div className="user-profile">
-      <img src={Profile} alt="profile" className="user-profile-img" />
-      <div className="log-out">
-        <img src={Logout} alt="logout dropdown" />
+      <div>
+        <Text content={'Chiehiura Basil'} className={'user-name'} />
+        <Text content={'chi.edustipedn@gmail.com'} className={'user-email'} />
+      </div>
+
+      <div className="log-out-container">
+        <img src={Logout} alt="logout dropdown" className="log-out" onClick={() => setDropDown((prev) => !prev)} />
+
+        {dropDown && <button className="drop-down">Log out</button>}
       </div>
     </div>
-  ) : undefined;
+  ) : null;
 };

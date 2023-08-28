@@ -107,6 +107,13 @@
   -ms-overflow-style: none;
 }
 
+.hig {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000000e5;
+}
+
 .modal_modal::-webkit-scrollbar {
   background: transparent;
   width: 0px;
