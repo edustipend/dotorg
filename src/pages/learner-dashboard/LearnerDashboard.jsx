@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import styles from './LearnerDashboard.module.css';
 import SideBar from '../../components/SideBar';
@@ -6,7 +7,6 @@ import { Close, Menu } from '../../assets';
 import { useContext } from 'react';
 import { useEffect } from 'react';
 import InstallPrompt from '../../components/InstallPrompt';
-import { useState } from 'react';
 
 export const LearnerDashboard = () => {
   const { showSidebar, setShowSidebar } = useContext(SidebarCtx);
