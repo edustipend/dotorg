@@ -1,3 +1,4 @@
+import React from 'react';
 import Routes from './routes';
 import initFirebaseApp from './firebaseConfig';
 import Navbar from './components/Navbar';
@@ -25,4 +26,5 @@ function App() {
     </>
   );
 }
+
 export default App;
