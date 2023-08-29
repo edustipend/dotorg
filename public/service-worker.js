@@ -1,4 +1,4 @@
-const CACHE_NAME = 'The-Movies';
+const CACHE_NAME = 'Edustipend';
 const urlsToCache = ['/', '/index.html', '/offline.html', '/dashboard'];
 
 const self = this;
