@@ -52,5 +52,4 @@ HorizontalStepper.defaultProps = {
   stepsData: []
 };
 
-
 export default HorizontalStepper;

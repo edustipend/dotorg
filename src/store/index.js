@@ -1,4 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
+import requestApplication from './reducers/ApplicationReducer/ApplicationRuducer';
+import userDetails from './reducers/UserDetailsReducer/UserDetailsReducer';
 
 // Example - This should be cleaned up
 import { createSlice } from '@reduxjs/toolkit';
@@ -21,7 +23,9 @@ const counterReducer = createSlice({
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer
+    counter: counterReducer,
+    application: requestApplication,
+    userDetails: userDetails
   }
 });
 

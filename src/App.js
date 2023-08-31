@@ -9,22 +9,28 @@ import NotifyMe from './sections/NotifyMe';
 import Modal from './components/Modal';
 import { ModalContext } from './context/ModalContext';
 import { useContext } from 'react';
+import { useScrollToTop } from './ScrollToTop/ScrollToTop';
 import LoadingMessage from './components/LoadingMessage';
 initFirebaseApp();
 
 function App() {
   const { isLoading } = useContext(ModalContext);
+  const scrollOnRoute = useScrollToTop();
   return (
     <>
+      {scrollOnRoute}
       <Navbar />
       <Routes />
       <Footer />
       <NotifyModal>
         <NotifyMe />
       </NotifyModal>
-      {isLoading ? <Modal><LoadingMessage size={'large'} /></Modal> : undefined}
+      {isLoading ? (
+        <Modal>
+          <LoadingMessage size={'large'} />
+        </Modal>
+      ) : undefined}
     </>
   );
 }
-
 export default App;

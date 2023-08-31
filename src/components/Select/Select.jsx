@@ -4,22 +4,26 @@ import { useState } from 'react';
 import styles from './Select.module.css';
 import dropDown from '../../assets/drop-down.svg';
 import { TestId } from './constants';
+import { useDispatch } from 'react-redux';
 const { LABEL_ID, INPUT_ID, OPTIONS_ID } = TestId;
 
-export const Select = ({ dispatch, dispatchType, label, placeholder, options, size, value, className }) => {
+export const Select = ({ dispatchType, label, includeLabel, placeholder, options, size, value, className }) => {
   const [option, setOption] = useState(value);
   const [active, setActive] = useState(false);
+  const dispatch = useDispatch();
 
   const handleDispatch = (Option) => {
     setOption(Option);
-    dispatch({ type: dispatchType, payload: Option });
+    dispatch(dispatchType(Option));
     setActive((pre) => !pre);
   };
   return (
     <div className={`${styles.main} ${className}`}>
-      <label data-testid={LABEL_ID} className={styles.label}>
-        {label} <span className={styles.required}>*</span>
-      </label>
+      {includeLabel ? (
+        <label data-testid={LABEL_ID} className={styles.label}>
+          {label} <span className={styles.required}>*</span>
+        </label>
+      ) : undefined}
       <div className={`${styles.defaultContainer} ${styles[size]}`}>
         <div className={styles.selectInput}>
           <input
@@ -64,9 +68,9 @@ export const Select = ({ dispatch, dispatchType, label, placeholder, options, si
 };
 
 Select.propTypes = {
-  dispatch: PropTypes.func,
-  dispatchType: PropTypes.string,
+  dispatchType: PropTypes.func,
   label: PropTypes.string,
+  includeLabel: PropTypes.bool,
   placeholder: PropTypes.string,
   options: PropTypes.array,
   size: PropTypes.string,
@@ -75,9 +79,9 @@ Select.propTypes = {
 };
 
 Select.defaultProps = {
-  dispatch: () => {},
-  dispatchType: '',
+  dispatchType: () => {},
   label: 'Some label',
+  includeLabel: true,
   placeholder: 'Select an option',
   options: [],
   size: '',

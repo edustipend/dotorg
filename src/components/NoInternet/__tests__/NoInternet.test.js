@@ -7,7 +7,3 @@ describe('NoInternet component', () => {
     render(<NoInternet />);
   });
 });
-
-
-
-    

@@ -28,9 +28,8 @@ export const NavbarToShow = () => {
     </>
   ) : isDashboard ? (
     <div className="user-profile">
-      <div>
-        <Text content={'Chiehiura Basil'} className={'user-name'} />
-        <Text content={'chi.edustipedn@gmail.com'} className={'user-email'} />
+      <div className="user-initials">
+        <Text content={'CB'} className={'user-name'} />
       </div>
 
       <div className="log-out-container">

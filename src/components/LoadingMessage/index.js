@@ -1,2 +1,2 @@
-import { LoadingMessage } from "./LoadingMessage";
-export default LoadingMessage
+import { LoadingMessage } from './LoadingMessage';
+export default LoadingMessage;

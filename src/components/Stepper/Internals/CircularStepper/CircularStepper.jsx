@@ -51,5 +51,4 @@ CircularStepper.defaultProps = {
   stepsDataLength: 0
 };
 
-
 export default CircularStepper;

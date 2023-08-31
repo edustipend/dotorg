@@ -1,52 +1,44 @@
-import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from './Input.module.css';
 import { TestId } from './constants';
 const { LABEL_ID, INPUT_ID } = TestId;
 
-export const Input = ({ dispatch, placeholder, label, value, dispatchType, type, size, className }) => {
-  const [initialValue, setInitialValue] = useState(value);
-
-  const handleOnchange = (e) => {
-    setInitialValue(e.target.value);
-    dispatch({ type: dispatchType, payload: e.target.value });
-  };
-
+export const Input = ({ placeholder, label, includeLabel, value, type, size, className, ...props }) => {
   return (
-    <main className={styles.main}>
-      <label data-testid={LABEL_ID} htmlFor="input" className={styles.label}>
-        {label} <span className={styles.required}>*</span>
-      </label>
+    <section className={styles.main}>
+      {includeLabel ? (
+        <label data-testid={LABEL_ID} htmlFor="input" className={styles.label}>
+          {label} <span className={styles.required}>*</span>
+        </label>
+      ) : undefined}
       <input
         data-testid={INPUT_ID}
         type={type}
         name="input"
         placeholder={placeholder}
-        value={initialValue}
-        onChange={(e) => handleOnchange(e)}
+        value={value}
+        {...props}
         className={`${styles.input} ${styles[size]} ${className}`}
       />
-    </main>
+    </section>
   );
 };
 
 Input.propTypes = {
-  dispatch: PropTypes.func,
   placeholder: PropTypes.string,
   label: PropTypes.string,
+  includeLabel: PropTypes.bool,
   value: PropTypes.string,
-  dispatchType: PropTypes.string,
   type: PropTypes.string,
   size: PropTypes.string,
   className: PropTypes.string
 };
 
 Input.defaultProps = {
-  dispatch: () => {},
   placeholder: 'Placeholder...',
   label: 'Some label',
+  includeLabel: true,
   value: '',
-  dispatchType: '',
   type: 'text',
   size: '',
   className: ''

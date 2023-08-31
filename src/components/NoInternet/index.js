@@ -1,3 +1,3 @@
-import NoInternet from "./NoInternet";
+import NoInternet from './NoInternet';
 
 export default NoInternet;
