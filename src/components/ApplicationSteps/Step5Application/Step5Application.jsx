@@ -10,7 +10,7 @@ import Header from '../../../components/Header';
 import Text from '../../Text';
 import Quote from '../../../components/Quote';
 import Submit from './Internals/Submit';
-import { back } from '../../../store/reducers/ApplicationReducer';
+import { back, successful, isError } from '../../../store/reducers/ApplicationReducer';
 import { ScrollOnMount } from '../ScrollOnMount/ScrollOnMount';
 import { BackArrow } from '../../../assets';
 import { constants } from './Internals/constants';
@@ -21,6 +21,12 @@ export const Step5Application = () => {
   ScrollOnMount();
   const { setIsActive } = useContext(ModalContext);
   const dispatch = useDispatch();
+
+  const onSubmit = () => {
+    dispatch(successful(false))
+    dispatch(isError(false))
+    setIsActive((prev) => !prev)
+  }
   return (
     <>
       <div>
@@ -54,7 +60,7 @@ export const Step5Application = () => {
               iconPosition={'front'}
               type={'secondary'}
               effectAlt
-              onClick={() => setIsActive((prev) => !prev)}
+              onClick={onSubmit}
               className={styles.btn}
             />
           </div>

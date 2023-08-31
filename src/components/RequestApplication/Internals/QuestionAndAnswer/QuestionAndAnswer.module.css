@@ -38,7 +38,7 @@
 .label {
   display: flex;
   align-items: flex-start;
-  max-width: 700px;
+  max-width: 750px;
   font-size: 16px;
   gap: 0.5rem;
 }
@@ -50,6 +50,7 @@
 .required {
   font-size: 24px;
   color: var(--red-accent);
+  margin-left: .5rem;
   font-weight: 700;
 }
 

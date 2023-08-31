@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Header from '../../../../components/Header';
 import styles from './CategoryHeader.module.css';
-import { supportType, constant } from '../../constants';
+import { constant } from '../../constants';
 const { SUBTITLE, TEXT } = constant;
 
 export const CategoryHeader = ({ header, category, support }) => {
-  const Support = supportType(category, support);
+
   return (
     <section className={styles.main}>
       <div className={styles.topSection}>
@@ -16,7 +16,7 @@ export const CategoryHeader = ({ header, category, support }) => {
         <Header className={styles.title}>{header}</Header>
       </div>
       <div className={styles.bottomSection}>
-        <span className={styles.support}>{Support}</span>
+        <span className={styles.support}>{support}</span>
         <p className={styles.text}>{TEXT}</p>
       </div>
     </section>

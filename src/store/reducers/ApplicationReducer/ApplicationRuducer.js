@@ -8,7 +8,9 @@ const initialState = {
   potentialBenefits: '',
   futureHelpFromUser: '',
   success: false,
-  isVerified: false
+  isVerified: false,
+  error: false,
+  errorMessage: '',
 };
 
 const application = createSlice({
@@ -44,9 +46,15 @@ const application = createSlice({
     },
     emailVerification: (state, action) => {
       state.isVerified = action.payload;
+    },
+    isError: (state, action) => {
+      state.error = action.payload;
+    },
+    errMessage: (state, action) => {
+      state.errorMessage = action.payload;
     }
   }
 });
 
 export default application.reducer;
-export const { back, progress, setActiveStep, category, reason, steps, benefits, futureHelp, successful, emailVerification } = application.actions;
+export const { back, progress, setActiveStep, category, reason, steps, benefits, futureHelp, successful, emailVerification, isError, errMessage } = application.actions;

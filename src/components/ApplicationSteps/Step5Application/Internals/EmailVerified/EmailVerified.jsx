@@ -8,11 +8,12 @@ import Modal from '../../../../Modal';
 import Button from '../../../../Button';
 import Header from '../../../../Header';
 import Loader from '../../../../Loader';
-import { Valid } from '../../../../../assets';
+import { Valid, Sad } from '../../../../../assets';
 import { constants } from './constants';
 import ContentContainer from '../../../ContentContainer';
-import { emailVerification, setActiveStep } from '../../../../../store/reducers/ApplicationReducer';
-const { HEADER, ERR_HEADER, SUCCESS_BTN, ERR_BTN } = constants;
+import { postData } from '../../../../../services/ApiClient';
+//import { emailVerification } from '../../../../../store/reducers/ApplicationReducer';
+const { HEADER, ERR_HEADER, SUCCESS_BTN, ERR_BTN, ERR_TEXT, TRY_AGAIN } = constants;
 
 export const EmailVerified = () => {
   const { setIsActive } = useContext(ModalContext);
@@ -21,16 +22,15 @@ export const EmailVerified = () => {
   const { isVerified } = useSelector((state) => state.application);
 
   useEffect(() => {
+    const token = window.location.search.split("=")[1]
     setIsActive(true);
-    setTimeout(() => {
-      dispatch(emailVerification(true));
-    }, 1000);
+    const res = postData('/verify', token)
+    console.log(res);
   }, [setIsActive, dispatch]);
 
   const handleReturn = () => {
     setIsActive(false);
-    nav('/application');
-    dispatch(setActiveStep(5));
+    nav(-1)
   };
   return (
     <Modal>
@@ -51,11 +51,13 @@ export const EmailVerified = () => {
           ) : (
             <div className={`${styles.submit} animatedAlt`}>
               <div className={styles.headerContainer}>
-                <img src="" alt="error" className={styles.emojiAlt} />
+                <img src={Sad} alt="error" className={styles.emojiAlt} />
                 <Header className={`${styles.header} ${styles.header2}`}>{ERR_HEADER}</Header>
+                <p className={styles.prompt}>{ERR_TEXT}</p>
               </div>
               <div className={`${styles.btnContainer} ${styles.btnContainerAltt}`}>
-                <Button type={'secondary'} size={'large'} label={ERR_BTN} onClick={handleReturn} className={styles.btn} />
+                <Button type={'secondary'} size={'large'} label={TRY_AGAIN} onClick={() => nav(0)} className={styles.btn} />
+                <Button type={'plain'} size={'large'} label={ERR_BTN} onClick={handleReturn} className={styles.btn} />
               </div>
             </div>
           )}

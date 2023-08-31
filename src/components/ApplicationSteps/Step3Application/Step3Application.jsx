@@ -20,7 +20,6 @@ export const Step3Application = () => {
   const [selectedOption, setSelectedOption] = useState('');
   const { setIsActive } = useContext(ModalContext);
 
-  console.log(selectedOption);
   //scroll to the top on step mount
   ScrollOnMount();
 

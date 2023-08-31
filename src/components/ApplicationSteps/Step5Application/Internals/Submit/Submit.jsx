@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import VerifyEmail from '../VerifyEmail';
 import SubmitUI from '../SubmitUI';
-import { successful } from '../../../../../store/reducers/ApplicationReducer';
+import { successful, isError, errMessage } from '../../../../../store/reducers/ApplicationReducer';
 import { postData } from '../../../../../services/ApiClient';
 
 export const Submit = () => {
@@ -13,30 +13,33 @@ export const Submit = () => {
     (state) => state.application
   );
 
-  const { FullName, Email, Password, MonthOfBirth, DayOfBirth, YearOfBirth, Gender, StateOfOrigin, HowDidYouHear } = useSelector(
+  console.log(success);
+
+  const { fullName, email, password, monthOfBirth, dayOfBirth, yearOfBirth, gender, stateOfOrigin, howDidYouHear } = useSelector(
     (state) => state.userDetails
   );
 
-  const DOB = `${MonthOfBirth}/${DayOfBirth}/${YearOfBirth}`;
+  const DOB = `${monthOfBirth}/${dayOfBirth}/${yearOfBirth}`;
+  const Category = stipendCategory.split("/")[0].toLowerCase()
   const routes = ['user/request-stipend', 'register'];
 
   const dataBody = [
     {
-      email: Email,
-      stipendCategory: stipendCategory,
+      email: email,
+      stipendCategory: Category,
       reasonForRequest: reasonForRequest,
       stepsTakenToEaseProblem: stepsTakenToEaseProblem,
       potentialBenefits: potentialBenefits,
       futureHelpFromUser: futureHelpFromUser
     },
     {
-      name: FullName,
-      email: Email,
-      password: Password,
+      name: fullName,
+      email: email,
+      password: password,
       dateOfBirth: DOB,
-      gender: Gender,
-      stateOfOrigin: StateOfOrigin,
-      howDidYouHearAboutUs: HowDidYouHear
+      gender: gender,
+      stateOfOrigin: stateOfOrigin,
+      howDidYouHearAboutUs: howDidYouHear
     }
   ];
 
@@ -47,20 +50,26 @@ export const Submit = () => {
 
     Promise.all(promise)
       .then((responses) => {
-        responses.forEach((response) => {
+        responses.forEach((response, idx) => {
           //do something with the response
           if (response.success) {
             dispatch(successful(true));
+            console.log(response, idx);
           } else if (!response.success) {
-            //do something with the response
+            dispatch(successful(false));
+            dispatch(isError(true))
+            dispatch(errMessage(response.error[0].email))
+            console.log(response, idx);
           }
           setIsLoading(false);
         });
       })
       .catch((error) => {
         setIsLoading(false);
+        dispatch(successful(false));
+        dispatch(isError(true))
+        console.log('ss', error, 'final');
       });
   };
-
   return <>{success ? <VerifyEmail /> : <SubmitUI handleSubmit={handleSubmit} isLoading={isLoading} />}</>;
 };

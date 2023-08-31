@@ -15,7 +15,7 @@ const Routes = () => {
     <AppRoutes>
       <Route path="/ambassador-program" element={<AmbassadorPage />} />
       <Route path="/request" element={<StartApplication />} />
-      <Route path="/request-stipend" element={<RequestStipendPage />} />
+      <Route path="/application" element={<RequestStipendPage />} />
       <Route path="/welcome" element={<Welcome />} />
       <Route path="/dashboard" element={<LearnerDashboard />}>
         <Route index element={<Home />} />
