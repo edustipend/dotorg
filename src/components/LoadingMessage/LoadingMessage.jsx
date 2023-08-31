@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Loader from '../Loader';
 import styles from './LoadingMessage.module.css';
+
 import { messages } from './internals/constants';
 import randomMessage from '../../utils/GenerateRandomMessage';
 
