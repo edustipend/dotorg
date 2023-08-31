@@ -23,7 +23,7 @@ export const Loader = ({ variant, size, ...props }) => {
 
 Loader.propTypes = {
   size: PropTypes.oneOf(['small', 'medium', 'large']),
-  variant: PropTypes.oneOf(['primary', 'secondary'])
+  variant: PropTypes.oneOf(['primary', 'secondary', 'neutral'])
 };
 
 Loader.defaultProps = {
