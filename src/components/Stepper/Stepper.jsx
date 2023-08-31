@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './Stepper.module.css';
 import backarrow from '../../assets/stepperbackarrow.svg';
 import CircularStepper from './Internals/CircularStepper/CircularStepper';
 import HorizontalStepper from './Internals/HorizontalStepper/HorizontalStepper';
+import Container from '../Container';
 import { Text, stepsData } from './constants';
 
-const Stepper = () => {
-  const [activeStep /**setActiveStep**/] = useState(1);
-
+const Stepper = ({ activeStep }) => {
   return (
     <>
       <div className={styles.mobile}>
@@ -32,11 +32,21 @@ const Stepper = () => {
         </div>
       </div>
 
-      <div className={styles.bigscreen}>
-        <HorizontalStepper activeStep={activeStep} stepsData={stepsData} />
-      </div>
+      <Container alternate>
+        <div className={styles.bigscreen}>
+          <HorizontalStepper activeStep={activeStep} stepsData={stepsData} />
+        </div>
+      </Container>
     </>
   );
 };
 
 export default Stepper;
+
+Stepper.propTypes = {
+  activeStep: PropTypes.number
+};
+
+Stepper.defaultProps = {
+  activeStep: 1
+};

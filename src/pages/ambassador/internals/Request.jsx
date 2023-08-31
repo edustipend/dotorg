@@ -16,7 +16,8 @@ export const Application = () => {
           height="1010"
           frameBorder="0"
           marginHeight="0"
-          marginWidth="0">
+          marginWidth="0"
+        >
           Loading…
         </iframe>{' '}
       </div>

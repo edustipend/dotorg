@@ -1,11 +1,13 @@
 .container {
-  width: 90%;
   margin: -25px auto 0;
+  display: flex;
+  gap: 1.5rem;
   padding-top: 60px;
   padding-bottom: 10px;
   border: 0.5px solid transparent;
   border-radius: 30px;
-  background: linear-gradient(to right, white, white), linear-gradient(to right, #5801ff33, #00babb33);
+  background: linear-gradient(to right, var(--white), var(--white)),
+    linear-gradient(to right, var(--linear-gradient-one-light), var(--linear-gradient-two-light));
   background-clip: padding-box, border-box;
   background-origin: padding-box, border-box;
   display: flex;
@@ -93,17 +95,11 @@
 
 .disabledbottomselecttitle,
 .bottomselecttitle {
-  width: 105px;
+  width: 122px;
 }
 
 @media screen and (min-width: 1024px) {
   .gaparrow {
     margin-top: -35px;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  .container {
-    max-width: 1100px;
   }
 }

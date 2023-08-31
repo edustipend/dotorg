@@ -5,7 +5,7 @@
  * returns a random message using the position of the message in the array
  */
 export const randomMessage = (array, max, min = 0) => {
-    const position = Math.floor(Math.random() * (max - min)) + min;
-    const random = array[position];
-    return random;
-}
+  const position = Math.floor(Math.random() * (max - min)) + min;
+  const random = array[position];
+  return random;
+};

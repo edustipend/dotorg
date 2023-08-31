@@ -1,4 +1,5 @@
 .main {
+  width: 100%;
   display: flex;
   flex-direction: column;
   font-family: 'Manrope';
@@ -22,6 +23,7 @@
 }
 
 .input {
+  width: 100%;
   padding: 17px 19px;
   height: 73px;
   font-size: 16px;
@@ -29,6 +31,14 @@
   border: 1px solid var(--darker-navy-blue);
   border-radius: 15px;
   outline: none;
+}
+
+.input:focus {
+  border: 0.5px solid transparent;
+  border-radius: 15px;
+  background: linear-gradient(to right, white, white), linear-gradient(to right, #5801ff77, #00babb77);
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
 }
 
 .input::placeholder {

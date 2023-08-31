@@ -1,0 +1,11 @@
+.main {
+  background: var(--white);
+  border-radius: 30px;
+  padding: 34px 23px;
+}
+
+@media screen and (min-width: 768px) {
+  .main {
+    padding: 59px 82px;
+  }
+}

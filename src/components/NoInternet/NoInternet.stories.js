@@ -1,4 +1,4 @@
-import  NoInternetComponent  from '../NoInternet';
+import NoInternetComponent from '../NoInternet';
 
 export default {
   title: 'Edustipend/Components/NoInternet',

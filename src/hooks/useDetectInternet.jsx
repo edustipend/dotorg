@@ -17,7 +17,7 @@ const useDetectInternet = () => {
     };
   }, []);
 
-  return (isOnline)
+  return isOnline;
 };
 
 export default useDetectInternet;
