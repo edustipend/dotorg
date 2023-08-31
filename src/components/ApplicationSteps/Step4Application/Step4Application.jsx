@@ -172,7 +172,7 @@ export const Step4Application = () => {
                     placeholder={DAY_PH}
                     type={'number'}
                     onChange={(e) => dispatch(dayofbirth(e.target.value))}
-                    className={styles.entry}
+                    className={`${styles.entry} ${styles.number}`}
                   />
                   <Input
                     value={yearOfBirth}
@@ -180,7 +180,7 @@ export const Step4Application = () => {
                     placeholder={YR_PH}
                     type={'number'}
                     onChange={(e) => dispatch(yearofbirth(e.target.value))}
-                    className={styles.entry}
+                    className={`${styles.entry} ${styles.number}`}
                   />
                 </div>
                 <small className={styles.small}>{DOB_TEXT}</small>
