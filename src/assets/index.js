@@ -28,6 +28,8 @@ import PaperPlane from './PaperPlaneTilt.svg';
 import Profile from './profile.svg';
 import Logout from './logout.svg';
 import Valid from './valid.svg';
+import Flower from './flower.png';
+
 export {
   Hero1,
   Hero2,
@@ -58,5 +60,6 @@ export {
   PaperPlane,
   Profile,
   Logout,
-  Valid
+  Valid,
+  Flower
 };
