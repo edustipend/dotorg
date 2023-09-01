@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import styles from './Home.module.css';
 import { Quote, TestId, constants, history, recent, submissionTableHead, submitted, tableHead } from './internals/constants';
 import hand from '../../../assets/waving hand.png';
 import { tab } from './internals/constants';
 import Button from '../../../components/Button';
 import Table from '../../../components/Table';
+import { getData } from '../../../services/ApiClient';
 const { dashboard, username } = constants;
 
 export const Home = () => {
@@ -17,6 +18,20 @@ export const Home = () => {
     const active = currentTable === 0 ? recent : history;
     setSingleEntry(active.filter((entry) => entry.id === id));
   };
+
+  const getUserData = useCallback(async () => {
+    try {
+      // TODO: Fetch users data
+      const response = await getData('/user/application-history/search?id=${userId}');
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+
+  useEffect(() => {
+    getUserData();
+  }, []);
 
   return (
     <div className={styles.Main} data-testid={TestId.HOME}>
@@ -47,8 +62,7 @@ export const Home = () => {
                 <button
                   key={idx}
                   className={currentTable === idx ? `${styles.tab}` : `${styles.tab} ${styles.tabAlt}`}
-                  onClick={() => setCurrentTable(idx)}
-                >
+                  onClick={() => setCurrentTable(idx)}>
                   {itm}
                 </button>
               );
