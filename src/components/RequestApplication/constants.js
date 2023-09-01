@@ -51,6 +51,7 @@ export const courseConstants = {
   TITLE: 'Course/Certifications',
   SUPPORT_TYPE: `You are submitting an application for the Course/Certification Fees stipend.
   This stipend is where we support you with full/partial funds to complete/register a course/certification.
+  
   `,
   QUESTION1: `Are you currently taking any courses/certifications? `,
   QUESTION2: ` Are there any steps you've taken so far to keep making progress despite not having 
