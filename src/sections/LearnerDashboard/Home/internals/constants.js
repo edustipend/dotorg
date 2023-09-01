@@ -9,8 +9,8 @@ export const Quote = {
 };
 export const tab = ['Most recent application', 'My application history'];
 export const submitted = 'Here is what you submitted';
-export const tableHead = ['ID', 'Stipend Category', 'Application Status', 'Date of submission', 'Time of submission'];
-export const submissionTableHead = ['ID', 'Stipend Category', 'Application Status', 'Date of submission', 'Time of submission'];
+export const tableHead = ['ID', 'Stipend Category', 'Application Status', 'Date of submission'];
+export const submissionTableHead = ['ID', 'Stipend Category', 'Application Status', 'Date of submission'];
 
 export const recent = [
   {

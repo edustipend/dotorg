@@ -1,9 +1,12 @@
 import styles from './DesktopTable.module.css';
 import PropTypes from 'prop-types';
-import { applicationStatus } from '../constants';
-const { APPROVED, IN_VIEW, RECEIVED, DENIED } = applicationStatus;
+// import { applicationStatus } from '../constants';
+// const { APPROVED, IN_VIEW, RECEIVED, DENIED } = applicationStatus;
 
 export const DesktopTable = ({ entries, tableHead, oneClickApply }) => {
+
+  const status = 'Received'
+  const date = '1 / September / 2023'
   const lastItem = entries?.length - 1;
   return (
     <section className={styles.Main}>
@@ -21,30 +24,31 @@ export const DesktopTable = ({ entries, tableHead, oneClickApply }) => {
         </thead>
         <tbody>
           {entries?.map((itm, idx) => {
-            const { id, Stipend_Category, Application_Status, Date_of_submission, Time_of_submission, Action } = itm;
+            const { stipendCategory, Action } = itm;
             return (
-              <tr key={id}>
-                <td className={idx === lastItem ? `${styles.firstColumn}` : undefined}>{id}</td>
-                <td>{Stipend_Category}</td>
+              <tr key={idx}>
+                <td className={idx === lastItem ? `${styles.firstColumn}` : undefined}>{1}</td>
+                <td>{stipendCategory.toUpperCase()}</td>
                 <td>
                   <span
                     className={
-                      Application_Status === `${APPROVED}`
-                        ? 'approved bold_weight'
-                        : Application_Status === `${IN_VIEW}`
-                        ? 'in_view bold_weight'
-                        : Application_Status === `${RECEIVED}`
-                        ? 'in_view bold_weight'
-                        : Application_Status === `${DENIED}`
-                        ? 'denied bold_weight'
-                        : ''
+                      // Application_Status === `${APPROVED}`
+                      //   ? 'approved bold_weight'
+                      //   : Application_Status === `${IN_VIEW}`
+                      //     ? 'in_view bold_weight'
+                      //     : Application_Status === `${RECEIVED}`
+                      //       ? 'in_view bold_weight'
+                      //       : Application_Status === `${DENIED}`
+                      //         ? 'denied bold_weight'
+                      //         : ''
+                      'Received'
                     }
                   >
-                    {Application_Status}
+                    {status}
                   </span>
                 </td>
-                <td>{Date_of_submission}</td>
-                <td>{Time_of_submission}</td>
+                <td>{date}</td>
+                {/* <td>{Time_of_submission}</td> */}
                 {tableHead[5] && (
                   <td className={idx === lastItem ? `${styles.lastColumn}` : undefined}>
                     <button className={styles.btn} onClick={() => oneClickApply(idx + 1)}>

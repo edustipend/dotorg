@@ -17,7 +17,6 @@ export const Home = () => {
 
   const { name, id } = useSelector((state) => state.user);
   const [first] = name.split(' ');
-  console.log(data);
 
   const handleOneClick = (id) => {
     setApplicationTable(!applicationTable);
@@ -27,10 +26,8 @@ export const Home = () => {
 
   const getUserData = useCallback(async () => {
     try {
-      console.log(id, 'ID');
       const response = await getData(`/user/application-history/search?id=${id}`);
-      console.log(response);
-      setData(response.message);
+      setData([response.message]);
     } catch (error) {
       console.log(error);
     }
@@ -79,11 +76,11 @@ export const Home = () => {
           {(() => {
             switch (currentTable) {
               case 0:
-                return <Table entries={recent} tableHead={tableHead} oneClickApply={handleOneClick} />;
+                return <Table entries={data} tableHead={tableHead} oneClickApply={handleOneClick} />;
               case 1:
-                return <Table entries={history} tableHead={tableHead} oneClickApply={handleOneClick} />;
+                return <Table entries={data} tableHead={tableHead} oneClickApply={handleOneClick} />;
               default:
-                return <Table entries={recent} tableHead={tableHead} oneClickApply={handleOneClick} />;
+                return <Table entries={data} tableHead={tableHead} oneClickApply={handleOneClick} />;
             }
           })()}
         </section>
