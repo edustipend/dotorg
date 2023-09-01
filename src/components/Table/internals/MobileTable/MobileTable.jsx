@@ -9,8 +9,8 @@ import arrowright from '../../../../assets/arrow-right.svg';
 export const MobileTable = ({ entries, tableHead, oneClickApply }) => {
   const [entry, setEntry] = useState(0);
   const currentEntry = entries[entry];
-  const status = 'Received'
-  const date = '1 / September / 2023'
+  const status = 'Received';
+  const date = '1 / September / 2023';
 
   const handleArrowLeft = () => {
     setEntry((prev) => prev - 1);

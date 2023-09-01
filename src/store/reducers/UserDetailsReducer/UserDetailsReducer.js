@@ -43,5 +43,4 @@ const userDetails = createSlice({
 });
 
 export default userDetails.reducer;
-export const { fullname, Email, Password, dateofbirth, Gender, stateoforigin, twitterhandle, howdidyouhear } =
-  userDetails.actions;
+export const { fullname, Email, Password, dateofbirth, Gender, stateoforigin, twitterhandle, howdidyouhear } = userDetails.actions;

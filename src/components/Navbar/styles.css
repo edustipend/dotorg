@@ -189,7 +189,7 @@ a {
     transform: translateX(-200vw);
   }
 
-  .mobile-nav>div {
+  .mobile-nav > div {
     display: flex;
     justify-content: center;
     align-items: center;

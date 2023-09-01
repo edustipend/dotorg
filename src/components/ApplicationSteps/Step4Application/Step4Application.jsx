@@ -21,7 +21,7 @@ import {
   stateoforigin,
   twitterhandle,
   howdidyouhear,
-  dateofbirth,
+  dateofbirth
 } from '../../../store/reducers/UserDetailsReducer';
 
 const {
@@ -67,9 +67,7 @@ export const Step4Application = () => {
   const [isPassword, setIsPassword] = useState(passwordState);
   const { passwordErr, confirmPassword, confirmPasswordErr } = isPassword;
 
-  const { fullName, email, password, dateOfBirth, gender, stateOfOrigin, twitterHandle, howDidYouHear } = useSelector(
-    (state) => state.userDetails
-  );
+  const { fullName, email, password, dateOfBirth, gender, stateOfOrigin, twitterHandle, howDidYouHear } = useSelector((state) => state.userDetails);
 
   const userDetails = {
     fullName,
@@ -146,7 +144,13 @@ export const Step4Application = () => {
             <div className={styles.formArea}>
               <div>
                 <div>
-                  <Input label={DOB} value={dateOfBirth} type="date" className={` ${styles.input}`} onChange={(e) => dispatch(dateofbirth(e.target.value))} />
+                  <Input
+                    label={DOB}
+                    value={dateOfBirth}
+                    type="date"
+                    className={` ${styles.input}`}
+                    onChange={(e) => dispatch(dateofbirth(e.target.value))}
+                  />
                 </div>
                 <small className={styles.small}>{DOB_TEXT}</small>
               </div>
@@ -208,7 +212,6 @@ export const Step4Application = () => {
               </div>
             </div>
             <Select value={howDidYouHear} label={AD} placeholder={AD_PH} options={REFERRAL_SOURCES} dispatchType={howdidyouhear} />
-
           </form>
         </section>
         <section className={styles.btnContainer}>
@@ -231,7 +234,7 @@ export const Step4Application = () => {
             className={styles.btn}
           />
         </section>
-      </ContentContainer >
+      </ContentContainer>
       <section className="quoteContainer">
         <Quote content={QUOTE} className="quote" />
       </section>
