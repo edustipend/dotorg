@@ -6,18 +6,15 @@ import { SidebarCtx } from '../../context/SidebarContext';
 import { Close, Menu } from '../../assets';
 import { useContext } from 'react';
 import { useEffect } from 'react';
-import InstallPrompt from '../../components/InstallPrompt';
-import { useSelector } from 'react-redux';
+//import InstallPrompt from '../../components/InstallPrompt';
 import SurveyBox from '../../components/SurveyBox';
 import { SURVEY_LS_KEY } from './constants';
 
 export const LearnerDashboard = () => {
   const { showSidebar, setShowSidebar } = useContext(SidebarCtx);
   const [desktopScreen, setDesktopScreen] = useState(document.body.clientWidth);
-  const { name, email, id, isAdmin } = useSelector((state) => state.user);
 
-  //can clear later
-  console.log(name, email, id, isAdmin);
+
 
   const handleSurveySuccess = () => {
     //TODO: Add logic to clean this up on the next application window
@@ -50,7 +47,7 @@ export const LearnerDashboard = () => {
       <div className={styles.Outlet}>
         <Outlet />
       </div>
-      <InstallPrompt />
+      {/* <InstallPrompt /> */}
       <SurveyBox show={!localStorage.getItem(SURVEY_LS_KEY)} onSuccess={handleSurveySuccess} />
     </div>
   );

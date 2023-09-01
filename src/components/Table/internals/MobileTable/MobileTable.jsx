@@ -3,13 +3,14 @@ import PropTypes from 'prop-types';
 import styles from './MobileTable.module.css';
 import arrowleft from '../../../../assets/arrow-left.svg';
 import arrowright from '../../../../assets/arrow-right.svg';
-import { applicationStatus } from '../constants';
-const { APPROVED, IN_VIEW, RECEIVED, DENIED } = applicationStatus;
+// import { applicationStatus } from '../constants';
+// const { APPROVED, IN_VIEW, RECEIVED, DENIED } = applicationStatus;
 
 export const MobileTable = ({ entries, tableHead, oneClickApply }) => {
   const [entry, setEntry] = useState(0);
   const currentEntry = entries[entry];
-  const status = currentEntry.Application_Status;
+  const status = 'Received'
+  const date = '1 / September / 2023'
 
   const handleArrowLeft = () => {
     setEntry((prev) => prev - 1);
@@ -33,7 +34,7 @@ export const MobileTable = ({ entries, tableHead, oneClickApply }) => {
                 >
                   <img src={arrowleft} alt="arrowleft" className={styles.arrow_img} />
                 </button>
-                <span className={styles.id}>{currentEntry && currentEntry.id}</span>
+                <span className={styles.id}>{1}</span>
                 <button
                   disabled={entry + 1 === entries.length ? true : false}
                   className={entry + 1 === entries.length ? `${styles.disabled} ${styles.arrowContainer}` : `${styles.arrowContainer}`}
@@ -48,36 +49,37 @@ export const MobileTable = ({ entries, tableHead, oneClickApply }) => {
         <tbody>
           <tr>
             <td className={`${styles.head} ${styles.headAlt}`}>{tableHead[1]}</td>
-            <td className={`${styles.row} ${styles.rowAlt}`}>{currentEntry && currentEntry.Stipend_Category}</td>
+            <td className={`${styles.row} ${styles.rowAlt}`}>{currentEntry && currentEntry.stipendCategory.toUpperCase()}</td>
           </tr>
           <tr>
             <td className={`${styles.head} ${styles.headAlt}`}>{tableHead[2]}</td>
             <td className={`${styles.row} ${styles.rowAlt}`}>
               <span
                 className={
-                  status === `${APPROVED}`
-                    ? 'approved bold_weight'
-                    : status === `${IN_VIEW}`
-                    ? 'in_view bold_weight'
-                    : status === `${RECEIVED}`
-                    ? 'in_view bold_weight'
-                    : status === `${DENIED}`
-                    ? 'denied bold_weight'
-                    : ''
+                  // status === `${APPROVED}`
+                  //   ? 'approved bold_weight'
+                  //   : status === `${IN_VIEW}`
+                  //     ? 'in_view bold_weight'
+                  //     : status === `${RECEIVED}`
+                  //       ? 'in_view bold_weight'
+                  //       : status === `${DENIED}`
+                  //         ? 'denied bold_weight'
+                  //         : ''
+                  'Received'
                 }
               >
-                {currentEntry && currentEntry.Application_Status}
+                {status}
               </span>
             </td>
           </tr>
           <tr>
             <td className={`${styles.head} ${styles.headAlt}`}>{tableHead[3]}</td>
-            <td className={`${styles.row} ${styles.rowAlt}`}>{currentEntry && currentEntry.Date_of_submission}</td>
+            <td className={`${styles.row} ${styles.rowAlt}`}>{date}</td>
           </tr>
-          <tr>
+          {/* <tr>
             <td className={`${styles.head} ${styles.headAlt}`}>{tableHead[4]}</td>
             <td className={`${styles.row} ${styles.rowAlt}`}>{currentEntry && currentEntry.Time_of_submission}</td>
-          </tr>
+          </tr> */}
           {tableHead[5] && (
             <tr>
               <td className={`${styles.head} ${styles.headAlt} ${styles.row1}`}>{tableHead[5]}</td>
