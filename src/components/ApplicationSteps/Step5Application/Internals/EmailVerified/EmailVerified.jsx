@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
+import jwt_decode from "jwt-decode";
 import { useNavigate } from 'react-router-dom';
 import { ModalContext } from '../../../../../context/ModalContext';
 import { useDispatch, useSelector } from 'react-redux';
@@ -12,33 +13,54 @@ import { Valid, Sad } from '../../../../../assets';
 import { constants } from './constants';
 import ContentContainer from '../../../ContentContainer';
 import { postData } from '../../../../../services/ApiClient';
-//import { emailVerification } from '../../../../../store/reducers/ApplicationReducer';
+import { emailVerification } from '../../../../../store/reducers/ApplicationReducer';
+import { storeUser } from '../../../../../store/reducers/UserReducer';
 const { HEADER, ERR_HEADER, SUCCESS_BTN, ERR_BTN, ERR_TEXT, TRY_AGAIN } = constants;
 
 export const EmailVerified = () => {
   const { setIsActive } = useContext(ModalContext);
+  const [loading, setLoading] = useState(true)
   const dispatch = useDispatch();
   const nav = useNavigate();
   const { isVerified } = useSelector((state) => state.application);
+  const { email } = useSelector((state) => state.userDetails);
 
   useEffect(() => {
     const token = window.location.search.split("=")[1]
     setIsActive(true);
-    const res = postData('/verify', token)
-    console.log(res);
-  }, [setIsActive, dispatch]);
+    const verifyEmail = async () => {
+      const res = await postData('/verify', {
+        email: email,
+        verificationCode: token
+      })
+
+      if (res.success) {
+        //decode the token response on success
+        const decodedToken = jwt_decode(res.token);
+        setLoading(false)
+        dispatch(emailVerification(true))
+        dispatch(storeUser(decodedToken))
+        nav('/welcome')
+      } else if (!res.success) {
+        setLoading(false)
+        dispatch(emailVerification(false))
+      }
+    }
+    verifyEmail()
+  }, [setIsActive, dispatch, nav, email]);
 
   const handleReturn = () => {
     setIsActive(false);
     nav(-1)
   };
+
   return (
     <Modal>
-      {!isVerified ? (
+      {loading ? (
         <Loader size={'large'} />
       ) : (
         <ContentContainer>
-          {!isVerified ? (
+          {isVerified ? (
             <div className={`${styles.submit} ${styles.submitAlt} animated`}>
               <div className={styles.headerContainer}>
                 <img src={Valid} alt="valid" className={styles.emojiAlt} />

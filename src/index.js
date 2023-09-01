@@ -8,16 +8,22 @@ import reportWebVitals from './reportWebVitals';
 import { ModalContextProvider } from './context/ModalContext';
 import { SidebarProvider } from './context/SidebarContext';
 import store from './store';
+import { PersistGate } from "redux-persist/integration/react"
+import { persistStore } from "redux-persist"
+
 const container = document.getElementById('root');
 const root = createRoot(container);
 
+let persistor = persistStore(store)
 root.render(
   <BrowserRouter>
     <React.StrictMode>
       <Provider store={store}>
         <ModalContextProvider>
           <SidebarProvider>
-            <App />
+            <PersistGate persistor={persistor}>
+              <App />
+            </PersistGate>
           </SidebarProvider>
         </ModalContextProvider>
       </Provider>

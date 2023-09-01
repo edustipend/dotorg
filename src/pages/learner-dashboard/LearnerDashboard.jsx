@@ -7,10 +7,15 @@ import { Close, Menu } from '../../assets';
 import { useContext } from 'react';
 import { useEffect } from 'react';
 import InstallPrompt from '../../components/InstallPrompt';
+import { useSelector } from 'react-redux';
 
 export const LearnerDashboard = () => {
   const { showSidebar, setShowSidebar } = useContext(SidebarCtx);
   const [desktopScreen, setDesktopScreen] = useState(document.body.clientWidth);
+  const { name, email, id, isAdmin } = useSelector((state) => state.user)
+
+  //can clear later
+  console.log(name, email, id, isAdmin);
 
   useEffect(() => {
     const handleResize = () => {
