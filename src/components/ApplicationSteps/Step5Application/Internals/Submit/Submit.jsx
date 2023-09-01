@@ -19,52 +19,67 @@ export const Submit = () => {
 
   const DOB = `${monthOfBirth}/${dayOfBirth}/${yearOfBirth}`;
   const Category = stipendCategory.split('/')[0].toLowerCase();
-  const routes = ['user/request-stipend', 'register'];
 
-  const dataBody = [
-    {
-      email: email,
-      stipendCategory: Category,
-      reasonForRequest: reasonForRequest,
-      stepsTakenToEaseProblem: stepsTakenToEaseProblem,
-      potentialBenefits: potentialBenefits,
-      futureHelpFromUser: futureHelpFromUser
-    },
-    {
-      name: fullName,
-      email: email,
-      password: password,
-      dateOfBirth: DOB,
-      gender: gender,
-      stateOfOrigin: stateOfOrigin,
-      howDidYouHearAboutUs: howDidYouHear
-    }
-  ];
+  const userInfo = {
+    name: fullName,
+    email: email,
+    password: password,
+    dateOfBirth: DOB,
+    gender: gender,
+    stateOfOrigin: stateOfOrigin,
+    howDidYouHearAboutUs: howDidYouHear
+  };
 
   //Create the user and submit the stipend application
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     setIsLoading(true);
-    const promise = routes.map((url, idx) => postData(url, dataBody[idx]));
+    const res = await postData('register', userInfo);
 
-    Promise.all(promise)
-      .then((responses) => {
-        responses.forEach((response, idx) => {
-          //do something with the response
-          if (response.success) {
-            dispatch(successful(true));
-          } else if (!response.success) {
-            dispatch(successful(false));
-            dispatch(isError(true));
-            dispatch(errMessage(response.error[0].email));
-          }
-          setIsLoading(false);
-        });
-      })
-      .catch((error) => {
-        setIsLoading(false);
+    try {
+      if (res.success) {
+        dispatch(successful(true));
+        const applicationInfo = {
+          userId: res.id,
+          email: email,
+          stipendCategory: Category,
+          reasonForRequest: reasonForRequest,
+          stepsTakenToEaseProblem: stepsTakenToEaseProblem,
+          potentialBenefits: potentialBenefits,
+          futureHelpFromUser: futureHelpFromUser
+        };
+        await postData(`user/request-stipend`, applicationInfo);
+      } else if (!res.success) {
         dispatch(successful(false));
         dispatch(isError(true));
-      });
+        dispatch(errMessage(res.error[0].email));
+      }
+    } catch (error) {
+      setIsLoading(false);
+      dispatch(successful(false));
+      dispatch(isError(true));
+    }
+
+    // Promise.all(promise)
+    //   .then((responses) => {
+    //     responses.forEach((response, idx) => {
+    //       //do something with the response
+    //       console.log(response, idx);
+    //       if (response.success) {
+    //         dispatch(successful(true));
+    //         console.log(response, idx);
+    //       } else if (!response.success) {
+    //         dispatch(successful(false));
+    //         dispatch(isError(true));
+    //         dispatch(errMessage(response.error[0].email));
+    //       }
+    //       setIsLoading(false);
+    //     });
+    //   })
+    //   .catch((error) => {
+    //     setIsLoading(false);
+    //     dispatch(successful(false));
+    //     dispatch(isError(true));
+    //   });
   };
   return <>{success ? <VerifyEmail /> : <SubmitUI handleSubmit={handleSubmit} isLoading={isLoading} />}</>;
 };
