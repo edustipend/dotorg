@@ -1,12 +1,11 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import NavbarNavs from './NavbarNavs';
 import NavbarAmbassadorNavs from './NavbarAmbassadorNavs';
 import { Menu, Close } from '../../assets/index';
-
 import './styles.css';
 import Text from '../Text';
-import { useSelector } from 'react-redux';
 
 export const NavbarToShow = () => {
   const [isToggle, setIsToggle] = useState(false);
@@ -15,10 +14,16 @@ export const NavbarToShow = () => {
   const isRequestStipend = pathname === '/application';
   const isDashboard = pathname.includes('/dashboard');
 
-  const { name } = useSelector((state) => state.user);
-  const [first, last] = name.split(' ');
-  const firstN = first ? first[0] : '';
-  const lastN = last ? last[0] : '';
+  const storeData = useSelector((state) => state?.user);
+  let firstN, lastN;
+
+  if (storeData) {
+    if (storeData.name) {
+      const [first, last] = storeData.name.split(' ');
+      firstN = first ? first[0] : '';
+      lastN = last ? last[0] : '';
+    }
+  }
 
   return !isDashboard && !isRequestStipend ? (
     <>
