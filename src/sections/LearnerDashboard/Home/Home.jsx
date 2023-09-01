@@ -17,6 +17,7 @@ export const Home = () => {
 
   const { name, id } = useSelector((state) => state.user);
   const [first] = name.split(' ');
+  console.log(data);
 
   const handleOneClick = (id) => {
     setApplicationTable(!applicationTable);
@@ -30,7 +31,6 @@ export const Home = () => {
       const response = await getData(`/user/application-history/search?id=${id}`);
       console.log(response);
       setData(response.message);
-      console.log(data);
     } catch (error) {
       console.log(error);
     }
@@ -69,7 +69,8 @@ export const Home = () => {
                 <button
                   key={idx}
                   className={currentTable === idx ? `${styles.tab}` : `${styles.tab} ${styles.tabAlt}`}
-                  onClick={() => setCurrentTable(idx)}>
+                  onClick={() => setCurrentTable(idx)}
+                >
                   {itm}
                 </button>
               );
