@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import './styles.css';
 import arrow from '../../assets/burdenarrow.png';
 import Button from '../../components/Button';
@@ -6,19 +6,10 @@ import Container from '../../components/Container';
 import Header from '../../components/Header';
 import Text from '../../components/Text';
 import { ButtonLabelCopy, TextCopy } from './constants';
-import { isApplicationWindowClosed } from '../../utils';
-import { ModalContext } from '../../context/ModalContext';
+import useHandleCTAClick from '../../hooks/useHandleCTAClick';
 
 const TakeOffBurden = () => {
-  const isWindowClosed = isApplicationWindowClosed();
-  const { handleNotifyModal } = useContext(ModalContext);
-
-  //function to display the modal if the window is closed
-  const handleOnclick = () => {
-    if (isWindowClosed) {
-      handleNotifyModal();
-    }
-  };
+  const { isApplicationWindowClosed, handleCTAClick } = useHandleCTAClick();
 
   return (
     <div className="takeoffburden-container" data-testid="takeoffburden-container">
@@ -44,9 +35,9 @@ const TakeOffBurden = () => {
 
             <div className="request-stipend-btn-div">
               <Button
-                label={isWindowClosed ? ButtonLabelCopy.WINDOW_CLOSED : ButtonLabelCopy.WINDOW_OPEN}
+                label={isApplicationWindowClosed ? ButtonLabelCopy.WINDOW_CLOSED : ButtonLabelCopy.WINDOW_OPEN}
                 type="secondary"
-                onClick={() => handleOnclick()}
+                onClick={() => handleCTAClick()}
               />
             </div>
           </div>
