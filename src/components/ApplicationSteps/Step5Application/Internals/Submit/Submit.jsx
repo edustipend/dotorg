@@ -13,7 +13,6 @@ export const Submit = () => {
     (state) => state.application
   );
 
-  console.log(success);
 
   const { fullName, email, password, monthOfBirth, dayOfBirth, yearOfBirth, gender, stateOfOrigin, howDidYouHear } = useSelector(
     (state) => state.userDetails
@@ -54,12 +53,10 @@ export const Submit = () => {
           //do something with the response
           if (response.success) {
             dispatch(successful(true));
-            console.log(response, idx);
           } else if (!response.success) {
             dispatch(successful(false));
             dispatch(isError(true))
             dispatch(errMessage(response.error[0].email))
-            console.log(response, idx);
           }
           setIsLoading(false);
         });
@@ -68,7 +65,6 @@ export const Submit = () => {
         setIsLoading(false);
         dispatch(successful(false));
         dispatch(isError(true))
-        console.log('ss', error, 'final');
       });
   };
   return <>{success ? <VerifyEmail /> : <SubmitUI handleSubmit={handleSubmit} isLoading={isLoading} />}</>;

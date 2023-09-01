@@ -27,6 +27,7 @@ export const EmailVerified = () => {
 
   useEffect(() => {
     const token = window.location.search.split("=")[1]
+    console.log(token);
     setIsActive(true);
     const verifyEmail = async () => {
       const res = await postData('/verify', {
