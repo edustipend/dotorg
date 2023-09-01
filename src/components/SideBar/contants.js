@@ -1,6 +1,6 @@
 import Home from '../../assets/home.svg';
-import Submissions from '../../assets/submissions.png';
-import User from '../../assets/User.svg';
+// import Submissions from '../../assets/submissions.png';
+// import User from '../../assets/User.svg';
 
 export const SideBarData = [
   {
@@ -8,19 +8,19 @@ export const SideBarData = [
     title: 'Home',
     icon: Home,
     link: 'home'
-  },
-  {
-    id: 2,
-    title: 'Submissions',
-    icon: Submissions,
-    link: 'submissions'
-  },
-  {
-    id: 3,
-    title: 'My Account',
-    icon: User,
-    link: 'account'
   }
+  // {
+  //   id: 2,
+  //   title: 'Submissions',
+  //   icon: Submissions,
+  //   link: 'submissions'
+  // },
+  // {
+  //   id: 3,
+  //   title: 'My Account',
+  //   icon: User,
+  //   link: 'account'
+  // }
 ];
 
 export const quoteData = [

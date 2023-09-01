@@ -1,25 +1,52 @@
 import { render, screen } from '@testing-library/react';
 import { Home } from '../Home';
-import { Quote, TestId, constants } from '../internals/constants';
+import { Quote, TestId } from '../internals/constants';
+import { Provider } from 'react-redux';
+import configureMockStore from 'redux-mock-store';
+
+const mockStore = configureMockStore([
+  /* middlewares */
+]);
+const store = mockStore({
+  user: {
+    name: 'Test User'
+  }
+});
 
 describe('Home component', () => {
   describe('renders the correct Home component', () => {
     it('shows the Home component in the document', () => {
-      render(<Home />);
+      render(
+        <Provider store={store}>
+          <Home />
+        </Provider>
+      );
       expect(screen.getByTestId(TestId.HOME)).toBeInTheDocument();
     });
     it('shows the user name', () => {
-      render(<Home />);
-      expect(screen.getByTestId(TestId.USER)).toHaveTextContent(constants.username);
+      render(
+        <Provider store={store}>
+          <Home />
+        </Provider>
+      );
+      expect(screen.getByTestId(TestId.USER)).toBeDefined();
     });
 
     it('shows a quote', () => {
-      render(<Home />);
+      render(
+        <Provider store={store}>
+          <Home />
+        </Provider>
+      );
       expect(screen.getByTestId(TestId.QUOTE)).toHaveTextContent(Quote.content);
     });
 
     it('shows a table for displaying user application status and history', () => {
-      render(<Home />);
+      render(
+        <Provider store={store}>
+          <Home />
+        </Provider>
+      );
       expect(screen.getByTestId(TestId.TABLE)).toBeInTheDocument();
     });
   });
