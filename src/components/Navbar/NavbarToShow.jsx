@@ -17,8 +17,8 @@ export const NavbarToShow = () => {
 
   const { name } = useSelector((state) => state.user);
   const [first, last] = name.split(' ');
-  const firstN = first[0];
-  const lastN = last[0];
+  const firstN = first ? first[0] : '';
+  const lastN = last ? last[0] : '';
 
   return !isDashboard && !isRequestStipend ? (
     <>
