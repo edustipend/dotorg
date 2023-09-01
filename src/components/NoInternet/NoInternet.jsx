@@ -9,7 +9,7 @@ const NoInternet = () => {
   return (
     <div className={`offline-message ${styles.container}`}>
       <div className={styles.main}>
-        <img src={nointernetimg} alt="no internet image" className={styles.img} />
+        <img src={nointernetimg} alt="no internet" className={styles.img} />
         <Header className={styles.header}>No Internet Connection</Header>
         <Text
           className={styles.text}
