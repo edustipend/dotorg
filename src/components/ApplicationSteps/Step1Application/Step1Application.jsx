@@ -35,7 +35,15 @@ export const Step1Application = () => {
           <div className={styles.selectCategory}>
             <Select value={stipendCategory} label={LABEL} options={OPTIONS} dispatchType={category} className={styles.select} />
             <div className={styles.buttons}>
-              <Button effectAlt label={'Back'} icon={BackArrow} iconPosition={'back'} type={'plain'} onClick={() => nav(-1)} className={styles.btn} />
+              <Button
+                effectAlt
+                label={'Back'}
+                icon={BackArrow}
+                iconPosition={'back'}
+                type={'plain'}
+                onClick={() => nav('/request')}
+                className={styles.btn}
+              />
               <Button
                 effectAlt
                 label={'Continue'}

@@ -6,32 +6,39 @@ import { tab } from './internals/constants';
 import Button from '../../../components/Button';
 import Table from '../../../components/Table';
 import { getData } from '../../../services/ApiClient';
-const { dashboard, username } = constants;
+import { useSelector } from 'react-redux';
+const { dashboard } = constants;
 
 export const Home = () => {
   const [currentTable, setCurrentTable] = useState(0);
   const [applicationTable, setApplicationTable] = useState(true);
   const [singleEntry, setSingleEntry] = useState(history);
+  const [data, setData] = useState([]);
+
+  const { name, id } = useSelector((state) => state.user);
+  const [first] = name.split(' ');
 
   const handleOneClick = (id) => {
     setApplicationTable(!applicationTable);
-    const active = currentTable === 0 ? recent : history;
+    const active = currentTable === 0 ? recent : recent;
     setSingleEntry(active.filter((entry) => entry.id === id));
   };
 
   const getUserData = useCallback(async () => {
     try {
-      // TODO: Fetch users data
-      const response = await getData('/user/application-history/search?id=${userId}');
+      console.log(id, 'ID');
+      const response = await getData(`/user/application-history/search?id=${id}`);
       console.log(response);
+      setData(response.message);
+      console.log(data);
     } catch (error) {
       console.log(error);
     }
-  }, []);
+  }, [id]);
 
   useEffect(() => {
     getUserData();
-  }, []);
+  }, [getUserData]);
 
   return (
     <div className={styles.Main} data-testid={TestId.HOME}>
@@ -40,7 +47,7 @@ export const Home = () => {
           <p className={styles.dashboard}>{dashboard}</p>
           <div className={styles.waveSection}>
             <p className={styles.hello} data-testid={TestId.USER}>
-              Hello, {username}
+              Hello, {first}
             </p>
             <div className={`${styles.imgContainer} ${styles.imgAlt}`}>
               <img src={hand} alt="hand" className={styles.img} />

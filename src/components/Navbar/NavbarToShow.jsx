@@ -6,14 +6,19 @@ import { Menu, Close } from '../../assets/index';
 
 import './styles.css';
 import Text from '../Text';
+import { useSelector } from 'react-redux';
 
 export const NavbarToShow = () => {
   const [isToggle, setIsToggle] = useState(false);
-  // const [dropDown, setDropDown] = useState(false);
   const { pathname } = useLocation();
   const isAmbassador = pathname === '/ambassador-program';
-  const isRequestStipend = pathname === '/request-stipend';
+  const isRequestStipend = pathname === '/application';
   const isDashboard = pathname.includes('/dashboard');
+
+  const { name } = useSelector((state) => state.user);
+  const [first, last] = name.split(' ');
+  const firstN = first[0];
+  const lastN = last[0];
 
   return !isDashboard && !isRequestStipend ? (
     <>
@@ -29,7 +34,7 @@ export const NavbarToShow = () => {
   ) : isDashboard ? (
     <div className="user-profile">
       <div className="user-initials">
-        <Text content={'CB'} className={'user-name'} />
+        <Text content={firstN + lastN} className={'user-name'} />
       </div>
 
       {/* <div className="log-out-container">
