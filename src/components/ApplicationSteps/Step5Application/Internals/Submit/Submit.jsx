@@ -34,7 +34,6 @@ export const Submit = () => {
   const handleSubmit = async () => {
     setIsLoading(true);
     const res = await postData('register', userInfo);
-
     try {
       if (res.success) {
         dispatch(successful(true));
