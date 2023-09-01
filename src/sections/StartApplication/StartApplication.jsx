@@ -35,7 +35,7 @@ export const StartApplication = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    nav('/request-stipend');
+    nav('/application');
   };
   return (
     <div className={styles.container} data-testid={TestId.DATA_TEST}>
