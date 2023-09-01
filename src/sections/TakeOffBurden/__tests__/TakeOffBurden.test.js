@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import { render, screen } from '@testing-library/react';
 import TakeOffBurden from '../TakeOffBurden';
 import { TestId, TextCopy } from '../constants';
@@ -8,7 +9,9 @@ describe('TakeOffBurden', () => {
   it('renders the component correctly', () => {
     render(
       <ModalContextProvider>
-        <TakeOffBurden />
+        <BrowserRouter>
+          <TakeOffBurden />
+        </BrowserRouter>
       </ModalContextProvider>
     );
     expect(screen.getByTestId(TestId.TAKEOFFBURDEN_CONTAINER_TEST_ID)).toBeInTheDocument();

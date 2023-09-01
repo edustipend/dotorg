@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import Button from '../../components/Button';
 import Container from '../../components/Container';
 import rocket from '../../assets/rocket emoji 3.svg';
@@ -8,19 +8,10 @@ import blobLeft from '../../assets/blob-left.png';
 import blobRight from '../../assets/blob-right.png';
 import { ButtonLabelCopy, TestId, REQUEST_SECTION_HEADER } from './constants';
 import Header from '../../components/Header';
-import { isApplicationWindowClosed } from '../../utils';
-import { ModalContext } from '../../context/ModalContext';
+import useHandleCTAClick from '../../hooks/useHandleCTAClick';
 
 export const Request = () => {
-  const isWindowClosed = isApplicationWindowClosed();
-  const { handleNotifyModal } = useContext(ModalContext);
-
-  //function to display the modal if the window is closed
-  const handleOnclick = () => {
-    if (isWindowClosed) {
-      handleNotifyModal();
-    }
-  };
+  const { isApplicationWindowClosed, handleCTAClick } = useHandleCTAClick();
 
   return (
     <main data-testid={TestId.REQUEST_SECTION} className={styles.main}>
@@ -30,10 +21,10 @@ export const Request = () => {
             {REQUEST_SECTION_HEADER}
           </Header>
           <Button
-            label={isWindowClosed ? ButtonLabelCopy.WINDOW_CLOSED : ButtonLabelCopy.WINDOW_OPEN}
+            label={isApplicationWindowClosed ? ButtonLabelCopy.WINDOW_CLOSED : ButtonLabelCopy.WINDOW_OPEN}
             type="secondary"
             size="large"
-            onClick={() => handleOnclick()}
+            onClick={() => handleCTAClick()}
           />
           <img src={rocket} alt="rocket_emoji" className={styles.rocket} />
         </div>

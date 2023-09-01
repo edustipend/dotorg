@@ -2067,6 +2067,18 @@
   resolved "https://registry.yarnpkg.com/@firebase/webchannel-wrapper/-/webchannel-wrapper-0.6.1.tgz#0c74724ba6e9ea6ad25a391eab60a79eaba4c556"
   integrity sha512-9FqhNjKQWpQ3fGnSOCovHOm+yhhiorKEqYLAfd525jWavunDJcx8rOW6i6ozAh+FbwcYMkL7b+3j4UR/30MpoQ==
 
+"@fullstory/browser@^1.7.1":
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/@fullstory/browser/-/browser-1.7.1.tgz#eb94fcb5e21b13a1b30de58951480ac344e61cdd"
+  integrity sha512-IBPisG+xRyTHHX8XkZJkQRbP2hVYNMZUYW8R3YiB582dl/VZImkFN+LopIAfPqB97FAZgUTofi7flkrHT4Qmtg==
+  dependencies:
+    "@fullstory/snippet" "1.3.1"
+
+"@fullstory/snippet@1.3.1":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@fullstory/snippet/-/snippet-1.3.1.tgz#6817ea94601e071e630b25262e703ca356a5f537"
+  integrity sha512-NgrBWGHH5i8zejlRFSyJNhovkNqHAXsWKrcXIWaABrgESwbkdGETjOU7BD7d1ZeT0X+QXL/2yr/1y4xnWfVkwQ==
+
 "@grpc/grpc-js@^1.3.2":
   version "1.8.19"
   resolved "https://registry.yarnpkg.com/@grpc/grpc-js/-/grpc-js-1.8.19.tgz#0cc2372ca6187e8dcc6f9054f1d2936282ab8943"

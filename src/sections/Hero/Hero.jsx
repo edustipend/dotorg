@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback, useContext } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { NavHashLink } from 'react-router-hash-link';
 import Container from '../../components/Container';
 import Button from '../../components/Button';
@@ -9,12 +9,11 @@ import Banner from '../../components/Banner';
 import Header from '../../components/Header';
 import Text from '../../components/Text';
 import { getCurrentStipend } from './utils';
-import { isApplicationWindowClosed } from '../../utils';
-import { ModalContext } from '../../context/ModalContext';
+import useHandleCTAClick from '../../hooks/useHandleCTAClick';
 
 const Hero = () => {
   const [currentStipend, setCurrentStipend] = useState(0);
-  const { handleNotifyModal } = useContext(ModalContext);
+  const { isApplicationWindowClosed, handleCTAClick } = useHandleCTAClick();
 
   const nextStipend = useCallback(() => {
     setCurrentStipend((prev) => (prev === stipends.length - 1 ? 0 : prev + 1));
@@ -32,17 +31,9 @@ const Hero = () => {
     };
   }, [currentStipend, nextStipend]);
 
-  const isWindowClosed = isApplicationWindowClosed();
-
-  //function to display the modal if the window is closed
-  const handleOnclick = () => {
-    if (isWindowClosed) {
-      handleNotifyModal();
-    }
-  };
   return (
     <section className="hero" data-testid={TestId.DEFAULT_HERO_TEST_ID}>
-      {isWindowClosed ? (
+      {isApplicationWindowClosed ? (
         <Banner dataTest={TestId.BANNER_TEST_ID} type="alert">
           {APP_WINDOW_CLOSED_BANNER_TEXT}
         </Banner>
@@ -68,9 +59,9 @@ const Hero = () => {
           </div>
           <div className="btn-container">
             <Button
-              label={isWindowClosed ? ButtonLabelCopy.WINDOW_CLOSED : ButtonLabelCopy.WINDOW_OPEN}
+              label={isApplicationWindowClosed ? ButtonLabelCopy.WINDOW_CLOSED : ButtonLabelCopy.WINDOW_OPEN}
               type={BUTTON_TYPE}
-              onClick={() => handleOnclick()}
+              onClick={() => handleCTAClick()}
             />
           </div>
           <img src={Svg5} alt="icon" className="left" />
