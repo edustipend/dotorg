@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
+import jwt_decode from 'jwt-decode';
 import { useNavigate } from 'react-router-dom';
 import { ModalContext } from '../../../../../context/ModalContext';
 import { useDispatch, useSelector } from 'react-redux';
@@ -8,37 +9,61 @@ import Modal from '../../../../Modal';
 import Button from '../../../../Button';
 import Header from '../../../../Header';
 import Loader from '../../../../Loader';
-import { Valid } from '../../../../../assets';
+import { Valid, Sad } from '../../../../../assets';
 import { constants } from './constants';
 import ContentContainer from '../../../ContentContainer';
-import { emailVerification, setActiveStep } from '../../../../../store/reducers/ApplicationReducer';
-const { HEADER, ERR_HEADER, SUCCESS_BTN, ERR_BTN } = constants;
+import { postData } from '../../../../../services/ApiClient';
+import { emailVerification } from '../../../../../store/reducers/ApplicationReducer';
+import { storeUser } from '../../../../../store/reducers/UserReducer';
+const { HEADER, ERR_HEADER, SUCCESS_BTN, ERR_BTN, ERR_TEXT, TRY_AGAIN } = constants;
 
 export const EmailVerified = () => {
   const { setIsActive } = useContext(ModalContext);
+  const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
   const nav = useNavigate();
   const { isVerified } = useSelector((state) => state.application);
 
   useEffect(() => {
+    const url = window.location.search.split('?')[1];
+    const combined = url.split('&');
+    const email = combined[0].split('=')[1];
+    const code = combined[1].split('=')[1];
+
     setIsActive(true);
-    setTimeout(() => {
-      dispatch(emailVerification(true));
-    }, 1000);
-  }, [setIsActive, dispatch]);
+    const verifyEmail = async () => {
+      const res = await postData('/verify', {
+        email: email,
+        verificationCode: code
+      });
+
+      if (res.success) {
+        //decode the token response on success
+        const decodedToken = jwt_decode(res.token);
+        setLoading(false);
+        dispatch(emailVerification(true));
+        dispatch(storeUser(decodedToken));
+        nav('/welcome');
+      } else if (!res.success) {
+        setLoading(false);
+        dispatch(emailVerification(false));
+      }
+    };
+    verifyEmail();
+  }, [setIsActive, dispatch, nav]);
 
   const handleReturn = () => {
     setIsActive(false);
-    nav('/application');
-    dispatch(setActiveStep(5));
+    nav(-1);
   };
+
   return (
     <Modal>
-      {!isVerified ? (
+      {loading ? (
         <Loader size={'large'} />
       ) : (
         <ContentContainer>
-          {!isVerified ? (
+          {isVerified ? (
             <div className={`${styles.submit} ${styles.submitAlt} animated`}>
               <div className={styles.headerContainer}>
                 <img src={Valid} alt="valid" className={styles.emojiAlt} />
@@ -51,11 +76,13 @@ export const EmailVerified = () => {
           ) : (
             <div className={`${styles.submit} animatedAlt`}>
               <div className={styles.headerContainer}>
-                <img src="" alt="error" className={styles.emojiAlt} />
+                <img src={Sad} alt="error" className={styles.emojiAlt} />
                 <Header className={`${styles.header} ${styles.header2}`}>{ERR_HEADER}</Header>
+                <p className={styles.prompt}>{ERR_TEXT}</p>
               </div>
               <div className={`${styles.btnContainer} ${styles.btnContainerAltt}`}>
-                <Button type={'secondary'} size={'large'} label={ERR_BTN} onClick={handleReturn} className={styles.btn} />
+                <Button type={'secondary'} size={'large'} label={TRY_AGAIN} onClick={() => nav(0)} className={styles.btn} />
+                <Button type={'plain'} size={'large'} label={ERR_BTN} onClick={handleReturn} className={styles.btn} />
               </div>
             </div>
           )}

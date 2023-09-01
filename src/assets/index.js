@@ -29,6 +29,7 @@ import Profile from './profile.svg';
 import Logout from './logout.svg';
 import Valid from './valid.svg';
 import Flower from './flower.png';
+import Sad from './sad.svg';
 
 export {
   Hero1,
@@ -61,5 +62,6 @@ export {
   Profile,
   Logout,
   Valid,
-  Flower
+  Flower,
+  Sad
 };
