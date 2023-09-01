@@ -6,7 +6,6 @@ import { constant } from '../../constants';
 const { SUBTITLE, TEXT } = constant;
 
 export const CategoryHeader = ({ header, category, support }) => {
-
   return (
     <section className={styles.main}>
       <div className={styles.topSection}>

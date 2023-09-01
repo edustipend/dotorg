@@ -23,10 +23,10 @@ export const Step5Application = () => {
   const dispatch = useDispatch();
 
   const onSubmit = () => {
-    dispatch(successful(false))
-    dispatch(isError(false))
-    setIsActive((prev) => !prev)
-  }
+    dispatch(successful(false));
+    dispatch(isError(false));
+    setIsActive((prev) => !prev);
+  };
   return (
     <>
       <div>
@@ -55,14 +55,7 @@ export const Step5Application = () => {
               onClick={() => dispatch(back())}
               className={styles.btn}
             />
-            <Button
-              label={'Submit'}
-              iconPosition={'front'}
-              type={'secondary'}
-              effectAlt
-              onClick={onSubmit}
-              className={styles.btn}
-            />
+            <Button label={'Submit'} iconPosition={'front'} type={'secondary'} effectAlt onClick={onSubmit} className={styles.btn} />
           </div>
         </ContentContainer>
         <section className="quoteContainer">

@@ -10,7 +10,7 @@ const initialState = {
   success: false,
   isVerified: false,
   error: false,
-  errorMessage: '',
+  errorMessage: ''
 };
 
 const application = createSlice({
@@ -57,4 +57,5 @@ const application = createSlice({
 });
 
 export default application.reducer;
-export const { back, progress, setActiveStep, category, reason, steps, benefits, futureHelp, successful, emailVerification, isError, errMessage } = application.actions;
+export const { back, progress, setActiveStep, category, reason, steps, benefits, futureHelp, successful, emailVerification, isError, errMessage } =
+  application.actions;

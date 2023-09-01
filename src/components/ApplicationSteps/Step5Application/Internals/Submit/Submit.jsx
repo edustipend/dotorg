@@ -13,13 +13,12 @@ export const Submit = () => {
     (state) => state.application
   );
 
-
   const { fullName, email, password, monthOfBirth, dayOfBirth, yearOfBirth, gender, stateOfOrigin, howDidYouHear } = useSelector(
     (state) => state.userDetails
   );
 
   const DOB = `${monthOfBirth}/${dayOfBirth}/${yearOfBirth}`;
-  const Category = stipendCategory.split("/")[0].toLowerCase()
+  const Category = stipendCategory.split('/')[0].toLowerCase();
   const routes = ['user/request-stipend', 'register'];
 
   const dataBody = [
@@ -55,8 +54,8 @@ export const Submit = () => {
             dispatch(successful(true));
           } else if (!response.success) {
             dispatch(successful(false));
-            dispatch(isError(true))
-            dispatch(errMessage(response.error[0].email))
+            dispatch(isError(true));
+            dispatch(errMessage(response.error[0].email));
           }
           setIsLoading(false);
         });
@@ -64,7 +63,7 @@ export const Submit = () => {
       .catch((error) => {
         setIsLoading(false);
         dispatch(successful(false));
-        dispatch(isError(true))
+        dispatch(isError(true));
       });
   };
   return <>{success ? <VerifyEmail /> : <SubmitUI handleSubmit={handleSubmit} isLoading={isLoading} />}</>;

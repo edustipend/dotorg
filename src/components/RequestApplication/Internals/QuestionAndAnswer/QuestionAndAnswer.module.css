@@ -50,7 +50,7 @@
 .required {
   font-size: 24px;
   color: var(--red-accent);
-  margin-left: .5rem;
+  margin-left: 0.5rem;
   font-weight: 700;
 }
 

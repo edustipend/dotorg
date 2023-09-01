@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useContext, useState } from 'react';
-import jwt_decode from "jwt-decode";
+import jwt_decode from 'jwt-decode';
 import { useNavigate } from 'react-router-dom';
 import { ModalContext } from '../../../../../context/ModalContext';
 import { useDispatch, useSelector } from 'react-redux';
@@ -19,40 +19,42 @@ const { HEADER, ERR_HEADER, SUCCESS_BTN, ERR_BTN, ERR_TEXT, TRY_AGAIN } = consta
 
 export const EmailVerified = () => {
   const { setIsActive } = useContext(ModalContext);
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
   const nav = useNavigate();
   const { isVerified } = useSelector((state) => state.application);
-  const { email } = useSelector((state) => state.userDetails);
 
   useEffect(() => {
-    const token = window.location.search.split("=")[1]
-    console.log(token);
+    const url = window.location.search.split('?')[1];
+    const combined = url.split('&');
+    const email = combined[0].split('=')[1];
+    const code = combined[1].split('=')[1];
+
     setIsActive(true);
     const verifyEmail = async () => {
       const res = await postData('/verify', {
         email: email,
-        verificationCode: token
-      })
+        verificationCode: code
+      });
 
       if (res.success) {
         //decode the token response on success
         const decodedToken = jwt_decode(res.token);
-        setLoading(false)
-        dispatch(emailVerification(true))
-        dispatch(storeUser(decodedToken))
-        nav('/welcome')
+        setLoading(false);
+        dispatch(emailVerification(true));
+        dispatch(storeUser(decodedToken));
+        nav('/welcome');
       } else if (!res.success) {
-        setLoading(false)
-        dispatch(emailVerification(false))
+        setLoading(false);
+        dispatch(emailVerification(false));
       }
-    }
-    verifyEmail()
-  }, [setIsActive, dispatch, nav, email]);
+    };
+    verifyEmail();
+  }, [setIsActive, dispatch, nav]);
 
   const handleReturn = () => {
     setIsActive(false);
-    nav(-1)
+    nav(-1);
   };
 
   return (

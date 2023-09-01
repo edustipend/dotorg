@@ -12,7 +12,7 @@ import { useSelector } from 'react-redux';
 export const LearnerDashboard = () => {
   const { showSidebar, setShowSidebar } = useContext(SidebarCtx);
   const [desktopScreen, setDesktopScreen] = useState(document.body.clientWidth);
-  const { name, email, id, isAdmin } = useSelector((state) => state.user)
+  const { name, email, id, isAdmin } = useSelector((state) => state.user);
 
   //can clear later
   console.log(name, email, id, isAdmin);

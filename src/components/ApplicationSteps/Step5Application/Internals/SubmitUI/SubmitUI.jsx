@@ -13,47 +13,47 @@ const { HEADER, PROMPT, NO, CREATE, QUOTE, DISMISS } = constants;
 
 export const SubmitUI = ({ isLoading, handleSubmit }) => {
   const { setIsActive } = useContext(ModalContext);
-  const { error, errorMessage } = useSelector(state => state.application)
+  const { error, errorMessage } = useSelector((state) => state.application);
 
   return (
     <section className={styles.submit}>
-      {
-        error ?
-          <div className="animatedAlt">
-            <div className={styles.headerContainer}>
-              <img src={Sad} alt="user-plus" className={styles.emoji} />
-              <Header className={styles.header}>{errorMessage}</Header>
-            </div>
-            <div className={`${styles.btnContainer} ${styles.btnContainerAltt}`}>
-              <Button type={'secondary'} size={'large'} label={DISMISS} onClick={() => setIsActive((prev) => !prev)} className={styles.btn} />
-            </div>
-          </div> :
-          <div className="animatedAlt">
-            <div className={styles.headerContainer}>
-              <img src={UserPlus} alt="user-plus" className={styles.emoji} />
-              <Header className={styles.header}>{HEADER}</Header>
-            </div>
-            <div className={styles.bottomSection}>
-              <p className={styles.prompt}>{PROMPT}</p>
-              <div className={styles.btnContainer}>
-                <Button
-                  type={'secondary'}
-                  effectAlt
-                  label={CREATE}
-                  isLoading={isLoading}
-                  loaderSize={'small'}
-                  loaderVariant={'neutral'}
-                  onClick={handleSubmit}
-                  className={styles.btn}
-                />
-                <Button disabled={isLoading} type={'plain'} effectAlt label={NO} onClick={() => setIsActive((prev) => !prev)} className={styles.btn} />
-              </div>
-            </div>
-            <div className="quoteContainer">
-              <Quote content={QUOTE} className={styles.Quote} />
+      {error ? (
+        <div className="animatedAlt">
+          <div className={styles.headerContainer}>
+            <img src={Sad} alt="user-plus" className={styles.emoji} />
+            <Header className={styles.header}>{errorMessage}</Header>
+          </div>
+          <div className={`${styles.btnContainer} ${styles.btnContainerAltt}`}>
+            <Button type={'secondary'} size={'large'} label={DISMISS} onClick={() => setIsActive((prev) => !prev)} className={styles.btn} />
+          </div>
+        </div>
+      ) : (
+        <div className="animatedAlt">
+          <div className={styles.headerContainer}>
+            <img src={UserPlus} alt="user-plus" className={styles.emoji} />
+            <Header className={styles.header}>{HEADER}</Header>
+          </div>
+          <div className={styles.bottomSection}>
+            <p className={styles.prompt}>{PROMPT}</p>
+            <div className={styles.btnContainer}>
+              <Button
+                type={'secondary'}
+                effectAlt
+                label={CREATE}
+                isLoading={isLoading}
+                loaderSize={'small'}
+                loaderVariant={'neutral'}
+                onClick={handleSubmit}
+                className={styles.btn}
+              />
+              <Button disabled={isLoading} type={'plain'} effectAlt label={NO} onClick={() => setIsActive((prev) => !prev)} className={styles.btn} />
             </div>
           </div>
-      }
+          <div className="quoteContainer">
+            <Quote content={QUOTE} className={styles.Quote} />
+          </div>
+        </div>
+      )}
     </section>
   );
 };
@@ -64,6 +64,6 @@ SubmitUI.propTypes = {
 };
 
 SubmitUI.defaultProps = {
-  handleSubmit: () => { },
+  handleSubmit: () => {},
   isLoading: false
 };
