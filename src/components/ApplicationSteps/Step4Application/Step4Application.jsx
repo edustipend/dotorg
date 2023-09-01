@@ -17,13 +17,11 @@ import {
   fullname,
   Email,
   Password,
-  monthofbirth,
-  dayofbirth,
-  yearofbirth,
   Gender,
   stateoforigin,
   twitterhandle,
-  howdidyouhear
+  howdidyouhear,
+  dateofbirth,
 } from '../../../store/reducers/UserDetailsReducer';
 
 const {
@@ -33,14 +31,10 @@ const {
   FULLNAME_PH,
   EMAIL,
   EMAIL_PH,
-  MTH_PH,
-  DAY_PH,
-  YR_PH,
   GENDER,
   GENDER_PH,
   STATE,
   STATE_PH,
-  DOB,
   TWITTER,
   TWITTER_PH,
   AD,
@@ -49,7 +43,6 @@ const {
   DOB_TEXT,
   GENDER_TEXT,
   TWITTER_TEXT,
-  MONTHS_OPTION,
   GENDER_OPTION,
   STATE_OPTION,
   REFERRAL_SOURCES,
@@ -58,7 +51,8 @@ const {
   CONFIRM_PASSWORD,
   CONFIRM_PASSWORD_PH,
   PASSWORD_MIN_LENGTH_ERR,
-  PASSWORD_MISMATCH_ERR
+  PASSWORD_MISMATCH_ERR,
+  DOB
 } = constants;
 
 const passwordState = {
@@ -73,16 +67,13 @@ export const Step4Application = () => {
   const [isPassword, setIsPassword] = useState(passwordState);
   const { passwordErr, confirmPassword, confirmPasswordErr } = isPassword;
 
-  const { fullName, email, password, monthOfBirth, dayOfBirth, yearOfBirth, gender, stateOfOrigin, twitterHandle, howDidYouHear } = useSelector(
+  const { fullName, email, password, dateOfBirth, gender, stateOfOrigin, twitterHandle, howDidYouHear } = useSelector(
     (state) => state.userDetails
   );
 
   const userDetails = {
     fullName,
     email,
-    monthOfBirth,
-    dayOfBirth,
-    yearOfBirth,
     gender,
     stateOfOrigin,
     twitterHandle,
@@ -154,34 +145,8 @@ export const Step4Application = () => {
 
             <div className={styles.formArea}>
               <div>
-                <label className={styles.label}>
-                  {DOB} <span className={styles.required}>*</span>
-                </label>
-                <div className={styles.dob}>
-                  <Select
-                    value={monthOfBirth}
-                    includeLabel={false}
-                    options={MONTHS_OPTION}
-                    placeholder={MTH_PH}
-                    dispatchType={monthofbirth}
-                    className={styles.entry}
-                  />
-                  <Input
-                    value={dayOfBirth}
-                    includeLabel={false}
-                    placeholder={DAY_PH}
-                    type={'number'}
-                    onChange={(e) => dispatch(dayofbirth(e.target.value))}
-                    className={`${styles.entry} ${styles.number}`}
-                  />
-                  <Input
-                    value={yearOfBirth}
-                    includeLabel={false}
-                    placeholder={YR_PH}
-                    type={'number'}
-                    onChange={(e) => dispatch(yearofbirth(e.target.value))}
-                    className={`${styles.entry} ${styles.number}`}
-                  />
+                <div>
+                  <Input label={DOB} value={dateOfBirth} type="date" className={` ${styles.input}`} onChange={(e) => dispatch(dateofbirth(e.target.value))} />
                 </div>
                 <small className={styles.small}>{DOB_TEXT}</small>
               </div>
@@ -243,6 +208,7 @@ export const Step4Application = () => {
               </div>
             </div>
             <Select value={howDidYouHear} label={AD} placeholder={AD_PH} options={REFERRAL_SOURCES} dispatchType={howdidyouhear} />
+
           </form>
         </section>
         <section className={styles.btnContainer}>
@@ -265,7 +231,7 @@ export const Step4Application = () => {
             className={styles.btn}
           />
         </section>
-      </ContentContainer>
+      </ContentContainer >
       <section className="quoteContainer">
         <Quote content={QUOTE} className="quote" />
       </section>

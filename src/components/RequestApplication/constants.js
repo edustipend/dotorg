@@ -51,11 +51,9 @@ export const courseConstants = {
   TITLE: 'Course/Certifications',
   SUPPORT_TYPE: `You are submitting an application for the Course/Certification Fees stipend.
   This stipend is where we support you with full/partial funds to complete/register a course/certification.
-  
   `,
   QUESTION1: `Are you currently taking any courses/certifications? `,
-  QUESTION2: ` Are there any steps you've taken so far to keep making progress despite not having 
-    a laptop/learning device? If YES, please share, if none you can type in N/A. It will be helpful if you can provide some more evidence here.`,
+  QUESTION2: ` Are there any steps you've taken so far to keep making progress. If YES, please share, if none you can type in N/A. It will be helpful if you can provide some more evidence here.`,
   QUESTION3: ` Please share any more details on why you need this support and how getting this stipend will enable you meet your learning goals.`,
   QUESTION4: `At Edustipend, our vision is to generate a critical mass of people who are willing to take a chance on others - 
   and we hope that our beneficiaries would become the ambassadors of this vision. If you are selected as a beneficiary 

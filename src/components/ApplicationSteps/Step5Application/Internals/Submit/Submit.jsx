@@ -13,23 +13,23 @@ export const Submit = () => {
     (state) => state.application
   );
 
-  const { fullName, email, password, monthOfBirth, dayOfBirth, yearOfBirth, gender, stateOfOrigin, howDidYouHear } = useSelector(
+  const { fullName, email, password, dateOfBirth, gender, stateOfOrigin, howDidYouHear } = useSelector(
     (state) => state.userDetails
   );
 
-  const DOB = `${monthOfBirth}/${dayOfBirth}/${yearOfBirth}`;
   const Category = stipendCategory.split('/')[0].toLowerCase();
 
   const userInfo = {
     name: fullName,
     email: email,
     password: password,
-    dateOfBirth: DOB,
+    dateOfBirth: dateOfBirth,
     gender: gender,
     stateOfOrigin: stateOfOrigin,
     howDidYouHearAboutUs: howDidYouHear
   };
 
+  console.log(userInfo);
   //Create the user and submit the stipend application
   const handleSubmit = async () => {
     setIsLoading(true);

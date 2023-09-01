@@ -1,14 +1,9 @@
-import { useEffect } from 'react';
 import { useContext } from 'react';
 import { ModalContext } from '../../context/ModalContext';
 import PropTypes from 'prop-types';
 
 export const Modal = ({ children, className }) => {
   const { isActive } = useContext(ModalContext);
-
-  useEffect(() => {
-    document.body.style.overflow = isActive ? 'hidden' : 'scroll';
-  }, [isActive]);
 
   return (
     <div className={isActive ? `modal_modal modal_content ${className}` : 'hideModal_hideModal'}>

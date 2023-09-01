@@ -4,9 +4,7 @@ const initialState = {
   fullName: '',
   email: '',
   password: '',
-  monthOfBirth: '',
-  dayOfBirth: '',
-  yearOfBirth: '',
+  dateOfBirth: '',
   gender: '',
   stateOfOrigin: '',
   twitterHandle: '',
@@ -26,14 +24,8 @@ const userDetails = createSlice({
     Password: (state, action) => {
       state.password = action.payload;
     },
-    monthofbirth: (state, action) => {
-      state.monthOfBirth = action.payload;
-    },
-    dayofbirth: (state, action) => {
-      state.dayOfBirth = action.payload;
-    },
-    yearofbirth: (state, action) => {
-      state.yearOfBirth = action.payload;
+    dateofbirth: (state, action) => {
+      state.dateOfBirth = action.payload;
     },
     Gender: (state, action) => {
       state.gender = action.payload;
@@ -51,5 +43,5 @@ const userDetails = createSlice({
 });
 
 export default userDetails.reducer;
-export const { fullname, Email, Password, monthofbirth, dayofbirth, yearofbirth, Gender, stateoforigin, twitterhandle, howdidyouhear } =
+export const { fullname, Email, Password, dateofbirth, Gender, stateoforigin, twitterhandle, howdidyouhear } =
   userDetails.actions;
