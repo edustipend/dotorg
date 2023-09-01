@@ -7,10 +7,16 @@ import { Close, Menu } from '../../assets';
 import { useContext } from 'react';
 import { useEffect } from 'react';
 import InstallPrompt from '../../components/InstallPrompt';
+import SurveyBox from '../../components/SurveyBox';
+import { SURVEY_LS_KEY } from './constants';
 
 export const LearnerDashboard = () => {
   const { showSidebar, setShowSidebar } = useContext(SidebarCtx);
   const [desktopScreen, setDesktopScreen] = useState(document.body.clientWidth);
+
+  const handleSurveySuccess = () => {
+    localStorage.setItem(SURVEY_LS_KEY, 'true');
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -39,6 +45,7 @@ export const LearnerDashboard = () => {
         <Outlet />
       </div>
       <InstallPrompt />
+      <SurveyBox show={!localStorage.getItem(SURVEY_LS_KEY)} onSuccess={handleSurveySuccess} />
     </div>
   );
 };
