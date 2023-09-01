@@ -5,11 +5,6 @@ export const TextCopy = {
   BUTTON_TEXT: 'Request Stipend'
 };
 
-export const ButtonLabelCopy = {
-  WINDOW_OPEN: 'Request stipend',
-  WINDOW_CLOSED: 'Notify me'
-};
-
 export const ByClassName = {
   TAKEOFFBURDEN_CONTAINER: 'takeoffburden-container',
   TAKEOFFBURDEN_CARD: 'takeoffburden-Card',

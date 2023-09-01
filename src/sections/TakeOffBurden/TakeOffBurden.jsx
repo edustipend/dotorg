@@ -5,11 +5,11 @@ import Button from '../../components/Button';
 import Container from '../../components/Container';
 import Header from '../../components/Header';
 import Text from '../../components/Text';
-import { ButtonLabelCopy, TextCopy } from './constants';
+import { TextCopy } from './constants';
 import useHandleCTAClick from '../../hooks/useHandleCTAClick';
 
 const TakeOffBurden = () => {
-  const { isApplicationWindowClosed, handleCTAClick } = useHandleCTAClick();
+  const { buttonLabel, handleCTAClick } = useHandleCTAClick();
 
   return (
     <div className="takeoffburden-container" data-testid="takeoffburden-container">
@@ -34,11 +34,7 @@ const TakeOffBurden = () => {
             </div>
 
             <div className="request-stipend-btn-div">
-              <Button
-                label={isApplicationWindowClosed ? ButtonLabelCopy.WINDOW_CLOSED : ButtonLabelCopy.WINDOW_OPEN}
-                type="secondary"
-                onClick={() => handleCTAClick()}
-              />
+              <Button label={buttonLabel} type="secondary" onClick={() => handleCTAClick()} />
             </div>
           </div>
         </div>
