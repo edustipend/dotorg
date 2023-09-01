@@ -1,15 +1,14 @@
 import PropTypes from 'prop-types';
 import { NavHashLink } from 'react-router-hash-link';
 import Button from '../Button';
-import { ButtonLabelCopy, BUTTON_TYPE, NAVBAR_LINKS, TestId } from './constants';
+import { BUTTON_TYPE, NAVBAR_LINKS, TestId } from './constants';
 import './styles.css';
 import useHandleCTAClick from '../../hooks/useHandleCTAClick';
 
 const { NAVBAR_LINKS_ID } = TestId;
 
 const NavbarNavs = ({ showMenu, closeMenu }) => {
-  const { isApplicationWindowClosed, handleCTAClick } = useHandleCTAClick();
-  const buttonLabel = isApplicationWindowClosed ? ButtonLabelCopy.WINDOW_CLOSED : ButtonLabelCopy.WINDOW_OPEN;
+  const { buttonLabel, handleCTAClick } = useHandleCTAClick();
 
   return (
     <>

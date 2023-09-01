@@ -3,7 +3,7 @@ import { NavHashLink } from 'react-router-hash-link';
 import Container from '../../components/Container';
 import Button from '../../components/Button';
 import { Hero1, Hero2, Hero3, Hero4, Svg1, Svg2, Svg3, Svg4, Svg5, ArrowDown } from '../../assets/index';
-import { stipends, stipendsColors, ButtonLabelCopy, BUTTON_TYPE, APP_WINDOW_CLOSED_BANNER_TEXT, TestId } from './constants';
+import { stipends, stipendsColors, BUTTON_TYPE, APP_WINDOW_CLOSED_BANNER_TEXT, TestId } from './constants';
 import './styles.css';
 import Banner from '../../components/Banner';
 import Header from '../../components/Header';
@@ -13,7 +13,7 @@ import useHandleCTAClick from '../../hooks/useHandleCTAClick';
 
 const Hero = () => {
   const [currentStipend, setCurrentStipend] = useState(0);
-  const { isApplicationWindowClosed, handleCTAClick } = useHandleCTAClick();
+  const { buttonLabel, isApplicationWindowClosed, handleCTAClick } = useHandleCTAClick();
 
   const nextStipend = useCallback(() => {
     setCurrentStipend((prev) => (prev === stipends.length - 1 ? 0 : prev + 1));
@@ -58,11 +58,7 @@ const Hero = () => {
             <img src={Svg1} alt="boost icon" />
           </div>
           <div className="btn-container">
-            <Button
-              label={isApplicationWindowClosed ? ButtonLabelCopy.WINDOW_CLOSED : ButtonLabelCopy.WINDOW_OPEN}
-              type={BUTTON_TYPE}
-              onClick={() => handleCTAClick()}
-            />
+            <Button label={buttonLabel} type={BUTTON_TYPE} onClick={() => handleCTAClick()} />
           </div>
           <img src={Svg5} alt="icon" className="left" />
           <img src={Svg4} alt="icon" className="right" />

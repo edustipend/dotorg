@@ -6,12 +6,12 @@ import styles from './Request.module.css';
 import clock from '../../assets/clock.png';
 import blobLeft from '../../assets/blob-left.png';
 import blobRight from '../../assets/blob-right.png';
-import { ButtonLabelCopy, TestId, REQUEST_SECTION_HEADER } from './constants';
+import { TestId, REQUEST_SECTION_HEADER } from './constants';
 import Header from '../../components/Header';
 import useHandleCTAClick from '../../hooks/useHandleCTAClick';
 
 export const Request = () => {
-  const { isApplicationWindowClosed, handleCTAClick } = useHandleCTAClick();
+  const { buttonLabel, handleCTAClick } = useHandleCTAClick();
 
   return (
     <main data-testid={TestId.REQUEST_SECTION} className={styles.main}>
@@ -20,12 +20,7 @@ export const Request = () => {
           <Header dataTest={TestId.REQUEST_SECTION_HEADER} className={` ${styles.title}`}>
             {REQUEST_SECTION_HEADER}
           </Header>
-          <Button
-            label={isApplicationWindowClosed ? ButtonLabelCopy.WINDOW_CLOSED : ButtonLabelCopy.WINDOW_OPEN}
-            type="secondary"
-            size="large"
-            onClick={() => handleCTAClick()}
-          />
+          <Button label={buttonLabel} type="secondary" size="large" onClick={() => handleCTAClick()} />
           <img src={rocket} alt="rocket_emoji" className={styles.rocket} />
         </div>
       </Container>

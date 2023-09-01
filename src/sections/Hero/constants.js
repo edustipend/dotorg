@@ -2,11 +2,6 @@ export const stipends = ['stipend', 'laptop', 'data', 'fees'];
 export const stipendsColors = ['#5801ff', '#FD5A33', '#08B7B7', '#FFB600'];
 export const BUTTON_TYPE = 'secondary';
 
-export const ButtonLabelCopy = {
-  WINDOW_CLOSED: 'Notify me', // 'Request stipend',
-  WINDOW_OPEN: 'Request stipend'
-};
-
 export const StipendCategory = {
   DATA: 'data',
   FEES: 'fees',

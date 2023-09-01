@@ -15,14 +15,13 @@ export const NavbarToShow = () => {
   const isDashboard = pathname.includes('/dashboard');
 
   const storeData = useSelector((state) => state?.user);
-  let firstN, lastN;
+  let firstN = '';
+  let lastN = '';
 
-  if (storeData) {
-    if (storeData.name) {
-      const [first, last] = storeData.name.split(' ');
-      firstN = first ? first[0] : '';
-      lastN = last ? last[0] : '';
-    }
+  if (storeData && storeData.name) {
+    const [first, last] = storeData.name.split(' ');
+    firstN = first ? first[0] : '';
+    lastN = last ? last[0] : '';
   }
 
   return !isDashboard && !isRequestStipend ? (
