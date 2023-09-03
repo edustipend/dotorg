@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Stepper.module.css';
 import backarrow from '../../assets/stepperbackarrow.svg';
@@ -9,10 +9,8 @@ import { TestId, Text, stepsData } from './constants';
 import { useDispatch } from 'react-redux';
 import { back } from '../../store/reducers/ApplicationReducer';
 import { useNavigate } from 'react-router-dom';
-import { StepperCtx } from '../../context/StepperContext';
 
-const Stepper = () => {
-  const { activeStep } = useContext(StepperCtx);
+const Stepper = ({ activeStep }) => {
   const nav = useNavigate();
   const dispatch = useDispatch();
 

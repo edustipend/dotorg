@@ -8,7 +8,6 @@ const mockContextValue = {
   activeStep: 1,
 };
 
-// Mock the useDispatch function and useNavigate function
 jest.mock('react-redux', () => ({
   useDispatch: () => jest.fn(),
 }));
