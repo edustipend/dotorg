@@ -6,13 +6,27 @@ import CircularStepper from './Internals/CircularStepper/CircularStepper';
 import HorizontalStepper from './Internals/HorizontalStepper/HorizontalStepper';
 import Container from '../Container';
 import { Text, stepsData } from './constants';
+import { useDispatch } from 'react-redux';
+import { back } from '../../store/reducers/ApplicationReducer';
+import { useNavigate } from 'react-router-dom';
 
 const Stepper = ({ activeStep }) => {
+  const nav = useNavigate();
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    if (activeStep === 1) {
+      nav('/request');
+      return;
+    }
+    dispatch(back());
+  };
+
   return (
     <>
       <div className={styles.mobile}>
         <div className={styles.container}>
-          <div className={styles.backarrow}>
+          <div className={styles.backarrow} onClick={handleClick}>
             <img data-testid="backarrow" className={styles.backarrowimg} src={backarrow} alt="back" />
             <p className={styles.backarrowtext}>{Text.BACK_ICON_TEXT}</p>
           </div>
