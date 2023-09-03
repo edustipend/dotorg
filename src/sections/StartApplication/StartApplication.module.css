@@ -46,6 +46,11 @@
   /* 31.59px */
 }
 
+.desc p {
+  text-align: left;
+  margin-top: 1rem;
+}
+
 .important {
   font-weight: 600;
 }

@@ -1,10 +1,11 @@
 const dataTest = 'start_application-id';
-const headText = 'Stipend Application May 2023';
-const p1 = 'Hello there, Welcome to the month of May, how time flies! 🎉🎊';
+const headText = 'Stipend Application Sept. 2023';
+const p1 = 'Hello there, Welcome to the month of September, how time flies! 🎉🎊';
 const p2 =
   'As always, Edustipend is here to support you to fulfill your learning goals this month. To help us support you, we ask that you fill this form as completely as you can providing as much details as possible.';
-const p3 = 'Kindly note that this form will be closed for the June window by 11.00pm (Nigerian time) on Thursday, May 8, 2023';
-const p4 = 'so do well to complete it before that time. We wish you all the best of the new month!';
+const p3 =
+  'Kindly note that this form will be closed for the September window by 11.00pm WAT on Friday, September 8, 2023  do well to complete it before that time.';
+const p4 = 'We wish you all the best of the new month!';
 const p5 = 'In Your Service,';
 const p6 = 'The Edustipend Team ❤️';
 
