@@ -3,7 +3,7 @@ export const constants = {
   PARA1: `Whew! That was some application right?
     Now you've done your part, it's time for us to do ours.`,
   PARA2: `So here's what will happen from now, the team will review your application and contact you with the email you provided if you've been selected for the category you applied to.
-    Beneficiaries will be contacted at most three weeks from May 8, which is when the application closes.`,
+    Beneficiaries will be contacted at most three weeks from September 11, which is when the application closes.`,
   PARA3:
     'No need to contact us, you can follow us on our social media pages: @edustipend - Twitter, Instagram and Facebook where we will publish more information.',
   PARA4: `We wish you all the best and as always, we are rooting for you!`,
