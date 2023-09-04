@@ -74,11 +74,11 @@ export const MobileTable = ({ entries, tableHead, oneClickApply }) => {
           </tr>
           <tr>
             <td className={`${styles.head} ${styles.headAlt}`}>{tableHead[3]}</td>
-            <td className={`${styles.row} ${styles.rowAlt}`}>{getFormattedDate(currentEntry?.date)}</td>
+            <td className={`${styles.row} ${styles.rowAlt}`}>{getFormattedDate(currentEntry?.createdAt)}</td>
           </tr>
           <tr>
             <td className={`${styles.head} ${styles.headAlt}`}>{tableHead[4]}</td>
-            <td className={`${styles.row} ${styles.rowAlt}`}>{getFormattedTime(currentEntry?.date)}</td>
+            <td className={`${styles.row} ${styles.rowAlt}`}>{getFormattedTime(currentEntry?.createdAt)}</td>
           </tr>
           {tableHead[5] && (
             <tr>
