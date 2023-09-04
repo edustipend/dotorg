@@ -2,7 +2,7 @@
   position: fixed;
   display: flex;
   width: 100%;
-  padding: 20px 160px;
+  padding: 30px 160px;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid rgba(233, 237, 244, 0.25);
@@ -87,12 +87,14 @@ a {
   justify-content: center;
   align-items: center;
 }
+
 .user-name {
   font-family: 'Poppins';
   font-size: 17px;
   font-style: normal;
   font-weight: 500;
-  line-height: 103.4%; /* 20.68px */
+  line-height: 103.4%;
+  /* 20.68px */
 }
 
 .log-out-container {
@@ -106,6 +108,7 @@ a {
   align-items: center;
   gap: 10px;
 }
+
 .log-out {
   cursor: pointer;
 }
@@ -127,7 +130,8 @@ a {
   font-size: 15px;
   font-style: normal;
   font-weight: 500;
-  line-height: 16px; /* 88.889% */
+  line-height: 16px;
+  /* 88.889% */
   letter-spacing: 0.15px;
   cursor: pointer;
 }
@@ -145,6 +149,7 @@ a {
   .navbar {
     padding: 20px;
   }
+
   .drop-down {
     margin-right: 50px;
   }
