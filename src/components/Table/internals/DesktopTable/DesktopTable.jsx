@@ -1,3 +1,4 @@
+import { getFormattedDate, getFormattedTime } from '../../../../utils/dateTimeUtils/dateTimeUtil';
 import styles from './DesktopTable.module.css';
 import PropTypes from 'prop-types';
 // import { applicationStatus } from '../constants';
@@ -5,7 +6,6 @@ import PropTypes from 'prop-types';
 
 export const DesktopTable = ({ entries, tableHead, oneClickApply }) => {
   const status = 'Received';
-  const date = '1 / September / 2023';
   const lastItem = entries?.length - 1;
   return (
     <section className={styles.Main}>
@@ -23,11 +23,10 @@ export const DesktopTable = ({ entries, tableHead, oneClickApply }) => {
         </thead>
         <tbody>
           {entries?.map((itm, idx) => {
-            const { stipendCategory, Action } = itm;
             return (
               <tr key={idx}>
                 <td className={idx === lastItem ? `${styles.firstColumn}` : undefined}>{1}</td>
-                <td>{stipendCategory.toUpperCase()}</td>
+                <td>{itm?.stipendCategory.toUpperCase()}</td>
                 <td>
                   <span
                     className={
@@ -46,12 +45,12 @@ export const DesktopTable = ({ entries, tableHead, oneClickApply }) => {
                     {status}
                   </span>
                 </td>
-                <td>{date}</td>
-                {/* <td>{Time_of_submission}</td> */}
+                <td>{getFormattedDate(itm?.createdAt)}</td>
+                <td>{getFormattedTime(itm?.createdAt)}</td>
                 {tableHead[5] && (
                   <td className={idx === lastItem ? `${styles.lastColumn}` : undefined}>
                     <button className={styles.btn} onClick={() => oneClickApply(idx + 1)}>
-                      {Action}
+                      {itm?.Action}
                     </button>
                   </td>
                 )}

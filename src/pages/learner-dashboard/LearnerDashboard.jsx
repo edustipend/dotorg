@@ -6,7 +6,7 @@ import { SidebarCtx } from '../../context/SidebarContext';
 import { Close, Menu } from '../../assets';
 import { useContext } from 'react';
 import { useEffect } from 'react';
-//import InstallPrompt from '../../components/InstallPrompt';
+import InstallPrompt from '../../components/InstallPrompt';
 import SurveyBox from '../../components/SurveyBox';
 import { SURVEY_LS_KEY } from './constants';
 
@@ -45,7 +45,7 @@ export const LearnerDashboard = () => {
       <div className={styles.Outlet}>
         <Outlet />
       </div>
-      {/* <InstallPrompt /> */}
+      <InstallPrompt />
       <SurveyBox show={!localStorage.getItem(SURVEY_LS_KEY)} onSuccess={handleSurveySuccess} />
     </div>
   );

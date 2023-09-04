@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './MobileTable.module.css';
 import arrowleft from '../../../../assets/arrow-left.svg';
 import arrowright from '../../../../assets/arrow-right.svg';
+import { getFormattedDate, getFormattedTime } from '../../../../utils/dateTimeUtils/dateTimeUtil';
 // import { applicationStatus } from '../constants';
 // const { APPROVED, IN_VIEW, RECEIVED, DENIED } = applicationStatus;
 
@@ -10,7 +11,6 @@ export const MobileTable = ({ entries, tableHead, oneClickApply }) => {
   const [entry, setEntry] = useState(0);
   const currentEntry = entries[entry];
   const status = 'Received';
-  const date = '1 / September / 2023';
 
   const handleArrowLeft = () => {
     setEntry((prev) => prev - 1);
@@ -74,12 +74,12 @@ export const MobileTable = ({ entries, tableHead, oneClickApply }) => {
           </tr>
           <tr>
             <td className={`${styles.head} ${styles.headAlt}`}>{tableHead[3]}</td>
-            <td className={`${styles.row} ${styles.rowAlt}`}>{date}</td>
+            <td className={`${styles.row} ${styles.rowAlt}`}>{getFormattedDate(currentEntry?.createdAt)}</td>
           </tr>
-          {/* <tr>
+          <tr>
             <td className={`${styles.head} ${styles.headAlt}`}>{tableHead[4]}</td>
-            <td className={`${styles.row} ${styles.rowAlt}`}>{currentEntry && currentEntry.Time_of_submission}</td>
-          </tr> */}
+            <td className={`${styles.row} ${styles.rowAlt}`}>{getFormattedTime(currentEntry?.createdAt)}</td>
+          </tr>
           {tableHead[5] && (
             <tr>
               <td className={`${styles.head} ${styles.headAlt} ${styles.row1}`}>{tableHead[5]}</td>
