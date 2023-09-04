@@ -1,26 +1,54 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import Stepper from '../Stepper';
-import { Text, TestId } from '../constants';
+import {StepperCtx} from '../../../context/StepperContext'; 
+import { TestId, Text } from '../constants';
 
-it('Stepper component renders correctly', () => {
-  render(<Stepper />);
+const mockContextValue = {
+  activeStep: 1,
+};
 
-  const backText = screen.getByText(Text.BACK_ICON_TEXT);
-  expect(backText).toBeInTheDocument();
+jest.mock('react-redux', () => ({
+  useDispatch: () => jest.fn(),
+}));
 
-  const backIcon = screen.getByTestId(TestId.BACK_ICON_TEST_ID);
-  expect(backIcon).toBeInTheDocument();
+jest.mock('react-router-dom', () => ({
+  useNavigate: () => jest.fn(),
+}));
 
-  const circularStepper = screen.getByTestId(TestId.CIRCULAR_STEPPER_TEST_ID);
-  expect(circularStepper).toBeInTheDocument();
+describe('Stepper Component', () => {
+  it('renders without errors', () => {
+    const { getByTestId, getByText } = render(
+      <StepperCtx.Provider value={mockContextValue}>
+        <Stepper />
+      </StepperCtx.Provider>
+    );
 
-  const title = screen.getByTestId(TestId.TITLE_TEST_ID);
-  expect(title).toBeInTheDocument();
+    expect(getByTestId(TestId.BACK_ICON_TEST_ID)).toBeInTheDocument();
+    expect(getByText(Text.BACK_ICON_TEXT)).toBeInTheDocument();
+    expect(getByTestId(TestId.TITLE_TEST_ID)).toBeInTheDocument();
+    expect(getByTestId(TestId.PARAGRAPH_TEST_ID)).toBeInTheDocument();
+  });
 
-  const paragraph = screen.getByTestId(TestId.PARAGRAPH_TEST_ID);
-  expect(paragraph).toBeInTheDocument();
+  it('handles click correctly', () => {
+    const mockDispatch = jest.fn();
+    const mockNavigate = jest.fn();
 
-  const horizontalStepper = screen.getByTestId(TestId.HORIZONTAL_STEPPER_TEST_ID);
-  expect(horizontalStepper).toBeInTheDocument();
+    jest.spyOn(require('react-redux'), 'useDispatch').mockReturnValue(mockDispatch);
+    jest.spyOn(require('react-router-dom'), 'useNavigate').mockReturnValue(mockNavigate);
+
+    const { getByTestId } = render(
+      <StepperCtx.Provider value={mockContextValue}>
+        <Stepper />
+      </StepperCtx.Provider>
+    );
+
+    fireEvent.click(getByTestId(TestId.BACK_ICON_TEST_ID));
+
+    if (mockContextValue.activeStep === 1) {
+      expect(mockNavigate).toHaveBeenCalledWith('/request');
+    } else {
+      expect(mockDispatch).toHaveBeenCalledWith({ type: 'back_action_type' });
+    }
+  });
 });

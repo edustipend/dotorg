@@ -1,3 +1,5 @@
+
+
 export const stepsData = [
   {
     id: 1,
@@ -33,6 +35,7 @@ export const Text = {
 };
 
 export const TestId = {
+  BACK_ICON_TEXT_TEST_ID: 'Back',
   BACK_ICON_TEST_ID: 'backarrow',
   CIRCULAR_STEPPER_TEST_ID: 'circular stepper',
   TITLE_TEST_ID: 'step 1',
