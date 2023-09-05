@@ -142,14 +142,14 @@ export const Step4Application = () => {
             </div>
 
             <div className={styles.formArea}>
-              
+
               <div>
                 <div>
                   <Input
                     label={DOB}
                     value={dateOfBirth}
                     type="date"
-                    className={` ${styles.input}`}
+                    className={`${styles.input}`}
                     onChange={(e) => dispatch(dateofbirth(e.target.value))}
                   />
                 </div>
