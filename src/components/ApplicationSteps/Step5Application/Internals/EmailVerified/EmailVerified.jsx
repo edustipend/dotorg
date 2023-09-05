@@ -32,7 +32,7 @@ export const EmailVerified = () => {
 
     setIsActive(true);
     const verifyEmail = async () => {
-      const res = await postData('/verify', {
+      const res = await postData('verify', {
         email: email,
         verificationCode: code
       });
