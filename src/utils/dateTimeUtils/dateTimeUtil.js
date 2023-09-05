@@ -14,5 +14,5 @@ export const getFormattedDate = (date = new Date()) => {
 };
 
 export const getFormattedTime = (date = new Date()) => {
-  return isValidDate(date) ? `${dayjs.tz(date, TIMEZONE).format('h:mm A')} WAT` : 'Invalid Time';
+  return isValidDate(date) ? `${dayjs.tz(date, TIMEZONE).add(1, 'hour').format('h:mm A')} WAT` : 'Invalid Time';
 };
