@@ -6,7 +6,7 @@ describe('dateTimeUtil', () => {
   });
 
   test('it returns the correct formatted time', () => {
-    expect(getFormattedTime('Mon Sep 04 2023 06:13:15 GMT-0700 (Pacific Daylight Time)')).toBe('1:13 PM WAT');
-    expect(getFormattedTime('Mon Sep 04 2023 06:13:15 GMT+0100')).toBe('5:13 AM WAT');
+    expect(getFormattedTime('Mon Sep 04 2023 06:13:15 GMT-0700 (Pacific Daylight Time)')).toBe('2:13 PM WAT');
+    expect(getFormattedTime('Mon Sep 04 2023 06:13:15 GMT+0100')).toBe('6:13 AM WAT');
   });
 });
