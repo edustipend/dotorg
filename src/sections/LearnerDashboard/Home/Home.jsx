@@ -17,7 +17,7 @@ export const Home = () => {
 
   const { name, id } = useSelector((state) => state.user);
   const [first] = name.split(' ');
-  
+
 
   const handleOneClick = (id) => {
     setApplicationTable(!applicationTable);
@@ -27,7 +27,7 @@ export const Home = () => {
 
   const getUserData = useCallback(async () => {
     try {
-      const response = await getData(`/user/application-history/search?id=${id}`);
+      const response = await getData(`user/application-history/search?id=${id}`);
       setData([response.message]);
     } catch (error) {
       console.log(error);
