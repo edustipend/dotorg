@@ -12,6 +12,7 @@ export const NavbarToShow = () => {
   const { pathname } = useLocation();
   const isAmbassador = pathname === '/ambassador-program';
   const isRequestStipend = pathname === '/application';
+  const isLogin = pathname.includes('/login');
   const isDashboard = pathname.includes('/dashboard');
 
   const storeData = useSelector((state) => state?.user);
@@ -24,7 +25,7 @@ export const NavbarToShow = () => {
     lastN = last ? last[0] : '';
   }
 
-  return !isDashboard && !isRequestStipend ? (
+  return !isDashboard && !isRequestStipend && !isLogin ? (
     <>
       {isAmbassador ? (
         <NavbarAmbassadorNavs showMenu={isToggle} closeMenu={setIsToggle} />
