@@ -30,6 +30,8 @@ import Logout from './logout.svg';
 import Valid from './valid.svg';
 import Flower from './flower.png';
 import Sad from './sad.svg';
+import Hand from './hand.png';
+import Eye from './eye.svg';
 
 export {
   Hero1,
@@ -63,5 +65,7 @@ export {
   Logout,
   Valid,
   Flower,
-  Sad
+  Sad,
+  Hand,
+  Eye
 };

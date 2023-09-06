@@ -10,6 +10,7 @@ import StartApplication from './sections/StartApplication';
 import AtOne from './pages/at-one';
 import Welcome from './sections/Welcome';
 import { useSelector } from 'react-redux';
+import Login from './pages/login';
 
 const Routes = () => {
   const { id } = useSelector((state) => state.user);
@@ -19,6 +20,7 @@ const Routes = () => {
       <Route path="/ambassador-program" element={<AmbassadorPage />} />
       <Route path="/request" element={<StartApplication />} />
       <Route path="/application" element={<RequestStipendPage />} />
+      <Route path="/login" element={<Login />} />
       {id ? <Route path="/welcome" element={<Welcome />} /> : <Route path="/" element={<LandingPageV2 />} />}
       {id ? (
         <Route path="/dashboard" element={<LearnerDashboard />}>
