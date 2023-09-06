@@ -36,13 +36,12 @@ export const LoginForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setisLoading(true);
-    console.log(email, password);
+
     try {
       const res = await postData('login', {
         email: email,
         password: password
       });
-      console.log(res);
 
       if (!res.success) {
         setSuccess('');
@@ -51,14 +50,13 @@ export const LoginForm = () => {
       if (res.response.success) {
         setError('');
         const decodedToken = jwt_decode(res.response.token);
-        console.log(decodedToken);
         setSuccess(res.response.message);
         dispatch(storeUser(decodedToken));
         navigate('/dashboard');
       }
     } catch (error) {
       console.log(error.message, 'ERROR MSG');
-      setError('An error occurred!');
+      // setError('An error occurred!');
     } finally {
       setisLoading(false);
     }

@@ -15,8 +15,7 @@ export const Home = () => {
   const [singleEntry, setSingleEntry] = useState(history);
   const [data, setData] = useState([]);
 
-  const { name, id, email } = useSelector((state) => state.user);
-  console.log(email);
+  const { name, id } = useSelector((state) => state.user);
   const [first] = name.split(' ');
 
   const handleOneClick = (id) => {
