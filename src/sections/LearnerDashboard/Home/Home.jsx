@@ -17,6 +17,7 @@ export const Home = () => {
 
   const { name, id } = useSelector((state) => state.user);
   const [first] = name.split(' ');
+  
 
   const handleOneClick = (id) => {
     setApplicationTable(!applicationTable);
