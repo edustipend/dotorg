@@ -1,5 +1,5 @@
 const CACHE_NAME = 'Edustipend';
-const urlsToCache = ['/index.html', '/dashboard', 'login'];
+const urlsToCache = ['index.html', '/dashboard'];
 
 const self = this;
 
