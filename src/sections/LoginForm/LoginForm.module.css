@@ -14,7 +14,6 @@
 .img {
   width: 79px;
   height: 79px;
-  object-fit: contain;
 }
 
 .headText {
@@ -79,7 +78,6 @@
   .img {
     width: 54px;
     height: 54px;
-    object-fit: contain;
   }
 
   .headText {

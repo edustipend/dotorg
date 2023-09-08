@@ -26,7 +26,7 @@ export const LoginForm = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (email.length > 5 && password.length > 5) {
+    if (email.includes('@') && password.length > 5) {
       setDisable(false);
     } else {
       setDisable(true);
@@ -56,7 +56,6 @@ export const LoginForm = () => {
       }
     } catch (error) {
       console.log(error.message, 'ERROR MSG');
-      // setError('An error occurred!');
     } finally {
       setisLoading(false);
     }

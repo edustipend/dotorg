@@ -71,11 +71,10 @@ a {
 .user-profile {
   display: flex;
   align-items: center;
-  gap: 10px;
   height: 50px;
   margin-left: 8px;
   position: relative;
-  max-width: 75px;
+  width: 65px;
 }
 
 .user-initials {
@@ -100,7 +99,7 @@ a {
 .log-out-container {
   position: absolute;
   margin-top: 50px;
-  margin-left: 20px;
+  margin-left: 9px;
   width: 95px;
   height: 50px;
   display: flex;
