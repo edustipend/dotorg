@@ -6,8 +6,7 @@ import NavbarAmbassadorNavs from './NavbarAmbassadorNavs';
 import { Menu, Close, Logout } from '../../assets/index';
 import './styles.css';
 import Text from '../Text';
-import { storeUser } from '../../store/reducers/UserReducer';
-import { initialState } from '../../store/reducers/UserReducer/UserReducer';
+import { initialState, storeUser } from '../../store/reducers/UserReducer';
 
 export const NavbarToShow = () => {
   const [isToggle, setIsToggle] = useState(false);
