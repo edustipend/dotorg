@@ -142,7 +142,6 @@ export const Step4Application = () => {
             </div>
 
             <div className={styles.formArea}>
-
               <div>
                 <div>
                   <Input

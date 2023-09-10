@@ -1,19 +1,19 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import Stepper from '../Stepper';
-import {StepperCtx} from '../../../context/StepperContext'; 
+import { StepperCtx } from '../../../context/StepperContext';
 import { TestId, Text } from '../constants';
 
 const mockContextValue = {
-  activeStep: 1,
+  activeStep: 1
 };
 
 jest.mock('react-redux', () => ({
-  useDispatch: () => jest.fn(),
+  useDispatch: () => jest.fn()
 }));
 
 jest.mock('react-router-dom', () => ({
-  useNavigate: () => jest.fn(),
+  useNavigate: () => jest.fn()
 }));
 
 describe('Stepper Component', () => {
