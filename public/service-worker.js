@@ -1,5 +1,5 @@
 const CACHE_NAME = 'Edustipend';
-const urlsToCache = ['/index.html', '/dashboard'];
+const urlsToCache = ['/index.html'];
 
 const self = this;
 
@@ -7,6 +7,7 @@ const self = this;
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
+      cache.delete('/');
       return cache.addAll(urlsToCache);
     })
   );
