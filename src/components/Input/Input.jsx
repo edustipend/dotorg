@@ -3,9 +3,9 @@ import styles from './Input.module.css';
 import { TestId } from './constants';
 const { LABEL_ID, INPUT_ID } = TestId;
 
-export const Input = ({ placeholder, label, includeLabel, value, type, size, className, mainClass, ...props }) => {
+export const Input = ({ placeholder, label, includeLabel, value, type, size, className, ...props }) => {
   return (
-    <section className={`${styles.main} ${mainClass}`}>
+    <section className={styles.main}>
       {includeLabel ? (
         <label data-testid={LABEL_ID} htmlFor="input" className={styles.label}>
           {label} <span className={styles.required}>*</span>
@@ -28,7 +28,6 @@ Input.propTypes = {
   placeholder: PropTypes.string,
   label: PropTypes.string,
   includeLabel: PropTypes.bool,
-  mainClass: PropTypes.string,
   value: PropTypes.string,
   type: PropTypes.string,
   size: PropTypes.string,
@@ -39,7 +38,6 @@ Input.defaultProps = {
   placeholder: 'Placeholder...',
   label: 'Some label',
   includeLabel: true,
-  mainClass: '',
   value: '',
   type: 'text',
   size: '',
