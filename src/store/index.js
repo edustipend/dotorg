@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import requestApplication from './reducers/ApplicationReducer/ApplicationRuducer';
 import userDetails from './reducers/UserDetailsReducer/UserDetailsReducer';
-import user from './reducers//UserReducer/UserReducer';
+import user from './reducers/UserReducer/UserReducer';
 import storage from 'redux-persist/lib/storage';
 import { persistReducer } from 'redux-persist';
 import { combineReducers } from '@reduxjs/toolkit';

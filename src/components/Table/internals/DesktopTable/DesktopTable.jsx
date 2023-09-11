@@ -26,7 +26,7 @@ export const DesktopTable = ({ entries, tableHead, oneClickApply }) => {
             return (
               <tr key={idx}>
                 <td className={idx === lastItem ? `${styles.firstColumn}` : undefined}>{1}</td>
-                <td>{itm?.stipendCategory.toUpperCase()}</td>
+                <td>{itm?.stipendCategory?.toUpperCase()}</td>
                 <td>
                   <span
                     className={
@@ -40,8 +40,7 @@ export const DesktopTable = ({ entries, tableHead, oneClickApply }) => {
                       //         ? 'denied bold_weight'
                       //         : ''
                       'Received'
-                    }
-                  >
+                    }>
                     {status}
                   </span>
                 </td>

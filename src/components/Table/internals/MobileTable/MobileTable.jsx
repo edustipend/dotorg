@@ -49,7 +49,7 @@ export const MobileTable = ({ entries, tableHead, oneClickApply }) => {
         <tbody>
           <tr>
             <td className={`${styles.head} ${styles.headAlt}`}>{tableHead[1]}</td>
-            <td className={`${styles.row} ${styles.rowAlt}`}>{currentEntry && currentEntry.stipendCategory.toUpperCase()}</td>
+            <td className={`${styles.row} ${styles.rowAlt}`}>{currentEntry && currentEntry.stipendCategory?.toUpperCase()}</td>
           </tr>
           <tr>
             <td className={`${styles.head} ${styles.headAlt}`}>{tableHead[2]}</td>
