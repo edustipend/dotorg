@@ -11,15 +11,15 @@ import { ModalContext } from './context/ModalContext';
 import { useContext } from 'react';
 import { useScrollToTop } from './ScrollToTop/ScrollToTop';
 import LoadingMessage from './components/LoadingMessage';
-import useDetectInternet from './hooks/useDetectInternet';
-import NoInternet from './components/NoInternet/NoInternet';
+//import useDetectInternet from './hooks/useDetectInternet';
+//import NoInternet from './components/NoInternet/NoInternet';
 initFirebaseApp();
 
 function App() {
   const { isLoading } = useContext(ModalContext);
   const scrollOnRoute = useScrollToTop();
-  const isOnline = useDetectInternet();
-  return isOnline ? (
+  //const isOnline = useDetectInternet();
+  return (
     <>
       {scrollOnRoute}
       <Navbar />
@@ -34,8 +34,6 @@ function App() {
         </Modal>
       ) : undefined}
     </>
-  ) : (
-    <NoInternet />
   );
 }
 export default App;
