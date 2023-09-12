@@ -19,6 +19,7 @@ const Hero = () => {
     setCurrentStipend((prev) => (prev === stipends.length - 1 ? 0 : prev + 1));
   }, [setCurrentStipend]);
 
+  console.log(isApplicationWindowClosed);
   useEffect(() => {
     const timeInterval = setInterval(() => {
       nextStipend();
