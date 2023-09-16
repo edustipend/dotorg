@@ -6,6 +6,7 @@ import { Eligibility } from './internals/Eligibility';
 import { Benefits } from './internals/Benefits';
 import { Application } from './internals/Request';
 import { NavHashLink } from 'react-router-hash-link';
+import { Button } from '../../components/Button/Button';
 
 const ApplyNowCTA = () => {
   return (
@@ -14,17 +15,11 @@ const ApplyNowCTA = () => {
         We want to inspire people to pursue development in their chosen careers and build the confidence to pay it forward.
       </h3>
       <NavHashLink
-        style={{
-          fontSize: '1.2rem',
-          minWidth: 120
-        }}
-        className="nav-cta"
         to={{
           pathname: '/ambassador-program',
           hash: '#apply-now'
-        }}
-      >
-        Apply Now
+        }}>
+        <Button label={'Apply Now'} type={'secondary'} />
       </NavHashLink>
     </div>
   );

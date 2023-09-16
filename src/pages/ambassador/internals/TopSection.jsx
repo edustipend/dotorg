@@ -1,6 +1,7 @@
 import AmbassadorImage from '../../../assets/ambassador.png';
 import { NavHashLink } from 'react-router-hash-link';
 import '../styles.css';
+import { Button } from '../../../components/Button/Button';
 
 export const TopSection = () => {
   return (
@@ -19,13 +20,11 @@ export const TopSection = () => {
         </h3>
         <div className="top-cta-container">
           <NavHashLink
-            className="btn btn-primary"
             to={{
               pathname: '/ambassador-program',
               hash: '#apply-now'
-            }}
-          >
-            Apply now
+            }}>
+            <Button label={'Apply Now'} />
           </NavHashLink>
         </div>
       </div>

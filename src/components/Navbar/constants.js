@@ -31,7 +31,7 @@ export const NAVBAR_AMBASSADOR_LINKS = [
     hash: '#eligibility'
   },
   {
-    label: 'Apply now',
+    label: 'Apply Now',
     path: '/ambassador-program',
     hash: '#apply-now'
   }
