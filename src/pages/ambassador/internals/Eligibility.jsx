@@ -1,18 +1,22 @@
 import EligibilityImage from '../../../assets/eligibility.png';
+import Header from '../../../components/Header';
 import '../styles.css';
 
 export const Eligibility = () => {
   return (
     <div className="top-main eligibilty" style={{ backgroundColor: 'paleturquoise' }} id="eligibility">
       <div className="top-main-child">
-        <h2 className="section-header">Eligibility</h2>
+        <Header className="section-header" color="primary" size="small">
+          Eligibility
+        </Header>
+
         <div className="section-header-underline color-accent">
           <div />
           <div />
         </div>
         <div>
           <h3 className="page-subheader">
-            The appliation is open to past beneficiaries of Edustipend monthly stipend and any candidate who can show the following:{' '}
+            The application is open to past beneficiaries of the Edustipend Monthly stipend and any candidate who can show the following:{' '}
           </h3>
 
           <div className="bullet-wrapper">
@@ -26,6 +30,12 @@ export const Eligibility = () => {
               <div className="bullet-check bullet-accent" />
             </div>
             <h3 className="page-subheader">Demonstrates a desire to impact others.</h3>
+          </div>
+          <div className="bullet-wrapper">
+            <div className="bullet bullet-accent">
+              <div className="bullet-check bullet-accent" />
+            </div>
+            <h3 className="page-subheader">Able to commit at least 5 - 10 hours a week for the duration of the program</h3>
           </div>
           <div className="bullet-wrapper">
             <div className="bullet bullet-accent">

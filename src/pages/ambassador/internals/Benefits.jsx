@@ -1,4 +1,5 @@
 import BenefitsImage from '../../../assets/benefits.png';
+import Header from '../../../components/Header';
 import '../styles.css';
 
 export const Benefits = () => {
@@ -10,9 +11,9 @@ export const Benefits = () => {
         </div>
       </div>
       <div className="about-main-child">
-        <h2 className="section-header">
-          <p>Benefits</p>
-        </h2>
+        <Header className="section-header" color="primary" size="small">
+          Benefits
+        </Header>
         <div className="section-header-underline color-primary">
           <div />
           <div />
@@ -29,7 +30,7 @@ export const Benefits = () => {
             <div className="bullet bullet-primary">
               <div className="bullet-check bullet-primary" />
             </div>
-            <h3 className="page-subheader">Access to courses to skill-up and on leadership.</h3>
+            <h3 className="page-subheader">Access to courses to skill up and on leadership.</h3>
           </div>
           <div className="bullet-wrapper">
             <div className="bullet bullet-primary">
