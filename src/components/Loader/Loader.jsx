@@ -21,6 +21,7 @@ export const Loader = ({ variant, size, ...props }) => {
   return <img src={spinner} alt="loading-spinner" className={styles[size]} {...props} />;
 };
 
+
 Loader.propTypes = {
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   variant: PropTypes.oneOf(['primary', 'secondary', 'neutral'])
