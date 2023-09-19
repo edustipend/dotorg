@@ -4,6 +4,7 @@ import styles from './Loader.module.css';
 import Primary from '../../assets/spinner-primary.svg';
 import Secondary from '../../assets/spinner-secondary.svg';
 import Neutral from '../../assets/spinner-neutral.svg';
+import { TestId } from './constants';
 
 const LoaderVariant = (variant) => {
   if (variant === 'primary') {
@@ -18,7 +19,7 @@ const LoaderVariant = (variant) => {
 };
 export const Loader = ({ variant, size, ...props }) => {
   const spinner = LoaderVariant(variant);
-  return <img src={spinner} alt="loading-spinner" className={styles[size]} {...props} />;
+  return <img data-testid={TestId.LOADER_ID} src={spinner} alt="loading-spinner" className={styles[size]} {...props} />;
 };
 
 
