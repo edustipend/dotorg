@@ -8,6 +8,7 @@ import Submissions from './sections/LearnerDashboard/Submissions';
 import MyAccount from './sections/LearnerDashboard/MyAccount';
 import StartApplication from './sections/StartApplication';
 import ForgotPassword from './pages/forgot-password';
+import ResetPassword from './pages/reset-password';
 import AtOne from './pages/at-one';
 import Welcome from './sections/Welcome';
 import { useSelector } from 'react-redux';
@@ -21,6 +22,7 @@ const Routes = () => {
       <Route path="/request" element={<StartApplication />} />
       <Route path="/application" element={<RequestStipendPage />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
+      <Route path="/reset-password" element={<ResetPassword />} />
       {id ? <Route path="/welcome" element={<Welcome />} /> : <Route path="/" element={<LandingPageV2 />} />}
       {id ? (
         <Route path="/dashboard" element={<LearnerDashboard />}>

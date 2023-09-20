@@ -34,15 +34,14 @@
   outline: none;
 }
 
-
-.input[type="date"]::-webkit-calendar-picker-indicator {
+.input[type='date']::-webkit-calendar-picker-indicator {
   display: none;
   width: 20px;
   height: 20px;
-  padding-right: .5rem;
+  padding-right: 0.5rem;
 }
 
-.input[type="date"]:hover::-webkit-calendar-picker-indicator {
+.input[type='date']:hover::-webkit-calendar-picker-indicator {
   cursor: pointer;
 }
 
@@ -84,7 +83,7 @@
     font-size: 18px;
   }
 
-  .input[type="date"]::-webkit-calendar-picker-indicator {
+  .input[type='date']::-webkit-calendar-picker-indicator {
     display: initial;
   }
 }
