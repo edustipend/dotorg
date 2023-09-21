@@ -9,12 +9,11 @@ export const TopSection = () => {
   return (
     <div className="top-main">
       <div className="top-main-child">
-        <h1 className="page-header">
+        <div className="page-header">
           <Header>Edustipend</Header>
           <Header className="header-primary">Ambassador</Header>
           <Header>Program</Header>
-          {/* Ambas<span className="header-primary">sador</span> */}
-        </h1>
+        </div>
         <Text
           className="page-subheader"
           content="We want to inspire people to pursue development in their chosen career paths and then empower them to pay it forward and impact others as
@@ -23,7 +22,6 @@ export const TopSection = () => {
 
         <div className="top-cta-container">
           <NavHashLink
-            // className="btn btn-primary"
             to={{
               pathname: '/ambassador-program',
               hash: '#apply-now'

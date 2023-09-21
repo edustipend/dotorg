@@ -9,7 +9,6 @@ import { NavHashLink } from 'react-router-hash-link';
 import { Requirements } from './internals/Requirements';
 import Button from '../../components/Button';
 import Text from '../../components/Text';
-// import Carousel from '../../components/Carousel/Carousel';
 
 const ApplyNowCTA = () => {
   return (
@@ -20,11 +19,6 @@ const ApplyNowCTA = () => {
       />
 
       <NavHashLink
-        // style={{
-        //   fontSize: '1.2rem',
-        //   minWidth: 120
-        // }}
-        // className="nav-cta"
         to={{
           pathname: '/ambassador-program',
           hash: '#apply-now'
@@ -44,7 +38,6 @@ export const Ambassador = () => {
       <Requirements />
       <ApplyNowCTA />
       <Benefits />
-      {/* <Carousel /> */}
       <Application />
     </main>
   );

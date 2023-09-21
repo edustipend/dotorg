@@ -19,7 +19,6 @@ export const Requirements = () => {
           <div />
         </div>
         <div>
-          {/* <h3 className="page-subheader">Here are some benefits to expect:</h3> */}
           <div className="bullet-wrapper">
             <div className="bullet bullet-primary">
               <div className="bullet-check bullet-primary" />
