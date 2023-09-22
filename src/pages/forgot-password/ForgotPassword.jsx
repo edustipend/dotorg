@@ -10,9 +10,11 @@ import Modal from '../../components/Modal';
 import { checkEmail } from '../../utils/EmailChecker/emailChecker';
 import { postData } from '../../services/ApiClient';
 import { constants } from './constants';
+import { TestId } from './constants';
 import styles from './ForgotPassword.module.css';
 
 const { HEADER, TEXT, FOOT_NOTE } = constants;
+const { COMPONENT_TEST, HEADER_TEST, FOOT_NOTE_TEST, BUTTON_TEST, TEXT_TEST } = TestId
 
 export const ForgotPassword = () => {
   const { setIsActive } = useContext(ModalContext);
@@ -88,12 +90,12 @@ export const ForgotPassword = () => {
   }
 
   return (
-    <section className={styles.main}>
+    <section  data-testid={COMPONENT_TEST} className={styles.main}>
       <div className={styles.contentContainer}>
         <div className={styles.content}>
           <img src={Tears} alt="wrong password" className={styles.img} />
-          <Header className={styles.header}>{HEADER}</Header>
-          <Text className={styles.text} content={TEXT} />
+          <Header dataTest={HEADER_TEST} className={styles.header}>{HEADER}</Header>
+          <Text dataTest={TEXT_TEST} className={styles.text} content={TEXT} />
           <div className={styles.inputConatiner}>
             <div className={styles.inputContent}>
               <Input
@@ -106,6 +108,7 @@ export const ForgotPassword = () => {
           </div>
           <div className={styles.btnContainer}>
             <Button
+              dataTest={BUTTON_TEST}
               value
               effectAlt
               isLoading={loading}
@@ -119,7 +122,7 @@ export const ForgotPassword = () => {
               className={styles.btn}
             />
           </div>
-          <Text className={styles.footNote} content={FOOT_NOTE} />
+          <Text dataTest={FOOT_NOTE_TEST} className={styles.footNote} content={FOOT_NOTE} />
         </div>
       </div>
     </section>
