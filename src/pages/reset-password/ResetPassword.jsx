@@ -9,9 +9,11 @@ import { ModalContext } from '../../context/ModalContext';
 import { constants } from './constants';
 import { routesConstant } from '../../routesConstant';
 import { useNavigate } from 'react-router-dom';
+import { TestId } from './constants';
 import styles from './ResetPassword.module.css';
 
 const { HEADER, EMAIL, PASSWORD, CODE, CONFIRM_PASSWORD, PASSWORD_MIN_LENGTH_ERR, PASSWORD_MISMATCH } = constants;
+const { COMPONENT_TEST, HEADER_TEST, BUTTON_TEST, MODAL_TEST, ERROR_TEST } = TestId
 
 export const ResetPassword = () => {
   const nav = useNavigate();
@@ -66,10 +68,10 @@ export const ResetPassword = () => {
   };
 
   return (
-    <section className={styles.reset}>
+    <section data-testid={COMPONENT_TEST} className={styles.reset}>
       <div className={styles.contentContainer}>
         <div className={styles.content}>
-          <Header className={styles.header}>{HEADER}</Header>
+          <Header dataTest={HEADER_TEST} className={styles.header}>{HEADER}</Header>
           <div className={styles.fields}>
             <div className={styles.field}>
               <Input value={email} label={EMAIL} placeholder={EMAIL} readOnly />
@@ -78,7 +80,7 @@ export const ResetPassword = () => {
             <div className={styles.field}>
               <div className={styles.single}>
                 <Input type='password' value={password} label={PASSWORD} placeholder={PASSWORD} onChange={(e) => setPassword(e.target.value)} />
-                {passwordErr ? <small className={styles.small}>{PASSWORD_MIN_LENGTH_ERR}</small> : undefined}
+                {passwordErr ? <small data-testid={ERROR_TEST} className={styles.small}>{PASSWORD_MIN_LENGTH_ERR}</small> : undefined}
               </div>
               <div className={styles.single}>
                 <Input
@@ -88,12 +90,13 @@ export const ResetPassword = () => {
                   placeholder={CONFIRM_PASSWORD}
                   onChange={(e) => setConfirmPassword(e.target.value)}
                 />
-                {passwordMisMatch ? <small className={styles.small}>{PASSWORD_MISMATCH}</small> : undefined}
+                {passwordMisMatch ? <small data-testid={ERROR_TEST} className={styles.small}>{PASSWORD_MISMATCH}</small> : undefined}
               </div>
             </div>
           </div>
           <div className={styles.btnContainer}>
             <Button
+              dataTest={BUTTON_TEST}
               isLoading={loading}
               loaderSize='small'
               loaderVariant='neutral'
@@ -104,11 +107,11 @@ export const ResetPassword = () => {
               className={styles.btn}
             />
           </div>
-          {error ? <p className={styles.error}>{error}</p> : undefined}
+          {error ? <p data-testid={ERROR_TEST} className={styles.error}>{error}</p> : undefined}
         </div>
       </div>
 
-      <Modal>
+      <Modal dataTest={MODAL_TEST}>
         <section className={styles.main}>
           <div className={styles.contentContainer}>
             <div className={styles.Modal}>
