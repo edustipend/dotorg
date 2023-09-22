@@ -7,8 +7,9 @@ import { postData } from '../../services/ApiClient';
 import { Valid } from '../../assets';
 import { ModalContext } from '../../context/ModalContext';
 import { constants } from './constants';
-import styles from './ResetPassword.module.css';
+import { routesConstant } from '../../routesConstant';
 import { useNavigate } from 'react-router-dom';
+import styles from './ResetPassword.module.css';
 
 const { HEADER, EMAIL, PASSWORD, CODE, CONFIRM_PASSWORD, PASSWORD_MIN_LENGTH_ERR, PASSWORD_MISMATCH } = constants;
 
@@ -76,12 +77,12 @@ export const ResetPassword = () => {
             </div>
             <div className={styles.field}>
               <div className={styles.single}>
-                <Input type={'password'} value={password} label={PASSWORD} placeholder={PASSWORD} onChange={(e) => setPassword(e.target.value)} />
+                <Input type='password' value={password} label={PASSWORD} placeholder={PASSWORD} onChange={(e) => setPassword(e.target.value)} />
                 {passwordErr ? <small className={styles.small}>{PASSWORD_MIN_LENGTH_ERR}</small> : undefined}
               </div>
               <div className={styles.single}>
                 <Input
-                  type={'password'}
+                  type='password'
                   value={confirmPassword}
                   label={CONFIRM_PASSWORD}
                   placeholder={CONFIRM_PASSWORD}
@@ -94,11 +95,11 @@ export const ResetPassword = () => {
           <div className={styles.btnContainer}>
             <Button
               isLoading={loading}
-              loaderSize={'small'}
-              loaderVariant={'neutral'}
-              type={'secondary'}
-              size={'large'}
-              label={'Submit'}
+              loaderSize='small'
+              loaderVariant='neutral'
+              type='secondary'
+              size='large'
+              label='Submit'
               onClick={onSubmit}
               className={styles.btn}
             />
@@ -115,10 +116,10 @@ export const ResetPassword = () => {
               <p className={styles.feedBack}>{feedBack}</p>
               <Button
                 effectAlt
-                label={'Login'}
-                type={'secondary'}
+                label='Login'
+                type='secondary'
                 onClick={() => {
-                  nav('/login');
+                  nav(routesConstant.Login);
                   setIsActive((prev) => !prev);
                 }}
               />

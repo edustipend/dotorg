@@ -11,21 +11,33 @@ import ForgotPassword from './pages/forgot-password';
 import ResetPassword from './pages/reset-password';
 import AtOne from './pages/at-one';
 import Welcome from './sections/Welcome';
+import { routesConstant } from './routesConstant';
 import { useSelector } from 'react-redux';
+
+const {
+  AMBASSADOR_PROGRAM,
+  REQUEST,
+  APPLICATION,
+  FORGOT_PASSWORD,
+  RESET_PASSWORD,
+  WELCOME,
+  DASHBOARD,
+  AT_ONE
+} = routesConstant;
 
 const Routes = () => {
   const { id } = useSelector((state) => state.user);
 
   return (
     <AppRoutes>
-      <Route path="/ambassador-program" element={<AmbassadorPage />} />
-      <Route path="/request" element={<StartApplication />} />
-      <Route path="/application" element={<RequestStipendPage />} />
-      <Route path="/forgot-password" element={<ForgotPassword />} />
-      <Route path="/reset-password" element={<ResetPassword />} />
-      {id ? <Route path="/welcome" element={<Welcome />} /> : <Route path="/" element={<LandingPageV2 />} />}
+      <Route path={AMBASSADOR_PROGRAM} element={<AmbassadorPage />} />
+      <Route path={REQUEST} element={<StartApplication />} />
+      <Route path={APPLICATION} element={<RequestStipendPage />} />
+      <Route path={FORGOT_PASSWORD} element={<ForgotPassword />} />
+      <Route path={RESET_PASSWORD} element={<ResetPassword />} />
+      {id ? <Route path={WELCOME} element={<Welcome />} /> : <Route path="/" element={<LandingPageV2 />} />}
       {id ? (
-        <Route path="/dashboard" element={<LearnerDashboard />}>
+        <Route path={DASHBOARD} element={<LearnerDashboard />}>
           <Route index element={<Home />} />
           <Route path="home" element={<Home />} />
           <Route path="submissions" element={<Submissions />} />
@@ -36,7 +48,7 @@ const Routes = () => {
       )}
       {/* <Route path="/" element={V2_FEATURE_FLAG_ON ? <LandingPageV2 /> : <LandingPage />} /> */}
       <Route path="/" element={<LandingPageV2 />} />
-      <Route path="/at-one" element={<AtOne />} />
+      <Route path={AT_ONE} element={<AtOne />} />
     </AppRoutes>
   );
 };

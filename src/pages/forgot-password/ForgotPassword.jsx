@@ -49,8 +49,8 @@ export const ForgotPassword = () => {
               <p className={styles.feedBack}>{feedBack}</p>
               <Button
                 effectAlt
-                label={'close'}
-                type={'secondary'}
+                label="close"
+                type="secondary"
                 onClick={() => {
                   dispatch({ type: SUCCESS, payload: false });
                   setIsActive((prev) => !prev);
@@ -73,8 +73,8 @@ export const ForgotPassword = () => {
               <p className={styles.feedBack}>{feedBack}</p>
               <Button
                 effectAlt
-                label={'close'}
-                type={'secondary'}
+                label="close"
+                type="secondary"
                 onClick={() => {
                   dispatch({ type: ERROR, payload: false });
                   setIsActive((prev) => !prev);
@@ -99,7 +99,7 @@ export const ForgotPassword = () => {
               <Input
                 value={email}
                 onChange={(e) => dispatch({ type: EMAIL, payload: e.target.value })}
-                label={'Email Address'}
+                label="Email Address"
                 className={styles.input}
               />
             </div>
@@ -109,11 +109,11 @@ export const ForgotPassword = () => {
               value
               effectAlt
               isLoading={loading}
-              loaderSize={'small'}
-              loaderVariant={'neutral'}
-              label={'Send instructions'}
-              type={'secondary'}
-              size={'medium'}
+              loaderSize="small"
+              loaderVariant="neutral"
+              label="Send instructions"
+              type="secondary"
+              size="medium"
               disabled={disabled}
               onClick={sendMail}
               className={styles.btn}
