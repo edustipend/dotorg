@@ -9,6 +9,7 @@ import { NavHashLink } from 'react-router-hash-link';
 import { Requirements } from './internals/Requirements';
 import Button from '../../components/Button';
 import Text from '../../components/Text';
+import { AmbsImpacts } from './internals/AmbsImpacts';
 
 const ApplyNowCTA = () => {
   return (
@@ -38,6 +39,7 @@ export const Ambassador = () => {
       <Requirements />
       <ApplyNowCTA />
       <Benefits />
+      <AmbsImpacts />
       <Application />
     </main>
   );

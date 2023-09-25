@@ -1,16 +1,12 @@
 import BenefitsImage from '../../../assets/benefits.png';
 import Header from '../../../components/Header';
+import Text from '../../../components/Text';
 import '../styles.css';
 
 export const Benefits = () => {
   return (
-    <div className="about-main" style={{ backgroundColor: 'lightblue' }}>
-      <div className="about-main-child image-banner">
-        <div className="">
-          <img src={BenefitsImage} className="about-main-image" alt="young man smiling and working on a laptop" />
-        </div>
-      </div>
-      <div className="about-main-child">
+    <div className="top-main" style={{ backgroundColor: 'lightblue' }}>
+      <div className="top-main-child">
         <Header className="section-header" color="primary" size="small">
           Benefits
         </Header>
@@ -19,26 +15,29 @@ export const Benefits = () => {
           <div />
         </div>
         <div>
-          <h3 className="page-subheader">Being an Edustipend Ambassador just got more interesting. Here are some benefits to expect:</h3>
+          <Text className="page-subheader" content="Being an Edustipend Ambassador just got more interesting. Here are some benefits to expect:" />
           <div className="bullet-wrapper">
             <div className="bullet bullet-primary">
               <div className="bullet-check bullet-primary" />
             </div>
-            <h3 className="page-subheader">Monthly data subscription for the period of the fellowship.</h3>
+            <Text className="page-subheader" content="Monthly data subscription for the period of the fellowship." />
           </div>
           <div className="bullet-wrapper">
             <div className="bullet bullet-primary">
               <div className="bullet-check bullet-primary" />
             </div>
-            <h3 className="page-subheader">Access to courses to skill up and on leadership.</h3>
+            <Text className="page-subheader" content="Access to courses to skill up and on leadership." />
           </div>
           <div className="bullet-wrapper">
             <div className="bullet bullet-primary">
               <div className="bullet-check bullet-primary" />
             </div>
-            <h3 className="page-subheader">Support and resources to work on impact projects.</h3>
+            <Text className="page-subheader" content="Support and resources to work on impact projects." />
           </div>
         </div>
+      </div>
+      <div className="top-main-child image-banner">
+        <img src={BenefitsImage} className="about-main-image" alt="young man smiling and working on a laptop" />
       </div>
     </div>
   );
