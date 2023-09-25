@@ -1,4 +1,4 @@
-import youngperson1 from '../../../assets/P1.png';
+import youngperson from '../../../assets/P1.png';
 import youngperson2 from '../../../assets/P2.png';
 import youngperson3 from '../../../assets/P3.png';
 import youngperson4 from '../../../assets/P4.png';
@@ -35,11 +35,11 @@ export const TopSection = () => {
       </div>
       <div className="abs-top-main-child image-banner">
         <div className="ambassador-image-wrapper ">
-          <img src={youngperson1} className="ambassador-image" alt="many young people" />
+          <img src={youngperson} className="ambassador-image" alt="many young people" />
           <img src={youngperson2} className="ambassador-image" alt="many young people" />
           <img src={youngperson3} className="ambassador-image" alt="many young people" />
           <img src={youngperson4} className="ambassador-image" alt="many young people" />
-          <img src={youngperson1} className="ambassador-image" alt="many young people" />
+          <img src={youngperson} className="ambassador-image" alt="many young people" />
           <img src={youngperson2} className="ambassador-image" alt="many young people" />
           <img src={youngperson3} className="ambassador-image" alt="many young people" />
           <img src={youngperson4} className="ambassador-image" alt="many young people" />
