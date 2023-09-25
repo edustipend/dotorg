@@ -1,9 +1,12 @@
 import PropTypes from 'prop-types';
 import styles from './Input.module.css';
 import { TestId } from './constants';
+import { Eye } from '../../assets';
+import { useState } from 'react';
 const { LABEL_ID, INPUT_ID } = TestId;
 
 export const Input = ({ placeholder, label, includeLabel, value, type, size, className, ...props }) => {
+  const [inputType, setInputType] = useState(type);
   return (
     <section className={styles.main}>
       {includeLabel ? (
@@ -13,13 +16,21 @@ export const Input = ({ placeholder, label, includeLabel, value, type, size, cla
       ) : undefined}
       <input
         data-testid={INPUT_ID}
-        type={type}
+        type={inputType}
         name="input"
         placeholder={placeholder}
         value={value}
         {...props}
         className={`${styles.input} ${styles[size]} ${className}`}
       />
+      {type === 'password' ? (
+        <img
+          src={Eye}
+          alt="eye"
+          className={styles.eye}
+          onClick={() => (inputType === 'password' ? setInputType('text') : setInputType('password'))}
+        />
+      ) : null}
     </section>
   );
 };

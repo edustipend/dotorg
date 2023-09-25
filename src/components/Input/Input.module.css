@@ -4,6 +4,7 @@
   flex-direction: column;
   font-family: 'Manrope';
   gap: 0.4rem;
+  position: relative;
 }
 
 .label {
@@ -34,15 +35,24 @@
   outline: none;
 }
 
+.eye {
+  position: absolute;
+  right: 0;
+  bottom: 26px;
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
 
-.input[type="date"]::-webkit-calendar-picker-indicator {
+.input[type='date']::-webkit-calendar-picker-indicator {
   display: none;
   width: 20px;
   height: 20px;
-  padding-right: .5rem;
+  padding-right: 0.5rem;
 }
 
-.input[type="date"]:hover::-webkit-calendar-picker-indicator {
+.input[type='date']:hover::-webkit-calendar-picker-indicator {
   cursor: pointer;
 }
 
@@ -84,7 +94,7 @@
     font-size: 18px;
   }
 
-  .input[type="date"]::-webkit-calendar-picker-indicator {
+  .input[type='date']::-webkit-calendar-picker-indicator {
     display: initial;
   }
 }

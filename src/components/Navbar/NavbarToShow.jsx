@@ -1,17 +1,22 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
-import { useLocation } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { useLocation, useNavigate } from 'react-router-dom';
 import NavbarNavs from './NavbarNavs';
 import NavbarAmbassadorNavs from './NavbarAmbassadorNavs';
-import { Menu, Close } from '../../assets/index';
+import { Menu, Close, Logout } from '../../assets/index';
 import './styles.css';
 import Text from '../Text';
+import { initialState, storeUser } from '../../store/reducers/UserReducer';
 
 export const NavbarToShow = () => {
   const [isToggle, setIsToggle] = useState(false);
+  const [dropDown, setDropDown] = useState(false);
   const { pathname } = useLocation();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const isAmbassador = pathname === '/ambassador-program';
   const isRequestStipend = pathname === '/application';
+  const isLogin = pathname.includes('/login');
   const isDashboard = pathname.includes('/dashboard');
 
   const storeData = useSelector((state) => state?.user);
@@ -24,7 +29,14 @@ export const NavbarToShow = () => {
     lastN = last ? last[0] : '';
   }
 
-  return !isDashboard && !isRequestStipend ? (
+  const handleLogout = () => {
+    dispatch(storeUser(initialState));
+    navigate('/login');
+  };
+
+  const showNav = () => !isDashboard && !isRequestStipend && !isLogin;
+
+  return showNav() ? (
     <>
       {isAmbassador ? (
         <NavbarAmbassadorNavs showMenu={isToggle} closeMenu={setIsToggle} />
@@ -41,11 +53,15 @@ export const NavbarToShow = () => {
         <Text content={firstN + lastN} className={'user-name'} />
       </div>
 
-      {/* <div className="log-out-container">
+      <div className="log-out-container">
         <img src={Logout} alt="logout dropdown" className="log-out" onClick={() => setDropDown((prev) => !prev)} />
 
-        {dropDown && <button className="drop-down">Log out</button>}
-      </div> */}
+        {dropDown && (
+          <button className="drop-down" onClick={handleLogout}>
+            Log out
+          </button>
+        )}
+      </div>
     </div>
   ) : null;
 };
