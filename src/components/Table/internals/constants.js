@@ -4,3 +4,5 @@ export const applicationStatus = {
   RECEIVED: 'Received (Under Review)',
   DENIED: 'Denied'
 };
+
+export const Action = 'View submission';

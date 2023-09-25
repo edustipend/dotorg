@@ -1,10 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './QuestionAndAnswer.module.css';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useLocation } from 'react-router-dom';
 
 export const QuestionAndAnswer = ({ number, question, dispatchType, className, value, ...props }) => {
   const dispatch = useDispatch();
+  const { pathname } = useLocation();
+  const { id } = useSelector((state) => state.user);
+  const isDashboard = pathname.includes('/dashboard');
+
+  const disableTextbox = id && isDashboard;
 
   const handleOnchange = (e) => {
     dispatch(dispatchType(e.target.value));
@@ -25,6 +31,7 @@ export const QuestionAndAnswer = ({ number, question, dispatchType, className, v
         id="question"
         cols="30"
         rows="10"
+        disabled={disableTextbox}
         {...props}
         onChange={(e) => handleOnchange(e)}
         className={`${styles.textarea} ${className}`}

@@ -1,4 +1,5 @@
 import { getFormattedDate, getFormattedTime } from '../../../../utils/dateTimeUtils/dateTimeUtil';
+import { Action } from '../constants';
 import styles from './DesktopTable.module.css';
 import PropTypes from 'prop-types';
 // import { applicationStatus } from '../constants';
@@ -25,7 +26,7 @@ export const DesktopTable = ({ entries, tableHead, oneClickApply }) => {
           {entries?.map((itm, idx) => {
             return (
               <tr key={idx}>
-                <td className={idx === lastItem ? `${styles.firstColumn}` : undefined}>{1}</td>
+                <td className={idx === lastItem ? `${styles.firstColumn}` : undefined}>{idx + 1}</td>
                 <td>{itm?.stipendCategory?.toUpperCase()}</td>
                 <td>
                   <span
@@ -48,8 +49,8 @@ export const DesktopTable = ({ entries, tableHead, oneClickApply }) => {
                 <td>{getFormattedTime(itm?.createdAt)}</td>
                 {tableHead[5] && (
                   <td className={idx === lastItem ? `${styles.lastColumn}` : undefined}>
-                    <button className={styles.btn} onClick={() => oneClickApply(idx + 1)}>
-                      {itm?.Action}
+                    <button className={styles.btn} onClick={() => oneClickApply()}>
+                      {Action}
                     </button>
                   </td>
                 )}

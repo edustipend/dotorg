@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useContext } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styles from './Step5Application.module.css';
 import { ModalContext } from '../../../context/ModalContext';
 import Modal from '../../Modal';
@@ -15,18 +15,56 @@ import { ScrollOnMount } from '../ScrollOnMount/ScrollOnMount';
 import { BackArrow } from '../../../assets';
 import { constants } from './Internals/constants';
 import { DancingEmoji } from '../../../assets';
+import { postData } from '../../../services/ApiClient';
+import { useNavigate } from 'react-router-dom';
 const { HEADER, PARA1, PARA2, PARA3, PARA4, PARA5, PARA6, QUOTE } = constants;
 
 export const Step5Application = () => {
   ScrollOnMount();
   const { setIsActive } = useContext(ModalContext);
   const dispatch = useDispatch();
+  const nav = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
+  const { stipendCategory, reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser } = useSelector(
+    (state) => state.application
+  );
+  const { id, email } = useSelector((state) => state.user);
 
   const onSubmit = () => {
     dispatch(successful(false));
     dispatch(isError(false));
     setIsActive((prev) => !prev);
   };
+
+  const Category = stipendCategory.split('/')[0].toLowerCase();
+
+  const applicationInfo = {
+    userId: id,
+    email: email,
+    stipendCategory: Category,
+    reasonForRequest: reasonForRequest,
+    stepsTakenToEaseProblem: stepsTakenToEaseProblem,
+    potentialBenefits: potentialBenefits,
+    futureHelpFromUser: futureHelpFromUser
+  };
+
+  // Submit stipend application
+  const submitStipendApp = async () => {
+    setIsLoading(true);
+    try {
+      const res = await postData(`user/request-stipend`, applicationInfo);
+      console.log(res);
+      if (res.success) {
+        nav('/dashboard');
+      }
+    } catch (error) {
+      console.log(error.message);
+      dispatch(isError(true));
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <>
       <div>
@@ -55,7 +93,17 @@ export const Step5Application = () => {
               onClick={() => dispatch(back())}
               className={styles.btn}
             />
-            <Button label={'Submit'} iconPosition={'front'} type={'secondary'} effectAlt onClick={onSubmit} className={styles.btn} />
+            <Button
+              label={'Submit'}
+              iconPosition={'front'}
+              type={'secondary'}
+              effectAlt
+              isLoading={isLoading}
+              loaderSize={'small'}
+              loaderVariant={'neutral'}
+              onClick={id ? submitStipendApp : onSubmit}
+              className={styles.btn}
+            />
           </div>
         </ContentContainer>
         <section className="quoteContainer">

@@ -4,6 +4,7 @@ import styles from './MobileTable.module.css';
 import arrowleft from '../../../../assets/arrow-left.svg';
 import arrowright from '../../../../assets/arrow-right.svg';
 import { getFormattedDate, getFormattedTime } from '../../../../utils/dateTimeUtils/dateTimeUtil';
+import { Action } from '../constants';
 // import { applicationStatus } from '../constants';
 // const { APPROVED, IN_VIEW, RECEIVED, DENIED } = applicationStatus;
 
@@ -30,16 +31,14 @@ export const MobileTable = ({ entries, tableHead, oneClickApply }) => {
                 <button
                   disabled={entry === 0 ? true : false}
                   className={entry === 0 ? `${styles.disabled} ${styles.arrowContainer}` : `${styles.arrowContainer}`}
-                  onClick={handleArrowLeft}
-                >
+                  onClick={handleArrowLeft}>
                   <img src={arrowleft} alt="arrowleft" className={styles.arrow_img} />
                 </button>
-                <span className={styles.id}>{1}</span>
+                <span className={styles.id}>{entry + 1}</span>
                 <button
                   disabled={entry + 1 === entries.length ? true : false}
                   className={entry + 1 === entries.length ? `${styles.disabled} ${styles.arrowContainer}` : `${styles.arrowContainer}`}
-                  onClick={handleArrowRight}
-                >
+                  onClick={handleArrowRight}>
                   <img src={arrowright} alt="arrowright" className={styles.arrow_img} />
                 </button>
               </div>
@@ -66,8 +65,7 @@ export const MobileTable = ({ entries, tableHead, oneClickApply }) => {
                   //         ? 'denied bold_weight'
                   //         : ''
                   'Received'
-                }
-              >
+                }>
                 {status}
               </span>
             </td>
@@ -84,8 +82,8 @@ export const MobileTable = ({ entries, tableHead, oneClickApply }) => {
             <tr>
               <td className={`${styles.head} ${styles.headAlt} ${styles.row1}`}>{tableHead[5]}</td>
               <td className={`${styles.row} ${styles.rowAlt} ${styles.row2}`}>
-                <button className={styles.btn} onClick={() => oneClickApply(currentEntry.id)}>
-                  {currentEntry && currentEntry.Action}
+                <button className={styles.btn} onClick={() => oneClickApply()}>
+                  {currentEntry && Action}
                 </button>
               </td>
             </tr>

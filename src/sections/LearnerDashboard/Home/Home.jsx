@@ -1,28 +1,28 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './Home.module.css';
-import { Quote, TestId, constants, history, recent, submissionTableHead, submitted, tableHead } from './internals/constants';
+import { Quote, TestId, constants, submissionTableHead, submitted, tableHead } from './internals/constants';
 import hand from '../../../assets/waving hand.png';
 import { tab } from './internals/constants';
 import Button from '../../../components/Button';
 import Table from '../../../components/Table';
 import { getData } from '../../../services/ApiClient';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { Step2Application } from '../../../components/ApplicationSteps/Step2Application/Step2Application';
+import { benefits, category, futureHelp, reason, setActiveStep, steps } from '../../../store/reducers/ApplicationReducer';
+import { isApplicationWindowClosed } from '../../../utils';
 const { dashboard } = constants;
 
 export const Home = () => {
   const [currentTable, setCurrentTable] = useState(0);
   const [applicationTable, setApplicationTable] = useState(true);
-  const [singleEntry, setSingleEntry] = useState(history);
   const [data, setData] = useState([]);
+  const dispatch = useDispatch();
+  const nav = useNavigate();
+  const isWindowClosed = isApplicationWindowClosed();
 
-  const { name, id } = useSelector((state) => state.user);
+  const { name, id, email } = useSelector((state) => state.user);
   const [first] = name.split(' ');
-
-  const handleOneClick = (id) => {
-    setApplicationTable(!applicationTable);
-    const active = currentTable === 0 ? recent : recent;
-    setSingleEntry(active.filter((entry) => entry.id === id));
-  };
 
   const getUserData = useCallback(async () => {
     try {
@@ -32,6 +32,40 @@ export const Home = () => {
       console.log(error);
     }
   }, [id]);
+
+  const getSubmittedData = useCallback(async () => {
+    try {
+      const response = await getData(`user/one-click-apply/${email}`);
+      const { stipendCategory, reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser } = response.message;
+
+      const categoryData =
+        stipendCategory === 'laptop'
+          ? 'Laptop/Learning Device'
+          : stipendCategory === 'course'
+          ? 'Course/Certification Fees'
+          : stipendCategory === 'data'
+          ? 'Data/Internet Subscription'
+          : 'Laptop/Learning Device';
+
+      dispatch(category(categoryData));
+      dispatch(reason(reasonForRequest));
+      dispatch(steps(stepsTakenToEaseProblem));
+      dispatch(benefits(potentialBenefits));
+      dispatch(futureHelp(futureHelpFromUser));
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+
+  const handleOneClick = () => {
+    setApplicationTable(!applicationTable);
+    getSubmittedData();
+  };
+
+  const handleNewRequest = () => {
+    dispatch(setActiveStep(1));
+    nav('/application');
+  };
 
   useEffect(() => {
     getUserData();
@@ -89,11 +123,12 @@ export const Home = () => {
           <div className={styles.tabs}>
             <button className={styles.tab}>{submitted}</button>
           </div>
-          <Table entries={singleEntry} tableHead={submissionTableHead} />
+          <Table entries={data} tableHead={submissionTableHead} />
+          <Step2Application />
         </section>
       )}
       <div className={styles.buttonContainer}>
-        <Button disabled={true} label="New Stipend Application" type="secondary" effectAlt />
+        <Button disabled={isWindowClosed} label="New Stipend Application" type="secondary" effectAlt onClick={handleNewRequest} />
       </div>
     </div>
   );

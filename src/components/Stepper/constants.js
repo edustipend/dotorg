@@ -1,5 +1,3 @@
-
-
 export const stepsData = [
   {
     id: 1,
@@ -24,6 +22,24 @@ export const stepsData = [
   {
     id: 5,
     step: 'Step 5',
+    label: 'Submit'
+  }
+];
+
+export const stepsDataAlt = [
+  {
+    id: 1,
+    step: 'Step 1',
+    label: 'Select Stipend Category'
+  },
+  {
+    id: 2,
+    step: 'Step 2',
+    label: 'Stipend Request'
+  },
+  {
+    id: 3,
+    step: 'Step 3',
     label: 'Submit'
   }
 ];
