@@ -1,7 +1,7 @@
-import ONE from '../../../assets/P1.png';
-import TWO from '../../../assets/P2.png';
-import THREE from '../../../assets/P3.png';
-import FOUR from '../../../assets/P4.png';
+import youngperson1 from '../../../assets/P1.png';
+import youngperson2 from '../../../assets/P2.png';
+import youngperson3 from '../../../assets/P3.png';
+import youngperson4 from '../../../assets/P4.png';
 import { NavHashLink } from 'react-router-hash-link';
 import '../styles.css';
 import Button from '../../../components/Button';
@@ -35,14 +35,14 @@ export const TopSection = () => {
       </div>
       <div className="abs-top-main-child image-banner">
         <div className="ambassador-image-wrapper ">
-          <img src={ONE} className="ambassador-image" alt="many young people" />
-          <img src={TWO} className="ambassador-image" alt="many young people" />
-          <img src={THREE} className="ambassador-image" alt="many young people" />
-          <img src={FOUR} className="ambassador-image" alt="many young people" />
-          <img src={ONE} className="ambassador-image" alt="many young people" />
-          <img src={TWO} className="ambassador-image" alt="many young people" />
-          <img src={THREE} className="ambassador-image" alt="many young people" />
-          <img src={FOUR} className="ambassador-image" alt="many young people" />
+          <img src={youngperson1} className="ambassador-image" alt="many young people" />
+          <img src={youngperson2} className="ambassador-image" alt="many young people" />
+          <img src={youngperson3} className="ambassador-image" alt="many young people" />
+          <img src={youngperson4} className="ambassador-image" alt="many young people" />
+          <img src={youngperson1} className="ambassador-image" alt="many young people" />
+          <img src={youngperson2} className="ambassador-image" alt="many young people" />
+          <img src={youngperson3} className="ambassador-image" alt="many young people" />
+          <img src={youngperson4} className="ambassador-image" alt="many young people" />
         </div>
       </div>
     </div>
