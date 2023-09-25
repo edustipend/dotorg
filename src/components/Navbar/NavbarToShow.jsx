@@ -34,7 +34,9 @@ export const NavbarToShow = () => {
     navigate('/login');
   };
 
-  return !isDashboard && !isRequestStipend && !isLogin ? (
+  const showNav = () => !isDashboard && !isRequestStipend && !isLogin;
+
+  return showNav() ? (
     <>
       {isAmbassador ? (
         <NavbarAmbassadorNavs showMenu={isToggle} closeMenu={setIsToggle} />
