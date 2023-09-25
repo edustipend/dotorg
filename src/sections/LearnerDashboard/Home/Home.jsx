@@ -55,7 +55,7 @@ export const Home = () => {
     } catch (error) {
       console.log(error);
     }
-  }, []);
+  }, [email, dispatch]);
 
   const handleOneClick = () => {
     setApplicationTable(!applicationTable);
