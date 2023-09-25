@@ -1,16 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './QuestionAndAnswer.module.css';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
+import { isApplicationWindowClosed } from '../../../../utils';
 
 export const QuestionAndAnswer = ({ number, question, dispatchType, className, value, ...props }) => {
   const dispatch = useDispatch();
   const { pathname } = useLocation();
-  const { id } = useSelector((state) => state.user);
   const isDashboard = pathname.includes('/dashboard');
+  const isWindowClosed = isApplicationWindowClosed();
 
-  const disableTextbox = id && isDashboard;
+  const disableTextbox = isWindowClosed && isDashboard;
 
   const handleOnchange = (e) => {
     dispatch(dispatchType(e.target.value));

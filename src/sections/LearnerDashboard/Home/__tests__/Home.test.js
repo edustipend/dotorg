@@ -3,6 +3,7 @@ import { Home } from '../Home';
 import { Quote, TestId } from '../internals/constants';
 import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
+import { BrowserRouter } from 'react-router-dom';
 
 const mockStore = configureMockStore([
   /* middlewares */
@@ -18,7 +19,9 @@ describe('Home component', () => {
     it('shows the Home component in the document', () => {
       render(
         <Provider store={store}>
-          <Home />
+          <BrowserRouter>
+            <Home />
+          </BrowserRouter>
         </Provider>
       );
       expect(screen.getByTestId(TestId.HOME)).toBeInTheDocument();
@@ -26,7 +29,9 @@ describe('Home component', () => {
     it('shows the user name', () => {
       render(
         <Provider store={store}>
-          <Home />
+          <BrowserRouter>
+            <Home />
+          </BrowserRouter>
         </Provider>
       );
       expect(screen.getByTestId(TestId.USER)).toBeDefined();
@@ -35,7 +40,9 @@ describe('Home component', () => {
     it('shows a quote', () => {
       render(
         <Provider store={store}>
-          <Home />
+          <BrowserRouter>
+            <Home />
+          </BrowserRouter>
         </Provider>
       );
       expect(screen.getByTestId(TestId.QUOTE)).toHaveTextContent(Quote.content);
@@ -44,7 +51,9 @@ describe('Home component', () => {
     it('shows a table for displaying user application status and history', () => {
       render(
         <Provider store={store}>
-          <Home />
+          <BrowserRouter>
+            <Home />
+          </BrowserRouter>
         </Provider>
       );
       expect(screen.getByTestId(TestId.TABLE)).toBeInTheDocument();

@@ -29,8 +29,8 @@ const Stepper = ({ activeStep }) => {
     <>
       <div className={styles.mobile}>
         <div className={styles.container}>
-          <div className={styles.backarrow} onClick={handleClick}>
-            <img data-testid={TestId.BACK_ICON_TEST_ID} className={styles.backarrowimg} src={backarrow} alt="back_arrow" />
+          <div className={styles.backarrow} onClick={handleClick} data-testid={TestId.BACK_ICON_TEST_ID}>
+            <img className={styles.backarrowimg} src={backarrow} alt="back_arrow" />
             <p className={styles.backarrowtext}>{Text.BACK_ICON_TEXT}</p>
           </div>
 
