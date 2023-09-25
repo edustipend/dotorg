@@ -12,7 +12,6 @@ export const TopSection = () => {
   return (
     <div className="abs-top-main">
       <div className="top-header">
-        {/* className="section-header" */}
         <Header color="primary" className="header" size="medium">
           Edustipend <span className='header-abs'>Ambassador</span> Program
         </Header>
