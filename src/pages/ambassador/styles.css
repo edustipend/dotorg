@@ -752,6 +752,22 @@
     width: 100%;
     overflow: hidden;
   }
+  
+  .ambassador-image {
+    width: 100%;
+  }
+
+  .req-section-header {
+    text-align: left;
+  }
+
+  .section-header {
+    display: none;
+  }
+
+  .section-header {
+    display: flex;
+  }
 
   .abs-top-main-star-div {
     display: flex;
