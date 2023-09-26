@@ -3,7 +3,6 @@ import { ResetPassword } from "../ResetPassword";
 import { TestId, constants } from "../constants";
 import { BrowserRouter } from 'react-router-dom';
 import { ModalContext } from "../../../context/ModalContext";
-
 const { COMPONENT_TEST, HEADER_TEST, BUTTON_TEST, MODAL_TEST, ERROR_TEST } = TestId
 const setIsActive = true
 const value = { setIsActive }
