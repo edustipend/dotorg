@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 const ProtectedRoute = ({ children }) => {
   const nav = useNavigate();
   const { id } = useSelector((state) => state.user);
-  console.log(id);
 
   useEffect(() => {
     !id && nav('/login');
