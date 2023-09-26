@@ -3,7 +3,7 @@ import youngperson2 from '../../assets/P2.png';
 import youngperson3 from '../../assets/P3.png';
 import youngperson4 from '../../assets/P4.png';
 
-export const imgs = [youngperson, youngperson2, youngperson3, youngperson4]
+export const imgs = [youngperson, youngperson2, youngperson3, youngperson4];
 
 export const profiles = [
   {
@@ -94,3 +94,34 @@ export const SamuelImpactPhotos = [
   require('../../assets/D4.jpeg'),
   require('../../assets/D5.jpeg')
 ];
+
+export const benefitsData = [
+  {
+    imageSrc: require('../../assets/data.png'),
+    title: 'DATA STIPEND',
+    description: 'Monthly data subscription for the period of the fellowship.'
+  },
+  {
+    imageSrc: require('../../assets/courses.png'),
+    title: 'LEADERSHIP COURSES',
+    description: 'Access to courses to skill up on leadership.'
+  },
+  {
+    imageSrc: require('../../assets/impact.png'),
+    title: 'IMPACT PROJECT SUPPORT',
+    description: 'Support and resources to work on impact projects.'
+  }
+];
+
+export const requirementsData = [
+  'Focus on their skill area with at least two years of experience and expertise.',
+  "A genuine passion for skills development and a strong belief in the organization's goals and values.",
+  "Ability to articulate the organization's message clearly to diverse audiences, including students, organizations, educators, parents, and the general public.",
+  "Should be comfortable speaking in public and advocating for the organization's goals and initiatives, whether in person or through digital channels.",
+  'An active and engaging social media presence and the ability to leverage online platforms for outreach and advocacy.',
+  'Prior experience as a brand ambassador or related field is a plus.'
+];
+
+export const StaticText = {
+  Header: 'BENEFITS'
+};

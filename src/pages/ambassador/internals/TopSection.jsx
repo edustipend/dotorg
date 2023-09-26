@@ -40,24 +40,20 @@ export const TopSection = () => {
 
       <div className="abs-top-main-child">
         <div className="ambassador-image-wrapper ">
-          {
-            imgs.map((itm, idx) => {
-              return (
-                <div key={idx} className='slide'>
-                  <img src={itm} className="img" alt="many young people" />
-                </div>
-              )
-            })
-          }
-          {
-            imgs.map((itm, idx) => {
-              return (
-                <div key={idx} className='slide'>
-                  <img src={itm} className="img" alt="many young people" />
-                </div>
-              )
-            })
-          }
+          {imgs.map((itm, idx) => {
+            return (
+              <div key={idx} className="slide">
+                <img src={itm} className="img" alt="many young people" />
+              </div>
+            );
+          })}
+          {imgs.map((itm, idx) => {
+            return (
+              <div key={idx} className="slide">
+                <img src={itm} className="img" alt="many young people" />
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>
