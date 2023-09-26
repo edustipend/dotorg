@@ -32,7 +32,7 @@ export const AmbsImpacts = () => {
     updateCurrentImpactPhotos(currentProfile);
 
     return () => clearInterval(timer);
-  }, [currentProfileIndex, isTimerPaused]);
+  }, [currentProfileIndex, currentProfile, isTimerPaused]);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -123,7 +123,7 @@ export const AmbsImpacts = () => {
               <img className={`prevArrowNav ${isPrevDisabled ? 'disabled' : ''}`} onClick={prevImage} src={prevArrow} alt="prevArrow" />
               <div className="modal-content">
                 {currentImpactPhotos.length > 0 ? (
-                  <img src={currentImpactPhotos[currentImageIndex]} alt={`image-${currentImageIndex}`} height="500px" />
+                  <img src={currentImpactPhotos[currentImageIndex]} alt="impact-photos" height="500px" />
                 ) : (
                   <p>No impact photos available.</p>
                 )}
