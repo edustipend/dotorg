@@ -1,3 +1,10 @@
+import youngperson from '../../assets/P1.png';
+import youngperson2 from '../../assets/P2.png';
+import youngperson3 from '../../assets/P3.png';
+import youngperson4 from '../../assets/P4.png';
+
+export const imgs = [youngperson, youngperson2, youngperson3, youngperson4]
+
 export const profiles = [
   {
     name: 'Bamidele James',

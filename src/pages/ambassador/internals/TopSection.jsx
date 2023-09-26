@@ -1,13 +1,10 @@
-import youngperson from '../../../assets/P1.png';
-import youngperson2 from '../../../assets/P2.png';
-import youngperson3 from '../../../assets/P3.png';
-import youngperson4 from '../../../assets/P4.png';
 import { NavHashLink } from 'react-router-hash-link';
 import '../styles.css';
 import Button from '../../../components/Button';
 import Text from '../../../components/Text';
 import Header from '../../../components/Header';
 import star from '../../../assets/star-design.png';
+import { imgs } from '../constant';
 
 export const TopSection = () => {
   return (
@@ -40,16 +37,27 @@ export const TopSection = () => {
           </NavHashLink>
         </div>
       </div>
-      <div className="abs-top-main-child image-banner">
+
+      <div className="abs-top-main-child">
         <div className="ambassador-image-wrapper ">
-          <img src={youngperson} className="ambassador-image" alt="many young people" />
-          <img src={youngperson2} className="ambassador-image" alt="many young people" />
-          <img src={youngperson3} className="ambassador-image" alt="many young people" />
-          <img src={youngperson4} className="ambassador-image" alt="many young people" />
-          <img src={youngperson} className="ambassador-image" alt="many young people" />
-          <img src={youngperson2} className="ambassador-image" alt="many young people" />
-          <img src={youngperson3} className="ambassador-image" alt="many young people" />
-          <img src={youngperson4} className="ambassador-image" alt="many young people" />
+          {
+            imgs.map((itm, idx) => {
+              return (
+                <div key={idx} className='slide'>
+                  <img src={itm} className="img" alt="many young people" />
+                </div>
+              )
+            })
+          }
+          {
+            imgs.map((itm, idx) => {
+              return (
+                <div key={idx} className='slide'>
+                  <img src={itm} className="img" alt="many young people" />
+                </div>
+              )
+            })
+          }
         </div>
       </div>
     </div>
