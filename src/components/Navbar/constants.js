@@ -13,6 +13,10 @@ export const NAVBAR_LINKS = [
     label: 'Learn How It Works',
     to: '/',
     hash: '#how-it-works'
+  },
+  {
+    label: 'Log In',
+    to: '/login'
   }
   // {
   //   label: 'Support A Learner',
