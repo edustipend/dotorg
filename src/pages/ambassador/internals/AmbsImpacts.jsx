@@ -85,26 +85,26 @@ export const AmbsImpacts = () => {
 
   return (
     <div className="abs-main">
-      <Header className="abs-section-header" color="primary" size="medium">
+      <Header className="section-header-small" color="primary" size="small">
         MEET OUR INAUGURAL AMBASSADORS AND THEIR IMPACT PROJECTS
       </Header>
+      <Header className="section-header-large " color="primary" size="medium">
+        MEET OUR INAUGURAL AMBASSADORS AND THEIR IMPACT PROJECTS
+      </Header>
+      <div className="section-header-underline color-accent section-header-line">
+        <div />
+        <div />
+      </div>
       <div className="ambsimpacts" id="ambsimpacts">
         <div className="absimage">
-          <Header className="vertical-text" size="small">
-            COHORT 1
-          </Header>
-          <div>
-            <img src={currentProfile.image} height="350px" width="300px" alt={currentProfile.name} />
+          <Text className="vertical-text" content="COHORT 1" />
+          <div className="absimage-div">
+            <img className="absimages" src={currentProfile.image} alt={currentProfile.name} />
           </div>
         </div>
-        <div className="about-main-child">
-          <Header className="section-header" color="primary" size="small">
-            {currentProfile.name}
-          </Header>
-          <div className="section-header-underline color-accent">
-            <div />
-            <div />
-          </div>
+        <div className="ambsimpacts-child">
+          <Text className="abs-name" content={currentProfile.name} />
+
           <div>
             {currentProfile.description.map((text, index) => (
               <Text className="page-subheader" key={index} content={text} />

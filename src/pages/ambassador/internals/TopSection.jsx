@@ -7,17 +7,25 @@ import '../styles.css';
 import Button from '../../../components/Button';
 import Text from '../../../components/Text';
 import Header from '../../../components/Header';
+import star from '../../../assets/star-design.png';
 
 export const TopSection = () => {
   return (
     <div className="abs-top-main">
+      <div className="abs-top-main-star-div ">
+        <img className="abs-top-main-star" src={star} alt="star-design" />
+      </div>
+
       <div className="top-header">
-        <Header color="primary" className="header" size="medium">
-          Edustipend <span className='header-abs'>Ambassador</span> Program
+        <Header color="primary" className="top-section-header mobile" size="small">
+          Edustipend <span className="header-abs">Ambassador</span> Programme
+        </Header>
+        <Header color="primary" className="top-section-header bigscreen" size="large">
+          Edustipend <span className="header-abs">Ambassador</span> Programme
         </Header>
 
         <Text
-          className="subheader"
+          className="top-section-header-text"
           content="We want to inspire people to pursue development in their chosen career paths and then empower them to pay it forward and impact others as
           well."
         />

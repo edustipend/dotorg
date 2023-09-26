@@ -3,6 +3,25 @@
   margin-left: 10px;
 }
 
+.bigscreen {
+  display: none;
+}
+
+.abs-top-main-star-div {
+  display: none;
+
+}
+
+.abs-top-main-child {
+  width: 100%;
+  overflow: scroll;
+  margin-top: 10px;
+}
+
+.benefit-main-child {
+  width: 100%;
+}
+
 .ambassador-image-wrapper {
   display: inline-block;
   animation: moveImages 20s linear infinite;
@@ -10,18 +29,59 @@
   white-space: nowrap;
 }
 
-@keyframes moveImages {
-  50% {
-    transform: translateX(-100%);
-  }
-  50% {
-    transform: translateX(-100%);
-  }
+.about-main-image {
+  width: 100%;
 }
+
+/* @keyframes moveImages {
+  50% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(-100%);
+  }
+} */
 
 .page-subheader {
   margin-top: 20px;
   font-family: 'Manrope', sans-serif;
+  text-align: left;
+}
+
+.text {
+  font-family: 'Manrope', sans-serif;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 40px;
+}
+
+.eligibility-header-text {
+  margin-bottom: 10px;
+}
+
+.section-header-underline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.eligibility-header-text,
+.eligibility-header-list,
+.about-header-text,
+.requirement-header-text {
+  margin-top: 20px;
+  font-family: 'Manrope', sans-serif;
+  text-align: left;
+  font-size: 14px;
+}
+
+.eligibility-header-list {
+  margin-bottom: 0px;
+}
+
+.eligibility-main-image {
+  margin-top: 40px;
 }
 
 .about-main-child {
@@ -39,21 +99,39 @@
   font-weight: bolder;
 }
 
+.abs-name {
+  font-size: 24px;
+  font-weight: 700;
+  text-align: left;
+  text-transform: uppercase;
+}
+
 .absimage {
   display: flex;
   flex-direction: row;
   gap: 10px;
 }
 
+/* .section-header-underline {
+  display: flex;
+  justify-content: center;
+} */
+
 .vertical-text {
   writing-mode: vertical-rl;
   transform: rotate(180deg);
   font-weight: bolder;
+  font-size: 24px;
+}
+
+.project-photos-and-arrow img {
+  display: none;
 }
 
 .project-photos {
   color: var(--primary);
   font-weight: bold;
+  font-size: 14px;
 }
 
 .project-photos-and-arrow {
@@ -63,6 +141,16 @@
   margin-top: 25px;
   gap: 10px;
   cursor: pointer;
+}
+
+.data-stipend {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.data-stipend-text {
+  margin-top: 15px;
 }
 
 .modal-overlay {
@@ -90,6 +178,7 @@
   top: 50%;
   left: 50px;
   transform: translateY(-50%);
+  height: 50px;
   cursor: pointer;
 }
 
@@ -99,6 +188,7 @@
   right: 50px;
   transform: translateY(-50%);
   cursor: pointer;
+  height: 50px;
 }
 
 .close-button {
@@ -113,18 +203,23 @@
 }
 
 .abs-section-header {
-  width: 80%;
+  /* width: 80%; */
+  font-size: 24px;
+  margin-bottom: 20px;
 }
 
-@media screen and (min-width: 560px) {
-  .ambassador-image-wrapper {
-    display: flex;
-    justify-content: flex-end;
-  }
+.top-section-header {
+  font-size: 40px;
+}
 
-  .ambassador-image {
-    width: 80%;
-  }
+.top-section-header-text {
+  font-size: 14px;
+  width: 95%;
+  margin: 10px auto 0px;
+}
+
+.bigscreen-about-img {
+  display: none;
 }
 
 .bottom-main {
@@ -138,7 +233,6 @@
   display: flex;
   flex-direction: row;
   padding: 1rem;
-  padding-right: 0;
 }
 
 .image-desktop-only {
@@ -147,7 +241,7 @@
 
 /** About Section **/
 .abs-main {
-  padding: 4rem;
+  padding: 1rem;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -160,22 +254,43 @@
 }
 
 .ambsimpacts {
-  padding: 1rem;
+  /* margin-top: 50px; */
   text-align: center;
   display: flex;
   justify-content: center;
   min-height: 540px;
   align-items: center;
-  gap: 100px;
+  gap: 20px;
+  flex-direction: column;
 }
 
-.about-main {
-  padding: 1rem;
+.about-main-header {
+  display: none;
+  background-color: #eee6ff;
+  text-align: center;
+  max-width: 1260px;
+  margin: 0 auto;
+}
+
+.benefits-main-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.section-header-line {
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+
+.about-main-main-child {
   text-align: center;
   display: flex;
   justify-content: center;
-  flex-direction: column;
-  background-color: rgba(250, 235, 215, 0.45);
+  flex-direction: column-reverse;
+  background-color: #eee6ff;
   max-width: 1260px;
   margin: 1rem auto;
   min-height: 540px;
@@ -183,8 +298,17 @@
   gap: 10px;
 }
 
-.about-main-image {
-  width: 80%;
+.requirement-main {
+  text-align: center;
+  /* display: flex; */
+  justify-content: center;
+  flex-direction: column-reverse;
+  background-color: #fff;
+  max-width: 1260px;
+  margin: 1rem auto;
+  min-height: 540px;
+  align-items: center;
+  gap: 10px;
 }
 
 .about-main-child:nth-of-type(1) {
@@ -202,8 +326,12 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 2rem;
+  padding: 0 2rem 2rem;
   gap: 1rem;
+}
+
+.btn-NavHashLink {
+  display: none;
 }
 
 .apply-now > button {
@@ -242,13 +370,89 @@
   display: flex;
   align-items: center;
   padding: 1rem;
-  padding-top: 8rem;
   flex-direction: column;
   text-align: center;
 }
 
-.abs-top-main {
+.benefits-main {
   max-width: 1260px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  text-align: center;
+}
+
+.benefits-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.benefits {
+  padding: 24px;
+  text-align: left;
+  min-height: 200px;
+  background-color: #f7f2ff;
+  margin-top: 20px;
+  border-radius: 8px;
+  /* border: .5px solid #f7f2ff; */
+}
+
+.section-header-large {
+  display: none;
+}
+
+.benefits-courses {
+  padding: 24px;
+  text-align: left;
+  min-height: 200px;
+  background-color: #fffcf4;
+  margin-top: 20px;
+  border-radius: 8px;
+}
+
+.benefits-impact {
+  padding: 24px;
+  text-align: left;
+  min-height: 200px;
+  background-color: #fff7f5;
+  margin-top: 20px;
+  border-radius: 8px;
+}
+
+.benefits-data-icon-div {
+  padding: 1rem;
+  background-color: #e8daff;
+  display: flex;
+  justify-content: center;
+  width: 100px;
+  border-radius: 11px;
+}
+
+.benefits-courses-div {
+  padding: 1rem;
+  background-color: #fff6df;
+  display: flex;
+  justify-content: center;
+  width: 100px;
+  border-radius: 11px;
+}
+
+.benefits-impact-div {
+  padding: 1rem;
+  background-color: #ffe8e2;
+  display: flex;
+  justify-content: center;
+  width: 100px;
+  border-radius: 11px;
+}
+
+.abs-top-main {
+  position: relative;
   margin: 0 auto;
   min-height: 540px;
   display: flex;
@@ -257,6 +461,13 @@
   /* padding-top: 8rem; */
   flex-direction: column;
   text-align: center;
+}
+
+.abs-top-main-star {
+  display: flex;
+  position: absolute;
+  top: 40px;
+  right: 0px;
 }
 
 .eligibilty {
@@ -278,15 +489,94 @@
 
 .header-abs {
   background-image: linear-gradient(to right, #febd1c, #5801ff);
-  -webkit-background-clip: text; 
+  -webkit-background-clip: text;
   background-clip: text;
-  color: transparent; 
+  color: transparent;
 }
 
+@media screen and (min-width: 560px) {
+  .ambassador-image-wrapper {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .top-section-header {
+    font-size: 48px;
+  }
+
+  .top-section-header-text {
+    font-size: 18px;
+  }
+
+  .ambassador-image {
+    width: 80%;
+  }
+}
 
 @media screen and (min-width: 1024px) {
   .about-main {
     flex-direction: row;
+  }
+
+  .abs-name {
+    font-size: 28px;
+  }
+
+  .benefits-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .benefits,
+  .benefits-courses,
+  .benefits-impact {
+    width: 350px;
+  }
+
+  .section-header-large {
+    display: flex;
+    width: 80%;
+    margin-top: 40px;
+  }
+
+  .section-header-small {
+    display: none;
+  }
+
+  .about-main-child-header {
+    display: none;
+  }
+
+  .about-main-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 40px;
+  }
+
+  .about-main-main-child {
+    flex-direction: row;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .bigscreen {
+    display: block;
+  }
+
+  .project-photos {
+    font-size: 18px;
+  }
+
+  .mobile {
+    display: none;
+  }
+
+  .ambsimpacts {
+    flex-direction: row;
+    gap: 50px;
+    padding: 1rem;
   }
 
   .subheader {
@@ -294,9 +584,42 @@
     margin: 0;
   }
 
+  .top-section-header-text {
+    font-size: 24px;
+    width: 95%;
+    margin: 0;
+  }
+
+  .section-text {
+    font-size: 24px;
+  }
+
+  .absimage-div {
+    width: 350px;
+  }
+
+  .absimages {
+    width: 100%;
+  }
+
   .about-main-child:nth-of-type(1) {
-    width: 50%;
+    /* width: 50%; */
     order: 1;
+  }
+
+  .project-photos-and-arrow img {
+    display: block;
+  }
+
+  .vertical-text {
+    font-size: 28px;
+  }
+
+  .top-header {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 70px;
   }
 
   .about-main-child:nth-of-type(2) {
@@ -314,6 +637,13 @@
 
   .section-child {
     width: 50%;
+  }
+
+  .eligibility-header-text,
+  .eligibility-header-list,
+  .about-header-text,
+  .requirement-header-text {
+    font-size: 18px;
   }
 
   .student-image {
@@ -341,17 +671,51 @@
 
   .top-main {
     min-height: 560px;
-    padding: 2rem 3rem;
-    /* padding-top: 7rem; */
+    display: flex;
+    text-align: left;
+    gap: 20px;
+  }
+
+  /* .top-main {
+    padding: 0;
+  } */
+
+  .top-main-eligibility {
+    min-height: 560px;
+    display: flex;
     flex-direction: row;
     text-align: left;
+    gap: 40px;
+    margin-top: 40px;
+  }
+
+  .top-main-eligibility-child {
+    width: 50%;
+  }
+
+  .eligibility-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    margin-top: 40px;
+  }
+
+  .btn-NavHashLink {
+    display: flex;
   }
 
   .abs-top-main {
+    max-width: 1300px;
     min-height: 560px;
     padding: 2rem 3rem;
     flex-direction: column;
     text-align: left;
+  }
+
+  .eligibility-main-image {
+    width: 100%;
+    margin-top: 0;
   }
 
   .top-main-child {
@@ -359,11 +723,59 @@
     justify-content: center;
   }
 
+  .top-main-child-eligibility {
+    justify-content: center;
+  }
+
+  .section-header-line {
+    margin-bottom: 0px;
+    margin-top: 0px;
+  }
+
+  .benefits-main {
+    padding: 0;
+    margin-bottom: 100px;
+    margin-top: 60px;
+  }
+
+  .requirement-main {
+    text-align: center;
+    display: block;
+    flex-direction: column-reverse;
+    background-color: #fff;
+    max-width: 1260px;
+    margin: 1rem auto;
+    min-height: 300px;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .requirement-main-child {
+    padding: 0;
+  }
+
   .abs-top-main-child {
     width: 100%;
+    overflow: hidden;
   }
 
   .ambassador-image {
     width: 100%;
+  }
+
+  .req-section-header {
+    text-align: left;
+  }
+
+  .section-header {
+    display: none;
+  }
+
+  .section-header {
+    display: flex;
+  }
+
+  .abs-top-main-star-div {
+    display: flex;
   }
 }

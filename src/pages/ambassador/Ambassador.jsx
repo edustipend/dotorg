@@ -6,18 +6,17 @@ import { Eligibility } from './internals/Eligibility';
 import { Benefits } from './internals/Benefits';
 import { Application } from './internals/Request';
 import { NavHashLink } from 'react-router-hash-link';
-import { Requirements } from './internals/Requirements';
+// import { Requirements } from './internals/Requirements';
 import Button from '../../components/Button';
-import Text from '../../components/Text';
+import Header from '../../components/Header';
 import { AmbsImpacts } from './internals/AmbsImpacts';
 
 const ApplyNowCTA = () => {
   return (
     <div className="apply-now">
-      <Text
-        className="page-subheader"
-        content="  We want to inspire people to pursue development in their chosen careers and build the confidence to pay it forward."
-      />
+      <Header className="text" size="small">
+        Ready to Make an Impact? <br /> Become an Edustipend <span className="header-abs">Ambassador</span> Today
+      </Header>
 
       <NavHashLink
         to={{
@@ -35,11 +34,11 @@ export const Ambassador = () => {
     <main>
       <TopSection />
       <About />
+      {/* <Requirements /> */}
       <Eligibility />
-      <Requirements />
-      <ApplyNowCTA />
       <Benefits />
       <AmbsImpacts />
+      <ApplyNowCTA />
       <Application />
     </main>
   );

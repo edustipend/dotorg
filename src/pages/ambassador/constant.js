@@ -1,7 +1,7 @@
 export const profiles = [
   {
     name: 'Bamidele James',
-    image: require('../../assets/Bamidele.jpeg'),
+    image: require('../../assets/BamideleAbs.png'),
     description: [
       'Bamidele is a graduate of Agricultural Economics from L.A.U.T.E.C.H., Ogbomoso. He is a certified Google Data Analytics Professional passionate about leadership and problem-solving.',
       'As an Edustipend Ambassador, he embarked on a project that impacted 212 youth corps members in Ogbomoso North L.G.A., Oyo State. The project provides online training for top in-demand skills such as project management, data analytics, human resource management, and other relevant, highly sought-after skills.',
@@ -10,7 +10,7 @@ export const profiles = [
   },
   {
     name: 'Deborah Akujobi',
-    image: require('../../assets/Deborah.jpg'),
+    image: require('../../assets/DeborahAbs.png'),
     description: [
       "Deborah is a junior data analyst and a technical writer. She has a passion for numbers and an interest in healthcare. She is pursuing a career path that merges her love for data and a desire to make a difference in people's lives.",
       'She hosted a seminar with the theme "Opportunities for Health Educators in the Technology Industry." The conference introduced participants to the various opportunities available to health educators in the technology industry, such as digital health education.',
@@ -19,7 +19,7 @@ export const profiles = [
   },
   {
     name: 'Ubon Udonkang',
-    image: require('../../assets/Ubon.jpg'),
+    image: require('../../assets/UbonAbs.png'),
     description: [
       'Ubon is deeply interested in designing digital products that provide meaningful and relevant experiences for users across platforms and enjoys teaching.',
       "As an individual motivated by continuous learning, he has undertaken different courses after graduation and is currently enrolled in Google's UX design course offered by Coursera.",
@@ -29,7 +29,7 @@ export const profiles = [
   },
   {
     name: 'Ekemini Samuel',
-    image: require('../../assets/Ekemini.jpg'),
+    image: require('../../assets/Ekemini.png'),
     description: [
       'Ekemini Samuel is a Technical Writer and Backend Developer, deeply passionate about technology and always striving to learn more. He strongly believes in the importance of maintaining a well-rounded approach to both life and work.',
       "His impact project was a 6-day introduction to the Go programming language for backend development. He provided 256 total participants with a comprehensive understanding of Go programming. The 6-day program covered various topics, starting with an introduction to programming and an overview of Go's history. ",
@@ -38,7 +38,7 @@ export const profiles = [
   },
   {
     name: 'Laughter Atanda',
-    image: require('../../assets/Laughter.jpg'),
+    image: require('../../assets/Laughter.png'),
     description: [
       'Laughter is a social change activist and a budding product designer. He is passionate about leveraging Technology for Social Good. ',
       'Laughter hosted The Empowering African Youths: The Future of Work impact project. It was a one-day advocacy and training program that impacted 100 students in secondary school classes 1 & 2 at the Oye Egbo High School, Oye, Ekiti State.',
@@ -46,7 +46,6 @@ export const profiles = [
     ]
   }
 ];
-
 
 export const UbonImpactPhotos = [
   require('../../assets/L1.jpg'),
