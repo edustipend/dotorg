@@ -107,7 +107,7 @@ export const AmbsImpacts = () => {
 
           <div>
             {currentProfile.description.map((text, index) => (
-              <Text className="page-subheader" key={index} content={text} />
+              <Text className="abs-desc" key={index} content={text} />
             ))}
           </div>
           <div className="project-photos-and-arrow">

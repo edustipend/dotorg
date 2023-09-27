@@ -755,6 +755,13 @@
     overflow: hidden;
   }
 
+  .abs-desc {
+    font-size: 14px;
+    margin-top: 20px;
+    font-family: 'Manrope', sans-serif;
+    text-align: left;
+  }
+
   .ambassador-image {
     width: 100%;
   }
