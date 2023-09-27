@@ -326,6 +326,13 @@
   margin: 0 auto;
 }
 
+.abs-desc {
+  font-size: 14px;
+  margin-top: 20px;
+  font-family: 'Manrope', sans-serif;
+  text-align: left;
+}
+
 .section-header-line {
   margin-bottom: 30px;
   margin-top: 20px;
@@ -755,12 +762,7 @@
     overflow: hidden;
   }
 
-  .abs-desc {
-    font-size: 14px;
-    margin-top: 20px;
-    font-family: 'Manrope', sans-serif;
-    text-align: left;
-  }
+  
 
   .ambassador-image {
     width: 100%;
@@ -815,6 +817,10 @@
 
   .project-photos-and-arrow img {
     display: block;
+  }
+
+  .abs-desc {
+    font-size: 18px;
   }
 
   .vertical-text {
