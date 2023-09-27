@@ -233,6 +233,8 @@
   place-items: center;
   overflow: hidden;
   transition: all 300ms linear;
+  width: 100%;
+  overflow: hidden;
 }
 
 .ambassador-image-wrapper {
@@ -752,7 +754,7 @@
     width: 100%;
     overflow: hidden;
   }
-  
+
   .ambassador-image {
     width: 100%;
   }
