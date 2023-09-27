@@ -13,7 +13,7 @@ export const Application = () => {
         <iframe
           className="request-form"
           title="google-form"
-          src="https://docs.google.com/forms/d/e/1FAIpQLSexxdP7Ylp-wA7OWaOcwJnPjXsuJPfo9Y5XDpDHiVrebaojNw/viewform?embedded=true"
+          src="https://forms.gle/v4Zw9Qwr7Cyd7eRq9"
           width="640"
           height="1010"
           frameBorder="0"

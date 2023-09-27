@@ -34,7 +34,6 @@ export const Ambassador = () => {
     <main>
       <TopSection />
       <About />
-      {/* <Requirements /> */}
       <Eligibility />
       <Benefits />
       <AmbsImpacts />
