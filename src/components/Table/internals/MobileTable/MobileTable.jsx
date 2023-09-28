@@ -11,7 +11,7 @@ import { Action } from '../constants';
 export const MobileTable = ({ entries, tableHead, oneClickApply }) => {
   const [entry, setEntry] = useState(0);
   const currentEntry = entries[entry];
-  const status = 'Received';
+  const status = 'IN REVIEW';
 
   const handleArrowLeft = () => {
     setEntry((prev) => prev - 1);
