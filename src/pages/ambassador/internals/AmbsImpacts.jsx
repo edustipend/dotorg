@@ -5,13 +5,7 @@ import '../styles.css';
 import arrow from '../../../assets/arrow.png';
 import prevArrow from '../../../assets/prevArrow.png';
 import nextArrow from '../../../assets/nextArrow.png';
-import {
-  profiles,
-  DeborahImpactPhotos,
-  BamideleImpactPhotos,
-  LaughterImpactPhotos,
-  samuelProfileLink
-} from '../constant';
+import { profiles, DeborahImpactPhotos, BamideleImpactPhotos, LaughterImpactPhotos, samuelProfileLink } from '../constant';
 
 export const AmbsImpacts = () => {
   const [currentProfileIndex, setCurrentProfileIndex] = useState(0);
@@ -116,9 +110,9 @@ export const AmbsImpacts = () => {
                 View impact project
               </a>
             ) : currentProfile.name === 'Ubon Udonkang' ? null : (
-              <a className="project-photos" onClick={openModal}>
+              <button onClick={openModal} className="project-photos" href={""}>
                 View impact project photos
-              </a>
+              </button>
             )}
 
             {currentProfile.name === 'Ubon Udonkang' ? null : <img src={arrow} alt="view-impact-project-photos-arrow" />}
