@@ -14,9 +14,10 @@ const NavbarNavs = ({ showMenu, closeMenu }) => {
   const { buttonLabel, handleCTAClick } = useHandleCTAClick();
   const { id } = useSelector((state) => state.user);
 
+  console.log(navbarLinks);
   useEffect(() => {
-    id ? setNavbarLinks(navbarLinks.slice(0, 2)) : setNavbarLinks(NAVBAR_LINKS);
-  }, [id]);
+    id ? setNavbarLinks(NAVBAR_LINKS.slice(0, 2)) : setNavbarLinks(NAVBAR_LINKS);
+  }, [id, navbarLinks]);
 
   return (
     <>
