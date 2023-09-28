@@ -110,7 +110,7 @@ export const AmbsImpacts = () => {
                 View impact project
               </a>
             ) : currentProfile.name === 'Ubon Udonkang' ? null : (
-              <button onClick={openModal} className="project-photos" href={""}>
+              <button onClick={openModal} className="project-photos" href={''}>
                 View impact project photos
               </button>
             )}

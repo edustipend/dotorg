@@ -38,8 +38,6 @@ export const About = () => {
               className="about-header-text"
               content=" The Edustipend Ambassador program is a partnership program between Edustipend and Leaders who are looking to create an impact in their communities."
             />
-
-            <Text className="about-header-text" content="Monthly data subscription for the period of the fellowship." />
             <p className="about-header-text">
               We are looking for <span className="color-accent">5 persons (past beneficiaries or otherwise)</span> who can serve as Ambassadors for
               Edustipend. <b>These persons will serve as Ambassadors for Edustipend for three months from October 1st to December 31st, 2023.</b>
