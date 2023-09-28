@@ -1,12 +1,13 @@
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from './Input.module.css';
 import { TestId } from './constants';
 import { Eye } from '../../assets';
-import { useState } from 'react';
 const { LABEL_ID, INPUT_ID } = TestId;
 
 export const Input = ({ placeholder, label, includeLabel, value, type, size, className, ...props }) => {
   const [inputType, setInputType] = useState(type);
+
   return (
     <section className={styles.main}>
       {includeLabel ? (
