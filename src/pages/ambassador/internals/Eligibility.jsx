@@ -13,7 +13,7 @@ export const Eligibility = () => {
         <div className="top-main-eligibility-child">
           <Requirements />
           <div className="top-main-child-eligibility">
-            <Header className="section-header" size="small">
+            <Header className="section-header eligibility" size="small">
               <span style={{ color: '#5801FF', textTransform: 'uppercase' }}>Eligibility</span>
             </Header>
             <div>

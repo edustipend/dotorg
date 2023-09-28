@@ -15,10 +15,10 @@ export const TopSection = () => {
 
       <div className="top-header">
         <Header color="primary" className="top-section-header mobile" size="small">
-          Edustipend <span className="header-abs">Ambassador</span> Programme
+          Edustipend <span className="header-abs">Ambassador</span>
         </Header>
         <Header color="primary" className="top-section-header bigscreen" size="large">
-          Edustipend <span className="header-abs">Ambassador</span> Programme
+          Edustipend <span className="header-abs">Ambassador</span>
         </Header>
 
         <Text
