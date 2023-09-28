@@ -4,16 +4,24 @@ import Button from '../Button';
 import { BUTTON_TYPE, NAVBAR_LINKS, TestId } from './constants';
 import './styles.css';
 import useHandleCTAClick from '../../hooks/useHandleCTAClick';
+import { useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
 
 const { NAVBAR_LINKS_ID } = TestId;
 
 const NavbarNavs = ({ showMenu, closeMenu }) => {
+  const [navbarLinks, setNavbarLinks] = useState(NAVBAR_LINKS);
   const { buttonLabel, handleCTAClick } = useHandleCTAClick();
+  const { id } = useSelector((state) => state.user);
+
+  useEffect(() => {
+    id ? setNavbarLinks(navbarLinks.slice(0, 2)) : setNavbarLinks(NAVBAR_LINKS);
+  }, [id]);
 
   return (
     <>
       <nav className="navbarNavs" data-testid={NAVBAR_LINKS_ID}>
-        {NAVBAR_LINKS.map((link) => (
+        {navbarLinks?.map((link) => (
           <NavHashLink key={link.label} to={{ pathname: link.to, hash: link.hash }}>
             {link.label}
           </NavHashLink>
@@ -26,7 +34,7 @@ const NavbarNavs = ({ showMenu, closeMenu }) => {
 
       {showMenu ? (
         <nav className="mobile-nav">
-          {NAVBAR_LINKS.map((link) => (
+          {navbarLinks?.map((link) => (
             <NavHashLink key={link.label} to={{ pathname: link.to, hash: link.hash }} onClick={() => closeMenu(!showMenu)}>
               {link.label}
             </NavHashLink>

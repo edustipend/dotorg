@@ -18,6 +18,7 @@ const { COMPONENT_ID, HEADER_ID } = TestId;
 export const Step1Application = () => {
   const dispatch = useDispatch();
   const { stipendCategory } = useSelector((state) => state.application);
+  const { id } = useSelector((state) => state.user);
   const nav = useNavigate();
   //scroll to the top on step mount
   ScrollOnMount();
@@ -35,15 +36,17 @@ export const Step1Application = () => {
           <div className={styles.selectCategory}>
             <Select value={stipendCategory} label={LABEL} options={OPTIONS} dispatchType={category} className={styles.select} />
             <div className={styles.buttons}>
-              <Button
-                effectAlt
-                label={'Back'}
-                icon={BackArrow}
-                iconPosition={'back'}
-                type={'plain'}
-                onClick={() => nav('/request')}
-                className={styles.btn}
-              />
+              {!id && (
+                <Button
+                  effectAlt
+                  label={'Back'}
+                  icon={BackArrow}
+                  iconPosition={'back'}
+                  type={'plain'}
+                  onClick={() => nav('/request')}
+                  className={styles.btn}
+                />
+              )}
               <Button
                 effectAlt
                 label={'Continue'}

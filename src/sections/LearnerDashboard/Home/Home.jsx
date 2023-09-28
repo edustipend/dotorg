@@ -63,7 +63,7 @@ export const Home = () => {
   };
 
   const handleNewRequest = () => {
-    dispatch(setActiveStep(1));
+    dispatch(setActiveStep(3));
     nav('/application');
   };
 

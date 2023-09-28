@@ -19,7 +19,7 @@ const Stepper = ({ activeStep }) => {
 
   const handleClick = () => {
     if (activeStep === 1) {
-      nav('/request');
+      !id && nav('/request');
       return;
     }
     dispatch(back());
