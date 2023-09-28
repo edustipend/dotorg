@@ -1,14 +1,14 @@
-import youngperson from '../../assets/P1.png';
-import youngperson2 from '../../assets/P2.png';
-import youngperson3 from '../../assets/P3.png';
-import youngperson4 from '../../assets/P4.png';
+import youngperson from '../../assets/ambassador/P1.png';
+import youngperson2 from '../../assets/ambassador/P2.png';
+import youngperson3 from '../../assets/ambassador/P3.png';
+import youngperson4 from '../../assets/ambassador/P4.png';
 
 export const imgs = [youngperson, youngperson2, youngperson3, youngperson4];
 
 export const profiles = [
   {
     name: 'Bamidele James',
-    image: require('../../assets/BamideleAbs.png'),
+    image: require('../../assets/ambassador/BamideleAbs.png'),
     description: [
       'Bamidele is a graduate of Agricultural Economics from L.A.U.T.E.C.H., Ogbomoso. He is a certified Google Data Analytics Professional passionate about leadership and problem-solving.',
       'As an Edustipend Ambassador, he embarked on a project that impacted 212 youth corps members in Ogbomoso North L.G.A., Oyo State. The project provides online training for top in-demand skills such as project management, data analytics, human resource management, and other relevant, highly sought-after skills.',
@@ -17,7 +17,7 @@ export const profiles = [
   },
   {
     name: 'Deborah Akujobi',
-    image: require('../../assets/DeborahAbs.png'),
+    image: require('../../assets/ambassador/DeborahAbs.png'),
     description: [
       "Deborah is a junior data analyst and a technical writer. She has a passion for numbers and an interest in healthcare. She is pursuing a career path that merges her love for data and a desire to make a difference in people's lives.",
       'She hosted a seminar with the theme "Opportunities for Health Educators in the Technology Industry." The conference introduced participants to the various opportunities available to health educators in the technology industry, such as digital health education.',
@@ -26,7 +26,7 @@ export const profiles = [
   },
   {
     name: 'Ubon Udonkang',
-    image: require('../../assets/UbonAbs.png'),
+    image: require('../../assets/ambassador/UbonAbs.png'),
     description: [
       'Ubon is deeply interested in designing digital products that provide meaningful and relevant experiences for users across platforms and enjoys teaching.',
       "As an individual motivated by continuous learning, he has undertaken different courses after graduation and is currently enrolled in Google's UX design course offered by Coursera.",
@@ -36,7 +36,7 @@ export const profiles = [
   },
   {
     name: 'Ekemini Samuel',
-    image: require('../../assets/Ekemini.png'),
+    image: require('../../assets/ambassador/Ekemini.png'),
     description: [
       'Ekemini Samuel is a Technical Writer and Backend Developer, deeply passionate about technology and always striving to learn more. He strongly believes in the importance of maintaining a well-rounded approach to both life and work.',
       "His impact project was a 6-day introduction to the Go programming language for backend development. He provided 256 total participants with a comprehensive understanding of Go programming. The 6-day program covered various topics, starting with an introduction to programming and an overview of Go's history. ",
@@ -45,7 +45,7 @@ export const profiles = [
   },
   {
     name: 'Laughter Atanda',
-    image: require('../../assets/Laughter.png'),
+    image: require('../../assets/ambassador/Laughter.png'),
     description: [
       'Laughter is a social change activist and a budding product designer. He is passionate about leveraging Technology for Social Good. ',
       'Laughter hosted The Empowering African Youths: The Future of Work impact project. It was a one-day advocacy and training program that impacted 100 students in secondary school classes 1 & 2 at the Oye Egbo High School, Oye, Ekiti State.',
@@ -55,44 +55,44 @@ export const profiles = [
 ];
 
 export const UbonImpactPhotos = [
-  require('../../assets/L1.jpg'),
-  require('../../assets/L2.jpg'),
-  require('../../assets/L3.jpg'),
-  require('../../assets/L4.jpg'),
-  require('../../assets/L5.jpg'),
-  require('../../assets/L6.jpg')
+  require('../../assets/ambassador/L1.jpg'),
+  require('../../assets/ambassador/L2.jpg'),
+  require('../../assets/ambassador/L3.jpg'),
+  require('../../assets/ambassador/L4.jpg'),
+  require('../../assets/ambassador/L5.jpg'),
+  require('../../assets/ambassador/L6.jpg')
 ];
 
 export const BamideleImpactPhotos = [
-  require('../../assets/B1.jpg'),
-  require('../../assets/B2.jpg'),
-  require('../../assets/B3.jpg'),
-  require('../../assets/B4.jpg')
+  require('../../assets/ambassador/B1.jpg'),
+  require('../../assets/ambassador/B2.jpg'),
+  require('../../assets/ambassador/B3.jpg'),
+  require('../../assets/ambassador/B4.jpg')
 ];
 
 export const DeborahImpactPhotos = [
-  require('../../assets/D1.jpeg'),
-  require('../../assets/D2.jpeg'),
-  require('../../assets/D3.jpeg'),
-  require('../../assets/D4.jpeg'),
-  require('../../assets/D5.jpeg')
+  require('../../assets/ambassador/D1.jpeg'),
+  require('../../assets/ambassador/D2.jpeg'),
+  require('../../assets/ambassador/D3.jpeg'),
+  require('../../assets/ambassador/D4.jpeg'),
+  require('../../assets/ambassador/D5.jpeg')
 ];
 
 export const LaughterImpactPhotos = [
-  require('../../assets/L1.jpg'),
-  require('../../assets/L2.jpg'),
-  require('../../assets/L3.jpg'),
-  require('../../assets/L4.jpg'),
-  require('../../assets/L5.jpg'),
-  require('../../assets/L6.jpg')
+  require('../../assets/ambassador/L1.jpg'),
+  require('../../assets/ambassador/L2.jpg'),
+  require('../../assets/ambassador/L3.jpg'),
+  require('../../assets/ambassador/L4.jpg'),
+  require('../../assets/ambassador/L5.jpg'),
+  require('../../assets/ambassador/L6.jpg')
 ];
 
 export const SamuelImpactPhotos = [
-  require('../../assets/D1.jpeg'),
-  require('../../assets/D2.jpeg'),
-  require('../../assets/D3.jpeg'),
-  require('../../assets/D4.jpeg'),
-  require('../../assets/D5.jpeg')
+  require('../../assets/ambassador/D1.jpeg'),
+  require('../../assets/ambassador/D2.jpeg'),
+  require('../../assets/ambassador/D3.jpeg'),
+  require('../../assets/ambassador/D4.jpeg'),
+  require('../../assets/ambassador/D5.jpeg')
 ];
 
 export const benefitsData = [

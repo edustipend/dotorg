@@ -78,6 +78,7 @@
 
 .data-stipend-text {
   margin-top: 15px;
+  font-size: 14px;
 }
 
 .modal-overlay {
@@ -264,12 +265,12 @@
 @keyframes scroll {
   0% {
     transform: translateX(0);
-    transition: all 100ms ease-in-out;
+    transition: all 1s ease-in-out;
   }
 
   100% {
     transform: translateX(calc(-286px * 4));
-    transition: all 100ms ease-in-out;
+    transition: all 1s ease-in-out;
   }
 }
 
@@ -462,7 +463,8 @@
   background-color: #e8daff;
   display: flex;
   justify-content: center;
-  width: 100px;
+  width: 80px;
+  height: 80px;
   border-radius: 11px;
 }
 
@@ -545,7 +547,7 @@
   .eligibility-header-list,
   .about-header-text,
   .requirement-header-text {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .section-header {
@@ -817,8 +819,12 @@
     display: block;
   }
 
+  .impact-photos {
+    height: 500px !important;
+  }
+
   .abs-desc {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .vertical-text {

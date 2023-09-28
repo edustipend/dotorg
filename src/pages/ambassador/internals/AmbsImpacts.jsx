@@ -118,12 +118,12 @@ export const AmbsImpacts = () => {
           </div>
         </div>
         {isModalOpen && (
-          <div className="modal-overlay">
+          <div className="modal-overlay" onClick={closeModal}>
             <div className="modal">
               <img className={`prevArrowNav ${isPrevDisabled ? 'disabled' : ''}`} onClick={prevImage} src={prevArrow} alt="prevArrow" />
               <div className="modal-content">
                 {currentImpactPhotos.length > 0 ? (
-                  <img src={currentImpactPhotos[currentImageIndex]} alt="impact-photos" height="500px" />
+                  <img className="impact-photos" src={currentImpactPhotos[currentImageIndex]} alt="impact-photos" />
                 ) : (
                   <p>No impact photos available.</p>
                 )}
