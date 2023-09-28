@@ -54,15 +54,6 @@ export const profiles = [
   }
 ];
 
-export const UbonImpactPhotos = [
-  require('../../assets/ambassador/L1.jpg'),
-  require('../../assets/ambassador/L2.jpg'),
-  require('../../assets/ambassador/L3.jpg'),
-  require('../../assets/ambassador/L4.jpg'),
-  require('../../assets/ambassador/L5.jpg'),
-  require('../../assets/ambassador/L6.jpg')
-];
-
 export const BamideleImpactPhotos = [
   require('../../assets/ambassador/B1.jpg'),
   require('../../assets/ambassador/B2.jpg'),
@@ -71,11 +62,11 @@ export const BamideleImpactPhotos = [
 ];
 
 export const DeborahImpactPhotos = [
-  require('../../assets/ambassador/D1.jpeg'),
-  require('../../assets/ambassador/D2.jpeg'),
-  require('../../assets/ambassador/D3.jpeg'),
-  require('../../assets/ambassador/D4.jpeg'),
-  require('../../assets/ambassador/D5.jpeg')
+  require('../../assets/ambassador/D1.jpg'),
+  require('../../assets/ambassador/D2.jpg'),
+  require('../../assets/ambassador/D3.jpg'),
+  require('../../assets/ambassador/D4.jpg'),
+  require('../../assets/ambassador/D5.jpg')
 ];
 
 export const LaughterImpactPhotos = [
@@ -85,14 +76,6 @@ export const LaughterImpactPhotos = [
   require('../../assets/ambassador/L4.jpg'),
   require('../../assets/ambassador/L5.jpg'),
   require('../../assets/ambassador/L6.jpg')
-];
-
-export const SamuelImpactPhotos = [
-  require('../../assets/ambassador/D1.jpeg'),
-  require('../../assets/ambassador/D2.jpeg'),
-  require('../../assets/ambassador/D3.jpeg'),
-  require('../../assets/ambassador/D4.jpeg'),
-  require('../../assets/ambassador/D5.jpeg')
 ];
 
 export const benefitsData = [
@@ -125,3 +108,5 @@ export const requirementsData = [
 export const StaticText = {
   Header: 'BENEFITS'
 };
+
+export const samuelProfileLink = 'https://www.youtube.com/@envitab';

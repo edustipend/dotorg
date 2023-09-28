@@ -5,7 +5,13 @@ import '../styles.css';
 import arrow from '../../../assets/arrow.png';
 import prevArrow from '../../../assets/prevArrow.png';
 import nextArrow from '../../../assets/nextArrow.png';
-import { profiles, SamuelImpactPhotos, UbonImpactPhotos, DeborahImpactPhotos, BamideleImpactPhotos, LaughterImpactPhotos } from '../constant';
+import {
+  profiles,
+  DeborahImpactPhotos,
+  BamideleImpactPhotos,
+  LaughterImpactPhotos,
+  samuelProfileLink
+} from '../constant';
 
 export const AmbsImpacts = () => {
   const [currentProfileIndex, setCurrentProfileIndex] = useState(0);
@@ -62,9 +68,6 @@ export const AmbsImpacts = () => {
   const updateCurrentImpactPhotos = (profile) => {
     if (profile) {
       switch (profile.name) {
-        case 'Ubon Udonkang':
-          setCurrentImpactPhotos(UbonImpactPhotos);
-          break;
         case 'Bamidele James':
           setCurrentImpactPhotos(BamideleImpactPhotos);
           break;
@@ -73,9 +76,6 @@ export const AmbsImpacts = () => {
           break;
         case 'Laughter Atanda':
           setCurrentImpactPhotos(LaughterImpactPhotos);
-          break;
-        case 'Ekemini Samuel':
-          setCurrentImpactPhotos(SamuelImpactPhotos);
           break;
         default:
           setCurrentImpactPhotos([]);
@@ -111,14 +111,21 @@ export const AmbsImpacts = () => {
             ))}
           </div>
           <div className="project-photos-and-arrow">
-            <button className="project-photos" onClick={openModal}>
-              View impact project photos
-            </button>
-            <img src={arrow} alt="view-impact-project-photos-arrow" />
+            {currentProfile.name === 'Ekemini Samuel' ? (
+              <a className="project-photos" href={samuelProfileLink} target="_blank" rel="noopener noreferrer">
+                View impact project
+              </a>
+            ) : currentProfile.name === 'Ubon Udonkang' ? null : (
+              <a className="project-photos" onClick={openModal}>
+                View impact project photos
+              </a>
+            )}
+
+            {currentProfile.name === 'Ubon Udonkang' ? null : <img src={arrow} alt="view-impact-project-photos-arrow" />}
           </div>
         </div>
         {isModalOpen && (
-          <div className="modal-overlay" onClick={closeModal}>
+          <div className="modal-overlay">
             <div className="modal">
               <img className={`prevArrowNav ${isPrevDisabled ? 'disabled' : ''}`} onClick={prevImage} src={prevArrow} alt="prevArrow" />
               <div className="modal-content">

@@ -9,7 +9,7 @@ import { StaticText } from '../constant';
 const Benefit = ({ imageSrc, title, description }) => (
   <div className="benefits">
     <div className="benefits-data-icon-div">
-      <img src={imageSrc} alt={`${title} Icon`} height="50px" width="50px" />
+      <img className="benefits-img" src={imageSrc} alt={`${title} Icon`} />
     </div>
     <Text className="data-stipend" content={title} />
     <Text className="data-stipend-text" content={description} />
