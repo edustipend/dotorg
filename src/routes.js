@@ -12,7 +12,8 @@ import ResetPassword from './pages/reset-password';
 import AtOne from './pages/at-one';
 import Welcome from './sections/Welcome';
 import { routesConstant } from './routesConstant';
-import { useSelector } from 'react-redux';
+import Login from './pages/login';
+import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 
 const {
   AMBASSADOR_PROGRAM,
@@ -22,12 +23,11 @@ const {
   RESET_PASSWORD,
   WELCOME,
   DASHBOARD,
-  AT_ONE
+  AT_ONE,
+  LOGIN
 } = routesConstant;
 
 const Routes = () => {
-  const { id } = useSelector((state) => state.user);
-
   return (
     <AppRoutes>
       <Route path={AMBASSADOR_PROGRAM} element={<AmbassadorPage />} />
@@ -35,17 +35,26 @@ const Routes = () => {
       <Route path={APPLICATION} element={<RequestStipendPage />} />
       <Route path={FORGOT_PASSWORD} element={<ForgotPassword />} />
       <Route path={RESET_PASSWORD} element={<ResetPassword />} />
-      {id ? <Route path={WELCOME} element={<Welcome />} /> : <Route path="/" element={<LandingPageV2 />} />}
-      {id ? (
-        <Route path={DASHBOARD} element={<LearnerDashboard />}>
-          <Route index element={<Home />} />
-          <Route path="home" element={<Home />} />
-          <Route path="submissions" element={<Submissions />} />
-          <Route path="account" element={<MyAccount />} />
-        </Route>
-      ) : (
-        <Route path="/" element={<LandingPageV2 />} />
-      )}
+      <Route path={LOGIN} element={<Login />} />
+      <Route
+        path={WELCOME}
+        element={
+          <ProtectedRoute>
+            <Welcome />
+          </ProtectedRoute>
+        }></Route>
+      <Route
+        path={DASHBOARD}
+        element={
+          <ProtectedRoute>
+            <LearnerDashboard />
+          </ProtectedRoute>
+        }>
+        <Route index element={<Home />} />
+        <Route path="home" element={<Home />} />
+        <Route path="submissions" element={<Submissions />} />
+        <Route path="account" element={<MyAccount />} />
+      </Route>
       {/* <Route path="/" element={V2_FEATURE_FLAG_ON ? <LandingPageV2 /> : <LandingPage />} /> */}
       <Route path="/" element={<LandingPageV2 />} />
       <Route path={AT_ONE} element={<AtOne />} />

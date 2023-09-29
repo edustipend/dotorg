@@ -11,7 +11,7 @@ describe('Input component', () => {
       const mocklabel = 'Some label';
       render(
         <Provider store={store}>
-          <Input lable={mocklabel} />
+          <Input lable={mocklabel} onChange={jest.fn()} />
         </Provider>
       );
       const input = screen.getByTestId(LABEL_ID);
@@ -22,7 +22,7 @@ describe('Input component', () => {
       const defaultLabel = 'Some label';
       render(
         <Provider store={store}>
-          <Input />
+          <Input value="" onChange={jest.fn()} />
         </Provider>
       );
       const input = screen.getByTestId(LABEL_ID);
@@ -35,7 +35,7 @@ describe('Input component', () => {
       const mockValue = '';
       render(
         <Provider store={store}>
-          <Input />
+          <Input value={mockValue} onChange={jest.fn()} />
         </Provider>
       );
       const input = screen.getByTestId(INPUT_ID);

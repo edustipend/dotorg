@@ -1,2 +1,2 @@
-import { storeUser } from './UserReducer';
-export { storeUser };
+import { storeUser, initialState } from './UserReducer';
+export { storeUser, initialState };
