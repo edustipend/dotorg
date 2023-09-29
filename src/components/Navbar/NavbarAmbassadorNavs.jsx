@@ -10,12 +10,9 @@ const NavbarAmbassadorNavs = ({ showMenu, closeMenu }) => {
     <>
       <nav className="navbarNavs" data-testid={NAVBAR_LINKS_ID}>
         {NAVBAR_AMBASSADOR_LINKS.map((link) => (
-<
-          <NavHashLink key={link.label} to={{ pathname: link.path, hash: link.hash }}>
+          <HashLink key={link.label} to={{ pathname: link.path, hash: link.hash }}>
             {link.label === 'Apply Now' ? <Button label={link.label} type={'secondary'} /> : link.label}
-          </NavHashLink>
-
-         
+          </HashLink> 
         ))}
       </nav>
 
