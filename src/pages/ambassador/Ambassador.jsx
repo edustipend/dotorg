@@ -5,22 +5,19 @@ import { TopSection } from './internals/TopSection';
 import { Eligibility } from './internals/Eligibility';
 import { Benefits } from './internals/Benefits';
 import { Application } from './internals/Request';
-import { NavHashLink } from 'react-router-hash-link';
-import { Button } from '../../components/Button/Button';
+
+import Header from '../../components/Header';
+import { AmbsImpacts } from './internals/AmbsImpacts';
+
 
 const ApplyNowCTA = () => {
   return (
     <div className="apply-now">
-      <h3 className="page-subheader">
-        We want to inspire people to pursue development in their chosen careers and build the confidence to pay it forward.
-      </h3>
-      <NavHashLink
-        to={{
-          pathname: '/ambassador-program',
-          hash: '#apply-now'
-        }}>
-        <Button label={'Apply Now'} type={'secondary'} />
-      </NavHashLink>
+
+      <Header className="text" size="small">
+        Ready to Make an Impact? <br /> Become an Edustipend <span className="header-abs">Ambassador</span> Today
+      </Header>
+
     </div>
   );
 };
@@ -31,8 +28,9 @@ export const Ambassador = () => {
       <TopSection />
       <About />
       <Eligibility />
-      <ApplyNowCTA />
       <Benefits />
+      <AmbsImpacts />
+      <ApplyNowCTA />
       <Application />
     </main>
   );

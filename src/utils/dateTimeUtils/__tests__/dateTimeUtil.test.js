@@ -2,7 +2,7 @@ import { getFormattedDate, getFormattedTime } from '../dateTimeUtil';
 
 describe('dateTimeUtil', () => {
   test('it returns the correct formatted date', () => {
-    expect(getFormattedDate('12/12/2022')).toBe('12 Dec 2022');
+    expect(getFormattedDate('2022/12/12')).toBe('12 Dec 2022');
   });
 
   test('it returns the correct formatted time', () => {

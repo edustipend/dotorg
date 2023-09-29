@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback } from 'react';
-import { NavHashLink } from 'react-router-hash-link';
+import { HashLink } from 'react-router-hash-link';
 import Container from '../../components/Container';
 import Button from '../../components/Button';
 import { Hero1, Hero2, Hero3, Hero4, Svg1, Svg2, Svg3, Svg4, Svg5, ArrowDown } from '../../assets/index';
@@ -19,7 +19,6 @@ const Hero = () => {
     setCurrentStipend((prev) => (prev === stipends.length - 1 ? 0 : prev + 1));
   }, [setCurrentStipend]);
 
-  console.log(isApplicationWindowClosed);
   useEffect(() => {
     const timeInterval = setInterval(() => {
       nextStipend();
@@ -79,11 +78,11 @@ const Hero = () => {
           <div className="img1">
             <img src={Hero4} alt="student" />
           </div>
-          <NavHashLink to={{ pathname: '/', hash: '#how-it-works' }}>
+          <HashLink to={{ pathname: '/', hash: '#how-it-works' }}>
             <div className="btn-down">
               <img src={ArrowDown} alt="arrowdown" />
             </div>
-          </NavHashLink>
+          </HashLink>
         </div>
       </Container>
     </section>
