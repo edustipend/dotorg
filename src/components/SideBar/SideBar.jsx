@@ -8,11 +8,11 @@ import { SidebarCtx } from '../../context/SidebarContext';
 const SideBar = () => {
   const [isActive, setIsActive] = useState(1);
 
-  const { showSidebar, setShowSidebar } = useContext(SidebarCtx);
+  const { showSidebar } = useContext(SidebarCtx);
 
   const handleClick = (id) => {
     setIsActive(id);
-    setShowSidebar(!showSidebar);
+    // setShowSidebar(!showSidebar);
   };
 
   return showSidebar ? (

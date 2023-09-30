@@ -4,6 +4,7 @@
   flex-direction: column;
   font-family: 'Manrope';
   gap: 0.4rem;
+  position: relative;
 }
 
 .label {
@@ -34,6 +35,19 @@
   outline: none;
 }
 
+<<<<<<< HEAD
+=======
+.eye {
+  position: absolute;
+  right: 0;
+  bottom: 26px;
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+>>>>>>> 43d915c2b38b6281a15a584cba2a90f5efc1bff7
 .input[type='date']::-webkit-calendar-picker-indicator {
   display: none;
   width: 20px;

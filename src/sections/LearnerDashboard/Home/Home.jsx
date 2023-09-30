@@ -66,8 +66,7 @@ export const Home = () => {
                 <button
                   key={idx}
                   className={currentTable === idx ? `${styles.tab}` : `${styles.tab} ${styles.tabAlt}`}
-                  onClick={() => setCurrentTable(idx)}
-                >
+                  onClick={() => setCurrentTable(idx)}>
                   {itm}
                 </button>
               );

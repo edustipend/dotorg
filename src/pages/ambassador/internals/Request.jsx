@@ -1,23 +1,24 @@
 import React from 'react';
 import '../styles.css';
+import Header from '../../../components/Header';
 
 export const Application = () => {
   return (
     <div className="request-main" id="apply-now">
-      <h2 className="section-header">
-        <p>Application Form</p>
-      </h2>
+      <Header className="section-header" color="primary" size="small">
+        Application Form
+      </Header>
+
       <div className="request-form-container">
         <iframe
           className="request-form"
           title="google-form"
-          src="https://docs.google.com/forms/d/e/1FAIpQLSexxdP7Ylp-wA7OWaOcwJnPjXsuJPfo9Y5XDpDHiVrebaojNw/viewform?embedded=true"
+          src="https://forms.gle/v4Zw9Qwr7Cyd7eRq9"
           width="640"
           height="1010"
           frameBorder="0"
           marginHeight="0"
-          marginWidth="0"
-        >
+          marginWidth="0">
           Loading…
         </iframe>{' '}
       </div>

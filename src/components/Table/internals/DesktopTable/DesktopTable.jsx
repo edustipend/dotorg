@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 // const { APPROVED, IN_VIEW, RECEIVED, DENIED } = applicationStatus;
 
 export const DesktopTable = ({ entries, tableHead, oneClickApply }) => {
-  const status = 'Received';
+  const status = 'IN REVIEW';
   const lastItem = entries?.length - 1;
   return (
     <section className={styles.Main}>
