@@ -2,6 +2,7 @@ import { HashLink } from 'react-router-hash-link';
 import PropTypes from 'prop-types';
 import { NAVBAR_AMBASSADOR_LINKS, TestId } from './constants';
 import './styles.css';
+import { Button } from '../Button/Button';
 
 const NavbarAmbassadorNavs = ({ showMenu, closeMenu }) => {
   const { NAVBAR_LINKS_ID } = TestId;
@@ -9,9 +10,9 @@ const NavbarAmbassadorNavs = ({ showMenu, closeMenu }) => {
     <>
       <nav className="navbarNavs" data-testid={NAVBAR_LINKS_ID}>
         {NAVBAR_AMBASSADOR_LINKS.map((link) => (
-          <HashLink className={link.label === 'Apply now' ? 'nav-cta' : ''} key={link.label} to={{ pathname: link.path, hash: link.hash }}>
-            {link.label}
-          </HashLink>
+          <HashLink key={link.label} to={{ pathname: link.path, hash: link.hash }}>
+            {link.label === 'Apply Now' ? <Button label={link.label} type={'secondary'} /> : link.label}
+          </HashLink> 
         ))}
       </nav>
 
