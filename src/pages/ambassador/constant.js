@@ -105,8 +105,26 @@ export const requirementsData = [
   'Prior experience as a brand ambassador or related field is a plus.'
 ];
 
-export const StaticText = {
-  Header: 'BENEFITS'
-};
-
 export const samuelProfileLink = 'https://www.youtube.com/@envitab';
+
+export const Texts = {
+  HeaderE: 'Edustipend',
+  HeaderA: 'Ambassador',
+  About: 'ABOUT THE AMBASSADOR PROGRAM',
+  We: 'We are looking for',
+  Persons: '5 persons (past beneficiaries or otherwise)',
+  Serve: 'who can serve as Ambassadors for Edustipend.',
+  Req: 'Requirements',
+  Eligible: 'Eligibility',
+  Duration: 'These persons will serve as Ambassadors for Edustipend for three months from October 1st to December 31st, 2023.',
+  Ben: 'BENEFITS',
+  Close: 'Close',
+  Today: 'Today',
+  Ready: 'Ready to Make an Impact?',
+  View: 'View impact project',
+  Apply: 'Application Form',
+  Become: 'Become an Edustipend',
+  ViewPhotos: 'View impact project photos',
+  NoPhotos: 'No impact photos available.',
+  AbsHeader: 'MEET OUR INAUGURAL AMBASSADORS AND THEIR IMPACT PROJECTS',
+};

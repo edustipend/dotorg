@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import Header from '../../../components/Header';
 import Text from '../../../components/Text';
 import '../styles.css';
-import { benefitsData } from '../constant';
-import { StaticText } from '../constant';
+import { Texts, benefitsData } from '../constant';
 
 const Benefit = ({ imageSrc, title, description }) => (
   <div className="benefits">
@@ -28,7 +27,7 @@ export const Benefits = () => {
       <div className="benefit-main-child">
         <div className="benefits-main-header">
           <Header className="section-header" color="primary" size="small">
-            {StaticText.Header}
+            {Texts.Ben}
           </Header>
           <div className="section-header-underline color-primary">
             <div />
