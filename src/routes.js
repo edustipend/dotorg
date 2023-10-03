@@ -7,27 +7,43 @@ import Home from './sections/LearnerDashboard/Home';
 import Submissions from './sections/LearnerDashboard/Submissions';
 import MyAccount from './sections/LearnerDashboard/MyAccount';
 import StartApplication from './sections/StartApplication';
+import ForgotPassword from './pages/forgot-password';
+import ResetPassword from './pages/reset-password';
 import AtOne from './pages/at-one';
 import Welcome from './sections/Welcome';
 import Login from './pages/login';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
+import { routesConstant } from './routesConstant';
+
+const {
+  AMBASSADOR_PROGRAM,
+  REQUEST,
+  APPLICATION,
+  FORGOT_PASSWORD,
+  RESET_PASSWORD,
+  WELCOME,
+  DASHBOARD,
+  AT_ONE
+} = routesConstant;
 
 const Routes = () => {
   return (
     <AppRoutes>
-      <Route path="/ambassador-program" element={<AmbassadorPage />} />
-      <Route path="/request" element={<StartApplication />} />
-      <Route path="/application" element={<RequestStipendPage />} />
+      <Route path={AMBASSADOR_PROGRAM} element={<AmbassadorPage />} />
+      <Route path={REQUEST} element={<StartApplication />} />
+      <Route path={APPLICATION} element={<RequestStipendPage />} />
+      <Route path={FORGOT_PASSWORD} element={<ForgotPassword />} />
+      <Route path={RESET_PASSWORD} element={<ResetPassword />} />
       <Route path="/login" element={<Login />} />
       <Route
-        path="/welcome"
+        path={WELCOME}
         element={
           <ProtectedRoute>
             <Welcome />
           </ProtectedRoute>
         }></Route>
       <Route
-        path="/dashboard"
+        path={DASHBOARD}
         element={
           <ProtectedRoute>
             <LearnerDashboard />
@@ -40,7 +56,7 @@ const Routes = () => {
       </Route>
       {/* <Route path="/" element={V2_FEATURE_FLAG_ON ? <LandingPageV2 /> : <LandingPage />} /> */}
       <Route path="/" element={<LandingPageV2 />} />
-      <Route path="/at-one" element={<AtOne />} />
+      <Route path={AT_ONE} element={<AtOne />} />
     </AppRoutes>
   );
 };

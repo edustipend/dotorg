@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { NavHashLink } from 'react-router-hash-link';
+import { HashLink } from 'react-router-hash-link';
 import Button from '../Button';
 import { BUTTON_TYPE, NAVBAR_LINKS, TestId } from './constants';
 import './styles.css';
@@ -16,15 +16,15 @@ const NavbarNavs = ({ showMenu, closeMenu }) => {
 
   useEffect(() => {
     id ? setNavbarLinks(NAVBAR_LINKS.slice(0, 2)) : setNavbarLinks(NAVBAR_LINKS);
-  }, [id, navbarLinks]);
+  }, [id]);
 
   return (
     <>
       <nav className="navbarNavs" data-testid={NAVBAR_LINKS_ID}>
         {navbarLinks?.map((link) => (
-          <NavHashLink key={link.label} to={{ pathname: link.to, hash: link.hash }}>
+          <HashLink key={link.label} to={{ pathname: link.to, hash: link.hash }}>
             {link.label}
-          </NavHashLink>
+          </HashLink>
           // <Link key={link.label} to={link.to}>
           //   {link.label}
           // </Link>
@@ -35,9 +35,9 @@ const NavbarNavs = ({ showMenu, closeMenu }) => {
       {showMenu ? (
         <nav className="mobile-nav">
           {navbarLinks?.map((link) => (
-            <NavHashLink key={link.label} to={{ pathname: link.to, hash: link.hash }} onClick={() => closeMenu(!showMenu)}>
+            <HashLink key={link.label} to={{ pathname: link.to, hash: link.hash }} onClick={() => closeMenu(!showMenu)}>
               {link.label}
-            </NavHashLink>
+            </HashLink>
           ))}
           <div className="mobile-nav-btn">
             <Button

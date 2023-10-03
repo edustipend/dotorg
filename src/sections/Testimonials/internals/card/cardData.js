@@ -1,4 +1,4 @@
-import ubong from '../../../../assets/ubon.png';
+import ubong from '../../../../assets/testimonials/ubon.png';
 import instagram from '../../../../assets/social/InstagramLogoNew.svg';
 import twitter from '../../../../assets/social/TwitterLogoNew.svg';
 import linkedin from '../../../../assets/social/LinkedinLogoNew.svg';
