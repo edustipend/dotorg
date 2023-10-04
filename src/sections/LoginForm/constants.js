@@ -14,6 +14,7 @@ export const parameters = {
   SMALL: 'small',
   FRONT: 'front',
   RESET: '/reset-password'
+  
 };
 
 export const TestId = {
