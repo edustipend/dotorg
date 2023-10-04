@@ -13,7 +13,7 @@ export const parameters = {
   NEUTRAL: 'neutral',
   SMALL: 'small',
   FRONT: 'front',
-  RESET: '/reset-password'
+  RESET: '/forgot-password',
 };
 
 export const TestId = {

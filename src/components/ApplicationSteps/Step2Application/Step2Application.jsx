@@ -3,16 +3,17 @@ import LaptopStipend from '../../../components/RequestApplication/Internals/Lapt
 import CourseStipend from '../../../components/RequestApplication/Internals/CourseStipend';
 import DataStipend from '../../../components/RequestApplication/Internals/DataStipend';
 import { constant } from './Internals/constants';
-import { ScrollOnMount } from '../ScrollOnMount/ScrollOnMount';
+import { useScrollToTop } from '../../../ScrollToTop/ScrollToTop';
 const { LAPTOP, DATA, COURSE } = constant;
 
 export const Step2Application = () => {
   const { stipendCategory } = useSelector((state) => state.application);
   //scroll to the top on step mount
-  ScrollOnMount();
+  const scrollOnRoute = useScrollToTop();
 
   return (
     <>
+      {scrollOnRoute}
       {(() => {
         switch (stipendCategory) {
           case LAPTOP:

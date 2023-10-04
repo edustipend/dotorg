@@ -17,6 +17,8 @@ export const NavbarToShow = () => {
   const isAmbassador = pathname === '/ambassador-program';
   const isRequestStipend = pathname === '/application';
   const isLogin = pathname.includes('/login');
+  const isForgotPassword = pathname.includes('/forgot-password');
+  const isResetPassword = pathname.includes('/reset-password');
   const isDashboard = pathname.includes('/dashboard');
 
   const storeData = useSelector((state) => state?.user);
@@ -34,7 +36,8 @@ export const NavbarToShow = () => {
     navigate('/login');
   };
 
-  const showNav = () => !isDashboard && !isRequestStipend && !isLogin;
+  const showNav = () => !isDashboard && !isRequestStipend
+    && !isLogin && !isForgotPassword && !isResetPassword;
 
   return showNav() ? (
     <>

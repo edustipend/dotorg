@@ -10,8 +10,8 @@ import Select from '../../Select';
 import Quote from '../../Quote';
 import styles from './Step1Application.module.css';
 import { RightArrow, BackArrow } from '../../../assets';
-import { ScrollOnMount } from '../ScrollOnMount/ScrollOnMount';
 import { progress, category } from '../../../store/reducers/ApplicationReducer';
+import { useScrollToTop } from '../../../ScrollToTop/ScrollToTop';
 const { HEADING, OPTIONS, LABEL, QUOTE } = content;
 const { COMPONENT_ID, HEADER_ID } = TestId;
 
@@ -20,13 +20,14 @@ export const Step1Application = () => {
   const { stipendCategory } = useSelector((state) => state.application);
   const nav = useNavigate();
   //scroll to the top on step mount
-  ScrollOnMount();
+  const scrollOnRoute = useScrollToTop();
 
   //enable the continue button if a stipendCategory has been selected
   const isTrue = stipendCategory.length > 0;
 
   return (
     <div data-testid={COMPONENT_ID}>
+      {scrollOnRoute}
       <ContentContainer>
         <section className={styles.step1}>
           <Header size={'small'} className={styles.heading} dataTest={HEADER_ID}>

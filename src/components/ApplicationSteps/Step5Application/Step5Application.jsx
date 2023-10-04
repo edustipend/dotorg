@@ -11,16 +11,16 @@ import Text from '../../Text';
 import Quote from '../../../components/Quote';
 import Submit from './Internals/Submit';
 import { back, successful, isError } from '../../../store/reducers/ApplicationReducer';
-import { ScrollOnMount } from '../ScrollOnMount/ScrollOnMount';
 import { BackArrow } from '../../../assets';
 import { constants } from './Internals/constants';
 import { DancingEmoji } from '../../../assets';
+import { useScrollToTop } from '../../../ScrollToTop/ScrollToTop';
 const { HEADER, PARA1, PARA2, PARA3, PARA4, PARA5, PARA6, QUOTE } = constants;
 
 export const Step5Application = () => {
-  ScrollOnMount();
   const { setIsActive } = useContext(ModalContext);
   const dispatch = useDispatch();
+  const scrollOnRoute = useScrollToTop();
 
   const onSubmit = () => {
     dispatch(successful(false));
@@ -29,6 +29,7 @@ export const Step5Application = () => {
   };
   return (
     <>
+      {scrollOnRoute}
       <div>
         <ContentContainer>
           <div className={styles.headerContainer}>
