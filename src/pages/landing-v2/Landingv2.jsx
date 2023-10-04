@@ -7,13 +7,13 @@ import RequestSection from '../../sections/Request';
 
 export const LandingV2 = () => {
   return (
-    <div>
+    <>
       <Hero />
       <HowItWorksSection />
       <BeneficiariesSection />
       <TakeOffBurdenSection />
       <TestimonialsSection />
       <RequestSection />
-    </div>
+    </>
   );
 };

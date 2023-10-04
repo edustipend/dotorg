@@ -11,8 +11,8 @@ import { checkEmail } from '../../../utils/EmailChecker/emailChecker';
 import { BackArrow, RightArrow } from '../../../assets';
 import { constants } from './Internals/constants';
 import { Hug } from '../../../assets';
-import { ScrollOnMount } from '../ScrollOnMount/ScrollOnMount';
 import { back, progress } from '../../../store/reducers/ApplicationReducer';
+import { useScrollToTop } from '../../../ScrollToTop/ScrollToTop';
 import {
   fullname,
   Email,
@@ -62,7 +62,7 @@ const passwordState = {
 };
 export const Step4Application = () => {
   //scroll on mount
-  ScrollOnMount();
+  const scrollOnRoute = useScrollToTop();
   const dispatch = useDispatch();
   const [isPassword, setIsPassword] = useState(passwordState);
   const { passwordErr, confirmPassword, confirmPasswordErr } = isPassword;
@@ -126,6 +126,7 @@ export const Step4Application = () => {
 
   return (
     <>
+      {scrollOnRoute}
       <ContentContainer>
         <section className={styles.userDetails}>
           <div className={styles.topSection}>

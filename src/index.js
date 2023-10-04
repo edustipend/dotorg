@@ -11,7 +11,6 @@ import { ModalContextProvider } from './context/ModalContext';
 import { SidebarProvider } from './context/SidebarContext';
 import { PersistGate } from 'redux-persist/integration/react';
 import { persistStore } from 'redux-persist';
-import ScrollToTop from './ScrollToTop';
 const container = document.getElementById('root');
 
 const root = createRoot(container);
@@ -24,7 +23,6 @@ root.render(
         <ModalContextProvider>
           <SidebarProvider>
             <PersistGate persistor={persistor}>
-              <ScrollToTop />
               <App />
             </PersistGate>
           </SidebarProvider>

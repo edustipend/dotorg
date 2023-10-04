@@ -10,9 +10,9 @@ import Button from '../../Button';
 import { BackArrow, RightArrow } from '../../../assets';
 import Quote from '../../Quote';
 import styles from './Step3.module.css';
-import { ScrollOnMount } from '../ScrollOnMount/ScrollOnMount';
 import { ModalContext } from '../../../context/ModalContext';
 import { back, progress } from '../../../store/reducers/ApplicationReducer';
+import { useScrollToTop } from '../../../ScrollToTop/ScrollToTop';
 const { HEADER, DATA_PRIVACY, ACKNOWLEDGE, ACCEPT, REJECT, QUOTE } = constants;
 
 export const Step3Application = () => {
@@ -21,7 +21,7 @@ export const Step3Application = () => {
   const { setIsActive } = useContext(ModalContext);
 
   //scroll to the top on step mount
-  ScrollOnMount();
+  const scrollOnRoute = useScrollToTop();
 
   const handleChange = (event) => {
     setSelectedOption(event.target.value);
@@ -38,6 +38,7 @@ export const Step3Application = () => {
 
   return (
     <>
+    {scrollOnRoute}
       <ContentContainer>
         <section className={styles.dataConsent}>
           <div className={styles.headerSection}>
