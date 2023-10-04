@@ -11,9 +11,9 @@ import ForgotPassword from './pages/forgot-password';
 import ResetPassword from './pages/reset-password';
 import AtOne from './pages/at-one';
 import Welcome from './sections/Welcome';
+import { routesConstant } from './routesConstant';
 import Login from './pages/login';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
-import { routesConstant } from './routesConstant';
 
 const {
   AMBASSADOR_PROGRAM,
@@ -23,7 +23,8 @@ const {
   RESET_PASSWORD,
   WELCOME,
   DASHBOARD,
-  AT_ONE
+  AT_ONE,
+  LOGIN
 } = routesConstant;
 
 const Routes = () => {
@@ -34,7 +35,7 @@ const Routes = () => {
       <Route path={APPLICATION} element={<RequestStipendPage />} />
       <Route path={FORGOT_PASSWORD} element={<ForgotPassword />} />
       <Route path={RESET_PASSWORD} element={<ResetPassword />} />
-      <Route path="/login" element={<Login />} />
+      <Route path={LOGIN} element={<Login />} />
       <Route
         path={WELCOME}
         element={
