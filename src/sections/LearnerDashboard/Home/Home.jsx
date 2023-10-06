@@ -6,7 +6,7 @@ import hand from '../../../assets/waving hand.png';
 import { tab } from './internals/constants';
 import Button from '../../../components/Button';
 import Table from '../../../components/Table';
-import { getData } from '../../../services/ApiClient';
+import { getData, postData } from '../../../services/ApiClient';
 import { useDispatch, useSelector } from 'react-redux';
 import { Step2Application } from '../../../components/ApplicationSteps/Step2Application/Step2Application';
 import { benefits, category, futureHelp, reason, setActiveStep, steps } from '../../../store/reducers/ApplicationReducer';
@@ -16,13 +16,28 @@ const { dashboard } = constants;
 export const Home = () => {
   const [currentTable, setCurrentTable] = useState(0);
   const [applicationTable, setApplicationTable] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
   const [data, setData] = useState([]);
   const dispatch = useDispatch();
   const nav = useNavigate();
   const isWindowClosed = isApplicationWindowClosed();
-
   const { name, id, email } = useSelector((state) => state.user);
   const [first] = name.split(' ');
+  const { stipendCategory, reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser } = useSelector(
+    (state) => state.application
+  );
+  const Category = stipendCategory.split('/')[0].toLowerCase();
+
+  const applicationInfo = {
+    userId: id,
+    email: email,
+    stipendCategory: Category,
+    reasonForRequest: reasonForRequest,
+    stepsTakenToEaseProblem: stepsTakenToEaseProblem,
+    potentialBenefits: potentialBenefits,
+    futureHelpFromUser: futureHelpFromUser
+  };
 
   const getUserData = useCallback(async () => {
     try {
@@ -62,8 +77,25 @@ export const Home = () => {
     getSubmittedData();
   };
 
+  const handleSubmit = async () => {
+    setIsLoading(true);
+    try {
+      const res = await postData(`user/request-stipend`, applicationInfo);
+      console.log(res);
+      if (res.success) {
+        setApplicationTable(true);
+      } else {
+        setError(res.message);
+      }
+    } catch (error) {
+      console.log(error.message, 'ERROR');
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   const handleNewRequest = () => {
-    dispatch(setActiveStep(3));
+    dispatch(setActiveStep(1));
     nav('/application');
   };
 
@@ -119,17 +151,35 @@ export const Home = () => {
         </section>
       )}
       {!applicationTable && (
-        <section className={styles.table}>
-          <div className={styles.tabs}>
-            <button className={styles.tab}>{submitted}</button>
+        <>
+          <section className={styles.table}>
+            <div className={styles.tabs}>
+              <button className={styles.tab}>{submitted}</button>
+            </div>
+            <Table entries={data} tableHead={submissionTableHead} />
+            <Step2Application />
+          </section>
+          <div className={styles.buttonContainer}>
+            <Button label="Back" type="plain" onClick={() => setApplicationTable((prev) => !prev)} />
+            <Button
+              disabled={isWindowClosed}
+              label="Submit Application"
+              type="secondary"
+              effectAlt
+              isLoading={isLoading}
+              loaderSize={'small'}
+              loaderVariant={'neutral'}
+              onClick={handleSubmit}
+            />
           </div>
-          <Table entries={data} tableHead={submissionTableHead} />
-          <Step2Application />
-        </section>
+          {error && <p className={styles.error}>{error}</p>}
+        </>
       )}
-      <div className={styles.buttonContainer}>
-        <Button disabled={isWindowClosed} label="New Stipend Application" type="secondary" effectAlt onClick={handleNewRequest} />
-      </div>
+      {applicationTable && (
+        <div className={styles.buttonContainer}>
+          <Button disabled={isWindowClosed} label="New Stipend Application" type="secondary" effectAlt onClick={handleNewRequest} />
+        </div>
+      )}
     </div>
   );
 };
