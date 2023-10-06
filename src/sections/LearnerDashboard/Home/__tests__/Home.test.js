@@ -11,6 +11,9 @@ const mockStore = configureMockStore([
 const store = mockStore({
   user: {
     name: 'Test User'
+  },
+  application: {
+    stipendCategory: 'Laptop/Learning Device'
   }
 });
 
