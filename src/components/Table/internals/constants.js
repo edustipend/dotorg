@@ -1,8 +1,8 @@
 export const applicationStatus = {
-  APPROVED: 'Approved',
-  IN_VIEW: 'In review',
+  APPROVED: 'APPROVED',
+  IN_VIEW: 'IN REVIEW',
   RECEIVED: 'Received (Under Review)',
-  DENIED: 'Denied'
+  DENIED: 'DENIED'
 };
 
 export const Action = 'View submission';

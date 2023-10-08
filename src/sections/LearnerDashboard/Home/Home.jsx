@@ -42,7 +42,7 @@ export const Home = () => {
   const getUserData = useCallback(async () => {
     try {
       const response = await getData(`user/application-history/search?id=${id}`);
-      setData([response.message]);
+      setData(response.message);
     } catch (error) {
       console.log(error);
     }

@@ -2,12 +2,12 @@ import { getFormattedDate, getFormattedTime } from '../../../../utils/dateTimeUt
 import { Action } from '../constants';
 import styles from './DesktopTable.module.css';
 import PropTypes from 'prop-types';
-// import { applicationStatus } from '../constants';
-// const { APPROVED, IN_VIEW, RECEIVED, DENIED } = applicationStatus;
+import { applicationStatus } from '../constants';
+const { APPROVED, IN_VIEW, DENIED } = applicationStatus;
 
 export const DesktopTable = ({ entries, tableHead, oneClickApply }) => {
-  const status = 'IN REVIEW';
   const lastItem = entries?.length - 1;
+
   return (
     <section className={styles.Main}>
       <table className={styles.desktopTable}>
@@ -29,21 +29,8 @@ export const DesktopTable = ({ entries, tableHead, oneClickApply }) => {
                 <td className={idx === lastItem ? `${styles.firstColumn}` : undefined}>{idx + 1}</td>
                 <td>{itm?.stipendCategory?.toUpperCase()}</td>
                 <td>
-                  <span
-                    className={
-                      // Application_Status === `${APPROVED}`
-                      //   ? 'approved bold_weight'
-                      //   : Application_Status === `${IN_VIEW}`
-                      //     ? 'in_view bold_weight'
-                      //     : Application_Status === `${RECEIVED}`
-                      //       ? 'in_view bold_weight'
-                      //       : Application_Status === `${DENIED}`
-                      //         ? 'denied bold_weight'
-                      //         : ''
-                      'Received'
-                    }
-                  >
-                    {status}
+                  <span className={itm?.isApproved ? 'approved bold_weight' : itm?.isDenied ? 'denied bold_weight' : 'in_view bold_weight'}>
+                    {itm?.isApproved ? APPROVED : itm?.isDenied ? DENIED : IN_VIEW}
                   </span>
                 </td>
                 <td>{getFormattedDate(itm?.createdAt)}</td>
