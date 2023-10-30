@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import requestApplication from './reducers/ApplicationReducer/ApplicationRuducer';
 import userDetails from './reducers/UserDetailsReducer/UserDetailsReducer';
 import user from './reducers/UserReducer/UserReducer';
+import donation from './reducers/DonationReducer/DonationReducer';
 import storage from 'redux-persist/lib/storage';
 import { persistReducer } from 'redux-persist';
 import { combineReducers } from '@reduxjs/toolkit';
@@ -35,7 +36,8 @@ const reducer = combineReducers({
   counter: counterReducer,
   application: requestApplication,
   userDetails: userDetails,
-  user: user
+  user: user,
+  donation: donation
 });
 
 const presisted = persistReducer(config, reducer);

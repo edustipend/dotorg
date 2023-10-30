@@ -32,6 +32,15 @@ import Flower from './flower.png';
 import Sad from './sad.svg';
 import Hand from './hand.png';
 import Eye from './eye.svg';
+import Donation from './Donation.png';
+import LeftArrow from './Arrow - Left.png';
+import OneTime from './one-time.svg';
+import RecurringIcon from './recurring-light.svg';
+import Visa from './visa.svg';
+import MasterCard from './master-card.svg';
+import CloseIcon from './close-icon.svg';
+import Done from './done.svg';
+import Copy from './copy-05.svg';
 
 export {
   Hero1,
@@ -67,5 +76,14 @@ export {
   Flower,
   Sad,
   Hand,
-  Eye
+  Eye,
+  Donation,
+  LeftArrow,
+  OneTime,
+  RecurringIcon,
+  Visa,
+  MasterCard,
+  CloseIcon,
+  Done,
+  Copy
 };

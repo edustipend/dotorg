@@ -1,0 +1,256 @@
+.form {
+  width: 100%;
+  max-width: 580px;
+  display: flex;
+  padding: 32px 20px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  border-radius: 30px;
+  background: #fff;
+
+  /* Shadow */
+  box-shadow: 0px 30px 40px 0px rgba(7, 109, 243, 0.05);
+}
+
+.headText {
+  color: var(--Edustipend-Text-Black, #2d3740);
+  font-family: 'Manrope';
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 160%; /* 57.6px */
+}
+.subText {
+  color: rgba(45, 55, 64, 0.8);
+  font-family: 'Manrope';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%; /* 25.6px */
+}
+
+.toggleContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.toggleContainer p {
+  color: var(--Text, #0a0d13);
+  font-family: 'Manrope';
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 12px; /* 66.667% */
+}
+.toggleContainer div {
+  width: 100%;
+  display: flex;
+  gap: 12px;
+}
+
+.radioInput {
+  display: flex;
+  gap: 3px;
+  cursor: pointer;
+}
+
+input[type='radio'] {
+  margin-top: 3px;
+  accent-color: #2fa1bd;
+}
+
+input[id='transfer'] {
+  accent-color: #5800ff;
+}
+
+.transferContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 32px;
+}
+.transfer {
+  color: var(--Stroke, #acacac);
+  font-family: 'Inter';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px; /* 137.5% */
+  margin-bottom: 23px;
+}
+
+.bank {
+  color: var(--Text, #0a0d13);
+  font-family: 'Inter';
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 12px; /* 66.667% */
+  margin-bottom: 6px;
+}
+
+.acctNumContainer {
+  display: flex;
+  margin-bottom: 36px;
+}
+
+.acctNumContainer img {
+  cursor: pointer;
+}
+.acctNum {
+  color: var(--Text, #0a0d13);
+  font-family: 'Inter';
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 28px; /* 116.667% */
+}
+.exp {
+  color: var(--Stroke, #acacac);
+  font-family: 'Inter';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 12px; /* 75% */
+  margin-bottom: 32px;
+}
+.exp span {
+  color: #ff3d3d;
+}
+.card {
+  width: 100%;
+  display: flex;
+  gap: 18px;
+  justify-content: space-between;
+}
+
+.date {
+  flex: 2;
+}
+
+.cvv {
+  width: 138px;
+}
+
+.cardImages {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 5px;
+}
+
+.backBtnContainer {
+  width: 100%;
+}
+
+.backBtn {
+  width: max-content;
+  border: 0;
+  outline: 0;
+  box-shadow: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  background: white;
+  padding: 0;
+}
+
+.backBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.modalForm {
+  position: relative;
+  width: 100%;
+  max-width: 580px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 482px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  padding: 22px 36px;
+  background: #f3f3f3;
+}
+
+.close {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.close img {
+  cursor: pointer;
+}
+
+.text {
+  color: var(--Text, #0a0d13);
+  text-align: center;
+  font-family: 'Manrope';
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px; /* 160% */
+}
+
+.inputContainer {
+  display: flex;
+  gap: 24px;
+  margin-top: 40px;
+  margin-bottom: 83px;
+}
+
+.inputContainer input {
+  width: 50px;
+  height: 52px;
+  border-radius: 4px;
+  border: 1.5px solid var(--Stroke, #acacac);
+  text-align: center;
+}
+
+.modalQt {
+  color: #2d3740;
+  font-family: 'Plus Jakarta Display';
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 18.5px; /* 154.167% */
+  margin-top: 85px;
+}
+
+.loading {
+  position: absolute;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (min-width: 750px) {
+  .form {
+    padding: 32px 40px;
+  }
+  .headText {
+    font-size: 36px;
+  }
+
+  .toggleContainer button {
+    max-width: 242px;
+  }
+
+  .confirm {
+    width: 400px;
+  }
+
+  .btn {
+    width: 454px;
+    margin: 0 auto;
+  }
+}

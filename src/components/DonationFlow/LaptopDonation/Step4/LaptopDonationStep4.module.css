@@ -1,0 +1,164 @@
+.form {
+  width: 100%;
+  max-width: 580px;
+  display: flex;
+  padding: 32px 20px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  border-radius: 30px;
+  background: #fff;
+
+  /* Shadow */
+  box-shadow: 0px 30px 40px 0px rgba(7, 109, 243, 0.05);
+}
+
+.form div {
+  width: 100%;
+}
+
+.headText {
+  color: var(--Edustipend-Text-Black, #2d3740);
+  font-family: 'Manrope';
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 160%; /* 57.6px */
+}
+.subText {
+  color: rgba(45, 55, 64, 0.8);
+  font-family: 'Manrope';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%; /* 25.6px */
+}
+
+.thanks,
+.value,
+.details {
+  color: var(--Text, #0a0d13);
+  font-family: 'Manrope';
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px; /* 160% */
+}
+
+.details {
+  color: #5800ff;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Manrope';
+  color: var(--edustipend-black);
+  gap: 28px;
+  width: 100%;
+}
+
+.textarea {
+  resize: none;
+  padding: 1rem;
+  font-size: 16px;
+  max-width: 769px;
+  overflow: auto;
+  border: 1px solid var(--darker-navy-blue);
+  font-family: 'Manrope';
+  border-radius: 15px;
+  color: var(--edustipend-black);
+  height: 100px;
+  color: var(--Edustipend-Text-Black, #2d3740);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 20px; /* 111.111% */
+}
+
+.textarea:hover {
+  cursor: text;
+}
+
+.textarea::-webkit-scrollbar {
+  display: none;
+}
+
+.label {
+  display: flex;
+  align-items: flex-start;
+  max-width: 750px;
+  font-size: 16px;
+  gap: 0.5rem;
+}
+
+.question {
+  display: flex;
+}
+
+.select {
+  width: 100%;
+}
+
+.backBtn {
+  width: max-content;
+  border: 0;
+  outline: 0;
+  box-shadow: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  background: white;
+  padding: 0;
+}
+
+.backBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed !important;
+}
+
+@media screen and (min-width: 750px) {
+  .form {
+    padding: 32px 40px;
+  }
+  .headText {
+    font-size: 36px;
+  }
+  .thanks,
+  .value,
+  .details {
+    font-size: 20px;
+  }
+  .textarea {
+    font-size: 18px;
+    padding: 1rem 2rem;
+  }
+  .textarea::placeholder {
+    color: rgba(45, 55, 64, 0.4);
+    font-feature-settings:
+      'clig' off,
+      'liga' off;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 20px; /* 111.111% */
+  }
+
+  .label {
+    font-size: 18px;
+  }
+  .toggleContainer {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .toggleContainer button {
+    max-width: 242px;
+  }
+
+  .btn {
+    width: 454px;
+  }
+}

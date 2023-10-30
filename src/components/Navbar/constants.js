@@ -13,11 +13,11 @@ export const NAVBAR_LINKS = [
     label: 'Learn How It Works',
     to: '/',
     hash: '#how-it-works'
+  },
+  {
+    label: 'Support A Learner',
+    to: '/donate'
   }
-  // {
-  //   label: 'Support A Learner',
-  //   to: '/support-a-learner'
-  // }
 ];
 export const NAVBAR_AMBASSADOR_LINKS = [
   {

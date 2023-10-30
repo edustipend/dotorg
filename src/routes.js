@@ -14,18 +14,9 @@ import Welcome from './sections/Welcome';
 import { routesConstant } from './routesConstant';
 import Login from './pages/login';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
+import Donate from './pages/donate/Donate';
 
-const {
-  AMBASSADOR_PROGRAM,
-  REQUEST,
-  APPLICATION,
-  FORGOT_PASSWORD,
-  RESET_PASSWORD,
-  WELCOME,
-  DASHBOARD,
-  AT_ONE,
-  LOGIN
-} = routesConstant;
+const { AMBASSADOR_PROGRAM, REQUEST, APPLICATION, FORGOT_PASSWORD, RESET_PASSWORD, WELCOME, DASHBOARD, AT_ONE, LOGIN, DONATE } = routesConstant;
 
 const Routes = () => {
   return (
@@ -36,6 +27,7 @@ const Routes = () => {
       <Route path={FORGOT_PASSWORD} element={<ForgotPassword />} />
       <Route path={RESET_PASSWORD} element={<ResetPassword />} />
       <Route path={LOGIN} element={<Login />} />
+      <Route path={DONATE} element={<Donate />} />
       <Route
         path={WELCOME}
         element={
