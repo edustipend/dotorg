@@ -34,7 +34,8 @@ const useHandleCTAClick = () => {
   return {
     buttonLabel,
     handleCTAClick,
-    isApplicationWindowClosed: isWindowClosed
+    isApplicationWindowClosed: isWindowClosed,
+    id
   };
 };
 

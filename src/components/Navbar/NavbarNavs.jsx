@@ -9,7 +9,7 @@ import LoginModal from '../LoginModal';
 const { NAVBAR_LINKS_ID } = TestId;
 
 const NavbarNavs = ({ showMenu, closeMenu }) => {
-  const { buttonLabel, handleCTAClick } = useHandleCTAClick();
+  const { buttonLabel, handleCTAClick, id } = useHandleCTAClick();
 
   return (
     <>
@@ -22,7 +22,7 @@ const NavbarNavs = ({ showMenu, closeMenu }) => {
           ))}
         </div>
         <div className="navAction">
-          <LoginModal />
+          {!id ? <LoginModal /> : null}
           <Button label={buttonLabel} type={BUTTON_TYPE} onClick={() => handleCTAClick()} className="navBtn" />
         </div>
       </nav>
