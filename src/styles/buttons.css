@@ -1,11 +1,10 @@
 button,
 .btn {
   outline: none;
-  height: 52px;
   border: 0;
   border-radius: 22px;
   font-size: 1.25rem;
-  padding: 0 30px;
+  padding: 20px 30px;
   text-decoration: none;
   display: flex;
   align-items: center;

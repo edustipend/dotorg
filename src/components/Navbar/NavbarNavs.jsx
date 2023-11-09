@@ -4,6 +4,7 @@ import Button from '../Button';
 import { BUTTON_TYPE, NAVBAR_LINKS, TestId } from './constants';
 import './styles.css';
 import useHandleCTAClick from '../../hooks/useHandleCTAClick';
+import LoginModal from '../LoginModal';
 
 const { NAVBAR_LINKS_ID } = TestId;
 
@@ -13,15 +14,17 @@ const NavbarNavs = ({ showMenu, closeMenu }) => {
   return (
     <>
       <nav className="navbarNavs" data-testid={NAVBAR_LINKS_ID}>
-        {NAVBAR_LINKS.map((link) => (
-          <HashLink key={link.label} to={{ pathname: link.to, hash: link.hash }}>
-            {link.label}
-          </HashLink>
-          // <Link key={link.label} to={link.to}>
-          //   {link.label}
-          // </Link>
-        ))}
-        <Button label={buttonLabel} type={BUTTON_TYPE} onClick={() => handleCTAClick()} />
+        <div className="navContent">
+          {NAVBAR_LINKS.map((link) => (
+            <HashLink key={link.label} to={{ pathname: link.to, hash: link.hash }}>
+              {link.label}
+            </HashLink>
+          ))}
+        </div>
+        <div className="navAction">
+          <LoginModal />
+          <Button label={buttonLabel} type={BUTTON_TYPE} onClick={() => handleCTAClick()} className="navBtn" />
+        </div>
       </nav>
 
       {showMenu ? (

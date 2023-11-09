@@ -49,10 +49,30 @@ a {
 }
 
 .navbarNavs {
-  display: inline-flex;
+  display: flex;
+  justify-content: space-between;
   height: 24.24px;
   align-items: center;
   gap: 32px;
+  width: 65%;
+}
+
+.navContent {
+  display: flex;
+  gap: 32px;
+}
+
+.navAction {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.navBtn {
+  width: 175px;
+  padding: 14px;
+  font-size: 15.5px;
+  font-weight: 600;
 }
 
 .navbarNavs a,
@@ -188,7 +208,7 @@ a {
     transform: translateX(-200vw);
   }
 
-  .mobile-nav > div {
+  .mobile-nav>div {
     display: flex;
     justify-content: center;
     align-items: center;
