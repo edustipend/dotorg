@@ -8,6 +8,9 @@ import { CloseAlt, Hand } from '../../assets';
 import { constant } from './internals/constants';
 import Input from '../Input';
 import { isApplicationWindowClosed } from '../../utils';
+import NotifyMe from '../../sections/NotifyMe';
+import NotifyModal from '../../sections/NotifyMe/internals/NotifyModal';
+import { useNavigate } from 'react-router-dom';
 
 const feedbacks = {
     emailSent: '',
@@ -21,6 +24,7 @@ const disabledButtons = {
 }
 export const LoginModal = () => {
     const { setIsActive } = useContext(ModalContext);
+    const { handleNotifyModal } = useContext(ModalContext);
     const [shouldContinue, setShouldContinue] = useState(false);
     const [loading, setLoading] = useState(false);
     const [feedback, setFeedback] = useState(feedbacks);
@@ -28,6 +32,8 @@ export const LoginModal = () => {
     const [disabled, setDisabled] = useState(disabledButtons)
     const { emailSent, newUser } = feedback;
     const { continueBtn } = disabled;
+    const nav = useNavigate()
+    const applicationClosedState = isApplicationWindowClosed()
 
     const mockedExpectations = {
         existsInOldDatabase: false,
@@ -63,11 +69,14 @@ export const LoginModal = () => {
 
     //function to handle the secondary button if the user does not exists
     const handleSecondaryButton = useCallback(() => {
-        if (isApplicationWindowClosed) {
+        if (applicationClosedState) {
             setIsActive((prev) => !prev);
-
+            handleNotifyModal()
+        } else {
+            setIsActive((prev) => !prev);
+            nav('/request')
         }
-    }, [setIsActive])
+    }, [setIsActive, handleNotifyModal, nav, applicationClosedState])
 
 
     return (
@@ -94,12 +103,9 @@ export const LoginModal = () => {
                             </div>
                             <div className={styles.btnContainer}>
                                 {secondaryButton ? <Button
-                                    label={isApplicationWindowClosed ? "Notify me" : "Register"}
+                                    label={applicationClosedState ? "Notify me" : "Register"}
                                     type="secondary"
                                     onClick={handleSecondaryButton}
-                                    isLoading={loading}
-                                    loaderSize="small"
-                                    loaderVariant="neutral"
                                 /> : null}
                                 <Button
                                     disabled={continueBtn}
@@ -124,6 +130,9 @@ export const LoginModal = () => {
                     )}
                 </section>
             </Modal>
+            <NotifyModal>
+                <NotifyMe />
+            </NotifyModal>
         </div>
     );
 };
