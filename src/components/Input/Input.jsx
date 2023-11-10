@@ -3,7 +3,7 @@ import styles from './Input.module.css';
 import { TestId } from './constants';
 const { LABEL_ID, INPUT_ID } = TestId;
 
-export const Input = ({ placeholder, label, includeLabel, value, type, size, className, ...props }) => {
+export const Input = ({ placeholder, label, includeLabel, value, type, size, className, onChange, ...props }) => {
 
   return (
     <section className={styles.main}>
@@ -18,6 +18,7 @@ export const Input = ({ placeholder, label, includeLabel, value, type, size, cla
         name="input"
         placeholder={placeholder}
         value={value}
+        onChange={onChange}
         {...props}
         className={`${styles.input} ${styles[size]} ${className}`}
       />
@@ -32,7 +33,8 @@ Input.propTypes = {
   value: PropTypes.string,
   type: PropTypes.string,
   size: PropTypes.string,
-  className: PropTypes.string
+  className: PropTypes.string,
+  onChange: PropTypes.func,
 };
 
 Input.defaultProps = {
@@ -42,5 +44,6 @@ Input.defaultProps = {
   value: '',
   type: 'text',
   size: '',
-  className: ''
+  className: '',
+  onChange: (e) => e
 };

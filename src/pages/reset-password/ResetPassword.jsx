@@ -1,11 +1,11 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 import Header from '../../components/Header';
 import Modal from '../../components/Modal';
 import { postData } from '../../services/ApiClient';
 import { Valid } from '../../assets';
-import { ModalContext } from '../../context/ModalContext';
+// import { ModalContext } from '../../context/ModalContext';
 import { constants } from './constants';
 import { routesConstant } from '../../routesConstant';
 import { useNavigate } from 'react-router-dom';
@@ -18,7 +18,7 @@ const { COMPONENT_TEST, HEADER_TEST, BUTTON_TEST, MODAL_TEST, ERROR_TEST } = Tes
 export const ResetPassword = () => {
   const nav = useNavigate();
   const [email, setEmail] = useState('');
-  const { setIsActive } = useContext(ModalContext);
+  const [isActive, setIsActive] = useState(false)
   const [verificationCode, setVerificationCode] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -110,26 +110,28 @@ export const ResetPassword = () => {
           {error ? <p data-testid={ERROR_TEST} className={styles.error}>{error}</p> : undefined}
         </div>
       </div>
-
-      <Modal dataTest={MODAL_TEST}>
-        <section className={styles.main}>
-          <div className={styles.contentContainer}>
-            <div className={styles.Modal}>
-              <img src={Valid} alt="valid email" className={styles.img} />
-              <p className={styles.feedBack}>{feedBack}</p>
-              <Button
-                effectAlt
-                label='Login'
-                type='secondary'
-                onClick={() => {
-                  nav(routesConstant.Login);
-                  setIsActive((prev) => !prev);
-                }}
-              />
+      {
+        isActive &&
+        <Modal dataTest={MODAL_TEST}>
+          <section className={styles.main}>
+            <div className={styles.contentContainer}>
+              <div className={styles.Modal}>
+                <img src={Valid} alt="valid email" className={styles.img} />
+                <p className={styles.feedBack}>{feedBack}</p>
+                <Button
+                  effectAlt
+                  label='Login'
+                  type='secondary'
+                  onClick={() => {
+                    nav(routesConstant.LOGIN);
+                    setIsActive((prev) => !prev);
+                  }}
+                />
+              </div>
             </div>
-          </div>
-        </section>
-      </Modal>
+          </section>
+        </Modal>
+      }
     </section>
   );
 };
