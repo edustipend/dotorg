@@ -4,7 +4,6 @@ import { TestId } from './constants';
 const { LABEL_ID, INPUT_ID } = TestId;
 
 export const Input = ({ placeholder, label, includeLabel, value, type, size, className, onChange, ...props }) => {
-
   return (
     <section className={styles.main}>
       {includeLabel ? (
@@ -34,7 +33,7 @@ Input.propTypes = {
   type: PropTypes.string,
   size: PropTypes.string,
   className: PropTypes.string,
-  onChange: PropTypes.func,
+  onChange: PropTypes.func
 };
 
 Input.defaultProps = {

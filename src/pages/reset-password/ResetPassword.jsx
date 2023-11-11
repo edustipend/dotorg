@@ -13,12 +13,12 @@ import { TestId } from './constants';
 import styles from './ResetPassword.module.css';
 
 const { HEADER, EMAIL, PASSWORD, CODE, CONFIRM_PASSWORD, PASSWORD_MIN_LENGTH_ERR, PASSWORD_MISMATCH } = constants;
-const { COMPONENT_TEST, HEADER_TEST, BUTTON_TEST, MODAL_TEST, ERROR_TEST } = TestId
+const { COMPONENT_TEST, HEADER_TEST, BUTTON_TEST, MODAL_TEST, ERROR_TEST } = TestId;
 
 export const ResetPassword = () => {
   const nav = useNavigate();
   const [email, setEmail] = useState('');
-  const [isActive, setIsActive] = useState(false)
+  const [isActive, setIsActive] = useState(false);
   const [verificationCode, setVerificationCode] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -71,7 +71,9 @@ export const ResetPassword = () => {
     <section data-testid={COMPONENT_TEST} className={styles.reset}>
       <div className={styles.contentContainer}>
         <div className={styles.content}>
-          <Header dataTest={HEADER_TEST} className={styles.header}>{HEADER}</Header>
+          <Header dataTest={HEADER_TEST} className={styles.header}>
+            {HEADER}
+          </Header>
           <div className={styles.fields}>
             <div className={styles.field}>
               <Input value={email} label={EMAIL} placeholder={EMAIL} readOnly />
@@ -79,18 +81,26 @@ export const ResetPassword = () => {
             </div>
             <div className={styles.field}>
               <div className={styles.single}>
-                <Input type='password' value={password} label={PASSWORD} placeholder={PASSWORD} onChange={(e) => setPassword(e.target.value)} />
-                {passwordErr ? <small data-testid={ERROR_TEST} className={styles.small}>{PASSWORD_MIN_LENGTH_ERR}</small> : undefined}
+                <Input type="password" value={password} label={PASSWORD} placeholder={PASSWORD} onChange={(e) => setPassword(e.target.value)} />
+                {passwordErr ? (
+                  <small data-testid={ERROR_TEST} className={styles.small}>
+                    {PASSWORD_MIN_LENGTH_ERR}
+                  </small>
+                ) : undefined}
               </div>
               <div className={styles.single}>
                 <Input
-                  type='password'
+                  type="password"
                   value={confirmPassword}
                   label={CONFIRM_PASSWORD}
                   placeholder={CONFIRM_PASSWORD}
                   onChange={(e) => setConfirmPassword(e.target.value)}
                 />
-                {passwordMisMatch ? <small data-testid={ERROR_TEST} className={styles.small}>{PASSWORD_MISMATCH}</small> : undefined}
+                {passwordMisMatch ? (
+                  <small data-testid={ERROR_TEST} className={styles.small}>
+                    {PASSWORD_MISMATCH}
+                  </small>
+                ) : undefined}
               </div>
             </div>
           </div>
@@ -98,20 +108,23 @@ export const ResetPassword = () => {
             <Button
               dataTest={BUTTON_TEST}
               isLoading={loading}
-              loaderSize='small'
-              loaderVariant='neutral'
-              type='secondary'
-              size='large'
-              label='Submit'
+              loaderSize="small"
+              loaderVariant="neutral"
+              type="secondary"
+              size="large"
+              label="Submit"
               onClick={onSubmit}
               className={styles.btn}
             />
           </div>
-          {error ? <p data-testid={ERROR_TEST} className={styles.error}>{error}</p> : undefined}
+          {error ? (
+            <p data-testid={ERROR_TEST} className={styles.error}>
+              {error}
+            </p>
+          ) : undefined}
         </div>
       </div>
-      {
-        isActive &&
+      {isActive && (
         <Modal dataTest={MODAL_TEST}>
           <section className={styles.main}>
             <div className={styles.contentContainer}>
@@ -120,8 +133,8 @@ export const ResetPassword = () => {
                 <p className={styles.feedBack}>{feedBack}</p>
                 <Button
                   effectAlt
-                  label='Login'
-                  type='secondary'
+                  label="Login"
+                  type="secondary"
                   onClick={() => {
                     nav(routesConstant.LOGIN);
                     setIsActive((prev) => !prev);
@@ -131,7 +144,7 @@ export const ResetPassword = () => {
             </div>
           </section>
         </Modal>
-      }
+      )}
     </section>
   );
 };

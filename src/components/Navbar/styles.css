@@ -103,8 +103,6 @@ a {
   width: max-content;
 }
 
-
-
 .navbarNavs a:hover,
 .mobile-nav a:hover {
   color: var(--edustipend-yellow);
@@ -229,7 +227,6 @@ a {
   .mobile-nav.out {
     transform: translateX(-200vw);
   }
-
 }
 
 @media only screen and (max-width: 480px) {
@@ -238,9 +235,8 @@ a {
   }
 }
 
-@media screen and (min-width:1550px) {
+@media screen and (min-width: 1550px) {
   .navbarNavs {
     width: 65%;
   }
-
 }

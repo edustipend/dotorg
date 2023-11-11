@@ -25,22 +25,24 @@ const NavbarNavs = ({ showMenu, closeMenu }) => {
           ))}
         </div>
         <div className="navAction">
-          {!id ? <Button
-            label="Login"
-            type="secondary"
-            className="navBtn"
-            onClick={() => {
-              closeMenu(!showMenu);
-              handleLoginModal((prev) => !prev);
-            }}
-          /> : null}
+          {!id ? (
+            <Button
+              label="Login"
+              type="secondary"
+              className="navBtn"
+              onClick={() => {
+                closeMenu(!showMenu);
+                handleLoginModal((prev) => !prev);
+              }}
+            />
+          ) : null}
           <Button label={buttonLabel} type={BUTTON_TYPE} onClick={() => handleCTAClick()} className="navBtn" />
         </div>
       </nav>
 
       {showMenu ? (
         <nav className="mobile-nav">
-          <div className='mobile-links'>
+          <div className="mobile-links">
             {NAVBAR_LINKS.map((link) => (
               <HashLink key={link.label} to={{ pathname: link.to, hash: link.hash }} onClick={() => closeMenu(!showMenu)}>
                 {link.label}
@@ -57,15 +59,17 @@ const NavbarNavs = ({ showMenu, closeMenu }) => {
               }}
               className="navBtn"
             />
-            {!id ? <Button
-              label="Login"
-              type="secondary"
-              className="navBtn"
-              onClick={() => {
-                closeMenu(!showMenu);
-                handleLoginModal((prev) => !prev);
-              }}
-            /> : null}
+            {!id ? (
+              <Button
+                label="Login"
+                type="secondary"
+                className="navBtn"
+                onClick={() => {
+                  closeMenu(!showMenu);
+                  handleLoginModal((prev) => !prev);
+                }}
+              />
+            ) : null}
           </div>
         </nav>
       ) : (

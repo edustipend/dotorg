@@ -14,7 +14,7 @@ import { TestId } from './constants';
 import styles from './ForgotPassword.module.css';
 
 const { HEADER, TEXT, FOOT_NOTE } = constants;
-const { COMPONENT_TEST, HEADER_TEST, FOOT_NOTE_TEST, BUTTON_TEST, TEXT_TEST } = TestId
+const { COMPONENT_TEST, HEADER_TEST, FOOT_NOTE_TEST, BUTTON_TEST, TEXT_TEST } = TestId;
 
 export const ForgotPassword = () => {
   const { setIsActive } = useContext(ModalContext);
@@ -90,11 +90,13 @@ export const ForgotPassword = () => {
   }
 
   return (
-    <section  data-testid={COMPONENT_TEST} className={styles.main}>
+    <section data-testid={COMPONENT_TEST} className={styles.main}>
       <div className={styles.contentContainer}>
         <div className={styles.content}>
           <img src={Tears} alt="wrong password" className={styles.img} />
-          <Header dataTest={HEADER_TEST} className={styles.header}>{HEADER}</Header>
+          <Header dataTest={HEADER_TEST} className={styles.header}>
+            {HEADER}
+          </Header>
           <Text dataTest={TEXT_TEST} className={styles.text} content={TEXT} />
           <div className={styles.inputConatiner}>
             <div className={styles.inputContent}>

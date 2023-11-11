@@ -10,7 +10,7 @@ import Svg5 from './svg5.svg';
 import ArrowDown from './line.svg';
 import Menu from './menu.svg';
 import Close from './close.svg';
-import CloseAlt from './close-alt.svg'
+import CloseAlt from './close-alt.svg';
 import Book from './book.svg';
 import RightArrow from './arrow-right.svg';
 import BackArrow from './arrow-left.svg';

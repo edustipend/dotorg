@@ -79,7 +79,7 @@ Select.propTypes = {
 };
 
 Select.defaultProps = {
-  dispatchType: () => { },
+  dispatchType: () => {},
   label: 'Some label',
   includeLabel: true,
   placeholder: 'Select an option',
