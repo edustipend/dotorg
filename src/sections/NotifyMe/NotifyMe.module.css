@@ -37,7 +37,7 @@
 @media all and (orientation: landscape) {
   @media screen and (max-height: 400px) {
     .notify {
-      margin: 1rem;
+      margin: 2rem;
     }
   }
 }
