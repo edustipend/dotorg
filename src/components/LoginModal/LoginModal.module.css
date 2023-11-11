@@ -1,9 +1,5 @@
-.btn {
-    width: 175px;
-    padding: 14px;
-    font-size: 15.5px;
-    font-weight: 600;
-    height: 40px;
+.login {
+    margin-inline: 100px;
 }
 
 .ModalContainer {

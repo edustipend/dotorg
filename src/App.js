@@ -13,10 +13,11 @@ import { useScrollToTop } from './ScrollToTop/ScrollToTop';
 import LoadingMessage from './components/LoadingMessage';
 import useDetectInternet from './hooks/useDetectInternet';
 import NoInternet from './components/NoInternet/NoInternet';
+import LoginModal from './components/LoginModal';
 initFirebaseApp();
 
 function App() {
-  const { isLoading } = useContext(ModalContext);
+  const { isLoading, loginModal } = useContext(ModalContext);
   const scrollOnRoute = useScrollToTop();
   const isOnline = useDetectInternet();
   return isOnline ? (
@@ -33,6 +34,7 @@ function App() {
           <LoadingMessage size={'large'} />
         </Modal>
       ) : undefined}
+      {loginModal ? <LoginModal /> : null}
     </>
   ) : (
     <NoInternet />

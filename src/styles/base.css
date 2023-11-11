@@ -53,7 +53,7 @@
   display: flex;
 }
 
-.display-card-title > p {
+.display-card-title>p {
   font-weight: 600;
   margin: 0;
   margin-left: 0.5rem;
@@ -122,6 +122,7 @@
   align-items: center;
   padding-inline: 1rem;
   background: #000000e5;
+  z-index: 10001;
 }
 
 .modal_modal::-webkit-scrollbar {

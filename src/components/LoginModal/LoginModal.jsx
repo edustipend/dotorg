@@ -1,7 +1,7 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import Button from '../Button';
 import styles from './LoginModal.module.css';
-import Modal from '../Modal';
+// import Modal from '../Modal';
 import { ModalContext } from '../../context/ModalContext';
 import { useContext } from 'react';
 import { CloseAlt, Hand } from '../../assets';
@@ -11,6 +11,12 @@ import { isApplicationWindowClosed } from '../../utils';
 import NotifyMe from '../../sections/NotifyMe';
 import NotifyModal from '../../sections/NotifyMe/internals/NotifyModal';
 import { useNavigate } from 'react-router-dom';
+import { checkEmail } from '../../utils/EmailChecker/emailChecker';
+
+const userDetails = {
+    email: '',
+    password: ''
+};
 
 const feedbacks = {
     emailSent: '',
@@ -19,27 +25,41 @@ const feedbacks = {
 };
 
 const disabledButtons = {
-    continueBtn: false,
-    submitBtn: true,
-}
+    continueBtn: true,
+    submitBtn: true
+};
+
+const mockedExpectations = {
+    existsInOldDatabase: true,
+    hasResetPassword: false
+};
+const { existsInOldDatabase, hasResetPassword } = mockedExpectations;
 export const LoginModal = () => {
-    const { setIsActive } = useContext(ModalContext);
+    const nav = useNavigate();
+    const { handleLoginModal } = useContext(ModalContext);
     const { handleNotifyModal } = useContext(ModalContext);
     const [shouldContinue, setShouldContinue] = useState(false);
     const [loading, setLoading] = useState(false);
     const [feedback, setFeedback] = useState(feedbacks);
     const [secondaryButton, setSecondaryButton] = useState(false);
-    const [disabled, setDisabled] = useState(disabledButtons)
+    const [disabled, setDisabled] = useState(disabledButtons);
+    const [subText, setSubText] = useState('Email');
+    const [details, setDetails] = useState(userDetails);
+    const applicationClosedState = isApplicationWindowClosed();
+    const { email, password } = details;
     const { emailSent, newUser } = feedback;
-    const { continueBtn } = disabled;
-    const nav = useNavigate()
-    const applicationClosedState = isApplicationWindowClosed()
+    const { continueBtn, submitBtn } = disabled;
 
-    const mockedExpectations = {
-        existsInOldDatabase: false,
-        hasResetPassword: false,
-    };
-    const { existsInOldDatabase, hasResetPassword } = mockedExpectations;
+    const disableButton = useCallback(() => {
+        const isValid = checkEmail(email);
+        if (isValid) {
+            setDisabled((prev) => ({ ...prev, continueBtn: false }));
+        }
+    }, [email]);
+
+    useEffect(() => {
+        disableButton();
+    }, [disableButton]);
 
     //mocked function to manage login proccess
     const handleContinue = () => {
@@ -48,21 +68,22 @@ export const LoginModal = () => {
             setTimeout(() => {
                 setLoading(false);
                 setShouldContinue(true);
+                setSubText('Password');
             }, 2000);
         } else if (existsInOldDatabase) {
             //send a reset password email
             setLoading(true);
             setTimeout(() => {
                 setLoading(false);
-                setDisabled({ ...disabled, submitBtn: false });
-                setFeedback({ ...feedback, emailSent: 'You need to reset your password. An email has been sent' });
+                setDisabled({ ...disabled, continueBtn: true });
+                setFeedback({ ...feedback, emailSent: constant.EMAIL_SENT });
             }, 2000);
         } else if (!existsInOldDatabase) {
             setLoading(true);
             setTimeout(() => {
                 setLoading(false);
-                setFeedback({ ...feedback, newUser: 'This email does not exists.' });
-                setSecondaryButton(true)
+                setFeedback({ ...feedback, newUser: constant.NEW_USER });
+                setSecondaryButton(true);
             }, 2000);
         }
     };
@@ -70,43 +91,44 @@ export const LoginModal = () => {
     //function to handle the secondary button if the user does not exists
     const handleSecondaryButton = useCallback(() => {
         if (applicationClosedState) {
-            setIsActive((prev) => !prev);
-            handleNotifyModal()
+            handleLoginModal((prev) => !prev);
+            handleNotifyModal();
         } else {
-            setIsActive((prev) => !prev);
-            nav('/request')
+            handleLoginModal((prev) => !prev);
+            nav('/request');
         }
-    }, [setIsActive, handleNotifyModal, nav, applicationClosedState])
-
+    }, [handleLoginModal, handleNotifyModal, nav, applicationClosedState]);
 
     return (
-        <div className={styles.login}>
-            <Button label="Login" type="secondary" className={styles.btn} onClick={() => setIsActive((prev) => !prev)} />
-            <Modal>
+        <div className={`modal_modal modal_content`}>
+            <div className="animate_modal_modal">
                 <section className={styles.ModalContainer}>
                     <div className={styles.close}>
-                        <img src={CloseAlt} alt="close" onClick={() => setIsActive((prev) => !prev)} />
+                        <img src={CloseAlt} alt="close" onClick={() => handleLoginModal((prev) => !prev)} />
                     </div>
                     <div className={styles.header}>
                         <img src={Hand} alt="hand" className={styles.hand} />
                         <div className={styles.headerText}>
                             <p className={styles.head}>{constant.HEADER}</p>
-                            <p className={styles.subHeader}>{constant.SUBHEADER}</p>
+                            <p className={styles.subHeader}>{constant.SUBHEADER(subText)}</p>
                         </div>
                     </div>
                     {!shouldContinue ? (
                         <>
                             <div>
-                                <Input placeholder="email" label={constant.EMAIL} />
+                                <Input
+                                    placeholder="email"
+                                    label={constant.EMAIL}
+                                    value={email}
+                                    onChange={(e) => setDetails((prev) => ({ ...prev, email: e.target.value }))}
+                                />
                                 {emailSent && <small className={styles.feedbackSuccess}>{emailSent}</small>}
                                 {newUser && <small className={styles.feedbackError}>{newUser}</small>}
                             </div>
                             <div className={styles.btnContainer}>
-                                {secondaryButton ? <Button
-                                    label={applicationClosedState ? "Notify me" : "Register"}
-                                    type="secondary"
-                                    onClick={handleSecondaryButton}
-                                /> : null}
+                                {secondaryButton ? (
+                                    <Button label={applicationClosedState ? 'Notify me' : 'Register'} type="secondary" onClick={handleSecondaryButton} />
+                                ) : null}
                                 <Button
                                     disabled={continueBtn}
                                     label={constant.CONTINUE}
@@ -121,15 +143,28 @@ export const LoginModal = () => {
                     ) : (
                         <>
                             <div>
-                                <Input placeholder="password" label={constant.PASSWORD} />
+                                <Input
+                                    type="password"
+                                    placeholder="password"
+                                    label={constant.PASSWORD}
+                                    value={password}
+                                    onChange={(e) => setDetails((prev) => ({ ...prev, password: e.target.value }))}
+                                />
                             </div>
                             <div className={styles.btnContainer}>
-                                <Button label={constant.SUBMIT} type="secondary" isLoading={loading} loaderSize="small" loaderVariant="neutral" />
+                                <Button
+                                    disabled={submitBtn}
+                                    label={constant.SUBMIT}
+                                    type="secondary"
+                                    isLoading={loading}
+                                    loaderSize="small"
+                                    loaderVariant="neutral"
+                                />
                             </div>
                         </>
                     )}
                 </section>
-            </Modal>
+            </div>
             <NotifyModal>
                 <NotifyMe />
             </NotifyModal>

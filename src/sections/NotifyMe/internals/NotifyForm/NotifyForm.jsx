@@ -61,7 +61,6 @@ export const NotifyForm = () => {
       email: userData.email,
       howDidYouHearAboutUs: howDidYouHear
     });
-    console.log(res);
     if (res.success) {
       setNotificationSuccess(true);
       setIsLoading(false);
