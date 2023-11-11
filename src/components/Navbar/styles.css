@@ -57,9 +57,14 @@ a {
   width: 75%;
 }
 
+.navAlt {
+  width: 65%;
+}
+
 .navContent {
   display: flex;
   gap: 32px;
+  margin-top: .35rem;
 }
 
 .navAction {

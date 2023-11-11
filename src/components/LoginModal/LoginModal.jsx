@@ -1,16 +1,16 @@
 import { useCallback, useEffect, useState } from 'react';
-import Button from '../Button';
 import styles from './LoginModal.module.css';
 import { ModalContext } from '../../context/ModalContext';
 import { useContext } from 'react';
 import { CloseAlt, Hand } from '../../assets';
 import { constant } from './internals/constants';
-import Input from '../Input';
-import { isApplicationWindowClosed } from '../../utils';
 import NotifyMe from '../../sections/NotifyMe';
 import NotifyModal from '../../sections/NotifyMe/internals/NotifyModal';
 import { useNavigate } from 'react-router-dom';
 import { checkEmail } from '../../utils/EmailChecker/emailChecker';
+import { isApplicationWindowClosed } from '../../utils';
+import EmailSection from './internals/EmailSection';
+import PasswordSection from './internals/PasswordSection';
 
 const userDetails = {
   email: '',
@@ -29,12 +29,14 @@ const disabledButtons = {
 };
 
 const mockedExpectations = {
-  existsInOldDatabase: false,
+  existsInOldDatabase: true,
   hasResetPassword: true
 };
 const { existsInOldDatabase, hasResetPassword } = mockedExpectations;
+
 export const LoginModal = () => {
   const nav = useNavigate();
+  const applicationClosedState = isApplicationWindowClosed();
   const { handleLoginModal } = useContext(ModalContext);
   const { handleNotifyModal } = useContext(ModalContext);
   const [shouldContinue, setShouldContinue] = useState(false);
@@ -44,7 +46,6 @@ export const LoginModal = () => {
   const [disabled, setDisabled] = useState(disabledButtons);
   const [subText, setSubText] = useState('Email');
   const [details, setDetails] = useState(userDetails);
-  const applicationClosedState = isApplicationWindowClosed();
   const { email, password } = details;
   const { emailSent, newUser } = feedback;
   const { continueBtn, submitBtn } = disabled;
@@ -115,61 +116,28 @@ export const LoginModal = () => {
               </div>
             </div>
             {!shouldContinue ? (
-              <>
-                <div>
-                  <Input
-                    placeholder="email"
-                    label={constant.EMAIL}
-                    value={email}
-                    onChange={(e) => setDetails((prev) => ({ ...prev, email: e.target.value }))}
-                  />
-                  {emailSent && <small className={styles.feedbackSuccess}>{emailSent}</small>}
-                  {newUser && <small className={styles.feedbackError}>{newUser}</small>}
-                </div>
-                <div className={styles.btnContainer}>
-                  {secondaryButton ? (
-                    <Button
-                      label={applicationClosedState ? 'Notify me' : 'Register'}
-                      type="secondary"
-                      onClick={handleSecondaryButton}
-                      className={styles.button}
-                    />
-                  ) : null}
-                  <Button
-                    disabled={continueBtn}
-                    label={constant.CONTINUE}
-                    type="secondary"
-                    onClick={handleContinue}
-                    isLoading={loading}
-                    loaderSize="small"
-                    loaderVariant="neutral"
-                    className={styles.button}
-                  />
-                </div>
-              </>
+              <EmailSection
+                applicationClosedState={applicationClosedState}
+                constant={constant}
+                continueBtn={continueBtn}
+                email={email}
+                emailSent={emailSent}
+                handleSecondaryButton={handleSecondaryButton}
+                handleContinue={handleContinue}
+                loading={loading}
+                newUser={newUser}
+                setDetails={setDetails}
+                secondaryButton={secondaryButton}
+              />
             ) : (
-              <>
-                <div>
-                  <Input
-                    type="password"
-                    placeholder="password"
-                    label={constant.PASSWORD}
-                    value={password}
-                    onChange={(e) => setDetails((prev) => ({ ...prev, password: e.target.value }))}
-                  />
-                </div>
-                <div className={styles.btnContainer}>
-                  <Button
-                    disabled={submitBtn}
-                    label={constant.SUBMIT}
-                    type="secondary"
-                    isLoading={loading}
-                    loaderSize="small"
-                    loaderVariant="neutral"
-                    className={styles.button}
-                  />
-                </div>
-              </>
+              <PasswordSection
+                constant={constant}
+                handleLoginModal={handleLoginModal}
+                loading={loading}
+                password={password}
+                setDetails={setDetails}
+                submitBtn={submitBtn}
+              />
             )}
           </section>
         </div>

@@ -8,21 +8,31 @@ const NavbarAmbassadorNavs = ({ showMenu, closeMenu }) => {
   const { NAVBAR_LINKS_ID } = TestId;
   return (
     <>
-      <nav className="navbarNavs" data-testid={NAVBAR_LINKS_ID}>
-        {NAVBAR_AMBASSADOR_LINKS.map((link) => (
-          <HashLink key={link.label} to={{ pathname: link.path, hash: link.hash }}>
-            {link.label === 'Apply Now' ? <Button label={link.label} type={'secondary'} /> : link.label}
-          </HashLink>
-        ))}
+      <nav className="navbarNavs navAlt" data-testid={NAVBAR_LINKS_ID}>
+        <div className="navContent">
+          {NAVBAR_AMBASSADOR_LINKS.map((link) => (
+            <HashLink key={link.label} to={{ pathname: link.path, hash: link.hash }}>
+              {link.label}
+            </HashLink>
+          ))}
+        </div>
+        <HashLink to={{ pathname: '/ambassador-program', hash: '#apply-now' }}>
+          <Button label="Apply now" type={'secondary'} className="navBtn" />
+        </HashLink>
       </nav>
 
       {showMenu ? (
         <nav className="mobile-nav">
-          {NAVBAR_AMBASSADOR_LINKS.map((link) => (
-            <HashLink key={link.label} to={{ pathname: link.path, hash: link.hash }} onClick={() => closeMenu(!showMenu)}>
-              {link.label}
-            </HashLink>
-          ))}
+          <div className='mobile-links'>
+            {NAVBAR_AMBASSADOR_LINKS.map((link) => (
+              <HashLink key={link.label} to={{ pathname: link.path, hash: link.hash }} onClick={() => closeMenu(!showMenu)}>
+                {link.label}
+              </HashLink>
+            ))}
+          </div>
+          <HashLink to={{ pathname: '/ambassador-program', hash: '#apply-now' }}>
+            <Button label="Apply now" type={'secondary'} className="navBtn" onClick={() => closeMenu(!showMenu)} />
+          </HashLink>
         </nav>
       ) : (
         <nav className="mobile-nav out" />
