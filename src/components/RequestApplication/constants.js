@@ -6,7 +6,8 @@ export const supportType = (category, support) => {
 export const constant = {
   SUBTITLE: 'Stipend Request -',
   TEXT: `Please answer the questions here and provide as much 
-    details as you can to increase your chances with your application.`
+    details as you can to increase your chances with your application.`,
+  UNDER_REVIEW: "** YOUR APPLICATION IS UNDER REVIEW AND CANNOT BE EDITTED"
 };
 
 export const laptopConstants = {

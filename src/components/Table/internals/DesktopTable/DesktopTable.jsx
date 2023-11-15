@@ -37,7 +37,7 @@ export const DesktopTable = ({ entries, tableHead, oneClickApply }) => {
                 <td>{getFormattedTime(itm?.createdAt)}</td>
                 {tableHead[5] && (
                   <td className={idx === lastItem ? `${styles.lastColumn}` : undefined}>
-                    <button className={styles.btn} onClick={() => oneClickApply()}>
+                    <button className={styles.btn} onClick={() => oneClickApply(itm?.id)}>
                       {Action}
                     </button>
                   </td>

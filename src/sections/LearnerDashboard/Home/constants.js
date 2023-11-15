@@ -1,0 +1,50 @@
+export const appHistory = [
+  {
+    id: 2184,
+    userId: 4054,
+    email: '16-55eh116@students.unilorin.edu.ng',
+    stipendCategory: 'course',
+    reasonForRequest: 'N/A',
+    stepsTakenToEaseProblem: 'N/A',
+    potentialBenefits: 'N/A',
+    futureHelpFromUser: 'N/A',
+    isApproved: false,
+    isReceived: true,
+    isDenied: false,
+    hasReceivedStipendBefore: false,
+    createdAt: '2023-09-01T20:39:33.000Z',
+    updatedAt: '2023-09-01T20:39:33.000Z'
+  },
+  {
+    id: 3184,
+    userId: 4054,
+    email: '16-55eh116@students.unilorin.edu.ng',
+    stipendCategory: 'laptop',
+    reasonForRequest: 'I need a new laptop so as to increase my productivity',
+    stepsTakenToEaseProblem: 'I need a new laptop so as to increase my productivity',
+    potentialBenefits: 'I need a new laptop so as to increase my productivity',
+    futureHelpFromUser: 'I need a new laptop so as to increase my productivity',
+    isApproved: true,
+    isReceived: true,
+    isDenied: false,
+    hasReceivedStipendBefore: false,
+    createdAt: '2023-10-01T11:25:33.000Z',
+    updatedAt: '2023-10-01T11:25:33.000Z'
+  },
+  {
+    id: 4184,
+    userId: 4054,
+    email: '16-55eh116@students.unilorin.edu.ng',
+    stipendCategory: 'data',
+    reasonForRequest: 'The reason for the request is that I need data for completing my courses on udemy',
+    stepsTakenToEaseProblem: 'The reason for the request is that I need data for completing my courses on udemy',
+    potentialBenefits: 'The reason for the request is that I need data for completing my courses on udemy',
+    futureHelpFromUser: 'The reason for the request is that I need data for completing my courses on udemy',
+    isApproved: false,
+    isReceived: true,
+    isDenied: true,
+    hasReceivedStipendBefore: true,
+    createdAt: '2023-11-06T17:19:33.000Z',
+    updatedAt: '2023-11-06T17:19:33.000Z'
+  }
+];

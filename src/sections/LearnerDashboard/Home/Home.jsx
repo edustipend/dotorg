@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './Home.module.css';
-import { Quote, TestId, constants, submissionTableHead, submitted, tableHead } from './internals/constants';
+import { Quote, TestId, back, constants, submissionTableHead, submitted, tableHead } from './internals/constants';
 import hand from '../../../assets/waving hand.png';
 import { tab } from './internals/constants';
 import Button from '../../../components/Button';
@@ -10,7 +10,8 @@ import { getData, postData } from '../../../services/ApiClient';
 import { useDispatch, useSelector } from 'react-redux';
 import { Step2Application } from '../../../components/ApplicationSteps/Step2Application/Step2Application';
 import { benefits, category, futureHelp, reason, setActiveStep, steps } from '../../../store/reducers/ApplicationReducer';
-import { isApplicationWindowClosed } from '../../../utils';
+import { hasUserApplied, isApplicationWindowClosed } from '../../../utils';
+import { appHistory } from './constants';
 const { dashboard } = constants;
 
 export const Home = () => {
@@ -19,6 +20,8 @@ export const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [data, setData] = useState([]);
+  const [oneClickData, setOneClickData] = useState([]);
+  const [hasApplied, setHasApplied] = useState(false);
   const dispatch = useDispatch();
   const nav = useNavigate();
   const isWindowClosed = isApplicationWindowClosed();
@@ -42,39 +45,68 @@ export const Home = () => {
   const getUserData = useCallback(async () => {
     try {
       const response = await getData(`user/application-history/search?id=${id}`);
-      setData(response.message);
+      console.log(response);
+      // using mocked data here
+      setData(appHistory);
+      setHasApplied(hasUserApplied(appHistory));
+      // setData(response.message);
+      // setHasApplied(hasUserApplied(response.message));
     } catch (error) {
       console.log(error);
     }
   }, [id]);
 
-  const getSubmittedData = useCallback(async () => {
-    try {
-      const response = await getData(`user/one-click-apply/${email}`);
-      const { stipendCategory, reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser } = response.message;
+  // const getSubmittedData = async () => {
+  //   try {
+  //     // const response = await getData(`user/one-click-apply/${email}`);
+  //     // console.log(response);
+  //     const { stipendCategory, reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser } = oneClickData[0];
+  //     // const { stipendCategory, reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser } = response.message;
 
-      const categoryData =
-        stipendCategory === 'laptop'
-          ? 'Laptop/Learning Device'
-          : stipendCategory === 'course'
-          ? 'Course/Certification Fees'
-          : stipendCategory === 'data'
-          ? 'Data/Internet Subscription'
-          : 'Laptop/Learning Device';
+  //     const categoryData =
+  //       stipendCategory === 'laptop'
+  //         ? 'Laptop/Learning Device'
+  //         : stipendCategory === 'course'
+  //         ? 'Course/Certification Fees'
+  //         : stipendCategory === 'data'
+  //         ? 'Data/Internet Subscription'
+  //         : 'Laptop/Learning Device';
 
-      dispatch(category(categoryData));
-      dispatch(reason(reasonForRequest));
-      dispatch(steps(stepsTakenToEaseProblem));
-      dispatch(benefits(potentialBenefits));
-      dispatch(futureHelp(futureHelpFromUser));
-    } catch (error) {
-      console.log(error);
-    }
-  }, [email, dispatch]);
+  //     dispatch(category(categoryData));
+  //     dispatch(reason(reasonForRequest));
+  //     dispatch(steps(stepsTakenToEaseProblem));
+  //     dispatch(benefits(potentialBenefits));
+  //     dispatch(futureHelp(futureHelpFromUser));
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
-  const handleOneClick = () => {
+  const handleOneClick = (id) => {
+    console.log(id);
+    const filteredData = appHistory.filter((item) => item.id === id);
+    console.log(filteredData);
+    setOneClickData(filteredData);
+    console.log(oneClickData);
+
+    const { stipendCategory, reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser } = filteredData[0];
+    const categoryData =
+      stipendCategory === 'laptop'
+        ? 'Laptop/Learning Device'
+        : stipendCategory === 'course'
+        ? 'Course/Certification Fees'
+        : stipendCategory === 'data'
+        ? 'Data/Internet Subscription'
+        : 'Laptop/Learning Device';
+
+    dispatch(category(categoryData));
+    dispatch(reason(reasonForRequest));
+    dispatch(steps(stepsTakenToEaseProblem));
+    dispatch(benefits(potentialBenefits));
+    dispatch(futureHelp(futureHelpFromUser));
+
+    // getSubmittedData();
     setApplicationTable(!applicationTable);
-    getSubmittedData();
   };
 
   const handleSubmit = async () => {
@@ -141,7 +173,7 @@ export const Home = () => {
           {(() => {
             switch (currentTable) {
               case 0:
-                return <Table entries={data} tableHead={tableHead} oneClickApply={handleOneClick} />;
+                return <Table entries={[data[data.length - 1]]} tableHead={tableHead} oneClickApply={handleOneClick} />;
               case 1:
                 return <Table entries={data} tableHead={tableHead} oneClickApply={handleOneClick} />;
               default:
@@ -155,14 +187,16 @@ export const Home = () => {
           <section className={styles.table}>
             <div className={styles.tabs}>
               <button className={styles.tab}>{submitted}</button>
+              <button className={`${styles.tab} ${styles.tabAlt}`} onClick={() => setApplicationTable((prev) => !prev)}>
+                {back}
+              </button>
             </div>
-            <Table entries={data} tableHead={submissionTableHead} />
+            <Table entries={oneClickData} tableHead={submissionTableHead} />
             <Step2Application />
           </section>
           <div className={styles.buttonContainer}>
-            <Button label="Back" type="plain" onClick={() => setApplicationTable((prev) => !prev)} />
             <Button
-              disabled={isWindowClosed}
+              disabled={isWindowClosed || hasApplied}
               label="Submit Application"
               type="secondary"
               effectAlt
@@ -177,7 +211,7 @@ export const Home = () => {
       )}
       {applicationTable && (
         <div className={styles.buttonContainer}>
-          <Button disabled={isWindowClosed} label="New Stipend Application" type="secondary" effectAlt onClick={handleNewRequest} />
+          <Button disabled={isWindowClosed || hasApplied} label="New Stipend Application" type="secondary" effectAlt onClick={handleNewRequest} />
         </div>
       )}
     </div>

@@ -4,14 +4,21 @@ import ContentContainer from '../../../../components/ApplicationSteps/ContentCon
 import CategoryHeader from '../CategoryHeader';
 import QuestionAndAnswer from '../QuestionAndAnswer';
 import styles from './LaptopStipend.module.css';
-import { laptopConstants } from '../../constants';
+import { constant, laptopConstants } from '../../constants';
 import Quote from '../../../../components/Quote';
 import { reason, steps, benefits, futureHelp } from '../../../../store/reducers/ApplicationReducer';
 import Navigator from '../Navigator';
+import { useLocation } from 'react-router-dom';
+import { isApplicationWindowClosed } from '../../../../utils';
 
 const { TITLE, SUPPORT_TYPE, QUOTE, QUESTION1, QUESTION2, QUESTION3, QUESTION4, FOOT_NOTE1, FOOT_NOTE2, FOOT_NOTE3, FOOT_NOTE4 } = laptopConstants;
 
 export const LaptopStipend = () => {
+  const { pathname } = useLocation();
+  const isDashboard = pathname.includes('/dashboard');
+  const isWindowClosed = isApplicationWindowClosed();
+
+  const showUnderReview = isWindowClosed && isDashboard;
   const { reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser } = useSelector((state) => state.application);
 
   return (
@@ -20,6 +27,11 @@ export const LaptopStipend = () => {
         <section className={styles.main}>
           <CategoryHeader header={TITLE} category={TITLE} support={SUPPORT_TYPE} />
           <QuestionAndAnswer value={reasonForRequest} dispatchType={reason} number={1} question={QUESTION1} />
+          {showUnderReview && (
+            <div className={styles.review}>
+              <p>{constant.UNDER_REVIEW}</p>
+            </div>
+          )}
         </section>
         <p className={styles.footNote}>{FOOT_NOTE1}</p>
       </ContentContainer>

@@ -3,15 +3,22 @@ import { useSelector } from 'react-redux';
 import ContentContainer from '../../../../components/ApplicationSteps/ContentContainer';
 import CategoryHeader from '../CategoryHeader';
 import QuestionAndAnswer from '../QuestionAndAnswer';
-import { dataConstants } from '../../constants';
+import { constant, dataConstants } from '../../constants';
 import styles from '../LaptopStipend/LaptopStipend.module.css';
 import Quote from '../../../../components/Quote';
 import { reason, steps, benefits, futureHelp } from '../../../../store/reducers/ApplicationReducer';
 import Navigator from '../Navigator';
+import { useLocation } from 'react-router-dom';
+import { isApplicationWindowClosed } from '../../../../utils';
 
 const { TITLE, SUPPORT_TYPE, FOOT_NOTE1, FOOT_NOTE2, FOOT_NOTE3, FOOT_NOTE4, QUESTION1, QUESTION2, QUESTION3, QUESTION4, QUOTE } = dataConstants;
 
 export const DataStipend = () => {
+  const { pathname } = useLocation();
+  const isDashboard = pathname.includes('/dashboard');
+  const isWindowClosed = isApplicationWindowClosed();
+
+  const showUnderReview = isWindowClosed && isDashboard;
   const { reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser } = useSelector((state) => state.application);
   return (
     <div className={styles.stipend}>
@@ -19,6 +26,11 @@ export const DataStipend = () => {
         <section className={styles.main}>
           <CategoryHeader header={TITLE} category={TITLE} support={SUPPORT_TYPE} />
           <QuestionAndAnswer value={reasonForRequest} dispatchType={reason} number={1} question={QUESTION1} />
+          {showUnderReview && (
+            <div className={styles.review}>
+              <p>{constant.UNDER_REVIEW}</p>
+            </div>
+          )}
         </section>
         <p className={styles.footNote}>{FOOT_NOTE1}</p>
       </ContentContainer>

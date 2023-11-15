@@ -70,7 +70,7 @@ export const MobileTable = ({ entries, tableHead, oneClickApply }) => {
             <tr>
               <td className={`${styles.head} ${styles.headAlt} ${styles.row1}`}>{tableHead[5]}</td>
               <td className={`${styles.row} ${styles.rowAlt} ${styles.row2}`}>
-                <button className={styles.btn} onClick={() => oneClickApply()}>
+                <button className={styles.btn} onClick={() => oneClickApply(currentEntry?.id)}>
                   {currentEntry && Action}
                 </button>
               </td>
