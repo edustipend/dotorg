@@ -5,42 +5,35 @@ import Button from '../../../Button';
 import Input from '../../../Input';
 
 export const EmailSection = ({
-    applicationClosedState,
     constant,
     continueBtn,
+    disabled,
     email,
-    emailSent,
-    handleSecondaryButton,
     handleContinue,
     loading,
-    newUser,
+    password,
     setDetails,
-    secondaryButton
 }) => {
 
     return (
         <>
-            <div>
+            <div className={styles.emailSection}>
                 <Input
                     placeholder="email"
                     label={constant.EMAIL}
                     value={email}
                     onChange={(e) => setDetails((prev) => ({ ...prev, email: e.target.value }))}
                 />
-                {emailSent && <small className={styles.feedbackSuccess}>{emailSent}</small>}
-                {newUser && <small className={styles.feedbackError}>{newUser}</small>}
+                <Input
+                    placeholder="email"
+                    label={constant.PASSWORD}
+                    value={password}
+                    onChange={(e) => setDetails((prev) => ({ ...prev, password: e.target.value }))}
+                />
             </div>
             <div className={styles.btnContainer}>
-                {secondaryButton ? (
-                    <Button
-                        label={applicationClosedState ? 'Notify me' : 'Register'}
-                        type="secondary"
-                        onClick={handleSecondaryButton}
-                        className={styles.button}
-                    />
-                ) : null}
                 <Button
-                    disabled={continueBtn}
+                    disabled={disabled}
                     label={constant.CONTINUE}
                     type="secondary"
                     onClick={handleContinue}
@@ -55,29 +48,23 @@ export const EmailSection = ({
 };
 
 EmailSection.propTypes = {
-    applicationClosedState: PropTypes.bool,
     constant: PropTypes.object,
     continueBtn: PropTypes.func,
+    disabled: PropTypes.bool,
     email: PropTypes.string,
-    emailSent: PropTypes.string,
-    handleSecondaryButton: PropTypes.func,
     handleContinue: PropTypes.func,
+    password: PropTypes.string,
     loading: PropTypes.bool,
-    newUser: PropTypes.string,
     setDetails: PropTypes.func,
-    secondaryButton: PropTypes.func
 };
 
 EmailSection.defaultProps = {
-    applicationClosedState: null,
     constant: {},
     continueBtn: (e) => e,
     email: '',
-    emailSent: '',
-    handleSecondaryButton: () => { },
+    password: '',
     handleContinue: (e) => e,
     loading: false,
-    newUser: '',
+    disabled: false,
     setDetails: () => { },
-    secondaryButton: (e) => e
 }

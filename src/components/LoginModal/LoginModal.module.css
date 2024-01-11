@@ -90,6 +90,12 @@
     font-weight: 500;
 }
 
+.emailSection {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
 @media all and (orientation: landscape) {
     @media screen and (max-height: 800px) {
         .ModalContainer {

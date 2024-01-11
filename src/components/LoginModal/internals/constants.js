@@ -4,7 +4,7 @@ export const constant = {
   SUBHEADER: (text) => `Let’s log you back in! Please input your ${text}`,
   CONTINUE: 'Continue',
   SUBMIT: 'Submit',
-  EMAIL: 'Email Address',
+  EMAIL: 'Email',
   PASSWORD: 'Password',
   FORGOT: 'Forgot Password?',
   EMAIL_SENT: `An email has been sent, kindly reset your password.`,
