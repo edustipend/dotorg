@@ -49,10 +49,55 @@ a {
 }
 
 .navbarNavs {
-  display: inline-flex;
+  display: flex;
+  justify-content: space-between;
   height: 24.24px;
   align-items: center;
   gap: 32px;
+  width: 75%;
+}
+
+.navAlt {
+  width: 65%;
+}
+
+.navContent {
+  display: flex;
+  gap: 32px;
+  margin-top: .35rem;
+}
+
+.navAction {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.navBtn {
+  width: 175px;
+  height: 40px;
+  padding: 14px;
+  font-size: 15.5px;
+  font-weight: 600;
+}
+
+.mobile-nav {
+  padding: 2rem 1.5rem;
+  display: flex;
+}
+
+.mobile-nav-btn {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.mobile-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
 }
 
 .navbarNavs a,
@@ -154,7 +199,7 @@ a {
   }
 }
 
-@media only screen and (max-width: 1100px) {
+@media only screen and (max-width: 1350px) {
   .navbar {
     padding: 20px 40px;
   }
@@ -187,24 +232,16 @@ a {
   .mobile-nav.out {
     transform: translateX(-200vw);
   }
-
-  .mobile-nav > div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .mobile-nav a {
-    margin-left: 60px;
-  }
-
-  .mobile-nav a:first-of-type {
-    margin-top: 60px;
-  }
 }
 
 @media only screen and (max-width: 480px) {
   .navbar {
     padding: 20px 15px;
+  }
+}
+
+@media screen and (min-width: 1550px) {
+  .navbarNavs {
+    width: 65%;
   }
 }
