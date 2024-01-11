@@ -118,6 +118,12 @@ export const Step4Application = () => {
     dispatch(progress());
   };
 
+  //set the date picker to only consider those from 16 and above.
+  const minage = 16
+  const minDate = new Date();
+  minDate.setFullYear(minDate.getFullYear() - minage);
+  const minDateStr = minDate.toISOString().split('T')[0];
+
   return (
     <>
       <ContentContainer>
@@ -148,6 +154,7 @@ export const Step4Application = () => {
                     label={DOB}
                     value={dateOfBirth}
                     type="date"
+                    max={minDateStr}
                     className={`${styles.input}`}
                     onChange={(e) => dispatch(dateofbirth(e.target.value))}
                   />
