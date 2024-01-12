@@ -4,15 +4,13 @@ import Button from '../Button';
 import { BUTTON_TYPE, NAVBAR_LINKS, TestId } from './constants';
 import './styles.css';
 import useHandleCTAClick from '../../hooks/useHandleCTAClick';
+import { useNavigate } from 'react-router-dom';
 // import LoginModal from '../LoginModal';
-import { useContext } from 'react';
-import { ModalContext } from '../../context/ModalContext';
 
 const { NAVBAR_LINKS_ID } = TestId;
-
 const NavbarNavs = ({ showMenu, closeMenu }) => {
+  const nav = useNavigate();
   const { buttonLabel, handleCTAClick, id } = useHandleCTAClick();
-  const { handleLoginModal } = useContext(ModalContext);
 
   return (
     <>
@@ -32,7 +30,7 @@ const NavbarNavs = ({ showMenu, closeMenu }) => {
               className="navBtn"
               onClick={() => {
                 closeMenu(!showMenu);
-                handleLoginModal((prev) => !prev);
+                nav('/login');
               }}
             />
           ) : null}
@@ -66,7 +64,7 @@ const NavbarNavs = ({ showMenu, closeMenu }) => {
                 className="navBtn"
                 onClick={() => {
                   closeMenu(!showMenu);
-                  handleLoginModal((prev) => !prev);
+                  nav('/login');
                 }}
               />
             ) : null}

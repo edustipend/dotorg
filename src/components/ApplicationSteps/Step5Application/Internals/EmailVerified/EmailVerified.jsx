@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useContext, useState } from 'react';
-import jwt_decode from 'jwt-decode';
+import { jwtDecode } from 'jwt-decode';
 import { useNavigate } from 'react-router-dom';
 import { ModalContext } from '../../../../../context/ModalContext';
 import { useDispatch, useSelector } from 'react-redux';
@@ -39,7 +39,7 @@ export const EmailVerified = () => {
 
       if (res.success) {
         //decode the token response on success
-        const decodedToken = jwt_decode(res.token);
+        const decodedToken = jwtDecode(res.token);
         setLoading(false);
         dispatch(emailVerification(true));
         dispatch(storeUser(decodedToken));

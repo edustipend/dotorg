@@ -4,7 +4,6 @@ import { TestId } from './constants';
 const { LABEL_ID, INPUT_ID } = TestId;
 
 export const Input = ({ placeholder, label, includeLabel, value, type, size, className, ...props }) => {
-
   return (
     <section className={styles.main}>
       {includeLabel ? (

@@ -31,11 +31,12 @@ const SuccessDisplay = () => {
 };
 
 export const NotifyForm = () => {
-  const { HowDidYouHear } = useSelector((state) => state.userDetails);
+  const { howDidYouHear } = useSelector((state) => state.userDetails);
   const initialValue = {
     name: '',
     email: ''
   };
+
   const { isLoading, setIsLoading } = useContext(ModalContext);
   const [userData, setUserData] = useState(initialValue);
   const [disabled, setDisabled] = useState(true);
@@ -45,12 +46,12 @@ export const NotifyForm = () => {
 
   //validate email and check if the fullname is atleast > 2
   useEffect(() => {
-    if (REGEXP_EMAIL.test(email) && name.length > 2 && REFERRAL_SOURCES.includes(HowDidYouHear)) {
+    if (REGEXP_EMAIL.test(email) && name.length > 2 && REFERRAL_SOURCES.includes(howDidYouHear)) {
       setDisabled(false);
     } else {
       setDisabled(true);
     }
-  }, [email, name, HowDidYouHear]);
+  }, [email, name, howDidYouHear]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -59,7 +60,7 @@ export const NotifyForm = () => {
     const res = await postData('waitlist/join-waitlist', {
       name: userData.name,
       email: userData.email,
-      howDidYouHearAboutUs: HowDidYouHear
+      howDidYouHearAboutUs: howDidYouHear
     });
     console.log(res);
     if (res.success) {
@@ -76,7 +77,7 @@ export const NotifyForm = () => {
       {notificationSuccess ? (
         <SuccessDisplay />
       ) : (
-        <div>
+        <div className={styles.content}>
           <div className={styles.top}>
             <div className={styles.head}>
               <div className={styles.bellContainer}>
@@ -116,7 +117,7 @@ export const NotifyForm = () => {
             </div>
             {errorMessage && <small className={styles.error}>{errorMessage}</small>}
             <div className={styles.formField}>
-              <Select value={HowDidYouHear} label={REASON} dispatchType={howdidyouhear} options={REFERRAL_SOURCES} />
+              <Select value={howDidYouHear} label={REASON} dispatchType={howdidyouhear} options={REFERRAL_SOURCES} />
             </div>
             <section className={styles.buttonContainer}>
               <Button

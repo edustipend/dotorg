@@ -23,7 +23,7 @@ const NavbarAmbassadorNavs = ({ showMenu, closeMenu }) => {
 
       {showMenu ? (
         <nav className="mobile-nav">
-          <div className='mobile-links'>
+          <div className="mobile-links">
             {NAVBAR_AMBASSADOR_LINKS.map((link) => (
               <HashLink key={link.label} to={{ pathname: link.path, hash: link.hash }} onClick={() => closeMenu(!showMenu)}>
                 {link.label}

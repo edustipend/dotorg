@@ -13,6 +13,7 @@ import { useScrollToTop } from './ScrollToTop/ScrollToTop';
 import LoadingMessage from './components/LoadingMessage';
 import useDetectInternet from './hooks/useDetectInternet';
 import NoInternet from './components/NoInternet/NoInternet';
+import { Toaster } from "react-hot-toast";
 initFirebaseApp();
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
   return isOnline ? (
     <>
       {scrollOnRoute}
+      <Toaster position="top-center" reverseOrder={false} />
       <Navbar />
       <Routes />
       <Footer />

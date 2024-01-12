@@ -25,7 +25,7 @@ export const NAVBAR_AMBASSADOR_LINKS = [
     label: 'Eligibility',
     path: '/ambassador-program',
     hash: '#eligibility'
-  },
+  }
 ];
 
 export const BUTTON_LABEL = 'Request stipend';
