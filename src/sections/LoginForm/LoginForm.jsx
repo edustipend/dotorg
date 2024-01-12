@@ -34,7 +34,7 @@ export const LoginForm = () => {
     setisLoading(true);
 
     try {
-      const res = await postData('login', {
+      const res = await postData('v1/login', {
         username: email,
         password: password
       });
@@ -80,6 +80,7 @@ export const LoginForm = () => {
         loaderSize={SMALL}
         loaderVariant={NEUTRAL}
         onClick={handleSubmit}
+        className={styles.btn}
         type={SECONDARY}
       />
       <Link to={RESET}>

@@ -12,7 +12,7 @@ import { useNavigate } from 'react-router-dom';
 import { TestId } from './constants';
 import styles from './ResetPassword.module.css';
 
-const { HEADER, EMAIL, PASSWORD, CODE, CONFIRM_PASSWORD, PASSWORD_MIN_LENGTH_ERR, PASSWORD_MISMATCH } = constants;
+const { HEADER, PASSWORD, CONFIRM_PASSWORD, PASSWORD_MIN_LENGTH_ERR, PASSWORD_MISMATCH } = constants;
 const { COMPONENT_TEST, HEADER_TEST, BUTTON_TEST, MODAL_TEST, ERROR_TEST } = TestId;
 
 export const ResetPassword = () => {
@@ -76,10 +76,6 @@ export const ResetPassword = () => {
           </Header>
           <div className={styles.fields}>
             <div className={styles.field}>
-              <Input value={email} label={EMAIL} placeholder={EMAIL} readOnly />
-              <Input value={verificationCode} label={CODE} placeholder={CODE} readOnly />
-            </div>
-            <div className={styles.field}>
               <div className={styles.single}>
                 <Input type="password" value={password} label={PASSWORD} placeholder={PASSWORD} onChange={(e) => setPassword(e.target.value)} />
                 {passwordErr ? (
@@ -136,7 +132,7 @@ export const ResetPassword = () => {
                 label="Login"
                 type="secondary"
                 onClick={() => {
-                  nav(routesConstant.Login);
+                  nav(routesConstant.LOGIN);
                   setIsActive((prev) => !prev);
                 }}
               />
