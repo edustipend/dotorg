@@ -39,18 +39,21 @@ export const LoginForm = () => {
 
     try {
       const res = await postData('login', {
-        email: email,
+        username: email,
         password: password
       });
-
+      console.log(res, 'Res');
       if (!res.success) {
         setSuccess('');
         setError(res.message);
       }
-      if (res.response.success) {
+      if (res.success) {
+        console.log(res.token.split(' ')[1]);
         setError('');
-        const decodedToken = jwt_decode(res.response.token);
-        setSuccess(res.response.message);
+        const decodedToken = jwt_decode(res.token.split(' ')[1]);
+        console.log(decodedToken);
+        localStorage.setItem('userToken', res.token.split(' ')[1]);
+        setSuccess(res.message);
         dispatch(storeUser(decodedToken));
         navigate('/dashboard');
       }

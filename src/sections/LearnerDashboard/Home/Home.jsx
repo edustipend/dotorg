@@ -7,6 +7,7 @@ import Button from '../../../components/Button';
 import Table from '../../../components/Table';
 import { getData } from '../../../services/ApiClient';
 import { useSelector } from 'react-redux';
+import { checkTokenExp } from '../../../utils/checkTokenExp';
 const { dashboard } = constants;
 
 export const Home = () => {
@@ -15,7 +16,7 @@ export const Home = () => {
   const [singleEntry, setSingleEntry] = useState(history);
   const [data, setData] = useState([]);
 
-  const { name, id } = useSelector((state) => state.user);
+  const { name } = useSelector((state) => state.user);
   const [first] = name.split(' ');
 
   const handleOneClick = (id) => {
@@ -26,15 +27,19 @@ export const Home = () => {
 
   const getUserData = useCallback(async () => {
     try {
-      const response = await getData(`user/application-history/search?id=${id}`);
+      const response = await getData(`user/stipend/application-history`, {
+        userId: '65a08f0eeaac114e19937470'
+      });
+      console.log(response);
       setData([response.message]);
     } catch (error) {
       console.log(error);
     }
-  }, [id]);
+  }, []);
 
   useEffect(() => {
     getUserData();
+    checkTokenExp();
   }, [getUserData]);
 
   return (
