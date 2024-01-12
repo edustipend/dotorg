@@ -23,7 +23,26 @@ function App() {
   return isOnline ? (
     <>
       {scrollOnRoute}
-      <Toaster position="top-center" reverseOrder={false} />
+      <Toaster toastOptions={
+        {
+          style: {
+            maxWidth: '700px',
+            padding: '12px 16px',
+            fontSize: '17px',
+            fontWeight: '400'
+          },
+          error: {
+            style: {
+              color: 'red'
+            }
+          },
+          success: {
+            style: {
+              color: 'green',
+            }
+          }
+        }
+      } position="top-center" reverseOrder={false} />
       <Navbar />
       <Routes />
       <Footer />
