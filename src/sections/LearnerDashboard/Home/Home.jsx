@@ -1,38 +1,38 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import styles from './Home.module.css';
-import { Quote, TestId, constants, history, recent, submissionTableHead, submitted, tableHead } from './internals/constants';
+import { Quote, TestId, constants, submissionTableHead, submitted, tableHead } from './internals/constants';
 import hand from '../../../assets/waving hand.png';
 import { tab } from './internals/constants';
 import Button from '../../../components/Button';
 import Table from '../../../components/Table';
-import { getData } from '../../../services/ApiClient';
+import { postData } from '../../../services/ApiClient';
 import { useSelector } from 'react-redux';
-import { checkTokenExp } from '../../../utils/checkTokenExp';
 const { dashboard } = constants;
 
 export const Home = () => {
   const [currentTable, setCurrentTable] = useState(0);
   const [applicationTable, setApplicationTable] = useState(true);
-  const [singleEntry, setSingleEntry] = useState(history);
+  const [singleEntry, setSingleEntry] = useState([]);
   const [data, setData] = useState([]);
 
   const { name, userId } = useSelector((state) => state.user);
-  console.log(userId);
   const [first] = name.split(' ');
 
   const handleOneClick = (id) => {
+    console.log(id);
     setApplicationTable(!applicationTable);
-    const active = currentTable === 0 ? recent : recent;
-    setSingleEntry(active.filter((entry) => entry.id === id));
+    setSingleEntry(data?.filter((entry) => entry._id === id));
+    console.log(singleEntry);
+    console.log(data?.filter((entry) => entry._id === id));
   };
 
   const getUserData = useCallback(async () => {
     try {
-      const response = await getData(`user/stipend/application-history`, {
+      const response = await postData(`user/stipend/application-history`, {
         userId
-      }, true);
+      });
       console.log(response);
-      setData([response.message]);
+      setData(response.data);
     } catch (error) {
       console.log(error);
     }
@@ -40,7 +40,6 @@ export const Home = () => {
 
   useEffect(() => {
     getUserData();
-    checkTokenExp();
   }, [getUserData]);
 
   return (

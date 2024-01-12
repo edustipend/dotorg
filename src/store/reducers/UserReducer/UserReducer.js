@@ -4,7 +4,8 @@ export const initialState = {
   email: '',
   userId: null,
   isAdmin: false,
-  name: ''
+  name: '',
+  isAuthenticated: false
 };
 
 const user = createSlice({
@@ -23,9 +24,13 @@ const user = createSlice({
       state.userId = null;
       state.isAdmin = false;
       state.name = '';
+      state.isAuthenticated = false;
+    },
+    isAuthenticated: (state, action) => {
+      state.isAuthenticated = action.payload;
     }
   }
 });
 
 export default user.reducer;
-export const { storeUser,logout } = user.actions;
+export const { storeUser, logout, isAuthenticated } = user.actions;

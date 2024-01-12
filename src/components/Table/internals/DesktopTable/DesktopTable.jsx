@@ -1,11 +1,10 @@
 import { getFormattedDate, getFormattedTime } from '../../../../utils/dateTimeUtils/dateTimeUtil';
 import styles from './DesktopTable.module.css';
 import PropTypes from 'prop-types';
-// import { applicationStatus } from '../constants';
-// const { APPROVED, IN_VIEW, RECEIVED, DENIED } = applicationStatus;
+import { applicationStatus } from '../constants';
+const { APPROVED, IN_VIEW, RECEIVED, DENIED } = applicationStatus;
 
 export const DesktopTable = ({ entries, tableHead, oneClickApply }) => {
-  const status = 'IN REVIEW';
   const lastItem = entries?.length - 1;
   return (
     <section className={styles.Main}>
@@ -30,27 +29,25 @@ export const DesktopTable = ({ entries, tableHead, oneClickApply }) => {
                 <td>
                   <span
                     className={
-                      // Application_Status === `${APPROVED}`
-                      //   ? 'approved bold_weight'
-                      //   : Application_Status === `${IN_VIEW}`
-                      //     ? 'in_view bold_weight'
-                      //     : Application_Status === `${RECEIVED}`
-                      //       ? 'in_view bold_weight'
-                      //       : Application_Status === `${DENIED}`
-                      //         ? 'denied bold_weight'
-                      //         : ''
-                      'Received'
-                    }
-                  >
-                    {status}
+                      itm?.status === `${APPROVED}`
+                        ? 'approved bold_weight'
+                        : itm?.status === `${IN_VIEW}`
+                        ? 'in_view bold_weight'
+                        : itm?.status === `${RECEIVED}`
+                        ? 'in_view bold_weight'
+                        : itm?.status === `${DENIED}`
+                        ? 'denied bold_weight'
+                        : ''
+                    }>
+                    {itm?.status}
                   </span>
                 </td>
                 <td>{getFormattedDate(itm?.createdAt)}</td>
                 <td>{getFormattedTime(itm?.createdAt)}</td>
                 {tableHead[5] && (
                   <td className={idx === lastItem ? `${styles.lastColumn}` : undefined}>
-                    <button className={styles.btn} onClick={() => oneClickApply(idx + 1)}>
-                      {itm?.Action}
+                    <button className={styles.btn} onClick={() => oneClickApply(itm?._id)}>
+                      View Submission
                     </button>
                   </td>
                 )}
