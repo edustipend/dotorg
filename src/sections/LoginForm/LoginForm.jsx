@@ -11,11 +11,15 @@ import { Link, Navigate, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import Cookies from 'js-cookie';
 import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { storeUser } from '../../store/reducers/UserReducer';
+import { jwtDecode } from 'jwt-decode';
 const { EMAIL, EMAIL_PH, EMAIL_TYPE, PASSWORD, PASSWORD_PH, PASSWORD_TYPE, LOGIN, SECONDARY, NEUTRAL, SMALL, RESET } = parameters;
 
 export const LoginForm = () => {
   const [isLoading, setisLoading] = useState(false);
   const [email, setEmail] = useState('');
+  const dispatch = useDispatch();
   const [password, setPassword] = useState('');
   const [disable, setDisable] = useState(true);
   const { isAuthenticated } = useSelector((state) => state.user);
@@ -42,11 +46,14 @@ export const LoginForm = () => {
         toast.error('Invalid credentials');
       }
       if (res.success) {
-        Cookies.set('eduTk', res?.token.split(' ')[1], {
+        const token = res?.token.split(' ')[1];
+        const decode = jwtDecode(token);
+        Cookies.set('eduTk', token, {
           secure: true,
           sameSite: 'strict',
           expires: 14
         });
+        dispatch(storeUser(decode));
         setTimeout(() => {
           nav(0);
         }, 2000);
