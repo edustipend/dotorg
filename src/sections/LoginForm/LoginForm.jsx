@@ -11,6 +11,9 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import Cookies from 'js-cookie';
+import { storeUser } from '../../store/reducers/UserReducer';
+import { useDispatch } from 'react-redux';
+import { jwtDecode } from 'jwt-decode';
 const { EMAIL, EMAIL_PH, EMAIL_TYPE, PASSWORD, PASSWORD_PH, PASSWORD_TYPE, LOGIN, SECONDARY, NEUTRAL, SMALL, RESET } = parameters;
 
 export const LoginForm = () => {
@@ -19,6 +22,7 @@ export const LoginForm = () => {
   const [password, setPassword] = useState('');
   const [disable, setDisable] = useState(true);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (email.includes('@') && password.length > 5) {
@@ -41,15 +45,16 @@ export const LoginForm = () => {
         toast.error('Invalid credentials');
       }
       if (res.success) {
-        Cookies.set('eduTk', res?.token.split(' ')[1], {
+        const token = res?.token.split(' ')[1];
+        Cookies.set('eduTk', token, {
           secure: true,
           sameSite: 'strict',
           expires: 14
         });
+        const decodedToken = jwtDecode(token);
+        dispatch(storeUser(decodedToken));
         toast.success('Logged in successfully');
-        setTimeout(() => {
-          navigate('/dashboard');
-        }, 2000);
+        navigate('/dashboard');
       }
     } catch (error) {
       toast.error('Something went wrong');

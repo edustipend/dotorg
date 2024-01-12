@@ -4,6 +4,7 @@ import VerifyEmail from '../VerifyEmail';
 import SubmitUI from '../SubmitUI';
 import { successful, isError, errMessage } from '../../../../../store/reducers/ApplicationReducer';
 import { postData } from '../../../../../services/ApiClient';
+import { getStateIdentifier } from '../../../../../utils/getStateIdentifier';
 
 export const Submit = () => {
   const dispatch = useDispatch();
@@ -23,7 +24,7 @@ export const Submit = () => {
     password: password,
     dateOfBirth: dateOfBirth,
     gender: gender.toLowerCase(),
-    stateOfOrigin: stateOfOrigin.slice(0, 2).toUpperCase(),
+    stateOfOrigin: getStateIdentifier(stateOfOrigin),
     howDidYouHearAboutUs: howDidYouHear.toLowerCase(),
     stipendCategory: Category,
     reasonForRequest: reasonForRequest,
@@ -41,7 +42,7 @@ export const Submit = () => {
     try {
       if (res.success) {
         dispatch(successful(true));
-      } else if (!res.success) {
+      } else {
         dispatch(successful(false));
         dispatch(isError(true));
         dispatch(errMessage(res?.error?.message));
