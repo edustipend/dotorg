@@ -5,7 +5,10 @@ import Text from '../../../components/Text';
 import Header from '../../../components/Header';
 import star from '../../../assets/star-design.png';
 import { imgs } from '../constant';
+<<<<<<< HEAD
 import { Texts } from '../constant';
+=======
+>>>>>>> 8822c9c2abb87a6605290487cd79f0730f84cf8f
 
 export const TopSection = () => {
   return (
@@ -33,7 +36,12 @@ export const TopSection = () => {
             to={{
               pathname: '/ambassador-program',
               hash: '#apply-now'
+<<<<<<< HEAD
             }}>
+=======
+            }}
+          >
+>>>>>>> 8822c9c2abb87a6605290487cd79f0730f84cf8f
             <Button label={'Become an Ambassador'} type="secondary" />
           </NavHashLink>
         </div>

@@ -8,8 +8,7 @@ export default {
   component: LoginForm,
   tags: ['autodocs']
 };
-const mockStore = configureMockStore([
-]);
+const mockStore = configureMockStore([]);
 const store = mockStore({
   user: {
     name: 'Test User'

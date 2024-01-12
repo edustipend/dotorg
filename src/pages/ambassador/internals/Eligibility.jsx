@@ -56,7 +56,8 @@ export const Eligibility = () => {
               to={{
                 pathname: '/ambassador-program',
                 hash: '#apply-now'
-              }}>
+              }}
+            >
               <Button label={'Apply Now'} type="secondary" />
             </NavHashLink>
           </div>

@@ -2,7 +2,11 @@ import React from 'react';
 import Header from '../../../components/Header';
 import Text from '../../../components/Text';
 import '../styles.css';
+<<<<<<< HEAD
 import { Texts, requirementsData } from '../constant';
+=======
+import { requirementsData } from '../constant';
+>>>>>>> 8822c9c2abb87a6605290487cd79f0730f84cf8f
 
 export const Requirements = () => {
   return (

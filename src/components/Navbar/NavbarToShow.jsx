@@ -6,7 +6,10 @@ import NavbarAmbassadorNavs from './NavbarAmbassadorNavs';
 import { Menu, Close, Logout } from '../../assets/index';
 import './styles.css';
 import Text from '../Text';
-import { initialState, storeUser } from '../../store/reducers/UserReducer';
+import { logout } from '../../store/reducers/UserReducer';
+import { postData } from '../../services/ApiClient';
+import toast from 'react-hot-toast';
+import Cookies from 'js-cookie';
 
 export const NavbarToShow = () => {
   const [isToggle, setIsToggle] = useState(false);
@@ -29,9 +32,12 @@ export const NavbarToShow = () => {
     lastN = last ? last[0] : '';
   }
 
-  const handleLogout = () => {
-    dispatch(storeUser(initialState));
+  const handleLogout = async () => {
+    dispatch(logout());
+    Cookies.remove('eduTk');
     navigate('/login');
+    const response = await postData(`logout`, {}, false);
+    toast.success(response.message);
   };
 
   const showNav = () => !isDashboard && !isRequestStipend && !isLogin;

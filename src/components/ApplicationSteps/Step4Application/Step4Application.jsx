@@ -119,7 +119,7 @@ export const Step4Application = () => {
   };
 
   //set the date picker to only consider those from 16 and above.
-  const minage = 16
+  const minage = 16;
   const minDate = new Date();
   minDate.setFullYear(minDate.getFullYear() - minage);
   const minDateStr = minDate.toISOString().split('T')[0];

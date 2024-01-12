@@ -14,18 +14,7 @@ import Welcome from './sections/Welcome';
 import { routesConstant } from './routesConstant';
 import Login from './pages/login';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
-
-const {
-  AMBASSADOR_PROGRAM,
-  REQUEST,
-  APPLICATION,
-  FORGOT_PASSWORD,
-  RESET_PASSWORD,
-  WELCOME,
-  DASHBOARD,
-  AT_ONE,
-  LOGIN
-} = routesConstant;
+const { AMBASSADOR_PROGRAM, REQUEST, APPLICATION, FORGOT_PASSWORD, RESET_PASSWORD, WELCOME, DASHBOARD, AT_ONE, LOGIN } = routesConstant;
 
 const Routes = () => {
   return (
