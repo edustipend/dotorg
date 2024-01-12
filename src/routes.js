@@ -17,9 +17,13 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import Cookies from 'js-cookie';
 import { jwtDecode } from "jwt-decode";
 import { useMemo } from 'react';
+import { useDispatch } from 'react-redux';
+import { isAuthenticated } from './store/reducers/UserReducer';
 const { AMBASSADOR_PROGRAM, REQUEST, APPLICATION, FORGOT_PASSWORD, RESET_PASSWORD, WELCOME, DASHBOARD, AT_ONE, LOGIN } = routesConstant;
 
 const Routes = () => {
+  const dispatch = useDispatch();
+
 
   const checkToken = useMemo(() => {
     const token = Cookies.get("eduTk");
@@ -47,6 +51,8 @@ const Routes = () => {
     }
   }, [checkToken]);
 
+  dispatch(isAuthenticated(validateToken))
+
   return (
     <AppRoutes>
       <Route path={AMBASSADOR_PROGRAM} element={<AmbassadorPage />} />
@@ -64,7 +70,7 @@ const Routes = () => {
       <Route
         path={DASHBOARD}
         element={
-          <ProtectedRoute element={<LearnerDashboard />} isAuthenticated={validateToken}/>
+          <ProtectedRoute element={<LearnerDashboard />} isAuthenticated={validateToken} />
         }
       >
         <Route index element={<Home />} />
