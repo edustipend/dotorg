@@ -4,7 +4,6 @@ import Text from '../../../components/Text';
 import '../styles.css';
 import { requirementsData } from '../constant';
 
-
 export const Requirements = () => {
   return (
     <div className="requirement-main" id="requirements">

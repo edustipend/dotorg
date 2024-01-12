@@ -14,10 +14,6 @@ export const NAVBAR_LINKS = [
     to: '/',
     hash: '#how-it-works'
   }
-  // {
-  //   label: 'Support A Learner',
-  //   to: '/support-a-learner'
-  // }
 ];
 export const NAVBAR_AMBASSADOR_LINKS = [
   {
@@ -29,11 +25,6 @@ export const NAVBAR_AMBASSADOR_LINKS = [
     label: 'Eligibility',
     path: '/ambassador-program',
     hash: '#eligibility'
-  },
-  {
-    label: 'Apply Now',
-    path: '/ambassador-program',
-    hash: '#apply-now'
   }
 ];
 

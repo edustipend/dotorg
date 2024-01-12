@@ -22,37 +22,36 @@ export const Submit = () => {
     email: email,
     password: password,
     dateOfBirth: dateOfBirth,
-    gender: gender,
-    stateOfOrigin: stateOfOrigin,
-    howDidYouHearAboutUs: howDidYouHear
+    gender: gender.toLowerCase(),
+    stateOfOrigin: stateOfOrigin.slice(0, 2).toUpperCase(),
+    howDidYouHearAboutUs: howDidYouHear.toLowerCase(),
+    stipendCategory: Category,
+    reasonForRequest: reasonForRequest,
+    stepsTakenToEaseProblem: stepsTakenToEaseProblem,
+    potentialBenefits: potentialBenefits,
+    futureHelpFromUser: futureHelpFromUser
   };
 
   //Create the user and submit the stipend application
   const handleSubmit = async () => {
     setIsLoading(true);
-    const res = await postData('register', userInfo);
+    console.log(userInfo);
+    const res = await postData('user/stipend/apply', userInfo, false);
+    console.log(res);
     try {
       if (res.success) {
         dispatch(successful(true));
-        const applicationInfo = {
-          userId: res.id,
-          email: email,
-          stipendCategory: Category,
-          reasonForRequest: reasonForRequest,
-          stepsTakenToEaseProblem: stepsTakenToEaseProblem,
-          potentialBenefits: potentialBenefits,
-          futureHelpFromUser: futureHelpFromUser
-        };
-        await postData(`user/request-stipend`, applicationInfo);
       } else if (!res.success) {
         dispatch(successful(false));
         dispatch(isError(true));
-        dispatch(errMessage(res.error[0].email));
+        dispatch(errMessage(res?.error?.message));
       }
     } catch (error) {
-      setIsLoading(false);
       dispatch(successful(false));
       dispatch(isError(true));
+      dispatch(errMessage(error.messsage));
+    } finally {
+      setIsLoading(false);
     }
 
     // Promise.all(promise)

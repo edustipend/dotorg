@@ -6,7 +6,6 @@ import Header from '../../../components/Header';
 import star from '../../../assets/star-design.png';
 import { imgs } from '../constant';
 
-
 export const TopSection = () => {
   return (
     <div className="abs-top-main">
@@ -33,10 +32,9 @@ export const TopSection = () => {
             to={{
               pathname: '/ambassador-program',
               hash: '#apply-now'
-            }}>
-
+            }}
+          >
             <Button label={'Become an Ambassador'} type="secondary" />
-
           </NavHashLink>
         </div>
       </div>

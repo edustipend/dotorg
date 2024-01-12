@@ -7,6 +7,9 @@ import { Menu, Close, Logout } from '../../assets/index';
 import './styles.css';
 import Text from '../Text';
 import { initialState, storeUser } from '../../store/reducers/UserReducer';
+import { postData } from '../../services/ApiClient';
+import toast from 'react-hot-toast';
+import Cookies from 'js-cookie';
 
 export const NavbarToShow = () => {
   const [isToggle, setIsToggle] = useState(false);
@@ -29,8 +32,12 @@ export const NavbarToShow = () => {
     lastN = last ? last[0] : '';
   }
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
     dispatch(storeUser(initialState));
+    const response = await postData(`logout`, {}, false);
+    console.log(response);
+    toast.success(response.message);
+    Cookies.remove('eduTk');
     navigate('/login');
   };
 

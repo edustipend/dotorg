@@ -1,9 +1,7 @@
 .notify {
   position: relative;
   margin-inline: 1.5rem;
-  max-width: 854px;
   margin-top: 7.5rem;
-  height: 100%;
   padding: 2rem;
   background-color: var(--white);
   border-radius: 30px;

@@ -19,7 +19,7 @@
   font-weight: 400;
   font-size: 14px;
   margin: 7px 0 15px;
-  max-width: 471px;
+  max-width: 571px;
   align-self: center;
 }
 
@@ -53,7 +53,7 @@
 
 .Input {
   padding: 10px 19px;
-  height: 60px;
+  height: 65px;
   font-size: 16px;
   color: var(--navy-blue);
   border: 1px solid var(--darker-navy-blue);
@@ -64,6 +64,14 @@
 .Input::placeholder {
   color: var(--darker-accent);
   font-size: 16px;
+}
+
+.Input:focus {
+  border: 0.5px solid transparent;
+  border-radius: 15px;
+  background: linear-gradient(to right, white, white), linear-gradient(to right, #5801ff77, #00babb77);
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
 }
 
 .buttonContainer {
@@ -94,7 +102,7 @@
 
 @media screen and (min-width: 768px) {
   .formArea {
-    margin-inline: 177px;
+    margin-inline: 2rem;
   }
 
   .top {
@@ -102,7 +110,7 @@
   }
 
   .Input {
-    height: 73px;
+    height: 65px;
   }
 
   .heading {
