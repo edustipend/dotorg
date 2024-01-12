@@ -30,7 +30,6 @@ const Routes = () => {
     try {
       if (token) {
         const decoded = jwtDecode(token);
-        console.log(decoded, 'nh');
         return decoded;
       }
     } catch (error) {
