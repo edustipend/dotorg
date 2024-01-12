@@ -1,2 +1,2 @@
-import { storeUser, initialState, logout } from './UserReducer';
-export { storeUser, initialState, logout };
+import { storeUser, initialState, logout, isAuthenticated } from './UserReducer';
+export { storeUser, initialState, logout, isAuthenticated };

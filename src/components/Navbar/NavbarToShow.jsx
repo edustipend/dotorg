@@ -33,10 +33,15 @@ export const NavbarToShow = () => {
   }
 
   const handleLogout = async () => {
+    console.log(storeData.userId);
+    const response = await postData(`logout`, {
+      userId: storeData.userId
+    });
     dispatch(logout());
     Cookies.remove('eduTk');
-    navigate('/login');
-    const response = await postData(`logout`, {}, false);
+    navigate(0);
+    console.log(response);
+    setDropDown((prev) => !prev);
     toast.success(response.message);
   };
 

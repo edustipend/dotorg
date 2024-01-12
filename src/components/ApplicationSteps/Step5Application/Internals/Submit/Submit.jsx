@@ -36,9 +36,7 @@ export const Submit = () => {
   //Create the user and submit the stipend application
   const handleSubmit = async () => {
     setIsLoading(true);
-    console.log(userInfo);
     const res = await postData('user/stipend/apply', userInfo, false);
-    console.log(res);
     try {
       if (res.success) {
         dispatch(successful(true));

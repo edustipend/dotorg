@@ -7,22 +7,23 @@ import styles from './LoginForm.module.css';
 import { HEAD_TEXT, LAST_TEXT, SUB_TEXT, TestId, parameters } from './constants';
 import { Hand } from '../../assets';
 import { postData } from '../../services/ApiClient';
-import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import Cookies from 'js-cookie';
-import { storeUser } from '../../store/reducers/UserReducer';
+import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
+import { storeUser } from '../../store/reducers/UserReducer';
 import { jwtDecode } from 'jwt-decode';
 const { EMAIL, EMAIL_PH, EMAIL_TYPE, PASSWORD, PASSWORD_PH, PASSWORD_TYPE, LOGIN, SECONDARY, NEUTRAL, SMALL, RESET } = parameters;
 
 export const LoginForm = () => {
   const [isLoading, setisLoading] = useState(false);
   const [email, setEmail] = useState('');
+  const dispatch = useDispatch();
   const [password, setPassword] = useState('');
   const [disable, setDisable] = useState(true);
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const { isAuthenticated } = useSelector((state) => state.user);
+  const nav = useNavigate();
 
   useEffect(() => {
     if (email.includes('@') && password.length > 5) {
@@ -46,15 +47,17 @@ export const LoginForm = () => {
       }
       if (res.success) {
         const token = res?.token.split(' ')[1];
+        const decode = jwtDecode(token);
         Cookies.set('eduTk', token, {
           secure: true,
           sameSite: 'strict',
           expires: 14
         });
-        const decodedToken = jwtDecode(token);
-        dispatch(storeUser(decodedToken));
+        dispatch(storeUser(decode));
+        setTimeout(() => {
+          nav(0);
+        }, 2000);
         toast.success('Logged in successfully');
-        navigate('/dashboard');
       }
     } catch (error) {
       toast.error('Something went wrong');
@@ -62,6 +65,10 @@ export const LoginForm = () => {
       setisLoading(false);
     }
   };
+
+  if (isAuthenticated) {
+    return <Navigate to="/dashboard" />;
+  }
 
   return (
     <div className={styles.container} data-testid={TestId.LOGIN_FORM_TEST_ID}>
@@ -80,6 +87,7 @@ export const LoginForm = () => {
         loaderSize={SMALL}
         loaderVariant={NEUTRAL}
         onClick={handleSubmit}
+        className={styles.btn}
         type={SECONDARY}
       />
       <Link to={RESET}>

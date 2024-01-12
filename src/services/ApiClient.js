@@ -5,19 +5,18 @@ const token = Cookies.get('eduTk');
 console.log(token);
 
 export const postData = async function (route = '', data = {}, authorize = true) {
-  const headers = {
-    'Content-Type': 'application/json'
-  };
-
+  let url = `${API_ENDPOINT}${route}`;
   if (authorize) {
-    headers['Authorization'] = `Bearer ${token}`;
+    url = `${API_ENDPOINT}${route}?jwt=${token}`;
   }
 
-  const response = await fetch(`${API_ENDPOINT}${route}`, {
+  const response = await fetch(`${url}`, {
     method: 'POST',
     cache: 'no-cache',
     credentials: 'same-origin',
-    headers: headers,
+    headers: {
+      'Content-Type': 'application/json'
+    },
     redirect: 'follow',
     referrerPolicy: 'no-referrer',
     body: JSON.stringify(data)
@@ -27,14 +26,10 @@ export const postData = async function (route = '', data = {}, authorize = true)
 };
 
 export const getData = async function (route = '', data = {}, authorize = true) {
-  const queryString = Object.entries(data)
-    .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
-    .join('&');
   let url = `${API_ENDPOINT}${route}`;
   if (authorize) {
-    url = `${API_ENDPOINT}${route}?jwt=${token}${queryString ? `&${queryString}` : ''}`;
+    url = `${API_ENDPOINT}${route}?jwt=${token}`;
   }
-
   const response = await fetch(url, {
     method: 'GET',
     cache: 'no-cache',

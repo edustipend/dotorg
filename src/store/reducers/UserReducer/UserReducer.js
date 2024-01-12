@@ -4,7 +4,8 @@ export const initialState = {
   email: '',
   userId: null,
   isAdmin: false,
-  name: ''
+  name: '',
+  isAuthenticated: false
 };
 
 const user = createSlice({
@@ -12,9 +13,9 @@ const user = createSlice({
   initialState,
   reducers: {
     storeUser: (state, action) => {
-      const { email, userId, isAdmin, name } = action.payload;
+      const { email, id, isAdmin, name } = action.payload;
       state.email = email;
-      state.userId = userId;
+      state.userId = id;
       state.isAdmin = isAdmin;
       state.name = name;
     },
@@ -23,9 +24,13 @@ const user = createSlice({
       state.userId = null;
       state.isAdmin = false;
       state.name = '';
+      state.isAuthenticated = false;
+    },
+    isAuthenticated: (state, action) => {
+      state.isAuthenticated = action.payload;
     }
   }
 });
 
 export default user.reducer;
-export const { storeUser,logout } = user.actions;
+export const { storeUser, logout, isAuthenticated } = user.actions;
