@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Button from '../../components/Button';
@@ -11,12 +11,21 @@ import Input from '../../components/Input';
 import { Book, Hero3, ArrowDown, RightArrow } from '../../assets/index';
 import { Email } from '../../store/reducers/UserDetailsReducer';
 import { checkEmail } from '../../utils/EmailChecker/emailChecker';
+import toast from 'react-hot-toast';
+import { postData } from '../../services/ApiClient';
+import { ModalContext } from '../../context/ModalContext';
+import { EmailExist } from '../EmailExist/EmailExist';
+import Modal from '../../components/Modal';
 
 export const StartApplication = () => {
+  const [isLoading, setisLoading] = useState(false);
   const state = useSelector((state) => state.userDetails);
+  console.log('email', state.email);
   const [showScrollIndicator, setShowScrollIndicator] = useState(true);
   const nav = useNavigate();
   const dispatch = useDispatch();
+
+  const { setIsActive } = useContext(ModalContext);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,59 +42,95 @@ export const StartApplication = () => {
   //enable the button if the email is valid
   const isTrue = checkEmail(state.email);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    nav('/application');
+
+    setisLoading(true);
+
+    try {
+      const res = await postData(
+        'user/check',
+        {
+          username: state.email
+        },
+        false
+      );
+
+      if (!res.success) {
+        nav('/application');
+      }
+
+      if (res.success) {
+        setIsActive((prev) => !prev);
+
+        // toast.success('Email Exist. Kindly Log In');
+
+        // setTimeout(() => {
+        //   nav('/login');
+        // }, 3000);
+      }
+    } catch (error) {
+      toast.error('Something went wrong');
+    } finally {
+      setisLoading(false);
+    }
   };
   return (
-    <div className={styles.container} data-testid={TestId.DATA_TEST}>
-      <Container alternate>
-        <div className={styles.top}>
-          <Header className={styles.header} data={TestId.HEAD_TEXT}>
-            {TestId.HEAD_TEXT}
-          </Header>
-          <div className={styles.desc}>
-            {TestId.DESC.map((p, index) => {
-              return <Text key={p} content={p} className={index === 2 ? styles.important : index === TestId.DESC.length - 2 ? styles.close : ''} />;
-            })}
-          </div>
-        </div>
-        <div className={styles.bottom}>
-          <Text className={styles.textB} content={TestId.PARAGRAPH} />
-          <form className={styles.form} onSubmit={handleSubmit}>
-            <div className={styles.inputContainer}>
-              <Input
-                value={state.email}
-                label={'Email Address'}
-                placeholder={'Enter your email address'}
-                onChange={(e) => dispatch(Email(e.target.value))}
-                className={styles.Input}
-              />
+    <>
+      <div className={styles.container} data-testid={TestId.DATA_TEST}>
+        <Container alternate>
+          <div className={styles.top}>
+            <Header className={styles.header} data={TestId.HEAD_TEXT}>
+              {TestId.HEAD_TEXT}
+            </Header>
+            <div className={styles.desc}>
+              {TestId.DESC.map((p, index) => {
+                return <Text key={p} content={p} className={index === 2 ? styles.important : index === TestId.DESC.length - 2 ? styles.close : ''} />;
+              })}
             </div>
-            <div className={styles.btnContainer}>
-              <Button
-                dataTest={TestId.BTN_ID}
-                type={'secondary'}
-                icon={RightArrow}
-                iconPosition={'front'}
-                effectAlt
-                disabled={isTrue ? false : true}
-                label={TestId.BTN_CONTENT}
-                className={styles.btn}
-                onClick={handleSubmit}
-              />
-            </div>
-          </form>
-        </div>
-        <Text className={styles.quotes} content={TestId.QUOTE} />
-        <img className={styles.book} src={Book} alt="book" />
-        <img className={styles.student} src={Hero3} alt="student" />
-        {showScrollIndicator && (
-          <div className={styles.downArrow}>
-            <img src={ArrowDown} alt="down" />
           </div>
-        )}
-      </Container>
-    </div>
+          <div className={styles.bottom}>
+            <Text className={styles.textB} content={TestId.PARAGRAPH} />
+            <form className={styles.form} onSubmit={handleSubmit}>
+              <div className={styles.inputContainer}>
+                <Input
+                  value={state.email}
+                  label={'Email Address'}
+                  placeholder={'Enter your email address'}
+                  onChange={(e) => dispatch(Email(e.target.value))}
+                  className={styles.Input}
+                />
+              </div>
+              <div className={styles.btnContainer}>
+                <Button
+                  dataTest={TestId.BTN_ID}
+                  isLoading={isLoading}
+                  type={'secondary'}
+                  icon={RightArrow}
+                  iconPosition={'front'}
+                  effectAlt
+                  disabled={isTrue ? false : true}
+                  label={TestId.BTN_CONTENT}
+                  className={styles.btn}
+                  onClick={handleSubmit}
+                />
+              </div>
+            </form>
+          </div>
+          <Text className={styles.quotes} content={TestId.QUOTE} />
+          <img className={styles.book} src={Book} alt="book" />
+          <img className={styles.student} src={Hero3} alt="student" />
+          {showScrollIndicator && (
+            <div className={styles.downArrow}>
+              <img src={ArrowDown} alt="down" />
+            </div>
+          )}
+        </Container>
+      </div>
+
+      <Modal>
+        <EmailExist />
+      </Modal>
+    </>
   );
 };

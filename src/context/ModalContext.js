@@ -11,6 +11,7 @@ export const ModalContextProvider = ({ children }) => {
   const handleNotifyModal = () => {
     setNotifyPopModal((prev) => !prev);
   };
+
   const value = { handleNotifyModal, notifyPopModal, isLoading, setIsLoading, isActive, setIsActive };
 
   return <ModalContext.Provider value={value}>{children}</ModalContext.Provider>;

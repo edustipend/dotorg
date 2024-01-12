@@ -87,6 +87,7 @@ export const NotifyForm = () => {
             </div>
             <p className={styles.subtitle}>{SUBTITLE}</p>
           </div>
+          
           <form className={styles.form}>
             <div className={styles.formField}>
               <label htmlFor="fullname" className={styles.label}>
