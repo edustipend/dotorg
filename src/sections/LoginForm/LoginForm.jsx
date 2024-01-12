@@ -40,7 +40,7 @@ export const LoginForm = () => {
       const res = await postData('login', {
         username: email,
         password: password
-      });
+      }, false);
       if (!res.success) {
         toast.error('Invalid credentials');
       }
@@ -52,6 +52,7 @@ export const LoginForm = () => {
           expires: 14
         });
         const decodedToken = jwtDecode(token);
+        console.log("decodedToken", decodedToken);
         dispatch(storeUser(decodedToken));
         toast.success('Logged in successfully');
         navigate('/dashboard');

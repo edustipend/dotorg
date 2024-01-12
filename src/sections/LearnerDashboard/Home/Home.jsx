@@ -16,7 +16,8 @@ export const Home = () => {
   const [singleEntry, setSingleEntry] = useState(history);
   const [data, setData] = useState([]);
 
-  const { name } = useSelector((state) => state.user);
+  const { name, userId } = useSelector((state) => state.user);
+  console.log(userId);
   const [first] = name.split(' ');
 
   const handleOneClick = (id) => {
@@ -28,8 +29,8 @@ export const Home = () => {
   const getUserData = useCallback(async () => {
     try {
       const response = await getData(`user/stipend/application-history`, {
-        userId: '65a08f0eeaac114e19937470'
-      });
+        userId
+      }, true);
       console.log(response);
       setData([response.message]);
     } catch (error) {
@@ -71,8 +72,7 @@ export const Home = () => {
                 <button
                   key={idx}
                   className={currentTable === idx ? `${styles.tab}` : `${styles.tab} ${styles.tabAlt}`}
-                  onClick={() => setCurrentTable(idx)}
-                >
+                  onClick={() => setCurrentTable(idx)}>
                   {itm}
                 </button>
               );

@@ -26,14 +26,14 @@ export const postData = async function (route = '', data = {}, authorize = true)
   return response.json();
 };
 
-export const getData = async function (route = '', data = {}, authorize = true) {
-  const queryString = Object.entries(data)
-    .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
-    .join('&');
-  let url = `${API_ENDPOINT}${route}`;
-  if (authorize) {
-    url = `${API_ENDPOINT}${route}?jwt=${token}${queryString ? `&${queryString}` : ''}`;
-  }
+export const getData = async function (route = '', data = {}) {
+  // const queryString = Object.entries(data)
+    // .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
+    // .join('&');
+  let url = `${API_ENDPOINT}${route}?jwt=${token}`;
+  // if (authorize) {
+  //   url = `${API_ENDPOINT}${route}?jwt=${token}${queryString ? `&${queryString}` : ''}`;
+  // }
 
   const response = await fetch(url, {
     method: 'GET',
@@ -42,6 +42,7 @@ export const getData = async function (route = '', data = {}, authorize = true) 
     headers: {
       'Content-Type': 'application/json'
     },
+    body: JSON.stringify(data),
     redirect: 'follow',
     referrerPolicy: 'no-referrer'
   });

@@ -78,6 +78,8 @@ export const Step4Application = () => {
     howDidYouHear
   };
 
+  console.log("userDetails", userDetails)
+
   const minLengths = {
     fullName: 2,
     email: 5,
@@ -103,7 +105,7 @@ export const Step4Application = () => {
     if (item === 'email') {
       return checkEmail(userDetails[item]) && userDetails[item].length >= minLengths[item];
     }
-    return userDetails[item].length >= minLengths[item];
+    return userDetails[item]?.length >= minLengths[item];
   });
 
   const PASSWORD_MIN_LENGTH = 8;
