@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useContext, useState } from 'react';
 import { jwtDecode } from 'jwt-decode';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { ModalContext } from '../../../../../context/ModalContext';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from '../Submit/Submit.module.css';
@@ -23,20 +23,20 @@ export const EmailVerified = () => {
   const dispatch = useDispatch();
   const nav = useNavigate();
   const { isVerified } = useSelector((state) => state.application);
-
+  const { email } = useSelector((state) => state.user);
+  const [searchParams] = useSearchParams();
+  const emailToken = searchParams.get('jwt');
   useEffect(() => {
-    const url = window.location.search.split('?')[1];
-    const combined = url.split('&');
-    const email = combined[0].split('=')[1];
-    const code = combined[1].split('=')[1];
-
     setIsActive(true);
     const verifyEmail = async () => {
-      const res = await postData('verify', {
-        email: email,
-        verificationCode: code
-      });
-
+      const res = await postData(
+        `user/verify?jwt${emailToken}`,
+        {
+          username: email
+        },
+        false
+      );
+      console.log(res);
       if (res.success) {
         //decode the token response on success
         const decodedToken = jwtDecode(res.token);
