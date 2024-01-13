@@ -1,4 +1,5 @@
 const dataTest = 'start_application-id';
+const modalTest = 'modal-id';
 const headText = 'Stipend Application Sept. 2023';
 const p1 = 'Hello there, Welcome to the month of September, how time flies! 🎉🎊';
 const p2 =
@@ -34,6 +35,7 @@ const input = {
 
 export const TestId = {
   DATA_TEST: dataTest,
+  MODAL_TEST: modalTest,
   HEAD_TEXT: headText,
   DESC: desc,
   PLACEHOLDER: placeholder,

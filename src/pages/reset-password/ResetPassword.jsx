@@ -2,10 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 import Header from '../../components/Header';
-
 import { postData } from '../../services/ApiClient';
 import { constants } from './constants';
-
 import { useNavigate } from 'react-router-dom';
 import { TestId } from './constants';
 import styles from './ResetPassword.module.css';

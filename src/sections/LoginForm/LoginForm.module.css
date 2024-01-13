@@ -12,14 +12,14 @@
 }
 
 .img {
-  width: 79px;
-  height: 79px;
+  width: 60px;
+  height: 60px;
 }
 
 .headText {
   color: var(--Edustipend-Text-Black, #2d3740);
   font-family: 'Poppins';
-  font-size: 36px;
+  font-size: 32px;
   font-style: normal;
   font-weight: 500;
   margin-top: 10px;
@@ -40,6 +40,7 @@
 .form {
   width: 100%;
   max-width: 500px;
+  margin-top: 2rem;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -77,6 +78,23 @@
   line-height: 30px;
   /* 187.5% */
   margin-top: 28px;
+  text-decoration: underline;
+}
+
+@media screen and (min-width: 375px) {
+  .btn {
+    width: 248px;
+  }
+
+  .container {
+    padding: 38px 30px;
+  }
+}
+
+@media screen and (min-width: 425px) {
+  .btn {
+    width: 310px;
+  }
 }
 
 @media screen and (min-width:375px) {
@@ -117,6 +135,15 @@
     font-size: 16px;
     line-height: 20px;
     /* 125% */
+<<<<<<< HEAD
+=======
+  }
+
+  @media screen and (max-width: 320px) {
+    .headText {
+      font-size: 20px;
+    }
+>>>>>>> 5690207569507f949c7cc025f037030b8066414d
   }
 
   @media screen and (max-width: 320px) {

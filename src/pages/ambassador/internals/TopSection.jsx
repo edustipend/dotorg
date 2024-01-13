@@ -5,6 +5,10 @@ import Text from '../../../components/Text';
 import Header from '../../../components/Header';
 import star from '../../../assets/star-design.png';
 import { imgs } from '../constant';
+<<<<<<< HEAD
+=======
+import { Texts } from '../constant';
+>>>>>>> 5690207569507f949c7cc025f037030b8066414d
 
 export const TopSection = () => {
   return (
@@ -15,10 +19,10 @@ export const TopSection = () => {
 
       <div className="top-header">
         <Header color="primary" className="top-section-header mobile" size="small">
-          Edustipend <span className="header-abs">Ambassador</span>
+          {Texts.HeaderE} <span className="header-abs">{Texts.HeaderA}</span>
         </Header>
         <Header color="primary" className="top-section-header bigscreen" size="large">
-          Edustipend <span className="header-abs">Ambassador</span>
+          {Texts.HeaderE} <span className="header-abs">{Texts.HeaderA}</span>
         </Header>
 
         <Text
@@ -32,8 +36,12 @@ export const TopSection = () => {
             to={{
               pathname: '/ambassador-program',
               hash: '#apply-now'
+<<<<<<< HEAD
             }}
           >
+=======
+            }}>
+>>>>>>> 5690207569507f949c7cc025f037030b8066414d
             <Button label={'Become an Ambassador'} type="secondary" />
           </NavHashLink>
         </div>

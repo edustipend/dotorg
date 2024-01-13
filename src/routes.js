@@ -15,7 +15,7 @@ import { routesConstant } from './routesConstant';
 import Login from './pages/login';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import Cookies from 'js-cookie';
-import { jwtDecode } from "jwt-decode";
+import { jwtDecode } from 'jwt-decode';
 import { useMemo } from 'react';
 import { useDispatch } from 'react-redux';
 import { isAuthenticated } from './store/reducers/UserReducer';
@@ -24,9 +24,8 @@ const { AMBASSADOR_PROGRAM, REQUEST, APPLICATION, FORGOT_PASSWORD, RESET_PASSWOR
 const Routes = () => {
   const dispatch = useDispatch();
 
-
   const checkToken = useMemo(() => {
-    const token = Cookies.get("eduTk");
+    const token = Cookies.get('eduTk');
     try {
       if (token) {
         const decoded = jwtDecode(token);
@@ -50,7 +49,7 @@ const Routes = () => {
     }
   }, [checkToken]);
 
-  dispatch(isAuthenticated(validateToken))
+  dispatch(isAuthenticated(validateToken));
 
   return (
     <AppRoutes>
@@ -60,18 +59,8 @@ const Routes = () => {
       <Route path={FORGOT_PASSWORD} element={<ForgotPassword />} />
       <Route path={RESET_PASSWORD} element={<ResetPassword />} />
       <Route path={LOGIN} element={<Login />} />
-      <Route
-        path={WELCOME}
-        element={
-          <ProtectedRoute element={<Welcome />} isAuthenticated={validateToken} />
-        }
-      ></Route>
-      <Route
-        path={DASHBOARD}
-        element={
-          <ProtectedRoute element={<LearnerDashboard />} isAuthenticated={validateToken} />
-        }
-      >
+      <Route path={WELCOME} element={<ProtectedRoute element={<Welcome />} isAuthenticated={validateToken} />}></Route>
+      <Route path={DASHBOARD} element={<ProtectedRoute element={<LearnerDashboard />} isAuthenticated={validateToken} />}>
         <Route index element={<Home />} />
         <Route path="home" element={<Home />} />
         <Route path="submissions" element={<Submissions />} />
