@@ -23,6 +23,12 @@ main {
   font-size: 1.1rem;
 }
 
+@media screen and (max-width: 425px) {
+  main {
+    margin-top: 42px;
+  }
+}
+
 @media screen and (min-width: 560px) {
   .circles-img {
     position: absolute;
