@@ -40,7 +40,9 @@ export const NavbarToShow = () => {
     navigate(0);
     setDropDown((prev) => !prev);
     toast.success(response.message);
-    dispatch(logout());
+    setTimeout(() => {
+      dispatch(logout());
+    }, 2000);
   };
 
   const showNav = () => !isDashboard && !isRequestStipend && !isLogin;

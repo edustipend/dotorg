@@ -25,7 +25,7 @@ export const EmailVerified = () => {
   const dispatch = useDispatch();
   const nav = useNavigate();
   const { isVerified } = useSelector((state) => state.application);
-  const { email } = useSelector((state) => state.user);
+  const { email } = useSelector((state) => state.userDetails);
   const [searchParams] = useSearchParams();
   const emailToken = searchParams.get('jwt');
 
@@ -52,7 +52,7 @@ export const EmailVerified = () => {
         dispatch(emailVerification(false));
       }
       if (res.error) {
-        setErrorMessage(res.message);
+        setErrorMessage(res.error);
         dispatch(emailVerification(false));
       }
     } catch (error) {

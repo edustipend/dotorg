@@ -12,6 +12,7 @@ const { dashboard } = constants;
 export const Home = () => {
   const [currentTable, setCurrentTable] = useState(0);
   const [applicationTable, setApplicationTable] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [singleEntry, setSingleEntry] = useState([]);
   const [data, setData] = useState([]);
 
@@ -24,6 +25,7 @@ export const Home = () => {
   };
 
   const getUserData = useCallback(async () => {
+    setLoading(true);
     try {
       const response = await authorizedPost(APPLICATION_HISTORY, {
         userId
@@ -31,6 +33,8 @@ export const Home = () => {
       setData(response.data);
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   }, [userId]);
 
@@ -73,16 +77,20 @@ export const Home = () => {
               );
             })}
           </div>
-          {(() => {
-            switch (currentTable) {
-              case 0:
-                return <Table entries={data} tableHead={tableHead} oneClickApply={handleOneClick} />;
-              case 1:
-                return <Table entries={data} tableHead={tableHead} oneClickApply={handleOneClick} />;
-              default:
-                return <Table entries={data} tableHead={tableHead} oneClickApply={handleOneClick} />;
-            }
-          })()}
+          {loading ? (
+            <p>Loading...</p>
+          ) : (
+            (() => {
+              switch (currentTable) {
+                case 0:
+                  return <Table entries={data} tableHead={tableHead} oneClickApply={handleOneClick} />;
+                case 1:
+                  return <Table entries={data} tableHead={tableHead} oneClickApply={handleOneClick} />;
+                default:
+                  return <Table entries={data} tableHead={tableHead} oneClickApply={handleOneClick} />;
+              }
+            })()
+          )}
         </section>
       )}
       {!applicationTable && (
