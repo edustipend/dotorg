@@ -36,7 +36,6 @@ export const LoginForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setisLoading(true);
-
     try {
       const res = await postData('login', {
         username: email,
