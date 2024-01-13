@@ -37,7 +37,7 @@ export const ForgotPassword = () => {
       dispatch({ type: ON_SUCCESS, payload: res.message });
       setIsActive((prev) => !prev);
     } else if (!res.success) {
-      dispatch({ type: ON_ERROR, payload: 'User does not exist' });
+      dispatch({ type: ON_ERROR, payload: 'Please confirm the email you entered.' });
       setIsActive((prev) => !prev);
     }
   };
@@ -49,16 +49,19 @@ export const ForgotPassword = () => {
           <Modal>
             <div className={styles.Modal}>
               <img src={Valid} alt="valid email" className={styles.img} />
-              <p className={styles.feedBack}>{feedBack}</p>
-              <Button
-                effectAlt
-                label="close"
-                type="secondary"
-                onClick={() => {
-                  dispatch({ type: SUCCESS, payload: false });
-                  setIsActive((prev) => !prev);
-                }}
-              />
+              <p className={styles.feedBack}>Password Reset Email Sent</p>
+              <p className={styles.modalBody}>{feedBack}</p>
+              <div className={styles.btnContainer}>
+                <Button
+                  effectAlt
+                  label="Close"
+                  type="secondary"
+                  onClick={() => {
+                    dispatch({ type: SUCCESS, payload: false });
+                    setIsActive((prev) => !prev);
+                  }}
+                />
+              </div>
             </div>
           </Modal>
         </div>
@@ -73,16 +76,19 @@ export const ForgotPassword = () => {
           <Modal>
             <div className={styles.Modal}>
               <img src={Tears} alt="invalid email" className={styles.imgAlt} />
-              <p className={styles.feedBack}>{feedBack}</p>
-              <Button
-                effectAlt
-                label="close"
-                type="secondary"
-                onClick={() => {
-                  dispatch({ type: ERROR, payload: false });
-                  setIsActive((prev) => !prev);
-                }}
-              />
+              <p className={styles.feedBack}>Oops! An error occured.</p>
+              <p className={styles.modalBody}>{feedBack}</p>
+              <div className={styles.btnContainer}>
+                <Button
+                  effectAlt
+                  label="Close"
+                  type="secondary"
+                  onClick={() => {
+                    dispatch({ type: ERROR, payload: false });
+                    setIsActive((prev) => !prev);
+                  }}
+                />
+              </div>
             </div>
           </Modal>
         </div>
@@ -103,6 +109,7 @@ export const ForgotPassword = () => {
             <div className={styles.inputContent}>
               <Input
                 value={username}
+                placeholder="Enter your email address"
                 onChange={(e) => dispatch({ type: USERNAME, payload: e.target.value })}
                 label="Email Address"
                 className={styles.input}
