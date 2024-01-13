@@ -48,7 +48,6 @@ const Routes = () => {
       return false;
     }
   }, [checkToken]);
-
   dispatch(isAuthenticated(validateToken));
 
   return (
