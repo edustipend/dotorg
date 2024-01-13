@@ -5,7 +5,7 @@ import hand from '../../../assets/waving hand.png';
 import { tab } from './internals/constants';
 import Button from '../../../components/Button';
 import Table from '../../../components/Table';
-import { postData } from '../../../services/ApiClient';
+import { APPLICATION_HISTORY, authorizedPost } from '../../../services/ApiClient';
 import { useSelector } from 'react-redux';
 const { dashboard } = constants;
 
@@ -28,7 +28,7 @@ export const Home = () => {
 
   const getUserData = useCallback(async () => {
     try {
-      const response = await postData(`user/stipend/application-history`, {
+      const response = await authorizedPost(APPLICATION_HISTORY, {
         userId
       });
       console.log(response);
@@ -36,7 +36,7 @@ export const Home = () => {
     } catch (error) {
       console.log(error);
     }
-  }, []);
+  }, [userId]);
 
   useEffect(() => {
     getUserData();

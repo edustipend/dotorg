@@ -7,7 +7,7 @@ import { Menu, Close, Logout } from '../../assets/index';
 import './styles.css';
 import Text from '../Text';
 import { logout } from '../../store/reducers/UserReducer';
-import { postData } from '../../services/ApiClient';
+import { LOGOUT, authorizedPost } from '../../services/ApiClient';
 import toast from 'react-hot-toast';
 import Cookies from 'js-cookie';
 
@@ -33,14 +33,14 @@ export const NavbarToShow = () => {
   }
 
   const handleLogout = async () => {
-    const response = await postData(`logout`, {
+    const response = await authorizedPost(LOGOUT, {
       userId: storeData.userId
     });
-    dispatch(logout());
     Cookies.remove('eduTk');
     navigate(0);
     setDropDown((prev) => !prev);
     toast.success(response.message);
+    dispatch(logout());
   };
 
   const showNav = () => !isDashboard && !isRequestStipend && !isLogin;
@@ -63,7 +63,9 @@ export const NavbarToShow = () => {
       </div>
 
       <div className="log-out-container">
-        <img src={Logout} alt="logout dropdown" className="log-out" onClick={() => setDropDown((prev) => !prev)} />
+        <div className="log-out" onClick={() => setDropDown((prev) => !prev)}>
+          <img src={Logout} alt="logout dropdown" />
+        </div>
 
         {dropDown && (
           <button className="drop-down" onClick={handleLogout}>
