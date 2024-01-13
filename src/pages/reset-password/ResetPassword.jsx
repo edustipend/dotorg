@@ -1,42 +1,52 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 import Header from '../../components/Header';
-import Modal from '../../components/Modal';
 import { postData } from '../../services/ApiClient';
-import { Valid } from '../../assets';
-import { ModalContext } from '../../context/ModalContext';
 import { constants } from './constants';
-import { routesConstant } from '../../routesConstant';
 import { useNavigate } from 'react-router-dom';
 import { TestId } from './constants';
 import styles from './ResetPassword.module.css';
+import { jwtDecode } from 'jwt-decode';
+import toast from 'react-hot-toast';
 
-const { HEADER, EMAIL, PASSWORD, CODE, CONFIRM_PASSWORD, PASSWORD_MIN_LENGTH_ERR, PASSWORD_MISMATCH } = constants;
-const { COMPONENT_TEST, HEADER_TEST, BUTTON_TEST, MODAL_TEST, ERROR_TEST } = TestId;
+const { HEADER, PASSWORD, CONFIRM_PASSWORD, PASSWORD_MIN_LENGTH_ERR, PASSWORD_MISMATCH } = constants;
+const { COMPONENT_TEST, HEADER_TEST, BUTTON_TEST, ERROR_TEST } = TestId;
 
 export const ResetPassword = () => {
   const nav = useNavigate();
-  const [email, setEmail] = useState('');
-  const { setIsActive } = useContext(ModalContext);
-  const [verificationCode, setVerificationCode] = useState('');
+  const [token, setToken] = useState('');
+  const [userId, setUserId] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [passwordErr, setPasswordErr] = useState(false);
   const [passwordMisMatch, setPasswordMisMatch] = useState(false);
-  const [error, setError] = useState('');
-  const [feedBack, setFeeBack] = useState('');
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (window.location.search) {
-      const [email, code] = window.location.search.split('&');
-      const Email = email.split('=')[1];
-      const Code = code.split('=')[1];
-      setEmail(Email);
-      setVerificationCode(Code);
+      const jwt = window.location.search.split('=');
+      setToken(jwt[1]);
     }
-  }, []);
+
+    //validate the token
+    if (token) {
+      const decode = jwtDecode(token);
+      if (!decode) {
+        toast.error('Oops, the link you entered is invalid');
+        setTimeout(() => {
+          nav('/forgot-password');
+        }, 1500);
+      } else if (decode?.exp < Date.now() / 1000) {
+        toast.error('Oops, the link you entered is expired.');
+        setTimeout(() => {
+          nav('/forgot-password');
+        }, 3000);
+      } else {
+        setUserId(decode.id);
+      }
+    }
+  }, [token, nav]);
 
   const onSubmit = async () => {
     const min_length = 8;
@@ -51,19 +61,19 @@ export const ResetPassword = () => {
       setPasswordErr(false);
     }
     setLoading(true);
-    const response = await postData('update-password', {
-      email,
-      verificationCode,
-      password,
-      confirmPassword
+    const response = await postData(`update-password?resetToken=${token}`, {
+      userId: userId,
+      password
     });
     if (response.success) {
       setLoading(false);
-      setIsActive((prev) => !prev);
-      setFeeBack(response.message);
+      toast.success('Password changed successfully');
+      setTimeout(() => {
+        nav('/login');
+      }, 1500);
     } else if (!response.success) {
       setLoading(false);
-      setError(response.message);
+      toast.error('Something went wrong');
     }
   };
 
@@ -75,10 +85,6 @@ export const ResetPassword = () => {
             {HEADER}
           </Header>
           <div className={styles.fields}>
-            <div className={styles.field}>
-              <Input value={email} label={EMAIL} placeholder={EMAIL} readOnly />
-              <Input value={verificationCode} label={CODE} placeholder={CODE} readOnly />
-            </div>
             <div className={styles.field}>
               <div className={styles.single}>
                 <Input type="password" value={password} label={PASSWORD} placeholder={PASSWORD} onChange={(e) => setPassword(e.target.value)} />
@@ -117,33 +123,8 @@ export const ResetPassword = () => {
               className={styles.btn}
             />
           </div>
-          {error ? (
-            <p data-testid={ERROR_TEST} className={styles.error}>
-              {error}
-            </p>
-          ) : undefined}
         </div>
       </div>
-
-      <Modal dataTest={MODAL_TEST}>
-        <section className={styles.main}>
-          <div className={styles.contentContainer}>
-            <div className={styles.Modal}>
-              <img src={Valid} alt="valid email" className={styles.img} />
-              <p className={styles.feedBack}>{feedBack}</p>
-              <Button
-                effectAlt
-                label="Login"
-                type="secondary"
-                onClick={() => {
-                  nav(routesConstant.Login);
-                  setIsActive((prev) => !prev);
-                }}
-              />
-            </div>
-          </div>
-        </section>
-      </Modal>
     </section>
   );
 };
