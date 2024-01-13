@@ -14,7 +14,7 @@ export const Submit = () => {
     (state) => state.application
   );
 
-  const { fullName, email, password, dateOfBirth, gender, stateOfOrigin, howDidYouHear } = useSelector((state) => state.userDetails);
+  const { fullName, email, password, dateOfBirth, gender, stateOfOrigin, howDidYouHear, twitterHandle } = useSelector((state) => state.userDetails);
 
   const Category = stipendCategory.split('/')[0].toLowerCase();
 
@@ -30,10 +30,10 @@ export const Submit = () => {
     reasonForRequest: reasonForRequest,
     stepsTakenToEaseProblem: stepsTakenToEaseProblem,
     potentialBenefits: potentialBenefits,
-    futureHelpFromUser: futureHelpFromUser
-    // socialMediaHandles: {
-    //   twitter: twitterHandle
-    // }
+    futureHelpFromUser: futureHelpFromUser,
+    socialMediaHandles: {
+      twitter: twitterHandle
+    }
   };
 
   //Create the user and submit the stipend application
