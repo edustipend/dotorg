@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from '../../../store';
 import { TestId } from '../constants';
-import { ModalContextProvider } from '../../../context/ModalContext'; // Adjust the import path
+import { ModalContextProvider } from '../../../context/ModalContext';
 
 describe('StartApplication component', () => {
   describe('renders the correct StartApplication component', () => {
