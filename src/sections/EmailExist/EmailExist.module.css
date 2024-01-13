@@ -1,0 +1,53 @@
+.emailexist {
+  position: relative;
+  margin-inline: 1.5rem;
+  margin-top: 7.5rem;
+  padding: 2rem;
+  background-color: var(--white);
+  border-radius: 30px;
+}
+
+.closeModal {
+  width: 100%;
+  height: 100%;
+}
+
+.closeContainer {
+  position: absolute;
+  right: 2rem;
+  width: 18px;
+  height: 18px;
+  background-color: transparent;
+}
+
+.closeContainer:hover {
+  cursor: pointer;
+}
+
+@media all and (orientation: portrait) {
+  @media screen and (max-height: 1024px) {
+    .emailexist {
+      margin: 1rem;
+    }
+  }
+}
+
+@media all and (orientation: landscape) {
+  @media screen and (max-height: 400px) {
+    .emailexist {
+      margin: 1rem;
+    }
+  }
+}
+
+@media screen and (min-width: 854px) {
+  .emailexist {
+    margin-inline: auto;
+    margin-top: 50px;
+  }
+
+  .closeContainer {
+    width: 25px;
+    height: 25px;
+  }
+}

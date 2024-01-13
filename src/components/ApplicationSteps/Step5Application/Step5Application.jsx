@@ -23,10 +23,11 @@ export const Step5Application = () => {
   const dispatch = useDispatch();
 
   const onSubmit = () => {
-    dispatch(successful(false));
+    dispatch(successful( false));
     dispatch(isError(false));
     setIsActive((prev) => !prev);
   };
+
   return (
     <>
       <div>

@@ -5,15 +5,15 @@ import { TopSection } from './internals/TopSection';
 import { Eligibility } from './internals/Eligibility';
 import { Benefits } from './internals/Benefits';
 import { Application } from './internals/Request';
-
 import Header from '../../components/Header';
 import { AmbsImpacts } from './internals/AmbsImpacts';
+import { Texts } from './constant';
 
 const ApplyNowCTA = () => {
   return (
     <div className="apply-now">
       <Header className="text" size="small">
-        Ready to Make an Impact? <br /> Become an Edustipend <span className="header-abs">Ambassador</span> Today
+        {Texts.Ready} <br /> {Texts.Become} <span className="header-abs">{Texts.HeaderA}</span> {Texts.Today}
       </Header>
     </div>
   );
