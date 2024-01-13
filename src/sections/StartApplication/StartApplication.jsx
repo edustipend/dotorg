@@ -73,7 +73,7 @@ export const StartApplication = () => {
       <div className={styles.container} data-testid={TestId.DATA_TEST}>
         <Container alternate>
           <div className={styles.top}>
-            <Header className={styles.header} data={TestId.HEAD_TEXT}>
+            <Header className={styles.header} dataTest={TestId.HEAD_TEXT}>
               {TestId.HEAD_TEXT}
             </Header>
             <div className={styles.desc}>

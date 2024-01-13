@@ -10,10 +10,9 @@ import { postData } from '../../services/ApiClient';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import Cookies from 'js-cookie';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
-import { storeUser } from '../../store/reducers/UserReducer';
+import {  storeUser } from '../../store/reducers/UserReducer';
 import { jwtDecode } from 'jwt-decode';
+import { useDispatch, useSelector } from 'react-redux';
 const { EMAIL, EMAIL_PH, EMAIL_TYPE, PASSWORD, PASSWORD_PH, PASSWORD_TYPE, LOGIN, SECONDARY, NEUTRAL, SMALL, RESET } = parameters;
 
 export const LoginForm = () => {
@@ -24,6 +23,7 @@ export const LoginForm = () => {
   const [disable, setDisable] = useState(true);
   const { isAuthenticated } = useSelector((state) => state.user);
   const nav = useNavigate();
+
 
   useEffect(() => {
     if (email.includes('@') && password.length > 5) {
@@ -42,7 +42,7 @@ export const LoginForm = () => {
         username: email,
         password: password
       });
-      
+
       if (!res.success) {
         toast.error('Invalid credentials');
       }

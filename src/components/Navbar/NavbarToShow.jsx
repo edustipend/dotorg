@@ -33,16 +33,14 @@ export const NavbarToShow = () => {
   }
 
   const handleLogout = async () => {
-    const response = await authorizedPost(LOGOUT, {
+    toast.loading('Logging out...');
+    await authorizedPost(LOGOUT, {
       userId: storeData.userId
     });
     Cookies.remove('eduTk');
     setDropDown((prev) => !prev);
-    toast.success(response.message);
-    setTimeout(() => {
-      dispatch(logout());
-      navigate(0);
-    }, 2000);
+    dispatch(logout());
+    navigate(0);
   };
 
   const showNav = () => !isDashboard && !isRequestStipend && !isLogin;
