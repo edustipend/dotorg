@@ -14,6 +14,7 @@ import LoadingMessage from './components/LoadingMessage';
 import useDetectInternet from './hooks/useDetectInternet';
 import NoInternet from './components/NoInternet/NoInternet';
 import { Toaster } from "react-hot-toast";
+import { toastStyle } from './styles/toastStyle';
 initFirebaseApp();
 
 function App() {
@@ -24,24 +25,7 @@ function App() {
     <>
       {scrollOnRoute}
       <Toaster toastOptions={
-        {
-          style: {
-            maxWidth: '700px',
-            padding: '12px 16px',
-            fontSize: '17px',
-            fontWeight: '400'
-          },
-          error: {
-            style: {
-              color: 'red'
-            }
-          },
-          success: {
-            style: {
-              color: 'green',
-            }
-          }
-        }
+        toastStyle
       } position="top-center" reverseOrder={false} />
       <Navbar />
       <Routes />
