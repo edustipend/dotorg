@@ -38,10 +38,14 @@ export const LoginForm = () => {
     setisLoading(true);
 
     try {
-      const res = await postData('login', {
-        username: email,
-        password: password
-      }, false);
+      const res = await postData(
+        'login',
+        {
+          username: email,
+          password: password
+        },
+        false
+      );
       if (!res.success) {
         toast.error('Invalid credentials');
       }
