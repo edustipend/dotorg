@@ -15,8 +15,8 @@ export const NavbarToShow = () => {
   const [isToggle, setIsToggle] = useState(false);
   const [dropDown, setDropDown] = useState(false);
   const { pathname } = useLocation();
-  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const isAmbassador = pathname === '/ambassador-program';
   const isRequestStipend = pathname === '/application';
   const isLogin = pathname.includes('/login');
@@ -36,9 +36,9 @@ export const NavbarToShow = () => {
     const response = await postData(`logout`, {
       userId: storeData.userId
     });
-    dispatch(logout());
     Cookies.remove('eduTk');
     navigate(0);
+    dispatch(logout());
     setDropDown((prev) => !prev);
     toast.success(response.message);
   };

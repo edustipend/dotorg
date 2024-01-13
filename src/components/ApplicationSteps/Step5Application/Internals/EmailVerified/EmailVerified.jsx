@@ -29,14 +29,11 @@ export const EmailVerified = () => {
   useEffect(() => {
     setIsActive(true);
     const verifyEmail = async () => {
-      const res = await postData(
-        `user/verify?jwt${emailToken}`,
-        {
-          username: email
-        },
-        false
-      );
+      const res = await postData(`user/verify?jwt=${emailToken}`, {
+        username: email
+      });
       console.log(res);
+      console.log(emailToken);
       if (res.success) {
         //decode the token response on success
         const decodedToken = jwtDecode(res.token);
@@ -50,7 +47,7 @@ export const EmailVerified = () => {
       }
     };
     verifyEmail();
-  }, [setIsActive, dispatch, nav]);
+  }, [setIsActive, dispatch, nav, email, emailToken]);
 
   const handleReturn = () => {
     setIsActive(false);
