@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { useContext, useState } from 'react';
 import { jwtDecode } from 'jwt-decode';
 import { useNavigate, useSearchParams } from 'react-router-dom';
@@ -15,42 +15,57 @@ import ContentContainer from '../../../ContentContainer';
 import { postData } from '../../../../../services/ApiClient';
 import { emailVerification } from '../../../../../store/reducers/ApplicationReducer';
 import { storeUser } from '../../../../../store/reducers/UserReducer';
-const { HEADER, ERR_HEADER, SUCCESS_BTN, ERR_BTN, ERR_TEXT, TRY_AGAIN } = constants;
+import Cookies from 'js-cookie';
+const { HEADER, ERR_HEADER, SUCCESS_BTN, ERR_BTN } = constants;
 
 export const EmailVerified = () => {
   const { setIsActive } = useContext(ModalContext);
   const [loading, setLoading] = useState(true);
+  const [errorMessage, setErrorMessage] = useState('');
   const dispatch = useDispatch();
   const nav = useNavigate();
   const { isVerified } = useSelector((state) => state.application);
-  const { email } = useSelector((state) => state.user);
+  const { email } = useSelector((state) => state.userDetails);
   const [searchParams] = useSearchParams();
   const emailToken = searchParams.get('jwt');
-  useEffect(() => {
-    setIsActive(true);
-    const verifyEmail = async () => {
-      const res = await postData(
-        `user/verify?jwt${emailToken}`,
-        {
-          username: email
-        },
-        false
-      );
 
+  const verifyEmail = useCallback(async () => {
+    try {
+      const res = await postData(`user/verify?jwt=${emailToken}`, {
+        username: email
+      });
       if (res.success) {
         //decode the token response on success
-        const decodedToken = jwtDecode(res.token);
-        setLoading(false);
+        const token = res?.token.split(' ')[1];
+        const decode = jwtDecode(token);
+        Cookies.set('eduTk', token, {
+          secure: true,
+          sameSite: 'strict',
+          expires: 14
+        });
+
         dispatch(emailVerification(true));
-        dispatch(storeUser(decodedToken));
-        nav('/welcome');
-      } else if (!res.success) {
-        setLoading(false);
+        dispatch(storeUser(decode));
+        // nav('/welcome');
+      } else {
+        setErrorMessage(res.message);
         dispatch(emailVerification(false));
       }
-    };
+      if (res.error) {
+        setErrorMessage(res.error);
+        dispatch(emailVerification(false));
+      }
+    } catch (error) {
+      console.log(error.message, 'Error');
+    } finally {
+      setLoading(false);
+    }
+  }, [dispatch, emailToken, email]);
+
+  useEffect(() => {
+    setIsActive(true);
     verifyEmail();
-  }, [setIsActive, dispatch, nav]);
+  }, [setIsActive, verifyEmail]);
 
   const handleReturn = () => {
     setIsActive(false);
@@ -78,10 +93,9 @@ export const EmailVerified = () => {
               <div className={styles.headerContainer}>
                 <img src={Sad} alt="error" className={styles.emojiAlt} />
                 <Header className={`${styles.header} ${styles.header2}`}>{ERR_HEADER}</Header>
-                <p className={styles.prompt}>{ERR_TEXT}</p>
+                <p className={styles.prompt}>{errorMessage}</p>
               </div>
               <div className={`${styles.btnContainer} ${styles.btnContainerAltt}`}>
-                <Button type={'secondary'} size={'large'} label={TRY_AGAIN} onClick={() => nav(0)} className={styles.btn} />
                 <Button type={'plain'} size={'large'} label={ERR_BTN} onClick={handleReturn} className={styles.btn} />
               </div>
             </div>
