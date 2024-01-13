@@ -6,7 +6,7 @@ export const Modal = ({ children, className, dataTest }) => {
   const { isActive } = useContext(ModalContext);
 
   return (
-    <div data-testid={dataTest} className={isActive ? `modal_modal modal_content ${className}` : 'hideModal_hideModal'}>
+    <div dataTest={dataTest} className={isActive ? `modal_modal modal_content ${className}` : 'hideModal_hideModal'}>
       <div className="animate_modal_modal">{children}</div>
     </div>
   );
