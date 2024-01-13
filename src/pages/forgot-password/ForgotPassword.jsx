@@ -16,9 +16,6 @@ import styles from './ForgotPassword.module.css';
 const { HEADER, TEXT, FOOT_NOTE } = constants;
 const { COMPONENT_TEST, HEADER_TEST, FOOT_NOTE_TEST, BUTTON_TEST, TEXT_TEST } = TestId;
 
-
-// https://edustipend.org/reset-password?resetToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YTA0YzYzZWFhYzExNGUxOTkzNzQ2YiIsImVtYWlsIjoiamF5QGtheS5jb20iLCJpc0FkbWluIjpmYWxzZSwibmFtZSI6IkpheSBLYXkiLCJ1c2VybmFtZSI6ImpheUBrYXkuY29tIiwiaWF0IjoxNzA1MDYwNTQ5LCJleHAiOjE3MDUwNjIzNDl9.ZP0cEJQF3sDNC3fdnHuPNFAOYpkDriCEAyI9H4nW-D4
-
 export const ForgotPassword = () => {
   const { setIsActive } = useContext(ModalContext);
   const [state, dispatch] = useReducer(ForgotReducer, INITIAL_STATE);
@@ -34,7 +31,7 @@ export const ForgotPassword = () => {
 
   const sendMail = async () => {
     dispatch({ type: LOADING, payload: true });
-    const res = await postData('v1/reset-password', { username });
+    const res = await postData('reset-password', { username });
     if (res.success) {
       dispatch({ type: SUCCESS, payload: true });
       dispatch({ type: ON_SUCCESS, payload: res.message });

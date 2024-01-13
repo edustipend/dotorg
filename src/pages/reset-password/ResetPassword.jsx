@@ -63,7 +63,7 @@ export const ResetPassword = () => {
       setPasswordErr(false);
     }
     setLoading(true);
-    const response = await postData(`v1/update-password?resetToken=${token}`, {
+    const response = await postData(`update-password?resetToken=${token}`, {
       userId: userId,
       password
     });

@@ -1,4 +1,4 @@
-const API_ENDPOINT = 'https://edustipend-api-dad9440ec9e5.herokuapp.com/'; //TODO: Remove this from hard-coded to env variable;
+const API_ENDPOINT = 'https://edustipend-api-dad9440ec9e5.herokuapp.com/v1/'; //TODO: Remove this from hard-coded to env variable;
 export const postData = async function (route = '', data = {}) {
   const response = await fetch(`${API_ENDPOINT}${route}`, {
     method: 'POST',
