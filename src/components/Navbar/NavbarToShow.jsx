@@ -37,11 +37,11 @@ export const NavbarToShow = () => {
       userId: storeData.userId
     });
     Cookies.remove('eduTk');
-    navigate(0);
     setDropDown((prev) => !prev);
     toast.success(response.message);
     setTimeout(() => {
       dispatch(logout());
+      navigate(0);
     }, 2000);
   };
 
