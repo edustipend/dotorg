@@ -15,11 +15,11 @@ export const Modal = ({ children, className, datatest }) => {
 Modal.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  dataTest: PropTypes.string
+  datatest: PropTypes.string
 };
 
 Modal.defaultProps = {
   className: '',
   rendered: false,
-  dataTest: ''
+  datatest: ''
 };
