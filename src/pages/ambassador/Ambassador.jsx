@@ -7,10 +7,7 @@ import { Benefits } from './internals/Benefits';
 import { Application } from './internals/Request';
 import Header from '../../components/Header';
 import { AmbsImpacts } from './internals/AmbsImpacts';
-<<<<<<< HEAD
-=======
 import { Texts } from './constant';
->>>>>>> 5690207569507f949c7cc025f037030b8066414d
 
 const ApplyNowCTA = () => {
   return (

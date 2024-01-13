@@ -135,15 +135,6 @@
     font-size: 16px;
     line-height: 20px;
     /* 125% */
-<<<<<<< HEAD
-=======
-  }
-
-  @media screen and (max-width: 320px) {
-    .headText {
-      font-size: 20px;
-    }
->>>>>>> 5690207569507f949c7cc025f037030b8066414d
   }
 
   @media screen and (max-width: 320px) {

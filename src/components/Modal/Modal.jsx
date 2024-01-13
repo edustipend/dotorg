@@ -15,11 +15,7 @@ export const Modal = ({ children, className, datatest }) => {
 Modal.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-<<<<<<< HEAD
-  dataTest: PropTypes.string
-=======
   datatest: PropTypes.string
->>>>>>> 5690207569507f949c7cc025f037030b8066414d
 };
 
 Modal.defaultProps = {

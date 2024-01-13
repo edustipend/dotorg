@@ -5,10 +5,7 @@ import Text from '../../../components/Text';
 import Header from '../../../components/Header';
 import star from '../../../assets/star-design.png';
 import { imgs } from '../constant';
-<<<<<<< HEAD
-=======
 import { Texts } from '../constant';
->>>>>>> 5690207569507f949c7cc025f037030b8066414d
 
 export const TopSection = () => {
   return (
@@ -36,12 +33,7 @@ export const TopSection = () => {
             to={{
               pathname: '/ambassador-program',
               hash: '#apply-now'
-<<<<<<< HEAD
-            }}
-          >
-=======
             }}>
->>>>>>> 5690207569507f949c7cc025f037030b8066414d
             <Button label={'Become an Ambassador'} type="secondary" />
           </NavHashLink>
         </div>

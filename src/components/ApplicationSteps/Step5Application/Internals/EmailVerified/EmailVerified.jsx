@@ -1,11 +1,7 @@
 import React, { useCallback, useEffect } from 'react';
 import { useContext, useState } from 'react';
 import { jwtDecode } from 'jwt-decode';
-<<<<<<< HEAD
-import { useNavigate } from 'react-router-dom';
-=======
 import { useNavigate, useSearchParams } from 'react-router-dom';
->>>>>>> 5690207569507f949c7cc025f037030b8066414d
 import { ModalContext } from '../../../../../context/ModalContext';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from '../Submit/Submit.module.css';
