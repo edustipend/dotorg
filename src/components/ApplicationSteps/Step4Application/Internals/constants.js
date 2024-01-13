@@ -28,7 +28,7 @@ export const constants = {
   GENDER_TEXT: `We want to be able to support everyone fairly regardless of gender.`,
   TWITTER_TEXT: `If you're not on Twitter, please type N/A. If you're on some other social media platform, please share and indicate`,
   MONTHS_OPTION: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'],
-  GENDER_OPTION: ['Male', 'Female', 'Others'],
+  GENDER_OPTION: ['Male', 'Female', 'Non-Binary'],
   STATE_OPTION: [
     'Abia',
     'Adamawa',

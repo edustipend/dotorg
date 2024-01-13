@@ -4,13 +4,12 @@ import styles from './MobileTable.module.css';
 import arrowleft from '../../../../assets/arrow-left.svg';
 import arrowright from '../../../../assets/arrow-right.svg';
 import { getFormattedDate, getFormattedTime } from '../../../../utils/dateTimeUtils/dateTimeUtil';
-// import { applicationStatus } from '../constants';
-// const { APPROVED, IN_VIEW, RECEIVED, DENIED } = applicationStatus;
+import { applicationStatus } from '../constants';
+const { APPROVED, IN_VIEW, RECEIVED, DENIED } = applicationStatus;
 
 export const MobileTable = ({ entries, tableHead, oneClickApply }) => {
   const [entry, setEntry] = useState(0);
   const currentEntry = entries[entry];
-  const status = 'IN REVIEW';
 
   const handleArrowLeft = () => {
     setEntry((prev) => prev - 1);
@@ -30,16 +29,14 @@ export const MobileTable = ({ entries, tableHead, oneClickApply }) => {
                 <button
                   disabled={entry === 0 ? true : false}
                   className={entry === 0 ? `${styles.disabled} ${styles.arrowContainer}` : `${styles.arrowContainer}`}
-                  onClick={handleArrowLeft}
-                >
+                  onClick={handleArrowLeft}>
                   <img src={arrowleft} alt="arrowleft" className={styles.arrow_img} />
                 </button>
                 <span className={styles.id}>{1}</span>
                 <button
                   disabled={entry + 1 === entries.length ? true : false}
                   className={entry + 1 === entries.length ? `${styles.disabled} ${styles.arrowContainer}` : `${styles.arrowContainer}`}
-                  onClick={handleArrowRight}
-                >
+                  onClick={handleArrowRight}>
                   <img src={arrowright} alt="arrowright" className={styles.arrow_img} />
                 </button>
               </div>
@@ -56,19 +53,17 @@ export const MobileTable = ({ entries, tableHead, oneClickApply }) => {
             <td className={`${styles.row} ${styles.rowAlt}`}>
               <span
                 className={
-                  // status === `${APPROVED}`
-                  //   ? 'approved bold_weight'
-                  //   : status === `${IN_VIEW}`
-                  //     ? 'in_view bold_weight'
-                  //     : status === `${RECEIVED}`
-                  //       ? 'in_view bold_weight'
-                  //       : status === `${DENIED}`
-                  //         ? 'denied bold_weight'
-                  //         : ''
-                  'Received'
-                }
-              >
-                {status}
+                  currentEntry?.status === `${APPROVED}`
+                    ? 'approved bold_weight'
+                    : currentEntry?.status === `${IN_VIEW}`
+                    ? 'in_view bold_weight'
+                    : currentEntry?.status === `${RECEIVED}`
+                    ? 'in_view bold_weight'
+                    : currentEntry?.status === `${DENIED}`
+                    ? 'denied bold_weight'
+                    : ''
+                }>
+                {currentEntry?.status}
               </span>
             </td>
           </tr>
@@ -84,8 +79,8 @@ export const MobileTable = ({ entries, tableHead, oneClickApply }) => {
             <tr>
               <td className={`${styles.head} ${styles.headAlt} ${styles.row1}`}>{tableHead[5]}</td>
               <td className={`${styles.row} ${styles.rowAlt} ${styles.row2}`}>
-                <button className={styles.btn} onClick={() => oneClickApply(currentEntry.id)}>
-                  {currentEntry && currentEntry.Action}
+                <button className={styles.btn} onClick={() => oneClickApply(currentEntry._id)}>
+                  View Submission
                 </button>
               </td>
             </tr>

@@ -4,13 +4,14 @@ import Text from '../../../components/Text';
 import '../styles.css';
 import { NavHashLink } from 'react-router-hash-link';
 import Button from '../../../components/Button';
+import { Texts } from '../constant';
 
 export const About = () => {
   return (
     <div className="about-main" id="about">
       <div className="about-main-header">
         <Header className="section-header" color="primary" size="medium">
-          ABOUT THE AMBASSADOR PROGRAM
+          {Texts.About}
         </Header>
         <div className="section-header-underline color-primary">
           <div />
@@ -26,7 +27,7 @@ export const About = () => {
         <div className="about-main-child">
           <div className="about-main-child-header">
             <Header className="section-header" color="primary" size="small">
-              ABOUT THE AMBASSADOR PROGRAM
+              {Texts.About}
             </Header>
             <div className="section-header-underline color-primary">
               <div />
@@ -39,8 +40,7 @@ export const About = () => {
               content=" The Edustipend Ambassador program is a partnership program between Edustipend and Leaders who are looking to create an impact in their communities."
             />
             <p className="about-header-text">
-              We are looking for <span className="color-accent">5 persons (past beneficiaries or otherwise)</span> who can serve as Ambassadors for
-              Edustipend. <b>These persons will serve as Ambassadors for Edustipend for three months from October 1st to December 31st, 2023.</b>
+              {Texts.We} <span className="color-accent">{Texts.Persons}</span> {Texts.Serve} <b>{Texts.Duration}</b>
             </p>
 
             <Text
@@ -58,7 +58,8 @@ export const About = () => {
               to={{
                 pathname: '/ambassador-program',
                 hash: '#apply-now'
-              }}>
+              }}
+            >
               <Button label={'Become an Ambassador'} type="secondary" />
             </NavHashLink>
           </div>

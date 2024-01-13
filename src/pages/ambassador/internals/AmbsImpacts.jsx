@@ -5,7 +5,7 @@ import '../styles.css';
 import arrow from '../../../assets/arrow.png';
 import prevArrow from '../../../assets/prevArrow.png';
 import nextArrow from '../../../assets/nextArrow.png';
-import { profiles, DeborahImpactPhotos, BamideleImpactPhotos, LaughterImpactPhotos, samuelProfileLink } from '../constant';
+import { profiles, DeborahImpactPhotos, BamideleImpactPhotos, LaughterImpactPhotos, samuelProfileLink, Texts } from '../constant';
 
 export const AmbsImpacts = () => {
   const [currentProfileIndex, setCurrentProfileIndex] = useState(0);
@@ -80,10 +80,10 @@ export const AmbsImpacts = () => {
   return (
     <div className="abs-main">
       <Header className="section-header-small" color="primary" size="small">
-        MEET OUR INAUGURAL AMBASSADORS AND THEIR IMPACT PROJECTS
+        {Texts.AbsHeader}
       </Header>
       <Header className="section-header-large " color="primary" size="medium">
-        MEET OUR INAUGURAL AMBASSADORS AND THEIR IMPACT PROJECTS
+        {Texts.AbsHeader}
       </Header>
       <div className="section-header-underline color-accent section-header-line">
         <div />
@@ -107,11 +107,11 @@ export const AmbsImpacts = () => {
           <div className="project-photos-and-arrow">
             {currentProfile.name === 'Ekemini Samuel' ? (
               <a className="project-photos" href={samuelProfileLink} target="_blank" rel="noopener noreferrer">
-                View impact project
+                {Texts.View}
               </a>
             ) : currentProfile.name === 'Ubon Udonkang' ? null : (
               <button onClick={openModal} className="project-photos" href={''}>
-                View impact project photos
+                {Texts.ViewPhotos}
               </button>
             )}
 
@@ -126,12 +126,12 @@ export const AmbsImpacts = () => {
                 {currentImpactPhotos.length > 0 ? (
                   <img className="impact-photos" src={currentImpactPhotos[currentImageIndex]} alt="impact-photos" />
                 ) : (
-                  <p>No impact photos available.</p>
+                  <p>{Texts.NoPhotos}</p>
                 )}
               </div>
               <img className={`nextArrowNav ${isNextDisabled ? 'disabled' : ''}`} onClick={nextImage} src={nextArrow} alt="nextArrow" />
               <button className="close-button" onClick={closeModal}>
-                Close
+                {Texts.Close}
               </button>
             </div>
           </div>

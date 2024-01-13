@@ -5,6 +5,7 @@ import Text from '../../../components/Text';
 import '../styles.css';
 import { Requirements } from './Requirements';
 import Button from '../../../components/Button';
+import { Texts } from '../constant';
 
 export const Eligibility = () => {
   return (
@@ -14,7 +15,7 @@ export const Eligibility = () => {
           <Requirements />
           <div className="top-main-child-eligibility">
             <Header className="section-header eligibility" size="small">
-              <span style={{ color: '#5801FF', textTransform: 'uppercase' }}>Eligibility</span>
+              <span style={{ color: '#5801FF', textTransform: 'uppercase' }}>{Texts.Eligible}</span>
             </Header>
             <div>
               <Text
@@ -55,7 +56,8 @@ export const Eligibility = () => {
               to={{
                 pathname: '/ambassador-program',
                 hash: '#apply-now'
-              }}>
+              }}
+            >
               <Button label={'Apply Now'} type="secondary" />
             </NavHashLink>
           </div>

@@ -1,12 +1,13 @@
 import React from 'react';
 import '../styles.css';
 import Header from '../../../components/Header';
+import { Texts } from '../constant';
 
 export const Application = () => {
   return (
     <div className="request-main" id="apply-now">
       <Header className="section-header" color="primary" size="small">
-        Application Form
+        {Texts.Apply}
       </Header>
 
       <div className="request-form-container">
@@ -18,7 +19,8 @@ export const Application = () => {
           height="1010"
           frameBorder="0"
           marginHeight="0"
-          marginWidth="0">
+          marginWidth="0"
+        >
           Loading…
         </iframe>{' '}
       </div>

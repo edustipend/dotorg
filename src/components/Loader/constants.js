@@ -1,3 +1,3 @@
 export const TestId = {
-    LOADER_ID: 'loader-id',
+  LOADER_ID: 'loader-id'
 };
