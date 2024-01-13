@@ -19,11 +19,8 @@ export const Home = () => {
   const [first] = name.split(' ');
 
   const handleOneClick = (id) => {
-    console.log(id);
     setApplicationTable(!applicationTable);
     setSingleEntry(data?.filter((entry) => entry._id === id));
-    console.log(singleEntry);
-    console.log(data?.filter((entry) => entry._id === id));
   };
 
   const getUserData = useCallback(async () => {
@@ -31,7 +28,6 @@ export const Home = () => {
       const response = await authorizedPost(APPLICATION_HISTORY, {
         userId
       });
-      console.log(response);
       setData(response.data);
     } catch (error) {
       console.log(error);

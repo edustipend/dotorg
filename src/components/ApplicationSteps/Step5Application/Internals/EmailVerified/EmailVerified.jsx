@@ -15,7 +15,6 @@ import ContentContainer from '../../../ContentContainer';
 import { postData } from '../../../../../services/ApiClient';
 import { emailVerification } from '../../../../../store/reducers/ApplicationReducer';
 import { storeUser } from '../../../../../store/reducers/UserReducer';
-import { checkTokenExp } from '../../../../../utils/checkTokenExp';
 import Cookies from 'js-cookie';
 const { HEADER, ERR_HEADER, SUCCESS_BTN, ERR_BTN } = constants;
 
@@ -30,19 +29,15 @@ export const EmailVerified = () => {
   const [searchParams] = useSearchParams();
   const emailToken = searchParams.get('jwt');
 
-  const decodeToken = jwtDecode(emailToken);
-  console.log(checkTokenExp(decodeToken?.exp), 'EmailToken');
   const verifyEmail = useCallback(async () => {
     try {
       const res = await postData(`user/verify?jwt=${emailToken}`, {
         username: email
       });
-      console.log(res);
       if (res.success) {
         //decode the token response on success
         const token = res?.token.split(' ')[1];
         const decode = jwtDecode(token);
-        console.log(checkTokenExp(decode?.exp), 'Verified token');
         Cookies.set('eduTk', token, {
           secure: true,
           sameSite: 'strict',
