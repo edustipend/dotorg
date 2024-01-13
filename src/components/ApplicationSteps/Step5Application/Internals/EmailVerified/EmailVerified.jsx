@@ -46,7 +46,7 @@ export const EmailVerified = () => {
 
         dispatch(emailVerification(true));
         dispatch(storeUser(decode));
-        nav('/welcome');
+        // nav('/welcome');
       } else {
         setErrorMessage(res.message);
         dispatch(emailVerification(false));
@@ -60,7 +60,7 @@ export const EmailVerified = () => {
     } finally {
       setLoading(false);
     }
-  }, [dispatch, emailToken, email, nav]);
+  }, [dispatch, emailToken, email]);
 
   useEffect(() => {
     setIsActive(true);
