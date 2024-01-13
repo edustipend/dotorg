@@ -155,6 +155,11 @@ a {
 
 .log-out {
   cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: start;
 }
 
 .drop-down {

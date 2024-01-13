@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import VerifyEmail from '../VerifyEmail';
 import SubmitUI from '../SubmitUI';
 import { successful, isError, errMessage } from '../../../../../store/reducers/ApplicationReducer';
-import { postData } from '../../../../../services/ApiClient';
+import { STIPEND_APPLY, postData } from '../../../../../services/ApiClient';
 import { getStateIdentifier } from '../../../../../utils/getStateIdentifier';
 
 export const Submit = () => {
@@ -36,7 +36,7 @@ export const Submit = () => {
   //Create the user and submit the stipend application
   const handleSubmit = async () => {
     setIsLoading(true);
-    const res = await postData('user/stipend/apply', userInfo, false);
+    const res = await postData(STIPEND_APPLY, userInfo);
     try {
       if (res.success) {
         dispatch(successful(true));
@@ -52,28 +52,6 @@ export const Submit = () => {
     } finally {
       setIsLoading(false);
     }
-
-    // Promise.all(promise)
-    //   .then((responses) => {
-    //     responses.forEach((response, idx) => {
-    //       //do something with the response
-    //       console.log(response, idx);
-    //       if (response.success) {
-    //         dispatch(successful(true));
-    //         console.log(response, idx);
-    //       } else if (!response.success) {
-    //         dispatch(successful(false));
-    //         dispatch(isError(true));
-    //         dispatch(errMessage(response.error[0].email));
-    //       }
-    //       setIsLoading(false);
-    //     });
-    //   })
-    //   .catch((error) => {
-    //     setIsLoading(false);
-    //     dispatch(successful(false));
-    //     dispatch(isError(true));
-    //   });
   };
   return <>{success ? <VerifyEmail /> : <SubmitUI handleSubmit={handleSubmit} isLoading={isLoading} />}</>;
 };
