@@ -1,4 +1,4 @@
-const STATE_OPTION = [
+export const STATE_OPTION = [
   { label: 'Abia', value: 'AB' },
   { label: 'Adamawa', value: 'AD' },
   { label: 'Akwa Ibom', value: 'AK' },
@@ -40,5 +40,7 @@ const STATE_OPTION = [
 export const getStateIdentifier = (stateLabel) => {
   const stateOption = STATE_OPTION.find((state) => state.label === stateLabel);
 
-  return stateOption.value;
+  // Check if stateOption is not undefined before accessing its value property
+  return stateOption ? stateOption.value : undefined;
 };
+
