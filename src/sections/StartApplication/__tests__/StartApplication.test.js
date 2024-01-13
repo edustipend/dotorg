@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from '../../../store';
 import { TestId } from '../constants';
+import { ModalContextProvider } from '../../../context/ModalContext'; // Adjust the import path
 
 describe('StartApplication component', () => {
   describe('renders the correct StartApplication component', () => {
@@ -11,17 +12,22 @@ describe('StartApplication component', () => {
       render(
         <BrowserRouter>
           <Provider store={store}>
-            <StartApplication />
+            <ModalContextProvider> {/* Include ModalContextProvider */}
+              <StartApplication />
+            </ModalContextProvider>
           </Provider>
         </BrowserRouter>
       );
       expect(screen.getByTestId(TestId.DATA_TEST)).toBeInTheDocument();
     });
+
     it('shows the stipend application text', () => {
       render(
         <BrowserRouter>
           <Provider store={store}>
-            <StartApplication />
+            <ModalContextProvider> {/* Include ModalContextProvider */}
+              <StartApplication />
+            </ModalContextProvider>
           </Provider>
         </BrowserRouter>
       );

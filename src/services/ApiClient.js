@@ -2,7 +2,6 @@ import Cookies from 'js-cookie';
 
 const API_ENDPOINT = 'https://edustipend-api-dad9440ec9e5.herokuapp.com/v1/';
 const token = Cookies.get('eduTk');
-console.log(token);
 
 export const postData = async function (route = '', data = {}, authorize = true) {
   let url = `${API_ENDPOINT}${route}`;

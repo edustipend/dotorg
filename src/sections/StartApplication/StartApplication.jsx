@@ -20,12 +20,11 @@ import Modal from '../../components/Modal';
 export const StartApplication = () => {
   const [isLoading, setisLoading] = useState(false);
   const state = useSelector((state) => state.userDetails);
-  console.log('email', state.email);
   const [showScrollIndicator, setShowScrollIndicator] = useState(true);
   const nav = useNavigate();
   const dispatch = useDispatch();
 
-  const { setIsActive } = useContext(ModalContext);
+  const { handleEmailExistModal } = useContext(ModalContext);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -61,13 +60,7 @@ export const StartApplication = () => {
       }
 
       if (res.success) {
-        setIsActive((prev) => !prev);
-
-        // toast.success('Email Exist. Kindly Log In');
-
-        // setTimeout(() => {
-        //   nav('/login');
-        // }, 3000);
+        handleEmailExistModal();
       }
     } catch (error) {
       toast.error('Something went wrong');
@@ -128,7 +121,7 @@ export const StartApplication = () => {
         </Container>
       </div>
 
-      <Modal>
+      <Modal data-testid={TestId.MODAL_TEST}>
         <EmailExist />
       </Modal>
     </>

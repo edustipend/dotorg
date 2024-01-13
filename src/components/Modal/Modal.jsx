@@ -2,11 +2,11 @@ import { useContext } from 'react';
 import { ModalContext } from '../../context/ModalContext';
 import PropTypes from 'prop-types';
 
-export const Modal = ({ children, className, dataTest }) => {
+export const Modal = ({ children, className, datatest }) => {
   const { isActive } = useContext(ModalContext);
 
   return (
-    <div dataTest={dataTest} className={isActive ? `modal_modal modal_content ${className}` : 'hideModal_hideModal'}>
+    <div datatest={datatest} className={isActive ? `modal_modal modal_content ${className}` : 'hideModal_hideModal'}>
       <div className="animate_modal_modal">{children}</div>
     </div>
   );

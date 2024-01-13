@@ -3,6 +3,7 @@ import styles from './EmailExistForm.module.css';
 import Button from '../../../../components/Button';
 import { ModalContext } from '../../../../context/ModalContext';
 import { useNavigate } from 'react-router';
+import { TestId } from '../../constants';
 
 export const EmailExistForm = () => {
   const nav = useNavigate();
@@ -18,8 +19,8 @@ export const EmailExistForm = () => {
   return (
     <div className={styles.content}>
       <div className={styles.emailexist}>
-        <p className={styles.emailexisttext}>Your Email Exist!</p>
-        <p className={styles.logintext}>Kindly, Log In</p>
+        <p className={styles.emailexisttext}>{TestId.EMAIL_EXIST_TEXT}</p>
+        <p className={styles.logintext}>{TestId.LOGIN_TEXT}</p>
       </div>
       <Button disabled={isLoading} label="Log In" effectAlt type="secondary" className={styles.button} onClick={handleSubmit} />
     </div>
