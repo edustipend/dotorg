@@ -78,8 +78,6 @@ export const Step4Application = () => {
     howDidYouHear
   };
 
-  console.log("userDetails", userDetails)
-
   const minLengths = {
     fullName: 2,
     email: 5,

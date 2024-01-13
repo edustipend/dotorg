@@ -36,7 +36,7 @@ export const EmailVerified = () => {
         },
         false
       );
-      console.log(res);
+
       if (res.success) {
         //decode the token response on success
         const decodedToken = jwtDecode(res.token);

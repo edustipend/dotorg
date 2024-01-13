@@ -1,4 +1,4 @@
-export const TestId = {
-  EMAIL_EXIST_TEXT: 'Your Email Exist!',
-  LOGIN_TEXT: 'Kindly, Log In'
+export const Text = {
+  EMAIL_EXIST_TEXT: 'Hey! We know you.',
+  LOGIN_TEXT: 'Click on the button below to login to your account to view your current application(s).'
 };
