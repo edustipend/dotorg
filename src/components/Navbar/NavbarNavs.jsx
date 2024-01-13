@@ -5,12 +5,14 @@ import { BUTTON_TYPE, NAVBAR_LINKS, TestId } from './constants';
 import './styles.css';
 import useHandleCTAClick from '../../hooks/useHandleCTAClick';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 // import LoginModal from '../LoginModal';
 
 const { NAVBAR_LINKS_ID } = TestId;
 const NavbarNavs = ({ showMenu, closeMenu }) => {
   const nav = useNavigate();
   const { buttonLabel, handleCTAClick, id } = useHandleCTAClick();
+  const { isAuthenticated } = useSelector((state) => state.user);
 
   return (
     <>
@@ -25,7 +27,7 @@ const NavbarNavs = ({ showMenu, closeMenu }) => {
         <div className="navAction">
           {!id ? (
             <Button
-              label="Login"
+              label={isAuthenticated ? 'Dashboard' : 'Login'}
               type="secondary"
               className="navBtn"
               onClick={() => {
@@ -59,7 +61,7 @@ const NavbarNavs = ({ showMenu, closeMenu }) => {
             />
             {!id ? (
               <Button
-                label="Login"
+                label={isAuthenticated ? 'Dashboard' : 'Login'}
                 type="secondary"
                 className="navBtn"
                 onClick={() => {

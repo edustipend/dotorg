@@ -19,9 +19,9 @@ const { COMPONENT_TEST, HEADER_TEST, FOOT_NOTE_TEST, BUTTON_TEST, TEXT_TEST } = 
 export const ForgotPassword = () => {
   const { setIsActive } = useContext(ModalContext);
   const [state, dispatch] = useReducer(ForgotReducer, INITIAL_STATE);
-  const { LOADING, DISABLED, ERROR, SUCCESS, EMAIL, ON_SUCCESS, ON_ERROR } = Types;
-  const { email, disabled, feedBack, loading, success, error } = state;
-  const isValid = checkEmail(email);
+  const { LOADING, DISABLED, ERROR, SUCCESS, USERNAME, ON_SUCCESS, ON_ERROR } = Types;
+  const { username, disabled, feedBack, loading, success, error } = state;
+  const isValid = checkEmail(username);
 
   useEffect(() => {
     if (isValid) {
@@ -31,12 +31,13 @@ export const ForgotPassword = () => {
 
   const sendMail = async () => {
     dispatch({ type: LOADING, payload: true });
-    const { success, message } = await postData('reset-password', { email, name: 'default' });
-    if (success) {
-      dispatch({ type: ON_SUCCESS, payload: message });
+    const res = await postData('reset-password', { username });
+    if (res.success) {
+      dispatch({ type: SUCCESS, payload: true });
+      dispatch({ type: ON_SUCCESS, payload: res.message });
       setIsActive((prev) => !prev);
-    } else if (!success) {
-      dispatch({ type: ON_ERROR, payload: message });
+    } else if (!res.success) {
+      dispatch({ type: ON_ERROR, payload: 'Please confirm the email you entered.' });
       setIsActive((prev) => !prev);
     }
   };
@@ -48,16 +49,19 @@ export const ForgotPassword = () => {
           <Modal>
             <div className={styles.Modal}>
               <img src={Valid} alt="valid email" className={styles.img} />
-              <p className={styles.feedBack}>{feedBack}</p>
-              <Button
-                effectAlt
-                label="close"
-                type="secondary"
-                onClick={() => {
-                  dispatch({ type: SUCCESS, payload: false });
-                  setIsActive((prev) => !prev);
-                }}
-              />
+              <p className={styles.feedBack}>Password Reset Email Sent</p>
+              <p className={styles.modalBody}>{feedBack}</p>
+              <div className={styles.btnContainer}>
+                <Button
+                  effectAlt
+                  label="Close"
+                  type="secondary"
+                  onClick={() => {
+                    dispatch({ type: SUCCESS, payload: false });
+                    setIsActive((prev) => !prev);
+                  }}
+                />
+              </div>
             </div>
           </Modal>
         </div>
@@ -72,16 +76,19 @@ export const ForgotPassword = () => {
           <Modal>
             <div className={styles.Modal}>
               <img src={Tears} alt="invalid email" className={styles.imgAlt} />
-              <p className={styles.feedBack}>{feedBack}</p>
-              <Button
-                effectAlt
-                label="close"
-                type="secondary"
-                onClick={() => {
-                  dispatch({ type: ERROR, payload: false });
-                  setIsActive((prev) => !prev);
-                }}
-              />
+              <p className={styles.feedBack}>Oops! An error occured.</p>
+              <p className={styles.modalBody}>{feedBack}</p>
+              <div className={styles.btnContainer}>
+                <Button
+                  effectAlt
+                  label="Close"
+                  type="secondary"
+                  onClick={() => {
+                    dispatch({ type: ERROR, payload: false });
+                    setIsActive((prev) => !prev);
+                  }}
+                />
+              </div>
             </div>
           </Modal>
         </div>
@@ -101,8 +108,9 @@ export const ForgotPassword = () => {
           <div className={styles.inputConatiner}>
             <div className={styles.inputContent}>
               <Input
-                value={email}
-                onChange={(e) => dispatch({ type: EMAIL, payload: e.target.value })}
+                value={username}
+                placeholder="Enter your email address"
+                onChange={(e) => dispatch({ type: USERNAME, payload: e.target.value })}
                 label="Email Address"
                 className={styles.input}
               />
