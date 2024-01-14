@@ -4,12 +4,16 @@ import Button from '../Button';
 import { BUTTON_TYPE, NAVBAR_LINKS, TestId } from './constants';
 import './styles.css';
 import useHandleCTAClick from '../../hooks/useHandleCTAClick';
+import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 // import LoginModal from '../LoginModal';
 
 const { NAVBAR_LINKS_ID } = TestId;
 const NavbarNavs = ({ showMenu, closeMenu }) => {
-  const { buttonLabel, handleCTAClick } = useHandleCTAClick();
-
+  const nav = useNavigate();
+  const { buttonLabel, handleCTAClick, id } = useHandleCTAClick();
+  const { userId } = useSelector((state) => state.user);
+  
   return (
     <>
       <nav className="navbarNavs" data-testid={NAVBAR_LINKS_ID}>
@@ -21,6 +25,17 @@ const NavbarNavs = ({ showMenu, closeMenu }) => {
           ))}
         </div>
         <div className="navAction">
+          {!id ? (
+            <Button
+              label={userId ? 'Dashboard' : 'Login'}
+              type="secondary"
+              className="navBtn"
+              onClick={() => {
+                closeMenu(!showMenu);
+                nav('/login');
+              }}
+            />
+          ) : null}
           <Button label={buttonLabel} type={BUTTON_TYPE} onClick={() => handleCTAClick()} className="navBtn" />
         </div>
       </nav>
@@ -44,6 +59,17 @@ const NavbarNavs = ({ showMenu, closeMenu }) => {
               }}
               className="navBtn"
             />
+            {!id ? (
+              <Button
+                label={userId ? 'Dashboard' : 'Login'}
+                type="secondary"
+                className="navBtn"
+                onClick={() => {
+                  closeMenu(!showMenu);
+                  nav('/login');
+                }}
+              />
+            ) : null}
           </div>
         </nav>
       ) : (
