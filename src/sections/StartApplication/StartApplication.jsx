@@ -47,13 +47,9 @@ export const StartApplication = () => {
     setisLoading(true);
 
     try {
-      const res = await postData(
-        'user/check',
-        {
-          username: state.email
-        },
-        false
-      );
+      const res = await postData('user/check', {
+        username: state.email
+      });
 
       if (!res.success) {
         nav('/application');
@@ -98,10 +94,12 @@ export const StartApplication = () => {
                 <Button
                   dataTest={TestId.BTN_ID}
                   isLoading={isLoading}
-                  type={'secondary'}
+                  type="secondary"
                   icon={RightArrow}
-                  iconPosition={'front'}
+                  iconPosition="front"
                   effectAlt
+                  loaderVariant="neutral"
+                  loaderSize="small"
                   disabled={isTrue ? false : true}
                   label={TestId.BTN_CONTENT}
                   className={styles.btn}

@@ -12,13 +12,26 @@ describe('StartApplication component', () => {
       render(
         <BrowserRouter>
           <Provider store={store}>
-            <ModalContextProvider> {/* Include ModalContextProvider */}
+            <ModalContextProvider>
               <StartApplication />
             </ModalContextProvider>
           </Provider>
         </BrowserRouter>
       );
       expect(screen.getByTestId(TestId.DATA_TEST)).toBeInTheDocument();
+    });
+
+    it('shows the stipend application text', () => {
+      render(
+        <BrowserRouter>
+          <Provider store={store}>
+            <ModalContextProvider>
+              <StartApplication />
+            </ModalContextProvider>
+          </Provider>
+        </BrowserRouter>
+      );
+      expect(screen.getByTestId(TestId.DATA_TEST)).toHaveTextContent(TestId.HEAD_TEXT);
     });
   });
 });
