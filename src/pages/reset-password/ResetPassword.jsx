@@ -42,7 +42,7 @@ export const ResetPassword = () => {
         toast.error('Oops, the link you entered has expired.');
         setTimeout(() => {
           nav('/forgot-password');
-        }, 1500);
+        }, 3000);
       } else {
         setUserId(decode.id);
       }
