@@ -23,7 +23,7 @@ const ProtectedRoute = ({ children }) => {
     const token = checkToken;
     if (token) {
       return true;
-    } else if (token.exp < Date.now() / 1000) {
+    } else if (token.exp && token.exp > Date.now() / 1000) {
       return false;
     } else {
       return false;
@@ -34,17 +34,15 @@ const ProtectedRoute = ({ children }) => {
     return <Navigate to="/login" />;
   }
 
-
-
   return children;
 };
 
 export default ProtectedRoute;
 
 ProtectedRoute.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.node
 };
 
 ProtectedRoute.defaultProps = {
-  children: null,
+  children: null
 };

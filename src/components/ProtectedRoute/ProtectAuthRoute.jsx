@@ -23,7 +23,7 @@ const ProtecteAuthRoute = ({ children }) => {
     const token = checkToken;
     if (token) {
       return true;
-    } else if (token.exp < Date.now() / 1000) {
+    } else if (token.exp && token.exp > Date.now() / 1000) {
       return false;
     } else {
       return false;
