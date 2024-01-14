@@ -73,7 +73,7 @@ export const EmailVerified = () => {
 
   const handleReturn = () => {
     setIsActive(false);
-    nav(-1);
+    nav('/');
   };
 
   if (isAuthenticated) {
