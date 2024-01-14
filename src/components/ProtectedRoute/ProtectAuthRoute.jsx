@@ -4,7 +4,7 @@ import Cookies from 'js-cookie';
 import { jwtDecode } from 'jwt-decode';
 import { useMemo } from 'react';
 
-const ProtectedRoute = ({ children }) => {
+const ProtecteAuthRoute = ({ children }) => {
   const checkToken = useMemo(() => {
     const token = Cookies.get('eduTk');
     try {
@@ -18,25 +18,28 @@ const ProtectedRoute = ({ children }) => {
     return false;
   }, []);
 
-  // validate the decoded token
+
   const validateToken = useMemo(() => {
     const token = checkToken;
-    return token?.exp && token.exp > Date.now() / 1000;
+    return token?.exp && token.exp > Date.now() / 1000
   }, [checkToken]);
+  
 
-  if (!validateToken) {
-    return <Navigate to="/login" />;
+  if (validateToken) {
+    return <Navigate to="/dashboard" />;
   }
 
   return children;
 };
 
-export default ProtectedRoute;
+export default ProtecteAuthRoute;
 
-ProtectedRoute.propTypes = {
-  children: PropTypes.node
+ProtecteAuthRoute.propTypes = {
+  children: PropTypes.node,
+  alt: PropTypes.bool
 };
 
-ProtectedRoute.defaultProps = {
-  children: null
+ProtecteAuthRoute.defaultProps = {
+  children: null,
+  alt: true
 };
