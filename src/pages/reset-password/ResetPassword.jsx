@@ -38,7 +38,7 @@ export const ResetPassword = () => {
           nav('/forgot-password');
         }, 1500);
       } else if (decode?.exp > Date.now() / 1000) {
-        toast.error('Oops, the link you entered is expired.');
+        toast.error('Oops, the link you entered has expired.');
         setTimeout(() => {
           nav('/forgot-password');
         }, 1500);
