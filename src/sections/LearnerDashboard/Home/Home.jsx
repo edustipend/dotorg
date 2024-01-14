@@ -5,13 +5,14 @@ import hand from '../../../assets/waving hand.png';
 import { tab } from './internals/constants';
 import Button from '../../../components/Button';
 import Table from '../../../components/Table';
-import { postData } from '../../../services/ApiClient';
+import { APPLICATION_HISTORY, authorizedPost } from '../../../services/ApiClient';
 import { useSelector } from 'react-redux';
 const { dashboard } = constants;
 
 export const Home = () => {
   const [currentTable, setCurrentTable] = useState(0);
   const [applicationTable, setApplicationTable] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [singleEntry, setSingleEntry] = useState([]);
   const [data, setData] = useState([]);
 
@@ -19,24 +20,23 @@ export const Home = () => {
   const [first] = name.split(' ');
 
   const handleOneClick = (id) => {
-    console.log(id);
     setApplicationTable(!applicationTable);
     setSingleEntry(data?.filter((entry) => entry._id === id));
-    console.log(singleEntry);
-    console.log(data?.filter((entry) => entry._id === id));
   };
 
   const getUserData = useCallback(async () => {
+    setLoading(true);
     try {
-      const response = await postData(`user/stipend/application-history`, {
+      const response = await authorizedPost(APPLICATION_HISTORY, {
         userId
       });
-      console.log(response);
       setData(response.data);
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
-  }, []);
+  }, [userId]);
 
   useEffect(() => {
     getUserData();
@@ -77,16 +77,20 @@ export const Home = () => {
               );
             })}
           </div>
-          {(() => {
-            switch (currentTable) {
-              case 0:
-                return <Table entries={data} tableHead={tableHead} oneClickApply={handleOneClick} />;
-              case 1:
-                return <Table entries={data} tableHead={tableHead} oneClickApply={handleOneClick} />;
-              default:
-                return <Table entries={data} tableHead={tableHead} oneClickApply={handleOneClick} />;
-            }
-          })()}
+          {loading ? (
+            <p>Loading...</p>
+          ) : (
+            (() => {
+              switch (currentTable) {
+                case 0:
+                  return <Table entries={data} tableHead={tableHead} oneClickApply={handleOneClick} />;
+                case 1:
+                  return <Table entries={data} tableHead={tableHead} oneClickApply={handleOneClick} />;
+                default:
+                  return <Table entries={data} tableHead={tableHead} oneClickApply={handleOneClick} />;
+              }
+            })()
+          )}
         </section>
       )}
       {!applicationTable && (

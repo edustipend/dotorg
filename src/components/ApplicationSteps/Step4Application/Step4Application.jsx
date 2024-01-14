@@ -19,10 +19,11 @@ import {
   Password,
   Gender,
   stateoforigin,
-  twitterhandle,
   howdidyouhear,
-  dateofbirth
+  dateofbirth,
+  setSocialHandle
 } from '../../../store/reducers/UserDetailsReducer';
+import { setMediaHandle } from '../../../store/reducers/UserDetailsReducer/UserDetailsReducer';
 
 const {
   HEADER,
@@ -35,6 +36,13 @@ const {
   GENDER_PH,
   STATE,
   STATE_PH,
+  SOCIAL,
+  SOCIAL_HANDLES,
+  SOCIAL_PH,
+  FB,
+  FB_PH,
+  IG,
+  IG_PH,
   TWITTER,
   TWITTER_PH,
   AD,
@@ -43,6 +51,8 @@ const {
   DOB_TEXT,
   GENDER_TEXT,
   TWITTER_TEXT,
+  FB_TEXT,
+  IG_TEXT,
   GENDER_OPTION,
   STATE_OPTION,
   REFERRAL_SOURCES,
@@ -67,14 +77,16 @@ export const Step4Application = () => {
   const [isPassword, setIsPassword] = useState(passwordState);
   const { passwordErr, confirmPassword, confirmPasswordErr } = isPassword;
 
-  const { fullName, email, password, dateOfBirth, gender, stateOfOrigin, twitterHandle, howDidYouHear } = useSelector((state) => state.userDetails);
+  const { fullName, email, password, dateOfBirth, gender, stateOfOrigin, howDidYouHear, socialHandle, mediaHandle } = useSelector(
+    (state) => state.userDetails
+  );
 
   const userDetails = {
     fullName,
     email,
     gender,
     stateOfOrigin,
-    twitterHandle,
+    mediaHandle,
     howDidYouHear
   };
 
@@ -86,7 +98,7 @@ export const Step4Application = () => {
     yearOfBirth: 4,
     gender: 4,
     stateOfOrigin: 3,
-    twitterHandle: 2,
+    mediaHandle: 2,
     howDidYouHear: 3
   };
   /**
@@ -123,7 +135,6 @@ export const Step4Application = () => {
   const minDate = new Date();
   minDate.setFullYear(minDate.getFullYear() - minage);
   const minDateStr = minDate.toISOString().split('T')[0];
-
   return (
     <>
       <ContentContainer>
@@ -183,16 +194,50 @@ export const Step4Application = () => {
                 dispatchType={stateoforigin}
                 className={styles.entry}
               />
-              <div>
-                <Input
-                  value={twitterHandle}
-                  label={TWITTER}
-                  placeholder={TWITTER_PH}
-                  onChange={(e) => dispatch(twitterhandle(e.target.value))}
-                  className={styles.entry}
-                />
-                <small className={styles.small}>{TWITTER_TEXT}</small>
-              </div>
+              <Select
+                value={socialHandle}
+                label={SOCIAL}
+                placeholder={SOCIAL_PH}
+                options={SOCIAL_HANDLES}
+                dispatchType={setSocialHandle}
+                className={styles.entry}
+              />
+              {socialHandle === SOCIAL_HANDLES[0] && (
+                <div>
+                  <Input
+                    value={mediaHandle}
+                    label={TWITTER}
+                    placeholder={TWITTER_PH}
+                    onChange={(e) => dispatch(setMediaHandle(e.target.value))}
+                    className={styles.entry}
+                  />
+                  <small className={styles.small}>{TWITTER_TEXT}</small>
+                </div>
+              )}
+              {socialHandle === SOCIAL_HANDLES[1] && (
+                <div>
+                  <Input
+                    value={mediaHandle}
+                    label={FB}
+                    placeholder={FB_PH}
+                    onChange={(e) => dispatch(setMediaHandle(e.target.value))}
+                    className={styles.entry}
+                  />
+                  <small className={styles.small}>{FB_TEXT}</small>
+                </div>
+              )}
+              {socialHandle === SOCIAL_HANDLES[2] && (
+                <div>
+                  <Input
+                    value={mediaHandle}
+                    label={IG}
+                    placeholder={IG_PH}
+                    onChange={(e) => dispatch(setMediaHandle(e.target.value))}
+                    className={styles.entry}
+                  />
+                  <small className={styles.small}>{IG_TEXT}</small>
+                </div>
+              )}
             </div>
             <div className={styles.formArea}>
               <div>

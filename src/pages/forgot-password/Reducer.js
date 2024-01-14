@@ -3,13 +3,13 @@ export const Types = {
   DISABLED: 'disabled',
   SUCCESS: 'success',
   ERROR: 'error',
-  EMAIL: 'email',
+  USERNAME: 'username',
   ON_SUCCESS: 'onSuccess',
   ON_ERROR: 'onError'
 };
 
 export const INITIAL_STATE = {
-  email: '',
+  username: '',
   disabled: true,
   feedBack: '',
   loading: false,
@@ -41,10 +41,10 @@ export const ForgotReducer = (state, action) => {
         ...state,
         error: payload
       };
-    case Types.EMAIL:
+    case Types.USERNAME:
       return {
         ...state,
-        email: payload
+        username: payload
       };
     case Types.ON_SUCCESS:
       return {
