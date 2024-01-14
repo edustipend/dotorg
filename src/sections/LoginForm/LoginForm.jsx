@@ -42,7 +42,7 @@ export const LoginForm = () => {
         username: email,
         password: password
       });
-      
+
       if (!res.success) {
         toast.error('Invalid credentials');
       }
