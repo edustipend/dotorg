@@ -12,7 +12,7 @@
 .about-main-child {
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .subheader {
