@@ -14,7 +14,7 @@ import Welcome from './sections/Welcome';
 import { routesConstant } from './routesConstant';
 import Login from './pages/login';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
-import ProtecteAuthRoute from './components/ProtectedRoute/ProtectAuthRoute';
+// import ProtecteAuthRoute from './components/ProtectedRoute/ProtectAuthRoute';
 const { AMBASSADOR_PROGRAM, REQUEST, APPLICATION, FORGOT_PASSWORD, RESET_PASSWORD, WELCOME, DASHBOARD, AT_ONE, LOGIN } = routesConstant;
 
 const Routes = () => {
@@ -25,13 +25,13 @@ const Routes = () => {
       <Route path={APPLICATION} element={<RequestStipendPage />} />
       <Route path={FORGOT_PASSWORD} element={<ForgotPassword />} />
       <Route path={RESET_PASSWORD} element={<ResetPassword />} />
-      <Route path={LOGIN} element={<ProtecteAuthRoute>
+      <Route path={LOGIN} element={<ProtectedRoute alt={true}>
         <Login />
-      </ProtecteAuthRoute>} />
-      <Route path={WELCOME} element={<ProtectedRoute>
+      </ProtectedRoute>} />
+      <Route path={WELCOME} element={<ProtectedRoute alt={false}>
         <Welcome />
       </ProtectedRoute>}></Route>
-      <Route path={DASHBOARD} element={<ProtectedRoute>
+      <Route path={DASHBOARD} element={<ProtectedRoute alt={false}>
         <LearnerDashboard />
       </ProtectedRoute>}>
         <Route index element={<Home />} />
