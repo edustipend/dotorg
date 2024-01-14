@@ -7,7 +7,8 @@ const initialState = {
   dateOfBirth: '',
   gender: '',
   stateOfOrigin: '',
-  twitterHandle: '',
+  socialHandle: '',
+  mediaHandle: '',
   howDidYouHear: ''
 };
 
@@ -33,14 +34,17 @@ const userDetails = createSlice({
     stateoforigin: (state, action) => {
       state.stateOfOrigin = action.payload;
     },
-    twitterhandle: (state, action) => {
-      state.twitterHandle = action.payload;
-    },
     howdidyouhear: (state, action) => {
       state.howDidYouHear = action.payload;
+    },
+    setSocialHandle: (state, action) => {
+      state.socialHandle = action.payload;
+    },
+    setMediaHandle: (state, action) => {
+      state.mediaHandle = action.payload;
     }
   }
 });
 
 export default userDetails.reducer;
-export const { fullname, Email, Password, dateofbirth, Gender, stateoforigin, twitterhandle, howdidyouhear } = userDetails.actions;
+export const { fullname, Email, Password, dateofbirth, Gender, stateoforigin, howdidyouhear, setSocialHandle, setMediaHandle } = userDetails.actions;
