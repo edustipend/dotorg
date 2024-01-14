@@ -55,7 +55,7 @@ export const EmailVerified = () => {
         dispatch(emailVerification(false));
       }
       if (res.error) {
-        setErrorMessage(res.error);
+        setErrorMessage(res.message);
         dispatch(emailVerification(false));
       }
     } catch (error) {
