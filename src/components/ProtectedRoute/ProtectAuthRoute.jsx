@@ -21,7 +21,7 @@ const ProtecteAuthRoute = ({ children }) => {
 
   const validateToken = useMemo(() => {
     const token = checkToken;
-    return token.exp && token.exp > Date.now() / 1000
+    return token?.exp && token.exp > Date.now() / 1000
   }, [checkToken]);
   
 
