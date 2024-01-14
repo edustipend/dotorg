@@ -21,13 +21,7 @@ const ProtectedRoute = ({ children }) => {
   // validate the decoded token
   const validateToken = useMemo(() => {
     const token = checkToken;
-    if (token) {
-      return true;
-    } else if (token.exp && token.exp > Date.now() / 1000) {
-      return false;
-    } else {
-      return false;
-    }
+    return token.exp && token.exp > Date.now() / 1000;
   }, [checkToken]);
 
   if (!validateToken) {
