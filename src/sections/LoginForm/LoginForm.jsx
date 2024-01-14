@@ -7,12 +7,12 @@ import styles from './LoginForm.module.css';
 import { HEAD_TEXT, LAST_TEXT, SUB_TEXT, TestId, parameters } from './constants';
 import { Hand } from '../../assets';
 import { postData } from '../../services/ApiClient';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import Cookies from 'js-cookie';
-import {  storeUser } from '../../store/reducers/UserReducer';
+import { storeUser } from '../../store/reducers/UserReducer';
 import { jwtDecode } from 'jwt-decode';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 const { EMAIL, EMAIL_PH, EMAIL_TYPE, PASSWORD, PASSWORD_PH, PASSWORD_TYPE, LOGIN, SECONDARY, NEUTRAL, SMALL, RESET } = parameters;
 
 export const LoginForm = () => {
@@ -21,9 +21,7 @@ export const LoginForm = () => {
   const dispatch = useDispatch();
   const [password, setPassword] = useState('');
   const [disable, setDisable] = useState(true);
-  const { isAuthenticated } = useSelector((state) => state.user);
   const nav = useNavigate();
-
 
   useEffect(() => {
     if (email.includes('@') && password.length > 5) {
@@ -54,11 +52,11 @@ export const LoginForm = () => {
           sameSite: 'strict',
           expires: 14
         });
+        toast.success('Logged in successfully');
         dispatch(storeUser(decode));
         setTimeout(() => {
           nav(0);
-        }, 2000);
-        toast.success('Logged in successfully');
+        }, 1000);
       }
     } catch (error) {
       toast.error('Something went wrong');
@@ -67,9 +65,6 @@ export const LoginForm = () => {
     }
   };
 
-  if (isAuthenticated) {
-    return <Navigate to="/dashboard" />;
-  }
 
   return (
     <div className={styles.container} data-testid={TestId.LOGIN_FORM_TEST_ID}>
