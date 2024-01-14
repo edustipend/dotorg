@@ -7,8 +7,6 @@ export const STIPEND_APPLY = 'user/stipend/apply';
 export const LOGOUT = 'logout';
 export const APPLICATION_HISTORY = 'user/stipend/application-history';
 
-console.log(API_ENDPOINT);
-
 export const authorizedPost = async function (route = '', data = {}) {
   const url = `${API_ENDPOINT}${route}?jwt=${token}`;
 
