@@ -1,28 +1,30 @@
-import React, { useContext } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './EmailExistForm.module.css';
 import Button from '../../../../components/Button';
-import { ModalContext } from '../../../../context/ModalContext';
 import { useNavigate } from 'react-router';
 import { Text } from '../../constants';
+import Header from '../../../../components/Header';
 
-export const EmailExistForm = () => {
+export const EmailExistForm = ({ handleNavigate }) => {
   const nav = useNavigate();
 
-  const { isLoading, setIsLoading } = useContext(ModalContext);
-
   const handleSubmit = () => {
-    setIsLoading(true);
     nav('/login');
-    setIsLoading(false);
+    handleNavigate();
   };
 
   return (
     <div className={styles.content}>
       <div className={styles.emailexist}>
-        <p className={styles.emailexisttext}>{Text.EMAIL_EXIST_TEXT}</p>
+        <Header className={styles.emailexisttext}>{Text.EMAIL_EXIST_TEXT}</Header>
         <p className={styles.logintext}>{Text.LOGIN_TEXT}</p>
       </div>
-      <Button disabled={isLoading} label="Log In" effectAlt type="secondary" className={styles.button} onClick={handleSubmit} />
+      <Button label={Text.BUTTON_LABEL} effectAlt type="secondary" className={styles.button} onClick={handleSubmit} />
     </div>
   );
+};
+
+EmailExistForm.propTypes = {
+  handleNavigate: PropTypes.func
 };
