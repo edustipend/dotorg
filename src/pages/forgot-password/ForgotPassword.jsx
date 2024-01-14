@@ -13,7 +13,7 @@ import { constants } from './constants';
 import { TestId } from './constants';
 import styles from './ForgotPassword.module.css';
 
-const { HEADER, TEXT, FOOT_NOTE } = constants;
+const { CTA_BUTTON_TEXT, HEADER, TEXT, FOOT_NOTE } = constants;
 const { COMPONENT_TEST, HEADER_TEST, FOOT_NOTE_TEST, BUTTON_TEST, TEXT_TEST } = TestId;
 
 export const ForgotPassword = () => {
@@ -124,7 +124,7 @@ export const ForgotPassword = () => {
               isLoading={loading}
               loaderSize="small"
               loaderVariant="neutral"
-              label="Send reset link"
+              label={CTA_BUTTON_TEXT}
               type="secondary"
               size="medium"
               disabled={!username || disabled}
