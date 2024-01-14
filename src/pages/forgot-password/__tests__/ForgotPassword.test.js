@@ -77,9 +77,8 @@ describe('Forgot Password Test', () => {
           </ModalContext.Provider>
         </BrowserRouter>
       );
-      const label = 'Send instructions';
       const action = screen.getByTestId(BUTTON_TEST);
-      expect(action).toHaveTextContent(label);
+      expect(action).toHaveTextContent(constants.CTA_BUTTON_TEXT);
     });
   });
 });
