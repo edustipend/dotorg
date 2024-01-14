@@ -12,7 +12,7 @@ describe('StartApplication component', () => {
       render(
         <BrowserRouter>
           <Provider store={store}>
-            <ModalContextProvider> {/* Include ModalContextProvider */}
+            <ModalContextProvider>
               <StartApplication />
             </ModalContextProvider>
           </Provider>
@@ -25,7 +25,7 @@ describe('StartApplication component', () => {
       render(
         <BrowserRouter>
           <Provider store={store}>
-            <ModalContextProvider> {/* Include ModalContextProvider */}
+            <ModalContextProvider>
               <StartApplication />
             </ModalContextProvider>
           </Provider>

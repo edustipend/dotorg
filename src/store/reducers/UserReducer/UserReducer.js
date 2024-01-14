@@ -26,11 +26,11 @@ const user = createSlice({
       state.name = '';
       state.isAuthenticated = false;
     },
-    isAuthenticated: (state, action) => {
+    setAuthenticated: (state, action) => {
       state.isAuthenticated = action.payload;
     }
   }
 });
 
 export default user.reducer;
-export const { storeUser, logout, isAuthenticated } = user.actions;
+export const { storeUser, logout, setAuthenticated } = user.actions;

@@ -17,8 +17,11 @@
   margin-right: 15px;
   cursor: pointer;
   background: var(--edustipend-purple);
-  width: 24px;
-  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
   border-radius: 4px;
 }
 

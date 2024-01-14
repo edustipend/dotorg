@@ -32,13 +32,14 @@ export const ResetPassword = () => {
     //validate the token
     if (token) {
       const decode = jwtDecode(token);
+      console.log(decode.exp);
       if (!decode) {
         toast.error('Oops, the link you entered is invalid');
         setTimeout(() => {
           nav('/forgot-password');
         }, 1500);
-      } else if (decode?.exp < Date.now() / 1000) {
-        toast.error('Oops, the link you entered is expired.');
+      } else if (decode?.exp && Date.now() / 1000 > decode.exp) {
+        toast.error('Oops, the link you entered has expired.');
         setTimeout(() => {
           nav('/forgot-password');
         }, 3000);

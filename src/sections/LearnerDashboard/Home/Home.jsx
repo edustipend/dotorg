@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, {  useEffect, useState } from 'react';
 import styles from './Home.module.css';
 import { Quote, TestId, constants, submissionTableHead, submitted, tableHead } from './internals/constants';
 import hand from '../../../assets/waving hand.png';
@@ -15,7 +15,6 @@ export const Home = () => {
   const [loading, setLoading] = useState(false);
   const [singleEntry, setSingleEntry] = useState([]);
   const [data, setData] = useState([]);
-
   const { name, userId } = useSelector((state) => state.user);
   const [first] = name.split(' ');
 
@@ -24,23 +23,24 @@ export const Home = () => {
     setSingleEntry(data?.filter((entry) => entry._id === id));
   };
 
-  const getUserData = useCallback(async () => {
-    setLoading(true);
-    try {
-      const response = await authorizedPost(APPLICATION_HISTORY, {
-        userId
-      });
-      setData(response.data);
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setLoading(false);
-    }
-  }, [userId]);
-
   useEffect(() => {
+    const getUserData = async () => {
+      setLoading(true);
+      try {
+        const response = await authorizedPost(APPLICATION_HISTORY, {
+          userId
+        });
+        if (response.success) {
+          setData(response.data);
+        }
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
+    };
     getUserData();
-  }, [getUserData]);
+  }, [userId]);
 
   return (
     <div className={styles.Main} data-testid={TestId.HOME}>

@@ -14,7 +14,7 @@ import { constants } from './constants';
 import ContentContainer from '../../../ContentContainer';
 import { postData } from '../../../../../services/ApiClient';
 import { emailVerification } from '../../../../../store/reducers/ApplicationReducer';
-import { storeUser } from '../../../../../store/reducers/UserReducer';
+import { storeUser, setAuthenticated } from '../../../../../store/reducers/UserReducer';
 import Cookies from 'js-cookie';
 const { HEADER, ERR_HEADER, SUCCESS_BTN, ERR_BTN } = constants;
 
@@ -31,6 +31,7 @@ export const EmailVerified = () => {
   const emailToken = searchParams.get('jwt');
 
   const verifyEmail = useCallback(async () => {
+    dispatch(emailVerification(false));
     try {
       const res = await postData(`user/verify?jwt=${emailToken}`, {
         username: email
@@ -44,9 +45,9 @@ export const EmailVerified = () => {
           sameSite: 'strict',
           expires: 14
         });
-
         dispatch(emailVerification(true));
         dispatch(storeUser(decode));
+        dispatch(setAuthenticated(true));
         setTimeout(() => {
           nav(0);
         }, 2000);
@@ -72,7 +73,7 @@ export const EmailVerified = () => {
 
   const handleReturn = () => {
     setIsActive(false);
-    nav(-1);
+    nav('/');
   };
 
   if (isAuthenticated) {
