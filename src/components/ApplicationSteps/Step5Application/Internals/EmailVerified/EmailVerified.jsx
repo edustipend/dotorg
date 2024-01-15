@@ -52,11 +52,11 @@ export const EmailVerified = () => {
           nav(0);
         }, 2000);
       } else {
-        setErrorMessage(res.message);
+        setErrorMessage(res?.message);
         dispatch(emailVerification(false));
       }
       if (res.error) {
-        setErrorMessage(res.message);
+        setErrorMessage(res?.message || res?.error);
         dispatch(emailVerification(false));
       }
     } catch (error) {
