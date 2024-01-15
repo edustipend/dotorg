@@ -25,16 +25,16 @@ export const Submit = () => {
     email: email,
     password: password,
     dateOfBirth: dateOfBirth,
-    gender: gender.toLowerCase(),
+    gender: gender?.toLowerCase(),
     stateOfOrigin: getStateIdentifier(stateOfOrigin),
-    howDidYouHearAboutUs: howDidYouHear.toLowerCase(),
+    howDidYouHearAboutUs: howDidYouHear?.toLowerCase(),
     stipendCategory: Category,
     reasonForRequest: reasonForRequest,
     stepsTakenToEaseProblem: stepsTakenToEaseProblem,
     potentialBenefits: potentialBenefits,
     futureHelpFromUser: futureHelpFromUser,
     socialMediaHandles: {
-      [socialHandle.toLowerCase()]: mediaHandle
+      [socialHandle?.toLowerCase()]: mediaHandle
     }
   };
 
