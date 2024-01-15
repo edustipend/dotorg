@@ -29,6 +29,7 @@ export const EmailVerified = () => {
   const { isAuthenticated } = useSelector((state) => state.user);
   const [searchParams] = useSearchParams();
   const emailToken = searchParams.get('jwt');
+  
 
   const verifyEmail = useCallback(async () => {
     dispatch(emailVerification(false));
