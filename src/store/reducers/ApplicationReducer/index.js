@@ -10,7 +10,8 @@ import {
   successful,
   emailVerification,
   isError,
-  errMessage
+  errMessage,
+  submit
 } from './ApplicationRuducer';
 
-export { back, progress, setActiveStep, category, reason, steps, benefits, futureHelp, successful, emailVerification, isError, errMessage };
+export { back, progress, setActiveStep, category, reason, steps, benefits, futureHelp, successful, emailVerification, isError, errMessage, submit };

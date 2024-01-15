@@ -2,10 +2,9 @@ import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import VerifyEmail from '../VerifyEmail';
 import SubmitUI from '../SubmitUI';
-import { successful, isError, errMessage } from '../../../../../store/reducers/ApplicationReducer';
+import { successful, isError, errMessage, submit } from '../../../../../store/reducers/ApplicationReducer';
 import { STIPEND_APPLY, postData } from '../../../../../services/ApiClient';
 import { getStateIdentifier } from '../../../../../utils/getStateIdentifier';
-
 export const Submit = () => {
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
@@ -34,7 +33,7 @@ export const Submit = () => {
     potentialBenefits: potentialBenefits,
     futureHelpFromUser: futureHelpFromUser,
     socialMediaHandles: {
-      [socialHandle.toLowerCase()]: mediaHandle
+      [socialHandle?.toLowerCase()]: mediaHandle
     }
   };
 
@@ -45,6 +44,9 @@ export const Submit = () => {
     try {
       if (res.success) {
         dispatch(successful(true));
+        setTimeout(() => {
+          dispatch(submit());
+        }, 5000);
       } else {
         dispatch(successful(false));
         dispatch(isError(true));

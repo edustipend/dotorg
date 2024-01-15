@@ -52,10 +52,13 @@ const application = createSlice({
     },
     errMessage: (state, action) => {
       state.errorMessage = action.payload;
-    }
+    },
+    submit: (state) => {
+      state.activeStep = 1
+    },
   }
 });
 
 export default application.reducer;
-export const { back, progress, setActiveStep, category, reason, steps, benefits, futureHelp, successful, emailVerification, isError, errMessage } =
+export const { back, progress, setActiveStep, category, reason, steps, benefits, futureHelp, successful, emailVerification, isError, errMessage, submit } =
   application.actions;
