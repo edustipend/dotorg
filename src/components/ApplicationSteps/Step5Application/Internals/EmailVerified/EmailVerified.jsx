@@ -32,9 +32,7 @@ export const EmailVerified = () => {
   const verifyEmail = useCallback(async () => {
     dispatch(emailVerification(false));
     try {
-      const res = await postData(`user/verify?jwt=${emailToken}`, {
-        username: ''
-      });
+      const res = await postData(`user/verify?jwt=${emailToken}`);
       if (res.success) {
         //decode the token response on success
         const token = res?.token.split(' ')[1];
