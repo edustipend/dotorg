@@ -33,6 +33,7 @@ export const EmailVerified = () => {
     dispatch(emailVerification(false));
     try {
       const res = await postData(`user/verify?jwt=${emailToken}`);
+      console.log(res);
       if (res.success) {
         //decode the token response on success
         const token = res?.token.split(' ')[1];

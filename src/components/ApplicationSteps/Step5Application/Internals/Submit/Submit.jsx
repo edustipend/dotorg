@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import VerifyEmail from '../VerifyEmail';
 import SubmitUI from '../SubmitUI';
-import { successful, isError, errMessage, submit } from '../../../../../store/reducers/ApplicationReducer';
+import { successful, isError, errMessage, reset } from '../../../../../store/reducers/ApplicationReducer';
 import { STIPEND_APPLY, postData } from '../../../../../services/ApiClient';
 import { getStateIdentifier } from '../../../../../utils/getStateIdentifier';
 export const Submit = () => {
@@ -45,7 +45,7 @@ export const Submit = () => {
       if (res.success) {
         dispatch(successful(true));
         setTimeout(() => {
-          dispatch(submit());
+          dispatch(reset());
         }, 5000);
       } else {
         dispatch(successful(false));
