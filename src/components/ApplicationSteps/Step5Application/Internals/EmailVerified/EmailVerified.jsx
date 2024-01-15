@@ -25,7 +25,6 @@ export const EmailVerified = () => {
   const dispatch = useDispatch();
   const nav = useNavigate();
   const { isVerified } = useSelector((state) => state.application);
-  const { email } = useSelector((state) => state.userDetails);
   const { isAuthenticated } = useSelector((state) => state.user);
   const [searchParams] = useSearchParams();
   const emailToken = searchParams.get('jwt');
@@ -33,9 +32,7 @@ export const EmailVerified = () => {
   const verifyEmail = useCallback(async () => {
     dispatch(emailVerification(false));
     try {
-      const res = await postData(`user/verify?jwt=${emailToken}`, {
-        username: email
-      });
+      const res = await postData(`user/verify?jwt=${emailToken}`);
       if (res.success) {
         //decode the token response on success
         const token = res?.token.split(' ')[1];
@@ -64,7 +61,7 @@ export const EmailVerified = () => {
     } finally {
       setLoading(false);
     }
-  }, [dispatch, emailToken, email, nav]);
+  }, [dispatch, emailToken, nav]);
 
   useEffect(() => {
     setIsActive(true);
