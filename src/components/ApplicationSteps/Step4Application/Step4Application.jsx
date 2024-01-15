@@ -202,6 +202,8 @@ export const Step4Application = () => {
                 dispatchType={setSocialHandle}
                 className={styles.entry}
               />
+            </div>
+            <div>
               {socialHandle === SOCIAL_HANDLES[0] && (
                 <div>
                   <Input
@@ -239,6 +241,7 @@ export const Step4Application = () => {
                 </div>
               )}
             </div>
+
             <div className={styles.formArea}>
               <div>
                 <Input
