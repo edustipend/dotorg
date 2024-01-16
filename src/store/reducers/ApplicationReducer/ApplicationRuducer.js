@@ -54,7 +54,16 @@ const application = createSlice({
       state.errorMessage = action.payload;
     },
     reset: (state) => {
-      state.activeStep = 1
+      state.activeStep = 1;
+      state.stipendCategory = '';
+      state.reasonForRequest = '';
+      state.stepsTakenToEaseProblem = '';
+      state.potentialBenefits = '';
+      state.futureHelpFromUser = '';
+      state.success = false;
+      state.isVerified = false;
+      state.error = false;
+      state.errorMessage = ''
     },
   }
 });
