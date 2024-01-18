@@ -25,15 +25,28 @@ const Routes = () => {
       <Route path={APPLICATION} element={<RequestStipendPage />} />
       <Route path={FORGOT_PASSWORD} element={<ForgotPassword />} />
       <Route path={RESET_PASSWORD} element={<ResetPassword />} />
-      <Route path={LOGIN} element={<ProtecteAuthRoute>
-        <Login />
-      </ProtecteAuthRoute>} />
-      <Route path={WELCOME} element={<ProtectedRoute>
-        <Welcome />
-      </ProtectedRoute>}></Route>
-      <Route path={DASHBOARD} element={<ProtectedRoute>
-        <LearnerDashboard />
-      </ProtectedRoute>}>
+      <Route
+        path={LOGIN}
+        element={
+          <ProtecteAuthRoute>
+            <Login />
+          </ProtecteAuthRoute>
+        }
+      />
+      <Route
+        path={WELCOME}
+        element={
+          <ProtectedRoute>
+            <Welcome />
+          </ProtectedRoute>
+        }></Route>
+      <Route
+        path={DASHBOARD}
+        element={
+          <ProtectedRoute>
+            <LearnerDashboard />
+          </ProtectedRoute>
+        }>
         <Route index element={<Home />} />
         <Route path="home" element={<Home />} />
         <Route path="submissions" element={<Submissions />} />
