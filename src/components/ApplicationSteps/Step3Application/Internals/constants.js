@@ -17,11 +17,11 @@ export const constants = {
 
 
 export const TestId = {
-  COMPONENT_ID: "component-id",
-  HEADER_ID: "header-id",
-  IMG_ID: "img-id",
-  DATA_PRIVACY_ID: "data-privacy-id",
-  ACKNOWLEDGE_ID: "acknowledge-id",
-  ACCEPT_ID: "accept-id",
-  REJECT_ID: "reject-id",
+  STEP3_COMPONENT_ID: "step3_component-id",
+  HEADER_ID: "step3_header-id",
+  IMG_ID: "step3_img-id",
+  DATA_PRIVACY_ID: "step3_data-privacy-id",
+  ACKNOWLEDGE_ID: "step3_acknowledge-id",
+  ACCEPT_ID: "step3_accept-id",
+  REJECT_ID: "step3_reject-id",
 }

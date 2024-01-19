@@ -5,11 +5,11 @@ import { TestId, constants } from '../Internals/constants';
 import { Provider } from 'react-redux';
 import store from '../../../../store';
 import { ModalContext } from "../../../../context/ModalContext";
-const setIsActive = true;
+const setIsActive = jest.fn();
 const value = { setIsActive };
 
 describe('Step3Application component', () => {
-    it('The component should render', () => {
+    it('The Step3 component should render', () => {
         render(
             <BrowserRouter>
                 <Provider store={store}>
@@ -19,7 +19,7 @@ describe('Step3Application component', () => {
                 </Provider>
             </BrowserRouter>
         )
-        const action = screen.getByTestId(TestId.COMPONENT_ID)
+        const action = screen.getByTestId(TestId.STEP3_COMPONENT_ID)
         expect(action).toBeInTheDocument()
     });
     it("The header should have the correct text", () => {

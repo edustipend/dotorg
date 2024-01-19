@@ -11,3 +11,11 @@ export const constants = {
   PARA6: ` The Edustipend Team ❤️`,
   QUOTE: `"Believe in yourself, take on your challenges, dig deep within yourself to conquer fears. Never let anyone bring you down. You got this." - Chantal Sutherland`
 };
+
+export const TestId = {
+  SUBMIT_COMPONENT_ID: "submit_component_id",
+  IMAGE_ID: "submit_image_id",
+  HEADER_ID: "submit_header_id",
+  BACK_ID: "submit_back_id",
+  SUBMIT_ID: "submit_submit_id",
+}

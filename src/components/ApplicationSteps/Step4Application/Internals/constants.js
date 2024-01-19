@@ -84,9 +84,9 @@ export const constants = {
 
 
 export const TestId = {
-  COMPONENT_ID: "component_id",
-  FORM_ID: "form_id",
-  HEADER_ID: "header_id",
-  NEXT_ID: "next_id",
-  BACK_ID: "back_id"
+  COMPONENT_ID: "step4_component_id",
+  FORM_ID: "step4_form_id",
+  HEADER_ID: "step4_header_id",
+  NEXT_ID: "step4_next_id",
+  BACK_ID: "step4_back_id"
 }

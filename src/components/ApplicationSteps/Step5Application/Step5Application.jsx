@@ -13,28 +13,30 @@ import Submit from './Internals/Submit';
 import { back, successful, isError } from '../../../store/reducers/ApplicationReducer';
 import { ScrollOnMount } from '../ScrollOnMount/ScrollOnMount';
 import { BackArrow } from '../../../assets';
-import { constants } from './Internals/constants';
+import { TestId, constants } from './Internals/constants';
 import { DancingEmoji } from '../../../assets';
 const { HEADER, PARA1, PARA2, PARA3, PARA4, PARA5, PARA6, QUOTE } = constants;
 
 export const Step5Application = () => {
   ScrollOnMount();
-  const { setIsActive } = useContext(ModalContext);
+  const { setIsActive } = useContext(ModalContext) || {};
   const dispatch = useDispatch();
 
   const onSubmit = () => {
-    dispatch(successful( false));
+    dispatch(successful(false));
     dispatch(isError(false));
     setIsActive((prev) => !prev);
   };
 
   return (
     <>
-      <div>
+      <div data-testid={TestId.SUBMIT_COMPONENT_ID}>
         <ContentContainer>
           <div className={styles.headerContainer}>
-            <Header className={styles.header}>{HEADER}</Header>
-            <img src={DancingEmoji} alt="dancing_emoji" className={styles.emoji} />
+            <Header dataTest={TestId.HEADER_ID} className={styles.header}>
+              {HEADER}
+            </Header>
+            <img data-testid={TestId.IMAGE_ID} src={DancingEmoji} alt="dancing_emoji" className={styles.emoji} />
           </div>
           <div className={styles.textContainer}>
             <Text content={PARA1} />
@@ -48,6 +50,7 @@ export const Step5Application = () => {
           </div>
           <div className={styles.btnContainer}>
             <Button
+              dataTest={TestId.BACK_ID}
               label={'Back'}
               icon={BackArrow}
               iconPosition={'back'}
@@ -56,7 +59,15 @@ export const Step5Application = () => {
               onClick={() => dispatch(back())}
               className={styles.btn}
             />
-            <Button label={'Submit'} iconPosition={'front'} type={'secondary'} effectAlt onClick={onSubmit} className={styles.btn} />
+            <Button
+              dataTest={TestId.SUBMIT_ID}
+              label={'Submit'}
+              iconPosition={'front'}
+              type={'secondary'}
+              effectAlt
+              onClick={onSubmit}
+              className={styles.btn}
+            />
           </div>
         </ContentContainer>
         <section className="quoteContainer">

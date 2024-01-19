@@ -24,7 +24,7 @@ export const Step3Application = () => {
   ScrollOnMount();
 
   const handleChange = (event) => {
-    setSelectedOption(event.target.value);
+    setSelectedOption(event?.target?.value);
   };
 
   //popup a prompt if the learner rejects else progress with the application
@@ -37,7 +37,7 @@ export const Step3Application = () => {
   };
 
   return (
-    <div data-testid={TestId.COMPONENT_ID}>
+    <div data-testid={TestId.STEP3_COMPONENT_ID}>
       <ContentContainer>
         <section className={styles.dataConsent}>
           <div className={styles.headerSection}>
