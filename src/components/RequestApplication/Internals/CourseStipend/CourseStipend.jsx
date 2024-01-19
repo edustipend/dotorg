@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import styles from '../LaptopStipend/LaptopStipend.module.css';
 import ContentContainer from '../../../../components/ApplicationSteps/ContentContainer';
 import Button from '../../../../components/Button';
-import { courseConstants } from '../../constants';
+import { TestId, courseConstants } from '../../constants';
 import { BackArrow, RightArrow } from '../../../../assets';
 import CategoryHeader from '../CategoryHeader';
 import QuestionAndAnswer from '../QuestionAndAnswer';
@@ -18,11 +18,12 @@ export const CourseStipend = () => {
   const isTrue = isApplicationFilled(reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser);
 
   return (
-    <div className={styles.stipend}>
+    <div className={styles.stipend} data-testid={TestId.COURSE_STIPEND}>
       <ContentContainer>
         <section className={styles.main}>
           <CategoryHeader header={TITLE} category={TITLE} support={SUPPORT_TYPE} />
           <QuestionAndAnswer value={reasonForRequest} dispatchType={reason} number={1} question={QUESTION1} />
+
         </section>
         <p className={styles.footNote}>{FOOT_NOTE1}</p>
       </ContentContainer>

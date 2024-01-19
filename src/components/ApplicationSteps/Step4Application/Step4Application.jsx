@@ -9,7 +9,7 @@ import Button from '../../Button';
 import Quote from '../../Quote';
 import { checkEmail } from '../../../utils/EmailChecker/emailChecker';
 import { BackArrow, RightArrow } from '../../../assets';
-import { constants } from './Internals/constants';
+import { TestId, constants } from './Internals/constants';
 import { Hug } from '../../../assets';
 import { ScrollOnMount } from '../ScrollOnMount/ScrollOnMount';
 import { back, progress } from '../../../store/reducers/ApplicationReducer';
@@ -136,17 +136,19 @@ export const Step4Application = () => {
   minDate.setFullYear(minDate.getFullYear() - minage);
   const minDateStr = minDate.toISOString().split('T')[0];
   return (
-    <>
+    <div data-testid={TestId.COMPONENT_ID}>
       <ContentContainer>
         <section className={styles.userDetails}>
           <div className={styles.topSection}>
             <div className={styles.headerContainer}>
-              <Header className={styles.header}>{HEADER}</Header>
+              <Header dataTest={TestId.HEADER_ID} className={styles.header}>
+                {HEADER}
+              </Header>
               <img src={Hug} alt="hug_emoji" className={styles.hug} />
             </div>
             <p className={styles.subHeader}>{SUBHEADER}</p>
           </div>
-          <form className={styles.form}>
+          <form data-testid={TestId.FORM_ID} className={styles.form}>
             <div className={styles.formArea}>
               <Input
                 value={fullName}
@@ -271,6 +273,7 @@ export const Step4Application = () => {
         </section>
         <section className={styles.btnContainer}>
           <Button
+            dataTest={TestId.BACK_ID}
             icon={BackArrow}
             iconPosition={'back'}
             type={'plain'}
@@ -280,6 +283,7 @@ export const Step4Application = () => {
             className={styles.btn}
           />
           <Button
+            dataTest={TestId.NEXT_ID}
             icon={RightArrow}
             type={'secondary'}
             label={'Continue'}
@@ -293,6 +297,6 @@ export const Step4Application = () => {
       <section className="quoteContainer">
         <Quote content={QUOTE} className="quote" />
       </section>
-    </>
+    </div>
   );
 };

@@ -81,3 +81,12 @@ export const constants = {
   PASSWORD_MIN_LENGTH_ERR: 'A minimum of 8 characters is required',
   PASSWORD_MISMATCH_ERR: 'password mismatch'
 };
+
+
+export const TestId = {
+  COMPONENT_ID: "component_id",
+  FORM_ID: "form_id",
+  HEADER_ID: "header_id",
+  NEXT_ID: "next_id",
+  BACK_ID: "back_id"
+}

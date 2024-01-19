@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import ContentContainer from '../../../../components/ApplicationSteps/ContentContainer';
 import CategoryHeader from '../CategoryHeader';
 import QuestionAndAnswer from '../QuestionAndAnswer';
-import { dataConstants } from '../../constants';
+import { TestId, dataConstants } from '../../constants';
 import Button from '../../../../components/Button';
 import { BackArrow, RightArrow } from '../../../../assets';
 import styles from '../LaptopStipend/LaptopStipend.module.css';
@@ -17,7 +17,7 @@ export const DataStipend = () => {
   const { reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser } = useSelector((state) => state.application);
   const isTrue = isApplicationFilled(reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser);
   return (
-    <div className={styles.stipend}>
+    <div data-testid={TestId.DATA_STIPEND} className={styles.stipend}>
       <ContentContainer>
         <section className={styles.main}>
           <CategoryHeader header={TITLE} category={TITLE} support={SUPPORT_TYPE} />

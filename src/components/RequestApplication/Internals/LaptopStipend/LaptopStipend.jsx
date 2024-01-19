@@ -6,7 +6,7 @@ import QuestionAndAnswer from '../QuestionAndAnswer';
 import styles from './LaptopStipend.module.css';
 import Button from '../../../../components/Button';
 import { BackArrow, RightArrow } from '../../../../assets';
-import { laptopConstants } from '../../constants';
+import { TestId, laptopConstants } from '../../constants';
 import Quote from '../../../../components/Quote';
 import { isApplicationFilled } from '../checkStipendApplication';
 import { back, progress, reason, steps, benefits, futureHelp } from '../../../../store/reducers/ApplicationReducer';
@@ -20,7 +20,7 @@ export const LaptopStipend = () => {
   const isTrue = isApplicationFilled(reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser);
 
   return (
-    <div className={styles.stipend}>
+    <div className={styles.stipend} data-testid={TestId.LAPTOP_STIPEND}>
       <ContentContainer>
         <section className={styles.main}>
           <CategoryHeader header={TITLE} category={TITLE} support={SUPPORT_TYPE} />

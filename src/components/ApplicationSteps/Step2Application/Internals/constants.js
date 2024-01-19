@@ -3,3 +3,7 @@ export const constant = {
   DATA: 'Data/Internet Subscription',
   COURSE: 'Course/Certification Fees'
 };
+
+export const TestId ={
+  component:"Component_id"
+}
