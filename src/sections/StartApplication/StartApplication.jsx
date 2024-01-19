@@ -16,6 +16,7 @@ import { postData } from '../../services/ApiClient';
 import { ModalContext } from '../../context/ModalContext';
 import { EmailExist } from '../EmailExist/EmailExist';
 import Modal from '../../components/Modal';
+import { reset } from '../../store/reducers/ApplicationReducer';
 
 export const StartApplication = () => {
   const [isLoading, setisLoading] = useState(false);
@@ -43,7 +44,7 @@ export const StartApplication = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    dispatch(reset());
     setisLoading(true);
 
     try {

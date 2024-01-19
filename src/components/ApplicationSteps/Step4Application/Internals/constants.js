@@ -53,6 +53,7 @@ export const constants = {
     'Edo',
     'Ekiti',
     'Enugu',
+    'Federal Capital Territory',
     'Gombe',
     'Imo',
     'Jigawa',
