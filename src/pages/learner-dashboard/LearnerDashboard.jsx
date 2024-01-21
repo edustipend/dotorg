@@ -8,7 +8,7 @@ import { useContext } from 'react';
 import { useEffect } from 'react';
 import InstallPrompt from '../../components/InstallPrompt';
 import SurveyBox from '../../components/SurveyBox';
-import { SURVEY_LS_KEY } from './constants';
+import { SURVEY_LS_KEY, TestId } from './constants';
 
 export const LearnerDashboard = () => {
   const { showSidebar, setShowSidebar } = useContext(SidebarCtx);
@@ -34,7 +34,7 @@ export const LearnerDashboard = () => {
   }, [setShowSidebar]);
 
   return (
-    <div className={styles.main}>
+    <div className={styles.main} data-testid={TestId.LEARNER_DASHBOARD_WRAPPER}>
       <div>
         {desktopScreen && <SideBar />}
         <div className={styles.menu} onClick={() => setShowSidebar(!showSidebar)}>

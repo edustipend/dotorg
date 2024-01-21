@@ -55,7 +55,7 @@ export const Submit = () => {
     } catch (error) {
       dispatch(successful(false));
       dispatch(isError(true));
-      dispatch(errMessage(error.messsage));
+      dispatch(errMessage(res?.error?.message || res?.message));
     } finally {
       setIsLoading(false);
     }
