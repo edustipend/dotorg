@@ -30,9 +30,15 @@ export const Button = ({
   loaderVariant,
   size,
   type,
+  onClick,
   ...props
 }) => {
   const mode = getButtonMode(type);
+  const handleClick = () => {
+    if (onClick) {
+      onClick();
+    }
+  };
   return (
     <div
       className={`${
@@ -44,6 +50,7 @@ export const Button = ({
         data-testid={dataTest}
         type="button"
         disabled={disabled}
+        onClick={handleClick}
         className={[
           `${ClassName.ROOT_BUTTON} `,
           `${ClassName.ROOT_BUTTON}--${size} `,

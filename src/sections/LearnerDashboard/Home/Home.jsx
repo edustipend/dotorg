@@ -1,4 +1,4 @@
-import React, {  useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './Home.module.css';
 import { Quote, TestId, constants, submissionTableHead, submitted, tableHead } from './internals/constants';
 import hand from '../../../assets/waving hand.png';
@@ -7,6 +7,8 @@ import Button from '../../../components/Button';
 import Table from '../../../components/Table';
 import { APPLICATION_HISTORY, authorizedPost } from '../../../services/ApiClient';
 import { useSelector } from 'react-redux';
+import ActionBanner from '../../../components/ActionBanner';
+import { PageCopy } from './constants';
 const { dashboard } = constants;
 
 export const Home = () => {
@@ -15,12 +17,17 @@ export const Home = () => {
   const [loading, setLoading] = useState(false);
   const [singleEntry, setSingleEntry] = useState([]);
   const [data, setData] = useState([]);
-  const { name, userId } = useSelector((state) => state.user);
+  const { name, userId, isVerified } = useSelector((state) => state.user);
   const [first] = name.split(' ');
 
   const handleOneClick = (id) => {
     setApplicationTable(!applicationTable);
     setSingleEntry(data?.filter((entry) => entry._id === id));
+  };
+
+  const handleVerifyClick = () => {
+    // TODO: Make call to verify user
+    console.log('Verify user called');
   };
 
   useEffect(() => {
@@ -57,12 +64,23 @@ export const Home = () => {
           </div>
         </div>
       </section>
-      <section className={styles.quote}>
-        {/**Placeholder quote*/}
-        <p className={styles.quoteText} data-testid={TestId.QUOTE}>
-          "{Quote.content}" - <i className={styles.italic}>{Quote.author}</i>
-        </p>
-      </section>
+      {isVerified ? (
+        <section className={styles.quote}>
+          {/**Placeholder quote*/}
+          <p className={styles.quoteText} data-testid={TestId.QUOTE}>
+            "{Quote.content}" - <i className={styles.italic}>{Quote.author}</i>
+          </p>
+        </section>
+      ) : (
+        <ActionBanner
+          dataTest={TestId.VERIFY_BANNER}
+          buttonLabel={PageCopy.VERIFY_BUTTON_LABEL}
+          className={styles.verifyBanner}
+          handleCTAClick={handleVerifyClick}
+          text={PageCopy.VERIFY_TEXT}
+        />
+      )}
+
       {applicationTable && (
         <section className={styles.table} data-testid={TestId.TABLE}>
           <div className={styles.tabs}>
@@ -71,7 +89,8 @@ export const Home = () => {
                 <button
                   key={idx}
                   className={currentTable === idx ? `${styles.tab}` : `${styles.tab} ${styles.tabAlt}`}
-                  onClick={() => setCurrentTable(idx)}>
+                  onClick={() => setCurrentTable(idx)}
+                >
                   {itm}
                 </button>
               );
