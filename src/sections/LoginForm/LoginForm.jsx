@@ -47,6 +47,7 @@ export const LoginForm = () => {
       if (res.success) {
         const token = res?.token.split(' ')[1];
         const decode = jwtDecode(token);
+        console.log(decode, 'USER');
         Cookies.set('eduTk', token, {
           secure: true,
           sameSite: 'strict',
@@ -64,7 +65,6 @@ export const LoginForm = () => {
       setisLoading(false);
     }
   };
-
 
   return (
     <div className={styles.container} data-testid={TestId.LOGIN_FORM_TEST_ID}>

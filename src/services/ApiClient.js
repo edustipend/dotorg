@@ -1,7 +1,8 @@
 import Cookies from 'js-cookie';
-const { REACT_APP_API_BASE_URL, REACT_APP_API_VERSION } = process.env;
+// const { REACT_APP_API_BASE_URL, REACT_APP_API_VERSION } = process.env;
 
-const API_ENDPOINT = `${REACT_APP_API_BASE_URL}/${REACT_APP_API_VERSION}/`;
+// const API_ENDPOINT = `${REACT_APP_API_BASE_URL}/${REACT_APP_API_VERSION}/`;
+const API_ENDPOINT = `https://edustipend-prod-api-a50ab4139ff7.herokuapp.com/v1/`;
 const token = Cookies.get('eduTk');
 export const STIPEND_APPLY = 'user/stipend/apply';
 export const LOGOUT = 'logout';
