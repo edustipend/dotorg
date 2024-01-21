@@ -10,55 +10,19 @@ import InstallPrompt from '../../components/InstallPrompt';
 import SurveyBox from '../../components/SurveyBox';
 import { BANNER, SURVEY_LS_KEY, TestId } from './constants';
 import Banner from '../../components/Banner';
-import { useSelector } from 'react-redux';
 import Button from '../../components/Button';
-// import { authorizedPost } from '../../services/ApiClient';
-// import toast from 'react-hot-toast';
 import VerifyEmail from '../../components/ApplicationSteps/Step5Application/Internals/VerifyEmail';
-import { ModalContext } from '../../context/ModalContext';
 import Modal from '../../components/Modal';
+import useResendVerification from '../../hooks/useResendVerification';
 
 export const LearnerDashboard = () => {
   const { showSidebar, setShowSidebar } = useContext(SidebarCtx);
   const [desktopScreen, setDesktopScreen] = useState(document.body.clientWidth);
-  const { isAdmin } = useSelector((state) => state.user);
-  const [isLoading, setIsLoading] = useState(false);
-  const { setIsActive } = useContext(ModalContext);
-  const [showBanner, setShowBanner] = useState(!isAdmin);
+  const { handleResendVerification, isLoading, setShowBanner, showBanner } = useResendVerification();
 
   const handleSurveySuccess = () => {
     //TODO: Add logic to clean this up on the next application window
     localStorage.setItem(SURVEY_LS_KEY, 'true');
-  };
-
-  const handleResendVerification = async () => {
-    setIsLoading(true);
-
-    // API request
-    // try {
-    //   const res = await authorizedPost('user/reverify-email', {
-    //     username: email
-    //   });
-
-    //   if (!res.success) {
-    //     toast.error('Something went wrong! Try again.');
-    //   }
-    //   if (res.success) {
-    //     toast.success('Verification email sent!');
-    //     setIsActive(true);
-    //   }
-    // } catch (error) {
-    //   toast.error('Something went wrong');
-    // } finally {
-    //   setIsLoading(false);
-    //   setShowBanner(false);
-    // }
-
-    setTimeout(() => {
-      setIsActive(true);
-      setIsLoading(false);
-      setShowBanner(false);
-    }, 5000);
   };
 
   useEffect(() => {

@@ -12,5 +12,5 @@ export const BANNER = {
   TEXT2: 'Just take a moment to verify your account before the window closes.',
   VERIFY: 'Verify Now',
   VERIFYING: 'Verifying...',
-  PRIMARY: 'Primary'
+  PRIMARY: 'primary'
 };
