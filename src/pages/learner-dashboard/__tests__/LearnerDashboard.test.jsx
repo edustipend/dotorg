@@ -13,7 +13,8 @@ const mockStore = configureMockStore([
 ]);
 const store = mockStore({
   user: {
-    name: 'Test User'
+    name: 'Test User',
+    email: 'test@example.com'
   }
 });
 
