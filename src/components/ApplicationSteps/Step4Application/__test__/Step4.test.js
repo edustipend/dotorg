@@ -15,7 +15,7 @@ describe('Step4Application component', () => {
                 </Provider>
             </BrowserRouter>
         )
-        const test = screen.getByTestId(TestId.COMPONENT_ID)
+        const test = screen.getByTestId(TestId.COMPONENT_TEST_ID)
         expect(test).toBeInTheDocument()
     });
     it("The header should have the correct text", () => {

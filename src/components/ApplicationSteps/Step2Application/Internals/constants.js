@@ -5,5 +5,5 @@ export const constant = {
 };
 
 export const TestId ={
-  component:"step2_Component_id"
+  COMPONENT_TEST_ID:"step2_Component_id"
 }

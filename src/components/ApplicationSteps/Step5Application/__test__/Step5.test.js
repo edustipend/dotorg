@@ -19,7 +19,7 @@ describe("Step5 component", () => {
                 </Provider>
             </BrowserRouter>
         )
-        const action = screen.getByTestId(TestId.SUBMIT_COMPONENT_ID)
+        const action = screen.getByTestId(TestId.COMPONENT_TEST_ID)
         expect(action).toBeInTheDocument()
     });
     it("The header should have the correct text", () => {

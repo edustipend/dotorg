@@ -14,7 +14,7 @@ describe('Step2Application component', () => {
                 </Provider>
             </BrowserRouter>
         )
-        const test = screen.getByTestId(TestId.component)
+        const test = screen.getByTestId(TestId.COMPONENT_TEST_ID)
         expect(test).toBeInTheDocument()
     })
 })

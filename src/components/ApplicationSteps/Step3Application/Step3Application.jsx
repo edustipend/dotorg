@@ -37,8 +37,8 @@ export const Step3Application = () => {
   };
 
   return (
-    <div data-testid={TestId.STEP3_COMPONENT_ID}>
-      <ContentContainer>
+    <>
+      <ContentContainer dataTest={TestId.COMPONENT_TEST_ID}>
         <section className={styles.dataConsent}>
           <div className={styles.headerSection}>
             <Header dataTest={TestId.HEADER_ID} className={styles.header}>
@@ -107,6 +107,6 @@ export const Step3Application = () => {
       <Modal>
         <Consent setIsActive={setIsActive} />
       </Modal>
-    </div>
+    </>
   );
 };

@@ -136,8 +136,8 @@ export const Step4Application = () => {
   minDate.setFullYear(minDate.getFullYear() - minage);
   const minDateStr = minDate.toISOString().split('T')[0];
   return (
-    <div data-testid={TestId.COMPONENT_ID}>
-      <ContentContainer>
+    <>
+      <ContentContainer dataTest={TestId.COMPONENT_TEST_ID}>
         <section className={styles.userDetails}>
           <div className={styles.topSection}>
             <div className={styles.headerContainer}>
@@ -297,6 +297,6 @@ export const Step4Application = () => {
       <section className="quoteContainer">
         <Quote content={QUOTE} className="quote" />
       </section>
-    </div>
+    </>
   );
 };

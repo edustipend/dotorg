@@ -19,7 +19,7 @@ const { HEADER, PARA1, PARA2, PARA3, PARA4, PARA5, PARA6, QUOTE } = constants;
 
 export const Step5Application = () => {
   ScrollOnMount();
-  const { setIsActive } = useContext(ModalContext) || {};
+  const { setIsActive } = useContext(ModalContext);
   const dispatch = useDispatch();
 
   const onSubmit = () => {
@@ -30,53 +30,51 @@ export const Step5Application = () => {
 
   return (
     <>
-      <div data-testid={TestId.SUBMIT_COMPONENT_ID}>
-        <ContentContainer>
-          <div className={styles.headerContainer}>
-            <Header dataTest={TestId.HEADER_ID} className={styles.header}>
-              {HEADER}
-            </Header>
-            <img data-testid={TestId.IMAGE_ID} src={DancingEmoji} alt="dancing_emoji" className={styles.emoji} />
+      <ContentContainer dataTest={TestId.COMPONENT_TEST_ID}>
+        <div className={styles.headerContainer}>
+          <Header dataTest={TestId.HEADER_ID} className={styles.header}>
+            {HEADER}
+          </Header>
+          <img data-testid={TestId.IMAGE_ID} src={DancingEmoji} alt="dancing_emoji" className={styles.emoji} />
+        </div>
+        <div className={styles.textContainer}>
+          <Text content={PARA1} />
+          <Text content={PARA2} />
+          <Text content={PARA3} />
+          <Text content={PARA4} />
+          <div>
+            <Text content={PARA5} />
+            <Text content={PARA6} />
           </div>
-          <div className={styles.textContainer}>
-            <Text content={PARA1} />
-            <Text content={PARA2} />
-            <Text content={PARA3} />
-            <Text content={PARA4} />
-            <div>
-              <Text content={PARA5} />
-              <Text content={PARA6} />
-            </div>
-          </div>
-          <div className={styles.btnContainer}>
-            <Button
-              dataTest={TestId.BACK_ID}
-              label={'Back'}
-              icon={BackArrow}
-              iconPosition={'back'}
-              type={'plain'}
-              effectAlt
-              onClick={() => dispatch(back())}
-              className={styles.btn}
-            />
-            <Button
-              dataTest={TestId.SUBMIT_ID}
-              label={'Submit'}
-              iconPosition={'front'}
-              type={'secondary'}
-              effectAlt
-              onClick={onSubmit}
-              className={styles.btn}
-            />
-          </div>
-        </ContentContainer>
-        <section className="quoteContainer">
-          <Quote content={QUOTE} className="quote quote2" />
-        </section>
-        <Modal>
-          <Submit />
-        </Modal>
-      </div>
+        </div>
+        <div className={styles.btnContainer}>
+          <Button
+            dataTest={TestId.BACK_ID}
+            label="Back"
+            icon={BackArrow}
+            iconPosition="back"
+            type="plain"
+            effectAlt
+            onClick={() => dispatch(back())}
+            className={styles.btn}
+          />
+          <Button
+            dataTest={TestId.SUBMIT_ID}
+            label="Submit"
+            iconPosition="front"
+            type="secondary"
+            effectAlt
+            onClick={onSubmit}
+            className={styles.btn}
+          />
+        </div>
+      </ContentContainer>
+      <section className="quoteContainer">
+        <Quote content={QUOTE} className="quote quote2" />
+      </section>
+      <Modal>
+        <Submit />
+      </Modal>
     </>
   );
 };

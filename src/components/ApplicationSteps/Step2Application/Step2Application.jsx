@@ -12,7 +12,7 @@ export const Step2Application = () => {
   ScrollOnMount();
 
   return (
-    <div data-testid={TestId.component}>
+    <div data-testid={TestId.COMPONENT_TEST_ID}>
       {(() => {
         switch (stipendCategory) {
           case LAPTOP:
