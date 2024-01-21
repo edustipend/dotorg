@@ -6,6 +6,7 @@ import { successful, isError, errMessage, reset } from '../../../../../store/red
 import { STIPEND_APPLY, postData } from '../../../../../services/ApiClient';
 import { getStateIdentifier } from '../../../../../utils/getStateIdentifier';
 import { useNavigate } from 'react-router';
+import { resetDetails } from '../../../../../store/reducers/UserDetailsReducer';
 export const Submit = () => {
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
@@ -48,8 +49,9 @@ export const Submit = () => {
         dispatch(successful(true));
         setTimeout(() => {
           dispatch(reset());
+          dispatch(resetDetails());
+          nav('/login');
         }, 5000);
-        nav('/login');
       } else {
         dispatch(successful(false));
         dispatch(isError(true));

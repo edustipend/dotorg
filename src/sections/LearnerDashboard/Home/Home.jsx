@@ -53,7 +53,7 @@ export const Home = () => {
           <p className={styles.dashboard}>{dashboard}</p>
           <div className={styles.waveSection}>
             <p className={styles.hello} data-testid={TestId.USER}>
-              Hello, {first}
+              Hello, {first || name}
             </p>
             <div className={`${styles.imgContainer} ${styles.imgAlt}`}>
               <img src={hand} alt="hand" className={styles.img} />
