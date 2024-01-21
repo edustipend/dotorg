@@ -32,7 +32,7 @@ export const LoginForm = () => {
   }, [email, password]);
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e?.preventDefault();
     setisLoading(true);
 
     try {
@@ -47,7 +47,6 @@ export const LoginForm = () => {
       if (res.success) {
         const token = res?.token.split(' ')[1];
         const decode = jwtDecode(token);
-        console.log(decode, 'USER');
         Cookies.set('eduTk', token, {
           secure: true,
           sameSite: 'strict',

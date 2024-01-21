@@ -1,9 +1,11 @@
 import { useContext, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { ModalContext } from '../context/ModalContext';
+import { VERIFY_LOGGED_IN_USER, authorizedPost } from '../services/ApiClient';
+import toast from 'react-hot-toast';
 
 const useResendVerification = () => {
-  const { isVerified } = useSelector((state) => state.user);
+  const { isVerified, email } = useSelector((state) => state.user);
   const [isLoading, setIsLoading] = useState(false);
   const { setIsActive } = useContext(ModalContext);
   const [showBanner, setShowBanner] = useState(!isVerified);
@@ -11,31 +13,23 @@ const useResendVerification = () => {
   const handleResendVerification = async () => {
     setIsLoading(true);
 
-    // API request
-    // try {
-    //   const res = await authorizedPost('user/reverify-email', {
-    //     username: email
-    //   });
+    try {
+      const res = await authorizedPost(VERIFY_LOGGED_IN_USER, {
+        username: email
+      });
 
-    //   if (!res.success) {
-    //     toast.error('Something went wrong! Try again.');
-    //   }
-    //   if (res.success) {
-    //     toast.success('Verification email sent!');
-    //     setIsActive(true);
-    //   }
-    // } catch (error) {
-    //   toast.error('Something went wrong');
-    // } finally {
-    //   setIsLoading(false);
-    //   setShowBanner(false);
-    // }
-
-    setTimeout(() => {
-      setIsActive(true);
+      if (res?.message === 'Verification email sent succesfully') {
+        toast.success(res?.message);
+        setIsActive(true);
+      } else {
+        toast.error(res?.message || res?.error?.message);
+      }
+    } catch (error) {
+      toast.error(error?.message || 'Something went wrong');
+    } finally {
       setIsLoading(false);
       setShowBanner(false);
-    }, 5000);
+    }
   };
   return { isLoading, setShowBanner, showBanner, handleResendVerification };
 };

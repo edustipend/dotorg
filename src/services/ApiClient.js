@@ -1,12 +1,13 @@
 import Cookies from 'js-cookie';
-// const { REACT_APP_API_BASE_URL, REACT_APP_API_VERSION } = process.env;
+const { REACT_APP_API_BASE_URL, REACT_APP_API_VERSION } = process.env;
 
-// const API_ENDPOINT = `${REACT_APP_API_BASE_URL}/${REACT_APP_API_VERSION}/`;
-const API_ENDPOINT = `https://edustipend-prod-api-a50ab4139ff7.herokuapp.com/v1/`;
+const API_ENDPOINT = `${REACT_APP_API_BASE_URL}/${REACT_APP_API_VERSION}/`;
 const token = Cookies.get('eduTk');
+
 export const STIPEND_APPLY = 'user/stipend/apply';
 export const LOGOUT = 'logout';
 export const APPLICATION_HISTORY = 'user/stipend/application-history';
+export const VERIFY_LOGGED_IN_USER = 'user/logged-in/verify';
 
 export const authorizedPost = async function (route = '', data = {}) {
   const url = `${API_ENDPOINT}${route}?jwt=${token}`;
