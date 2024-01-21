@@ -1,0 +1,17 @@
+.banner {
+  display: flex;
+  color: black;
+  flex-direction: column;
+  align-items: center;
+}
+
+button:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+
+.bannerText {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}

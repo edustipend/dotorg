@@ -9,7 +9,8 @@ const mockStore = configureMockStore([
 ]);
 const store = mockStore({
   user: {
-    name: 'Test User'
+    name: 'Test User',
+    isVerified: true
   }
 });
 
@@ -32,13 +33,29 @@ describe('Home component', () => {
       expect(screen.getByTestId(TestId.USER)).toBeDefined();
     });
 
-    it('shows a quote', () => {
+    it('shows a quote when the user is verified', () => {
       render(
         <Provider store={store}>
           <Home />
         </Provider>
       );
       expect(screen.getByTestId(TestId.QUOTE)).toHaveTextContent(Quote.content);
+    });
+
+    it('shows the verify banner when the user is not verified', () => {
+      render(
+        <Provider
+          store={mockStore({
+            user: {
+              name: 'Test User',
+              isVerified: false
+            }
+          })}
+        >
+          <Home />
+        </Provider>
+      );
+      expect(screen.getByTestId(TestId.VERIFY_BANNER)).not.toBeNull();
     });
 
     it('shows a table for displaying user application status and history', () => {
