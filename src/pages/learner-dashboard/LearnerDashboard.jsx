@@ -8,11 +8,11 @@ import { useContext } from 'react';
 import { useEffect } from 'react';
 import InstallPrompt from '../../components/InstallPrompt';
 import SurveyBox from '../../components/SurveyBox';
-import { SURVEY_LS_KEY } from './constants';
+import { BANNER, SURVEY_LS_KEY, TestId } from './constants';
 import Banner from '../../components/Banner';
 import { useSelector } from 'react-redux';
 import Button from '../../components/Button';
-// import { postData } from '../../services/ApiClient';
+// import { authorizedPost } from '../../services/ApiClient';
 // import toast from 'react-hot-toast';
 import VerifyEmail from '../../components/ApplicationSteps/Step5Application/Internals/VerifyEmail';
 import { ModalContext } from '../../context/ModalContext';
@@ -36,12 +36,12 @@ export const LearnerDashboard = () => {
 
     // API request
     // try {
-    //   const res = await postData('', {
+    //   const res = await authorizedPost('user/reverify-email', {
     //     username: email
     //   });
 
     //   if (!res.success) {
-    //     toast.error('Failed to send! Try again.');
+    //     toast.error('Something went wrong! Try again.');
     //   }
     //   if (res.success) {
     //     toast.success('Verification email sent!');
@@ -51,7 +51,7 @@ export const LearnerDashboard = () => {
     //   toast.error('Something went wrong');
     // } finally {
     //   setIsLoading(false);
-    //   setShowBanner(true);
+    //   setShowBanner(false);
     // }
 
     setTimeout(() => {
@@ -77,18 +77,24 @@ export const LearnerDashboard = () => {
 
   return (
     <>
-      <div className={styles.main}>
+      <div className={styles.main} data-testid={TestId.LEARNER_DASHBOARD_WRAPPER}>
         {showBanner && (
-          <Banner type="alert" className={styles.banner}>
+          <Banner type={BANNER.ALERT} className={styles.banner}>
             <div className={styles.close} onClick={() => setShowBanner(false)}>
-              <img src={Close} alt="closes" />
+              <img src={Close} alt={BANNER.CLOSE} />
             </div>
-            <h1>Hey there! 👋</h1>
-            <p>We noticed your account hasn't been verified yet. Don't worry, it's a quick and easy process!</p>
-            <p>Just take a moment to verify your account before the window closes.</p>
+            <h1>{BANNER.GREET}</h1>
+            <p>{BANNER.TEXT1}</p>
+            <p>{BANNER.TEXT2}</p>
 
             <div className={styles.button}>
-              <Button label={isLoading ? 'Verifying...' : 'Verify Now'} type="primary" effectAlt onClick={handleResendVerification} />
+              <Button
+                label={isLoading ? BANNER.VERIFYING : BANNER.VERIFY}
+                type={BANNER.PRIMARY}
+                effectAlt
+                onClick={handleResendVerification}
+                disabled={isLoading}
+              />
             </div>
           </Banner>
         )}

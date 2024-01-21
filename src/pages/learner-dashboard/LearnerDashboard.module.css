@@ -53,7 +53,7 @@
 }
 
 .button {
-  align-self: flex-end;
+  align-self: center;
 }
 
 @media screen and (min-width: 1024px) {
@@ -68,5 +68,9 @@
 
   .menu {
     display: none;
+  }
+
+  .button {
+    align-self: flex-end;
   }
 }
