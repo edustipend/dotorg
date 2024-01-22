@@ -3,6 +3,7 @@ import { Home } from '../Home';
 import { Quote, TestId } from '../internals/constants';
 import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
+import { ModalContextProvider } from '../../../../context/ModalContext';
 
 const mockStore = configureMockStore([
   /* middlewares */
@@ -19,7 +20,9 @@ describe('Home component', () => {
     it('shows the Home component in the document', () => {
       render(
         <Provider store={store}>
-          <Home />
+          <ModalContextProvider>
+            <Home />
+          </ModalContextProvider>
         </Provider>
       );
       expect(screen.getByTestId(TestId.HOME)).toBeInTheDocument();
@@ -27,7 +30,9 @@ describe('Home component', () => {
     it('shows the user name', () => {
       render(
         <Provider store={store}>
-          <Home />
+          <ModalContextProvider>
+            <Home />
+          </ModalContextProvider>
         </Provider>
       );
       expect(screen.getByTestId(TestId.USER)).toBeDefined();
@@ -36,7 +41,9 @@ describe('Home component', () => {
     it('shows a quote when the user is verified', () => {
       render(
         <Provider store={store}>
-          <Home />
+          <ModalContextProvider>
+            <Home />
+          </ModalContextProvider>
         </Provider>
       );
       expect(screen.getByTestId(TestId.QUOTE)).toHaveTextContent(Quote.content);
@@ -50,9 +57,10 @@ describe('Home component', () => {
               name: 'Test User',
               isVerified: false
             }
-          })}
-        >
-          <Home />
+          })}>
+          <ModalContextProvider>
+            <Home />
+          </ModalContextProvider>
         </Provider>
       );
       expect(screen.getByTestId(TestId.VERIFY_BANNER)).not.toBeNull();
@@ -61,7 +69,9 @@ describe('Home component', () => {
     it('shows a table for displaying user application status and history', () => {
       render(
         <Provider store={store}>
-          <Home />
+          <ModalContextProvider>
+            <Home />
+          </ModalContextProvider>
         </Provider>
       );
       expect(screen.getByTestId(TestId.TABLE)).toBeInTheDocument();

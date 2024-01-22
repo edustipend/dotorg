@@ -32,7 +32,7 @@ export const LoginForm = () => {
   }, [email, password]);
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e?.preventDefault();
     setisLoading(true);
 
     try {
@@ -64,7 +64,6 @@ export const LoginForm = () => {
       setisLoading(false);
     }
   };
-
 
   return (
     <div className={styles.container} data-testid={TestId.LOGIN_FORM_TEST_ID}>
