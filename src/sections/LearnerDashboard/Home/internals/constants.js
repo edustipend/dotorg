@@ -36,5 +36,6 @@ export const TestId = {
   HOME: 'homeId',
   USER: 'userId',
   QUOTE: 'quoteId',
-  TABLE: 'tableId'
+  TABLE: 'tableId',
+  VERIFY_BANNER: 'verify-banner-test-id'
 };

@@ -10,9 +10,13 @@ export const NAVBAR_LINKS = [
     to: '/ambassador-program'
   },
   {
-    label: 'Learn How It Works',
+    label: 'How It Works',
     to: '/',
     hash: '#how-it-works'
+  },
+  {
+    label: 'Login',
+    to: '/login'
   }
 ];
 export const NAVBAR_AMBASSADOR_LINKS = [

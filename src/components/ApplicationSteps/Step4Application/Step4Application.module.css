@@ -2,6 +2,9 @@
   color: var(--edustipend-black);
   font-family: 'Manrope';
 }
+.entry{
+  width: 100%;
+}
 
 .headerContainer {
   display: flex;

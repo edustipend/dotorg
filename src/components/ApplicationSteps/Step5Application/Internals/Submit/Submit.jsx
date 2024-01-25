@@ -2,13 +2,15 @@ import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import VerifyEmail from '../VerifyEmail';
 import SubmitUI from '../SubmitUI';
-import { successful, isError, errMessage } from '../../../../../store/reducers/ApplicationReducer';
+import { successful, isError, errMessage, reset } from '../../../../../store/reducers/ApplicationReducer';
 import { STIPEND_APPLY, postData } from '../../../../../services/ApiClient';
 import { getStateIdentifier } from '../../../../../utils/getStateIdentifier';
-
+import { useNavigate } from 'react-router';
+import { resetDetails } from '../../../../../store/reducers/UserDetailsReducer';
 export const Submit = () => {
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
+  const nav = useNavigate();
 
   const { stipendCategory, reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser, success } = useSelector(
     (state) => state.application
@@ -25,16 +27,16 @@ export const Submit = () => {
     email: email,
     password: password,
     dateOfBirth: dateOfBirth,
-    gender: gender.toLowerCase(),
+    gender: gender?.toLowerCase(),
     stateOfOrigin: getStateIdentifier(stateOfOrigin),
-    howDidYouHearAboutUs: howDidYouHear.toLowerCase(),
+    howDidYouHearAboutUs: howDidYouHear?.toLowerCase(),
     stipendCategory: Category,
     reasonForRequest: reasonForRequest,
     stepsTakenToEaseProblem: stepsTakenToEaseProblem,
     potentialBenefits: potentialBenefits,
     futureHelpFromUser: futureHelpFromUser,
     socialMediaHandles: {
-      [socialHandle.toLowerCase()]: mediaHandle
+      [socialHandle?.toLowerCase()]: mediaHandle
     }
   };
 
@@ -45,6 +47,11 @@ export const Submit = () => {
     try {
       if (res.success) {
         dispatch(successful(true));
+        setTimeout(() => {
+          dispatch(reset());
+          dispatch(resetDetails());
+          nav('/login');
+        }, 5000);
       } else {
         dispatch(successful(false));
         dispatch(isError(true));
@@ -53,7 +60,7 @@ export const Submit = () => {
     } catch (error) {
       dispatch(successful(false));
       dispatch(isError(true));
-      dispatch(errMessage(error.messsage));
+      dispatch(errMessage(res?.error?.message || res?.message));
     } finally {
       setIsLoading(false);
     }

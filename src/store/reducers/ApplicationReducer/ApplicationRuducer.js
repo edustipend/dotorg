@@ -52,10 +52,22 @@ const application = createSlice({
     },
     errMessage: (state, action) => {
       state.errorMessage = action.payload;
-    }
+    },
+    reset: (state) => {
+      state.activeStep = 1;
+      state.stipendCategory = '';
+      state.reasonForRequest = '';
+      state.stepsTakenToEaseProblem = '';
+      state.potentialBenefits = '';
+      state.futureHelpFromUser = '';
+      state.success = false;
+      state.isVerified = false;
+      state.error = false;
+      state.errorMessage = ''
+    },
   }
 });
 
 export default application.reducer;
-export const { back, progress, setActiveStep, category, reason, steps, benefits, futureHelp, successful, emailVerification, isError, errMessage } =
+export const { back, progress, setActiveStep, category, reason, steps, benefits, futureHelp, successful, emailVerification, isError, errMessage, reset } =
   application.actions;

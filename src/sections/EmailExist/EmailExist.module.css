@@ -2,7 +2,7 @@
   position: relative;
   margin-inline: 1.5rem;
   margin-top: 7.5rem;
-  padding: 2rem;
+  padding: 1.5rem;
   background-color: var(--white);
   border-radius: 30px;
 }
@@ -13,6 +13,7 @@
 }
 
 .closeContainer {
+  cursor: pointer;
   position: absolute;
   right: 2rem;
   width: 18px;
@@ -44,9 +45,11 @@
   .emailexist {
     margin-inline: auto;
     margin-top: 50px;
+    padding: 2rem;
   }
 
   .closeContainer {
+    cursor: pointer;
     width: 25px;
     height: 25px;
   }

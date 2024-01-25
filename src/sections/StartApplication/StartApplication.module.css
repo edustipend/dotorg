@@ -10,6 +10,8 @@
 }
 
 .top {
+  display: flex;
+  flex-direction: column;
   width: 100%;
   min-height: 426px;
   padding: 26px 80px 33px;
@@ -179,7 +181,7 @@
   }
 
   .header {
-    width: 192px;
+    width: 250px;
     height: 96px;
     font-size: 32px;
     line-height: 100%;

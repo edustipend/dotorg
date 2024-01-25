@@ -13,7 +13,7 @@ import { constants } from './constants';
 import { TestId } from './constants';
 import styles from './ForgotPassword.module.css';
 
-const { HEADER, TEXT, FOOT_NOTE } = constants;
+const { CTA_BUTTON_TEXT, HEADER, TEXT, FOOT_NOTE } = constants;
 const { COMPONENT_TEST, HEADER_TEST, FOOT_NOTE_TEST, BUTTON_TEST, TEXT_TEST } = TestId;
 
 export const ForgotPassword = () => {
@@ -21,13 +21,12 @@ export const ForgotPassword = () => {
   const [state, dispatch] = useReducer(ForgotReducer, INITIAL_STATE);
   const { LOADING, DISABLED, ERROR, SUCCESS, USERNAME, ON_SUCCESS, ON_ERROR } = Types;
   const { username, disabled, feedBack, loading, success, error } = state;
-  const isValid = checkEmail(username);
 
   useEffect(() => {
-    if (isValid) {
+    if (checkEmail(username)) {
       dispatch({ type: DISABLED, payload: false });
     }
-  }, [DISABLED, dispatch, isValid]);
+  }, [DISABLED, dispatch, username]);
 
   const sendMail = async () => {
     dispatch({ type: LOADING, payload: true });
@@ -59,6 +58,7 @@ export const ForgotPassword = () => {
                   onClick={() => {
                     dispatch({ type: SUCCESS, payload: false });
                     setIsActive((prev) => !prev);
+                    dispatch({ type: USERNAME, payload: '' });
                   }}
                 />
               </div>
@@ -124,10 +124,10 @@ export const ForgotPassword = () => {
               isLoading={loading}
               loaderSize="small"
               loaderVariant="neutral"
-              label="Send instructions"
+              label={CTA_BUTTON_TEXT}
               type="secondary"
               size="medium"
-              disabled={disabled}
+              disabled={!username || disabled}
               onClick={sendMail}
               className={styles.btn}
             />

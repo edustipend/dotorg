@@ -14,7 +14,7 @@ import { constants } from './constants';
 import ContentContainer from '../../../ContentContainer';
 import { postData } from '../../../../../services/ApiClient';
 import { emailVerification } from '../../../../../store/reducers/ApplicationReducer';
-import { storeUser } from '../../../../../store/reducers/UserReducer';
+import { storeUser, setAuthenticated } from '../../../../../store/reducers/UserReducer';
 import Cookies from 'js-cookie';
 const { HEADER, ERR_HEADER, SUCCESS_BTN, ERR_BTN } = constants;
 
@@ -25,16 +25,15 @@ export const EmailVerified = () => {
   const dispatch = useDispatch();
   const nav = useNavigate();
   const { isVerified } = useSelector((state) => state.application);
-  const { email } = useSelector((state) => state.userDetails);
   const { isAuthenticated } = useSelector((state) => state.user);
   const [searchParams] = useSearchParams();
   const emailToken = searchParams.get('jwt');
+  
 
   const verifyEmail = useCallback(async () => {
+    dispatch(emailVerification(false));
     try {
-      const res = await postData(`user/verify?jwt=${emailToken}`, {
-        username: email
-      });
+      const res = await postData(`user/verify?jwt=${emailToken}`);
       if (res.success) {
         //decode the token response on success
         const token = res?.token.split(' ')[1];
@@ -44,18 +43,18 @@ export const EmailVerified = () => {
           sameSite: 'strict',
           expires: 14
         });
-
         dispatch(emailVerification(true));
         dispatch(storeUser(decode));
+        dispatch(setAuthenticated(true));
         setTimeout(() => {
           nav(0);
         }, 2000);
       } else {
-        setErrorMessage(res.message);
+        setErrorMessage(res?.message);
         dispatch(emailVerification(false));
       }
       if (res.error) {
-        setErrorMessage(res.error);
+        setErrorMessage(res?.message || res?.error);
         dispatch(emailVerification(false));
       }
     } catch (error) {
@@ -63,7 +62,7 @@ export const EmailVerified = () => {
     } finally {
       setLoading(false);
     }
-  }, [dispatch, emailToken, email, nav]);
+  }, [dispatch, emailToken, nav]);
 
   useEffect(() => {
     setIsActive(true);
@@ -72,7 +71,7 @@ export const EmailVerified = () => {
 
   const handleReturn = () => {
     setIsActive(false);
-    nav(-1);
+    nav('/');
   };
 
   if (isAuthenticated) {

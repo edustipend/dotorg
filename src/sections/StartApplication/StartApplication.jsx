@@ -16,6 +16,7 @@ import { postData } from '../../services/ApiClient';
 import { ModalContext } from '../../context/ModalContext';
 import { EmailExist } from '../EmailExist/EmailExist';
 import Modal from '../../components/Modal';
+import { reset } from '../../store/reducers/ApplicationReducer';
 
 export const StartApplication = () => {
   const [isLoading, setisLoading] = useState(false);
@@ -42,18 +43,14 @@ export const StartApplication = () => {
   const isTrue = checkEmail(state.email);
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-
+    e?.preventDefault();
+    dispatch(reset());
     setisLoading(true);
 
     try {
-      const res = await postData(
-        'user/check',
-        {
-          username: state.email
-        },
-        false
-      );
+      const res = await postData('user/check', {
+        username: state.email
+      });
 
       if (!res.success) {
         nav('/application');
@@ -73,7 +70,7 @@ export const StartApplication = () => {
       <div className={styles.container} data-testid={TestId.DATA_TEST}>
         <Container alternate>
           <div className={styles.top}>
-            <Header className={styles.header} data={TestId.HEAD_TEXT}>
+            <Header className={styles.header} dataTest={TestId.HEAD_TEXT}>
               {TestId.HEAD_TEXT}
             </Header>
             <div className={styles.desc}>
@@ -98,10 +95,12 @@ export const StartApplication = () => {
                 <Button
                   dataTest={TestId.BTN_ID}
                   isLoading={isLoading}
-                  type={'secondary'}
+                  type="secondary"
                   icon={RightArrow}
-                  iconPosition={'front'}
+                  iconPosition="front"
                   effectAlt
+                  loaderVariant="neutral"
+                  loaderSize="small"
                   disabled={isTrue ? false : true}
                   label={TestId.BTN_CONTENT}
                   className={styles.btn}

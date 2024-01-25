@@ -12,7 +12,7 @@ const { HEADER, PARA1, PARA2, QUOTE } = constants;
 
 export const VerifyEmail = () => {
   const { setIsActive } = useContext(ModalContext);
-  const { email } = useSelector((state) => state.userDetails);
+  const { email } = useSelector((state) => state.userDetails || state.user);
 
   return (
     <div className={styles.submit}>
