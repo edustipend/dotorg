@@ -10,6 +10,7 @@ import { logout } from '../../store/reducers/UserReducer';
 import { LOGOUT, authorizedPost } from '../../services/ApiClient';
 import toast from 'react-hot-toast';
 import Cookies from 'js-cookie';
+import NavbarLearner from './NavbarLearner';
 
 export const NavbarToShow = () => {
   const [isToggle, setIsToggle] = useState(false);
@@ -18,6 +19,7 @@ export const NavbarToShow = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const isAmbassador = pathname === '/ambassador-program';
+  const isSupportALearner = pathname === '/support-a-learner';
   const isRequestStipend = pathname === '/application';
   const isLogin = pathname.includes('/login');
   const isDashboard = pathname.includes('/dashboard');
@@ -49,6 +51,8 @@ export const NavbarToShow = () => {
     <>
       {isAmbassador ? (
         <NavbarAmbassadorNavs showMenu={isToggle} closeMenu={setIsToggle} />
+      ) : isSupportALearner ? (
+        <NavbarLearner showMenu={isToggle} closeMenu={setIsToggle} />
       ) : (
         <NavbarNavs showMenu={isToggle} closeMenu={setIsToggle} />
       )}

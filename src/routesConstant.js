@@ -1,5 +1,6 @@
 export const routesConstant = {
   AMBASSADOR_PROGRAM: '/ambassador-program',
+  SUPPORT_LEARNER: '/support-a-learner',
   APPLICATION: '/application',
   DASHBOARD: '/dashboard',
   FORGOT_PASSWORD: '/forgot-password',

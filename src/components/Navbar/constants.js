@@ -6,6 +6,10 @@ export const TestId = {
 
 export const NAVBAR_LINKS = [
   {
+    label: 'Support A Learner',
+    to: '/support-a-learner'
+  },
+  {
     label: 'Ambassador Program',
     to: '/ambassador-program'
   },
@@ -30,6 +34,16 @@ export const NAVBAR_AMBASSADOR_LINKS = [
     path: '/ambassador-program',
     hash: '#eligibility'
   }
+];
+export const SUPPORT_LEARNER_LINKS = [
+  {
+    label: 'Support A Learner',
+    to: '/support-a-learner'
+  },
+  {
+    label: 'Support A Learner',
+    to: '/support-a-learner'
+  },
 ];
 
 export const BUTTON_LABEL = 'Request stipend';
