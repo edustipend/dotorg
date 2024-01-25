@@ -38,8 +38,6 @@ export const constants = {
   SOCIAL_HANDLES: ['Twitter', 'Facebook', 'Instagram'],
   MONTHS_OPTION: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'],
   GENDER_OPTION: ['Male', 'Female', 'Non-Binary'],
-<<<<<<< HEAD
-=======
   STATE_OPTION: [
     'Abia',
     'Adamawa',
@@ -79,7 +77,6 @@ export const constants = {
     'Yobe',
     'Zamfara'
   ],
->>>>>>> e9f61f494a7c5691eeb3b96d9859ef8b2b11dcc7
   REFERRAL_SOURCES: ['Facebook', 'LinkedIn', 'Instagram', 'Twitter', 'Google Search'],
   PASSWORD_MIN_LENGTH_ERR: 'A minimum of 8 characters is required',
   PASSWORD_MISMATCH_ERR: 'password mismatch'
