@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useContext } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styles from './Step5Application.module.css';
 import { ModalContext } from '../../../context/ModalContext';
 import Modal from '../../Modal';
@@ -15,17 +15,50 @@ import { ScrollOnMount } from '../ScrollOnMount/ScrollOnMount';
 import { BackArrow } from '../../../assets';
 import { constants } from './Internals/constants';
 import { DancingEmoji } from '../../../assets';
+import { useNavigate } from 'react-router-dom';
+// import { authorizedPost } from '../../../services/ApiClient';
+import toast from 'react-hot-toast';
 const { HEADER, PARA1, PARA2, PARA3, PARA4, PARA5, PARA6, QUOTE } = constants;
 
 export const Step5Application = () => {
   ScrollOnMount();
   const { setIsActive } = useContext(ModalContext);
   const dispatch = useDispatch();
+  const nav = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
+  const { stipendCategory, reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser, editMode, applicationId } = useSelector(
+    (state) => state.application
+  );
+  const { userId } = useSelector((state) => state.user);
 
   const onSubmit = () => {
-    dispatch(successful( false));
+    dispatch(successful(false));
     dispatch(isError(false));
     setIsActive((prev) => !prev);
+  };
+
+  const Category = stipendCategory.split('/')[0].toLowerCase();
+
+  const applicationInfo = {
+    userId,
+    applicationId,
+    stipendCategory: Category,
+    reasonForRequest: reasonForRequest,
+    stepsTakenToEaseProblem: stepsTakenToEaseProblem,
+    potentialBenefits: potentialBenefits,
+    futureHelpFromUser: futureHelpFromUser
+  };
+
+  const submitStipendApp = async () => {
+    setIsLoading(true);
+    console.log(applicationInfo);
+    editMode ? toast.loading('Submitting edited application', { id: 'loading-toast' }) : toast.loading('Submitting new application');
+    setTimeout(() => {
+      toast.dismiss('loading-toast');
+      toast.success('Updated successfully');
+      setIsLoading(false);
+      nav('/dashboard');
+    }, 3000);
   };
 
   return (
@@ -56,7 +89,17 @@ export const Step5Application = () => {
               onClick={() => dispatch(back())}
               className={styles.btn}
             />
-            <Button label={'Submit'} iconPosition={'front'} type={'secondary'} effectAlt onClick={onSubmit} className={styles.btn} />
+            <Button
+              label={'Submit'}
+              iconPosition={'front'}
+              type={'secondary'}
+              effectAlt
+              isLoading={isLoading}
+              loaderSize={'small'}
+              loaderVariant={'neutral'}
+              onClick={userId ? submitStipendApp : onSubmit}
+              className={styles.btn}
+            />
           </div>
         </ContentContainer>
         <section className="quoteContainer">

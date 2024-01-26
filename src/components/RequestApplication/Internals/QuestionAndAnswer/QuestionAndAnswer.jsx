@@ -2,9 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './QuestionAndAnswer.module.css';
 import { useDispatch } from 'react-redux';
+import { useLocation } from 'react-router-dom';
+import { isApplicationWindowClosed } from '../../../../utils';
 
 export const QuestionAndAnswer = ({ number, question, dispatchType, className, value, ...props }) => {
   const dispatch = useDispatch();
+  const { pathname } = useLocation();
+  const isDashboard = pathname.includes('/dashboard');
+
+  const disableTextbox = isApplicationWindowClosed() && isDashboard;
 
   const handleOnchange = (e) => {
     dispatch(dispatchType(e.target.value));
@@ -25,6 +31,7 @@ export const QuestionAndAnswer = ({ number, question, dispatchType, className, v
         id="question"
         cols="30"
         rows="10"
+        disabled={disableTextbox}
         {...props}
         onChange={(e) => handleOnchange(e)}
         className={`${styles.textarea} ${className}`}

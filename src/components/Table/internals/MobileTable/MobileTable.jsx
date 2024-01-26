@@ -5,12 +5,37 @@ import arrowleft from '../../../../assets/arrow-left.svg';
 import arrowright from '../../../../assets/arrow-right.svg';
 import { getFormattedDate, getFormattedTime } from '../../../../utils/dateTimeUtils/dateTimeUtil';
 import { applicationStatus } from '../constants';
+import { Edit_Icon, Eye_Icon, Menu_Icon } from '../../../../assets';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { isApplicationWindowClosed } from '../../../../utils';
+import { setActiveStep, setEditMode } from '../../../../store/reducers/ApplicationReducer';
 const { APPROVED, IN_VIEW, RECEIVED, DENIED } = applicationStatus;
 
 export const MobileTable = ({ entries, tableHead, oneClickApply }) => {
   const [entry, setEntry] = useState(0);
   const currentEntry = entries[entry];
+  const [singleAppId, setSingleAppId] = useState(null);
+  const nav = useNavigate();
+  const dispatch = useDispatch();
+  const isWindowClosed = isApplicationWindowClosed();
+  const { isVerified } = useSelector((state) => state.user);
 
+  const handleShowMenu = (id) => {
+    singleAppId === id ? setSingleAppId(null) : setSingleAppId(id);
+    console.log(id);
+  };
+  const handleView = (id) => {
+    oneClickApply(id);
+  };
+
+  const handleEdit = (id) => {
+    if (!isVerified) return;
+    dispatch(setEditMode(true));
+    oneClickApply(id);
+    dispatch(setActiveStep(1));
+    nav('/application');
+  };
   const handleArrowLeft = () => {
     setEntry((prev) => prev - 1);
   };
@@ -79,9 +104,19 @@ export const MobileTable = ({ entries, tableHead, oneClickApply }) => {
             <tr>
               <td className={`${styles.head} ${styles.headAlt} ${styles.row1}`}>{tableHead[5]}</td>
               <td className={`${styles.row} ${styles.rowAlt} ${styles.row2}`}>
-                <button className={styles.btn} onClick={() => oneClickApply(currentEntry._id)}>
-                  View Submission
+                <button className={styles.btn} onClick={() => handleShowMenu(currentEntry?._id)}>
+                  <img src={Menu_Icon} alt="menu" />
                 </button>
+                <div className={singleAppId === currentEntry?._id ? styles.actionContainer : styles.hide}>
+                  <button className={styles.view} onClick={() => handleView(currentEntry?._id)}>
+                    <img src={Eye_Icon} alt="view" />
+                    <p>View Application</p>
+                  </button>
+                  <button className={styles.edit} onClick={() => handleEdit(currentEntry?._id)} disabled={isWindowClosed}>
+                    <img src={Edit_Icon} alt="view" />
+                    <p>Edit Application</p>
+                  </button>
+                </div>
               </td>
             </tr>
           )}

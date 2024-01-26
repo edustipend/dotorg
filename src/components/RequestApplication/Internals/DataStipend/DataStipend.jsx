@@ -1,27 +1,35 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import ContentContainer from '../../../../components/ApplicationSteps/ContentContainer';
 import CategoryHeader from '../CategoryHeader';
 import QuestionAndAnswer from '../QuestionAndAnswer';
-import { dataConstants } from '../../constants';
-import Button from '../../../../components/Button';
-import { BackArrow, RightArrow } from '../../../../assets';
+import { constant, dataConstants } from '../../constants';
 import styles from '../LaptopStipend/LaptopStipend.module.css';
 import Quote from '../../../../components/Quote';
-import { isApplicationFilled } from '../checkStipendApplication';
-import { back, progress, reason, steps, benefits, futureHelp } from '../../../../store/reducers/ApplicationReducer';
+import { reason, steps, benefits, futureHelp } from '../../../../store/reducers/ApplicationReducer';
+import Navigation from '../Navigation';
+import { useLocation } from 'react-router-dom';
+import { isApplicationWindowClosed } from '../../../../utils';
 const { TITLE, SUPPORT_TYPE, FOOT_NOTE1, FOOT_NOTE2, FOOT_NOTE3, FOOT_NOTE4, QUESTION1, QUESTION2, QUESTION3, QUESTION4, QUOTE } = dataConstants;
 
 export const DataStipend = () => {
-  const dispatch = useDispatch();
+  const { pathname } = useLocation();
+  const isDashboard = pathname.includes('/dashboard');
+
+  const showUnderReview = isApplicationWindowClosed() && isDashboard;
   const { reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser } = useSelector((state) => state.application);
-  const isTrue = isApplicationFilled(reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser);
+
   return (
     <div className={styles.stipend}>
       <ContentContainer>
         <section className={styles.main}>
           <CategoryHeader header={TITLE} category={TITLE} support={SUPPORT_TYPE} />
           <QuestionAndAnswer value={reasonForRequest} dispatchType={reason} number={1} question={QUESTION1} />
+          {showUnderReview && (
+            <div className={styles.review}>
+              <p>{constant.UNDER_REVIEW}</p>
+            </div>
+          )}
         </section>
         <p className={styles.footNote}>{FOOT_NOTE1}</p>
       </ContentContainer>
@@ -45,17 +53,7 @@ export const DataStipend = () => {
           <QuestionAndAnswer value={futureHelpFromUser} dispatchType={futureHelp} number={4} question={QUESTION4} />
         </section>
         <p className={styles.footNote}>{FOOT_NOTE4}</p>
-        <div className={styles.buttonContainer}>
-          <Button label={'Back'} icon={BackArrow} iconPosition={'back'} type={'plain'} onClick={() => dispatch(back())} className={styles.button} />
-          <Button
-            disabled={isTrue ? false : true}
-            label={'Continue'}
-            icon={RightArrow}
-            type={'secondary'}
-            onClick={() => dispatch(progress())}
-            className={styles.button}
-          />
-        </div>
+        <Navigation />
       </ContentContainer>
       <div className={styles.quoteContainer}>
         <Quote content={QUOTE} className={styles.quote} />

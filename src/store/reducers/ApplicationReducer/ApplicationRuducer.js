@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   activeStep: 1,
+  applicationId: null,
   stipendCategory: '',
   reasonForRequest: '',
   stepsTakenToEaseProblem: '',
@@ -10,6 +11,7 @@ const initialState = {
   success: false,
   isVerified: false,
   error: false,
+  editMode: false,
   errorMessage: ''
 };
 
@@ -25,6 +27,9 @@ const application = createSlice({
     },
     setActiveStep: (state, action) => {
       state.activeStep = action.payload;
+    },
+    setApplicationId: (state, action) => {
+      state.applicationId = action.payload;
     },
     category: (state, action) => {
       state.stipendCategory = action.payload;
@@ -53,8 +58,12 @@ const application = createSlice({
     errMessage: (state, action) => {
       state.errorMessage = action.payload;
     },
+    setEditMode: (state, action) => {
+      state.editMode = action.payload;
+    },
     reset: (state) => {
       state.activeStep = 1;
+      state.applicationId = null;
       state.stipendCategory = '';
       state.reasonForRequest = '';
       state.stepsTakenToEaseProblem = '';
@@ -63,11 +72,27 @@ const application = createSlice({
       state.success = false;
       state.isVerified = false;
       state.error = false;
-      state.errorMessage = ''
-    },
+      state.errorMessage = '';
+      state.editMode = false;
+    }
   }
 });
 
 export default application.reducer;
-export const { back, progress, setActiveStep, category, reason, steps, benefits, futureHelp, successful, emailVerification, isError, errMessage, reset } =
-  application.actions;
+export const {
+  back,
+  progress,
+  setActiveStep,
+  category,
+  reason,
+  steps,
+  benefits,
+  futureHelp,
+  successful,
+  emailVerification,
+  isError,
+  errMessage,
+  reset,
+  setApplicationId,
+  setEditMode
+} = application.actions;

@@ -18,6 +18,8 @@ const { COMPONENT_ID, HEADER_ID } = TestId;
 export const Step1Application = () => {
   const dispatch = useDispatch();
   const { stipendCategory } = useSelector((state) => state.application);
+  const { userId } = useSelector((state) => state.user);
+
   const nav = useNavigate();
   //scroll to the top on step mount
   ScrollOnMount();
@@ -41,9 +43,10 @@ export const Step1Application = () => {
                 icon={BackArrow}
                 iconPosition={'back'}
                 type={'plain'}
-                onClick={() => nav('/request')}
+                onClick={() => (userId ? nav('/dashboard') : nav('/request'))}
                 className={styles.btn}
               />
+
               <Button
                 effectAlt
                 label={'Continue'}

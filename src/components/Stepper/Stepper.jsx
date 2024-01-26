@@ -5,15 +5,17 @@ import backarrow from '../../assets/stepperbackarrow.svg';
 import CircularStepper from './Internals/CircularStepper/CircularStepper';
 import HorizontalStepper from './Internals/HorizontalStepper/HorizontalStepper';
 import Container from '../Container';
-import { TestId, Text, stepsData } from './constants';
-import { useDispatch } from 'react-redux';
+import { TestId, Text, stepsData, stepsDataAlt } from './constants';
+import { useDispatch, useSelector } from 'react-redux';
 import { back } from '../../store/reducers/ApplicationReducer';
 import { useNavigate } from 'react-router-dom';
 
 const Stepper = ({ activeStep }) => {
   const nav = useNavigate();
   const dispatch = useDispatch();
+  const { userId } = useSelector((state) => state.user);
 
+  const steps = userId ? stepsDataAlt : stepsData;
   const handleClick = () => {
     if (activeStep === 1) {
       nav('/request');
@@ -48,7 +50,7 @@ const Stepper = ({ activeStep }) => {
 
       <Container alternate>
         <div className={styles.bigscreen}>
-          <HorizontalStepper activeStep={activeStep} stepsData={stepsData} />
+          <HorizontalStepper activeStep={activeStep} stepsData={steps} />
         </div>
       </Container>
     </>
