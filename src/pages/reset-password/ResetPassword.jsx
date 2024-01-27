@@ -32,7 +32,6 @@ export const ResetPassword = () => {
     //validate the token
     if (token) {
       const decode = jwtDecode(token);
-      console.log(decode.exp);
       if (!decode) {
         toast.error('Oops, the link you entered is invalid');
         setTimeout(() => {

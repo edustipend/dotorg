@@ -1,4 +1,4 @@
-import React, {  useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './Home.module.css';
 import { Quote, TestId, constants, submissionTableHead, submitted, tableHead } from './internals/constants';
 import hand from '../../../assets/waving hand.png';
@@ -7,6 +7,9 @@ import Button from '../../../components/Button';
 import Table from '../../../components/Table';
 import { APPLICATION_HISTORY, authorizedPost } from '../../../services/ApiClient';
 import { useSelector } from 'react-redux';
+import ActionBanner from '../../../components/ActionBanner';
+import { PageCopy } from './constants';
+import useResendVerification from '../../../hooks/useResendVerification';
 const { dashboard } = constants;
 
 export const Home = () => {
@@ -15,7 +18,8 @@ export const Home = () => {
   const [loading, setLoading] = useState(false);
   const [singleEntry, setSingleEntry] = useState([]);
   const [data, setData] = useState([]);
-  const { name, userId } = useSelector((state) => state.user);
+  const { name, userId, isVerified } = useSelector((state) => state.user);
+  const { handleResendVerification, isLoading } = useResendVerification();
   const [first] = name.split(' ');
 
   const handleOneClick = (id) => {
@@ -49,7 +53,7 @@ export const Home = () => {
           <p className={styles.dashboard}>{dashboard}</p>
           <div className={styles.waveSection}>
             <p className={styles.hello} data-testid={TestId.USER}>
-              Hello, {first}
+              Hello, {first || name}
             </p>
             <div className={`${styles.imgContainer} ${styles.imgAlt}`}>
               <img src={hand} alt="hand" className={styles.img} />
@@ -57,12 +61,24 @@ export const Home = () => {
           </div>
         </div>
       </section>
-      <section className={styles.quote}>
-        {/**Placeholder quote*/}
-        <p className={styles.quoteText} data-testid={TestId.QUOTE}>
-          "{Quote.content}" - <i className={styles.italic}>{Quote.author}</i>
-        </p>
-      </section>
+      {isVerified ? (
+        <section className={styles.quote}>
+          {/**Placeholder quote*/}
+          <p className={styles.quoteText} data-testid={TestId.QUOTE}>
+            "{Quote.content}" - <i className={styles.italic}>{Quote.author}</i>
+          </p>
+        </section>
+      ) : (
+        <ActionBanner
+          dataTest={TestId.VERIFY_BANNER}
+          buttonLabel={isLoading ? PageCopy.VERIFYING : PageCopy.VERIFY_BUTTON_LABEL}
+          className={styles.verifyBanner}
+          handleCTAClick={handleResendVerification}
+          text={PageCopy.VERIFY_TEXT}
+          isLoading={isLoading}
+        />
+      )}
+
       {applicationTable && (
         <section className={styles.table} data-testid={TestId.TABLE}>
           <div className={styles.tabs}>

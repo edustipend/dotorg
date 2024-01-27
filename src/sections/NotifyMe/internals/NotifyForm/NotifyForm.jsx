@@ -54,7 +54,7 @@ export const NotifyForm = () => {
   }, [email, name, howDidYouHear]);
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e?.preventDefault();
     setErrorMessage('');
     setIsLoading(true);
     const res = await postData('waitlist/join-waitlist', {
@@ -87,7 +87,7 @@ export const NotifyForm = () => {
             </div>
             <p className={styles.subtitle}>{SUBTITLE}</p>
           </div>
-          
+
           <form className={styles.form}>
             <div className={styles.formField}>
               <label htmlFor="fullname" className={styles.label}>

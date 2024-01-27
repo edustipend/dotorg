@@ -42,9 +42,13 @@ const userDetails = createSlice({
     },
     setMediaHandle: (state, action) => {
       state.mediaHandle = action.payload;
+    },
+    resetDetails: (state) => {
+      Object.assign(state, initialState);
     }
   }
 });
 
 export default userDetails.reducer;
-export const { fullname, Email, Password, dateofbirth, Gender, stateoforigin, howdidyouhear, setSocialHandle, setMediaHandle } = userDetails.actions;
+export const { fullname, Email, Password, dateofbirth, Gender, stateoforigin, howdidyouhear, setSocialHandle, setMediaHandle, resetDetails } =
+  userDetails.actions;

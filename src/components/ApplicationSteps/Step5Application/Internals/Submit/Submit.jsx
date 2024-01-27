@@ -5,9 +5,12 @@ import SubmitUI from '../SubmitUI';
 import { successful, isError, errMessage, reset } from '../../../../../store/reducers/ApplicationReducer';
 import { STIPEND_APPLY, postData } from '../../../../../services/ApiClient';
 import { getStateIdentifier } from '../../../../../utils/getStateIdentifier';
+import { useNavigate } from 'react-router';
+import { resetDetails } from '../../../../../store/reducers/UserDetailsReducer';
 export const Submit = () => {
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
+  const nav = useNavigate();
 
   const { stipendCategory, reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser, success } = useSelector(
     (state) => state.application
@@ -46,6 +49,8 @@ export const Submit = () => {
         dispatch(successful(true));
         setTimeout(() => {
           dispatch(reset());
+          dispatch(resetDetails());
+          nav('/login');
         }, 5000);
       } else {
         dispatch(successful(false));
@@ -55,7 +60,7 @@ export const Submit = () => {
     } catch (error) {
       dispatch(successful(false));
       dispatch(isError(true));
-      dispatch(errMessage(error.messsage));
+      dispatch(errMessage(res?.error?.message || res?.message));
     } finally {
       setIsLoading(false);
     }

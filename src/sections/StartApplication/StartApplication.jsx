@@ -43,7 +43,7 @@ export const StartApplication = () => {
   const isTrue = checkEmail(state.email);
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e?.preventDefault();
     dispatch(reset());
     setisLoading(true);
 
