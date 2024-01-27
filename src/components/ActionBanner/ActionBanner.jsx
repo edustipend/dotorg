@@ -7,7 +7,7 @@ export const ActionBanner = ({ buttonLabel, className, dataTest, handleCTAClick,
   return (
     <aside role="alert" className={[`${styles[`banner--${type}`]} ${styles['banner']}`, `${className}`].join(' ')} data-testid={dataTest}>
       <p className={styles.bannerText}>{text}</p>
-      <Button label={buttonLabel} size="medium" onClick={handleCTAClick} disabled={isLoading} />
+      <Button className={styles.button} label={buttonLabel} size="medium" onClick={handleCTAClick} disabled={isLoading} />
     </aside>
   );
 };

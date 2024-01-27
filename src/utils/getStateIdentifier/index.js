@@ -44,4 +44,3 @@ export const getStateIdentifier = (stateLabel) => {
   // Check if stateOption is not undefined before accessing its value property
   return stateOption ? stateOption.value : undefined;
 };
-

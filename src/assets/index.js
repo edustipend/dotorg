@@ -32,6 +32,9 @@ import Flower from './flower.png';
 import Sad from './sad.svg';
 import Hand from './hand.png';
 import Eye from './eye.svg';
+import aisha from './aisha.svg';
+import quoteLeft from './quote-left.svg';
+import quoteRight from './quote-right.svg';
 
 export {
   Hero1,
@@ -67,5 +70,8 @@ export {
   Flower,
   Sad,
   Hand,
-  Eye
+  Eye,
+  aisha,
+  quoteLeft,
+  quoteRight
 };

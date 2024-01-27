@@ -18,12 +18,10 @@ const ProtecteAuthRoute = ({ children }) => {
     return false;
   }, []);
 
-
   const validateToken = useMemo(() => {
     const token = checkToken;
-    return token?.exp && token.exp > Date.now() / 1000
+    return token?.exp && token.exp > Date.now() / 1000;
   }, [checkToken]);
-  
 
   if (validateToken) {
     return <Navigate to="/dashboard" />;

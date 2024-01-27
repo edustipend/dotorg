@@ -1,5 +1,5 @@
 import { BrowserRouter } from 'react-router-dom';
-import EmailExist from "./index"
+import EmailExist from './index';
 
 export default {
   title: 'Edustipend/Sections/EmailExist',

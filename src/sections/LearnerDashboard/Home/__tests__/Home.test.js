@@ -57,7 +57,8 @@ describe('Home component', () => {
               name: 'Test User',
               isVerified: false
             }
-          })}>
+          })}
+        >
           <ModalContextProvider>
             <Home />
           </ModalContextProvider>

@@ -7,7 +7,12 @@ import { useLocation } from 'react-router-dom';
 
 export const Footer = (props) => {
   const { pathname } = useLocation();
-  const isDashboard = pathname.includes('/dashboard');
+  const isDashboard = pathname === '/dashboard';
+  const isDonation = pathname === '/donation';
+
+  if (isDonation) {
+    return;
+  }
   return (
     !isDashboard && (
       <footer className="footer-wrapper ">
