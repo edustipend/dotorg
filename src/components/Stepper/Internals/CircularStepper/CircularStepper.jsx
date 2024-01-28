@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux';
 
 const CircularStepper = ({ activeStep, stepsData }) => {
   const finalStep = 3;
-  const { newApplication } = useSelector((state) => state.application);
+  const { newApplication } = useSelector((state) => state.application) || {};
 
   //set the step length based on the current application mode (returning users or new users )
   const calculateLength = () => {

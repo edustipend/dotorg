@@ -11,7 +11,7 @@ import { back } from '../../store/reducers/ApplicationReducer';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 const Stepper = ({ activeStep }) => {
-  const { newApplication } = useSelector((state) => state.application);
+  const { newApplication } = useSelector((state) => state.application) || {};
   const nav = useNavigate();
   const dispatch = useDispatch();
 

@@ -5,8 +5,9 @@ import gaparrow from '../../../../assets/gaparrow.svg';
 import check from '../../../../assets/check.svg';
 import { TestId } from '../../constants';
 import { useSelector } from 'react-redux';
+
 const HorizontalStepper = ({ activeStep, stepsData }) => {
-  const { newApplication } = useSelector((state) => state.application);
+  const { newApplication } = useSelector((state) => state.application) || {};
   const calculateLength = () => {
     if (newApplication) {
       return 3;
