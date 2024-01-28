@@ -56,7 +56,7 @@ export const Step5Application = () => {
       setLoading(false);
       if (!isVerified && response?.success) {
         handleResendVerification();
-        setPrompt('Check your email for a verification link as your account is not verified');
+        setPrompt(constants.PROMPT);
       }
       handleNewApplicationModal();
     } catch (error) {

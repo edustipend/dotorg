@@ -13,5 +13,6 @@ export const constants = {
   NEW_APPLICATION_HEADER: "Ready to send it off?",
   NEW_APPLICATION_PARA1: "You've reached the final step of your application journey!, now let's submit your hard work and leave the rest to us.",
   NEW_APPLICATION_PARA2: `Once you hit the submit button, our team will carefully review your application. If you're selected  for the category you applied to, 
-  we'll reach out to you using the email you provided. Beneficiaries will be contacted at most three weeks from Friday 26, which is when the application closes.`
+  we'll reach out to you using the email you provided. Beneficiaries will be contacted at most three weeks from Friday 26, which is when the application closes.`,
+  PROMPT:"Check your email for a verification link as your account is unverified",
 };
