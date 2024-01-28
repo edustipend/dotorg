@@ -6,7 +6,7 @@ import Button from '../../../../Button';
 import { ModalContext } from '../../../../../context/ModalContext';
 import { useNavigate } from 'react-router-dom';
 
-export const NewApplication = ({ message, isSuccess }) => {
+export const NewApplication = ({ message, prompt, isSuccess }) => {
   const navigate = useNavigate();
   const { handleNewApplicationModal } = useContext(ModalContext);
 
@@ -15,11 +15,14 @@ export const NewApplication = ({ message, isSuccess }) => {
       navigate('/dashboard');
     } else handleNewApplicationModal();
   };
-  
+
   return (
     <main className={style.main}>
       <img src={isSuccess ? success : tears} alt="" className={style.img} />
-      <p className={style.message}>{message}</p>
+      <div className={style.messageContainer}>
+        <p className={style.message}>{message}</p>
+        <p className={style.prompt}>{prompt}</p>
+      </div>
       <div className={style.btnContainer}>
         <Button type="secondary" onClick={handleAction} label={isSuccess ? 'Continue to Dashboard' : 'Close'} className={style.btn} />
       </div>
@@ -29,10 +32,12 @@ export const NewApplication = ({ message, isSuccess }) => {
 
 NewApplication.propTypes = {
   message: PropTypes.string,
-  isSuccess: PropTypes.bool
+  isSuccess: PropTypes.bool,
+  prompt: PropTypes.string
 };
 
 NewApplication.defaultProps = {
   message: '',
-  isSuccess: false
+  isSuccess: false,
+  prompt: ''
 };

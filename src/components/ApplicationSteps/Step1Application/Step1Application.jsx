@@ -17,14 +17,16 @@ const { COMPONENT_ID, HEADER_ID } = TestId;
 
 export const Step1Application = () => {
   const dispatch = useDispatch();
-  const { stipendCategory } = useSelector((state) => state.application);
+  const { stipendCategory, newApplication } = useSelector((state) => state.application);
   const nav = useNavigate();
   //scroll to the top on step mount
   ScrollOnMount();
 
   //enable the continue button if a stipendCategory has been selected
   const isTrue = stipendCategory.length > 0;
-
+  const handleNav = () => {
+    return newApplication ? '/dashboard' : '/request';
+  };
   return (
     <div data-testid={COMPONENT_ID}>
       <ContentContainer>
@@ -41,7 +43,7 @@ export const Step1Application = () => {
                 icon={BackArrow}
                 iconPosition={'back'}
                 type={'plain'}
-                onClick={() => nav('/request')}
+                onClick={() => nav(handleNav())}
                 className={styles.btn}
               />
               <Button

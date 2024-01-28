@@ -5,6 +5,30 @@
   background-size: cover;
 }
 
+.banner {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  top: 6.5rem;
+  margin-top: 6.5rem;
+  background: var(--edustipend-yellow);
+  padding: 10px 0;
+  color: var(--black);
+  font-weight: 600;
+  font-size: 18px;
+  text-align: center;
+  z-index: 4;
+}
+
+@media screen and (max-width:1350px) {
+  .banner {
+    position: sticky;
+    top: 5rem;
+    margin-top: 5rem;
+  }
+}
+
+
 .imgContainer {
   position: absolute;
   right: 0rem;

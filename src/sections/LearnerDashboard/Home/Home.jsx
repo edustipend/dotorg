@@ -14,7 +14,6 @@ import { useNavigate } from 'react-router-dom';
 import { setNewApplication, reset } from '../../../store/reducers/ApplicationReducer';
 import { isApplicationWindowClosed } from '../../../utils';
 import CheckPreviousApplication from '../../../utils/CheckPreviousApplication';
-
 const { dashboard } = constants;
 
 export const Home = () => {
@@ -35,14 +34,11 @@ export const Home = () => {
   };
 
   const handleNewApplication = () => {
-    if (!isVerified) {
-      handleResendVerification();
-    } else {
-      dispatch(reset());
-      dispatch(setNewApplication(true));
-      navigate('/application');
-    }
+    dispatch(reset());
+    dispatch(setNewApplication(true));
+    navigate('/application');
   };
+
   /**
    * This function enables the new application button if the
    * application window is open and the user has not applied for the month.

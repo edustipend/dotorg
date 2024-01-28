@@ -12,7 +12,8 @@ import styles from './RequestStipend.module.css';
 import { Hero3 } from '../../assets';
 
 export const RequestStipend = () => {
-  const { activeStep } = useSelector((state) => state.application);
+  const { activeStep, newApplication } = useSelector((state) => state.application);
+  const { isVerified } = useSelector((state) => state.user);
   const [verificationModal, setVerificationModal] = useState(false);
 
   useEffect(() => {
@@ -22,8 +23,14 @@ export const RequestStipend = () => {
     }
   }, [setVerificationModal]);
 
+  const renderBanner = () => {
+    if (!isVerified && newApplication) {
+      return <div className={styles.banner}>Your account is currently unverified</div>;
+    }
+  };
   return (
     <div className={styles.main}>
+      {renderBanner()}
       <Stepper activeStep={activeStep} />
       <Container alternate>
         <section>

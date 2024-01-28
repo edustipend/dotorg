@@ -11,9 +11,17 @@
   margin: 5.7rem 0 24px;
 }
 
+.mobileAlt {
+  margin: 0 0 24px;
+}
+
 .bigscreen {
   display: none;
   margin: 5rem 0 48px;
+}
+
+.bigscreenAlt {
+  margin: 0rem 0 48px;
 }
 
 .backarrow {

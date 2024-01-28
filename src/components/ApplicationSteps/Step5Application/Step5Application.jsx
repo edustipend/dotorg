@@ -18,6 +18,7 @@ import { DancingEmoji } from '../../../assets';
 import { authorizedPost } from '../../../services/ApiClient';
 import { UseModal } from '../../Modal/UseModal';
 import NewApplication from './Internals/NewApplication';
+import useResendVerification from '../../../hooks/useResendVerification';
 const { HEADER, PARA1, PARA2, PARA3, PARA4, PARA5, PARA6, QUOTE, NEW_APPLICATION_HEADER, NEW_APPLICATION_PARA1, NEW_APPLICATION_PARA2 } = constants;
 export const Step5Application = () => {
   ScrollOnMount();
@@ -26,12 +27,13 @@ export const Step5Application = () => {
   const [loading, setLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [message, setMessage] = useState('');
+  const [prompt, setPrompt] = useState('');
   const { setIsActive } = useContext(ModalContext);
-  const { userId } = useSelector((state) => state.user);
+  const { userId, isVerified } = useSelector((state) => state.user);
   const { newApplication, reasonForRequest, stepsTakenToEaseProblem, stipendCategory, potentialBenefits, futureHelpFromUser } = useSelector(
     (state) => state.application
   );
-
+  const { handleResendVerification } = useResendVerification();
   const onSubmit = () => {
     dispatch(successful(false));
     dispatch(isError(false));
@@ -52,6 +54,10 @@ export const Step5Application = () => {
       setIsSuccess(response?.success);
       setMessage(response?.message);
       setLoading(false);
+      if (!isVerified && response?.success) {
+        handleResendVerification();
+        setPrompt('Check your email for a verification link as your account is not verified');
+      }
       handleNewApplicationModal();
     } catch (error) {
       setLoading(false);
@@ -108,7 +114,7 @@ export const Step5Application = () => {
           <Submit />
         </Modal>
         <UseModal isActive={newApplicationModal}>
-          <NewApplication isSuccess={isSuccess} message={message} />
+          <NewApplication isSuccess={isSuccess} message={message} prompt={prompt} />
         </UseModal>
       </div>
     </>

@@ -12,20 +12,29 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 const Stepper = ({ activeStep }) => {
   const { newApplication } = useSelector((state) => state.application) || {};
+  const { isVerified } = useSelector((state) => state.user);
   const nav = useNavigate();
   const dispatch = useDispatch();
 
   const handleClick = () => {
-    if (activeStep === 1) {
-      nav('/request');
+    if (activeStep === 1 && newApplication) {
+      nav('/dashboard');
       return;
+    } else if (activeStep === 1) {
+      nav('/request');
     }
     dispatch(back());
   };
 
+  const adjustStepper = () => {
+    return !isVerified && newApplication;
+  };
+
+  const style = adjustStepper();
+
   return (
     <>
-      <div className={styles.mobile}>
+      <div className={style ? `${styles.mobile} ${styles.mobileAlt}` : `${styles.mobile}`}>
         <div className={styles.container}>
           <div className={styles.backarrow} onClick={handleClick}>
             <img data-testid={TestId.BACK_ICON_TEST_ID} className={styles.backarrowimg} src={backarrow} alt="back_arrow" />
@@ -48,7 +57,7 @@ const Stepper = ({ activeStep }) => {
       </div>
 
       <Container alternate>
-        <div className={styles.bigscreen}>
+        <div className={style ? `${styles.bigscreen} ${styles.bigscreenAlt}` : `${styles.bigscreen}`}>
           <HorizontalStepper activeStep={activeStep} stepsData={stepsData} />
         </div>
       </Container>
