@@ -15,6 +15,7 @@ export const NewApplication = ({ message, isSuccess }) => {
       navigate('/dashboard');
     } else handleNewApplicationModal();
   };
+  
   return (
     <main className={style.main}>
       <img src={isSuccess ? success : tears} alt="" className={style.img} />

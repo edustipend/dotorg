@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './Home.module.css';
 import { Quote, TestId, constants, submissionTableHead, submitted, tableHead } from './internals/constants';
 import hand from '../../../assets/waving hand.png';
@@ -10,14 +10,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import ActionBanner from '../../../components/ActionBanner';
 import { PageCopy } from './constants';
 import useResendVerification from '../../../hooks/useResendVerification';
-import { ModalContext } from '../../../context/ModalContext';
 import { useNavigate } from 'react-router-dom';
-import { UseModal } from '../../../components/Modal/UseModal';
 import { setNewApplication, reset } from '../../../store/reducers/ApplicationReducer';
+import { isApplicationWindowClosed } from '../../../utils';
+import CheckPreviousApplication from '../../../utils/CheckPreviousApplication';
+
 const { dashboard } = constants;
 
 export const Home = () => {
-  const { verifyPopModal, handleVerifyEmailModal } = useContext(ModalContext);
   const [currentTable, setCurrentTable] = useState(0);
   const [applicationTable, setApplicationTable] = useState(true);
   const [loading, setLoading] = useState(false);
@@ -36,11 +36,23 @@ export const Home = () => {
 
   const handleNewApplication = () => {
     if (!isVerified) {
-      handleVerifyEmailModal();
+      handleResendVerification();
     } else {
       dispatch(reset());
       dispatch(setNewApplication(true));
       navigate('/application');
+    }
+  };
+
+  /**
+   * This function enables the new application button if the
+   * application window is open and the user has not applied for the month.
+   * @returns true || false
+   */
+  const handleEnableButton = () => {
+    if (data) {
+      const hasApplied = CheckPreviousApplication(data?.[data.length - 1]);
+      return !hasApplied && !isApplicationWindowClosed();
     }
   };
 
@@ -134,12 +146,20 @@ export const Home = () => {
           <Table entries={singleEntry} tableHead={submissionTableHead} />
         </section>
       )}
-      <div className={styles.buttonContainer}>
-        <Button disabled={false} onClick={handleNewApplication} label="New Stipend Application" type="secondary" effectAlt />
-      </div>
-      <UseModal isActive={verifyPopModal}>
-        <h1>Ade</h1>
-      </UseModal>
+      {data.length > 0 && (
+        <div className={styles.buttonContainer}>
+          <Button
+            disabled={!handleEnableButton()}
+            isLoading={isLoading}
+            loaderSize="small"
+            loaderVariant="neutral"
+            onClick={handleNewApplication}
+            label="New Stipend Application"
+            type="secondary"
+            effectAlt
+          />
+        </div>
+      )}
     </div>
   );
 };

@@ -24,7 +24,7 @@ export const DesktopTable = ({ entries, tableHead, oneClickApply }) => {
           {entries?.map((itm, idx) => {
             return (
               <tr key={idx}>
-                <td className={idx === lastItem ? `${styles.firstColumn}` : undefined}>{1}</td>
+                <td className={idx === lastItem ? `${styles.firstColumn}` : undefined}>{idx + 1}</td>
                 <td>{itm?.stipendCategory?.toUpperCase()}</td>
                 <td>
                   <span

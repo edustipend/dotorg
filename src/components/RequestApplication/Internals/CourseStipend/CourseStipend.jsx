@@ -9,14 +9,22 @@ import CategoryHeader from '../CategoryHeader';
 import QuestionAndAnswer from '../QuestionAndAnswer';
 import { isApplicationFilled } from '../checkStipendApplication';
 import Quote from '../../../../components/Quote';
-import { back, progress, reason, steps, benefits, futureHelp } from '../../../../store/reducers/ApplicationReducer';
+import { setActiveStep, back, progress, reason, steps, benefits, futureHelp } from '../../../../store/reducers/ApplicationReducer';
 const { TITLE, SUPPORT_TYPE, FOOT_NOTE1, FOOT_NOTE2, FOOT_NOTE3, FOOT_NOTE4, QUESTION1, QUESTION2, QUESTION3, QUESTION4, QUOTE } = courseConstants;
 
 export const CourseStipend = () => {
   const dispatch = useDispatch();
-  const { reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser } = useSelector((state) => state.application);
+  const { newApplication, reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser } = useSelector(
+    (state) => state.application
+  );
   const isTrue = isApplicationFilled(reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser);
-
+  const handleAction = () => {
+    if (newApplication) {
+      dispatch(setActiveStep(5));
+    } else {
+      dispatch(progress());
+    }
+  };
   return (
     <div className={styles.stipend}>
       <ContentContainer>
@@ -53,7 +61,7 @@ export const CourseStipend = () => {
             label={'Continue'}
             icon={RightArrow}
             type={'secondary'}
-            onClick={() => dispatch(progress())}
+            onClick={handleAction}
             className={styles.button}
           />
         </div>

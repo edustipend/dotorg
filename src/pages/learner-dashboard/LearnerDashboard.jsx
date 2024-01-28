@@ -12,11 +12,13 @@ import { BANNER, SURVEY_LS_KEY, TestId } from './constants';
 import Banner from '../../components/Banner';
 import Button from '../../components/Button';
 import VerifyEmail from '../../components/ApplicationSteps/Step5Application/Internals/VerifyEmail';
-import Modal from '../../components/Modal';
 import useResendVerification from '../../hooks/useResendVerification';
+import { UseModal } from '../../components/Modal/UseModal';
+import { ModalContext } from '../../context/ModalContext';
 
 export const LearnerDashboard = () => {
   const { showSidebar, setShowSidebar } = useContext(SidebarCtx);
+  const { verifyCurrentUser } = useContext(ModalContext);
   const [desktopScreen, setDesktopScreen] = useState(document.body.clientWidth);
   const { handleResendVerification, isLoading, setShowBanner, showBanner } = useResendVerification();
   
@@ -74,9 +76,9 @@ export const LearnerDashboard = () => {
         <InstallPrompt />
         <SurveyBox show={!localStorage.getItem(SURVEY_LS_KEY)} onSuccess={handleSurveySuccess} />
       </div>
-      <Modal>
+      <UseModal isActive={verifyCurrentUser}>
         <VerifyEmail />
-      </Modal>
+      </UseModal>
     </>
   );
 };

@@ -7,7 +7,7 @@ import toast from 'react-hot-toast';
 const useResendVerification = () => {
   const { isVerified, email } = useSelector((state) => state.user);
   const [isLoading, setIsLoading] = useState(false);
-  const { setIsActive } = useContext(ModalContext);
+  const { handleVerifyCurrentUser } = useContext(ModalContext);
   const [showBanner, setShowBanner] = useState(!isVerified);
 
   const handleResendVerification = async () => {
@@ -20,7 +20,7 @@ const useResendVerification = () => {
 
       if (res?.message === 'Verification email sent succesfully') {
         toast.success(res?.message);
-        setIsActive(true);
+        handleVerifyCurrentUser();
       } else {
         toast.error(res?.message || res?.error?.message);
       }

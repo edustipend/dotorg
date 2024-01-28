@@ -9,16 +9,24 @@ import { BackArrow, RightArrow } from '../../../../assets';
 import { laptopConstants } from '../../constants';
 import Quote from '../../../../components/Quote';
 import { isApplicationFilled } from '../checkStipendApplication';
-import { back, progress, reason, steps, benefits, futureHelp } from '../../../../store/reducers/ApplicationReducer';
+import { setActiveStep, back, progress, reason, steps, benefits, futureHelp } from '../../../../store/reducers/ApplicationReducer';
 const { TITLE, SUPPORT_TYPE, QUOTE, QUESTION1, QUESTION2, QUESTION3, QUESTION4, FOOT_NOTE1, FOOT_NOTE2, FOOT_NOTE3, FOOT_NOTE4 } = laptopConstants;
 
 export const LaptopStipend = () => {
   const dispatch = useDispatch();
-  const { reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser } = useSelector((state) => state.application);
+  const { newApplication, reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser } = useSelector(
+    (state) => state.application
+  );
 
   //check if each of the form values are at least > 4, enable the continue button if true
   const isTrue = isApplicationFilled(reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser);
-
+  const handleAction = () => {
+    if (newApplication) {
+      dispatch(setActiveStep(5));
+    } else {
+      dispatch(progress());
+    }
+  };
   return (
     <div className={styles.stipend}>
       <ContentContainer>
@@ -55,7 +63,7 @@ export const LaptopStipend = () => {
             label={'Continue'}
             icon={RightArrow}
             type={'secondary'}
-            onClick={() => dispatch(progress())}
+            onClick={handleAction}
             className={styles.button}
           />
         </div>
