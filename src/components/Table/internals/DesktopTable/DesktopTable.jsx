@@ -28,7 +28,7 @@ export const DesktopTable = ({ entries, tableHead, oneClickApply }) => {
 
   const handleEdit = (id) => {
     if (!isVerified) {
-      return toast.error("You're not verified!");
+      return toast.error('Whoops! Verification needed for this action.');
     }
     dispatch(setEditMode(true));
     oneClickApply(id);

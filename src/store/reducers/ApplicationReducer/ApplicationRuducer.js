@@ -12,6 +12,7 @@ const initialState = {
   isVerified: false,
   error: false,
   editMode: false,
+  disableTextbox: false,
   errorMessage: ''
 };
 
@@ -30,6 +31,12 @@ const application = createSlice({
     },
     setApplicationId: (state, action) => {
       state.applicationId = action.payload;
+    },
+    setEditMode: (state, action) => {
+      state.editMode = action.payload;
+    },
+    setDisableTextbox: (state, action) => {
+      state.disableTextbox = action.payload;
     },
     category: (state, action) => {
       state.stipendCategory = action.payload;
@@ -58,9 +65,7 @@ const application = createSlice({
     errMessage: (state, action) => {
       state.errorMessage = action.payload;
     },
-    setEditMode: (state, action) => {
-      state.editMode = action.payload;
-    },
+
     reset: (state) => {
       state.activeStep = 1;
       state.applicationId = null;
@@ -74,6 +79,7 @@ const application = createSlice({
       state.error = false;
       state.errorMessage = '';
       state.editMode = false;
+      state.editTextbox = false;
     }
   }
 });
@@ -94,5 +100,6 @@ export const {
   errMessage,
   reset,
   setApplicationId,
-  setEditMode
+  setEditMode,
+  setDisableTextbox
 } = application.actions;

@@ -4,6 +4,7 @@ import {
   setActiveStep,
   setApplicationId,
   setEditMode,
+  setDisableTextbox,
   category,
   reason,
   steps,
@@ -31,5 +32,6 @@ export {
   errMessage,
   reset,
   setApplicationId,
-  setEditMode
+  setEditMode,
+  setDisableTextbox
 };

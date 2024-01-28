@@ -11,13 +11,20 @@ import ActionBanner from '../../../components/ActionBanner';
 import { PageCopy } from './constants';
 import useResendVerification from '../../../hooks/useResendVerification';
 import { Step2Application } from '../../../components/ApplicationSteps/Step2Application/Step2Application';
-import { benefits, category, futureHelp, reason, reset, setApplicationId, steps } from '../../../store/reducers/ApplicationReducer';
+import {
+  benefits,
+  category,
+  futureHelp,
+  reason,
+  reset,
+  setApplicationId,
+  setDisableTextbox,
+  steps
+} from '../../../store/reducers/ApplicationReducer';
 import toast from 'react-hot-toast';
 import { isApplicationWindowClosed } from '../../../utils';
 import { hasApplied } from '../../../utils/hasApplied';
 import { useNavigate } from 'react-router-dom';
-
-const { dashboard } = constants;
 
 export const Home = () => {
   const [currentTable, setCurrentTable] = useState(0);
@@ -26,16 +33,16 @@ export const Home = () => {
   const [singleEntry, setSingleEntry] = useState([]);
   const [data, setData] = useState([]);
   const [isApplied, setIsApplied] = useState(false);
-  const nav = useNavigate();
   const isWindowClosed = isApplicationWindowClosed();
+  const { dashboard } = constants;
   const { name, userId, isVerified } = useSelector((state) => state.user);
   const { stipendCategory, reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser } = useSelector(
     (state) => state.application
   );
-
-  const { handleResendVerification, isLoading, setShowBanner, showBanner } = useResendVerification();
-
+  const nav = useNavigate();
   const dispatch = useDispatch();
+  const { handleResendVerification, isLoading } = useResendVerification();
+
   const [first] = name.split(' ');
 
   const Category = stipendCategory.split('/')[0].toLowerCase();
@@ -51,9 +58,7 @@ export const Home = () => {
 
   const handleOneClick = (id) => {
     if (!isVerified) {
-      toast.error("You're not a verified user");
-      setShowBanner(!isVerified);
-      console.log(showBanner);
+      toast.error('Whoops! Verification needed for this action.');
       return;
     }
     setApplicationTable(!applicationTable);
@@ -85,6 +90,7 @@ export const Home = () => {
   };
 
   const handleSubmitOneClick = async () => {
+    // Func for One click apply
     console.log(applicationInfo);
   };
 
@@ -96,8 +102,9 @@ export const Home = () => {
           userId
         });
         if (response.success) {
-          setData(response.data);
-          setIsApplied(hasApplied(response.data));
+          const sortedData = response?.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+          setData(sortedData);
+          setIsApplied(hasApplied(sortedData));
         }
       } catch (error) {
         console.log(error);
@@ -106,8 +113,10 @@ export const Home = () => {
         setLoading(false);
       }
     };
+
     getUserData();
-  }, [userId]);
+    dispatch(setDisableTextbox(true));
+  }, [userId, dispatch]);
 
   return (
     <div className={styles.Main} data-testid={TestId.HOME}>
@@ -188,7 +197,7 @@ export const Home = () => {
             <Table entries={singleEntry} tableHead={submissionTableHead} />
             <Step2Application />
           </section>
-          <div className={styles.buttonContainer}>
+          <div className={styles.btnContainer}>
             <Button
               disabled={isWindowClosed || isApplied}
               label="Submit Application"

@@ -1,23 +1,28 @@
-import React from 'react';
-import {  useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styles from '../LaptopStipend/LaptopStipend.module.css';
 import ContentContainer from '../../../../components/ApplicationSteps/ContentContainer';
 import { constant, courseConstants } from '../../constants';
 import CategoryHeader from '../CategoryHeader';
 import QuestionAndAnswer from '../QuestionAndAnswer';
 import Quote from '../../../../components/Quote';
-import {  reason, steps, benefits, futureHelp } from '../../../../store/reducers/ApplicationReducer';
-import { useLocation } from 'react-router-dom';
+import { reason, steps, benefits, futureHelp, setDisableTextbox } from '../../../../store/reducers/ApplicationReducer';
 import { isApplicationWindowClosed } from '../../../../utils';
 import Navigation from '../Navigation';
+import Button from '../../../Button';
 const { TITLE, SUPPORT_TYPE, FOOT_NOTE1, FOOT_NOTE2, FOOT_NOTE3, FOOT_NOTE4, QUESTION1, QUESTION2, QUESTION3, QUESTION4, QUOTE } = courseConstants;
 
 export const CourseStipend = () => {
-  const { pathname } = useLocation();
-  const isDashboard = pathname.includes('/dashboard');
-
-  const showUnderReview = isApplicationWindowClosed() && isDashboard;
+  const dispatch = useDispatch();
+  const [showUnderReview, setShowUnderReview] = useState(false);
+  const [showBtn, setShowBtn] = useState(true);
   const { reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser } = useSelector((state) => state.application);
+
+  const handleEditApplication = () => {
+    setShowBtn((prev) => !prev);
+    const isWindowClosed = isApplicationWindowClosed();
+    isWindowClosed ? setShowUnderReview(true) : dispatch(setDisableTextbox(false));
+  };
 
   return (
     <div className={styles.stipend}>
@@ -30,7 +35,11 @@ export const CourseStipend = () => {
               <p>{constant.UNDER_REVIEW}</p>
             </div>
           )}
-
+          {showBtn && (
+            <div className={styles.btnContainer}>
+              <Button label={'Edit Application'} type={'secondary'} effectAlt onClick={handleEditApplication} />
+            </div>
+          )}
         </section>
         <p className={styles.footNote}>{FOOT_NOTE1}</p>
       </ContentContainer>
@@ -54,7 +63,7 @@ export const CourseStipend = () => {
           <QuestionAndAnswer value={futureHelpFromUser} dispatchType={futureHelp} number={4} question={QUESTION4} />
         </section>
         <p className={styles.footNote}>{FOOT_NOTE4}</p>
-      ,<Navigation />
+        ,<Navigation />
       </ContentContainer>
       <div className={styles.quoteContainer}>
         <Quote content={QUOTE} className={styles.quote} />

@@ -1,23 +1,28 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import ContentContainer from '../../../../components/ApplicationSteps/ContentContainer';
 import CategoryHeader from '../CategoryHeader';
 import QuestionAndAnswer from '../QuestionAndAnswer';
 import { constant, dataConstants } from '../../constants';
 import styles from '../LaptopStipend/LaptopStipend.module.css';
 import Quote from '../../../../components/Quote';
-import { reason, steps, benefits, futureHelp } from '../../../../store/reducers/ApplicationReducer';
+import { reason, steps, benefits, futureHelp, setDisableTextbox } from '../../../../store/reducers/ApplicationReducer';
 import Navigation from '../Navigation';
-import { useLocation } from 'react-router-dom';
 import { isApplicationWindowClosed } from '../../../../utils';
+import Button from '../../../Button';
 const { TITLE, SUPPORT_TYPE, FOOT_NOTE1, FOOT_NOTE2, FOOT_NOTE3, FOOT_NOTE4, QUESTION1, QUESTION2, QUESTION3, QUESTION4, QUOTE } = dataConstants;
 
 export const DataStipend = () => {
-  const { pathname } = useLocation();
-  const isDashboard = pathname.includes('/dashboard');
-
-  const showUnderReview = isApplicationWindowClosed() && isDashboard;
+  const dispatch = useDispatch();
+  const [showUnderReview, setShowUnderReview] = useState(false);
+  const [showBtn, setShowBtn] = useState(true);
   const { reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser } = useSelector((state) => state.application);
+
+  const handleEditApplication = () => {
+    setShowBtn((prev) => !prev);
+    const isWindowClosed = isApplicationWindowClosed();
+    isWindowClosed ? setShowUnderReview(true) : dispatch(setDisableTextbox(false));
+  };
 
   return (
     <div className={styles.stipend}>
@@ -28,6 +33,11 @@ export const DataStipend = () => {
           {showUnderReview && (
             <div className={styles.review}>
               <p>{constant.UNDER_REVIEW}</p>
+            </div>
+          )}
+          {showBtn && (
+            <div className={styles.btnContainer}>
+              <Button label={'Edit Application'} type={'secondary'} effectAlt onClick={handleEditApplication} />
             </div>
           )}
         </section>

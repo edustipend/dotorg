@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { isApplicationWindowClosed } from '../../../../utils';
 import { setActiveStep, setEditMode } from '../../../../store/reducers/ApplicationReducer';
+import toast from 'react-hot-toast';
 const { APPROVED, IN_VIEW, RECEIVED, DENIED } = applicationStatus;
 
 export const MobileTable = ({ entries, tableHead, oneClickApply }) => {
@@ -23,14 +24,16 @@ export const MobileTable = ({ entries, tableHead, oneClickApply }) => {
 
   const handleShowMenu = (id) => {
     singleAppId === id ? setSingleAppId(null) : setSingleAppId(id);
-    console.log(id);
   };
+
   const handleView = (id) => {
     oneClickApply(id);
   };
 
   const handleEdit = (id) => {
-    if (!isVerified) return;
+    if (!isVerified) {
+      return toast.error('Whoops! Verification needed for this action.');
+    }
     dispatch(setEditMode(true));
     oneClickApply(id);
     dispatch(setActiveStep(1));
@@ -53,14 +56,14 @@ export const MobileTable = ({ entries, tableHead, oneClickApply }) => {
               <div className={styles.entryNav}>
                 <button
                   disabled={entry === 0 ? true : false}
-                  className={entry === 0 ? `${styles.disabled} ${styles.arrowContainer}` : `${styles.arrowContainer}`}
+                  className={entry === 0 ? `${styles.disabled} ${styles.leftArrow}` : `${styles.leftArrow}`}
                   onClick={handleArrowLeft}>
                   <img src={arrowleft} alt="arrowleft" className={styles.arrow_img} />
                 </button>
-                <span className={styles.id}>{1}</span>
+                <span className={styles.id}>{entry + 1}</span>
                 <button
                   disabled={entry + 1 === entries.length ? true : false}
-                  className={entry + 1 === entries.length ? `${styles.disabled} ${styles.arrowContainer}` : `${styles.arrowContainer}`}
+                  className={entry + 1 === entries.length ? `${styles.disabled} ${styles.rightArrow}` : `${styles.rightArrow}`}
                   onClick={handleArrowRight}>
                   <img src={arrowright} alt="arrowright" className={styles.arrow_img} />
                 </button>

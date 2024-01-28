@@ -77,13 +77,15 @@
   border-bottom: 2px solid black;
 }
 
-.arrowContainer {
+.rightArrow,
+.leftArrow {
   padding: 0;
   display: flex;
   background-color: transparent;
 }
 
-.disabled {
+.leftArrow:disabled,
+.rightArrow:disabled {
   opacity: 0.2;
 }
 

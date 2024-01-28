@@ -68,9 +68,14 @@
   color: var(--navy-blue);
 }
 
-.buttonContainer {
+.buttonContainer,
+.btnContainer {
   display: flex;
   justify-content: center;
+}
+
+.btnContainer {
+  margin-top: -80px;
 }
 
 .quote {
@@ -136,7 +141,8 @@
     gap: 30px;
   }
 
-  .buttonContainer {
+  .buttonContainer,
+  .btnContainer {
     justify-content: end;
   }
 }

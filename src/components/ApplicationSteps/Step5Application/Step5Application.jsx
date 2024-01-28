@@ -10,7 +10,7 @@ import Header from '../../../components/Header';
 import Text from '../../Text';
 import Quote from '../../../components/Quote';
 import Submit from './Internals/Submit';
-import { back, successful, isError } from '../../../store/reducers/ApplicationReducer';
+import { back, successful, isError, reset } from '../../../store/reducers/ApplicationReducer';
 import { ScrollOnMount } from '../ScrollOnMount/ScrollOnMount';
 import { BackArrow } from '../../../assets';
 import { constants } from './Internals/constants';
@@ -18,6 +18,7 @@ import { DancingEmoji } from '../../../assets';
 import { useNavigate } from 'react-router-dom';
 // import { authorizedPost } from '../../../services/ApiClient';
 import toast from 'react-hot-toast';
+import { EDIT_APPLICATION, NEW_APPLICATION, authorizedPost } from '../../../services/ApiClient';
 const { HEADER, PARA1, PARA2, PARA3, PARA4, PARA5, PARA6, QUOTE } = constants;
 
 export const Step5Application = () => {
@@ -39,26 +40,43 @@ export const Step5Application = () => {
 
   const Category = stipendCategory.split('/')[0].toLowerCase();
 
-  const applicationInfo = {
+  const newApplication = {
     userId,
-    applicationId,
     stipendCategory: Category,
-    reasonForRequest: reasonForRequest,
-    stepsTakenToEaseProblem: stepsTakenToEaseProblem,
-    potentialBenefits: potentialBenefits,
-    futureHelpFromUser: futureHelpFromUser
+    reasonForRequest,
+    stepsTakenToEaseProblem,
+    potentialBenefits,
+    futureHelpFromUser
+  };
+
+  const editedApplication = {
+    applicationId,
+    ...newApplication
   };
 
   const submitStipendApp = async () => {
     setIsLoading(true);
-    console.log(applicationInfo);
-    editMode ? toast.loading('Submitting edited application', { id: 'loading-toast' }) : toast.loading('Submitting new application');
-    setTimeout(() => {
-      toast.dismiss('loading-toast');
-      toast.success('Updated successfully');
+    const APPLICATION_INFO = editMode ? editedApplication : newApplication;
+    const ROUTE = editMode ? EDIT_APPLICATION : NEW_APPLICATION;
+    editMode ? toast.loading('Submitting edited application', { id: 'edit-app' }) : toast.loading('Submitting new application', { id: 'new-app' });
+
+    try {
+      const res = await authorizedPost(ROUTE, APPLICATION_INFO);
+      if (res.success) {
+        editMode ? toast.success(res?.message || 'Updated successfully') : toast.success(res?.message || 'Submitted successfully');
+      } else {
+        toast.error(res?.message || res?.error || 'OOPS! Something went wrong.');
+      }
+    } catch (error) {
+      console.log(error.message);
+      toast.error(error.message || 'OOPS! Something went wrong.');
+    } finally {
+      toast.dismiss('edit-app');
+      toast.dismiss('new-app');
       setIsLoading(false);
+      dispatch(reset());
       nav('/dashboard');
-    }, 3000);
+    }
   };
 
   return (

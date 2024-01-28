@@ -38,7 +38,6 @@ export const LearnerDashboard = () => {
       window.removeEventListener('resize', handleResize);
     };
   }, [setShowSidebar]);
-  console.log(showBanner);
 
   return (
     <>
