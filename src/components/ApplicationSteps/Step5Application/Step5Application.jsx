@@ -16,7 +16,6 @@ import { BackArrow } from '../../../assets';
 import { constants } from './Internals/constants';
 import { DancingEmoji } from '../../../assets';
 import { useNavigate } from 'react-router-dom';
-// import { authorizedPost } from '../../../services/ApiClient';
 import toast from 'react-hot-toast';
 import { EDIT_APPLICATION, NEW_APPLICATION, authorizedPost } from '../../../services/ApiClient';
 const { HEADER, PARA1, PARA2, PARA3, PARA4, PARA5, PARA6, QUOTE } = constants;
