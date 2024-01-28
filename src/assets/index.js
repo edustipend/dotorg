@@ -32,6 +32,8 @@ import Flower from './flower.png';
 import Sad from './sad.svg';
 import Hand from './hand.png';
 import Eye from './eye.svg';
+import success from './success.png';
+import tears from './crying face.svg'
 
 export {
   Hero1,
@@ -67,5 +69,7 @@ export {
   Flower,
   Sad,
   Hand,
-  Eye
+  Eye,
+  success,
+  tears
 };

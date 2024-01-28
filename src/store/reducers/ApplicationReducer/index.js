@@ -11,7 +11,8 @@ import {
   emailVerification,
   isError,
   errMessage,
-  reset
+  reset,
+  setNewApplication,
 } from './ApplicationRuducer';
 
-export { back, progress, setActiveStep, category, reason, steps, benefits, futureHelp, successful, emailVerification, isError, errMessage, reset };
+export { back, progress, setActiveStep, category, reason, steps, benefits, futureHelp, successful, emailVerification, isError, errMessage, reset, setNewApplication };

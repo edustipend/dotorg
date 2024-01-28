@@ -19,7 +19,7 @@ export const LearnerDashboard = () => {
   const { showSidebar, setShowSidebar } = useContext(SidebarCtx);
   const [desktopScreen, setDesktopScreen] = useState(document.body.clientWidth);
   const { handleResendVerification, isLoading, setShowBanner, showBanner } = useResendVerification();
-
+  
   const handleSurveySuccess = () => {
     //TODO: Add logic to clean this up on the next application window
     localStorage.setItem(SURVEY_LS_KEY, 'true');

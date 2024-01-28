@@ -9,13 +9,23 @@ import { BackArrow, RightArrow } from '../../../../assets';
 import styles from '../LaptopStipend/LaptopStipend.module.css';
 import Quote from '../../../../components/Quote';
 import { isApplicationFilled } from '../checkStipendApplication';
-import { back, progress, reason, steps, benefits, futureHelp } from '../../../../store/reducers/ApplicationReducer';
+import { setActiveStep, back, progress, reason, steps, benefits, futureHelp } from '../../../../store/reducers/ApplicationReducer';
 const { TITLE, SUPPORT_TYPE, FOOT_NOTE1, FOOT_NOTE2, FOOT_NOTE3, FOOT_NOTE4, QUESTION1, QUESTION2, QUESTION3, QUESTION4, QUOTE } = dataConstants;
 
 export const DataStipend = () => {
   const dispatch = useDispatch();
-  const { reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser } = useSelector((state) => state.application);
+  const { newApplication, reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser } = useSelector(
+    (state) => state.application
+  );
   const isTrue = isApplicationFilled(reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser);
+  const handleAction = () => {
+    if (newApplication) {
+      dispatch(setActiveStep(5));
+    } else {
+      dispatch(progress());
+    }
+  };
+
   return (
     <div className={styles.stipend}>
       <ContentContainer>
@@ -52,7 +62,7 @@ export const DataStipend = () => {
             label={'Continue'}
             icon={RightArrow}
             type={'secondary'}
-            onClick={() => dispatch(progress())}
+            onClick={handleAction}
             className={styles.button}
           />
         </div>

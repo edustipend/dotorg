@@ -9,8 +9,9 @@ import { TestId, Text, stepsData } from './constants';
 import { useDispatch } from 'react-redux';
 import { back } from '../../store/reducers/ApplicationReducer';
 import { useNavigate } from 'react-router-dom';
-
+import { useSelector } from 'react-redux';
 const Stepper = ({ activeStep }) => {
+  const { newApplication } = useSelector((state) => state.application);
   const nav = useNavigate();
   const dispatch = useDispatch();
 
@@ -36,7 +37,7 @@ const Stepper = ({ activeStep }) => {
 
             <div className={styles.texts}>
               <p data-testid={TestId.TITLE_TEST_ID} className={styles.step}>
-                {Text.TITLE + ' ' + activeStep}
+                {newApplication ? 'Final Step' : <>{Text.TITLE + ' ' + activeStep}</>}
               </p>
               <p data-testid={TestId.PARAGRAPH_TEST_ID} className={styles.label}>
                 {stepsData[activeStep - 1].label}

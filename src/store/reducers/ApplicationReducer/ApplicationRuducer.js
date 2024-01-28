@@ -10,7 +10,8 @@ const initialState = {
   success: false,
   isVerified: false,
   error: false,
-  errorMessage: ''
+  errorMessage: '',
+  newApplication: false
 };
 
 const application = createSlice({
@@ -53,6 +54,9 @@ const application = createSlice({
     errMessage: (state, action) => {
       state.errorMessage = action.payload;
     },
+    setNewApplication: (state, action) => {
+      state.newApplication = action.payload
+    },
     reset: (state) => {
       state.activeStep = 1;
       state.stipendCategory = '';
@@ -63,11 +67,26 @@ const application = createSlice({
       state.success = false;
       state.isVerified = false;
       state.error = false;
-      state.errorMessage = ''
-    },
+      state.errorMessage = '';
+      state.newApplication = false
+    }
   }
 });
 
 export default application.reducer;
-export const { back, progress, setActiveStep, category, reason, steps, benefits, futureHelp, successful, emailVerification, isError, errMessage, reset } =
-  application.actions;
+export const {
+  back,
+  progress,
+  setActiveStep,
+  category,
+  reason,
+  steps,
+  benefits,
+  futureHelp,
+  successful,
+  emailVerification,
+  isError,
+  errMessage,
+  reset,
+  setNewApplication
+} = application.actions;
