@@ -77,10 +77,6 @@ export const Home = () => {
   }, [userId]);
 
   const handleOneClick = (id) => {
-    if (!isVerified) {
-      toast.error('Whoops! Verification needed for this action.');
-      return;
-    }
     setApplicationTable(!applicationTable);
     const filteredData = data.filter((entry) => entry._id === id);
     setSingleEntry(filteredData);
@@ -110,8 +106,18 @@ export const Home = () => {
   };
 
   const handleSubmitOneClick = async () => {
-    setIsSubmitting(true);
-    toast.loading('Submitting new application', { id: 'one-click' });
+    let timeout = 0;
+    if (!isVerified) {
+      timeout = 650;
+      toast.error('Please do well to verify your account :(', {
+        duration: 600
+      });
+    }
+
+    setTimeout(() => {
+      setIsSubmitting(true);
+      toast.loading('Submitting new application', { id: 'one-click' });
+    }, timeout);
 
     try {
       const res = await authorizedPost(ONE_CLICK_APPLY, applicationInfo);
@@ -218,8 +224,8 @@ export const Home = () => {
           </section>
           <div className={styles.btnContainer}>
             <Button
-              disabled={isWindowClosed || isApplied || isSubmitting}
-              label="Submit Application"
+              // disabled={isWindowClosed || isApplied || isSubmitting}
+              label="Reapply"
               type="secondary"
               effectAlt
               isLoading={isSubmitting}
