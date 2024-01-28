@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import styles from './Home.module.css';
 import { Quote, TestId, back, constants, submissionTableHead, submitted, tableHead } from './internals/constants';
 import hand from '../../../assets/waving hand.png';
 import { tab } from './internals/constants';
 import Button from '../../../components/Button';
 import Table from '../../../components/Table';
-import { APPLICATION_HISTORY, authorizedPost } from '../../../services/ApiClient';
+import { APPLICATION_HISTORY, ONE_CLICK_APPLY, authorizedPost } from '../../../services/ApiClient';
 import { useDispatch, useSelector } from 'react-redux';
 import ActionBanner from '../../../components/ActionBanner';
 import { PageCopy } from './constants';
@@ -23,20 +23,21 @@ import {
 } from '../../../store/reducers/ApplicationReducer';
 import toast from 'react-hot-toast';
 import { isApplicationWindowClosed } from '../../../utils';
-import { hasApplied } from '../../../utils/hasApplied';
+import { hasCurrentApplication } from '../../../utils/hasCurrentApplication';
 import { useNavigate } from 'react-router-dom';
 
 export const Home = () => {
   const [currentTable, setCurrentTable] = useState(0);
   const [applicationTable, setApplicationTable] = useState(true);
   const [loading, setLoading] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [singleEntry, setSingleEntry] = useState([]);
   const [data, setData] = useState([]);
   const [isApplied, setIsApplied] = useState(false);
   const isWindowClosed = isApplicationWindowClosed();
   const { dashboard } = constants;
   const { name, userId, isVerified } = useSelector((state) => state.user);
-  const { stipendCategory, reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser } = useSelector(
+  const { stipendCategory, reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser, applicationId } = useSelector(
     (state) => state.application
   );
   const nav = useNavigate();
@@ -44,10 +45,10 @@ export const Home = () => {
   const { handleResendVerification, isLoading } = useResendVerification();
 
   const [first] = name.split(' ');
-
   const Category = stipendCategory.split('/')[0].toLowerCase();
 
   const applicationInfo = {
+    parentApplication: applicationId,
     userId,
     stipendCategory: Category,
     reasonForRequest: reasonForRequest,
@@ -55,6 +56,25 @@ export const Home = () => {
     potentialBenefits: potentialBenefits,
     futureHelpFromUser: futureHelpFromUser
   };
+
+  const getUserData = useCallback(async () => {
+    setLoading(true);
+    try {
+      const response = await authorizedPost(APPLICATION_HISTORY, {
+        userId
+      });
+      if (response.success) {
+        const sortedData = response?.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        setData(sortedData);
+        setIsApplied(hasCurrentApplication(sortedData));
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error(error.message);
+    } finally {
+      setLoading(false);
+    }
+  }, [userId]);
 
   const handleOneClick = (id) => {
     if (!isVerified) {
@@ -90,33 +110,32 @@ export const Home = () => {
   };
 
   const handleSubmitOneClick = async () => {
-    // Func for One click apply
-    console.log(applicationInfo);
+    setIsSubmitting(true);
+    toast.loading('Submitting new application', { id: 'one-click' });
+
+    try {
+      const res = await authorizedPost(ONE_CLICK_APPLY, applicationInfo);
+      if (res.success) {
+        toast.success(res?.message || 'Submitted successfully');
+      } else {
+        toast.error(res?.message || res?.error || 'OOPS! Something went wrong.');
+      }
+    } catch (error) {
+      console.log(error.message);
+      toast.error(error.message || 'OOPS! Something went wrong.');
+    } finally {
+      getUserData();
+      toast.dismiss('one-click');
+      setIsSubmitting(false);
+      dispatch(reset());
+      setApplicationTable(!applicationTable);
+    }
   };
 
   useEffect(() => {
-    const getUserData = async () => {
-      setLoading(true);
-      try {
-        const response = await authorizedPost(APPLICATION_HISTORY, {
-          userId
-        });
-        if (response.success) {
-          const sortedData = response?.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-          setData(sortedData);
-          setIsApplied(hasApplied(sortedData));
-        }
-      } catch (error) {
-        console.log(error);
-        toast.error(error.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
     getUserData();
     dispatch(setDisableTextbox(true));
-  }, [userId, dispatch]);
+  }, [getUserData, dispatch]);
 
   return (
     <div className={styles.Main} data-testid={TestId.HOME}>
@@ -199,11 +218,11 @@ export const Home = () => {
           </section>
           <div className={styles.btnContainer}>
             <Button
-              disabled={isWindowClosed || isApplied}
+              disabled={isWindowClosed || isApplied || isSubmitting}
               label="Submit Application"
               type="secondary"
               effectAlt
-              isLoading={isLoading}
+              isLoading={isSubmitting}
               loaderSize={'small'}
               loaderVariant={'neutral'}
               onClick={handleSubmitOneClick}

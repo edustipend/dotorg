@@ -96,7 +96,7 @@
 
   .btnContainer {
     justify-content: flex-end;
-    top: 0;
+    top: -20px;
   }
 
   .review {

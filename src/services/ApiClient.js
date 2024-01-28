@@ -9,6 +9,7 @@ export const APPLICATION_HISTORY = 'user/stipend/application-history';
 export const VERIFY_LOGGED_IN_USER = 'user/logged-in/verify';
 export const EDIT_APPLICATION = 'stipend/update';
 export const NEW_APPLICATION = 'stipend/apply';
+export const ONE_CLICK_APPLY = 'stipend/apply/one-click';
 export const LOGOUT = 'logout';
 
 export const authorizedPost = async function (route = '', data = {}) {
