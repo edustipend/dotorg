@@ -43,7 +43,6 @@ export const Home = () => {
       navigate('/application');
     }
   };
-
   /**
    * This function enables the new application button if the
    * application window is open and the user has not applied for the month.
