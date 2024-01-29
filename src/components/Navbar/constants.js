@@ -23,6 +23,7 @@ export const NAVBAR_LINKS = [
     to: '/login'
   }
 ];
+
 export const NAVBAR_AMBASSADOR_LINKS = [
   {
     label: 'About the Program',
@@ -35,15 +36,19 @@ export const NAVBAR_AMBASSADOR_LINKS = [
     hash: '#eligibility'
   }
 ];
+
 export const SUPPORT_LEARNER_LINKS = [
   {
-    label: 'Support A Learner',
-    to: '/support-a-learner'
+    label: 'Donate Now',
+    path: '/support-a-learner',
+    hash: '#donate'
   },
   {
-    label: 'Support A Learner',
-    to: '/support-a-learner'
+    label: 'How It Works',
+    path: '/support-a-learner',
+    hash: '#howitworks'
   },
+  
 ];
 
 export const BUTTON_LABEL = 'Request stipend';
