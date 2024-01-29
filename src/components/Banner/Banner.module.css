@@ -1,6 +1,6 @@
 .banner {
   font-family: Poppins;
-  font-size: 0.75rem;
+  font-size: 1rem;
   font-weight: 500;
   display: flex;
   justify-content: center;
@@ -26,7 +26,7 @@
   color: white;
 }
 
-@media screen and (min-width: 640px) {
+@media screen and (min-width: 1351px) {
   .banner {
     top: 102px;
   }
