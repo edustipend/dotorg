@@ -10,3 +10,25 @@ export const constants = {
   PARA6: ` The Edustipend Team ❤️`,
   QUOTE: `"Believe in yourself, take on your challenges, dig deep within yourself to conquer fears. Never let anyone bring you down. You got this." - Chantal Sutherland`
 };
+
+export const toastNotifications = {
+  UPDATING: {
+    loading: 'Submitting edited application',
+    id: 'edit-app',
+    message: 'Updated successfully'
+  },
+  SUBMITTING: {
+    loading: 'Submitting new application',
+    id: 'new-app',
+    message: 'Submitted successfully'
+  },
+  ONE_CLICK: {
+    loading: 'Submitting new application',
+    id: 'one-click',
+    message: 'Submitted successfully',
+    error: 'Please do well to verify your account :('
+  },
+  ERROR: {
+    message: 'Oops! Something went wrong.'
+  }
+};

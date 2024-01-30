@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 import styles from './Step5Application.module.css';
 import { ModalContext } from '../../../context/ModalContext';
 import Modal from '../../Modal';
@@ -15,10 +17,11 @@ import { ScrollOnMount } from '../ScrollOnMount/ScrollOnMount';
 import { BackArrow } from '../../../assets';
 import { constants } from './Internals/constants';
 import { DancingEmoji } from '../../../assets';
-import { useNavigate } from 'react-router-dom';
-import toast from 'react-hot-toast';
 import { EDIT_APPLICATION, NEW_APPLICATION, authorizedPost } from '../../../services/ApiClient';
+import { toastNotifications } from './Internals/constants';
+
 const { HEADER, PARA1, PARA2, PARA3, PARA4, PARA5, PARA6, QUOTE } = constants;
+const { UPDATING, SUBMITTING, ERROR } = toastNotifications;
 
 export const Step5Application = () => {
   ScrollOnMount();
@@ -31,7 +34,7 @@ export const Step5Application = () => {
   );
   const { userId } = useSelector((state) => state.user);
 
-  const onSubmit = () => {
+  const handleNewUserApplication = () => {
     dispatch(successful(false));
     dispatch(isError(false));
     setIsActive((prev) => !prev);
@@ -53,25 +56,24 @@ export const Step5Application = () => {
     ...newApplication
   };
 
-  const submitStipendApp = async () => {
+  const submitLoggedInUserApplication = async () => {
     setIsLoading(true);
     const APPLICATION_INFO = editMode ? editedApplication : newApplication;
     const ROUTE = editMode ? EDIT_APPLICATION : NEW_APPLICATION;
-    editMode ? toast.loading('Submitting edited application', { id: 'edit-app' }) : toast.loading('Submitting new application', { id: 'new-app' });
+    editMode ? toast.loading(UPDATING.loading, { id: UPDATING.id }) : toast.loading(SUBMITTING.loading, { id: SUBMITTING.id });
 
     try {
       const res = await authorizedPost(ROUTE, APPLICATION_INFO);
       if (res.success) {
-        editMode ? toast.success(res?.message || 'Updated successfully') : toast.success(res?.message || 'Submitted successfully');
+        editMode ? toast.success(res?.message || UPDATING.message) : toast.success(res?.message || SUBMITTING.message);
       } else {
-        toast.error(res?.message || res?.error || 'OOPS! Something went wrong.');
+        toast.error(res?.message || res?.error || ERROR.message);
       }
     } catch (error) {
-      console.log(error.message);
-      toast.error(error.message || 'OOPS! Something went wrong.');
+      toast.error(error.message || ERROR.message);
     } finally {
-      toast.dismiss('edit-app');
-      toast.dismiss('new-app');
+      toast.dismiss(UPDATING.id);
+      toast.dismiss(SUBMITTING.id);
       setIsLoading(false);
       dispatch(reset());
       nav('/dashboard');
@@ -98,7 +100,7 @@ export const Step5Application = () => {
           </div>
           <div className={styles.btnContainer}>
             <Button
-              label={'Back'}
+              loading={'Back'}
               icon={BackArrow}
               iconPosition={'back'}
               type={'plain'}
@@ -114,7 +116,7 @@ export const Step5Application = () => {
               isLoading={isLoading}
               loaderSize={'small'}
               loaderVariant={'neutral'}
-              onClick={userId ? submitStipendApp : onSubmit}
+              onClick={userId ? submitLoggedInUserApplication : handleNewUserApplication}
               className={styles.btn}
             />
           </div>

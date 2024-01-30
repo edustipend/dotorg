@@ -1,21 +1,24 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import styles from '../LaptopStipend/LaptopStipend.module.css';
-import ContentContainer from '../../../../components/ApplicationSteps/ContentContainer';
+import { useLocation } from 'react-router-dom';
 import { constant, courseConstants } from '../../constants';
+import { reason, steps, benefits, futureHelp, setDisableTextbox } from '../../../../store/reducers/ApplicationReducer';
+import { isApplicationWindowClosed } from '../../../../utils';
+import ContentContainer from '../../../../components/ApplicationSteps/ContentContainer';
 import CategoryHeader from '../CategoryHeader';
 import QuestionAndAnswer from '../QuestionAndAnswer';
 import Quote from '../../../../components/Quote';
-import { reason, steps, benefits, futureHelp, setDisableTextbox } from '../../../../store/reducers/ApplicationReducer';
-import { isApplicationWindowClosed } from '../../../../utils';
 import Navigation from '../Navigation';
 import Button from '../../../Button';
+import styles from '../LaptopStipend/LaptopStipend.module.css';
 const { TITLE, SUPPORT_TYPE, FOOT_NOTE1, FOOT_NOTE2, FOOT_NOTE3, FOOT_NOTE4, QUESTION1, QUESTION2, QUESTION3, QUESTION4, QUOTE } = courseConstants;
 
 export const CourseStipend = () => {
+  const { pathname } = useLocation();
+  const isDashboard = pathname.includes('/dashboard');
   const dispatch = useDispatch();
   const [showUnderReview, setShowUnderReview] = useState(false);
-  const [showBtn, setShowBtn] = useState(true);
+  const [showBtn, setShowBtn] = useState(isDashboard);
   const { reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser } = useSelector((state) => state.application);
 
   const handleEditApplication = () => {

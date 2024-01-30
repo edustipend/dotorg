@@ -1,22 +1,25 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useLocation } from 'react-router-dom';
+import { constant, laptopConstants } from '../../constants';
+import { reason, steps, benefits, futureHelp, setDisableTextbox } from '../../../../store/reducers/ApplicationReducer';
+import { isApplicationWindowClosed } from '../../../../utils';
+import Quote from '../../../../components/Quote';
+import Navigation from '../Navigation';
+import Button from '../../../Button';
 import ContentContainer from '../../../../components/ApplicationSteps/ContentContainer';
 import CategoryHeader from '../CategoryHeader';
 import QuestionAndAnswer from '../QuestionAndAnswer';
 import styles from './LaptopStipend.module.css';
-import { constant, laptopConstants } from '../../constants';
-import Quote from '../../../../components/Quote';
-import { reason, steps, benefits, futureHelp, setDisableTextbox } from '../../../../store/reducers/ApplicationReducer';
-import { isApplicationWindowClosed } from '../../../../utils';
-import Navigation from '../Navigation';
-import Button from '../../../Button';
-import { useDispatch } from 'react-redux';
 const { TITLE, SUPPORT_TYPE, QUOTE, QUESTION1, QUESTION2, QUESTION3, QUESTION4, FOOT_NOTE1, FOOT_NOTE2, FOOT_NOTE3, FOOT_NOTE4 } = laptopConstants;
 
 export const LaptopStipend = () => {
+  const { pathname } = useLocation();
+  const isDashboard = pathname.includes('/dashboard');
   const dispatch = useDispatch();
   const [showUnderReview, setShowUnderReview] = useState(false);
-  const [showBtn, setShowBtn] = useState(true);
+  const [showBtn, setShowBtn] = useState(isDashboard);
   const { reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser } = useSelector((state) => state.application);
 
   const handleEditApplication = () => {

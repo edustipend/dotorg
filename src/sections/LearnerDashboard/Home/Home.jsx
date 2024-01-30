@@ -1,12 +1,14 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import toast from 'react-hot-toast';
 import styles from './Home.module.css';
-import { Quote, TestId, back, constants, submissionTableHead, submitted, tableHead } from './internals/constants';
 import hand from '../../../assets/waving hand.png';
+import { Quote, TestId, back, constants, submissionTableHead, submitted, tableHead } from './internals/constants';
 import { tab } from './internals/constants';
 import Button from '../../../components/Button';
 import Table from '../../../components/Table';
 import { APPLICATION_HISTORY, ONE_CLICK_APPLY, authorizedPost } from '../../../services/ApiClient';
-import { useDispatch, useSelector } from 'react-redux';
 import ActionBanner from '../../../components/ActionBanner';
 import { PageCopy } from './constants';
 import useResendVerification from '../../../hooks/useResendVerification';
@@ -21,10 +23,10 @@ import {
   setDisableTextbox,
   steps
 } from '../../../store/reducers/ApplicationReducer';
-import toast from 'react-hot-toast';
 import { isApplicationWindowClosed } from '../../../utils';
 import { hasCurrentApplication } from '../../../utils/hasCurrentApplication';
-import { useNavigate } from 'react-router-dom';
+import { toastNotifications } from '../../../components/ApplicationSteps/Step5Application/Internals/constants';
+const { ONE_CLICK, ERROR } = toastNotifications;
 
 export const Home = () => {
   const [currentTable, setCurrentTable] = useState(0);
@@ -69,7 +71,6 @@ export const Home = () => {
         setIsApplied(hasCurrentApplication(sortedData));
       }
     } catch (error) {
-      console.log(error);
       toast.error(error.message);
     } finally {
       setLoading(false);
@@ -109,29 +110,28 @@ export const Home = () => {
     let timeout = 0;
     if (!isVerified) {
       timeout = 650;
-      toast.error('Please do well to verify your account :(', {
+      toast.error(ONE_CLICK.error, {
         duration: 600
       });
     }
 
     setTimeout(() => {
       setIsSubmitting(true);
-      toast.loading('Submitting new application', { id: 'one-click' });
+      toast.loading(ONE_CLICK.loading, { id: ONE_CLICK.loading });
     }, timeout);
 
     try {
       const res = await authorizedPost(ONE_CLICK_APPLY, applicationInfo);
       if (res.success) {
-        toast.success(res?.message || 'Submitted successfully');
+        toast.success(res?.message || ONE_CLICK.message);
       } else {
-        toast.error(res?.message || res?.error || 'OOPS! Something went wrong.');
+        toast.error(res?.message || res?.error || ERROR.message);
       }
     } catch (error) {
-      console.log(error.message);
-      toast.error(error.message || 'OOPS! Something went wrong.');
+      toast.error(error.message || ERROR.message);
     } finally {
       getUserData();
-      toast.dismiss('one-click');
+      toast.dismiss(ONE_CLICK.id);
       setIsSubmitting(false);
       dispatch(reset());
       setApplicationTable(!applicationTable);
@@ -224,7 +224,7 @@ export const Home = () => {
           </section>
           <div className={styles.btnContainer}>
             <Button
-              // disabled={isWindowClosed || isApplied || isSubmitting}
+              disabled={isWindowClosed || isApplied || isSubmitting}
               label="Reapply"
               type="secondary"
               effectAlt

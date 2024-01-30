@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from './MobileTable.module.css';
+import classes from '../DesktopTable/DesktopTable.module.css';
 import arrowleft from '../../../../assets/arrow-left.svg';
 import arrowright from '../../../../assets/arrow-right.svg';
 import { getFormattedDate, getFormattedTime } from '../../../../utils/dateTimeUtils/dateTimeUtil';
@@ -110,15 +111,15 @@ export const MobileTable = ({ entries, tableHead, oneClickApply }) => {
             <tr>
               <td className={`${styles.head} ${styles.headAlt} ${styles.row1}`}>{tableHead[5]}</td>
               <td className={`${styles.row} ${styles.rowAlt} ${styles.row2}`}>
-                <button className={styles.btn} onClick={() => handleShowMenu(currentEntry?._id, currentEntry)}>
+                <button className={classes.btn} onClick={() => handleShowMenu(currentEntry?._id, currentEntry)}>
                   <img src={Menu_Icon} alt="menu" />
                 </button>
-                <div className={singleAppId === currentEntry?._id ? styles.actionContainer : styles.hide}>
-                  <button className={styles.view} onClick={() => handleView(currentEntry?._id)}>
+                <div className={singleAppId === currentEntry?._id ? classes.actionContainer : classes.hide}>
+                  <button className={classes.view} onClick={() => handleView(currentEntry?._id)}>
                     <img src={Eye_Icon} alt="view" />
                     <p>View Application</p>
                   </button>
-                  <button className={styles.edit} onClick={() => handleEdit(currentEntry?._id)} disabled={disabled}>
+                  <button className={classes.edit} onClick={() => handleEdit(currentEntry?._id)} disabled={disabled}>
                     <img src={Edit_Icon} alt="view" />
                     <p>Edit Application</p>
                   </button>
