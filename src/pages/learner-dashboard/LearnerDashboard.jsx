@@ -44,7 +44,7 @@ export const LearnerDashboard = () => {
       <div className={styles.main} data-testid={TestId.LEARNER_DASHBOARD_WRAPPER}>
         {showBanner && (
           <Banner type={BANNER.ALERT} className={styles.banner}>
-            <div className={styles.close} onClick={() => setShowBanner(false)}>
+            <div className={styles.close} onClick={() => setShowBanner((prev) => !prev)}>
               <img src={Close} alt={BANNER.CLOSE} />
             </div>
             <h1>{BANNER.GREET}</h1>

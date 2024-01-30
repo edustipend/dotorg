@@ -1,50 +1,147 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import toast from 'react-hot-toast';
 import styles from './Home.module.css';
-import { Quote, TestId, constants, submissionTableHead, submitted, tableHead } from './internals/constants';
 import hand from '../../../assets/waving hand.png';
+import { Quote, TestId, back, constants, submissionTableHead, submitted, tableHead } from './internals/constants';
 import { tab } from './internals/constants';
 import Button from '../../../components/Button';
 import Table from '../../../components/Table';
-import { APPLICATION_HISTORY, authorizedPost } from '../../../services/ApiClient';
-import { useSelector } from 'react-redux';
+import { APPLICATION_HISTORY, ONE_CLICK_APPLY, authorizedPost } from '../../../services/ApiClient';
 import ActionBanner from '../../../components/ActionBanner';
 import { PageCopy } from './constants';
 import useResendVerification from '../../../hooks/useResendVerification';
-const { dashboard } = constants;
+import { Step2Application } from '../../../components/ApplicationSteps/Step2Application/Step2Application';
+import {
+  benefits,
+  category,
+  futureHelp,
+  reason,
+  reset,
+  setApplicationId,
+  setDisableTextbox,
+  steps
+} from '../../../store/reducers/ApplicationReducer';
+import { isApplicationWindowClosed } from '../../../utils';
+import { hasCurrentApplication } from '../../../utils/hasCurrentApplication';
+import { toastNotifications } from '../../../components/ApplicationSteps/Step5Application/Internals/constants';
+const { ONE_CLICK, ERROR } = toastNotifications;
 
 export const Home = () => {
   const [currentTable, setCurrentTable] = useState(0);
   const [applicationTable, setApplicationTable] = useState(true);
   const [loading, setLoading] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [singleEntry, setSingleEntry] = useState([]);
   const [data, setData] = useState([]);
+  const [isApplied, setIsApplied] = useState(false);
+  const isWindowClosed = isApplicationWindowClosed();
+  const { dashboard } = constants;
   const { name, userId, isVerified } = useSelector((state) => state.user);
+  const { stipendCategory, reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser, applicationId } = useSelector(
+    (state) => state.application
+  );
+  const nav = useNavigate();
+  const dispatch = useDispatch();
   const { handleResendVerification, isLoading } = useResendVerification();
+
   const [first] = name.split(' ');
+  const Category = stipendCategory.split('/')[0].toLowerCase();
+
+  const applicationInfo = {
+    parentApplication: applicationId,
+    userId,
+    stipendCategory: Category,
+    reasonForRequest: reasonForRequest,
+    stepsTakenToEaseProblem: stepsTakenToEaseProblem,
+    potentialBenefits: potentialBenefits,
+    futureHelpFromUser: futureHelpFromUser
+  };
+
+  const getUserData = useCallback(async () => {
+    setLoading(true);
+    try {
+      const response = await authorizedPost(APPLICATION_HISTORY, {
+        userId
+      });
+      if (response.success) {
+        const sortedData = response?.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        setData(sortedData);
+        setIsApplied(hasCurrentApplication(sortedData));
+      }
+    } catch (error) {
+      toast.error(error.message);
+    } finally {
+      setLoading(false);
+    }
+  }, [userId]);
 
   const handleOneClick = (id) => {
     setApplicationTable(!applicationTable);
-    setSingleEntry(data?.filter((entry) => entry._id === id));
+    const filteredData = data.filter((entry) => entry._id === id);
+    setSingleEntry(filteredData);
+
+    const { _id, stipendCategory, reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser } = filteredData[0];
+    const categoryData =
+      stipendCategory === 'laptop'
+        ? 'Laptop/Learning Device'
+        : stipendCategory === 'course'
+        ? 'Course/Certification Fees'
+        : stipendCategory === 'data'
+        ? 'Data/Internet Subscription'
+        : 'Laptop/Learning Device';
+    dispatch(setApplicationId(_id));
+    dispatch(category(categoryData));
+    dispatch(reason(reasonForRequest));
+    dispatch(steps(stepsTakenToEaseProblem));
+    dispatch(benefits(potentialBenefits));
+    dispatch(futureHelp(futureHelpFromUser));
+
+    setApplicationTable(!applicationTable);
+  };
+
+  const handleNewApplication = () => {
+    dispatch(reset());
+    nav('/application');
+  };
+
+  const handleSubmitOneClick = async () => {
+    let timeout = 0;
+    if (!isVerified) {
+      timeout = 650;
+      toast.error(ONE_CLICK.error, {
+        duration: 600
+      });
+    }
+
+    setTimeout(() => {
+      setIsSubmitting(true);
+      toast.loading(ONE_CLICK.loading, { id: ONE_CLICK.loading });
+    }, timeout);
+
+    try {
+      const res = await authorizedPost(ONE_CLICK_APPLY, applicationInfo);
+      if (res.success) {
+        toast.success(res?.message || ONE_CLICK.message);
+      } else {
+        toast.error(res?.message || res?.error || ERROR.message);
+      }
+    } catch (error) {
+      toast.error(error.message || ERROR.message);
+    } finally {
+      getUserData();
+      toast.dismiss(ONE_CLICK.id);
+      setIsSubmitting(false);
+      dispatch(reset());
+      setApplicationTable(!applicationTable);
+    }
   };
 
   useEffect(() => {
-    const getUserData = async () => {
-      setLoading(true);
-      try {
-        const response = await authorizedPost(APPLICATION_HISTORY, {
-          userId
-        });
-        if (response.success) {
-          setData(response.data);
-        }
-      } catch (error) {
-        console.log(error);
-      } finally {
-        setLoading(false);
-      }
-    };
     getUserData();
-  }, [userId]);
+    dispatch(setDisableTextbox(true));
+  }, [getUserData, dispatch]);
 
   return (
     <div className={styles.Main} data-testid={TestId.HOME}>
@@ -94,12 +191,16 @@ export const Home = () => {
             })}
           </div>
           {loading ? (
-            <p>Loading...</p>
+            <div>
+              <div className={styles.skeleton} />
+              <div className={styles.skeleton} />
+              <div className={styles.skeleton} />
+            </div>
           ) : (
             (() => {
               switch (currentTable) {
                 case 0:
-                  return <Table entries={data} tableHead={tableHead} oneClickApply={handleOneClick} />;
+                  return <Table entries={data?.slice(0, 1)} tableHead={tableHead} oneClickApply={handleOneClick} />;
                 case 1:
                   return <Table entries={data} tableHead={tableHead} oneClickApply={handleOneClick} />;
                 default:
@@ -110,16 +211,36 @@ export const Home = () => {
         </section>
       )}
       {!applicationTable && (
-        <section className={styles.table}>
-          <div className={styles.tabs}>
-            <button className={styles.tab}>{submitted}</button>
+        <>
+          <section className={styles.table}>
+            <div className={styles.tabs}>
+              <button className={styles.tab}>{submitted}</button>
+              <button className={`${styles.tab} ${styles.tabAlt}`} onClick={() => setApplicationTable((prev) => !prev)}>
+                {back}
+              </button>
+            </div>
+            <Table entries={singleEntry} tableHead={submissionTableHead} />
+            <Step2Application />
+          </section>
+          <div className={styles.btnContainer}>
+            <Button
+              disabled={isWindowClosed || isApplied || isSubmitting}
+              label="Reapply"
+              type="secondary"
+              effectAlt
+              isLoading={isSubmitting}
+              loaderSize={'small'}
+              loaderVariant={'neutral'}
+              onClick={handleSubmitOneClick}
+            />
           </div>
-          <Table entries={singleEntry} tableHead={submissionTableHead} />
-        </section>
+        </>
       )}
-      <div className={styles.buttonContainer}>
-        <Button disabled={true} label="New Stipend Application" type="secondary" effectAlt />
-      </div>
+      {applicationTable && (
+        <div className={styles.buttonContainer}>
+          <Button disabled={isWindowClosed || isApplied} label="New Stipend Application" type="secondary" effectAlt onClick={handleNewApplication} />
+        </div>
+      )}
     </div>
   );
 };

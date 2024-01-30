@@ -5,10 +5,47 @@
 }
 
 .main {
+  position: relative;
   display: flex;
   flex-direction: column;
   color: var(--edustipend-black);
   gap: 48px;
+}
+
+.review {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  right: 0;
+  width: 180px;
+  height: max-content;
+  flex-shrink: 0;
+  border-radius: 15px;
+  background: transparent;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.08);
+}
+
+.btnContainer {
+  width: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  top: -30px;
+}
+
+.review p {
+  width: 150px;
+  color: #f20b07;
+  text-align: center;
+  font-feature-settings:
+    'clig' off,
+    'liga' off;
+  font-family: 'Manrope';
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
 }
 
 .footNote {
@@ -55,6 +92,25 @@
 @media screen and (min-width: 768px) {
   .main {
     gap: 66px;
+  }
+
+  .btnContainer {
+    justify-content: flex-end;
+    top: -20px;
+  }
+
+  .review {
+    background: #fff;
+    width: 253px;
+    height: 140px;
+  }
+
+  .review p {
+    width: 215px;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 33px; /* 165% */
   }
 
   .footNote {

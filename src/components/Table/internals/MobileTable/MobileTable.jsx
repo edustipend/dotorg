@@ -1,16 +1,48 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from './MobileTable.module.css';
+import classes from '../DesktopTable/DesktopTable.module.css';
 import arrowleft from '../../../../assets/arrow-left.svg';
 import arrowright from '../../../../assets/arrow-right.svg';
 import { getFormattedDate, getFormattedTime } from '../../../../utils/dateTimeUtils/dateTimeUtil';
 import { applicationStatus } from '../constants';
+import { Edit_Icon, Eye_Icon, Menu_Icon } from '../../../../assets';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { isApplicationWindowClosed } from '../../../../utils';
+import { setActiveStep, setEditMode } from '../../../../store/reducers/ApplicationReducer';
+import toast from 'react-hot-toast';
+import { hasCurrentApplication } from '../../../../utils/hasCurrentApplication';
 const { APPROVED, IN_VIEW, RECEIVED, DENIED } = applicationStatus;
 
 export const MobileTable = ({ entries, tableHead, oneClickApply }) => {
   const [entry, setEntry] = useState(0);
   const currentEntry = entries[entry];
+  const [singleAppId, setSingleAppId] = useState(null);
+  const [disabled, setDisabled] = useState(true);
+  const nav = useNavigate();
+  const dispatch = useDispatch();
+  const isWindowClosed = isApplicationWindowClosed();
+  const { isVerified } = useSelector((state) => state.user);
 
+  const handleShowMenu = (id, app) => {
+    singleAppId === id ? setSingleAppId(null) : setSingleAppId(id);
+    setDisabled(!hasCurrentApplication([app]) || isWindowClosed);
+  };
+
+  const handleView = (id) => {
+    oneClickApply(id);
+  };
+
+  const handleEdit = (id) => {
+    if (!isVerified) {
+      return toast.error('Whoops! Verification needed for this action.');
+    }
+    dispatch(setEditMode(true));
+    oneClickApply(id);
+    dispatch(setActiveStep(1));
+    nav('/application');
+  };
   const handleArrowLeft = () => {
     setEntry((prev) => prev - 1);
   };
@@ -28,14 +60,14 @@ export const MobileTable = ({ entries, tableHead, oneClickApply }) => {
               <div className={styles.entryNav}>
                 <button
                   disabled={entry === 0 ? true : false}
-                  className={entry === 0 ? `${styles.disabled} ${styles.arrowContainer}` : `${styles.arrowContainer}`}
+                  className={entry === 0 ? `${styles.disabled} ${styles.leftArrow}` : `${styles.leftArrow}`}
                   onClick={handleArrowLeft}>
                   <img src={arrowleft} alt="arrowleft" className={styles.arrow_img} />
                 </button>
-                <span className={styles.id}>{1}</span>
+                <span className={styles.id}>{entry + 1}</span>
                 <button
                   disabled={entry + 1 === entries.length ? true : false}
-                  className={entry + 1 === entries.length ? `${styles.disabled} ${styles.arrowContainer}` : `${styles.arrowContainer}`}
+                  className={entry + 1 === entries.length ? `${styles.disabled} ${styles.rightArrow}` : `${styles.rightArrow}`}
                   onClick={handleArrowRight}>
                   <img src={arrowright} alt="arrowright" className={styles.arrow_img} />
                 </button>
@@ -79,9 +111,19 @@ export const MobileTable = ({ entries, tableHead, oneClickApply }) => {
             <tr>
               <td className={`${styles.head} ${styles.headAlt} ${styles.row1}`}>{tableHead[5]}</td>
               <td className={`${styles.row} ${styles.rowAlt} ${styles.row2}`}>
-                <button className={styles.btn} onClick={() => oneClickApply(currentEntry._id)}>
-                  View Submission
+                <button className={classes.btn} onClick={() => handleShowMenu(currentEntry?._id, currentEntry)}>
+                  <img src={Menu_Icon} alt="menu" />
                 </button>
+                <div className={singleAppId === currentEntry?._id ? classes.actionContainer : classes.hide}>
+                  <button className={classes.view} onClick={() => handleView(currentEntry?._id)}>
+                    <img src={Eye_Icon} alt="view" />
+                    <p>View Application</p>
+                  </button>
+                  <button className={classes.edit} onClick={() => handleEdit(currentEntry?._id)} disabled={disabled}>
+                    <img src={Edit_Icon} alt="view" />
+                    <p>Edit Application</p>
+                  </button>
+                </div>
               </td>
             </tr>
           )}

@@ -26,6 +26,24 @@ export const stepsData = [
   }
 ];
 
+export const stepsDataAlt = [
+  {
+    id: 1,
+    step: 'Step 1',
+    label: 'Select Stipend Category'
+  },
+  {
+    id: 2,
+    step: 'Step 2',
+    label: 'Stipend Request'
+  },
+  {
+    id: 3,
+    step: 'Step 3',
+    label: 'Submit'
+  }
+];
+
 export const Text = {
   BACK_ICON_TEXT: 'Back',
   TITLE: 'Step',
