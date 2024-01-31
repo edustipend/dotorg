@@ -77,24 +77,19 @@
   border-bottom: 2px solid black;
 }
 
-.arrowContainer {
+.rightArrow,
+.leftArrow {
   padding: 0;
   display: flex;
   background-color: transparent;
 }
 
-.disabled {
+.leftArrow:disabled,
+.rightArrow:disabled {
   opacity: 0.2;
 }
 
 .arrow_img {
   width: 15px;
   height: 15px;
-}
-
-.btn {
-  margin: 0;
-  padding: 0;
-  font-size: 14px;
-  height: 0;
 }

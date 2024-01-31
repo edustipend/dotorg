@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   activeStep: 1,
+  applicationId: null,
   stipendCategory: '',
   reasonForRequest: '',
   stepsTakenToEaseProblem: '',
@@ -10,8 +11,14 @@ const initialState = {
   success: false,
   isVerified: false,
   error: false,
+<<<<<<< HEAD
   errorMessage: '',
   newApplication: false
+=======
+  editMode: false,
+  disableTextbox: false,
+  errorMessage: ''
+>>>>>>> fa0c82d596bb977fec2b7006142d99dedca17d9e
 };
 
 const application = createSlice({
@@ -26,6 +33,15 @@ const application = createSlice({
     },
     setActiveStep: (state, action) => {
       state.activeStep = action.payload;
+    },
+    setApplicationId: (state, action) => {
+      state.applicationId = action.payload;
+    },
+    setEditMode: (state, action) => {
+      state.editMode = action.payload;
+    },
+    setDisableTextbox: (state, action) => {
+      state.disableTextbox = action.payload;
     },
     category: (state, action) => {
       state.stipendCategory = action.payload;
@@ -54,11 +70,16 @@ const application = createSlice({
     errMessage: (state, action) => {
       state.errorMessage = action.payload;
     },
+<<<<<<< HEAD
     setNewApplication: (state, action) => {
       state.newApplication = action.payload
     },
+=======
+
+>>>>>>> fa0c82d596bb977fec2b7006142d99dedca17d9e
     reset: (state) => {
       state.activeStep = 1;
+      state.applicationId = null;
       state.stipendCategory = '';
       state.reasonForRequest = '';
       state.stepsTakenToEaseProblem = '';
@@ -68,7 +89,12 @@ const application = createSlice({
       state.isVerified = false;
       state.error = false;
       state.errorMessage = '';
+<<<<<<< HEAD
       state.newApplication = false
+=======
+      state.editMode = false;
+      state.editTextbox = false;
+>>>>>>> fa0c82d596bb977fec2b7006142d99dedca17d9e
     }
   }
 });
@@ -88,5 +114,11 @@ export const {
   isError,
   errMessage,
   reset,
+<<<<<<< HEAD
   setNewApplication
+=======
+  setApplicationId,
+  setEditMode,
+  setDisableTextbox
+>>>>>>> fa0c82d596bb977fec2b7006142d99dedca17d9e
 } = application.actions;

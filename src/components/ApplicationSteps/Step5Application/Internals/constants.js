@@ -1,8 +1,7 @@
 export const constants = {
-  HEADER: 'Submission it is!',
-  PARA1: `Whew! That was some application right?
-    Now you've done your part, it's time for us to do ours.`,
-  PARA2: `So here's what will happen from now, the team will review your application and contact you with the email you provided if you've been selected for the category you applied to.
+  HEADER: 'Ready to send it off? 🚀',
+  PARA1: `You've reached the final step of your application journey! Now, let's submit your hard work and leave the rest to us.`,
+  PARA2: `Once you've hit that submit button, our team will carefully review your application. If you're selected for the category you applied to, we'll reach out to you using the email you provided.
     Beneficiaries will be contacted at most three weeks from Friday 26, which is when the application closes.`,
   PARA3:
     'No need to contact us, you can follow us on our social media pages: @edustipend - Twitter, Instagram and Facebook where we will publish more information.',
@@ -15,4 +14,26 @@ export const constants = {
   NEW_APPLICATION_PARA2: `Once you hit the submit button, our team will carefully review your application. If you're selected  for the category you applied to, 
   we'll reach out to you using the email you provided. Beneficiaries will be contacted at most three weeks from Friday 26, which is when the application closes.`,
   PROMPT:"Check your email for a verification link as your account is unverified",
+};
+
+export const toastNotifications = {
+  UPDATING: {
+    loading: 'Submitting edited application',
+    id: 'edit-app',
+    message: 'Updated successfully'
+  },
+  SUBMITTING: {
+    loading: 'Submitting new application',
+    id: 'new-app',
+    message: 'Submitted successfully'
+  },
+  ONE_CLICK: {
+    loading: 'Submitting new application',
+    id: 'one-click',
+    message: 'Submitted successfully',
+    error: 'Please do well to verify your account :('
+  },
+  ERROR: {
+    message: 'Oops! Something went wrong.'
+  }
 };
