@@ -67,12 +67,9 @@ describe('Home component', () => {
               user: {
                 name: 'Test User',
                 isVerified: false
-<<<<<<< HEAD
-=======
               },
               application: {
                 stipendCategory: 'Laptop/Learning Device'
->>>>>>> fa0c82d596bb977fec2b7006142d99dedca17d9e
               }
             })}>
             <ModalContextProvider>
@@ -86,15 +83,6 @@ describe('Home component', () => {
 
     it('shows a table for displaying user application status and history', () => {
       render(
-<<<<<<< HEAD
-      <BrowserRouter>
-        <Provider store={store}>
-          <ModalContextProvider>
-            <Home />
-          </ModalContextProvider>
-        </Provider>
-      </BrowserRouter>
-=======
         <BrowserRouter>
           <Provider store={store}>
             <ModalContextProvider>
@@ -102,7 +90,6 @@ describe('Home component', () => {
             </ModalContextProvider>
           </Provider>
         </BrowserRouter>
->>>>>>> fa0c82d596bb977fec2b7006142d99dedca17d9e
       );
       expect(screen.getByTestId(TestId.TABLE)).toBeInTheDocument();
     });

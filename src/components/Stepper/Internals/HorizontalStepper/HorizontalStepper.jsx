@@ -4,21 +4,11 @@ import PropTypes from 'prop-types';
 import gaparrow from '../../../../assets/gaparrow.svg';
 import check from '../../../../assets/check.svg';
 import { TestId } from '../../constants';
-import { useSelector } from 'react-redux';
 
 const HorizontalStepper = ({ activeStep, stepsData }) => {
-  const { newApplication } = useSelector((state) => state.application) || {};
-  const calculateLength = () => {
-    if (newApplication) {
-      return 3;
-    } else {
-      return stepsData?.length;
-    }
-  };
-
   return (
     <div data-testid={TestId.HORIZONTAL_STEPPER_TEST_ID} className={styles.container}>
-      {stepsData?.slice(0, calculateLength()).map((currentStep, index) => {
+      {stepsData?.map((currentStep, index) => {
         const { id, step, label } = currentStep;
         return (
           <div key={id} className={styles.stepsmain}>
@@ -35,17 +25,9 @@ const HorizontalStepper = ({ activeStep, stepsData }) => {
                 </div>
               )}
 
-              {activeStep >= id ? (
-                <p className={styles.bottomselecttitle}>{index === 2 ? 'Submit' : label}</p>
-              ) : (
-                <p className={styles.disabledbottomselecttitle}>{index === 2 ? 'Submit' : label}</p>
-              )}
+              {activeStep >= id ? <p className={styles.bottomselecttitle}>{label}</p> : <p className={styles.disabledbottomselecttitle}>{label}</p>}
             </div>
-            {newApplication ? (
-              <>{index !== stepsData.length - 2 - 1 && <img className={styles.gaparrow} src={gaparrow} alt="gap arrow" />}</>
-            ) : (
-              <>{index !== stepsData.length - 1 && <img className={styles.gaparrow} src={gaparrow} alt="gap arrow" />}</>
-            )}
+            {index !== stepsData.length - 1 && <img className={styles.gaparrow} src={gaparrow} alt="gap arrow" />}
           </div>
         );
       })}

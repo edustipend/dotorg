@@ -11,39 +11,22 @@ import CategoryHeader from '../CategoryHeader';
 import Navigation from '../Navigation';
 import Button from '../../../Button';
 import styles from '../LaptopStipend/LaptopStipend.module.css';
-<<<<<<< HEAD
-import Quote from '../../../../components/Quote';
-import { isApplicationFilled } from '../checkStipendApplication';
-import { setActiveStep, back, progress, reason, steps, benefits, futureHelp } from '../../../../store/reducers/ApplicationReducer';
-=======
->>>>>>> fa0c82d596bb977fec2b7006142d99dedca17d9e
 const { TITLE, SUPPORT_TYPE, FOOT_NOTE1, FOOT_NOTE2, FOOT_NOTE3, FOOT_NOTE4, QUESTION1, QUESTION2, QUESTION3, QUESTION4, QUOTE } = dataConstants;
 
 export const DataStipend = () => {
   const { pathname } = useLocation();
   const isDashboard = pathname.includes('/dashboard');
   const dispatch = useDispatch();
-<<<<<<< HEAD
-  const { newApplication, reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser } = useSelector(
+  const {reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser } = useSelector(
     (state) => state.application
   );
-  const isTrue = isApplicationFilled(reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser);
-  const handleAction = () => {
-    if (newApplication) {
-      dispatch(setActiveStep(5));
-    } else {
-      dispatch(progress());
-    }
-=======
   const [showUnderReview, setShowUnderReview] = useState(false);
   const [showBtn, setShowBtn] = useState(isDashboard);
-  const { reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser } = useSelector((state) => state.application);
 
   const handleEditApplication = () => {
     setShowBtn((prev) => !prev);
     const isWindowClosed = isApplicationWindowClosed();
     isWindowClosed ? setShowUnderReview(true) : dispatch(setDisableTextbox(false));
->>>>>>> fa0c82d596bb977fec2b7006142d99dedca17d9e
   };
 
   return (
@@ -85,21 +68,7 @@ export const DataStipend = () => {
           <QuestionAndAnswer value={futureHelpFromUser} dispatchType={futureHelp} number={4} question={QUESTION4} />
         </section>
         <p className={styles.footNote}>{FOOT_NOTE4}</p>
-<<<<<<< HEAD
-        <div className={styles.buttonContainer}>
-          <Button label={'Back'} icon={BackArrow} iconPosition={'back'} type={'plain'} onClick={() => dispatch(back())} className={styles.button} />
-          <Button
-            disabled={isTrue ? false : true}
-            label={'Continue'}
-            icon={RightArrow}
-            type={'secondary'}
-            onClick={handleAction}
-            className={styles.button}
-          />
-        </div>
-=======
         <Navigation />
->>>>>>> fa0c82d596bb977fec2b7006142d99dedca17d9e
       </ContentContainer>
       <div className={styles.quoteContainer}>
         <Quote content={QUOTE} className={styles.quote} />

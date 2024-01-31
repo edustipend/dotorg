@@ -102,11 +102,6 @@ export const Home = () => {
     setApplicationTable(!applicationTable);
   };
 
-  // const handleNewApplication = () => {
-  //   dispatch(reset());
-  //   nav('/application');
-  // };
-
   const handleSubmitOneClick = async () => {
     let timeout = 0;
     if (!isVerified) {
@@ -255,12 +250,7 @@ export const Home = () => {
           </div>
         </>
       )}
-      {applicationTable && (
-        <div className={styles.buttonContainer}>
-          <Button disabled={isWindowClosed || isApplied} label="New Stipend Application" type="secondary" effectAlt onClick={handleNewApplication} />
-        </div>
-      )}
-      {data.length > 0 && (
+      {applicationTable > 0 && (
         <div className={styles.buttonContainer}>
           <Button
             disabled={!handleEnableButton()}

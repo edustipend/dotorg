@@ -7,11 +7,13 @@ import styles from './RequestStipend.module.css';
 import { Hero3 } from '../../assets';
 import { constant } from './constants';
 import RequestSteps from './internals/RequestSteps';
-
+import { Navigate } from 'react-router-dom';
+import { isApplicationWindowClosed } from '../../utils';
 export const RequestStipend = () => {
   const { activeStep, newApplication } = useSelector((state) => state.application);
   const { userId, isVerified } = useSelector((state) => state.user);
   const [verificationModal, setVerificationModal] = useState(false);
+  const isWindowClosed = isApplicationWindowClosed();
 
   useEffect(() => {
     const searchParams = window.location.search.split('=')[1];
@@ -25,6 +27,11 @@ export const RequestStipend = () => {
       return <div className={styles.banner}>{constant.PROMPT}</div>;
     }
   };
+
+  if (isWindowClosed) {
+    return <Navigate to="/" />;
+  }
+  
   return (
     <div className={styles.main}>
       {renderBanner()}

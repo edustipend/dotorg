@@ -67,11 +67,7 @@ export const MobileTable = ({ entries, tableHead, oneClickApply }) => {
                   onClick={handleArrowLeft}>
                   <img src={arrowleft} alt="arrowleft" className={styles.arrow_img} />
                 </button>
-<<<<<<< HEAD
                 <span className={styles.id}>{count}</span>
-=======
-                <span className={styles.id}>{entry + 1}</span>
->>>>>>> fa0c82d596bb977fec2b7006142d99dedca17d9e
                 <button
                   disabled={entry + 1 === entries.length ? true : false}
                   className={entry + 1 === entries.length ? `${styles.disabled} ${styles.rightArrow}` : `${styles.rightArrow}`}
