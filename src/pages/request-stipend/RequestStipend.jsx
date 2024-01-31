@@ -10,6 +10,7 @@ import Stepper from '../../components/Stepper';
 import Container from '../../components/Container';
 import styles from './RequestStipend.module.css';
 import { Hero3 } from '../../assets';
+import { constant } from './constants';
 
 export const RequestStipend = () => {
   const { activeStep, newApplication } = useSelector((state) => state.application);
@@ -25,7 +26,7 @@ export const RequestStipend = () => {
 
   const renderBanner = () => {
     if (!isVerified && newApplication) {
-      return <div className={styles.banner}>Your account is currently unverified</div>;
+      return <div className={styles.banner}>{constant.PROMPT}</div>;
     }
   };
   return (
