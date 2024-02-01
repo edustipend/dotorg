@@ -124,7 +124,6 @@ export const Home = () => {
 
     try {
       const res = await authorizedPost(ONE_CLICK_APPLY, applicationInfo);
-      console.log(res, 'RES');
       if (res.success) {
         setIsSuccess(res?.success);
         setMessage(res?.message || ONE_CLICK.message);

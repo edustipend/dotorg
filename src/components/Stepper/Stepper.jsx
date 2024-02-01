@@ -18,7 +18,7 @@ const Stepper = ({ activeStep }) => {
   const steps = userId ? stepsDataAlt : stepsData;
   const handleClick = () => {
     if (activeStep === 1) {
-      nav('/request');
+      userId ? nav('/dashboard') : nav('/request');
       return;
     }
     dispatch(back());
