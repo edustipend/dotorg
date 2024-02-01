@@ -1,6 +1,7 @@
 export const constants = {
   dashboard: 'My Dashboard',
-  username: 'Chiehiura'
+  username: 'Chiehiura',
+  PROMPT: 'Check your email for a verification link as your account is unverified'
 };
 
 export const Quote = {
