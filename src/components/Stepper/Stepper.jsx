@@ -14,21 +14,18 @@ const Stepper = ({ activeStep }) => {
   const nav = useNavigate();
   const dispatch = useDispatch();
   const { userId } = useSelector((state) => state.user);
-
   const steps = userId ? stepsDataAlt : stepsData;
-  const handleClick = () => {
-    if (activeStep === 1) {
-      nav('/request');
-      return;
-    }
-    dispatch(back());
+
+
+  const handleNav = () => {
+    return userId && activeStep === 1 ? nav('/dashboard') : activeStep === 1 && !userId ? nav('/request') : dispatch(back());
   };
 
   return (
     <>
       <div className={styles.mobile}>
         <div className={styles.container}>
-          <div className={styles.backarrow} onClick={handleClick}>
+          <div className={styles.backarrow} onClick={handleNav}>
             <img data-testid={TestId.BACK_ICON_TEST_ID} className={styles.backarrowimg} src={backarrow} alt="back_arrow" />
             <p className={styles.backarrowtext}>{Text.BACK_ICON_TEXT}</p>
           </div>

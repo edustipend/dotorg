@@ -17,7 +17,7 @@ const { COMPONENT_ID, HEADER_ID } = TestId;
 
 export const Step1Application = () => {
   const dispatch = useDispatch();
-  const { stipendCategory, newApplication } = useSelector((state) => state.application);
+  const { stipendCategory } = useSelector((state) => state.application);
   const { userId } = useSelector((state) => state.user);
 
   const nav = useNavigate();
@@ -27,7 +27,7 @@ export const Step1Application = () => {
   //enable the continue button if a stipendCategory has been selected
   const isTrue = stipendCategory.length > 0;
   const handleNav = () => {
-    return newApplication || userId ? '/dashboard' : '/request';
+    return userId ? '/dashboard' : '/request';
   };
   return (
     <div data-testid={COMPONENT_ID}>
