@@ -161,7 +161,7 @@ export const Home = () => {
    */
   const handleEnableButton = () => {
     if (data) {
-      const hasApplied = CheckPreviousApplication(data?.[data.length - 1]);
+      const hasApplied = CheckPreviousApplication(data?.[0]);
       return !hasApplied && !isWindowClosed;
     }
   };
