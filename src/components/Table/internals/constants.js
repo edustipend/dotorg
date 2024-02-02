@@ -6,6 +6,6 @@ export const applicationStatus = {
 };
 
 export const tooltipContent = {
-  UNVERIFIED_USER: 'You are not allowed to access this action.',
+  UNVERIFIED_USER: 'Verify your account to edit your application',
   VERIFIED_USER: 'This application is currently closed for editing.'
 };
