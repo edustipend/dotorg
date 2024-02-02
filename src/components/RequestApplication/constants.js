@@ -7,7 +7,9 @@ export const constant = {
   SUBTITLE: 'Stipend Request -',
   TEXT: `Please answer the questions here and provide as much 
     details as you can to increase your chances with your application.`,
-  UNDER_REVIEW: '** YOUR APPLICATION IS UNDER REVIEW AND CANNOT BE EDITTED'
+  UNDER_REVIEW_P1: '** YOUR APPLICATION IS ',
+  UNDER_REVIEW_P2: 'AND CANNOT BE EDITTED',
+  UNDER_REVIEW_DEFAULT: 'UNDER REVIEW'
 };
 
 export const laptopConstants = {

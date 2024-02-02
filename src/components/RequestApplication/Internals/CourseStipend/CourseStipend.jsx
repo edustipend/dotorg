@@ -17,9 +17,13 @@ export const CourseStipend = () => {
   const { pathname } = useLocation();
   const isDashboard = pathname.includes('/dashboard');
   const dispatch = useDispatch();
-  const { reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser } = useSelector((state) => state.application);
+  const { reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser, viewBtnLabel, currentApplication } = useSelector(
+    (state) => state.application
+  );
+  const isWindowClosed = isApplicationWindowClosed();
 
-  const [showUnderReview, setShowUnderReview] = useState(false);
+  //check if each of the form values are at least > 4, enable the continue button if true
+  const [showUnderReview, setShowUnderReview] = useState(isWindowClosed);
   const [showBtn, setShowBtn] = useState(isDashboard);
 
   const handleEditApplication = () => {
@@ -36,12 +40,14 @@ export const CourseStipend = () => {
           <QuestionAndAnswer value={reasonForRequest} dispatchType={reason} number={1} question={QUESTION1} />
           {showUnderReview && (
             <div className={styles.review}>
-              <p>{constant.UNDER_REVIEW}</p>
+              <p className={styles.cap}>{`${constant.UNDER_REVIEW_P1} ${currentApplication?.status || constant.UNDER_REVIEW_DEFAULT} ${
+                constant.UNDER_REVIEW_P2
+              }`}</p>
             </div>
           )}
-          {showBtn && (
+          {showBtn && !isWindowClosed && (
             <div className={styles.btnContainer}>
-              <Button label={'Edit Application'} type={'secondary'} effectAlt onClick={handleEditApplication} />
+              <Button label={viewBtnLabel} type={'primary'} effectAlt onClick={handleEditApplication} />
             </div>
           )}
         </section>

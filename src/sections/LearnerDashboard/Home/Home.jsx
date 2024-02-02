@@ -11,10 +11,10 @@ import Table from '../../../components/Table';
 import ActionBanner from '../../../components/ActionBanner';
 import { PageCopy } from './constants';
 import useResendVerification from '../../../hooks/useResendVerification';
-import { setNewApplication } from '../../../store/reducers/ApplicationReducer';
+import { setHasApplied, setNewApplication } from '../../../store/reducers/ApplicationReducer';
 import { isApplicationWindowClosed } from '../../../utils';
 import CheckPreviousApplication from '../../../utils/CheckPreviousApplication';
-import { APPLICATION_HISTORY, ONE_CLICK_APPLY, authorizedPost } from '../../../services/ApiClient';
+import { APPLICATION_HISTORY, EDIT_APPLICATION, ONE_CLICK_APPLY, authorizedPost } from '../../../services/ApiClient';
 import { Step2Application } from '../../../components/ApplicationSteps/Step2Application/Step2Application';
 import {
   benefits,
@@ -45,9 +45,16 @@ export const Home = () => {
   const [message, setMessage] = useState('');
   const [prompt, setPrompt] = useState('');
   const { name, userId, isVerified } = useSelector((state) => state.user);
-  const { stipendCategory, reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser, applicationId } = useSelector(
-    (state) => state.application
-  );
+  const {
+    stipendCategory,
+    reasonForRequest,
+    stepsTakenToEaseProblem,
+    potentialBenefits,
+    futureHelpFromUser,
+    applicationId,
+    viewBtnLabel,
+    disableOneClickCTA
+  } = useSelector((state) => state.application);
   const { newApplicationModal, handleNewApplicationModal } = useContext(ModalContext);
   const { handleResendVerification, isLoading } = useResendVerification();
   const [first] = name.split(' ');
@@ -57,7 +64,6 @@ export const Home = () => {
   const Category = stipendCategory.split('/')[0].toLowerCase();
   const { dashboard } = constants;
   const applicationInfo = {
-    parentApplication: applicationId,
     userId,
     stipendCategory: Category,
     reasonForRequest: reasonForRequest,
@@ -76,13 +82,14 @@ export const Home = () => {
         const sortedData = response?.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
         setData(sortedData);
         setIsApplied(hasCurrentApplication(sortedData));
+        dispatch(setHasApplied(hasCurrentApplication(sortedData)));
       }
     } catch (error) {
       toast.error(error.message);
     } finally {
       setLoading(false);
     }
-  }, [userId]);
+  }, [dispatch, userId]);
 
   const handleOneClick = (id) => {
     setApplicationTable(!applicationTable);
@@ -122,8 +129,15 @@ export const Home = () => {
       toast.loading(ONE_CLICK.loading, { id: ONE_CLICK.id });
     }, timeout);
 
+    const payload =
+      viewBtnLabel === 'Reuse Application'
+        ? { ...applicationInfo, parentApplication: applicationId }
+        : { ...applicationInfo, applicationId: applicationId };
+
+    const ROUTE = viewBtnLabel === 'Reuse Application' ? ONE_CLICK_APPLY : EDIT_APPLICATION;
+
     try {
-      const res = await authorizedPost(ONE_CLICK_APPLY, applicationInfo);
+      const res = await authorizedPost(ROUTE, payload);
       if (res.success) {
         setIsSuccess(res?.success);
         setMessage(res?.message || ONE_CLICK.message);
@@ -253,8 +267,8 @@ export const Home = () => {
           </section>
           <div className={styles.btnContainer}>
             <Button
-              // disabled={isWindowClosed || isApplied || isSubmitting}
-              label="Reapply"
+              disabled={disableOneClickCTA}
+              label={viewBtnLabel}
               type="secondary"
               effectAlt
               isLoading={isSubmitting}
