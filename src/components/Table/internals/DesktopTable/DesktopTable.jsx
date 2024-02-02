@@ -1,32 +1,34 @@
-import { getFormattedDate, getFormattedTime } from '../../../../utils/dateTimeUtils/dateTimeUtil';
-import styles from './DesktopTable.module.css';
-import PropTypes from 'prop-types';
-import { applicationStatus } from '../constants';
-import { Edit_Icon, Eye_Icon, Menu_Icon } from '../../../../assets/index';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import toast from 'react-hot-toast';
+import PropTypes from 'prop-types';
+import { getFormattedDate, getFormattedTime } from '../../../../utils/dateTimeUtils/dateTimeUtil';
+import styles from './DesktopTable.module.css';
+import { applicationStatus, tooltipContent } from '../constants';
+import { Edit_Icon, Eye_Icon } from '../../../../assets/index';
 import { setActiveStep, setEditMode } from '../../../../store/reducers/ApplicationReducer';
 import { isApplicationWindowClosed } from '../../../../utils';
-import toast from 'react-hot-toast';
 import { hasCurrentApplication } from '../../../../utils/hasCurrentApplication';
+
 const { APPROVED, IN_VIEW, RECEIVED, DENIED } = applicationStatus;
 
 export const DesktopTable = ({ entries, tableHead, oneClickApply }) => {
   const lastItem = entries?.length - 1;
-  const [singleAppId, setSingleAppId] = useState(null);
   const nav = useNavigate();
   const dispatch = useDispatch();
   const isWindowClosed = isApplicationWindowClosed();
   const { isVerified } = useSelector((state) => state.user);
-  const [disabled, setDisabled] = useState(true);
-
-  const handleShowMenu = (id, app) => {
-    singleAppId === id ? setSingleAppId(null) : setSingleAppId(id);
-    // Disable the edit button if the application is in previous month or window is closed
-    setDisabled(!hasCurrentApplication([app]) || isWindowClosed);
+  const [activeApplication, setActiveApplication] = useState(null);
+  const [showTooltip, setShowTooltip] = useState(false);
+  const handleMouseOver = (app) => {
+    setActiveApplication(app?._id);
+    setShowTooltip(handleDisable(app));
   };
-
+  const handleDisable = (app) => {
+    if (!isVerified) return true;
+    return !hasCurrentApplication([app]) || isWindowClosed;
+  };
   const handleView = (id) => {
     oneClickApply(id);
   };
@@ -81,17 +83,23 @@ export const DesktopTable = ({ entries, tableHead, oneClickApply }) => {
                 <td>{getFormattedTime(itm?.createdAt)}</td>
                 {tableHead[5] && (
                   <td className={idx === lastItem ? `${styles.lastColumn}` : undefined}>
-                    <button className={styles.btn} onClick={() => handleShowMenu(itm?._id, itm)}>
-                      <img src={Menu_Icon} alt="menu" />
-                    </button>
-                    <div className={singleAppId === itm?._id ? styles.actionContainer : styles.hide}>
+                    <div className={styles.actionContainer}>
                       <button className={styles.view} onClick={() => handleView(itm?._id)}>
                         <img src={Eye_Icon} alt="view" />
-                        <p>View Application</p>
+                        <p>View </p>
                       </button>
-                      <button className={styles.edit} onClick={() => handleEdit(itm?._id)} disabled={disabled}>
+                      <div className={styles.line} />
+                      <button
+                        className={styles.edit}
+                        onClick={() => handleEdit(itm?._id)}
+                        disabled={handleDisable(itm)}
+                        onMouseOver={() => handleMouseOver(itm)}
+                        onMouseOut={() => setShowTooltip(false)}>
                         <img src={Edit_Icon} alt="view" />
-                        <p>Edit Application</p>
+                        <p>Edit </p>
+                        {activeApplication === itm?._id && showTooltip && (
+                          <span className={styles.content}>{!isVerified ? tooltipContent.UNVERIFIED_USER : tooltipContent.VERIFIED_USER}</span>
+                        )}
                       </button>
                     </div>
                   </td>

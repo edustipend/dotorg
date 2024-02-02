@@ -13,6 +13,7 @@ export const NewApplication = ({ message, prompt, isSuccess }) => {
   const handleAction = () => {
     if (isSuccess) {
       navigate('/dashboard');
+      handleNewApplicationModal();
     } else handleNewApplicationModal();
   };
 

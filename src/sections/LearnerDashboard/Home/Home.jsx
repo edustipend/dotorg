@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import toast from 'react-hot-toast';
@@ -28,28 +28,34 @@ import {
 } from '../../../store/reducers/ApplicationReducer';
 import { hasCurrentApplication } from '../../../utils/hasCurrentApplication';
 import { toastNotifications } from '../../../components/ApplicationSteps/Step5Application/Internals/constants';
+import { ModalContext } from '../../../context/ModalContext';
+import { UseModal } from '../../../components/Modal/UseModal';
+import NewApplication from '../../../components/ApplicationSteps/Step5Application/Internals/NewApplication';
 const { ONE_CLICK, ERROR } = toastNotifications;
 
 export const Home = () => {
   const [currentTable, setCurrentTable] = useState(0);
   const [applicationTable, setApplicationTable] = useState(true);
   const [loading, setLoading] = useState(false);
+  const [isApplied, setIsApplied] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [singleEntry, setSingleEntry] = useState([]);
   const [data, setData] = useState([]);
-  const [isApplied, setIsApplied] = useState(false);
-  const isWindowClosed = isApplicationWindowClosed();
-  const { dashboard } = constants;
+  const [message, setMessage] = useState('');
+  const [prompt, setPrompt] = useState('');
   const { name, userId, isVerified } = useSelector((state) => state.user);
   const { stipendCategory, reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser, applicationId } = useSelector(
     (state) => state.application
   );
+  const { newApplicationModal, handleNewApplicationModal } = useContext(ModalContext);
   const { handleResendVerification, isLoading } = useResendVerification();
   const [first] = name.split(' ');
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const isWindowClosed = isApplicationWindowClosed();
   const Category = stipendCategory.split('/')[0].toLowerCase();
-
+  const { dashboard } = constants;
   const applicationInfo = {
     parentApplication: applicationId,
     userId,
@@ -113,23 +119,31 @@ export const Home = () => {
 
     setTimeout(() => {
       setIsSubmitting(true);
-      toast.loading(ONE_CLICK.loading, { id: ONE_CLICK.loading });
+      toast.loading(ONE_CLICK.loading, { id: ONE_CLICK.id });
     }, timeout);
 
     try {
       const res = await authorizedPost(ONE_CLICK_APPLY, applicationInfo);
       if (res.success) {
-        toast.success(res?.message || ONE_CLICK.message);
+        setIsSuccess(res?.success);
+        setMessage(res?.message || ONE_CLICK.message);
+        if (!isVerified) {
+          handleResendVerification();
+          setPrompt(constants.PROMPT);
+        }
       } else {
-        toast.error(res?.message || res?.error || ERROR.message);
+        setIsSuccess(false);
+        setMessage(res?.message || ERROR.message);
       }
     } catch (error) {
-      toast.error(error.message || ERROR.message);
+      setIsSuccess(false);
+      setMessage(error.message || ERROR.message);
     } finally {
       getUserData();
       toast.dismiss(ONE_CLICK.id);
       setIsSubmitting(false);
       dispatch(reset());
+      handleNewApplicationModal();
       setApplicationTable(!applicationTable);
     }
   };
@@ -154,6 +168,7 @@ export const Home = () => {
 
   useEffect(() => {
     getUserData();
+    dispatch(reset());
     dispatch(setDisableTextbox(true));
   }, [getUserData, dispatch]);
 
@@ -264,6 +279,9 @@ export const Home = () => {
           />
         </div>
       )}
+      <UseModal isActive={newApplicationModal}>
+        <NewApplication isSuccess={isSuccess} message={message} prompt={prompt} />
+      </UseModal>
     </div>
   );
 };

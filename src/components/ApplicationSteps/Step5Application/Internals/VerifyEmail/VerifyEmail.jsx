@@ -12,7 +12,6 @@ const { HEADER, PARA1, PARA2, QUOTE } = constants;
 
 export const VerifyEmail = ({ message }) => {
   const { handleVerifyCurrentUser } = useContext(ModalContext);
-  const { newApplication } = useSelector((state) => state.application);
   const { email } = useSelector((state) => state.userDetails);
   const { email: currentUser } = useSelector((state) => state.user);
 
@@ -26,7 +25,7 @@ export const VerifyEmail = ({ message }) => {
         </div>
         <div className={styles.bottomSection}>
           <p className={styles.prompt}>{PARA1}</p>
-          <p className={styles.userEmail}>{newApplication ? currentUser : email}</p>
+          <p className={styles.userEmail}>{currentUser || email}</p>
           <p className={styles.prompt}>{PARA2}</p>
         </div>
         <div className="quoteContainer">
