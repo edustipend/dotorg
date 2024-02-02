@@ -45,7 +45,7 @@ export const MobileTable = ({ entries, tableHead, oneClickApply }) => {
   const handleView = (app) => {
     dispatch(setCurrentApplication(app));
     if (isWindowClosed) {
-      dispatch(setViewBtnLabel(PageCopy.RE_USE_APPLICATION));
+      dispatch(setViewBtnLabel(PageCopy.REUSE_APPLICATION));
       dispatch(setDisableTextbox(true));
       dispatch(setDisableOneClickCTA(true));
     } else {
@@ -56,12 +56,12 @@ export const MobileTable = ({ entries, tableHead, oneClickApply }) => {
           dispatch(setDisableTextbox(false));
           dispatch(setDisableOneClickCTA(false));
         } else {
-          dispatch(setViewBtnLabel(PageCopy.RE_USE_APPLICATION));
+          dispatch(setViewBtnLabel(PageCopy.REUSE_APPLICATION));
           dispatch(setDisableTextbox(true));
           dispatch(setDisableOneClickCTA(true));
         }
       } else {
-        dispatch(setViewBtnLabel(PageCopy.RE_USE_APPLICATION));
+        dispatch(setViewBtnLabel(PageCopy.REUSE_APPLICATION));
         dispatch(setDisableTextbox(true));
         dispatch(setDisableOneClickCTA(false));
       }
@@ -98,14 +98,16 @@ export const MobileTable = ({ entries, tableHead, oneClickApply }) => {
                 <button
                   disabled={entry === 0 ? true : false}
                   className={entry === 0 ? `${styles.disabled} ${styles.leftArrow}` : `${styles.leftArrow}`}
-                  onClick={handleArrowLeft}>
+                  onClick={handleArrowLeft}
+                >
                   <img src={arrowleft} alt="arrowleft" className={styles.arrow_img} />
                 </button>
                 <span className={styles.id}>{count}</span>
                 <button
                   disabled={entry + 1 === entries.length ? true : false}
                   className={entry + 1 === entries.length ? `${styles.disabled} ${styles.rightArrow}` : `${styles.rightArrow}`}
-                  onClick={handleArrowRight}>
+                  onClick={handleArrowRight}
+                >
                   <img src={arrowright} alt="arrowright" className={styles.arrow_img} />
                 </button>
               </div>
@@ -133,7 +135,8 @@ export const MobileTable = ({ entries, tableHead, oneClickApply }) => {
                       ? 'denied bold_weight'
                       : ''
                     : 'denied bold_weight'
-                }>
+                }
+              >
                 {isVerified ? currentEntry?.status : applicationStatus.VERIFY_NOW}
               </span>
             </td>
@@ -160,7 +163,8 @@ export const MobileTable = ({ entries, tableHead, oneClickApply }) => {
                     onClick={() => handleEdit(currentEntry?._id)}
                     disabled={handleDisable(currentEntry)}
                     onMouseOver={() => handleMouseOver(currentEntry)}
-                    onMouseOut={() => setShowTooltip(false)}>
+                    onMouseOut={() => setShowTooltip(false)}
+                  >
                     <p>Edit application </p>
                     {activeApplication === currentEntry?._id && showTooltip && (
                       <span className={styles.content}>{!isVerified ? tooltipContent.UNVERIFIED_USER : tooltipContent.VERIFIED_USER}</span>

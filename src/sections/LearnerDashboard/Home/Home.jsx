@@ -118,7 +118,7 @@ export const Home = () => {
   };
 
   const handleSubmitOneClick = async () => {
-    const RE_USE_APPLICATION = viewBtnLabel === PageCopy.RE_USE_APPLICATION;
+    const REUSE_APPLICATION = viewBtnLabel === PageCopy.REUSE_APPLICATION;
     let timeout = 0;
     if (!isVerified) {
       timeout = 650;
@@ -126,17 +126,17 @@ export const Home = () => {
         duration: 600
       });
     }
-    const PAYLOAD = RE_USE_APPLICATION
+    const PAYLOAD = REUSE_APPLICATION
       ? { ...applicationInfo, parentApplication: applicationId }
       : { ...applicationInfo, applicationId: applicationId };
 
-    const ROUTE = RE_USE_APPLICATION ? ONE_CLICK_APPLY : EDIT_APPLICATION;
+    const ROUTE = REUSE_APPLICATION ? ONE_CLICK_APPLY : EDIT_APPLICATION;
 
-    const MSG = RE_USE_APPLICATION ? ONE_CLICK.loading : ONE_CLICK.editing;
+    const TOAST_MESSAGE = REUSE_APPLICATION ? ONE_CLICK.loading : ONE_CLICK.editing;
 
     setTimeout(() => {
       setIsSubmitting(true);
-      toast.loading(MSG, { id: ONE_CLICK.id });
+      toast.loading(TOAST_MESSAGE, { id: ONE_CLICK.id });
     }, timeout);
 
     try {
@@ -230,7 +230,8 @@ export const Home = () => {
                 <button
                   key={idx}
                   className={currentTable === idx ? `${styles.tab}` : `${styles.tab} ${styles.tabAlt}`}
-                  onClick={() => setCurrentTable(idx)}>
+                  onClick={() => setCurrentTable(idx)}
+                >
                   {itm}
                 </button>
               );
