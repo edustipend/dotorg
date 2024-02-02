@@ -9,7 +9,7 @@ import { tab } from './internals/constants';
 import Button from '../../../components/Button';
 import Table from '../../../components/Table';
 import ActionBanner from '../../../components/ActionBanner';
-import { PageCopy } from './constants';
+import { PageCopy, tooltipContent } from './constants';
 import useResendVerification from '../../../hooks/useResendVerification';
 import { setHasApplied, setNewApplication } from '../../../store/reducers/ApplicationReducer';
 import { isApplicationWindowClosed } from '../../../utils';
@@ -37,13 +37,13 @@ export const Home = () => {
   const [currentTable, setCurrentTable] = useState(0);
   const [applicationTable, setApplicationTable] = useState(true);
   const [loading, setLoading] = useState(false);
-  const [isApplied, setIsApplied] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [singleEntry, setSingleEntry] = useState([]);
   const [data, setData] = useState([]);
   const [message, setMessage] = useState('');
   const [prompt, setPrompt] = useState('');
+  const [showTooltip, setShowTooltip] = useState(false);
   const { name, userId, isVerified } = useSelector((state) => state.user);
   const {
     stipendCategory,
@@ -71,6 +71,10 @@ export const Home = () => {
     potentialBenefits: potentialBenefits,
     futureHelpFromUser: futureHelpFromUser
   };
+  const handleMouseOver = () => {
+    setShowTooltip(disableOneClickCTA);
+  };
+
   const getUserData = useCallback(async () => {
     setLoading(true);
     try {
@@ -80,7 +84,6 @@ export const Home = () => {
       if (response.success) {
         const sortedData = response?.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
         setData(sortedData);
-        setIsApplied(hasCurrentApplication(sortedData));
         dispatch(setHasApplied(hasCurrentApplication(sortedData)));
       }
     } catch (error) {
@@ -91,7 +94,6 @@ export const Home = () => {
   }, [dispatch, userId]);
 
   const handleOneClick = (id) => {
-    console.log(isApplied);
     setApplicationTable(!applicationTable);
     const filteredData = data.filter((entry) => entry._id === id);
     setSingleEntry(filteredData);
@@ -116,6 +118,7 @@ export const Home = () => {
   };
 
   const handleSubmitOneClick = async () => {
+    const REUSE_APPLICATION = viewBtnLabel === PageCopy.REUSE_APPLICATION;
     let timeout = 0;
     if (!isVerified) {
       timeout = 650;
@@ -123,21 +126,21 @@ export const Home = () => {
         duration: 600
       });
     }
+    const PAYLOAD = REUSE_APPLICATION
+      ? { ...applicationInfo, parentApplication: applicationId }
+      : { ...applicationInfo, applicationId: applicationId };
+
+    const ROUTE = REUSE_APPLICATION ? ONE_CLICK_APPLY : EDIT_APPLICATION;
+
+    const TOAST_MESSAGE = REUSE_APPLICATION ? ONE_CLICK.loading : ONE_CLICK.editing;
 
     setTimeout(() => {
       setIsSubmitting(true);
-      toast.loading(ONE_CLICK.loading, { id: ONE_CLICK.id });
+      toast.loading(TOAST_MESSAGE, { id: ONE_CLICK.id });
     }, timeout);
 
-    const payload =
-      viewBtnLabel === 'Reuse Application'
-        ? { ...applicationInfo, parentApplication: applicationId }
-        : { ...applicationInfo, applicationId: applicationId };
-
-    const ROUTE = viewBtnLabel === 'Reuse Application' ? ONE_CLICK_APPLY : EDIT_APPLICATION;
-
     try {
-      const res = await authorizedPost(ROUTE, payload);
+      const res = await authorizedPost(ROUTE, PAYLOAD);
       if (res.success) {
         setIsSuccess(res?.success);
         setMessage(res?.message || ONE_CLICK.message);
@@ -259,7 +262,7 @@ export const Home = () => {
           <section className={styles.table}>
             <div className={styles.tabs}>
               <button className={styles.tab}>{submitted}</button>
-              <button className={`${styles.tab} ${styles.tabAlt}`} onClick={() => setApplicationTable((prev) => !prev)}>
+              <button className={`${styles.tab} ${styles.backBtn}`} onClick={() => setApplicationTable((prev) => !prev)}>
                 {back}
               </button>
             </div>
@@ -276,7 +279,10 @@ export const Home = () => {
               loaderSize={'small'}
               loaderVariant={'neutral'}
               onClick={handleSubmitOneClick}
+              onMouseOver={handleMouseOver}
+              onMouseOut={() => setShowTooltip(false)}
             />
+            {showTooltip && <span className={styles.content}>{isWindowClosed ? tooltipContent.WINDOW_CLOSED : tooltipContent.HAS_SUBMITTED}</span>}
           </div>
         </>
       )}

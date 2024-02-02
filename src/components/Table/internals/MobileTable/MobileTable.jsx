@@ -18,6 +18,7 @@ import {
 } from '../../../../store/reducers/ApplicationReducer';
 import toast from 'react-hot-toast';
 import { hasCurrentApplication } from '../../../../utils/hasCurrentApplication';
+import { PageCopy } from '../../../../sections/LearnerDashboard/Home/constants';
 const { APPROVED, IN_VIEW, RECEIVED, DENIED } = applicationStatus;
 
 export const MobileTable = ({ entries, tableHead, oneClickApply }) => {
@@ -44,32 +45,23 @@ export const MobileTable = ({ entries, tableHead, oneClickApply }) => {
   const handleView = (app) => {
     dispatch(setCurrentApplication(app));
     if (isWindowClosed) {
-      // - They should see messaging that says your application is under review or whatever status and cannot be submitted.
-      // - Text areas should be disabled.
-      dispatch(setViewBtnLabel('Reuse Application'));
+      dispatch(setViewBtnLabel(PageCopy.REUSE_APPLICATION));
       dispatch(setDisableTextbox(true));
       dispatch(setDisableOneClickCTA(true));
     } else {
       if (hasApplied) {
         const currentApp = hasCurrentApplication([app]);
         if (currentApp) {
-          //   - Enable text areas by default.
-          // - CTA above and below should read Save Changes
-          dispatch(setViewBtnLabel('Save Changes'));
+          dispatch(setViewBtnLabel(PageCopy.SAVE_CHANGES));
           dispatch(setDisableTextbox(false));
           dispatch(setDisableOneClickCTA(false));
         } else {
-          //     - Disable text areas by default
-          // - CTA above and below should read Reuse Application but buttons should be greyed out.
-          // - Hover or mouseover the CTA should show tooltip that says You can't reuse this application because you have already applied this month
-          dispatch(setViewBtnLabel('Reuse Application'));
+          dispatch(setViewBtnLabel(PageCopy.REUSE_APPLICATION));
           dispatch(setDisableTextbox(true));
           dispatch(setDisableOneClickCTA(true));
         }
       } else {
-        // - CTA above and below should read Reuse Application
-        // - When user clicks on the CTA, text areas should be enabled and CTA above and below should change to Submit Application
-        dispatch(setViewBtnLabel('Reuse Application'));
+        dispatch(setViewBtnLabel(PageCopy.REUSE_APPLICATION));
         dispatch(setDisableTextbox(true));
         dispatch(setDisableOneClickCTA(false));
       }
@@ -106,14 +98,16 @@ export const MobileTable = ({ entries, tableHead, oneClickApply }) => {
                 <button
                   disabled={entry === 0 ? true : false}
                   className={entry === 0 ? `${styles.disabled} ${styles.leftArrow}` : `${styles.leftArrow}`}
-                  onClick={handleArrowLeft}>
+                  onClick={handleArrowLeft}
+                >
                   <img src={arrowleft} alt="arrowleft" className={styles.arrow_img} />
                 </button>
                 <span className={styles.id}>{count}</span>
                 <button
                   disabled={entry + 1 === entries.length ? true : false}
                   className={entry + 1 === entries.length ? `${styles.disabled} ${styles.rightArrow}` : `${styles.rightArrow}`}
-                  onClick={handleArrowRight}>
+                  onClick={handleArrowRight}
+                >
                   <img src={arrowright} alt="arrowright" className={styles.arrow_img} />
                 </button>
               </div>
@@ -141,7 +135,8 @@ export const MobileTable = ({ entries, tableHead, oneClickApply }) => {
                       ? 'denied bold_weight'
                       : ''
                     : 'denied bold_weight'
-                }>
+                }
+              >
                 {isVerified ? currentEntry?.status : applicationStatus.VERIFY_NOW}
               </span>
             </td>
@@ -168,7 +163,8 @@ export const MobileTable = ({ entries, tableHead, oneClickApply }) => {
                     onClick={() => handleEdit(currentEntry?._id)}
                     disabled={handleDisable(currentEntry)}
                     onMouseOver={() => handleMouseOver(currentEntry)}
-                    onMouseOut={() => setShowTooltip(false)}>
+                    onMouseOut={() => setShowTooltip(false)}
+                  >
                     <p>Edit application </p>
                     {activeApplication === currentEntry?._id && showTooltip && (
                       <span className={styles.content}>{!isVerified ? tooltipContent.UNVERIFIED_USER : tooltipContent.VERIFIED_USER}</span>
