@@ -96,7 +96,7 @@ export const DesktopTable = ({ entries, tableHead, oneClickApply }) => {
                         onMouseOver={() => handleMouseOver(itm)}
                         onMouseOut={() => setShowTooltip(false)}>
                         <img src={Edit_Icon} alt="view" />
-                        <p>Edit </p>
+                        <p>Edit application </p>
                         {activeApplication === itm?._id && showTooltip && (
                           <span className={styles.content}>{!isVerified ? tooltipContent.UNVERIFIED_USER : tooltipContent.VERIFIED_USER}</span>
                         )}

@@ -118,7 +118,7 @@ export const MobileTable = ({ entries, tableHead, oneClickApply }) => {
               <td className={`${styles.row} ${styles.rowAlt} ${styles.row2}`}>
                 <div className={styles.actionContainer}>
                   <button className={styles.view} onClick={() => handleView(currentEntry?._id)}>
-                    <p>View </p>
+                    <p>View submission </p>
                   </button>
                   <div className={styles.line} />
                   <button
@@ -127,7 +127,7 @@ export const MobileTable = ({ entries, tableHead, oneClickApply }) => {
                     disabled={handleDisable(currentEntry)}
                     onMouseOver={() => handleMouseOver(currentEntry)}
                     onMouseOut={() => setShowTooltip(false)}>
-                    <p>Edit </p>
+                    <p>Edit application </p>
                     {activeApplication === currentEntry?._id && showTooltip && (
                       <span className={styles.content}>{!isVerified ? tooltipContent.UNVERIFIED_USER : tooltipContent.VERIFIED_USER}</span>
                     )}

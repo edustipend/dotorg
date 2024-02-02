@@ -65,7 +65,7 @@ export const Home = () => {
     potentialBenefits: potentialBenefits,
     futureHelpFromUser: futureHelpFromUser
   };
-
+  console.log(isApplied);
   const getUserData = useCallback(async () => {
     setLoading(true);
     try {
@@ -253,7 +253,7 @@ export const Home = () => {
           </section>
           <div className={styles.btnContainer}>
             <Button
-              disabled={isWindowClosed || isApplied || isSubmitting}
+              // disabled={isWindowClosed || isApplied || isSubmitting}
               label="Reapply"
               type="secondary"
               effectAlt
