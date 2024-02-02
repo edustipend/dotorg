@@ -3,7 +3,7 @@ export const applicationStatus = {
   IN_VIEW: 'In Review',
   RECEIVED: 'Received',
   DENIED: 'Denied',
-  VERIFY_NOW: 'Verify Now'
+  VERIFY_NOW: 'Unverified'
 };
 
 export const tooltipContent = {
