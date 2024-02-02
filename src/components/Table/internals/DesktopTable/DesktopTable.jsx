@@ -93,7 +93,8 @@ export const DesktopTable = ({ entries, tableHead, oneClickApply }) => {
                         className={styles.edit}
                         onClick={() => handleEdit(itm?._id)}
                         disabled={handleDisable(itm)}
-                        onMouseOver={() => handleMouseOver(itm)}>
+                        onMouseOver={() => handleMouseOver(itm)}
+                        onMouseOut={() => setShowTooltip(false)}>
                         <img src={Edit_Icon} alt="view" />
                         <p>Edit </p>
                         {activeApplication === itm?._id && showTooltip && (

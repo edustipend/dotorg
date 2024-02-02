@@ -126,7 +126,7 @@ export const MobileTable = ({ entries, tableHead, oneClickApply }) => {
                     onClick={() => handleEdit(currentEntry?._id)}
                     disabled={handleDisable(currentEntry)}
                     onMouseOver={() => handleMouseOver(currentEntry)}
-                    on>
+                    onMouseOut={() => setShowTooltip(false)}>
                     <p>Edit </p>
                     {activeApplication === currentEntry?._id && showTooltip && (
                       <span className={styles.content}>{!isVerified ? tooltipContent.UNVERIFIED_USER : tooltipContent.VERIFIED_USER}</span>
