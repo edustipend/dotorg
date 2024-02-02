@@ -91,6 +91,7 @@ export const Home = () => {
   }, [dispatch, userId]);
 
   const handleOneClick = (id) => {
+    console.log(isApplied);
     setApplicationTable(!applicationTable);
     const filteredData = data.filter((entry) => entry._id === id);
     setSingleEntry(filteredData);
@@ -100,10 +101,10 @@ export const Home = () => {
       stipendCategory === 'laptop'
         ? 'Laptop/Learning Device'
         : stipendCategory === 'course'
-          ? 'Course/Certification Fees'
-          : stipendCategory === 'data'
-            ? 'Data/Internet Subscription'
-            : 'Laptop/Learning Device';
+        ? 'Course/Certification Fees'
+        : stipendCategory === 'data'
+        ? 'Data/Internet Subscription'
+        : 'Laptop/Learning Device';
     dispatch(setApplicationId(_id));
     dispatch(category(categoryData));
     dispatch(reason(reasonForRequest));
@@ -226,7 +227,8 @@ export const Home = () => {
                 <button
                   key={idx}
                   className={currentTable === idx ? `${styles.tab}` : `${styles.tab} ${styles.tabAlt}`}
-                  onClick={() => setCurrentTable(idx)}>
+                  onClick={() => setCurrentTable(idx)}
+                >
                   {itm}
                 </button>
               );
