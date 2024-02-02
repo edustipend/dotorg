@@ -43,7 +43,7 @@ export const NotifyForm = () => {
   const { isLoading, setIsLoading } = useContext(ModalContext);
   const [userData, setUserData] = useState(initialValue);
   const [disabled, setDisabled] = useState(true);
-  const [notificationSuccess, setNotificationSuccess] = useState(true);
+  const [notificationSuccess, setNotificationSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const { name, email } = userData;
 

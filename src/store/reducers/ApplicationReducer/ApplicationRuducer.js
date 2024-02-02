@@ -15,6 +15,11 @@ const initialState = {
   newApplication: false,
   editMode: false,
   disableTextbox: false,
+  hasApplied: false,
+  currentApplication: null,
+  viewBtnLabel: 'Edit Application',
+  disableOneClickCTA: true,
+  appData: []
 };
 
 const application = createSlice({
@@ -38,6 +43,21 @@ const application = createSlice({
     },
     setDisableTextbox: (state, action) => {
       state.disableTextbox = action.payload;
+    },
+    setHasApplied: (state, action) => {
+      state.hasApplied = action.payload;
+    },
+    setCurrentApplication: (state, action) => {
+      state.currentApplication = action.payload;
+    },
+    setViewBtnLabel: (state, action) => {
+      state.viewBtnLabel = action.payload;
+    },
+    setDisableOneClickCTA: (state, action) => {
+      state.disableOneClickCTA = action.payload;
+    },
+    setAppData: (state, action) => {
+      state.appData = action.payload;
     },
     category: (state, action) => {
       state.stipendCategory = action.payload;
@@ -67,24 +87,10 @@ const application = createSlice({
       state.errorMessage = action.payload;
     },
     setNewApplication: (state, action) => {
-      state.newApplication = action.payload
+      state.newApplication = action.payload;
     },
-
     reset: (state) => {
-      state.activeStep = 1;
-      state.applicationId = null;
-      state.stipendCategory = '';
-      state.reasonForRequest = '';
-      state.stepsTakenToEaseProblem = '';
-      state.potentialBenefits = '';
-      state.futureHelpFromUser = '';
-      state.success = false;
-      state.isVerified = false;
-      state.error = false;
-      state.errorMessage = '';
-      state.newApplication = false
-      state.editMode = false;
-      state.editTextbox = false;
+      Object.assign(state, initialState);
     }
   }
 });
@@ -107,5 +113,10 @@ export const {
   setNewApplication,
   setApplicationId,
   setEditMode,
-  setDisableTextbox
+  setDisableTextbox,
+  setHasApplied,
+  setCurrentApplication,
+  setViewBtnLabel,
+  setDisableOneClickCTA,
+  setAppData
 } = application.actions;

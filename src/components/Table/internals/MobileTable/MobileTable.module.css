@@ -95,12 +95,14 @@
 }
 
 .actionContainer {
-  width: 106px;
+  /* width: 106px; */
   height: 25px;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 8px;
+  gap: 4px;
+  margin-top: -20px;
 }
 
 .line {
@@ -118,7 +120,7 @@
 .view p {
   color: var(--Edustipend-Purple, #5801ff);
   font-family: 'Manrope';
-  font-size: 18px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -134,7 +136,7 @@
 .edit p {
   color: #039855;
   font-family: 'Manrope';
-  font-size: 18px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
