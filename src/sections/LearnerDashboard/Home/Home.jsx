@@ -71,7 +71,6 @@ export const Home = () => {
     potentialBenefits: potentialBenefits,
     futureHelpFromUser: futureHelpFromUser
   };
-  console.log(isApplied);
   const getUserData = useCallback(async () => {
     setLoading(true);
     try {
@@ -101,10 +100,10 @@ export const Home = () => {
       stipendCategory === 'laptop'
         ? 'Laptop/Learning Device'
         : stipendCategory === 'course'
-        ? 'Course/Certification Fees'
-        : stipendCategory === 'data'
-        ? 'Data/Internet Subscription'
-        : 'Laptop/Learning Device';
+          ? 'Course/Certification Fees'
+          : stipendCategory === 'data'
+            ? 'Data/Internet Subscription'
+            : 'Laptop/Learning Device';
     dispatch(setApplicationId(_id));
     dispatch(category(categoryData));
     dispatch(reason(reasonForRequest));

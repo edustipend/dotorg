@@ -68,7 +68,6 @@
 }
 
 .actionContainer {
-  /* width: 168px; */
   height: 38px;
   display: flex;
   justify-content: space-between;
@@ -92,6 +91,7 @@
   background: rgba(88, 0, 255, 0.05);
   padding: 8px;
 }
+
 .view p {
   color: var(--Edustipend-Purple, #5801ff);
   font-family: 'Manrope';
