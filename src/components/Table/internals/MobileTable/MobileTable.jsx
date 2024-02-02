@@ -17,6 +17,7 @@ const { APPROVED, IN_VIEW, RECEIVED, DENIED } = applicationStatus;
 
 export const MobileTable = ({ entries, tableHead, oneClickApply }) => {
   const [entry, setEntry] = useState(0);
+  const [count, setCount] = useState(1);
   const currentEntry = entries[entry];
   const [singleAppId, setSingleAppId] = useState(null);
   const [disabled, setDisabled] = useState(true);
@@ -45,9 +46,11 @@ export const MobileTable = ({ entries, tableHead, oneClickApply }) => {
   };
   const handleArrowLeft = () => {
     setEntry((prev) => prev - 1);
+    setCount((prev) => prev - 1);
   };
   const handleArrowRight = () => {
     setEntry((prev) => prev + 1);
+    setCount((prev) => prev + 1);
   };
 
   return (
@@ -64,7 +67,7 @@ export const MobileTable = ({ entries, tableHead, oneClickApply }) => {
                   onClick={handleArrowLeft}>
                   <img src={arrowleft} alt="arrowleft" className={styles.arrow_img} />
                 </button>
-                <span className={styles.id}>{entry + 1}</span>
+                <span className={styles.id}>{count}</span>
                 <button
                   disabled={entry + 1 === entries.length ? true : false}
                   className={entry + 1 === entries.length ? `${styles.disabled} ${styles.rightArrow}` : `${styles.rightArrow}`}

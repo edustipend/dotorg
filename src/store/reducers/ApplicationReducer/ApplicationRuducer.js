@@ -11,9 +11,10 @@ const initialState = {
   success: false,
   isVerified: false,
   error: false,
+  errorMessage: '',
+  newApplication: false,
   editMode: false,
   disableTextbox: false,
-  errorMessage: ''
 };
 
 const application = createSlice({
@@ -65,6 +66,9 @@ const application = createSlice({
     errMessage: (state, action) => {
       state.errorMessage = action.payload;
     },
+    setNewApplication: (state, action) => {
+      state.newApplication = action.payload
+    },
 
     reset: (state) => {
       state.activeStep = 1;
@@ -78,6 +82,7 @@ const application = createSlice({
       state.isVerified = false;
       state.error = false;
       state.errorMessage = '';
+      state.newApplication = false
       state.editMode = false;
       state.editTextbox = false;
     }
@@ -99,6 +104,7 @@ export const {
   isError,
   errMessage,
   reset,
+  setNewApplication,
   setApplicationId,
   setEditMode,
   setDisableTextbox

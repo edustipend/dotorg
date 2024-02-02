@@ -6,6 +6,10 @@ import store from '../../../store';
 import { TestId } from '../constants';
 import { ModalContextProvider } from '../../../context/ModalContext';
 
+jest.mock('../../../utils', () => ({
+  isApplicationWindowClosed: jest.fn(() => false)
+}));
+
 describe('StartApplication component', () => {
   describe('renders the correct StartApplication component', () => {
     it('shows the StartApplication component in the document', () => {

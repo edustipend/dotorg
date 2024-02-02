@@ -4,12 +4,15 @@ import Stepper from '../Stepper';
 import { StepperCtx } from '../../../context/StepperContext';
 import { TestId, Text } from '../constants';
 import { Provider } from 'react-redux';
-
 import configureMockStore from 'redux-mock-store';
 
 const mockContextValue = {
   activeStep: 1
 };
+
+jest.mock('react-router-dom', () => ({
+  useNavigate: () => jest.fn()
+}));
 
 const mockStore = configureMockStore([
   /* middlewares */
@@ -19,10 +22,6 @@ const store = mockStore({
     userId: 'randomUser'
   }
 });
-
-jest.mock('react-router-dom', () => ({
-  useNavigate: () => jest.fn()
-}));
 
 describe('Stepper Component', () => {
   it('renders without errors', () => {
@@ -42,7 +41,6 @@ describe('Stepper Component', () => {
 
   it('handles click correctly', () => {
     const mockDispatch = jest.fn();
-
     render(
       <Provider store={store}>
         <Stepper onClick={mockDispatch} activeStep={mockContextValue.activeStep} />

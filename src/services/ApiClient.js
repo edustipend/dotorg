@@ -26,7 +26,7 @@ export const authorizedPost = async function (route = '', data = {}) {
     referrerPolicy: 'no-referrer',
     body: JSON.stringify(data)
   });
-
+ 
   return response.json();
 };
 
@@ -42,7 +42,6 @@ export const postData = async function (route = '', data = {}) {
     referrerPolicy: 'no-referrer',
     body: JSON.stringify(data)
   });
-
   return response.json();
 };
 

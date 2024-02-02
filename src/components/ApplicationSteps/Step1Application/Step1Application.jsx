@@ -26,7 +26,9 @@ export const Step1Application = () => {
 
   //enable the continue button if a stipendCategory has been selected
   const isTrue = stipendCategory.length > 0;
-
+  const handleNav = () => {
+    return userId ? '/dashboard' : '/request';
+  };
   return (
     <div data-testid={COMPONENT_ID}>
       <ContentContainer>
@@ -43,7 +45,7 @@ export const Step1Application = () => {
                 icon={BackArrow}
                 iconPosition={'back'}
                 type={'plain'}
-                onClick={() => (userId ? nav('/dashboard') : nav('/request'))}
+                onClick={() => nav(handleNav())}
                 className={styles.btn}
               />
 

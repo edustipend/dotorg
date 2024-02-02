@@ -8,10 +8,13 @@ import { Quote, TestId, back, constants, submissionTableHead, submitted, tableHe
 import { tab } from './internals/constants';
 import Button from '../../../components/Button';
 import Table from '../../../components/Table';
-import { APPLICATION_HISTORY, ONE_CLICK_APPLY, authorizedPost } from '../../../services/ApiClient';
 import ActionBanner from '../../../components/ActionBanner';
 import { PageCopy } from './constants';
 import useResendVerification from '../../../hooks/useResendVerification';
+import { setNewApplication } from '../../../store/reducers/ApplicationReducer';
+import { isApplicationWindowClosed } from '../../../utils';
+import CheckPreviousApplication from '../../../utils/CheckPreviousApplication';
+import { APPLICATION_HISTORY, ONE_CLICK_APPLY, authorizedPost } from '../../../services/ApiClient';
 import { Step2Application } from '../../../components/ApplicationSteps/Step2Application/Step2Application';
 import {
   benefits,
@@ -23,7 +26,6 @@ import {
   setDisableTextbox,
   steps
 } from '../../../store/reducers/ApplicationReducer';
-import { isApplicationWindowClosed } from '../../../utils';
 import { hasCurrentApplication } from '../../../utils/hasCurrentApplication';
 import { toastNotifications } from '../../../components/ApplicationSteps/Step5Application/Internals/constants';
 const { ONE_CLICK, ERROR } = toastNotifications;
@@ -42,11 +44,10 @@ export const Home = () => {
   const { stipendCategory, reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser, applicationId } = useSelector(
     (state) => state.application
   );
-  const nav = useNavigate();
-  const dispatch = useDispatch();
   const { handleResendVerification, isLoading } = useResendVerification();
-
   const [first] = name.split(' ');
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const Category = stipendCategory.split('/')[0].toLowerCase();
 
   const applicationInfo = {
@@ -101,11 +102,6 @@ export const Home = () => {
     setApplicationTable(!applicationTable);
   };
 
-  const handleNewApplication = () => {
-    dispatch(reset());
-    nav('/application');
-  };
-
   const handleSubmitOneClick = async () => {
     let timeout = 0;
     if (!isVerified) {
@@ -135,6 +131,24 @@ export const Home = () => {
       setIsSubmitting(false);
       dispatch(reset());
       setApplicationTable(!applicationTable);
+    }
+  };
+
+  const handleNewApplication = () => {
+    dispatch(reset());
+    dispatch(setNewApplication(true));
+    navigate('/application');
+  };
+
+  /**
+   * This function enables the new application button if the
+   * application window is open and the user has not applied for the month.
+   * @returns true || false
+   */
+  const handleEnableButton = () => {
+    if (data) {
+      const hasApplied = CheckPreviousApplication(data?.[0]);
+      return !hasApplied && !isWindowClosed;
     }
   };
 
@@ -236,9 +250,18 @@ export const Home = () => {
           </div>
         </>
       )}
-      {applicationTable && (
+      {applicationTable > 0 && (
         <div className={styles.buttonContainer}>
-          <Button disabled={isWindowClosed || isApplied} label="New Stipend Application" type="secondary" effectAlt onClick={handleNewApplication} />
+          <Button
+            disabled={!handleEnableButton()}
+            isLoading={isLoading}
+            loaderSize="small"
+            loaderVariant="neutral"
+            onClick={handleNewApplication}
+            label="New Stipend Application"
+            type="secondary"
+            effectAlt
+          />
         </div>
       )}
     </div>

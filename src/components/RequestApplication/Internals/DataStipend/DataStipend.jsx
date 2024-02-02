@@ -17,9 +17,11 @@ export const DataStipend = () => {
   const { pathname } = useLocation();
   const isDashboard = pathname.includes('/dashboard');
   const dispatch = useDispatch();
+  const {reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser } = useSelector(
+    (state) => state.application
+  );
   const [showUnderReview, setShowUnderReview] = useState(false);
   const [showBtn, setShowBtn] = useState(isDashboard);
-  const { reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser } = useSelector((state) => state.application);
 
   const handleEditApplication = () => {
     setShowBtn((prev) => !prev);

@@ -12,27 +12,43 @@ import Header from '../../../components/Header';
 import Text from '../../Text';
 import Quote from '../../../components/Quote';
 import Submit from './Internals/Submit';
-import { back, successful, isError, reset } from '../../../store/reducers/ApplicationReducer';
+import { setActiveStep, back, successful, isError } from '../../../store/reducers/ApplicationReducer';
+import { reset } from '../../../store/reducers/ApplicationReducer';
 import { ScrollOnMount } from '../ScrollOnMount/ScrollOnMount';
 import { BackArrow } from '../../../assets';
 import { constants } from './Internals/constants';
 import { DancingEmoji } from '../../../assets';
-import { EDIT_APPLICATION, NEW_APPLICATION, authorizedPost } from '../../../services/ApiClient';
+import { authorizedPost } from '../../../services/ApiClient';
+import { UseModal } from '../../Modal/UseModal';
+import NewApplication from './Internals/NewApplication';
+import useResendVerification from '../../../hooks/useResendVerification';
+import { EDIT_APPLICATION, NEW_APPLICATION } from '../../../services/ApiClient';
 import { toastNotifications } from './Internals/constants';
-
-const { HEADER, PARA1, PARA2, PARA3, PARA4, PARA5, PARA6, QUOTE } = constants;
+const { HEADER, PARA1, PARA2, PARA3, PARA4, PARA5, PARA6, QUOTE, NEW_APPLICATION_HEADER, NEW_APPLICATION_PARA1, NEW_APPLICATION_PARA2 } = constants;
 const { UPDATING, SUBMITTING, ERROR } = toastNotifications;
 
 export const Step5Application = () => {
   ScrollOnMount();
-  const { setIsActive } = useContext(ModalContext);
   const dispatch = useDispatch();
+  const { newApplicationModal, handleNewApplicationModal } = useContext(ModalContext);
+  const [loading, setLoading] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [message, setMessage] = useState('');
+  const [prompt, setPrompt] = useState('');
+  const { setIsActive } = useContext(ModalContext);
+  const { userId, isVerified } = useSelector((state) => state.user);
+  const {
+    newApplication: isNewApplication,
+    reasonForRequest,
+    stepsTakenToEaseProblem,
+    stipendCategory,
+    potentialBenefits,
+    futureHelpFromUser,
+    editMode,
+    applicationId
+  } = useSelector((state) => state.application);
+  const { handleResendVerification } = useResendVerification();
   const nav = useNavigate();
-  const [isLoading, setIsLoading] = useState(false);
-  const { stipendCategory, reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser, editMode, applicationId } = useSelector(
-    (state) => state.application
-  );
-  const { userId } = useSelector((state) => state.user);
 
   const handleNewUserApplication = () => {
     dispatch(successful(false));
@@ -40,6 +56,39 @@ export const Step5Application = () => {
     setIsActive((prev) => !prev);
   };
 
+  const handleNewApplication = async () => {
+    setLoading(true);
+    try {
+      const response = await authorizedPost('stipend/apply', {
+        userId,
+        futureHelpFromUser: futureHelpFromUser,
+        potentialBenefits: potentialBenefits,
+        reasonForRequest: reasonForRequest,
+        stepsTakenToEaseProblem: stepsTakenToEaseProblem,
+        stipendCategory: stipendCategory?.split('/')[0].toLowerCase()
+      });
+      setIsSuccess(response?.success);
+      setMessage(response?.message);
+      setLoading(false);
+      if (!isVerified && response?.success) {
+        handleResendVerification();
+        setPrompt(constants.PROMPT);
+      }
+      handleNewApplicationModal();
+    } catch (error) {
+      setLoading(false);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleAction = () => {
+    if (isNewApplication) {
+      dispatch(setActiveStep(2));
+    } else {
+      dispatch(back());
+    }
+  };
   const Category = stipendCategory.split('/')[0].toLowerCase();
 
   const newApplication = {
@@ -57,7 +106,7 @@ export const Step5Application = () => {
   };
 
   const submitLoggedInUserApplication = async () => {
-    setIsLoading(true);
+    setLoading(true);
     const APPLICATION_INFO = editMode ? editedApplication : newApplication;
     const ROUTE = editMode ? EDIT_APPLICATION : NEW_APPLICATION;
     editMode ? toast.loading(UPDATING.loading, { id: UPDATING.id }) : toast.loading(SUBMITTING.loading, { id: SUBMITTING.id });
@@ -74,7 +123,7 @@ export const Step5Application = () => {
     } finally {
       toast.dismiss(UPDATING.id);
       toast.dismiss(SUBMITTING.id);
-      setIsLoading(false);
+      setLoading(false);
       dispatch(reset());
       nav('/dashboard');
     }
@@ -85,12 +134,12 @@ export const Step5Application = () => {
       <div>
         <ContentContainer>
           <div className={styles.headerContainer}>
-            <Header className={styles.header}>{HEADER}</Header>
+            <Header className={styles.header}>{newApplication ? NEW_APPLICATION_HEADER : HEADER}</Header>
             <img src={DancingEmoji} alt="dancing_emoji" className={styles.emoji} />
           </div>
           <div className={styles.textContainer}>
-            <Text content={PARA1} />
-            <Text content={PARA2} />
+            <Text content={newApplication ? NEW_APPLICATION_PARA1 : PARA1} />
+            <Text content={newApplication ? NEW_APPLICATION_PARA2 : PARA2} />
             <Text content={PARA3} />
             <Text content={PARA4} />
             <div>
@@ -99,24 +148,17 @@ export const Step5Application = () => {
             </div>
           </div>
           <div className={styles.btnContainer}>
-            <Button
-              loading={'Back'}
-              icon={BackArrow}
-              iconPosition={'back'}
-              type={'plain'}
-              effectAlt
-              onClick={() => dispatch(back())}
-              className={styles.btn}
-            />
+            <Button label={'Back'} icon={BackArrow} iconPosition={'back'} type={'plain'} effectAlt onClick={handleAction} className={styles.btn} />
             <Button
               label={'Submit'}
-              iconPosition={'front'}
               type={'secondary'}
+              loading={'Back'}
+              iconPosition={'back'}
               effectAlt
-              isLoading={isLoading}
-              loaderSize={'small'}
-              loaderVariant={'neutral'}
-              onClick={userId ? submitLoggedInUserApplication : handleNewUserApplication}
+              isLoading={loading}
+              loaderSize="small"
+              loaderVariant="neutral"
+              onClick={isNewApplication ? handleNewApplication : editMode ? submitLoggedInUserApplication : handleNewUserApplication}
               className={styles.btn}
             />
           </div>
@@ -127,6 +169,9 @@ export const Step5Application = () => {
         <Modal>
           <Submit />
         </Modal>
+        <UseModal isActive={newApplicationModal}>
+          <NewApplication isSuccess={isSuccess} message={message} prompt={prompt} />
+        </UseModal>
       </div>
     </>
   );

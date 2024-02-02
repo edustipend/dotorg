@@ -18,9 +18,13 @@ export const LaptopStipend = () => {
   const { pathname } = useLocation();
   const isDashboard = pathname.includes('/dashboard');
   const dispatch = useDispatch();
+  const { reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser } = useSelector(
+    (state) => state.application
+  );
+
+  //check if each of the form values are at least > 4, enable the continue button if true
   const [showUnderReview, setShowUnderReview] = useState(false);
   const [showBtn, setShowBtn] = useState(isDashboard);
-  const { reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser } = useSelector((state) => state.application);
 
   const handleEditApplication = () => {
     setShowBtn((prev) => !prev);
@@ -67,6 +71,8 @@ export const LaptopStipend = () => {
           <QuestionAndAnswer value={futureHelpFromUser} dispatchType={futureHelp} number={4} question={QUESTION4} />
         </section>
         <p className={styles.footNote}>{FOOT_NOTE4}</p>
+        <div className={styles.buttonContainer}>
+        </div>
         <Navigation />
       </ContentContainer>
       <div className="quoteContainer">
