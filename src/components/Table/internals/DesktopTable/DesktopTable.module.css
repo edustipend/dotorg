@@ -139,7 +139,7 @@
 .content {
   position: absolute;
   top: -50px;
-  left: -50px;
+  left: 0;
   display: block;
   width: 150px;
   background: white;

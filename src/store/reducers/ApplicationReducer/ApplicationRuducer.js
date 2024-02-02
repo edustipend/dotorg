@@ -18,8 +18,7 @@ const initialState = {
   hasApplied: false,
   currentApplication: null,
   viewBtnLabel: 'Edit Application',
-  disableOneClickCTA: true,
-  appData: []
+  disableOneClickCTA: true
 };
 
 const application = createSlice({
@@ -55,9 +54,6 @@ const application = createSlice({
     },
     setDisableOneClickCTA: (state, action) => {
       state.disableOneClickCTA = action.payload;
-    },
-    setAppData: (state, action) => {
-      state.appData = action.payload;
     },
     category: (state, action) => {
       state.stipendCategory = action.payload;
@@ -117,6 +113,5 @@ export const {
   setHasApplied,
   setCurrentApplication,
   setViewBtnLabel,
-  setDisableOneClickCTA,
-  setAppData
+  setDisableOneClickCTA
 } = application.actions;
