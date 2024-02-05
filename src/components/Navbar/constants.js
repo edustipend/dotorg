@@ -6,6 +6,10 @@ export const TestId = {
 
 export const NAVBAR_LINKS = [
   {
+    label: 'Support A Learner',
+    to: '/support-a-learner'
+  },
+  {
     label: 'Ambassador Program',
     to: '/ambassador-program'
   },
@@ -19,6 +23,7 @@ export const NAVBAR_LINKS = [
     to: '/login'
   }
 ];
+
 export const NAVBAR_AMBASSADOR_LINKS = [
   {
     label: 'About the Program',
@@ -30,6 +35,20 @@ export const NAVBAR_AMBASSADOR_LINKS = [
     path: '/ambassador-program',
     hash: '#eligibility'
   }
+];
+
+export const SUPPORT_LEARNER_LINKS = [
+  {
+    label: 'Donate Now',
+    path: '/support-a-learner',
+    hash: '#donate'
+  },
+  {
+    label: 'How It Works',
+    path: '/support-a-learner',
+    hash: '#howitworks'
+  },
+  
 ];
 
 export const BUTTON_LABEL = 'Request stipend';

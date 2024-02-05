@@ -15,7 +15,21 @@ import { routesConstant } from './routesConstant';
 import Login from './pages/login';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import ProtecteAuthRoute from './components/ProtectedRoute/ProtectAuthRoute';
-const { AMBASSADOR_PROGRAM, REQUEST, APPLICATION, FORGOT_PASSWORD, RESET_PASSWORD, WELCOME, DASHBOARD, AT_ONE, LOGIN } = routesConstant;
+import { DonateNow } from './pages/donate-now/DonateNow';
+import SupportALearner from './pages/support-a-learner';
+const {
+  AMBASSADOR_PROGRAM,
+  REQUEST,
+  APPLICATION,
+  FORGOT_PASSWORD,
+  RESET_PASSWORD,
+  WELCOME,
+  DASHBOARD,
+  AT_ONE,
+  LOGIN,
+  SUPPORT_A_LEARNER,
+  DONATE_NOW
+} = routesConstant;
 
 const Routes = () => {
   return (
@@ -25,6 +39,8 @@ const Routes = () => {
       <Route path={APPLICATION} element={<RequestStipendPage />} />
       <Route path={FORGOT_PASSWORD} element={<ForgotPassword />} />
       <Route path={RESET_PASSWORD} element={<ResetPassword />} />
+      <Route path={SUPPORT_A_LEARNER} element={<SupportALearner />} />
+      <Route path={DONATE_NOW} element={<DonateNow />} />
       <Route
         path={LOGIN}
         element={
