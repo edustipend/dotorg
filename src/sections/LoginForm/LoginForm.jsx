@@ -10,7 +10,7 @@ import { postData } from '../../services/ApiClient';
 import { Link, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import Cookies from 'js-cookie';
-import { storeUser } from '../../store/reducers/UserReducer';
+import { storeUser,setAuthenticated  } from '../../store/reducers/UserReducer';
 import { jwtDecode } from 'jwt-decode';
 import { useDispatch } from 'react-redux';
 const { EMAIL, EMAIL_PH, EMAIL_TYPE, PASSWORD, PASSWORD_PH, PASSWORD_TYPE, LOGIN, SECONDARY, NEUTRAL, SMALL, RESET } = parameters;
@@ -56,7 +56,7 @@ export const LoginForm = () => {
         });
         toast.success('Logged in successfully');
         dispatch(storeUser(decode));
-        
+        dispatch(setAuthenticated(true));
         setTimeout(() => {
           nav(0);
         }, 1000);

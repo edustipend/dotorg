@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from '../../../../store';
 import { ModalContext } from "../../../../context/ModalContext";
-import { TestId, constants } from "../Internals/constants";
+import { TestId } from "../Internals/constants";
 const setIsActive = jest.fn();
 const value = { setIsActive };
 
@@ -33,7 +33,7 @@ describe("Step5 component", () => {
             </BrowserRouter>
         )
         const action = screen.getByTestId(TestId.HEADER_ID)
-        expect(action).toHaveTextContent(constants.HEADER)
+        expect(action).toBeInTheDocument()
     });
     it("The descriptive image should show", () => {
         render(

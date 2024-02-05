@@ -5,13 +5,16 @@ import { QuestionAndAnswer } from '../QuestionAndAnswer';
 import store from '../../../../../store';
 import { TestId } from '../../../constants';
 import { reason } from '../../../../../store/reducers/ApplicationReducer';
+import { BrowserRouter } from 'react-router-dom';
 
 describe('Tests for QuestionAndAnswer component', () => {
     it('renders QuestionAndAnswer component with default values', () => {
         render(
-            <Provider store={store}>
-                <QuestionAndAnswer />
-            </Provider>
+            <BrowserRouter>
+                <Provider store={store}>
+                    <QuestionAndAnswer />
+                </Provider>
+            </BrowserRouter>
         );
         const question = screen.getByTestId(TestId.COMPONENT_ID);
         expect(question).toBeInTheDocument()
@@ -19,18 +22,22 @@ describe('Tests for QuestionAndAnswer component', () => {
     it("I should show the correct question", () => {
         const defaultQuestion = "Default question";
         render(
-            <Provider store={store}>
-                <QuestionAndAnswer />
-            </Provider>
+            <BrowserRouter>
+                <Provider store={store}>
+                    <QuestionAndAnswer />
+                </Provider>
+            </BrowserRouter>
         )
         const question = screen.getByTestId(TestId.QUESTION_ID)
         expect(question).toHaveTextContent(defaultQuestion)
     });
     it('Textarea is enabled', () => {
         render(
-            <Provider store={store}>
-                <QuestionAndAnswer dispatchType={reason} />
-            </Provider>
+            <BrowserRouter>
+                <Provider store={store}>
+                    <QuestionAndAnswer dispatchType={reason} />
+                </Provider>
+            </BrowserRouter>
         )
         const action = screen.getByTestId(TestId.ANSWER_ID)
         fireEvent.change(action, { target: { value: 'Test input' } });
