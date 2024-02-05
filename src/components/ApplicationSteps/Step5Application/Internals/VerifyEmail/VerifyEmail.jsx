@@ -7,24 +7,25 @@ import Header from '../../../../../components/Header';
 import Quote from '../../../../../components/Quote';
 import { constants } from './constants';
 import { PaperPlane, BackArrow } from '../../../../../assets';
-
+import PropTypes from 'prop-types';
 const { HEADER, PARA1, PARA2, QUOTE } = constants;
 
-export const VerifyEmail = () => {
-  const { setIsActive } = useContext(ModalContext);
+export const VerifyEmail = ({ message }) => {
+  const { handleVerifyCurrentUser } = useContext(ModalContext);
   const { email } = useSelector((state) => state.userDetails);
+  const { email: currentUser } = useSelector((state) => state.user);
 
   return (
     <div className={styles.submit}>
-      <img src={BackArrow} alt="backArrow" onClick={() => setIsActive((prev) => !prev)} className={styles.arrow} />
+      <img src={BackArrow} alt="backArrow" onClick={() => handleVerifyCurrentUser()} className={styles.arrow} />
       <div className={`${styles.alt} animated`}>
         <div className={styles.headerContainer}>
           <img src={PaperPlane} alt="user-plus" className={styles.emoji} />
-          <Header className={styles.header}>{HEADER}</Header>
+          <Header className={styles.header}>{message ? message : HEADER}</Header>
         </div>
         <div className={styles.bottomSection}>
           <p className={styles.prompt}>{PARA1}</p>
-          <p className={styles.userEmail}>{email}</p>
+          <p className={styles.userEmail}>{currentUser || email}</p>
           <p className={styles.prompt}>{PARA2}</p>
         </div>
         <div className="quoteContainer">
@@ -33,4 +34,12 @@ export const VerifyEmail = () => {
       </div>
     </div>
   );
+};
+
+VerifyEmail.propTypes = {
+  message: PropTypes.string
+};
+
+VerifyEmail.defaultProps = {
+  message: ''
 };

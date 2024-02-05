@@ -23,6 +23,38 @@
   width: 32px;
   height: 32px;
   border-radius: 4px;
+  z-index: 5;
+}
+
+.banner {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 10px;
+}
+
+.banner .close {
+  background: var(--edustipend-purple);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  align-self: flex-end;
+  cursor: pointer;
+}
+
+.banner h1 {
+  font-size: 20px;
+  text-align: center;
+}
+.banner p {
+  font-size: 18px;
+  text-align: center;
+}
+
+.button {
+  align-self: center;
 }
 
 @media screen and (min-width: 1024px) {
@@ -37,5 +69,9 @@
 
   .menu {
     display: none;
+  }
+
+  .button {
+    align-self: flex-end;
   }
 }

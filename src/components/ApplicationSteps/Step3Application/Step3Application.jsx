@@ -18,8 +18,7 @@ const { HEADER, DATA_PRIVACY, ACKNOWLEDGE, ACCEPT, REJECT, QUOTE } = constants;
 export const Step3Application = () => {
   const dispatch = useDispatch();
   const [selectedOption, setSelectedOption] = useState('');
-  const { setIsActive } = useContext(ModalContext) || {};
-
+  const { setIsActive } = useContext(ModalContext);
   //scroll to the top on step mount
   ScrollOnMount();
 
@@ -80,20 +79,20 @@ export const Step3Application = () => {
           </div>
           <div className={styles.btnContainer}>
             <Button
-              type={'plain'}
-              label={'Back'}
+              type="plain"
+              label="Back"
               effectAlt
               icon={BackArrow}
-              iconPosition={'back'}
+              iconPosition="back"
               onClick={() => dispatch(back())}
               className={styles.btn}
             />
             <Button
-              type={'secondary'}
-              label={'Continue'}
+              type="secondary"
+              label="Continue"
               effectAlt
               icon={RightArrow}
-              iconPosition={'front'}
+              iconPosition="front"
               disabled={selectedOption.length > 0 ? false : true}
               onClick={handleOnClick}
               className={styles.btn}

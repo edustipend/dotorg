@@ -1,21 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import styles from '../LaptopStipend/LaptopStipend.module.css';
+import { useLocation } from 'react-router-dom';
+import { constant, courseConstants, TestId } from '../../constants';
+import { reason, steps, benefits, futureHelp, setDisableTextbox } from '../../../../store/reducers/ApplicationReducer';
+import { isApplicationWindowClosed } from '../../../../utils';
 import ContentContainer from '../../../../components/ApplicationSteps/ContentContainer';
 import Button from '../../../../components/Button';
-import { TestId, courseConstants } from '../../constants';
-import { BackArrow, RightArrow } from '../../../../assets';
 import CategoryHeader from '../CategoryHeader';
 import QuestionAndAnswer from '../QuestionAndAnswer';
-import { isApplicationFilled } from '../checkStipendApplication';
 import Quote from '../../../../components/Quote';
-import { back, progress, reason, steps, benefits, futureHelp } from '../../../../store/reducers/ApplicationReducer';
+import Navigation from '../Navigation';
+import styles from '../LaptopStipend/LaptopStipend.module.css';
 const { TITLE, SUPPORT_TYPE, FOOT_NOTE1, FOOT_NOTE2, FOOT_NOTE3, FOOT_NOTE4, QUESTION1, QUESTION2, QUESTION3, QUESTION4, QUOTE } = courseConstants;
 
 export const CourseStipend = () => {
+  const { pathname } = useLocation();
+  const isDashboard = pathname.includes('/dashboard');
   const dispatch = useDispatch();
-  const { reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser } = useSelector((state) => state.application);
-  const isTrue = isApplicationFilled(reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser);
+  const { reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser, viewBtnLabel, currentApplication } = useSelector(
+    (state) => state.application
+  );
+  const isWindowClosed = isApplicationWindowClosed();
+
+  //check if each of the form values are at least > 4, enable the continue button if true
+  const [showUnderReview, setShowUnderReview] = useState(isWindowClosed);
+  const [showBtn, setShowBtn] = useState(isDashboard);
+
+  const handleEditApplication = () => {
+    setShowBtn((prev) => !prev);
+    const isWindowClosed = isApplicationWindowClosed();
+    isWindowClosed ? setShowUnderReview(true) : dispatch(setDisableTextbox(false));
+  };
 
   return (
     <div className={styles.stipend} data-testid={TestId.COURSE_STIPEND}>
@@ -23,7 +38,18 @@ export const CourseStipend = () => {
         <section className={styles.main}>
           <CategoryHeader header={TITLE} category={TITLE} support={SUPPORT_TYPE} />
           <QuestionAndAnswer value={reasonForRequest} dispatchType={reason} number={1} question={QUESTION1} />
-
+          {showUnderReview && (
+            <div className={styles.review}>
+              <p className={styles.cap}>{`${constant.UNDER_REVIEW_P1} ${currentApplication?.status || constant.UNDER_REVIEW_DEFAULT} ${
+                constant.UNDER_REVIEW_P2
+              }`}</p>
+            </div>
+          )}
+          {showBtn && !isWindowClosed && (
+            <div className={styles.btnContainer}>
+              <Button label={viewBtnLabel} type={'primary'} effectAlt onClick={handleEditApplication} />
+            </div>
+          )}
         </section>
         <p className={styles.footNote}>{FOOT_NOTE1}</p>
       </ContentContainer>
@@ -47,17 +73,7 @@ export const CourseStipend = () => {
           <QuestionAndAnswer value={futureHelpFromUser} dispatchType={futureHelp} number={4} question={QUESTION4} />
         </section>
         <p className={styles.footNote}>{FOOT_NOTE4}</p>
-        <div className={styles.buttonContainer}>
-          <Button label={'Back'} icon={BackArrow} iconPosition={'back'} type={'plain'} onClick={() => dispatch(back())} className={styles.button} />
-          <Button
-            disabled={isTrue ? false : true}
-            label={'Continue'}
-            icon={RightArrow}
-            type={'secondary'}
-            onClick={() => dispatch(progress())}
-            className={styles.button}
-          />
-        </div>
+        <Navigation />
       </ContentContainer>
       <div className={styles.quoteContainer}>
         <Quote content={QUOTE} className={styles.quote} />

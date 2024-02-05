@@ -16,16 +16,18 @@ import { postData } from '../../services/ApiClient';
 import { ModalContext } from '../../context/ModalContext';
 import { EmailExist } from '../EmailExist/EmailExist';
 import Modal from '../../components/Modal';
+import { Navigate } from 'react-router-dom';
 import { reset } from '../../store/reducers/ApplicationReducer';
+import { isApplicationWindowClosed } from '../../utils';
 
 export const StartApplication = () => {
   const [isLoading, setisLoading] = useState(false);
   const state = useSelector((state) => state.userDetails);
   const [showScrollIndicator, setShowScrollIndicator] = useState(true);
+  const { handleEmailExistModal } = useContext(ModalContext);
   const nav = useNavigate();
   const dispatch = useDispatch();
-
-  const { handleEmailExistModal } = useContext(ModalContext);
+  const isWindowClosed = isApplicationWindowClosed();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,7 +45,7 @@ export const StartApplication = () => {
   const isTrue = checkEmail(state.email);
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e?.preventDefault();
     dispatch(reset());
     setisLoading(true);
 
@@ -65,6 +67,11 @@ export const StartApplication = () => {
       setisLoading(false);
     }
   };
+
+  if (isWindowClosed) {
+    return <Navigate to="/" />;
+  }
+
   return (
     <>
       <div className={styles.container} data-testid={TestId.DATA_TEST}>

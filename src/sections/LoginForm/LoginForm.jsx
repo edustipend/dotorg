@@ -29,10 +29,11 @@ export const LoginForm = () => {
     } else {
       setDisable(true);
     }
+
   }, [email, password]);
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e?.preventDefault();
     setisLoading(true);
 
     try {
@@ -47,6 +48,7 @@ export const LoginForm = () => {
       if (res.success) {
         const token = res?.token.split(' ')[1];
         const decode = jwtDecode(token);
+
         Cookies.set('eduTk', token, {
           secure: true,
           sameSite: 'strict',
@@ -54,6 +56,7 @@ export const LoginForm = () => {
         });
         toast.success('Logged in successfully');
         dispatch(storeUser(decode));
+        
         setTimeout(() => {
           nav(0);
         }, 1000);
@@ -64,7 +67,6 @@ export const LoginForm = () => {
       setisLoading(false);
     }
   };
-
 
   return (
     <div className={styles.container} data-testid={TestId.LOGIN_FORM_TEST_ID}>

@@ -1,6 +1,7 @@
 export const constants = {
   dashboard: 'My Dashboard',
-  username: 'Chiehiura'
+  username: 'Chiehiura',
+  PROMPT: 'Check your email for a verification link as your account is unverified'
 };
 
 export const Quote = {
@@ -9,8 +10,9 @@ export const Quote = {
 };
 export const tab = ['Most recent application', 'My application history'];
 export const submitted = 'Here is what you submitted';
-export const tableHead = ['ID', 'Stipend Category', 'Application Status', 'Date of submission', 'Time of submission'];
+export const tableHead = ['ID', 'Stipend Category', 'Application Status', 'Date of submission', 'Time of submission', 'Action'];
 export const submissionTableHead = ['ID', 'Stipend Category', 'Application Status', 'Date of submission', 'Time of submission'];
+export const back = 'Back';
 
 export const recent = [
   {
@@ -36,5 +38,6 @@ export const TestId = {
   HOME: 'homeId',
   USER: 'userId',
   QUOTE: 'quoteId',
-  TABLE: 'tableId'
+  TABLE: 'tableId',
+  VERIFY_BANNER: 'verify-banner-test-id'
 };

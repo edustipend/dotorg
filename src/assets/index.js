@@ -32,6 +32,11 @@ import Flower from './flower.png';
 import Sad from './sad.svg';
 import Hand from './hand.png';
 import Eye from './eye.svg';
+import success from './success.png';
+import tears from './crying face.svg';
+import Eye_Icon from './view_eye.svg';
+import Edit_Icon from './edit_icon.svg';
+import Menu_Icon from './three_dots.svg';
 
 export {
   Hero1,
@@ -67,5 +72,10 @@ export {
   Flower,
   Sad,
   Hand,
-  Eye
+  Eye,
+  success,
+  tears,
+  Eye_Icon,
+  Edit_Icon,
+  Menu_Icon
 };

@@ -12,12 +12,12 @@
 
 .heading {
   font-weight: 600;
-  font-size: 20px;
+  font-size: 1.5rem;
 }
 
 .subtitle {
   font-weight: 400;
-  font-size: 14px;
+  font-size: 1.15rem;
   margin: 7px 0 15px;
   max-width: 571px;
   align-self: center;
@@ -80,6 +80,10 @@
   padding: 23px 0 15px;
 }
 
+.head {
+  margin-bottom: 0.8rem;
+}
+
 .button {
   width: 250px;
 }
@@ -114,11 +118,11 @@
   }
 
   .heading {
-    font-size: 36px;
+    font-size: 2.25rem;
   }
 
   .subtitle {
-    font-size: 15px;
+    font-size: 1.25rem;
   }
 
   .error {
