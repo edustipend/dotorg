@@ -35,6 +35,11 @@ import Eye from './eye.svg';
 import aisha from './aisha.svg';
 import quoteLeft from './quote-left.svg';
 import quoteRight from './quote-right.svg';
+import success from './success.png';
+import tears from './crying face.svg';
+import Eye_Icon from './view_eye.svg';
+import Edit_Icon from './edit_icon.svg';
+import Menu_Icon from './three_dots.svg';
 
 export {
   Hero1,
@@ -73,5 +78,10 @@ export {
   Eye,
   aisha,
   quoteLeft,
-  quoteRight
+  quoteRight,
+  success,
+  tears,
+  Eye_Icon,
+  Edit_Icon,
+  Menu_Icon
 };

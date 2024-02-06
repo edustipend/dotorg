@@ -10,6 +10,8 @@ import { logout } from '../../store/reducers/UserReducer';
 import { LOGOUT, authorizedPost } from '../../services/ApiClient';
 import toast from 'react-hot-toast';
 import Cookies from 'js-cookie';
+import NavbarDonateNow from './NavbarDonateNow';
+import NavbarLearner from './NavbarLearner';
 
 export const NavbarToShow = () => {
   const [isToggle, setIsToggle] = useState(false);
@@ -18,6 +20,8 @@ export const NavbarToShow = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const isAmbassador = pathname === '/ambassador-program';
+  const isSupportALearner = pathname === '/support-a-learner';
+  const isDonateNow = pathname === '/support-a-learner/donate';
   const isRequestStipend = pathname === '/application';
   const isLogin = pathname === '/login';
   const isDonation = pathname === '/donation';
@@ -50,12 +54,19 @@ export const NavbarToShow = () => {
     <>
       {isAmbassador ? (
         <NavbarAmbassadorNavs showMenu={isToggle} closeMenu={setIsToggle} />
+      ) : isSupportALearner ? (
+        <NavbarLearner showMenu={isToggle} closeMenu={setIsToggle} />
+      ) : isDonateNow ? (
+        <NavbarDonateNow showMenu={isToggle} closeMenu={setIsToggle} />
       ) : (
         <NavbarNavs showMenu={isToggle} closeMenu={setIsToggle} />
       )}
-      <div className="menu-icon" onClick={() => setIsToggle(!isToggle)}>
-        <img src={isToggle ? Close : Menu} alt="menu-close" />
-      </div>
+
+      {isDonateNow ? null : (
+        <div className="menu-icon" onClick={() => setIsToggle(!isToggle)}>
+          <img src={isToggle ? Close : Menu} alt="menu-close" />
+        </div>
+      )}
     </>
   ) : isDashboard ? (
     <div className="user-profile">

@@ -9,7 +9,7 @@ import Select from '../../../../components/Select';
 import { postData } from '../../../../services/ApiClient';
 import { ModalContext } from '../../../../context/ModalContext';
 import { howdidyouhear } from '../../../../store/reducers/UserDetailsReducer/UserDetailsReducer';
-const { EMAIL, HEADING, FULLNAME, REASON, SUBTITLE, SUCCESS, WAITLIST_SUCCESS } = formConstants;
+const { EMAIL, HEADING, FULLNAME, REASON, SUBTITLE, SUCCESS, WAITLIST_SUCCESS, INFO_SUCCESS } = formConstants;
 
 const REGEXP_EMAIL =
   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -26,6 +26,9 @@ const SuccessDisplay = () => {
         <p className={styles.heading}>{SUCCESS}</p>
       </div>
       <p className={styles.subtitle}>{WAITLIST_SUCCESS}</p>
+      <p className={styles.subtitle}>
+        <b>{INFO_SUCCESS}</b>
+      </p>
     </div>
   );
 };
@@ -57,12 +60,11 @@ export const NotifyForm = () => {
     e?.preventDefault();
     setErrorMessage('');
     setIsLoading(true);
-    const res = await postData('waitlist/join-waitlist', {
+    const res = await postData('waitlist/join', {
       name: userData.name,
       email: userData.email,
-      howDidYouHearAboutUs: howDidYouHear
+      howDidYouHearAboutUs: howDidYouHear?.toLowerCase()
     });
-    console.log(res);
     if (res.success) {
       setNotificationSuccess(true);
       setIsLoading(false);

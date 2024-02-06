@@ -1,50 +1,190 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import toast from 'react-hot-toast';
 import styles from './Home.module.css';
-import { Quote, TestId, constants, submissionTableHead, submitted, tableHead } from './internals/constants';
 import hand from '../../../assets/waving hand.png';
+import { Quote, TestId, back, constants, submissionTableHead, submitted, tableHead } from './internals/constants';
 import { tab } from './internals/constants';
 import Button from '../../../components/Button';
 import Table from '../../../components/Table';
-import { APPLICATION_HISTORY, authorizedPost } from '../../../services/ApiClient';
-import { useSelector } from 'react-redux';
 import ActionBanner from '../../../components/ActionBanner';
 import { PageCopy } from './constants';
 import useResendVerification from '../../../hooks/useResendVerification';
-const { dashboard } = constants;
+import { setHasApplied, setNewApplication } from '../../../store/reducers/ApplicationReducer';
+import { isApplicationWindowClosed } from '../../../utils';
+import CheckPreviousApplication from '../../../utils/CheckPreviousApplication';
+import { APPLICATION_HISTORY, EDIT_APPLICATION, ONE_CLICK_APPLY, authorizedPost } from '../../../services/ApiClient';
+import { Step2Application } from '../../../components/ApplicationSteps/Step2Application/Step2Application';
+import {
+  benefits,
+  category,
+  futureHelp,
+  reason,
+  reset,
+  setApplicationId,
+  setDisableTextbox,
+  steps
+} from '../../../store/reducers/ApplicationReducer';
+import { hasCurrentApplication } from '../../../utils/hasCurrentApplication';
+import { toastNotifications } from '../../../components/ApplicationSteps/Step5Application/Internals/constants';
+import { ModalContext } from '../../../context/ModalContext';
+import { UseModal } from '../../../components/Modal/UseModal';
+import NewApplication from '../../../components/ApplicationSteps/Step5Application/Internals/NewApplication';
+const { ONE_CLICK, ERROR } = toastNotifications;
 
 export const Home = () => {
   const [currentTable, setCurrentTable] = useState(0);
   const [applicationTable, setApplicationTable] = useState(true);
   const [loading, setLoading] = useState(false);
+  const [isApplied, setIsApplied] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [singleEntry, setSingleEntry] = useState([]);
   const [data, setData] = useState([]);
+  const [message, setMessage] = useState('');
+  const [prompt, setPrompt] = useState('');
   const { name, userId, isVerified } = useSelector((state) => state.user);
+  const {
+    stipendCategory,
+    reasonForRequest,
+    stepsTakenToEaseProblem,
+    potentialBenefits,
+    futureHelpFromUser,
+    applicationId,
+    viewBtnLabel,
+    disableOneClickCTA
+  } = useSelector((state) => state.application);
+  const { newApplicationModal, handleNewApplicationModal } = useContext(ModalContext);
   const { handleResendVerification, isLoading } = useResendVerification();
   const [first] = name.split(' ');
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const isWindowClosed = isApplicationWindowClosed();
+  const Category = stipendCategory.split('/')[0].toLowerCase();
+  const { dashboard } = constants;
+  const applicationInfo = {
+    userId,
+    stipendCategory: Category,
+    reasonForRequest: reasonForRequest,
+    stepsTakenToEaseProblem: stepsTakenToEaseProblem,
+    potentialBenefits: potentialBenefits,
+    futureHelpFromUser: futureHelpFromUser
+  };
+  const getUserData = useCallback(async () => {
+    setLoading(true);
+    try {
+      const response = await authorizedPost(APPLICATION_HISTORY, {
+        userId
+      });
+      if (response.success) {
+        const sortedData = response?.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        setData(sortedData);
+        setIsApplied(hasCurrentApplication(sortedData));
+        dispatch(setHasApplied(hasCurrentApplication(sortedData)));
+      }
+    } catch (error) {
+      toast.error(error.message);
+    } finally {
+      setLoading(false);
+    }
+  }, [dispatch, userId]);
 
   const handleOneClick = (id) => {
+    console.log(isApplied);
     setApplicationTable(!applicationTable);
-    setSingleEntry(data?.filter((entry) => entry._id === id));
+    const filteredData = data.filter((entry) => entry._id === id);
+    setSingleEntry(filteredData);
+
+    const { _id, stipendCategory, reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser } = filteredData[0];
+    const categoryData =
+      stipendCategory === 'laptop'
+        ? 'Laptop/Learning Device'
+        : stipendCategory === 'course'
+        ? 'Course/Certification Fees'
+        : stipendCategory === 'data'
+        ? 'Data/Internet Subscription'
+        : 'Laptop/Learning Device';
+    dispatch(setApplicationId(_id));
+    dispatch(category(categoryData));
+    dispatch(reason(reasonForRequest));
+    dispatch(steps(stepsTakenToEaseProblem));
+    dispatch(benefits(potentialBenefits));
+    dispatch(futureHelp(futureHelpFromUser));
+
+    setApplicationTable(!applicationTable);
+  };
+
+  const handleSubmitOneClick = async () => {
+    let timeout = 0;
+    if (!isVerified) {
+      timeout = 650;
+      toast.error(ONE_CLICK.error, {
+        duration: 600
+      });
+    }
+
+    setTimeout(() => {
+      setIsSubmitting(true);
+      toast.loading(ONE_CLICK.loading, { id: ONE_CLICK.id });
+    }, timeout);
+
+    const payload =
+      viewBtnLabel === 'Reuse Application'
+        ? { ...applicationInfo, parentApplication: applicationId }
+        : { ...applicationInfo, applicationId: applicationId };
+
+    const ROUTE = viewBtnLabel === 'Reuse Application' ? ONE_CLICK_APPLY : EDIT_APPLICATION;
+
+    try {
+      const res = await authorizedPost(ROUTE, payload);
+      if (res.success) {
+        setIsSuccess(res?.success);
+        setMessage(res?.message || ONE_CLICK.message);
+        if (!isVerified) {
+          handleResendVerification();
+          setPrompt(constants.PROMPT);
+        }
+      } else {
+        setIsSuccess(false);
+        setMessage(res?.message || ERROR.message);
+      }
+    } catch (error) {
+      setIsSuccess(false);
+      setMessage(error.message || ERROR.message);
+    } finally {
+      getUserData();
+      toast.dismiss(ONE_CLICK.id);
+      setIsSubmitting(false);
+      dispatch(reset());
+      handleNewApplicationModal();
+      setApplicationTable(!applicationTable);
+    }
+  };
+
+  const handleNewApplication = () => {
+    dispatch(reset());
+    dispatch(setNewApplication(true));
+    navigate('/application');
+  };
+
+  /**
+   * This function enables the new application button if the
+   * application window is open and the user has not applied for the month.
+   * @returns true || false
+   */
+  const handleEnableButton = () => {
+    if (data) {
+      const hasApplied = CheckPreviousApplication(data?.[0]);
+      return !hasApplied && !isWindowClosed;
+    }
   };
 
   useEffect(() => {
-    const getUserData = async () => {
-      setLoading(true);
-      try {
-        const response = await authorizedPost(APPLICATION_HISTORY, {
-          userId
-        });
-        if (response.success) {
-          setData(response.data);
-        }
-      } catch (error) {
-        console.log(error);
-      } finally {
-        setLoading(false);
-      }
-    };
     getUserData();
-  }, [userId]);
+    dispatch(reset());
+    dispatch(setDisableTextbox(true));
+  }, [getUserData, dispatch]);
 
   return (
     <div className={styles.Main} data-testid={TestId.HOME}>
@@ -95,12 +235,16 @@ export const Home = () => {
             })}
           </div>
           {loading ? (
-            <p>Loading...</p>
+            <div>
+              <div className={styles.skeleton} />
+              <div className={styles.skeleton} />
+              <div className={styles.skeleton} />
+            </div>
           ) : (
             (() => {
               switch (currentTable) {
                 case 0:
-                  return <Table entries={data} tableHead={tableHead} oneClickApply={handleOneClick} />;
+                  return <Table entries={data?.slice(0, 1)} tableHead={tableHead} oneClickApply={handleOneClick} />;
                 case 1:
                   return <Table entries={data} tableHead={tableHead} oneClickApply={handleOneClick} />;
                 default:
@@ -111,16 +255,48 @@ export const Home = () => {
         </section>
       )}
       {!applicationTable && (
-        <section className={styles.table}>
-          <div className={styles.tabs}>
-            <button className={styles.tab}>{submitted}</button>
+        <>
+          <section className={styles.table}>
+            <div className={styles.tabs}>
+              <button className={styles.tab}>{submitted}</button>
+              <button className={`${styles.tab} ${styles.tabAlt}`} onClick={() => setApplicationTable((prev) => !prev)}>
+                {back}
+              </button>
+            </div>
+            <Table entries={singleEntry} tableHead={submissionTableHead} />
+            <Step2Application />
+          </section>
+          <div className={styles.btnContainer}>
+            <Button
+              disabled={disableOneClickCTA}
+              label={viewBtnLabel}
+              type="secondary"
+              effectAlt
+              isLoading={isSubmitting}
+              loaderSize={'small'}
+              loaderVariant={'neutral'}
+              onClick={handleSubmitOneClick}
+            />
           </div>
-          <Table entries={singleEntry} tableHead={submissionTableHead} />
-        </section>
+        </>
       )}
-      <div className={styles.buttonContainer}>
-        <Button disabled={true} label="New Stipend Application" type="secondary" effectAlt />
-      </div>
+      {applicationTable > 0 && (
+        <div className={styles.buttonContainer}>
+          <Button
+            disabled={!handleEnableButton()}
+            isLoading={isLoading}
+            loaderSize="small"
+            loaderVariant="neutral"
+            onClick={handleNewApplication}
+            label="New Stipend Application"
+            type="secondary"
+            effectAlt
+          />
+        </div>
+      )}
+      <UseModal isActive={newApplicationModal}>
+        <NewApplication isSuccess={isSuccess} message={message} prompt={prompt} />
+      </UseModal>
     </div>
   );
 };
