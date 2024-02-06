@@ -15,8 +15,8 @@ import { routesConstant } from './routesConstant';
 import Login from './pages/login';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import ProtecteAuthRoute from './components/ProtectedRoute/ProtectAuthRoute';
-import { DonateNow } from './pages/donate-now/DonateNow';
 import SupportALearner from './pages/support-a-learner';
+import DonateNow from './pages/donate-now';
 const {
   AMBASSADOR_PROGRAM,
   REQUEST,

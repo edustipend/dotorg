@@ -5,5 +5,7 @@ export const constants = {
   title: 'Make a Donation',
   subtitle: 'Every donation, no matter how big or small makes a significant impact to our course.',
   anonymous: "Donate as anonymous",
-  quote:`To live without hope is to cease to live. – Fyodor Dostoyevsky`
+  quote: `To live without hope is to cease to live. – Fyodor Dostoyevsky`,
+  tooltip_title: "Why do we need this?",
+  tooltip_subtitle:"Your phone number is used to verify the transaction for legitimacy and also"
 };

@@ -40,6 +40,15 @@ import tears from './crying face.svg';
 import Eye_Icon from './view_eye.svg';
 import Edit_Icon from './edit_icon.svg';
 import Menu_Icon from './three_dots.svg';
+import info from './info.svg';
+import infoArrow from './info-arrow.svg';
+import share from "./share.svg"
+import failed_tran from './failed_tran.svg';
+import insta_share from './insta_share.svg';
+import linkedIn_share from './linkedIn_share.svg';
+import facebook_share from './facebook_share.svg';
+import twitter_share from './twitter_share.svg';
+import close from './closeIcn.svg';
 
 export {
   Hero1,
@@ -83,5 +92,14 @@ export {
   tears,
   Eye_Icon,
   Edit_Icon,
-  Menu_Icon
+  Menu_Icon,
+  info,
+  infoArrow,
+  share,
+  failed_tran,
+  insta_share,
+  linkedIn_share,
+  facebook_share,
+  twitter_share,
+  close
 };

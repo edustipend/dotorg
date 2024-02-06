@@ -1,14 +1,43 @@
-import React, { useState } from 'react';
-import styles from './DonateNow.module.css'
-import { aisha, quoteLeft, quoteRight } from '../../assets';
+import React, { useContext, useState } from 'react';
+import styles from './DonateNow.module.css';
+import { aisha, info, infoArrow, quoteLeft, quoteRight } from '../../assets';
 import { constants } from './constants';
 import Input from '../../components/Input';
 import Header from '../../components/Header';
 import Text from '../../components/Text';
 import Button from '../../components/Button';
+import { UseModal } from '../../components/Modal/UseModal';
+import RedirectModal from './internals/redirectModal';
+import TransactionModal from './internals/transactionModal';
+import { ModalContext } from '../../context/ModalContext';
 
 export const DonateNow = () => {
   const [toggle, setToggle] = useState(false);
+  const [focus, setFocus] = useState(false);
+  const [title, setTitle] = useState('Transaction Unsuccessful');
+  const [message, setMessage] = useState('Your donation could not be completed at this time. Try again or use a different payment method');
+  const { redirectModal, handleRedirectModal, transactionModal, handleTransactionModal } = useContext(ModalContext);
+  console.log(handleRedirectModal, handleTransactionModal, setMessage, setTitle);
+
+  const handleFocus = () => {
+    setFocus(true);
+  };
+
+  const handleBlur = () => {
+    setFocus(false);
+  };
+
+  const phoneInfo = (
+    <div className={styles.phoneInfo} onFocus={handleFocus} onBlur={handleBlur} tabIndex="0">
+      <img src={info} alt="info" className={styles.img} />
+      <div className={`${styles.info} ${focus && styles.infoFocus}`}>
+        <p className={styles.titleInfo}>{constants.tooltip_title}</p>
+        <p className={styles.subtitleInfo}>{constants.tooltip_subtitle}</p>
+        <img src={infoArrow} alt="infoArrow" className={styles.infoArrow} />
+      </div>
+    </div>
+  );
+
   return (
     <div className={styles.background}>
       <main className={styles.main}>
@@ -50,7 +79,7 @@ export const DonateNow = () => {
                 </div>
                 <Input type="email" label="Email Address" placeholder="Enter Email Address" required={false} />
                 {toggle && <Input required={false} label="Company Name (if applicable)" placeholder="Enter company name" />}
-                <Input required={false} type="number" label="Phone Number" placeholder="Enter Phone number" />
+                <Input required={false} element={phoneInfo} type="number" label="Phone Number" placeholder="Enter Phone number" />
                 <Input required={false} type="number" label="Amount" placeholder="NGN" />
               </div>
               <div className={styles.btnContainer}>
@@ -61,6 +90,12 @@ export const DonateNow = () => {
           </section>
         </div>
       </main>
+      <UseModal isActive={redirectModal}>
+        <RedirectModal />
+      </UseModal>
+      <UseModal isActive={transactionModal || true}>
+        <TransactionModal title={title} message={message} error={false}/>
+      </UseModal>
     </div>
   );
 };
