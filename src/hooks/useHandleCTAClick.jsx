@@ -15,20 +15,20 @@ export const ButtonLabelCopy = {
 
 const useHandleCTAClick = () => {
   const { handleNotifyModal } = useContext(ModalContext);
-  const { isAuthenticated } = useSelector((state) => state.user);
+  const { isAuthenticated, userId } = useSelector((state) => state.user);
   const nav = useNavigate();
   const isWindowClosed = isApplicationWindowClosed();
 
   const buttonLabel = isWindowClosed
     ? ButtonLabelCopy.NOTIFY_ME
-    : isAuthenticated
+    : isAuthenticated || userId
     ? ButtonLabelCopy.GO_TO_DASHBOARD
     : ButtonLabelCopy.REQUEST_STIPEND;
 
   const handleCTAClick = () => {
     if (isWindowClosed) {
       handleNotifyModal();
-    } else if (isAuthenticated) {
+    } else if (isAuthenticated || userId) {
       nav(DASHBOARD_ROUTE);
     } else {
       nav(REQUEST_STIPEND_ROUTE);
