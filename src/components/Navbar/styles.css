@@ -193,6 +193,10 @@ a {
   display: none;
 }
 
+.hiddenLogin {
+  display: none;
+}
+
 @media only screen and (max-width: 1300px) {
   .navbar {
     padding: 20px;
