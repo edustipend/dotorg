@@ -24,6 +24,7 @@ const useHandleCTAClick = () => {
     : isAuthenticated
     ? ButtonLabelCopy.GO_TO_DASHBOARD
     : ButtonLabelCopy.REQUEST_STIPEND;
+    
 
   const handleCTAClick = () => {
     if (isWindowClosed) {
