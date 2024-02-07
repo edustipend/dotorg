@@ -16,7 +16,7 @@ const NavbarNavs = ({ showMenu, closeMenu }) => {
       <nav className="navbarNavs" data-testid={NAVBAR_LINKS_ID}>
         <div className="navContent">
           {NAVBAR_LINKS.map((link) => (
-            <HashLink key={link.label} to={{ pathname: link.to, hash: link.hash }} className={userId && link.label === 'Login' ? 'hiddenLogin' : ''}>
+            <HashLink key={link.label} to={{ pathname: link.to, hash: link.hash }} className={userId && link.label === 'Login' ? 'hide' : ''}>
               {link.label}
             </HashLink>
           ))}
@@ -34,7 +34,7 @@ const NavbarNavs = ({ showMenu, closeMenu }) => {
                 key={link.label}
                 to={{ pathname: link.to, hash: link.hash }}
                 onClick={() => closeMenu(!showMenu)}
-                className={userId && link.label === 'Login' ? 'hiddenLogin' : ''}>
+                className={userId && link.label === 'Login' ? 'hide' : ''}>
                 {link.label}
               </HashLink>
             ))}
