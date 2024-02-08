@@ -7,5 +7,9 @@ export const constants = {
   anonymous: "Donate as anonymous",
   quote: `To live without hope is to cease to live. – Fyodor Dostoyevsky`,
   tooltip_title: "Why do we need this?",
-  tooltip_subtitle:"Your phone number is used to verify the transaction for legitimacy and also"
+  tooltip_subtitle: "Your phone number is used to verify the transaction for legitimacy and also",
+  donation_success_header: "Your donation was successful",
+  donation_success: "Thank you for choosing to donate to Edustipend. By donating, you are making a significant difference in learners’ lives, empowering them with the tools they need to thrive in their learning journey.",
+  donation_failed_header: "Transaction Unsuccessful",
+  donation_failed: "Your donation could not be completed at this time. Try again or use a different card."
 };

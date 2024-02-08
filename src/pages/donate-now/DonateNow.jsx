@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import styles from './DonateNow.module.css';
 import { aisha, info, infoArrow, quoteLeft, quoteRight } from '../../assets';
 import { constants } from './constants';
@@ -12,12 +13,15 @@ import TransactionModal from './internals/transactionModal';
 import { ModalContext } from '../../context/ModalContext';
 
 export const DonateNow = () => {
+  const location = useLocation();
+  const { value } = location.state || { value: 1000 };
+  const [amount, setAmount] = useState(value);
   const [toggle, setToggle] = useState(false);
   const [focus, setFocus] = useState(false);
-  const [title, setTitle] = useState('Transaction Unsuccessful');
-  const [message, setMessage] = useState('Your donation could not be completed at this time. Try again or use a different payment method');
+  const [title, setTitle] = useState('');
+  const [message, setMessage] = useState('');
   const { redirectModal, handleRedirectModal, transactionModal, handleTransactionModal } = useContext(ModalContext);
-  console.log(handleRedirectModal, handleTransactionModal, setMessage, setTitle);
+  console.log(handleRedirectModal);
 
   const handleFocus = () => {
     setFocus(true);
@@ -37,6 +41,12 @@ export const DonateNow = () => {
       </div>
     </div>
   );
+
+  const handleDonation = () => {
+    handleTransactionModal();
+    setTitle(constants.donation_success_header);
+    setMessage(constants.donation_success);
+  };
 
   return (
     <div className={styles.background}>
@@ -80,10 +90,19 @@ export const DonateNow = () => {
                 <Input type="email" label="Email Address" placeholder="Enter Email Address" required={false} />
                 {toggle && <Input required={false} label="Company Name (if applicable)" placeholder="Enter company name" />}
                 <Input required={false} element={phoneInfo} type="number" label="Phone Number" placeholder="Enter Phone number" />
-                <Input required={false} type="number" label="Amount" placeholder="NGN" />
+                <Input
+                  value={amount}
+                  required={false}
+                  type="number"
+                  label="Amount"
+                  placeholder="NGN"
+                  onChange={(e) => setAmount(e.target.value)}
+                  min={0}
+                  max={1000000}
+                />
               </div>
               <div className={styles.btnContainer}>
-                <Button label={`${'Donate'}`} type="secondary" effectClass={styles.effect} className={styles.btn} />
+                <Button label={`${'Donate'}`} onClick={handleDonation} type="secondary" effectClass={styles.effect} className={styles.btn} />
               </div>
             </section>
             <p className={styles.footnote}>{constants.quote}</p>
@@ -93,8 +112,8 @@ export const DonateNow = () => {
       <UseModal isActive={redirectModal}>
         <RedirectModal />
       </UseModal>
-      <UseModal isActive={transactionModal || true}>
-        <TransactionModal title={title} message={message} error={false}/>
+      <UseModal isActive={transactionModal}>
+        <TransactionModal title={title} message={message} error={false} />
       </UseModal>
     </div>
   );

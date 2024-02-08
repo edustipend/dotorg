@@ -4,10 +4,12 @@ import Container from '../../../components/Container';
 import styles from './DonationRange.module.css';
 import { constants } from './constants';
 import Button from '../../../components/Button';
+import { useNavigate } from 'react-router-dom';
 
 export const DonationRange = () => {
   const [value, setValue] = useState(1000);
   const [step, setStep] = useState(4000);
+  const nav = useNavigate();
 
   const handleChange = (event) => {
     setValue(parseInt(event.target.value));
@@ -34,6 +36,10 @@ export const DonationRange = () => {
   useEffect(() => {
     calculateStep(value);
   }, [calculateStep, value]);
+
+  const handleNavigate = () => {
+    nav('/support-a-learner/donate', { state: { value } });
+  };
 
   return (
     <main className={styles.main}>
@@ -68,7 +74,7 @@ export const DonationRange = () => {
                 </div>
               </div>
               <div className={styles.btnContainer}>
-                <Button label={`Donate ₦${fonmatCurrency}`} type="secondary" className={styles.btn} />
+                <Button label={`Donate ₦${fonmatCurrency}`} type="secondary" onClick={handleNavigate} className={styles.btn} />
               </div>
             </div>
           </div>
