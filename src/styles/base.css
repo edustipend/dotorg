@@ -1,6 +1,6 @@
 :root {
-  --font-family-manrope: 'Manrope';
-  --font-family-poppins: 'Poppins';
+  --font-family-manrope: 'Manrope', sans-serif;
+  --font-family-poppins: "Poppins", sans-serif;
 }
 
 .bullet {
