@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import styles from './TransactionModal.module.scss';
+import styles from './TransactionModal.module.css';
 import { failed_tran, success, share, close } from '../../../../assets';
 import Button from '../../../../components/Button';
 import { constants } from './constants';

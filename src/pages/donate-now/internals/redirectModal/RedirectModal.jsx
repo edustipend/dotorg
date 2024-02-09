@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './RedirectModal.module.scss';
+import styles from './RedirectModal.module.css';
 import Loader from '../../../../components/Loader';
 
 export const RedirectModal = () => {
