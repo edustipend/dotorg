@@ -134,6 +134,7 @@
   align-items: center;
   padding-inline: 1rem;
   background: #000000e5;
+  margin-top: -80px;
 }
 
 .modal_modal::-webkit-scrollbar {

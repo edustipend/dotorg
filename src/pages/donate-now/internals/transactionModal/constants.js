@@ -25,5 +25,6 @@ export const constants = {
         },
     ],
     mediaText: "Hey! I just donated to Edustipend, supporting education for all. 📚💙 Join me in making a difference! Click the link to donate. 🌟 #Edustipend",
-    mediaLink: " www.edustipend.org/support-a-learner"
+    mediaLink: " www.edustipend.org/support-a-learner",
+    sharedContent: "Hey! I just donated to Edustipend, supporting education for all. 📚💙 Join me in making a difference! Click the link to donate. 🌟 #Edustipend https://www.edustipend.org/support-a-learner"
 }

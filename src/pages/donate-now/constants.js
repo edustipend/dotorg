@@ -13,3 +13,14 @@ export const constants = {
   donation_failed_header: "Transaction Unsuccessful",
   donation_failed: "Your donation could not be completed at this time. Try again or use a different card."
 };
+
+export const TestId = {
+  AMOUNT_ID: "donation_amount",
+  COMPONENT_ID: "donate_now_id",
+  CONTENT_ID: "content_id",
+  IMAGE_ID: "donate_now_image_id",
+  HEADER_ID: "donate_now_header",
+  TEXT_ID: "donate_now_text",
+  FORM_ID: "donate_now_form_id",
+  BUTTON_ID: "donate_button_id",
+}
