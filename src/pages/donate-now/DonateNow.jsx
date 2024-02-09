@@ -28,8 +28,7 @@ export const DonateNow = () => {
   const [title, setTitle] = useState('');
   const [message, setMessage] = useState('');
   const [userData, setUserData] = useState(initial);
-  const { redirectModal, handleRedirectModal, transactionModal, handleTransactionModal } = useContext(ModalContext) || {};
-  console.log(handleRedirectModal);
+  const { redirectModal, transactionModal, handleTransactionModal } = useContext(ModalContext) || {};
   const formattedNumber = formatNumber(amount);
   const handleFocus = () => {
     setFocus(true);
@@ -100,7 +99,7 @@ export const DonateNow = () => {
                     onChange={(e) => {
                       setUserData((prev) => ({ ...prev, fullname: e.target.value }));
                     }}
-                    className={toggle && `${styles.fullname}`}
+                    className={toggle ? `${styles.fullname}` : ''}
                   />
                   <div className={styles.toggleContainer}>
                     <p className={styles.anon}>{constants.anonymous}</p>
@@ -131,7 +130,7 @@ export const DonateNow = () => {
                   />
                 )}
                 <Input
-                  value={userData.phone}
+                  value={userData.phone.toString()}
                   onChange={(e) => {
                     setUserData((prev) => ({ ...prev, phone: e.target.value }));
                   }}
@@ -143,7 +142,7 @@ export const DonateNow = () => {
                 />
                 <Input
                   data-testid={TestId.AMOUNT_ID}
-                  value={amount}
+                  value={amount.toString()}
                   required={false}
                   type="number"
                   label="Amount"
@@ -170,7 +169,7 @@ export const DonateNow = () => {
         <RedirectModal />
       </UseModal>
       <UseModal isActive={transactionModal}>
-        <TransactionModal title={title} message={message}  handleTransactionModal={handleTransactionModal} />
+        <TransactionModal title={title} message={message} handleTransactionModal={handleTransactionModal} />
       </UseModal>
     </div>
   );
