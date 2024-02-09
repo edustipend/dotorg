@@ -8,14 +8,14 @@ export const subText =
 export const numbers = [
   {
     label: 'Beneficiaries',
-    value: 100
+    value: 5000
   },
   {
     label: 'Disbursed',
-    value: '238,700'
+    value: 15238700
   },
   {
-    label: 'Status Reached',
+    label: 'States Reached',
     value: 30
   },
   {

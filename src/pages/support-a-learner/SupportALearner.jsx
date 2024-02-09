@@ -3,8 +3,8 @@ import OurImpacts from '../../sections/SupportALearner/OurImpacts';
 
 export const SupportALearner = () => {
   return (
-    <div className={styles.supportalearnercontainer}>
+    <main className={styles.supportalearnercontainer}>
       <OurImpacts />
-    </div>
+    </main>
   );
 };
