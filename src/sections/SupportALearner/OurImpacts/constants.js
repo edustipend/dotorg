@@ -25,6 +25,22 @@ export const numbers = [
 ];
 
 export const btnLabels = {
-  view: 'View our impact',
-  support: 'Support a Learner'
+  view: {
+    label: 'View our impact',
+    path: '/impacts',
+    type: 'plain'
+  },
+  support: {
+    label: 'Support a Learner',
+    path: '/support-a-learner/donate',
+    type: 'secondary'
+  }
+};
+
+export const TestId = {
+  WRAPPER: 'wrapper-el',
+  HEAD_TEXT: 'head_text-el',
+  IMAGE: 'image-el',
+  DESCRIPTION: 'desc-el',
+  SUB_TEXT: 'sub_text-el'
 };

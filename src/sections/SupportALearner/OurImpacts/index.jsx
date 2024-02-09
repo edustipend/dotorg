@@ -1,3 +1,3 @@
-import OurImpacts from './OurImpacts';
+import { OurImpacts } from './OurImpacts';
 
 export default OurImpacts;

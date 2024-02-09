@@ -4,11 +4,11 @@ import { Our_Impact } from '../../../assets';
 import Button from '../../../components/Button';
 import Container from '../../../components/Container';
 import styles from './OurImpacts.module.css';
-import { btnLabels, description, headText, numbers, subText } from './constants';
+import { TestId, btnLabels, description, headText, numbers, subText } from './constants';
 import { Link } from 'react-router-dom';
 import { AnimatedNumber } from './AnimatedNumber';
 
-const OurImpacts = () => {
+export const OurImpacts = () => {
   const [animatedNumbers, setAnimatedNumbers] = useState(false);
   const sectionRef = useRef(null);
 
@@ -43,16 +43,16 @@ const OurImpacts = () => {
   }, [animatedNumbers]);
 
   return (
-    <main className={styles.wrapper}>
+    <main className={styles.wrapper} data-testid={TestId.WRAPPER}>
       <Container>
         <div className={styles.headerContainer}>
-          <h1>{headText}</h1>
+          <h1 data-testid={TestId.HEAD_TEXT}>{headText}</h1>
         </div>
-        <img src={Our_Impact} alt="our impact" className={styles.image} />
+        <img src={Our_Impact} alt="our impact" className={styles.image} data-testid={TestId.IMAGE} />
         <div className={styles.contentWrapper} ref={sectionRef}>
           <div className={styles.description}>
-            <h1>{description}</h1>
-            <p>{subText}</p>
+            <h1 data-testid={TestId.DESCRIPTION}>{description}</h1>
+            <p data-testid={TestId.SUB_TEXT}>{subText}</p>
           </div>
           <div className={styles.numbers}>
             <div className={styles.left}>
@@ -73,7 +73,8 @@ const OurImpacts = () => {
                   ) : (
                     new Intl.NumberFormat('en-NG', {
                       style: 'currency',
-                      currency: 'NGN'
+                      currency: 'NGN',
+                      maximumFractionDigits: 0
                     }).format(numbers[1].value)
                   )}
                 </h2>
@@ -96,16 +97,14 @@ const OurImpacts = () => {
           </div>
         </div>
         <div className={styles.btnContainer}>
-          <Link to="/impact">
-            <Button label={btnLabels.view} type="plain" className={styles.viewBtn} />
+          <Link to={btnLabels.view.path} data-testid={TestId.VIEW_OUR_IMPACT}>
+            <Button label={btnLabels.view.label} type={btnLabels.view.type} className={styles.viewBtn} />
           </Link>
-          <Link to="support-a-learner/donate">
-            <Button label={btnLabels.support} type="secondary" />
+          <Link to={btnLabels.support.path}>
+            <Button label={btnLabels.support.label} type={btnLabels.support.type} />
           </Link>
         </div>
       </Container>
     </main>
   );
 };
-
-export default OurImpacts;
