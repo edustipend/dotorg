@@ -1,6 +1,10 @@
-import React from 'react';
 import styles from './SupportALearner.module.css';
+import HowWeSelect from '../../sections/SupportALearner/HowWeSelect';
 
 export const SupportALearner = () => {
-  return <div className={styles.supportalearnercontainer}>Support A Learner</div>;
+  return (
+    <main className={styles.supportalearnercontainer}>
+      <HowWeSelect />
+    </main>
+  );
 };
