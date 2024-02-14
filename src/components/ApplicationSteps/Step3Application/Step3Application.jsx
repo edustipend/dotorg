@@ -5,7 +5,7 @@ import Header from '../../Header';
 import handShake from '../../../assets/handShake.svg';
 import Modal from '../../Modal';
 import Consent from './Internals/Consent';
-import { constants } from './Internals/constants';
+import { TestId, constants } from './Internals/constants';
 import Button from '../../Button';
 import { BackArrow, RightArrow } from '../../../assets';
 import Quote from '../../Quote';
@@ -23,7 +23,7 @@ export const Step3Application = () => {
   ScrollOnMount();
 
   const handleChange = (event) => {
-    setSelectedOption(event.target.value);
+    setSelectedOption(event?.target?.value);
   };
 
   //popup a prompt if the learner rejects else progress with the application
@@ -37,22 +37,42 @@ export const Step3Application = () => {
 
   return (
     <>
-      <ContentContainer>
+      <ContentContainer dataTest={TestId.COMPONENT_TEST_ID}>
         <section className={styles.dataConsent}>
           <div className={styles.headerSection}>
-            <Header className={styles.header}>{HEADER}</Header>
-            <img src={handShake} alt="handShake" className={styles.handShake} />
+            <Header dataTest={TestId.HEADER_ID} className={styles.header}>
+              {HEADER}
+            </Header>
+            <img data-testid={TestId.IMG_ID} src={handShake} alt="handShake" className={styles.handShake} />
           </div>
-          <p className={styles.text}>{DATA_PRIVACY}</p>
+          <p data-testid={TestId.DATA_PRIVACY_ID} className={styles.text}>
+            {DATA_PRIVACY}
+          </p>
           <div className={styles.acknowledge}>
-            <p className={styles.text}>{ACKNOWLEDGE}</p>
+            <p data-testid={TestId.ACKNOWLEDGE_ID} className={styles.text}>
+              {ACKNOWLEDGE}
+            </p>
             <div className={styles.options}>
               <label className={styles.label}>
-                <input type="radio" value="accept" checked={selectedOption === 'accept'} className={styles.radioInput} onChange={handleChange} />
+                <input
+                  data-testid={TestId.ACCEPT_ID}
+                  type="radio"
+                  value="accept"
+                  checked={selectedOption === 'accept'}
+                  className={styles.radioInput}
+                  onChange={handleChange}
+                />
                 <span className={styles.custom_radio}>{ACCEPT}</span>
               </label>
               <label className={styles.label}>
-                <input type="radio" value="reject" checked={selectedOption === 'reject'} className={styles.radioInput} onChange={handleChange} />
+                <input
+                  data-testId={TestId.REJECT_ID}
+                  type="radio"
+                  value="reject"
+                  checked={selectedOption === 'reject'}
+                  className={styles.radioInput}
+                  onChange={handleChange}
+                />
                 <span className={styles.custom_radio}>{REJECT}</span>
               </label>
             </div>

@@ -7,3 +7,8 @@ export const constants = {
   ERR_BTN: 'Return',
   TRY_AGAIN: 'Try again'
 };
+
+export const TestId = {
+  VERIFIED_ID: "verified_id",
+  UNVERIFIED_ID: "unverified_id",
+}
