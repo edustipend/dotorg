@@ -23,7 +23,7 @@ export const Submit = () => {
   const Category = stipendCategory.split('/')[0].toLowerCase();
 
   const userInfo = {
-    name: fullName,
+    name: fullName?.trim(),
     email: email,
     password: password,
     dateOfBirth: dateOfBirth,
@@ -36,10 +36,9 @@ export const Submit = () => {
     potentialBenefits: potentialBenefits,
     futureHelpFromUser: futureHelpFromUser,
     socialMediaHandles: {
-      [socialHandle?.toLowerCase()]: mediaHandle
+      [socialHandle?.toLowerCase()]: mediaHandle?.trim()
     }
   };
-
   //Create the user and submit the stipend application
   const handleSubmit = async () => {
     setIsLoading(true);
@@ -55,7 +54,7 @@ export const Submit = () => {
       } else {
         dispatch(successful(false));
         dispatch(isError(true));
-        dispatch(errMessage(res?.error?.message));
+        dispatch(errMessage(res?.error?.message || res?.message));
       }
     } catch (error) {
       dispatch(successful(false));

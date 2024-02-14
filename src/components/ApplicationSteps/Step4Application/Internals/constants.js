@@ -21,6 +21,8 @@ export const constants = {
   FB_PH: '',
   IG: 'Instagram Handle',
   IG_PH: '@',
+  LINKEDIN: 'LinkedIn Handle',
+  LINKEDIN_PH: '@',
   PASSWORD: 'Password',
   PASSWORD_PH: 'Create your password',
   CONFIRM_PASSWORD: 'Confirm Password',
@@ -35,7 +37,8 @@ export const constants = {
   TWITTER_TEXT: `Please share your twitter handle`,
   FB_TEXT: `Please share your facebook handle`,
   IG_TEXT: `Please share your instagram handle`,
-  SOCIAL_HANDLES: ['Twitter', 'Facebook', 'Instagram'],
+  LINKEDIN_TEXT: `Please share your linkedin handle`,
+  SOCIAL_HANDLES: ['Twitter', 'Facebook', 'Instagram', 'LinkedIn'],
   MONTHS_OPTION: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'],
   GENDER_OPTION: ['Male', 'Female', 'Non-Binary'],
   STATE_OPTION: [
@@ -77,16 +80,15 @@ export const constants = {
     'Yobe',
     'Zamfara'
   ],
-  REFERRAL_SOURCES: ['Facebook', 'LinkedIn', 'Instagram', 'Twitter', 'Google Search'],
+  REFERRAL_SOURCES: ['Facebook', 'LinkedIn', 'Instagram', 'Twitter', 'Community', 'Google Search'],
   PASSWORD_MIN_LENGTH_ERR: 'A minimum of 8 characters is required',
   PASSWORD_MISMATCH_ERR: 'password mismatch'
 };
 
-
 export const TestId = {
-  COMPONENT_TEST_ID: "step4_component_id",
-  FORM_ID: "step4_form_id",
-  HEADER_ID: "step4_header_id",
-  NEXT_ID: "step4_next_id",
-  BACK_ID: "step4_back_id"
-}
+  COMPONENT_TEST_ID: 'step4_component_id',
+  FORM_ID: 'step4_form_id',
+  HEADER_ID: 'step4_header_id',
+  NEXT_ID: 'step4_next_id',
+  BACK_ID: 'step4_back_id'
+};
