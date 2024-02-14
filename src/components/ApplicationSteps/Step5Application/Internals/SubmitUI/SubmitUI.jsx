@@ -7,7 +7,7 @@ import { ModalContext } from '../../../../../context/ModalContext';
 import Button from '../../../../../components/Button';
 import Header from '../../../../../components/Header';
 import Quote from '../../../../../components/Quote';
-import { constants } from '../SubmitUI/constants';
+import { TestId, constants } from '../SubmitUI/constants';
 import { UserPlus, Sad } from '../../../../../assets';
 const { HEADER, PROMPT, NO, CREATE, QUOTE, DISMISS } = constants;
 
@@ -16,27 +16,39 @@ export const SubmitUI = ({ isLoading, handleSubmit }) => {
   const { error, errorMessage } = useSelector((state) => state.application);
 
   return (
-    <section className={styles.submit}>
+    <section data-testid={TestId.SUBMIT_ID} className={styles.submit}>
       {error ? (
         <div className="animatedAlt">
           <div className={styles.headerContainer}>
-            <img src={Sad} alt="user-plus" className={styles.emoji} />
-            <Header className={styles.header}>{errorMessage}</Header>
+            <img data-testid={TestId.IMAGE_ID} src={Sad} alt="user-plus" className={styles.emoji} />
+            <Header className={styles.header}>
+              {errorMessage}
+            </Header>
           </div>
           <div className={`${styles.btnContainer} ${styles.btnContainerAltt}`}>
-            <Button type={'secondary'} size={'large'} label={DISMISS} onClick={() => setIsActive((prev) => !prev)} className={styles.btn} />
+            <Button
+              dataTest={TestId.ERROR_BUTTON_ID}
+              type={'secondary'}
+              size={'large'}
+              label={DISMISS}
+              onClick={() => setIsActive((prev) => !prev)}
+              className={styles.btn}
+            />
           </div>
         </div>
       ) : (
         <div className="animatedAlt">
           <div className={styles.headerContainer}>
-            <img src={UserPlus} alt="user-plus" className={styles.emoji} />
-            <Header className={styles.header}>{HEADER}</Header>
+            <img data-testid={TestId.SUCCESS_IMAGE_ID} src={UserPlus} alt="user-plus" className={styles.emoji} />
+            <Header className={styles.header}>
+              {HEADER}
+            </Header>
           </div>
           <div className={styles.bottomSection}>
             <p className={styles.prompt}>{PROMPT}</p>
             <div className={styles.btnContainer}>
               <Button
+                dataTest={TestId.SUCCESS_BUTTON_ID}
                 type={'secondary'}
                 effectAlt
                 label={CREATE}
