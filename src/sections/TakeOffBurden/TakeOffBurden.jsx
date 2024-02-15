@@ -8,6 +8,7 @@ import Text from '../../components/Text';
 import { TextCopy } from './constants';
 import useHandleCTAClick from '../../hooks/useHandleCTAClick';
 
+
 const TakeOffBurden = () => {
   const { buttonLabel, handleCTAClick } = useHandleCTAClick();
 
