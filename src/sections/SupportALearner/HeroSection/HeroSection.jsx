@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import styles from './HeroSection.module.css';
-
 import Header from '../../../components/Header';
 import Text from '../../../components/Text';
 import Button from '../../../components/Button';
@@ -41,6 +40,9 @@ export const HeroSection = () => {
               </div>
               <div className={styles.ben}>
                 <Text content={currentQuote.author} className={styles.benName} />
+              </div>
+              <div className={styles.ben}>
+                <Text content={currentQuote.when} className={styles.when} />
               </div>
             </div>
           </div>

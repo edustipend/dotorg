@@ -117,6 +117,10 @@
   font-weight: 900;
 }
 
+.when {
+  font-size: 10px;
+}
+
 .fade {
   animation-name: fadeOut;
 }
@@ -167,6 +171,10 @@
 
   .benName {
     font-size: 18px;
+  }
+
+  .when {
+    font-size: 14px;
   }
 }
 
