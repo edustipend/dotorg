@@ -7,7 +7,7 @@ import quoteU from '../../../assets/quoteup.png';
 import quoteD from '../../../assets/quotedown.png';
 import { NavHashLink } from 'react-router-hash-link';
 import Container from '../../../components/Container';
-import { TestId, Texts, quotesArray } from './contants';
+import { Texts, quotesArray } from './contants';
 
 export const HeroSection = () => {
   const [currentQuoteIndex, setCurrentQuoteIndex] = useState(0);
