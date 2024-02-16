@@ -7,7 +7,7 @@ import quoteU from '../../../assets/quoteup.png';
 import quoteD from '../../../assets/quotedown.png';
 import { NavHashLink } from 'react-router-hash-link';
 import Container from '../../../components/Container';
-import { quotesArray } from './contants';
+import { TestId, Texts, quotesArray } from './contants';
 
 export const HeroSection = () => {
   const [currentQuoteIndex, setCurrentQuoteIndex] = useState(0);
@@ -35,7 +35,7 @@ export const HeroSection = () => {
             <div className={styles.quotecont} style={{ animation: `${styles.fade} 0.5s ease-in` }}>
               <div className={styles.quot}>
                 <img src={quoteU} alt="quote-icon" className="quoteU" style={{ alignSelf: 'flex-start' }} />
-                <Text content={currentQuote.content} className={styles.quote} />
+                <Text data-testid="quote-content" content={currentQuote.content} className={styles.quote} />
                 <img src={quoteD} alt="quote-icon" className="quoteD" style={{ alignSelf: 'flex-end' }} />
               </div>
               <div className={styles.ben}>
@@ -48,21 +48,18 @@ export const HeroSection = () => {
           </div>
           <div className={styles.cta}>
             <Header size={'small'} className={styles.header}>
-              Great futures are built with a little charity{' '}
+              {Texts.SMALL_HEADER_TEXT}
             </Header>
             <Header size={'large'} className={styles.headerweb}>
-              Great futures are built with a little charity{' '}
+              {Texts.LARGE_HEADER_TEXT}
             </Header>
-            <Text
-              content={'Bridge the Educational Gap by providing resources to Transform Lives and Shape a Brighter Future for Learners Worldwide.'}
-              className={styles.text}
-            />
+            <Text content={Texts.CONTENT} className={styles.text} />
             <div className={styles.ctabtns}>
               <NavHashLink
                 to={{
                   pathname: '/support-a-learner/donate'
                 }}>
-                <Button label={'Support a Learner'} size={'small'} type={'secondary'} />
+                <Button label={Texts.SUPPORT_TEXT} size={'small'} type={'secondary'} />
               </NavHashLink>
 
               <NavHashLink
@@ -70,7 +67,7 @@ export const HeroSection = () => {
                   pathname: '/support-a-learner',
                   hash: '#how-much-can-I-donate'
                 }}>
-                <Button label={'How much can I donate?'} size={'small'} type={'plain'} />
+                <Button label={Texts.DONATE_TEXT} size={'small'} type={'plain'} />
               </NavHashLink>
             </div>
           </div>
