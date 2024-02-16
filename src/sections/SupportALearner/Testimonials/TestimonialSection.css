@@ -1,0 +1,70 @@
+.testimonial__section {
+  /* background-color: #333; */
+  background: radial-gradient(ellipse, #ffca43c7, #000000);
+  /*border-radius: 50%;  This will create an ellipse shape */
+  padding: 50px;
+  color: #fff;
+
+  position: relative;
+}
+
+.testimonial__heading {
+  font-size: 34px;
+  margin-top: 20px;
+  padding-bottom: 15px;
+  text-transform: uppercase;
+  border-bottom: 3px solid orange;
+}
+
+.testimonial__description {
+  margin: 40px 0;
+  font-size: 25px;
+  line-height: 1.5;
+}
+
+.testimonial__support-link {
+  margin: 15px 0;
+  color: #333;
+  font-weight: 900;
+  display: inline-block;
+  padding: 15px 40px;
+  background-color: orange;
+  border-radius: 50px;
+  text-decoration: none;
+  border: 5px solid rgba(0, 0, 0, 0.3);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.testimonial__testimonies {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.arrow {
+  background-color: orange;
+  padding: 10px;
+  border-radius: 6px;
+
+  display: inline-block;
+
+  position: absolute;
+  top: 80%;
+  transform: translateY(-50%);
+  font-size: 1rem; /*Adjust the font size as needed */
+  cursor: pointer;
+  color: #333;
+}
+
+.left-arrow {
+  left: 30px; /* Adjust the left position as needed */
+  z-index: 10;
+}
+
+.right-arrow {
+  right: 30px;
+}
+
+@media screen {
+}
