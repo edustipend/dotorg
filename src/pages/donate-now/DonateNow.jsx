@@ -28,7 +28,7 @@ export const DonateNow = () => {
   const [title, setTitle] = useState('');
   const [message, setMessage] = useState('');
   const [userData, setUserData] = useState(initial);
-  const { redirectModal, transactionModal, handleTransactionModal } = useContext(ModalContext) || {};
+  const { redirectModal, transactionModal, handleToggleTransactionModal } = useContext(ModalContext) || {};
   const formattedNumber = formatNumber(amount);
   const handleFocus = () => {
     setFocus(true);
@@ -50,7 +50,7 @@ export const DonateNow = () => {
   );
 
   const handleDonation = () => {
-    handleTransactionModal();
+    handleToggleTransactionModal();
     setTitle(constants.donation_success_header);
     setMessage(constants.donation_success);
   };
@@ -59,7 +59,7 @@ export const DonateNow = () => {
   const handleAmountChange = (e) => {
     const max = 1000000;
     const value = e.target.value;
-    if (value === '' || (value >= 0 && value <= max)) {
+    if (value >= 0 && value <= max) {
       setAmount(value);
     }
   };
@@ -90,12 +90,12 @@ export const DonateNow = () => {
               <div data-testid={TestId.FORM_ID} className={styles.form}>
                 <div className={styles.alt}>
                   <Input
-                    type="text"
+                    type={constants.text}
                     value={userData.fullname}
                     disabled={toggle}
                     required={false}
-                    label="First name and last name"
-                    placeholder="First Name and Last Name"
+                    label={constants.fullName}
+                    placeholder={constants.fullName}
                     onChange={(e) => {
                       setUserData((prev) => ({ ...prev, fullname: e.target.value }));
                     }}
@@ -113,9 +113,9 @@ export const DonateNow = () => {
                   onChange={(e) => {
                     setUserData((prev) => ({ ...prev, email: e.target.value }));
                   }}
-                  type="email"
-                  label="Email Address"
-                  placeholder="Enter Email Address"
+                  type={constants.email}
+                  label={constants.Email_Address}
+                  placeholder={constants.Enter_Email_Address}
                   required={false}
                 />
                 {toggle && (
@@ -125,8 +125,8 @@ export const DonateNow = () => {
                       setUserData((prev) => ({ ...prev, company: e.target.value }));
                     }}
                     required={false}
-                    label="Company Name (if applicable)"
-                    placeholder="Enter company name"
+                    label={constants.company}
+                    placeholder={constants.company_name}
                   />
                 )}
                 <Input
@@ -136,26 +136,27 @@ export const DonateNow = () => {
                   }}
                   required={false}
                   element={phoneInfo}
-                  type="number"
-                  label="Phone Number"
-                  placeholder="Enter Phone number"
+                  type={constants.number}
+                  label={constants.Phone_number}
+                  placeholder={constants.Enter_Phone_number}
                 />
                 <Input
                   data-testid={TestId.AMOUNT_ID}
                   value={amount.toString()}
                   required={false}
-                  type="number"
-                  label="Amount"
-                  placeholder="NGN"
+                  type={constants.number}
+                  label={constants.Amount}
+                  placeholder={constants.NGN}
                   onChange={handleAmountChange}
                 />
               </div>
               <div className={styles.btnContainer}>
                 <Button
+                  disabled={amount < 1000}
                   dataTest={TestId.BUTTON_ID}
                   label={`${'Donate'} ₦${formattedNumber}`}
                   onClick={handleDonation}
-                  type="secondary"
+                  type={constants.secondary}
                   effectClass={styles.effect}
                   className={styles.btn}
                 />
@@ -169,7 +170,7 @@ export const DonateNow = () => {
         <RedirectModal />
       </UseModal>
       <UseModal isActive={transactionModal}>
-        <TransactionModal title={title} message={message} handleTransactionModal={handleTransactionModal} />
+        <TransactionModal title={title} message={message} handleToggleTransactionModal={handleToggleTransactionModal} />
       </UseModal>
     </div>
   );

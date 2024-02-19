@@ -5,8 +5,8 @@ import { Provider } from 'react-redux';
 import store from "../../../store";
 import { TestId } from "../constants";
 import { ModalContext } from "../../../context/ModalContext";
-const handleTransactionModal = jest.fn();
-const value = { handleTransactionModal };
+const handleToggleTransactionModal = jest.fn();
+const value = { handleToggleTransactionModal };
 
 
 describe("DonateNow component", () => {

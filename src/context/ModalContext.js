@@ -37,7 +37,7 @@ export const ModalContextProvider = ({ children }) => {
     setRedirectModal((prev) => !prev);
   }
 
-  const handleTransactionModal = () => {
+  const handleToggleTransactionModal = () => {
     setTransactionModal((prev) => !prev);
   }
 
@@ -58,7 +58,7 @@ export const ModalContextProvider = ({ children }) => {
     redirectModal,
     handleRedirectModal,
     transactionModal,
-    handleTransactionModal
+    handleToggleTransactionModal
   };
 
   return <ModalContext.Provider value={value}>{children}</ModalContext.Provider>;

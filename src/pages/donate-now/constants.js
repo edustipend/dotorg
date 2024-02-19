@@ -11,7 +11,20 @@ export const constants = {
   donation_success_header: "Your donation was successful",
   donation_success: "Thank you for choosing to donate to Edustipend. By donating, you are making a significant difference in learners’ lives, empowering them with the tools they need to thrive in their learning journey.",
   donation_failed_header: "Transaction Unsuccessful",
-  donation_failed: "Your donation could not be completed at this time. Try again or use a different card."
+  donation_failed: "Your donation could not be completed at this time. Try again or use a different card.",
+  text: "text",
+  fullName: "First name and last name",
+  email: "email",
+  Email_Address: "Email Address",
+  Enter_Email_Address: "Enter Email Address",
+  company: "Company Name (if applicable)",
+  company_name: "Enter company name",
+  number: "number",
+  Phone_number: "Phone Number",
+  Enter_Phone_number: "Enter Phone number",
+  Amount: "Amount",
+  NGN: "NGN",
+  secondary: "secondary"
 };
 
 export const TestId = {
