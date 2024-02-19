@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from './SupportALearner.module.css';
-import TestimonialSection from '../../sections/SupportALearner/Testimonials/TestimonialSection';
+import Testimonial from './testimonial/Testimonial';
 
 export const SupportALearner = () => {
   return (
     <div className={styles.supportalearnercontainer}>
-      <TestimonialSection />
+      <Testimonial />
     </div>
   );
 };

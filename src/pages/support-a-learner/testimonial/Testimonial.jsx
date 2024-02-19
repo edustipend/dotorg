@@ -1,12 +1,12 @@
 import React from 'react';
+import './Testimonial.css';
 import TestimonialCard from './TestimonialCard';
 
-import './TestimonialCard.css';
-
-function TestimonialSection() {
+function Testimonial() {
   return (
     <div className="testimonial__section">
       <h2 className="testimonial__heading">Testimonials</h2>
+
       <p className="testimonial__description">
         Discover what the community has to say about transformative power of Edustipend. Real stories, real impact. Here are some testimonials from
         individuals who's lives have been touched,
@@ -26,9 +26,9 @@ function TestimonialSection() {
           username="Nonso"
           userhandle="@NonsoBoy70"
           content="@edustipend I thank you so much for this opportunity, the joy I felt
-            recieving the laptop was indescribable. Thank you for rooting for us.
-            God bless the edustipend team for this. I also want to use this
-            opportunity to thank my mentor @t_chukwure for taking a chance on me."
+        recieving the laptop was indescribable. Thank you for rooting for us.
+        God bless the edustipend team for this. I also want to use this
+        opportunity to thank my mentor @t_chukwure for taking a chance on me."
           postDate="March 17, 2023"
           seeLink="See on X &rarr;"
         />
@@ -56,4 +56,4 @@ function TestimonialSection() {
   );
 }
 
-export default TestimonialSection;
+export default Testimonial;

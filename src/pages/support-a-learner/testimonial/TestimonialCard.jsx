@@ -1,6 +1,7 @@
 import React from 'react';
-import './TestimonialCard.css';
 import PropTypes from 'prop-types';
+
+import './TestimonialCard.css';
 
 function TestimonialCard({ username, userhandle, content, postDate, seeLink }) {
   return (
