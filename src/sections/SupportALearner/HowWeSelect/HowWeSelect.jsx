@@ -7,7 +7,7 @@ import styles from './HowWeSelect.module.css';
 
 export const HowWeSelect = () => {
   return (
-    <main className={styles.wrapper} data-testid={TestId.WRAPPER}>
+    <div className={styles.wrapper} data-testid={TestId.WRAPPER}>
       <Container>
         <div className={styles.headerContainer}>
           <h1 data-testid={TestId.HEAD_TEXT}>{headText}</h1>
@@ -30,6 +30,6 @@ export const HowWeSelect = () => {
           </div>
         </div>
       </Container>
-    </main>
+    </div>
   );
 };
