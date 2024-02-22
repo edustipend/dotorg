@@ -69,7 +69,7 @@ export const TransactionModal = ({ error, handleToggleTransactionModal, message,
             iconPosition={constants.right}
             icon={share}
             label={constants.Share_on_social_media}
-            type={constants.Home}
+            type={constants.plain}
             onClick={() => setShareUI(true)}
             effectClass={styles.btn}
             className={`${styles.btn2} ${styles.btn2Alt}`}
