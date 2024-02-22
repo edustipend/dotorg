@@ -45,6 +45,8 @@ const {
   IG_PH,
   TWITTER,
   TWITTER_PH,
+  LINKEDIN,
+  LINKEDIN_PH,
   AD,
   AD_PH,
   QUOTE,
@@ -53,6 +55,7 @@ const {
   TWITTER_TEXT,
   FB_TEXT,
   IG_TEXT,
+  LINKEDIN_TEXT,
   GENDER_OPTION,
   STATE_OPTION,
   REFERRAL_SOURCES,
@@ -240,6 +243,18 @@ export const Step4Application = () => {
                     className={styles.entry}
                   />
                   <small className={styles.small}>{IG_TEXT}</small>
+                </div>
+              )}
+              {socialHandle === SOCIAL_HANDLES[3] && (
+                <div>
+                  <Input
+                    value={mediaHandle}
+                    label={LINKEDIN}
+                    placeholder={LINKEDIN_PH}
+                    onChange={(e) => dispatch(setMediaHandle(e.target.value))}
+                    className={styles.entry}
+                  />
+                  <small className={styles.small}>{LINKEDIN_TEXT}</small>
                 </div>
               )}
             </div>
