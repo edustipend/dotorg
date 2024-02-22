@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './QuestionAndAnswer.module.css';
+import { TestId } from '../../constants';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { setDisableTextbox } from '../../../../store/reducers/ApplicationReducer';
@@ -12,20 +13,21 @@ export const QuestionAndAnswer = ({ number, question, dispatchType, className, v
   const { disableTextbox } = useSelector((state) => state.application);
   isDashboard ? dispatch(setDisableTextbox(disableTextbox)) : dispatch(setDisableTextbox(false));
 
-  const handleOnchange = (e) => {
+  const handleOnChange = (e) => {
     dispatch(dispatchType(e.target.value));
   };
 
   return (
-    <div className={styles.main}>
+    <div data-testid={TestId.COMPONENT_ID} className={styles.main}>
       <label htmlFor="question" className={styles.label}>
         {number}.
-        <p className={styles.question}>
+        <p className={styles.question} data-testid={TestId.QUESTION_ID}>
           {question}
           <span className={styles.required}>*</span>
         </p>
       </label>
       <textarea
+        data-testid={TestId.ANSWER_ID}
         value={value}
         name="question"
         id="question"
@@ -33,7 +35,7 @@ export const QuestionAndAnswer = ({ number, question, dispatchType, className, v
         rows="10"
         disabled={disableTextbox}
         {...props}
-        onChange={(e) => handleOnchange(e)}
+        onChange={(e) => handleOnChange(e)}
         className={`${styles.textarea} ${className}`}
       />
     </div>

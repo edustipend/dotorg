@@ -1,10 +1,11 @@
-import styles from './SupportALearner.module.css';
+import { HeroSection } from '../../sections/SupportALearner/HeroSection/HeroSection';
 import HowWeSelect from '../../sections/SupportALearner/HowWeSelect';
 
 export const SupportALearner = () => {
   return (
-    <main className={styles.supportalearnercontainer}>
+    <>
+      <HeroSection />
       <HowWeSelect />
-    </main>
+    </>
   );
 };

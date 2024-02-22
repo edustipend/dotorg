@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import { constant, laptopConstants } from '../../constants';
+import { constant, TestId, laptopConstants } from '../../constants';
 import { reason, steps, benefits, futureHelp, setDisableTextbox } from '../../../../store/reducers/ApplicationReducer';
 import { isApplicationWindowClosed } from '../../../../utils';
 import Quote from '../../../../components/Quote';
@@ -34,7 +34,7 @@ export const LaptopStipend = () => {
   };
 
   return (
-    <div className={styles.stipend}>
+    <div className={styles.stipend} data-testid={TestId.LAPTOP_STIPEND}>
       <ContentContainer>
         <section className={styles.main}>
           <CategoryHeader header={TITLE} category={TITLE} support={SUPPORT_TYPE} />
