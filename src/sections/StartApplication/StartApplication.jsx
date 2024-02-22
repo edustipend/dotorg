@@ -18,7 +18,7 @@ import { EmailExist } from '../EmailExist/EmailExist';
 import Modal from '../../components/Modal';
 import { Navigate } from 'react-router-dom';
 import { reset } from '../../store/reducers/ApplicationReducer';
-import { isApplicationWindowClosed } from '../../utils';
+import useApplicationWindowStatus from '../../hooks/useApplicationWindow';
 
 export const StartApplication = () => {
   const [isLoading, setisLoading] = useState(false);
@@ -27,7 +27,7 @@ export const StartApplication = () => {
   const { handleEmailExistModal } = useContext(ModalContext);
   const nav = useNavigate();
   const dispatch = useDispatch();
-  const isWindowClosed = isApplicationWindowClosed();
+  const isWindowClosed = useApplicationWindowStatus();
 
   useEffect(() => {
     const handleScroll = () => {

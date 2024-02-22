@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { constant, dataConstants, TestId } from '../../constants';
+import useApplicationWindowStatus from '../../../../hooks/useApplicationWindow';
 import { reason, steps, benefits, futureHelp, setDisableTextbox } from '../../../../store/reducers/ApplicationReducer';
-import { isApplicationWindowClosed } from '../../../../utils';
 import Quote from '../../../../components/Quote';
 import QuestionAndAnswer from '../QuestionAndAnswer';
 import ContentContainer from '../../../../components/ApplicationSteps/ContentContainer';
@@ -20,7 +20,7 @@ export const DataStipend = () => {
   const { reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser, viewBtnLabel, currentApplication } = useSelector(
     (state) => state.application
   );
-  const isWindowClosed = isApplicationWindowClosed();
+  const isWindowClosed = useApplicationWindowStatus();
 
   //check if each of the form values are at least > 4, enable the continue button if true
   const [showUnderReview, setShowUnderReview] = useState(isWindowClosed);
@@ -28,7 +28,6 @@ export const DataStipend = () => {
 
   const handleEditApplication = () => {
     setShowBtn((prev) => !prev);
-    const isWindowClosed = isApplicationWindowClosed();
     isWindowClosed ? setShowUnderReview(true) : dispatch(setDisableTextbox(false));
   };
 

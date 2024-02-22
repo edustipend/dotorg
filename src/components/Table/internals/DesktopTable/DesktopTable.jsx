@@ -15,8 +15,8 @@ import {
   setEditMode,
   setViewBtnLabel
 } from '../../../../store/reducers/ApplicationReducer';
-import { isApplicationWindowClosed } from '../../../../utils';
 import { hasCurrentApplication } from '../../../../utils/hasCurrentApplication';
+import useApplicationWindowStatus from '../../../../hooks/useApplicationWindow';
 
 const { APPROVED, IN_VIEW, RECEIVED, DENIED } = applicationStatus;
 
@@ -24,7 +24,7 @@ export const DesktopTable = ({ entries, tableHead, oneClickApply }) => {
   const lastItem = entries?.length - 1;
   const nav = useNavigate();
   const dispatch = useDispatch();
-  const isWindowClosed = isApplicationWindowClosed();
+  const isWindowClosed = useApplicationWindowStatus();
   const { isVerified } = useSelector((state) => state.user);
   const { hasApplied } = useSelector((state) => state.application);
   const [activeApplication, setActiveApplication] = useState(null);

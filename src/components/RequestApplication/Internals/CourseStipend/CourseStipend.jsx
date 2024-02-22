@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { constant, courseConstants, TestId } from '../../constants';
 import { reason, steps, benefits, futureHelp, setDisableTextbox } from '../../../../store/reducers/ApplicationReducer';
-import { isApplicationWindowClosed } from '../../../../utils';
 import ContentContainer from '../../../../components/ApplicationSteps/ContentContainer';
 import Button from '../../../../components/Button';
 import CategoryHeader from '../CategoryHeader';
@@ -11,6 +10,7 @@ import QuestionAndAnswer from '../QuestionAndAnswer';
 import Quote from '../../../../components/Quote';
 import Navigation from '../Navigation';
 import styles from '../LaptopStipend/LaptopStipend.module.css';
+import useApplicationWindowStatus from '../../../../hooks/useApplicationWindow';
 const { TITLE, SUPPORT_TYPE, FOOT_NOTE1, FOOT_NOTE2, FOOT_NOTE3, FOOT_NOTE4, QUESTION1, QUESTION2, QUESTION3, QUESTION4, QUOTE } = courseConstants;
 
 export const CourseStipend = () => {
@@ -20,7 +20,7 @@ export const CourseStipend = () => {
   const { reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser, viewBtnLabel, currentApplication } = useSelector(
     (state) => state.application
   );
-  const isWindowClosed = isApplicationWindowClosed();
+  const isWindowClosed = useApplicationWindowStatus();
 
   //check if each of the form values are at least > 4, enable the continue button if true
   const [showUnderReview, setShowUnderReview] = useState(isWindowClosed);
@@ -28,7 +28,6 @@ export const CourseStipend = () => {
 
   const handleEditApplication = () => {
     setShowBtn((prev) => !prev);
-    const isWindowClosed = isApplicationWindowClosed();
     isWindowClosed ? setShowUnderReview(true) : dispatch(setDisableTextbox(false));
   };
 
