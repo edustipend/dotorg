@@ -45,7 +45,6 @@ function App() {
         position="top-center"
         reverseOrder={false}
       />
-
       <Navbar />
       <Routes />
       <Footer />

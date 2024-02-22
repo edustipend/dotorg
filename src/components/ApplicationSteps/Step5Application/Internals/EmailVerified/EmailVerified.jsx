@@ -10,7 +10,7 @@ import Button from '../../../../Button';
 import Header from '../../../../Header';
 import Loader from '../../../../Loader';
 import { Valid, Sad } from '../../../../../assets';
-import { constants } from './constants';
+import { TestId, constants } from './constants';
 import ContentContainer from '../../../ContentContainer';
 import { postData } from '../../../../../services/ApiClient';
 import { emailVerification } from '../../../../../store/reducers/ApplicationReducer';
@@ -28,7 +28,6 @@ export const EmailVerified = () => {
   const { isAuthenticated } = useSelector((state) => state.user);
   const [searchParams] = useSearchParams();
   const emailToken = searchParams.get('jwt');
-  
 
   const verifyEmail = useCallback(async () => {
     dispatch(emailVerification(false));
@@ -85,7 +84,7 @@ export const EmailVerified = () => {
       ) : (
         <ContentContainer>
           {isVerified ? (
-            <div className={`${styles.submit} ${styles.submitAlt} animated`}>
+            <div data-testid={TestId.VERIFIED_ID} className={`${styles.submit} ${styles.submitAlt} animated`}>
               <div className={styles.headerContainer}>
                 <img src={Valid} alt="valid" className={styles.emojiAlt} />
                 <Header className={`${styles.header} ${styles.header2}`}>{HEADER}</Header>
@@ -95,7 +94,7 @@ export const EmailVerified = () => {
               </div>
             </div>
           ) : (
-            <div className={`${styles.submit} animatedAlt`}>
+            <div data-testid={TestId.UNVERIFIED_ID} className={`${styles.submit} animatedAlt`}>
               <div className={styles.headerContainer}>
                 <img src={Sad} alt="error" className={styles.emojiAlt} />
                 <Header className={`${styles.header} ${styles.header2}`}>{ERR_HEADER}</Header>

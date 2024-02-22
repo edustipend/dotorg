@@ -6,6 +6,6 @@ export const content = {
 };
 
 export const TestId = {
-  COMPONENT_ID: 'component_id',
-  HEADER_ID: 'header_id'
+  COMPONENT_ID: 'step1_component_id',
+  HEADER_ID: 'step1_header_id'
 };
