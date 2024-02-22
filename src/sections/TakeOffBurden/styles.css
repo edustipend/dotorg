@@ -1,0 +1,268 @@
+.takeoffburden-container {
+  background-image: url('../../assets/takeoffburdenbackground.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 50px 0px;
+  margin-bottom: -84.51px;
+}
+
+.takeoffburden-Wrapper {
+  position: relative;
+  margin-top: 150px;
+}
+
+.takeoffburdenleft {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.takeoffburden-Card {
+  background-image: url('../../assets//manonbooks.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 260px;
+  height: 370px;
+  margin: -50px 28px;
+  border-radius: 30px;
+  position: absolute;
+  top: -50px;
+  z-index: 900;
+}
+
+.takeoffburden-Transparent-Card {
+  background-color: #ffffff;
+  width: 290px;
+  height: 300px;
+  border-radius: 30px;
+  opacity: 0.1;
+  box-shadow: rgba(0, 0, 0, 0.94) 0px 3px 8px;
+}
+
+.takeoffburden-header-div {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.takeoffburden-header {
+  line-height: 30px;
+}
+
+.takeoffburden-text {
+  color: white;
+  font-size: 14px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.burdenarrow {
+  position: absolute;
+  bottom: 95px;
+  right: 15px;
+  height: 30px;
+}
+
+.request-stipend-btn-div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 50px 0 20px;
+}
+
+@media screen and (min-width: 425px) {
+  .burdenarrow {
+    position: absolute;
+    bottom: 85px;
+    right: 50px;
+  }
+
+  .takeoffburden-text {
+    text-align: center;
+    width: 80%;
+    margin: 20px auto;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .takeoffburden-text {
+    width: 80%;
+    margin: 20px 0;
+  }
+
+  .burdenarrow {
+    position: absolute;
+    bottom: 85px;
+    right: 125px;
+  }
+
+  .takeoffburden-Transparent-Card {
+    width: 350px;
+    height: 330px;
+  }
+
+  .takeoffburden-Card {
+    width: 300px;
+    height: 400px;
+  }
+
+  .takeoffburden-text {
+    text-align: center;
+    width: 60%;
+    margin: 20px auto;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .takeoffburden-container {
+    padding: 50px 0px;
+  }
+
+  .takeoffburden-Wrapper {
+    display: flex;
+    flex-direction: row;
+    margin-top: 350px;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .takeoffburdenleft {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+  }
+
+  .takeoffburdenright {
+    margin-top: -300px;
+    position: relative;
+    width: 40%;
+  }
+
+  .takeoffburden-Transparent-Card {
+    width: 360px;
+    height: 200px;
+    margin: 20px 14px;
+  }
+
+  .takeoffburden-Card {
+    width: 300px;
+    height: 500px;
+    top: -260px;
+  }
+
+  .takeoffburden-header-div {
+    text-align: left;
+  }
+
+  .takeoffburden-header {
+    width: 100%;
+  }
+
+  .takeoffburden-text {
+    text-align: left;
+    margin: 20px 0;
+    width: 90%;
+  }
+
+  .request-stipend-btn-div {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    margin-top: 40px;
+  }
+
+  .burdenarrow {
+    position: absolute;
+    bottom: 100px;
+    left: 250px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .request-stipend-btn-div {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    margin-top: 50px;
+  }
+
+  .takeoffburden-header {
+    width: 70%;
+  }
+
+  .takeoffburden-text {
+    width: 70%;
+  }
+
+  .burdenarrow {
+    position: absolute;
+    bottom: 100px;
+    left: 250px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .takeoffburden-Transparent-Card {
+    width: 450px;
+    height: 280px;
+    margin: -50px 14px 50px;
+  }
+
+  .takeoffburden-Card {
+    width: 400px;
+    height: 500px;
+    padding: 90px 38px;
+  }
+
+  .burdenarrow {
+    position: absolute;
+    bottom: 100px;
+    left: 260px;
+  }
+
+  .takeoffburden-header {
+    width: 60%;
+  }
+
+  .takeoffburden-text {
+    width: 55%;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .takeoffburden-Transparent-Card {
+    width: 500px;
+    height: 300px;
+    margin: 50px 14px;
+  }
+
+  .takeoffburden-Card {
+    width: 400px;
+    height: 600px;
+    padding: 90px 38px;
+  }
+
+  .takeoffburden-header {
+    line-height: 84px;
+    font-size: 64px;
+    width: 100%;
+  }
+
+  .takeoffburden-text-div {
+    width: 70%;
+    font-size: 20px;
+  }
+
+  .takeoffburden-text {
+    font-size: 20px;
+    width: 100%;
+  }
+
+  .burdenarrow {
+    position: absolute;
+    bottom: 120px;
+    left: 220px;
+  }
+}

@@ -1,0 +1,77 @@
+.main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--dashboard-bg);
+}
+
+.Outlet {
+  width: 100%;
+  padding: 29px 12px;
+}
+
+.menu {
+  position: fixed;
+  right: 0;
+  top: 115px;
+  margin-right: 15px;
+  cursor: pointer;
+  background: var(--edustipend-purple);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  z-index: 5;
+}
+
+.banner {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 10px;
+}
+
+.banner .close {
+  background: var(--edustipend-purple);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  align-self: flex-end;
+  cursor: pointer;
+}
+
+.banner h1 {
+  font-size: 20px;
+  text-align: center;
+}
+.banner p {
+  font-size: 18px;
+  text-align: center;
+}
+
+.button {
+  align-self: center;
+}
+
+@media screen and (min-width: 1024px) {
+  .Outlet {
+    padding: 50px 60px;
+    margin-left: 250px;
+  }
+
+  .main {
+    flex-direction: row;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .button {
+    align-self: flex-end;
+  }
+}

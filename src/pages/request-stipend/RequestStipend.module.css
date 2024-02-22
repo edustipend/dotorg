@@ -1,0 +1,51 @@
+.main {
+  min-height: 100vh;
+  position: relative;
+  background: url('../../assets/hero-bg.png') no-repeat;
+  background-size: cover;
+}
+
+.banner {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  top: 6.5rem;
+  margin-top: 6.5rem;
+  background: var(--edustipend-yellow);
+  padding: 10px 0;
+  color: var(--black);
+  font-weight: 600;
+  font-size: 18px;
+  text-align: center;
+  z-index: 4;
+}
+
+@media screen and (max-width:1350px) {
+  .banner {
+    position: sticky;
+    top: 5rem;
+    margin-top: 5rem;
+  }
+}
+
+
+.imgContainer {
+  position: absolute;
+  right: 0rem;
+  bottom: -1.45rem;
+  width: 60px;
+  height: 96px;
+}
+
+.img {
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .imgContainer {
+    width: 95px;
+    height: 100px;
+    bottom: 0.9rem;
+    right: 4rem;
+  }
+}

@@ -1,0 +1,80 @@
+.survey-container {
+  position: fixed;
+  display: flex;
+  bottom: 0;
+  border-radius: 1rem;
+  font-family: 'Manrope';
+  font-size: 0.8rem;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  border: 1.2px solid var(--edustipend-purple);
+  background-color: var(--white);
+  z-index: 4000;
+  width: 100%;
+}
+
+.survey-container p {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.survey-container > button {
+  background: white;
+  color: gray;
+  position: absolute;
+  right: 0.5rem;
+  cursor: pointer;
+  border: 0;
+  top: 0.25rem;
+  padding: 0.5rem;
+}
+
+.survey-options-container {
+  display: flex;
+  height: 50px;
+}
+
+.survey-options-container img {
+  height: 40px;
+  margin: 0 0.5rem;
+  cursor: pointer;
+}
+
+.survey-comments-area-container {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+}
+
+.survey-submit-cta {
+  max-width: 240px;
+  margin-top: 1rem;
+}
+
+.survey-comments-area {
+  height: 40px;
+  border: 1px solid lightgray;
+  border-radius: 8px;
+  resize: none;
+  padding: 0.5rem;
+  width: 100%;
+  outline: none;
+  height: 80px;
+}
+
+.survey-options-container img:hover,
+.survey-options-container .option-selected {
+  height: 55px;
+}
+
+@media screen and (min-width: 480px) {
+  .survey-container {
+    bottom: 0.75rem;
+    left: 0.5rem;
+    right: 0.5rem;
+    max-width: 360px;
+  }
+}

@@ -1,0 +1,102 @@
+.container {
+  width: 100%;
+  padding: 172px 80px;
+  background: url('../../assets/achievment-bg.png') no-repeat;
+  background-size: cover;
+}
+
+.contents {
+  width: 100%;
+  max-width: 1281px;
+  margin-right: auto;
+  margin-left: auto;
+  min-height: 515px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.texts {
+  display: flex;
+  max-width: 686px;
+  max-height: 393px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.headText {
+  color: #000;
+  font-family: 'Poppins';
+  font-size: 96px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 112%; /* 107.52px */
+}
+
+.blue {
+  color: #5801ff;
+}
+
+.text {
+  color: var(--black, #2d3740);
+  font-family: 'Manrope';
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 137.4%; /* 32.976px */
+}
+
+.image {
+  object-fit: contain;
+}
+
+@media only screen and (max-width: 1440px) {
+  .container {
+    padding: 160px 40px;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .container {
+    padding: 100px 20px;
+  }
+
+  .contents {
+    justify-content: center;
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .headText {
+    font-size: 70px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .headText {
+    font-size: 50px;
+  }
+
+  .text {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .contents {
+    gap: 30px;
+  }
+
+  .headText {
+    font-size: 40px;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .headText {
+    font-size: 35px;
+  }
+}

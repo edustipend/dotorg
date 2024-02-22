@@ -1,0 +1,61 @@
+.main {
+  font-family: var(--font-family-manrope);
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  color: var(--edustipend-black);
+}
+
+.subtitle {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 16px;
+  text-transform: capitalize;
+}
+
+.title {
+  font-size: 20px;
+  flex-wrap: wrap;
+  line-height: 35px;
+  font-family: var(--font-family-poppins);
+}
+
+.bottomSection {
+  display: flex;
+  flex-direction: column;
+  font-weight: 400;
+  font-size: 16px;
+  gap: 28px;
+}
+
+.support {
+  max-width: 650px;
+}
+
+.text {
+  max-width: 600px;
+  background-color: var(--text);
+  font-weight: 300;
+  padding: 1rem;
+}
+
+@media screen and (min-width: 375px) {
+  .title {
+    font-size: 24px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .subtitle {
+    font-size: 20px;
+  }
+
+  .title {
+    font-size: 36px;
+  }
+
+  .bottomSection {
+    font-size: 18px;
+    gap: 22px;
+  }
+}

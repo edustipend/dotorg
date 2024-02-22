@@ -1,0 +1,66 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Manrope';
+  color: var(--edustipend-black);
+  gap: 28px;
+}
+
+.textarea {
+  resize: none;
+  padding: 1rem;
+  font-size: 16px;
+  max-width: 769px;
+  overflow: auto;
+  border: 1px solid var(--darker-navy-blue);
+  font-family: 'Manrope';
+  font-weight: 500;
+  border-radius: 15px;
+  color: var(--edustipend-black);
+}
+
+.textarea:hover {
+  cursor: text;
+}
+
+.textarea:focus {
+  border: 0.5px solid transparent;
+  border-radius: 15px;
+  background: linear-gradient(to right, white, white), linear-gradient(to right, #5801ff77, #00babb77);
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+}
+
+.textarea::-webkit-scrollbar {
+  display: none;
+}
+
+.label {
+  display: flex;
+  align-items: flex-start;
+  max-width: 750px;
+  font-size: 16px;
+  gap: 0.5rem;
+}
+
+.question {
+  display: flex;
+}
+
+.required {
+  font-size: 24px;
+  color: var(--red-accent);
+  margin-left: 0.5rem;
+  font-weight: 700;
+}
+
+@media screen and (min-width: 768px) {
+  .textarea {
+    font-size: 18px;
+    padding: 2rem;
+  }
+
+  .label {
+    font-size: 18px;
+  }
+}

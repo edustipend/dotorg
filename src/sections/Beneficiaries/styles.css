@@ -1,0 +1,229 @@
+.beneficiaries-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.beneficiaries-bigscreen-container {
+  display: none;
+}
+
+.texts-and-images {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Beneficiaries-header {
+  margin-top: 30px;
+  line-height: 30px;
+  width: 50%;
+}
+
+.Beneficiaries-subheader {
+  font-size: 18px;
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+.beneficiaries-text {
+  font-size: 14px;
+  width: 80%;
+  margin-top: 4px;
+}
+
+.top-images {
+  display: flex;
+  gap: 5px;
+}
+
+.bottom-images {
+  display: flex;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.image1 {
+  background-image: url('../../assets/smilingman.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 110px;
+  width: 50px;
+  border-radius: 0px 0px 114px 114px;
+  background-position-x: center;
+}
+
+.image2 {
+  background-image: url('../../assets/smilingwoman.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  height: 155px;
+  width: 50px;
+  border-radius: 0px 0px 114px 114px;
+}
+
+.image3 {
+  background-image: url('../../assets/womanwithpcc.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  height: 120px;
+  width: 50px;
+  border-radius: 114px 114px 0px 0px;
+  margin-top: -45px;
+}
+
+.image4 {
+  background-image: url('../../assets/manwithphonenpc.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 75px;
+  width: 50px;
+  border-radius: 114px 114px 0px 0px;
+}
+
+.view-numbers-btn {
+  margin: 40px 0;
+}
+
+@media screen and (min-width: 425px) {
+  .view-numbers-btn {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .Beneficiaries-text {
+    width: 70%;
+  }
+
+  .Beneficiaries-header {
+    margin-top: 30px;
+    line-height: 30px;
+    width: 40%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .image1 {
+    background-image: url('../../assets/manonglasses.png');
+    height: 410px;
+    width: 150px;
+  }
+
+  .image2 {
+    background-image: url('../../assets/womanonheadset.png');
+    height: 510px;
+    width: 150px;
+  }
+
+  .image3 {
+    height: 350px;
+    margin-top: -100px;
+    width: 150px;
+  }
+
+  .image4 {
+    height: 250px;
+    width: 150px;
+  }
+
+  .top-images,
+  .bottom-images {
+    gap: 20px;
+  }
+
+  .view-numbers-btn-bigscreen {
+    color: white;
+    font-family: 'manrope';
+    font-size: 18px;
+    margin-top: 50px;
+  }
+
+  .beneficiaries-container {
+    display: none;
+  }
+
+  .beneficiaries-bigscreen-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .beneficiaries-bigscreen-container-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .beneficiaries-bigscreen-container-left {
+    margin-top: 50px;
+  }
+
+  .Beneficiaries-text-bigscreen {
+    width: 70%;
+  }
+}
+
+@media screen and (min-width: 820px) {
+  .numbers-container-bigscreen {
+    width: 350px;
+    box-shadow: rgba(0, 0, 0, 0.14) 0px 3px 8px;
+  }
+}
+
+@media screen and (min-width: 996px) {
+  .numbers-container-bigscreen {
+    width: 400px;
+    box-shadow: rgba(0, 0, 0, 0.14) 0px 3px 8px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .beneficiaries-bigscreen-container {
+    padding-left: 25px;
+  }
+
+  .beneficiaries-bigscreen-container {
+    margin-left: 40px;
+    margin-right: 70px;
+  }
+
+  .Beneficiaries-text-bigscreen {
+    font-size: 14px;
+    width: 55%;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .Beneficiaries-text-bigscreen {
+    font-size: 20px;
+    width: 50%;
+    margin-top: 40px;
+  }
+
+  .image1,
+  .image2,
+  .image3,
+  .image4 {
+    width: 200px;
+  }
+
+  .image1 {
+    height: 450px;
+  }
+
+  .image2 {
+    height: 550px;
+  }
+
+  .image3 {
+    height: 390px;
+  }
+
+  .image4 {
+    height: 290px;
+  }
+}
