@@ -43,7 +43,7 @@ export const OurImpacts = () => {
   }, [animatedNumbers]);
 
   return (
-    <divgi className={styles.wrapper} data-testid={TestId.WRAPPER}>
+    <div className={styles.wrapper} data-testid={TestId.WRAPPER}>
       <Container>
         <div className={styles.headerContainer}>
           <h1 data-testid={TestId.HEAD_TEXT}>{headText}</h1>
@@ -105,6 +105,6 @@ export const OurImpacts = () => {
           </Link>
         </div>
       </Container>
-    </divgi>
+    </div>
   );
 };
