@@ -1,18 +1,4 @@
 .supportalearnercontainer {
   margin-top: 80px;
-  padding: 15px;
-}
-
-@media only screen and (min-width: 480px) {
-  .supportalearnercontainer {
-    padding: 30px 45px;
-  }
-}
-
-@media only screen and (min-width: 1350px) {
-  .supportalearnercontainer {
-    max-width: 1300px;
-    padding: 30px 60px;
-    margin: 102px auto 0px;
-  }
+  /* padding: 15px; */
 }
