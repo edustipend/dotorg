@@ -32,7 +32,6 @@ import Flower from './flower.png';
 import Sad from './sad.svg';
 import Hand from './hand.png';
 import Eye from './eye.svg';
-import aisha from './aisha.svg';
 import quoteLeft from './quote-left.svg';
 import quoteRight from './quote-right.svg';
 import success from './success.png';
@@ -52,6 +51,7 @@ import close from './closeIcn.svg';
 import donateScreen from './donationScreen.svg';
 import screenBackgroung from './screenBackground.svg';
 import screenPlatform from './screenPlatform.svg'
+import aishaPng from './aishabeneficiary.png';
 
 
 export {
@@ -89,7 +89,6 @@ export {
   Sad,
   Hand,
   Eye,
-  aisha,
   quoteLeft,
   quoteRight,
   success,
@@ -108,5 +107,6 @@ export {
   close,
   donateScreen,
   screenBackgroung,
-  screenPlatform
+  screenPlatform,
+  aishaPng
 };
