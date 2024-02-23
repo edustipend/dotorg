@@ -30,7 +30,7 @@ export const HeroSection = () => {
         <div className={styles.container}>
           <div className={styles.quotes} key={animationKey}>
             <div className={styles.benimagediv}>
-              <img src={currentQuote.image} alt="beneficiary-image-and-quote" className={styles.benimage} />
+              <img src={currentQuote.image} alt="beneficiary-pics-and-quote" className={styles.benimage} />
             </div>
             <div className={styles.quotecont}>
               <div className={styles.quot}>
