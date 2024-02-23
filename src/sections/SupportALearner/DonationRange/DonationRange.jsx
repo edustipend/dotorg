@@ -39,7 +39,7 @@ export const DonationRange = () => {
   };
 
   return (
-    <main data-testid={TestId.COMPONENT_ID} className={styles.main}>
+    <section data-testid={TestId.COMPONENT_ID} className={styles.main}>
       <Container>
         <section className={styles.content}>
           <p data-testid={TestId.TITLE_ID} className={styles.title}>
@@ -89,6 +89,6 @@ export const DonationRange = () => {
           </div>
         </section>
       </Container>
-    </main>
+    </section>
   );
 };

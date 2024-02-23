@@ -37,3 +37,11 @@ export const toastNotifications = {
     message: 'Oops! Something went wrong.'
   }
 };
+
+export const TestId = {
+  COMPONENT_TEST_ID: "submit_component_id",
+  IMAGE_ID: "submit_image_id",
+  HEADER_ID: "submit_header_id",
+  BACK_ID: "submit_back_id",
+  SUBMIT_ID: "submit_submit_id",
+}

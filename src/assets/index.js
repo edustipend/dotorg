@@ -49,7 +49,7 @@ import linkedIn_share from './linkedIn_share.svg';
 import facebook_share from './facebook_share.svg';
 import twitter_share from './twitter_share.svg';
 import close from './closeIcn.svg';
-import donateScreen from './donateScreen.svg';
+import donateScreen from './donationScreen.svg';
 import screenBackgroung from './screenBackground.svg';
 import screenPlatform from './screenPlatform.svg'
 

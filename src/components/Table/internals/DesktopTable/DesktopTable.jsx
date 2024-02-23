@@ -45,7 +45,6 @@ export const DesktopTable = ({ entries, tableHead, oneClickApply }) => {
       dispatch(setViewBtnLabel('Reuse Application'));
       dispatch(setDisableTextbox(true));
       dispatch(setDisableOneClickCTA(true));
-      console.log('closed');
       // return;
     } else {
       if (hasApplied) {

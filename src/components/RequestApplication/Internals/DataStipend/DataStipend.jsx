@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import { constant, dataConstants } from '../../constants';
+import { constant, dataConstants, TestId } from '../../constants';
 import { reason, steps, benefits, futureHelp, setDisableTextbox } from '../../../../store/reducers/ApplicationReducer';
 import { isApplicationWindowClosed } from '../../../../utils';
 import Quote from '../../../../components/Quote';
 import QuestionAndAnswer from '../QuestionAndAnswer';
 import ContentContainer from '../../../../components/ApplicationSteps/ContentContainer';
 import CategoryHeader from '../CategoryHeader';
+import Button from '../../../../components/Button';
 import Navigation from '../Navigation';
-import Button from '../../../Button';
 import styles from '../LaptopStipend/LaptopStipend.module.css';
 const { TITLE, SUPPORT_TYPE, FOOT_NOTE1, FOOT_NOTE2, FOOT_NOTE3, FOOT_NOTE4, QUESTION1, QUESTION2, QUESTION3, QUESTION4, QUOTE } = dataConstants;
 
@@ -33,7 +33,7 @@ export const DataStipend = () => {
   };
 
   return (
-    <div className={styles.stipend}>
+    <div data-testid={TestId.DATA_STIPEND} className={styles.stipend}>
       <ContentContainer>
         <section className={styles.main}>
           <CategoryHeader header={TITLE} category={TITLE} support={SUPPORT_TYPE} />
