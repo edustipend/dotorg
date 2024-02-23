@@ -17,7 +17,7 @@ export const HeroSection = () => {
     const intervalId = setInterval(() => {
       setCurrentQuoteIndex((prevIndex) => (prevIndex + 1) % quotesArray.length);
       setAnimationKey((prevKey) => prevKey + 1);
-    }, 10000);
+    }, 20000);
 
     return () => clearInterval(intervalId);
   }, []);
@@ -28,11 +28,11 @@ export const HeroSection = () => {
     <div className={styles.bg}>
       <Container>
         <div className={styles.container}>
-          <div className={styles.quotes} key={animationKey} style={{ animation: `${styles.fadeIn} 0.5s ease-in-out` }}>
+          <div className={styles.quotes} key={animationKey}>
             <div className={styles.benimagediv}>
               <img src={currentQuote.image} alt="beneficiary-image-and-quote" className={styles.benimage} />
             </div>
-            <div className={styles.quotecont} style={{ animation: `${styles.fade} 0.5s ease-in` }}>
+            <div className={styles.quotecont}>
               <div className={styles.quot}>
                 <img src={quoteU} alt="quote-icon" className="quoteU" style={{ alignSelf: 'flex-start' }} />
                 <Text data-testid="quote-content" content={currentQuote.content} className={styles.quote} />
