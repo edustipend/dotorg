@@ -197,9 +197,6 @@
 
   .text {
     font-size: 22px;
-  }
-
-  .text {
     margin: 0px 10px;
   }
 
@@ -247,9 +244,6 @@
   .header {
     text-align: center;
     margin: 0px 100px;
-  }
-
-  .header {
     display: none;
   }
 
