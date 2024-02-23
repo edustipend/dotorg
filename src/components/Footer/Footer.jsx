@@ -10,7 +10,7 @@ export const Footer = (props) => {
   const isDashboard = pathname === '/dashboard';
   const isDonation = pathname === '/donation';
 
-  if (isDonation) {
+  if (isDonation || isDashboard) {
     return;
   }
   return (
