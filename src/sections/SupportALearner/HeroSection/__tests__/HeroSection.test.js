@@ -43,13 +43,13 @@ describe('HeroSection component', () => {
   //   });
 
   //   // Get the initial quote content
-  //   const initialQuoteContent = screen.getByTestId('quote-content').textContent;
+  //   const initialQuoteContent = screen.findByTestId('quote-content').textContent;
 
   //   // Wait for the interval
   //   await new Promise((resolve) => setTimeout(resolve, 10000));
 
   //   // Get the new quote content
-  //   const newQuoteContent = screen.getByTestId('quote-content').textContent;
+  //   const newQuoteContent = screen.findByTestId('quote-content').textContent;
 
   //   expect(newQuoteContent).not.toBe(initialQuoteContent);
   // });
