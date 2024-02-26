@@ -37,6 +37,7 @@ import tears from './crying face.svg';
 import Eye_Icon from './view_eye.svg';
 import Edit_Icon from './edit_icon.svg';
 import Menu_Icon from './three_dots.svg';
+import Our_Impact from './our-impacts.png';
 
 export {
   Hero1,
@@ -77,5 +78,6 @@ export {
   tears,
   Eye_Icon,
   Edit_Icon,
-  Menu_Icon
+  Menu_Icon,
+  Our_Impact
 };
