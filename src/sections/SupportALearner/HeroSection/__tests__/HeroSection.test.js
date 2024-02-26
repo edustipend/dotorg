@@ -30,7 +30,7 @@ describe('HeroSection component', () => {
   /**
    * HELP!!! THE TEST BELOW IS NOT PASSING AND THAT IS WHY I COMMENTED IT OUT.
    */
-  
+
   // it('changes quote after interval', async () => {
   //   render(
   //     <MemoryRouter>
