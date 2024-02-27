@@ -11,7 +11,7 @@ const useApplicationWindowStatus = () => {
         const res = await getData(APPLICATION_WINDOW_STATUS);
         res?.applicationStatus && setIsWindowClosed(res.applicationStatus);
       } catch (error) {
-        toast.error(`Oops! Somethin went wrong. ${error.message}!`);
+        toast.error(`Unable to fetch application window status. ${error.message}!`);
       }
     };
     checkWindowStatus();
