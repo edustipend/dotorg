@@ -1,11 +1,15 @@
-import React from 'react';
-import styles from './SupportALearner.module.css';
+import { HeroSection } from '../../sections/SupportALearner/HeroSection/HeroSection';
+import OurImpacts from '../../sections/SupportALearner/OurImpacts';
+import HowWeSelect from '../../sections/SupportALearner/HowWeSelect';
 import DonationRange from '../../sections/SupportALearner/DonationRange';
 
 export const SupportALearner = () => {
   return (
-    <div className={styles.supportalearnercontainer}>
+    <>
+      <HeroSection />
+      <OurImpacts />
       <DonationRange />
-    </div>
+      <HowWeSelect />
+    </>
   );
 };

@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ModalContext } from '../context/ModalContext';
-import { isApplicationWindowClosed } from '../utils';
 import { useSelector } from 'react-redux';
+import useApplicationWindowStatus from './useApplicationWindow';
 
 const REQUEST_STIPEND_ROUTE = '/request';
 const DASHBOARD_ROUTE = '/dashboard';
@@ -17,8 +17,7 @@ const useHandleCTAClick = () => {
   const { handleNotifyModal } = useContext(ModalContext);
   const { isAuthenticated } = useSelector((state) => state.user);
   const nav = useNavigate();
-  const isWindowClosed = isApplicationWindowClosed();
-
+  const isWindowClosed = useApplicationWindowStatus();
   const buttonLabel = isWindowClosed
     ? ButtonLabelCopy.NOTIFY_ME
     : isAuthenticated

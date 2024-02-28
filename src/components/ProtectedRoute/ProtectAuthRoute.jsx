@@ -3,8 +3,11 @@ import PropTypes from 'prop-types';
 import Cookies from 'js-cookie';
 import { jwtDecode } from 'jwt-decode';
 import { useMemo } from 'react';
+import { logout } from '../../store/reducers/UserReducer';
+import { useDispatch } from 'react-redux';
 
 const ProtecteAuthRoute = ({ children }) => {
+  const dispatch = useDispatch();
   const checkToken = useMemo(() => {
     const token = Cookies.get('eduTk');
     try {
@@ -26,7 +29,8 @@ const ProtecteAuthRoute = ({ children }) => {
   if (validateToken) {
     return <Navigate to="/dashboard" />;
   }
-
+  Cookies.remove('eduTk');
+  dispatch(logout());
   return children;
 };
 

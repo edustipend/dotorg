@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import { constant, dataConstants } from '../../constants';
+import { constant, dataConstants, TestId } from '../../constants';
+import useApplicationWindowStatus from '../../../../hooks/useApplicationWindow';
 import { reason, steps, benefits, futureHelp, setDisableTextbox } from '../../../../store/reducers/ApplicationReducer';
-import { isApplicationWindowClosed } from '../../../../utils';
 import Quote from '../../../../components/Quote';
 import QuestionAndAnswer from '../QuestionAndAnswer';
 import ContentContainer from '../../../../components/ApplicationSteps/ContentContainer';
 import CategoryHeader from '../CategoryHeader';
+import Button from '../../../../components/Button';
 import Navigation from '../Navigation';
-import Button from '../../../Button';
 import styles from '../LaptopStipend/LaptopStipend.module.css';
 const { TITLE, SUPPORT_TYPE, FOOT_NOTE1, FOOT_NOTE2, FOOT_NOTE3, FOOT_NOTE4, QUESTION1, QUESTION2, QUESTION3, QUESTION4, QUOTE } = dataConstants;
 
@@ -20,7 +20,7 @@ export const DataStipend = () => {
   const { reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser, viewBtnLabel, currentApplication } = useSelector(
     (state) => state.application
   );
-  const isWindowClosed = isApplicationWindowClosed();
+  const isWindowClosed = useApplicationWindowStatus();
 
   //check if each of the form values are at least > 4, enable the continue button if true
   const [showUnderReview, setShowUnderReview] = useState(isWindowClosed);
@@ -28,12 +28,11 @@ export const DataStipend = () => {
 
   const handleEditApplication = () => {
     setShowBtn((prev) => !prev);
-    const isWindowClosed = isApplicationWindowClosed();
     isWindowClosed ? setShowUnderReview(true) : dispatch(setDisableTextbox(false));
   };
 
   return (
-    <div className={styles.stipend}>
+    <div data-testid={TestId.DATA_STIPEND} className={styles.stipend}>
       <ContentContainer>
         <section className={styles.main}>
           <CategoryHeader header={TITLE} category={TITLE} support={SUPPORT_TYPE} />

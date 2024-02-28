@@ -52,7 +52,7 @@ import close from './closeIcn.svg';
 import donateScreen from './donateScreen.svg';
 import screenBackgroung from './screenBackground.svg';
 import screenPlatform from './screenPlatform.svg'
-
+import Our_Impact from './our-impacts.png';
 
 export {
   Hero1,
@@ -108,5 +108,6 @@ export {
   close,
   donateScreen,
   screenBackgroung,
-  screenPlatform
+  screenPlatform,
+  Our_Impact
 };

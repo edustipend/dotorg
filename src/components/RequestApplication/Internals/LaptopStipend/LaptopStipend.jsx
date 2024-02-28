@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import { constant, laptopConstants } from '../../constants';
+import { constant, TestId, laptopConstants } from '../../constants';
 import { reason, steps, benefits, futureHelp, setDisableTextbox } from '../../../../store/reducers/ApplicationReducer';
-import { isApplicationWindowClosed } from '../../../../utils';
+import useApplicationWindowStatus from '../../../../hooks/useApplicationWindow';
 import Quote from '../../../../components/Quote';
 import Navigation from '../Navigation';
 import Button from '../../../Button';
@@ -21,7 +21,7 @@ export const LaptopStipend = () => {
   const { reasonForRequest, stepsTakenToEaseProblem, potentialBenefits, futureHelpFromUser, viewBtnLabel, currentApplication } = useSelector(
     (state) => state.application
   );
-  const isWindowClosed = isApplicationWindowClosed();
+  const isWindowClosed = useApplicationWindowStatus();
 
   //check if each of the form values are at least > 4, enable the continue button if true
   const [showUnderReview, setShowUnderReview] = useState(isWindowClosed);
@@ -29,12 +29,11 @@ export const LaptopStipend = () => {
 
   const handleEditApplication = () => {
     setShowBtn((prev) => !prev);
-    const isWindowClosed = isApplicationWindowClosed();
     isWindowClosed ? setShowUnderReview(true) : dispatch(setDisableTextbox(false));
   };
 
   return (
-    <div className={styles.stipend}>
+    <div className={styles.stipend} data-testid={TestId.LAPTOP_STIPEND}>
       <ContentContainer>
         <section className={styles.main}>
           <CategoryHeader header={TITLE} category={TITLE} support={SUPPORT_TYPE} />
