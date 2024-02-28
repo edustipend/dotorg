@@ -32,7 +32,6 @@ import Flower from './flower.png';
 import Sad from './sad.svg';
 import Hand from './hand.png';
 import Eye from './eye.svg';
-import aisha from './aisha.svg';
 import quoteLeft from './quote-left.svg';
 import quoteRight from './quote-right.svg';
 import success from './success.png';
@@ -53,6 +52,7 @@ import screenBackgroung from './screenBackground.svg';
 import screenPlatform from './screenPlatform.svg'
 import Our_Impact from './our-impacts.png';
 import   donateScreen from "./donate_screen.svg";
+import aishaPng from './aishabeneficiary.png'
 
 export {
   Hero1,
@@ -89,7 +89,6 @@ export {
   Sad,
   Hand,
   Eye,
-  aisha,
   quoteLeft,
   quoteRight,
   success,
@@ -109,5 +108,6 @@ export {
   donateScreen,
   screenBackgroung,
   screenPlatform,
-  Our_Impact
+  Our_Impact,
+  aishaPng
 };

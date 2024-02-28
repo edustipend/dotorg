@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import styles from './DonateNow.module.css';
-import { aisha, info, infoArrow, quoteLeft, quoteRight } from '../../assets';
+import {  aishaPng, info, infoArrow, quoteLeft, quoteRight } from '../../assets';
 import { TestId, constants } from './constants';
 import Input from '../../components/Input';
 import Header from '../../components/Header';
@@ -69,7 +69,7 @@ export const DonateNow = () => {
       <section className={styles.main}>
         <div data-testid={TestId.CONTENT_ID} className={styles.content}>
           <section className={styles.left}>
-            <img data-testid={TestId.IMAGE_ID} src={aisha} alt="aisha" className={styles.aisha} />
+            <img data-testid={TestId.IMAGE_ID} src={aishaPng} alt="aisha" className={styles.aisha} />
             <div className={styles.quote}>
               <div className={styles.message}>
                 <p className={styles.aishaQuote}>{constants.aisha}</p>
