@@ -1,0 +1,229 @@
+.wrapper {
+  width: 100%;
+  background: var(--primary);
+  padding: 20px 0;
+  background: linear-gradient(137.18deg, #e7dff7 0%, rgba(210, 210, 210, 0) 100%);
+}
+
+.headerContainer {
+  border-bottom: 1px solid var(--edustipend-yellow);
+  height: 17px;
+  margin-bottom: 22px;
+}
+
+.headerContainer h1 {
+  font-size: 18px;
+  font-family: 'Poppins';
+  font-weight: 600;
+  line-height: 8.49px;
+  letter-spacing: 5%;
+  text-align: center;
+  color: #2d3740;
+}
+
+.contentWrapper {
+  width: 100%;
+  max-width: 1327px;
+  margin: 0 auto 100px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  background-image: url('../../../assets/howWeSelectBg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.card {
+  width: 100%;
+  padding: 32px 12px;
+  border-radius: 18px;
+  gap: 26.22px;
+  background: #eee9f8;
+  box-shadow: 0px 0px 4px 0px #43434340;
+  margin-bottom: 22px;
+}
+
+.cardAlt {
+  width: 100%;
+  padding: 32px 12px;
+  border-radius: 18px;
+  gap: 26.22px;
+  background: #eee9f8;
+  box-shadow: 0px 0px 4px 0px #43434340;
+  margin-bottom: 22px;
+}
+
+.cardTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.contentWrapper h1 {
+  font-family: 'Poppins';
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 17px;
+  text-align: left;
+  color: var(--edustipend-black);
+  text-transform: uppercase;
+}
+
+.contentWrapper span {
+  font-family: 'DM Sans';
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 17px;
+  letter-spacing: 0em;
+  color: #b793fb;
+}
+
+.contentWrapper p {
+  font-family: 'Manrope';
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #2d3740b2;
+}
+
+.process {
+  width: 100%;
+  max-width: 657px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.process h2 {
+  font-family: 'Manrope';
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+  text-align: left;
+  color: #000000;
+}
+
+@media only screen and (min-width: 650px) {
+  .card,
+  .cardAlt {
+    padding: 32px;
+    border-radius: 32.42px;
+  }
+
+  .cardTitle {
+    margin-bottom: 26.22px;
+  }
+
+  .contentWrapper h1 {
+    font-size: 32px;
+    line-height: 26px;
+    color: var(--edustipend-purple);
+  }
+
+  .contentWrapper span {
+    font-size: 56px;
+    line-height: 26px;
+    color: #9c9c9c;
+  }
+
+  .contentWrapper p {
+    font-weight: 400;
+    line-height: 26px;
+    font-size: 20px;
+  }
+
+  .process {
+    gap: 59px;
+  }
+
+  .process h2 {
+    font-size: 40px;
+    line-height: 54px;
+  }
+}
+
+@media only screen and (min-width: 940px) {
+  .wrapper {
+    padding: 80px 50px 30px;
+  }
+
+  .headerContainer {
+    height: 37px;
+    margin-bottom: 77px;
+  }
+
+  .headerContainer h1 {
+    font-size: 36px;
+    line-height: 30.52px;
+  }
+}
+
+@media only screen and (min-width: 1150px) {
+  .wrapper {
+    padding: 80px 50px 30px;
+  }
+
+  .headerContainer h1 {
+    font-size: 36px;
+    line-height: 30.52px;
+  }
+
+  .card,
+  .cardAlt {
+    margin-bottom: 80px;
+  }
+
+  .card {
+    max-width: 440px;
+    transform-origin: top center;
+    transform: scaleY(1.1);
+  }
+
+  .cardAlt {
+    max-width: 540.18px;
+    transform: scaleY(0.9);
+  }
+}
+
+@media only screen and (min-width: 1300px) {
+  .wrapper {
+    padding: 80px 40px 50px;
+  }
+
+  .headerContainer {
+    height: 57px;
+  }
+
+  .headerContainer h1 {
+    font-size: 36px;
+    line-height: 30.52px;
+  }
+
+  .card {
+    max-width: 500px;
+  }
+
+  .cardAlt {
+    max-width: 600.18px;
+  }
+}
+
+@media only screen and (min-width: 1430px) {
+  .card,
+  .cardAlt {
+    padding: 59px;
+  }
+
+  .card {
+    max-width: 584px;
+  }
+
+  .cardAlt {
+    max-width: 683px;
+  }
+}
