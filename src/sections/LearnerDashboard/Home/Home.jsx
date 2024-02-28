@@ -12,7 +12,6 @@ import ActionBanner from '../../../components/ActionBanner';
 import { PageCopy } from './constants';
 import useResendVerification from '../../../hooks/useResendVerification';
 import { setHasApplied, setNewApplication } from '../../../store/reducers/ApplicationReducer';
-import { isApplicationWindowClosed } from '../../../utils';
 import CheckPreviousApplication from '../../../utils/CheckPreviousApplication';
 import { APPLICATION_HISTORY, EDIT_APPLICATION, ONE_CLICK_APPLY, authorizedPost } from '../../../services/ApiClient';
 import { Step2Application } from '../../../components/ApplicationSteps/Step2Application/Step2Application';
@@ -31,6 +30,7 @@ import { toastNotifications } from '../../../components/ApplicationSteps/Step5Ap
 import { ModalContext } from '../../../context/ModalContext';
 import { UseModal } from '../../../components/Modal/UseModal';
 import NewApplication from '../../../components/ApplicationSteps/Step5Application/Internals/NewApplication';
+import useApplicationWindowStatus from '../../../hooks/useApplicationWindow';
 const { ONE_CLICK, ERROR } = toastNotifications;
 
 export const Home = () => {
@@ -60,7 +60,7 @@ export const Home = () => {
   const [first] = name.split(' ');
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const isWindowClosed = isApplicationWindowClosed();
+  const isWindowClosed = useApplicationWindowStatus();
   const Category = stipendCategory.split('/')[0].toLowerCase();
   const { dashboard } = constants;
   const applicationInfo = {
@@ -227,8 +227,7 @@ export const Home = () => {
                 <button
                   key={idx}
                   className={currentTable === idx ? `${styles.tab}` : `${styles.tab} ${styles.tabAlt}`}
-                  onClick={() => setCurrentTable(idx)}
-                >
+                  onClick={() => setCurrentTable(idx)}>
                   {itm}
                 </button>
               );

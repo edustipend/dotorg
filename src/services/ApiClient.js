@@ -11,6 +11,7 @@ export const EDIT_APPLICATION = 'stipend/update';
 export const NEW_APPLICATION = 'stipend/apply';
 export const ONE_CLICK_APPLY = 'stipend/apply/one-click';
 export const LOGOUT = 'logout';
+export const APPLICATION_WINDOW_STATUS = 'application-window';
 
 export const authorizedPost = async function (route = '', data = {}) {
   const url = `${API_ENDPOINT}${route}?jwt=${token}`;
@@ -26,7 +27,7 @@ export const authorizedPost = async function (route = '', data = {}) {
     referrerPolicy: 'no-referrer',
     body: JSON.stringify(data)
   });
- 
+
   return response.json();
 };
 
