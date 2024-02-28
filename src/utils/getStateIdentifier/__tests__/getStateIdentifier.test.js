@@ -1,4 +1,4 @@
-import { getStateIdentifier, STATE_OPTION } from '../index'; 
+import { getStateIdentifier, STATE_OPTION } from '../index';
 
 describe('getStateIdentifier', () => {
   it('should return the correct state identifier for a given state label', () => {
