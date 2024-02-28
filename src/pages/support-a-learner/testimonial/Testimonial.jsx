@@ -2,6 +2,9 @@
 import './Testimonial.css';
 import TestimonialCard from './TestimonialCard';
 import { Container } from '../../../components/Container/ContainerComponent';
+import nonsoImg from '../../../assets/testimonials/nonso-boy.jpg';
+import ulenyoImg from '../../../assets/testimonials/ulenyo.jpg';
+import FawazImg from '../../../assets/testimonials/fawaz_code.jpg';
 
 function Testimonial() {
   return (
@@ -31,6 +34,8 @@ function Testimonial() {
           opportunity to thank my mentor @t_chukwure for taking a chance on me."
             postDate="March 17, 2023"
             seeLink="See on X &rarr;"
+            hrefLink="https://x.com/edustipend/status/1630614305447223297?s=20"
+            source={nonsoImg}
           />
           <TestimonialCard
             username="Ulenyo-Ojo Ohiemii"
@@ -38,13 +43,17 @@ function Testimonial() {
             content="This feels alot like a dreeeaaam. I have been barely coping with coding on mobile and borrowed systems and so I couldn't contain my surprise when I got the mail. Words still fail me. Thank you a million times @edustipend team and @meekg33k for taking a chance on me."
             postDate="March 1, 2023"
             seeLink="See on X &rarr;"
+            hrefLink="https://twitter.com/ulenyo/status/1630710032156246018"
+            source={ulenyoImg}
           />
           <TestimonialCard
-            username="Ibrahim Yakubu A..."
-            userhandle="@ibrahim29835768"
+            username="Fawaz Abdulramon"
+            userhandle="@Fawaz_codes"
             content="I just received an alert of 10K into my MTN account. This is a great source of motivation for me to continue my journey and by the grace of God, I will make good use of it. Thank you @edustipend. Thank you to everyone that has contributed.."
             postDate="January 9, 2023"
             seeLink="See on X &rarr;"
+            hrefLink="https://twitter.com/edustipend/status/1630614305447223297"
+            source={FawazImg}
           />
         </div>
         {/* Right Arrow */}
