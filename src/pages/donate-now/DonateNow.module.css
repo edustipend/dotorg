@@ -4,7 +4,7 @@
 }
 
 .main {
-  padding-top: 2.5rem;
+  padding-top: 7.5rem;
   margin-inline: 18px;
   max-width: 1440px;
   padding-bottom: 2.5rem;
@@ -253,6 +253,12 @@
   display: none;
 }
 
+@media screen and (max-width:500px) {
+  .left {
+    display: none;
+  }
+}
+
 @media screen and (min-width:425px) {
   .info {
     top: -7.2rem;
@@ -267,6 +273,7 @@
   .info {
     left: -45px;
   }
+
   .infoArrow {
     left: 45px;
   }
@@ -295,7 +302,7 @@
   }
 
   .main {
-    padding-top: 3rem;
+    padding-top: 8.5rem;
   }
 }
 
@@ -341,7 +348,6 @@
 
 @media screen and (min-width: 1350px) {
   .main {
-    padding-top: 4rem;
     margin-inline: auto;
   }
 }

@@ -49,10 +49,10 @@ import linkedIn_share from './linkedIn_share.svg';
 import facebook_share from './facebook_share.svg';
 import twitter_share from './twitter_share.svg';
 import close from './closeIcn.svg';
-import donateScreen from './donateScreen.svg';
 import screenBackgroung from './screenBackground.svg';
 import screenPlatform from './screenPlatform.svg'
 import Our_Impact from './our-impacts.png';
+import   donateScreen from "./donate_screen.svg";
 
 export {
   Hero1,

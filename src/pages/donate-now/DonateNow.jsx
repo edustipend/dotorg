@@ -66,7 +66,7 @@ export const DonateNow = () => {
 
   return (
     <div data-testid={TestId.COMPONENT_ID} className={styles.background}>
-      <main className={styles.main}>
+      <section className={styles.main}>
         <div data-testid={TestId.CONTENT_ID} className={styles.content}>
           <section className={styles.left}>
             <img data-testid={TestId.IMAGE_ID} src={aisha} alt="aisha" className={styles.aisha} />
@@ -165,7 +165,7 @@ export const DonateNow = () => {
             <p className={styles.footnote}>{constants.quote}</p>
           </section>
         </div>
-      </main>
+      </section>
       <UseModal isActive={redirectModal}>
         <RedirectModal />
       </UseModal>
