@@ -4,9 +4,12 @@
   background-color: #fff;
   color: #333;
 
+  /* flex: 0 0 auto; */
+
   border-radius: 25px;
 
-  min-width: 300px;
+  width: 400px;
+  height: fit-content;
 }
 
 .testimonial__card-header {

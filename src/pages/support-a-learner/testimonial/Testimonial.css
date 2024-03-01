@@ -1,3 +1,24 @@
+/* ---- TEST ------ */
+.testimonial__testimonies-container {
+  overflow-x: auto;
+  white-space: wrap;
+  display: flex;
+  scroll-behavior: smooth; /* Enable smooth scrolling */
+  transition: transform 0.3s ease-in-out;
+}
+
+/* .testimonial__testimonies > * {
+  flex: 0 0 auto;
+  margin-right: 16px;
+} */
+
+.testimonial__testimonies-container::-webkit-scrollbar {
+  width: 1px; /* Adjust the width as needed */
+  display: none;
+}
+
+/* ----- END OF TEST ------ */
+
 .testimonial__section {
   /* background-color: #333; */
   background: radial-gradient(ellipse, #ffca43c7, #000000);
@@ -36,10 +57,13 @@
 }
 
 .testimonial__testimonies {
+  /* overflow: scroll; */
   margin-top: 100px;
   display: flex;
   justify-content: center;
   gap: 20px;
+  scroll-behavior: smooth; /* Enable smooth scrolling */
+  transition: transform 0.3s ease-in-out;
 }
 
 .arrow {

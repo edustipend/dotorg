@@ -9,9 +9,9 @@ function TestimonialCard({ username, userhandle, content, postDate, seeLink, hre
       {/* Testimonial Card Header */}
       <div className="testimonial__card-header">
         <div className="testimonial__card-header--user-profile">
-          <div className="user-profile--image">
-            <img className="user-profile--image" src={source} alt={username} />
-          </div>
+          {/* <div className="user-profile--image">
+          </div> */}
+          <img className="user-profile--image" src={source} alt={username} />
 
           <div className="user-profile--username">
             <p className="user-name">{username}</p>
@@ -28,7 +28,7 @@ function TestimonialCard({ username, userhandle, content, postDate, seeLink, hre
       {/* Footer */}
       <div className="testimony__footer">
         <span className="date">{postDate}</span>
-        <a href={hrefLink} className="platform">
+        <a href={hrefLink} target="blank" className="platform">
           {seeLink}
         </a>
       </div>
