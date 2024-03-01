@@ -5,7 +5,6 @@ import { Container } from '../../../components/Container/ContainerComponent';
 import nonsoImg from '../../../assets/testimonials/nonso-boy.jpg';
 import ulenyoImg from '../../../assets/testimonials/ulenyo.jpg';
 import FawazImg from '../../../assets/testimonials/fawaz_code.jpg';
-// import { useState } from 'react';
 
 function Testimonial() {
   // Array of testimonial data
@@ -55,19 +54,7 @@ function Testimonial() {
   const testimonialDescription = `Discover what the community has to say about the transformative power of Edustipend. Real stories, real impact. Here are some testimonials
   from individuals whose lives have been touched.`;
 
-  // ----------- TEST ----------
   const [scrollPosition, setScrollPosition] = useState(0);
-
-  // const handleScroll = (direction) => {
-  //   const container = document.querySelector('.testimonial__testimonies-container');
-  //   const cardWidth = container.offsetWidth / 2; // Adjust based on your card width
-
-  //   if (direction === 'left') {
-  //     setScrollPosition(scrollPosition - cardWidth);
-  //   } else if (direction === 'right') {
-  //     setScrollPosition(scrollPosition + cardWidth);
-  //   }
-  // };
 
   const handleScroll = (direction) => {
     const container = document.querySelector('.testimonial__testimonies-container');
@@ -81,7 +68,6 @@ function Testimonial() {
       setScrollPosition((prevPosition) => Math.min(totalWidth - containerWidth, prevPosition + containerWidth));
     }
   };
-  // ----------- END OF TEST -----------
 
   // Duplicate the testimonialsData to create an infinite scroll effect
   const infiniteTestimonialsData = [...testimonialsData, ...testimonialsData, ...testimonialsData];
