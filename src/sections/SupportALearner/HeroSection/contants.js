@@ -7,7 +7,7 @@ import Maria from '../../../assets/Ochi.png';
 export const quotesArray = [
   {
     content:
-      'Edustispend supported my career advancement by assisting with a portion of my course fees, thereby providing vital financial support and facilitating my pursuit of educational objectives. Their support has been valuable to me and to many others.',
+      'Edustipend supported my career advancement by assisting with a portion of my course fees, thereby providing vital financial support and facilitating my pursuit of educational objectives. Their support has been valuable to me and to many others.',
     author: 'Isaac Etor',
     image: Isaac,
     when: 'November, 2022'
