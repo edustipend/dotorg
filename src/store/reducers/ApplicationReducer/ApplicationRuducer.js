@@ -24,7 +24,7 @@ const initialState = {
 
 const application = createSlice({
   name: 'Application',
-  initialState,
+  initialState, 
   reducers: {
     back: (state) => {
       state.activeStep -= 1;

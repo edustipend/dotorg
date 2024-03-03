@@ -1,3 +1,3 @@
-import {EmailExistForm} from "./EmailExistForm"
+import { EmailExistForm } from './EmailExistForm';
 
-export default EmailExistForm
+export default EmailExistForm;

@@ -32,11 +32,27 @@ import Flower from './flower.png';
 import Sad from './sad.svg';
 import Hand from './hand.png';
 import Eye from './eye.svg';
+import quoteLeft from './quote-left.svg';
+import quoteRight from './quote-right.svg';
 import success from './success.png';
 import tears from './crying face.svg';
 import Eye_Icon from './view_eye.svg';
 import Edit_Icon from './edit_icon.svg';
 import Menu_Icon from './three_dots.svg';
+import info from './info.svg';
+import infoArrow from './info-arrow.svg';
+import share from "./share.svg"
+import failed_tran from './failed_tran.svg';
+import insta_share from './insta_share.svg';
+import linkedIn_share from './linkedIn_share.svg';
+import facebook_share from './facebook_share.svg';
+import twitter_share from './twitter_share.svg';
+import close from './closeIcn.svg';
+import screenBackgroung from './screenBackground.svg';
+import screenPlatform from './screenPlatform.svg'
+import Our_Impact from './our-impacts.png';
+import   donateScreen from "./donate_screen.svg";
+import aishaPng from './aishabeneficiary.png'
 
 export {
   Hero1,
@@ -73,9 +89,25 @@ export {
   Sad,
   Hand,
   Eye,
+  quoteLeft,
+  quoteRight,
   success,
   tears,
   Eye_Icon,
   Edit_Icon,
-  Menu_Icon
+  Menu_Icon,
+  info,
+  infoArrow,
+  share,
+  failed_tran,
+  insta_share,
+  linkedIn_share,
+  facebook_share,
+  twitter_share,
+  close,
+  donateScreen,
+  screenBackgroung,
+  screenPlatform,
+  Our_Impact,
+  aishaPng
 };

@@ -51,7 +51,8 @@ export const Select = ({ dispatchType, label, includeLabel, placeholder, options
         {active && (
           <div
             data-testid={OPTIONS_ID}
-            className={`${styles.optionsContainer} ${options.length > 2 ? `${styles.optionsContainer}  ${styles.optionsContainerAlt} ` : ''}`}>
+            className={`${styles.optionsContainer} ${options.length > 2 ? `${styles.optionsContainer}  ${styles.optionsContainerAlt} ` : ''}`}
+          >
             {options?.map((itm, idx) => {
               return (
                 <div key={idx} className={styles.option} onClick={() => handleDispatch(itm)}>

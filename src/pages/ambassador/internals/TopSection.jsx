@@ -33,7 +33,8 @@ export const TopSection = () => {
             to={{
               pathname: '/ambassador-program',
               hash: '#apply-now'
-            }}>
+            }}
+          >
             <Button label={'Become an Ambassador'} type="secondary" />
           </NavHashLink>
         </div>

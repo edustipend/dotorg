@@ -30,7 +30,7 @@ export const HeroSection = () => {
         <div className={styles.container}>
           <div className={styles.quotes} key={animationKey}>
             <div className={styles.benimagediv}>
-              <img src={currentQuote.image} alt="beneficiary-pics-and-quote" className={styles.benimage} />
+              <img src={currentQuote.image} alt="beneficiary-quote" className={styles.benimage} />
             </div>
             <div className={styles.quotecont}>
               <div className={styles.quot}>
@@ -59,7 +59,7 @@ export const HeroSection = () => {
                 to={{
                   pathname: '/support-a-learner/donate'
                 }}>
-                <Button label={Texts.SUPPORT_TEXT} size={'small'} type={'secondary'} />
+                <Button label={Texts.SUPPORT_TEXT} size={'medium'} type={'secondary'} />
               </NavHashLink>
 
               <NavHashLink
@@ -67,7 +67,7 @@ export const HeroSection = () => {
                   pathname: '/support-a-learner',
                   hash: '#how-much-can-I-donate'
                 }}>
-                <Button label={Texts.DONATE_TEXT} size={'small'} type={'plain'} />
+                <Button label={Texts.DONATE_TEXT} size={'medium'} type={'plain'} />
               </NavHashLink>
             </div>
           </div>

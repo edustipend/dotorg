@@ -97,7 +97,7 @@
   }
 }
 
-@media screen and (min-width:375px) {
+@media screen and (min-width: 375px) {
   .btn {
     width: 248px;
   }
@@ -107,13 +107,11 @@
   }
 }
 
-@media screen and (min-width:425px) {
+@media screen and (min-width: 425px) {
   .btn {
     width: 310px;
   }
 }
-
-
 
 @media only screen and (max-width: 450px) {
   .img {
@@ -129,8 +127,8 @@
   .subText {
     width: 200px;
     font-feature-settings:
-      'clig'off,
-      'liga'off;
+      'clig' off,
+      'liga' off;
     font-family: 'Manrope';
     font-size: 16px;
     line-height: 20px;

@@ -23,8 +23,9 @@ export const NavbarToShow = () => {
   const isSupportALearner = pathname === '/support-a-learner';
   const isDonateNow = pathname === '/support-a-learner/donate';
   const isRequestStipend = pathname === '/application';
-  const isLogin = pathname.includes('/login');
-  const isDashboard = pathname.includes('/dashboard');
+  const isLogin = pathname === '/login';
+  const isDonation = pathname === '/donation';
+  const isDashboard = pathname === '/dashboard';
 
   const storeData = useSelector((state) => state?.user);
   let firstN = '';
@@ -47,7 +48,7 @@ export const NavbarToShow = () => {
     navigate('/login');
   };
 
-  const showNav = () => !isDashboard && !isRequestStipend && !isLogin;
+  const showNav = () => !isDashboard && !isRequestStipend && !isLogin && !isDonation;
 
   return showNav() ? (
     <>

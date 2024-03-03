@@ -9,5 +9,6 @@ export const routesConstant = {
   RESET_PASSWORD: '/reset-password',
   WELCOME: '/welcome',
   AT_ONE: '/at-one',
-  LOGIN: '/login'
+  LOGIN: '/login',
+  DONATION: '/donation'
 };

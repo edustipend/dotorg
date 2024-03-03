@@ -1,0 +1,203 @@
+.main {
+    display: flex;
+    justify-content: center;
+}
+
+.contentContainer {
+    background-color: var(--white);
+    padding: 30px 24px;
+    border-radius: 16px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    text-align: center
+}
+
+.textContent {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.title {
+    font-family: var(--font-family-poppins);
+    font-size: 20px;
+    color: var(--edustipend-black);
+    font-weight: 600;
+}
+
+.message {
+    font-family: var(--font-family-manrope);
+    font-size: 16px;
+    color: var(--navy-blue);
+    max-width: 500px;
+}
+
+.btnContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.btn,
+.btn2 {
+    font-family: var(--font-family-manrope);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--navy-blue);
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.btn2Alt {
+    color: var(--edustipend-purple);
+}
+
+.shareContent {
+    font-family: var(--font-family-poppins);
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.closeIcn {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.share {
+    font-weight: var(--navy-blue);
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.handle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 0;
+    border-top: 0.5px solid #EDEAEA;
+    border-bottom: 0.5px solid #EDEAEA;
+    ;
+}
+
+.media {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+.mediaImg {
+    width: 60px;
+    height: 60px;
+    transition: all 300ms ease-in-out;
+}
+
+.mediaImg:hover {
+    transform: scale(1.15);
+}
+
+.name {
+    font-family: var(--font-family-manrope);
+    display: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--black);
+}
+
+@media screen and (min-width:412px) {
+    .name {
+        display: flex;
+    }
+}
+
+.text {
+    font-family: var(--font-family-manrope);
+    background-color: var(--light-purple);
+    color: var(--navy-blue);
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.mediaText {
+    max-width: 500px;
+}
+
+.mediaLink {
+    margin-top: 10px;
+    color: var(--edustipend-purple);
+    text-decoration: underline;
+}
+
+@media screen and (min-width:600px) {
+    .contentContainer {
+        padding: 46px;
+    }
+
+    .textContent {
+        gap: 20px;
+    }
+
+    .title {
+        font-size: 32px;
+    }
+
+    .message {
+        font-size: 18px;
+    }
+}
+
+@media screen and (min-width:768px) {
+    .contentContainer {
+        border-radius: 30px;
+    }
+
+    .btnContainer {
+        gap: 47px;
+        margin-top: 38px;
+    }
+
+    .btn {
+        width: 320px;
+    }
+
+    .mediaImg {
+        width: initial;
+        height: initial;
+    }
+
+    .name {
+        font-size: 16px;
+    }
+
+    .share {
+        font-size: 28px;
+    }
+
+    .closeIcn {
+        width: 23px;
+        height: 23px;
+    }
+}
