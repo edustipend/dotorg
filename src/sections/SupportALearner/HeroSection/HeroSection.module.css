@@ -135,6 +135,10 @@
   animation-name: fadeIn;
 }
 
+.benwhen {
+  padding: 0 5px;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -162,6 +166,10 @@
 }
 
 @media only screen and (min-width: 768px) {
+  .benwhen {
+    padding: 0 12px;
+  }
+
   .ctabtns {
     flex-direction: row;
     width: 100%;
@@ -191,6 +199,10 @@
 }
 
 @media only screen and (min-width: 1024px) {
+  .benwhen {
+    padding: 0 30px;
+  }
+
   .benimage {
     width: 100%;
   }

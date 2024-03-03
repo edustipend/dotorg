@@ -38,11 +38,13 @@ export const HeroSection = () => {
                 <Text data-testid="quote-content" content={currentQuote.content} className={styles.quote} />
                 <img src={quoteD} alt="quote-icon" className="quoteD" style={{ alignSelf: 'flex-end' }} />
               </div>
-              <div className={styles.ben}>
-                <Text content={currentQuote.author} className={styles.benName} />
-              </div>
-              <div className={styles.ben}>
-                <Text content={currentQuote.when} className={styles.when} />
+              <div className={styles.benwhen}>
+                <div className={styles.ben}>
+                  <Text content={currentQuote.author} className={styles.benName} />
+                </div>
+                <div className={styles.ben}>
+                  <Text content={currentQuote.when} className={styles.when} />
+                </div>
               </div>
             </div>
           </div>
