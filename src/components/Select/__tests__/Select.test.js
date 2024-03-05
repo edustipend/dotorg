@@ -53,5 +53,15 @@ describe('Select component', () => {
       const input = screen.getByTestId(INPUT_ID);
       expect(input).toHaveValue(mockValue);
     });
+    it('should have the right value on value change', () => {
+      const mockValue = 'test';
+      render(
+        <Provider store={store}>
+          <Select value={mockValue} />
+        </Provider>
+      );
+      const input = screen.getByTestId(INPUT_ID);
+      expect(input).toHaveValue(mockValue);
+    });
   });
 });

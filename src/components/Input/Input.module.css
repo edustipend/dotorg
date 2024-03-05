@@ -11,13 +11,13 @@
   font-size: 16px;
   display: flex;
   align-items: center;
+  gap: 0.5rem;
   margin-left: 0.45rem;
   color: var(--navy-blue);
 }
 
 .required {
   margin-top: 10px;
-  margin-left: 10px;
   font-size: 24px;
   color: var(--red-accent);
   font-weight: 700;

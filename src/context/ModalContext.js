@@ -8,6 +8,8 @@ export const ModalContextProvider = ({ children }) => {
   const [verifyPopModal, setVerifyPopModal] = useState(false);
   const [verifyCurrentUser, setVerifyCurrentUser] = useState(false);
   const [newApplicationModal, setNewApplicationModal] = useState(false);
+  const [redirectModal, setRedirectModal] = useState(false);
+  const [transactionModal, setTransactionModal] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isActive, setIsActive] = useState(false);
 
@@ -21,17 +23,43 @@ export const ModalContextProvider = ({ children }) => {
 
   const handleVerifyEmailModal = () => {
     setVerifyPopModal((prev) => !prev);
-  }
+  };
 
   const handleNewApplicationModal = () => {
     setNewApplicationModal((prev) => !prev);
-  }
+  };
 
   const handleVerifyCurrentUser = () => {
     setVerifyCurrentUser((prev) => !prev);
-  }
+  };
 
-  const value = { handleNotifyModal, notifyPopModal, verifyPopModal, isLoading, setIsLoading, isActive, handleEmailExistModal, setIsActive, handleVerifyEmailModal, newApplicationModal, verifyCurrentUser, handleVerifyCurrentUser, handleNewApplicationModal };
+  const handleRedirectModal = () => {
+    setRedirectModal((prev) => !prev);
+  };
+
+  const handleToggleTransactionModal = () => {
+    setTransactionModal((prev) => !prev);
+  };
+
+  const value = {
+    handleNotifyModal,
+    notifyPopModal,
+    verifyPopModal,
+    isLoading,
+    setIsLoading,
+    isActive,
+    handleEmailExistModal,
+    setIsActive,
+    handleVerifyEmailModal,
+    newApplicationModal,
+    verifyCurrentUser,
+    handleVerifyCurrentUser,
+    handleNewApplicationModal,
+    redirectModal,
+    handleRedirectModal,
+    transactionModal,
+    handleToggleTransactionModal
+  };
 
   return <ModalContext.Provider value={value}>{children}</ModalContext.Provider>;
 };

@@ -19,6 +19,7 @@ const getButtonMode = (type) => {
  */
 export const Button = ({
   className,
+  effectClass,
   dataTest,
   disabled,
   effectAlt,
@@ -44,7 +45,7 @@ export const Button = ({
       className={`${
         type === ButtonType.PRIMARY ? 'effect' : type === ButtonType.SECONDARY ? 'effect effect_alt' : type === ButtonType.PLAIN ? 'effect' : ''
       }
-  ${disabled ? 'disabled' : ''} ${effectAlt ? 'effectAlt' : ''} `}
+  ${disabled ? 'disabled' : ''} ${effectAlt ? 'effectAlt' : ''} ${effectClass} `}
     >
       <button
         data-testid={dataTest}
@@ -76,6 +77,7 @@ Button.propTypes = {
   dataTest: PropTypes.string,
   disabled: PropTypes.bool,
   effectAlt: PropTypes.bool,
+  effectClass: PropTypes.string,
   icon: PropTypes.string,
   iconPosition: PropTypes.oneOf(['back', 'front']),
   isLoading: PropTypes.bool,

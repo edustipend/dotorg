@@ -47,6 +47,7 @@ export const LoginForm = () => {
       if (res.success) {
         const token = res?.token.split(' ')[1];
         const decode = jwtDecode(token);
+
         Cookies.set('eduTk', token, {
           secure: true,
           sameSite: 'strict',

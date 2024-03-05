@@ -126,5 +126,5 @@ export const Texts = {
   Become: 'Become an Edustipend',
   ViewPhotos: 'View impact project photos',
   NoPhotos: 'No impact photos available.',
-  AbsHeader: 'MEET OUR INAUGURAL AMBASSADORS AND THEIR IMPACT PROJECTS',
+  AbsHeader: 'MEET OUR INAUGURAL AMBASSADORS AND THEIR IMPACT PROJECTS'
 };

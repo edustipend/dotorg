@@ -1,6 +1,6 @@
 :root {
-  --font-family-manrope: 'Manrope';
-  --font-family-poppins: 'Poppins';
+  --font-family-manrope: 'Manrope', sans-serif;
+  --font-family-poppins: 'Poppins', sans-serif;
 }
 
 .bullet {
@@ -30,14 +30,13 @@
 
 ::-webkit-scrollbar {
   display: inline-flex;
-  width: .45vw;
+  width: 0.45vw;
 }
 
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(transparent, var(--primary));
   border-radius: 10px;
 }
-
 
 .bullet-wrapper {
   display: flex;
@@ -64,7 +63,7 @@
   display: flex;
 }
 
-.display-card-title>p {
+.display-card-title > p {
   font-weight: 600;
   margin: 0;
   margin-left: 0.5rem;
@@ -135,6 +134,7 @@
   align-items: center;
   padding-inline: 1rem;
   background: #000000e5;
+  margin-top: -80px;
 }
 
 .modal_modal::-webkit-scrollbar {

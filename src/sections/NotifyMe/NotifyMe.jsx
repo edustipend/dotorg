@@ -5,9 +5,8 @@ import NotifyForm from './internals/NotifyForm';
 import { ModalContext } from '../../context/ModalContext';
 
 export const NotifyMe = () => {
-
   const { handleNotifyModal } = useContext(ModalContext);
-  
+
   return (
     <main className={styles.notify}>
       <div className={styles.closeContainer} onClick={handleNotifyModal}>

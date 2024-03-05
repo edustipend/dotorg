@@ -16,7 +16,7 @@ import { setActiveStep, back, successful, isError } from '../../../store/reducer
 import { reset } from '../../../store/reducers/ApplicationReducer';
 import { ScrollOnMount } from '../ScrollOnMount/ScrollOnMount';
 import { BackArrow } from '../../../assets';
-import { constants } from './Internals/constants';
+import { TestId, constants } from './Internals/constants';
 import { DancingEmoji } from '../../../assets';
 import { authorizedPost } from '../../../services/ApiClient';
 import { UseModal } from '../../Modal/UseModal';
@@ -131,11 +131,13 @@ export const Step5Application = () => {
 
   return (
     <>
-      <div>
-        <ContentContainer>
+      <>
+        <ContentContainer dataTest={TestId.COMPONENT_TEST_ID}>
           <div className={styles.headerContainer}>
-            <Header className={styles.header}>{newApplication ? NEW_APPLICATION_HEADER : HEADER}</Header>
-            <img src={DancingEmoji} alt="dancing_emoji" className={styles.emoji} />
+            <Header dataTest={TestId.HEADER_ID} className={styles.header}>
+              {newApplication ? NEW_APPLICATION_HEADER : HEADER}
+            </Header>
+            <img data-testid={TestId.IMAGE_ID} src={DancingEmoji} alt="dancing_emoji" className={styles.emoji} />
           </div>
           <div className={styles.textContainer}>
             <Text content={newApplication ? NEW_APPLICATION_PARA1 : PARA1} />
@@ -148,8 +150,18 @@ export const Step5Application = () => {
             </div>
           </div>
           <div className={styles.btnContainer}>
-            <Button label={'Back'} icon={BackArrow} iconPosition={'back'} type={'plain'} effectAlt onClick={handleAction} className={styles.btn} />
             <Button
+              dataTest={TestId.BACK_ID}
+              label={'Back'}
+              icon={BackArrow}
+              iconPosition={'back'}
+              type={'plain'}
+              effectAlt
+              onClick={handleAction}
+              className={styles.btn}
+            />
+            <Button
+              dataTest={TestId.SUBMIT_ID}
               label={'Submit'}
               type={'secondary'}
               loading={'Back'}
@@ -172,7 +184,7 @@ export const Step5Application = () => {
         <UseModal isActive={newApplicationModal}>
           <NewApplication isSuccess={isSuccess} message={message} prompt={prompt} />
         </UseModal>
-      </div>
+      </>
     </>
   );
 };

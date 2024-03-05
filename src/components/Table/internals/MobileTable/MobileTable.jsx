@@ -7,7 +7,6 @@ import { getFormattedDate, getFormattedTime } from '../../../../utils/dateTimeUt
 import { applicationStatus, tooltipContent } from '../constants';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { isApplicationWindowClosed } from '../../../../utils';
 import {
   setActiveStep,
   setCurrentApplication,
@@ -19,6 +18,7 @@ import {
 import toast from 'react-hot-toast';
 import { hasCurrentApplication } from '../../../../utils/hasCurrentApplication';
 import { PageCopy } from '../../../../sections/LearnerDashboard/Home/constants';
+import useApplicationWindowStatus from '../../../../hooks/useApplicationWindow';
 const { APPROVED, IN_VIEW, RECEIVED, DENIED } = applicationStatus;
 
 export const MobileTable = ({ entries, tableHead, oneClickApply }) => {
@@ -27,7 +27,7 @@ export const MobileTable = ({ entries, tableHead, oneClickApply }) => {
   const currentEntry = entries[entry];
   const nav = useNavigate();
   const dispatch = useDispatch();
-  const isWindowClosed = isApplicationWindowClosed();
+  const isWindowClosed = useApplicationWindowStatus();
   const { isVerified } = useSelector((state) => state.user);
   const { hasApplied } = useSelector((state) => state.application);
   const [activeApplication, setActiveApplication] = useState(null);
