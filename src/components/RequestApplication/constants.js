@@ -68,12 +68,11 @@ export const courseConstants = {
   QUOTE: `"The harder you work for something, the greater you'll feel when you achieve it."`
 };
 
-
 export const TestId = {
-  COMPONENT_ID: "component_id",
-  QUESTION_ID: "question_id",
-  ANSWER_ID: "answer_id",
-  COURSE_STIPEND: "course_stipend_id",
-  DATA_STIPEND: "data_stipend_id",
-  LAPTOP_STIPEND: "laptop_stipend_id"
-}
+  COMPONENT_ID: 'component_id',
+  QUESTION_ID: 'question_id',
+  ANSWER_ID: 'answer_id',
+  COURSE_STIPEND: 'course_stipend_id',
+  DATA_STIPEND: 'data_stipend_id',
+  LAPTOP_STIPEND: 'laptop_stipend_id'
+};

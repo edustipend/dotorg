@@ -9,10 +9,9 @@ export const constants = {
 };
 
 export const TestId = {
-  SUBMIT_ID: "ui_component_id",
-  IMAGE_ID: "ui_image_id",
-  ERROR_BUTTON_ID: "error_button_id",
-  SUCCESS_IMAGE_ID: "ui_image_id",
-  SUCCESS_BUTTON_ID: "success_button_id",
-
-}
+  SUBMIT_ID: 'ui_component_id',
+  IMAGE_ID: 'ui_image_id',
+  ERROR_BUTTON_ID: 'error_button_id',
+  SUCCESS_IMAGE_ID: 'ui_image_id',
+  SUCCESS_BUTTON_ID: 'success_button_id'
+};

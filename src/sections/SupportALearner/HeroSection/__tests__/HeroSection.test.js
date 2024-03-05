@@ -1,30 +1,42 @@
 import React from 'react';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { HeroSection } from '../HeroSection';
 import { Texts } from '../contants';
 
 describe('HeroSection component', () => {
-  it('renders with header and buttons', async () => {
+  it('renders with header and buttons', () => {
     render(
       <MemoryRouter>
         <HeroSection />
       </MemoryRouter>
     );
 
-    await waitFor(() => {
-      const smallHeaders = screen.queryAllByText(Texts.SMALL_HEADER_TEXT);
-      expect(smallHeaders.length).toBe(2);
+    const smallHeaders = screen.queryAllByText(Texts.SMALL_HEADER_TEXT);
+    expect(smallHeaders.length).toBe(2);
 
-      const largeHeaders = screen.queryAllByText(Texts.LARGE_HEADER_TEXT);
-      expect(largeHeaders.length).toBe(2);
+    const largeHeaders = screen.queryAllByText(Texts.LARGE_HEADER_TEXT);
+    expect(largeHeaders.length).toBe(2);
 
-      expect(screen.getByText(Texts.CONTENT)).toBeInTheDocument();
+    expect(screen.getByText(Texts.CONTENT)).toBeInTheDocument();
 
-      expect(screen.getByText(Texts.SUPPORT_TEXT)).toBeInTheDocument();
+    expect(screen.getByText(Texts.SUPPORT_TEXT)).toBeInTheDocument();
 
-      expect(screen.getByText(Texts.DONATE_TEXT)).toBeInTheDocument();
-    });
+    expect(screen.getByText(Texts.DONATE_TEXT)).toBeInTheDocument();
+
+    // await waitFor(() => {
+    //   const smallHeaders = screen.queryAllByText(Texts.SMALL_HEADER_TEXT);
+    //   expect(smallHeaders.length).toBe(2);
+
+    //   const largeHeaders = screen.queryAllByText(Texts.LARGE_HEADER_TEXT);
+    //   expect(largeHeaders.length).toBe(2);
+
+    //   expect(screen.getByText(Texts.CONTENT)).toBeInTheDocument();
+
+    //   expect(screen.getByText(Texts.SUPPORT_TEXT)).toBeInTheDocument();
+
+    //   expect(screen.getByText(Texts.DONATE_TEXT)).toBeInTheDocument();
+    // });
   });
 
   /**

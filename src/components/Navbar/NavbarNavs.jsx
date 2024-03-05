@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { HashLink } from 'react-router-hash-link';
 import Button from '../Button';
 import { BUTTON_TYPE, NAVBAR_LINKS, TestId } from './constants';
+import { useSelector } from 'react-redux';
 import './styles.css';
 import useHandleCTAClick from '../../hooks/useHandleCTAClick';
 // import LoginModal from '../LoginModal';
@@ -9,13 +10,13 @@ import useHandleCTAClick from '../../hooks/useHandleCTAClick';
 const { NAVBAR_LINKS_ID } = TestId;
 const NavbarNavs = ({ showMenu, closeMenu }) => {
   const { buttonLabel, handleCTAClick } = useHandleCTAClick();
-
+  const { userId } = useSelector((state) => state.user);
   return (
     <>
       <nav className="navbarNavs" data-testid={NAVBAR_LINKS_ID}>
         <div className="navContent">
           {NAVBAR_LINKS.map((link) => (
-            <HashLink key={link.label} to={{ pathname: link.to, hash: link.hash }}>
+            <HashLink key={link.label} to={{ pathname: link.to, hash: link.hash }} className={userId && link.label === 'Login' ? 'hide' : ''}>
               {link.label}
             </HashLink>
           ))}
@@ -29,7 +30,11 @@ const NavbarNavs = ({ showMenu, closeMenu }) => {
         <nav className="mobile-nav">
           <div className="mobile-links">
             {NAVBAR_LINKS.map((link) => (
-              <HashLink key={link.label} to={{ pathname: link.to, hash: link.hash }} onClick={() => closeMenu(!showMenu)}>
+              <HashLink
+                key={link.label}
+                to={{ pathname: link.to, hash: link.hash }}
+                onClick={() => closeMenu(!showMenu)}
+                className={userId && link.label === 'Login' ? 'hide' : ''}>
                 {link.label}
               </HashLink>
             ))}

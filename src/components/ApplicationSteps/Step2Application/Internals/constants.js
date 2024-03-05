@@ -4,6 +4,6 @@ export const constant = {
   COURSE: 'Course/Certification Fees'
 };
 
-export const TestId ={
-  COMPONENT_TEST_ID:"step2_Component_id"
-}
+export const TestId = {
+  COMPONENT_TEST_ID: 'step2_Component_id'
+};

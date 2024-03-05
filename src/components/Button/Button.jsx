@@ -45,7 +45,8 @@ export const Button = ({
       className={`${
         type === ButtonType.PRIMARY ? 'effect' : type === ButtonType.SECONDARY ? 'effect effect_alt' : type === ButtonType.PLAIN ? 'effect' : ''
       }
-  ${disabled ? 'disabled' : ''} ${effectAlt ? 'effectAlt' : ''} ${effectClass} `}>
+  ${disabled ? 'disabled' : ''} ${effectAlt ? 'effectAlt' : ''} ${effectClass} `}
+    >
       <button
         data-testid={dataTest}
         type="button"
@@ -58,7 +59,8 @@ export const Button = ({
           `${className} `,
           mode
         ].join(' ')}
-        {...props}>
+        {...props}
+      >
         {isLoading ? <Loader variant={loaderVariant} size={loaderSize} /> : label || DEFAULT_BUTTON_LABEL}
         {icon && (
           <div className={iconPosition === IconPosition.BACK ? 'icon back-icon' : iconPosition === IconPosition.FRONT ? 'icon front-icon' : ''}>

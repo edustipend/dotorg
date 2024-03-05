@@ -1,3 +1,3 @@
-import { DonateNow } from "./DonateNow";
+import { DonateNow } from './DonateNow';
 
-export default DonateNow
+export default DonateNow;

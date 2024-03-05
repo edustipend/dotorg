@@ -1,15 +1,15 @@
-import { render, screen, fireEvent } from "@testing-library/react";
-import { DonationRange } from "../DonationRange";
-import { BrowserRouter, useNavigate } from "react-router-dom";
-import { TestId } from "../constants";
+import { render, screen, fireEvent } from '@testing-library/react';
+import { DonationRange } from '../DonationRange';
+import { BrowserRouter, useNavigate } from 'react-router-dom';
+import { TestId } from '../constants';
 
-jest.mock("react-router-dom", () => ({
-    ...jest.requireActual("react-router-dom"),
-    useNavigate: jest.fn()
-  }));
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useNavigate: jest.fn()
+}));
 
-describe("DonationRange component", () => {
-  test("renders DonationRange component correctly", () => {
+describe('DonationRange component', () => {
+  test('renders DonationRange component correctly', () => {
     render(
       <BrowserRouter>
         <DonationRange />
@@ -34,7 +34,7 @@ describe("DonationRange component", () => {
     expect(donationButton).toBeInTheDocument();
   });
 
-  test("handles navigation correctly when button is clicked", () => {
+  test('handles navigation correctly when button is clicked', () => {
     const navigateMock = jest.fn();
     useNavigate.mockReturnValue(navigateMock);
 
@@ -47,7 +47,7 @@ describe("DonationRange component", () => {
     const donationButton = screen.getByTestId(TestId.DONATION_BUTTON);
     fireEvent.click(donationButton);
     expect(useNavigate).toHaveBeenCalled();
-    expect(navigateMock).toHaveBeenCalledWith("/support-a-learner/donate", {
+    expect(navigateMock).toHaveBeenCalledWith('/support-a-learner/donate', {
       state: { value: 1000 }
     });
   });

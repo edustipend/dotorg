@@ -16,6 +16,7 @@ import {
   setViewBtnLabel
 } from '../../../../store/reducers/ApplicationReducer';
 import { hasCurrentApplication } from '../../../../utils/hasCurrentApplication';
+import { PageCopy } from '../../../../sections/LearnerDashboard/Home/constants';
 import useApplicationWindowStatus from '../../../../hooks/useApplicationWindow';
 
 const { APPROVED, IN_VIEW, RECEIVED, DENIED } = applicationStatus;
@@ -42,7 +43,7 @@ export const DesktopTable = ({ entries, tableHead, oneClickApply }) => {
     if (isWindowClosed) {
       // - They should see messaging that says your application is under review or whatever status and cannot be submitted.
       // - Text areas should be disabled.
-      dispatch(setViewBtnLabel('Reuse Application'));
+      dispatch(setViewBtnLabel(PageCopy.REUSE_APPLICATION));
       dispatch(setDisableTextbox(true));
       dispatch(setDisableOneClickCTA(true));
       // return;
@@ -52,21 +53,21 @@ export const DesktopTable = ({ entries, tableHead, oneClickApply }) => {
         if (currentApp) {
           //   - Enable text areas by default.
           // - CTA above and below should read Save Changes
-          dispatch(setViewBtnLabel('Save Changes'));
+          dispatch(setViewBtnLabel(PageCopy.SAVE_CHANGES));
           dispatch(setDisableTextbox(false));
           dispatch(setDisableOneClickCTA(false));
         } else {
           //     - Disable text areas by default
           // - CTA above and below should read Reuse Application but buttons should be greyed out.
           // - Hover or mouseover the CTA should show tooltip that says You can't reuse this application because you have already applied this month
-          dispatch(setViewBtnLabel('Reuse Application'));
+          dispatch(setViewBtnLabel(PageCopy.REUSE_APPLICATION));
           dispatch(setDisableTextbox(true));
           dispatch(setDisableOneClickCTA(true));
         }
       } else {
         // - CTA above and below should read Reuse Application
         // - When user clicks on the CTA, text areas should be enabled and CTA above and below should change to Submit Application
-        dispatch(setViewBtnLabel('Reuse Application'));
+        dispatch(setViewBtnLabel(PageCopy.REUSE_APPLICATION));
         dispatch(setDisableTextbox(true));
         dispatch(setDisableOneClickCTA(false));
       }
@@ -118,7 +119,8 @@ export const DesktopTable = ({ entries, tableHead, oneClickApply }) => {
                           ? 'denied bold_weight'
                           : ''
                         : 'denied bold_weight'
-                    }>
+                    }
+                  >
                     {isVerified ? itm?.status : applicationStatus.VERIFY_NOW}
                   </span>
                 </td>
@@ -137,7 +139,8 @@ export const DesktopTable = ({ entries, tableHead, oneClickApply }) => {
                         onClick={() => handleEdit(itm?._id)}
                         disabled={handleDisable(itm)}
                         onMouseOver={() => handleMouseOver(itm)}
-                        onMouseOut={() => setShowTooltip(false)}>
+                        onMouseOut={() => setShowTooltip(false)}
+                      >
                         <img src={Edit_Icon} alt="view" />
                         <p>Edit application </p>
                         {activeApplication === itm?._id && showTooltip && (

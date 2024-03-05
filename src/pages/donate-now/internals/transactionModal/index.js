@@ -1,2 +1,2 @@
-import { TransactionModal } from "./TransactionModal";
-export default TransactionModal
+import { TransactionModal } from './TransactionModal';
+export default TransactionModal;

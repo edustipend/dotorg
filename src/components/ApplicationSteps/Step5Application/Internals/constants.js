@@ -9,16 +9,16 @@ export const constants = {
   PARA5: `In Your Service`,
   PARA6: ` The Edustipend Team ❤️`,
   QUOTE: `"Believe in yourself, take on your challenges, dig deep within yourself to conquer fears. Never let anyone bring you down. You got this." - Chantal Sutherland`,
-  NEW_APPLICATION_HEADER: "Ready to send it off?",
+  NEW_APPLICATION_HEADER: 'Ready to send it off?',
   NEW_APPLICATION_PARA1: "You've reached the final step of your application journey!, now let's submit your hard work and leave the rest to us.",
   NEW_APPLICATION_PARA2: `Once you hit the submit button, our team will carefully review your application. If you're selected  for the category you applied to, 
   we'll reach out to you using the email you provided. Beneficiaries will be contacted at most three weeks from Friday 15, which is when the application closes.`,
-  PROMPT:"Check your email for a verification link as your account is unverified",
+  PROMPT: 'Check your email for a verification link as your account is unverified'
 };
 
 export const toastNotifications = {
   UPDATING: {
-    loading: 'Submitting edited application',
+    loading: 'Submitting modified application',
     id: 'edit-app',
     message: 'Updated successfully'
   },
@@ -29,6 +29,7 @@ export const toastNotifications = {
   },
   ONE_CLICK: {
     loading: 'Submitting new application',
+    editing: 'Submitting modified application',
     id: 'one-click',
     message: 'Submitted successfully',
     error: 'Please do well to verify your account :('
@@ -39,9 +40,9 @@ export const toastNotifications = {
 };
 
 export const TestId = {
-  COMPONENT_TEST_ID: "submit_component_id",
-  IMAGE_ID: "submit_image_id",
-  HEADER_ID: "submit_header_id",
-  BACK_ID: "submit_back_id",
-  SUBMIT_ID: "submit_submit_id",
-}
+  COMPONENT_TEST_ID: 'submit_component_id',
+  IMAGE_ID: 'submit_image_id',
+  HEADER_ID: 'submit_header_id',
+  BACK_ID: 'submit_back_id',
+  SUBMIT_ID: 'submit_submit_id'
+};

@@ -15,13 +15,12 @@ export const constants = {
   DISCARD2: 'Discard'
 };
 
-
 export const TestId = {
-  COMPONENT_TEST_ID: "step3_component-id",
-  HEADER_ID: "step3_header-id",
-  IMG_ID: "step3_img-id",
-  DATA_PRIVACY_ID: "step3_data-privacy-id",
-  ACKNOWLEDGE_ID: "step3_acknowledge-id",
-  ACCEPT_ID: "step3_accept-id",
-  REJECT_ID: "step3_reject-id",
-}
+  COMPONENT_TEST_ID: 'step3_component-id',
+  HEADER_ID: 'step3_header-id',
+  IMG_ID: 'step3_img-id',
+  DATA_PRIVACY_ID: 'step3_data-privacy-id',
+  ACKNOWLEDGE_ID: 'step3_acknowledge-id',
+  ACCEPT_ID: 'step3_accept-id',
+  REJECT_ID: 'step3_reject-id'
+};

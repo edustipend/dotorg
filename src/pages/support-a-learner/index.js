@@ -1,3 +1,3 @@
-import { SupportALearner } from "./SupportALearner";
+import { SupportALearner } from './SupportALearner';
 
-export default SupportALearner
+export default SupportALearner;

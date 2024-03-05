@@ -9,6 +9,6 @@ export const constants = {
 };
 
 export const TestId = {
-  VERIFIED_ID: "verified_id",
-  UNVERIFIED_ID: "unverified_id",
-}
+  VERIFIED_ID: 'verified_id',
+  UNVERIFIED_ID: 'unverified_id'
+};

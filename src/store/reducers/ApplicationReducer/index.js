@@ -19,8 +19,7 @@ import {
   setHasApplied,
   setCurrentApplication,
   setViewBtnLabel,
-  setDisableOneClickCTA,
-  setAppData
+  setDisableOneClickCTA
 } from './ApplicationRuducer';
 
 export {
@@ -44,6 +43,5 @@ export {
   setHasApplied,
   setCurrentApplication,
   setViewBtnLabel,
-  setDisableOneClickCTA,
-  setAppData
+  setDisableOneClickCTA
 };

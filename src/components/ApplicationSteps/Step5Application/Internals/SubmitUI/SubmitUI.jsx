@@ -21,9 +21,7 @@ export const SubmitUI = ({ isLoading, handleSubmit }) => {
         <div className="animatedAlt">
           <div className={styles.headerContainer}>
             <img data-testid={TestId.IMAGE_ID} src={Sad} alt="user-plus" className={styles.emoji} />
-            <Header className={styles.header}>
-              {errorMessage}
-            </Header>
+            <Header className={styles.header}>{errorMessage}</Header>
           </div>
           <div className={`${styles.btnContainer} ${styles.btnContainerAltt}`}>
             <Button
@@ -40,9 +38,7 @@ export const SubmitUI = ({ isLoading, handleSubmit }) => {
         <div className="animatedAlt">
           <div className={styles.headerContainer}>
             <img data-testid={TestId.SUCCESS_IMAGE_ID} src={UserPlus} alt="user-plus" className={styles.emoji} />
-            <Header className={styles.header}>
-              {HEADER}
-            </Header>
+            <Header className={styles.header}>{HEADER}</Header>
           </div>
           <div className={styles.bottomSection}>
             <p className={styles.prompt}>{PROMPT}</p>

@@ -58,7 +58,8 @@ export const HeroSection = () => {
               <NavHashLink
                 to={{
                   pathname: '/support-a-learner/donate'
-                }}>
+                }}
+              >
                 <Button label={Texts.SUPPORT_TEXT} size={'medium'} type={'secondary'} />
               </NavHashLink>
 
@@ -66,7 +67,8 @@ export const HeroSection = () => {
                 to={{
                   pathname: '/support-a-learner',
                   hash: '#how-much-can-I-donate'
-                }}>
+                }}
+              >
                 <Button label={Texts.DONATE_TEXT} size={'medium'} type={'plain'} />
               </NavHashLink>
             </div>

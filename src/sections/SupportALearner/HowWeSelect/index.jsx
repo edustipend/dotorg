@@ -1,3 +1,3 @@
-import { HowWeSelect } from "./HowWeSelect";
+import { HowWeSelect } from './HowWeSelect';
 
-export default HowWeSelect
+export default HowWeSelect;

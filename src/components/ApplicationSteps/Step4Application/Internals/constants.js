@@ -80,7 +80,7 @@ export const constants = {
     'Yobe',
     'Zamfara'
   ],
-  REFERRAL_SOURCES: ['Facebook', 'LinkedIn', 'Instagram', 'Twitter', 'Community', 'Google Search'],
+  REFERRAL_SOURCES: ['Facebook', "Int'l Women's Day", 'Instagram', 'Google Search', 'LinkedIn', 'Twitter', 'Community'],
   PASSWORD_MIN_LENGTH_ERR: 'A minimum of 8 characters is required',
   PASSWORD_MISMATCH_ERR: 'password mismatch'
 };

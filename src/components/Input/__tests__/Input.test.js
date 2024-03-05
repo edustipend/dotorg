@@ -41,7 +41,7 @@ describe('Input component', () => {
       const input = screen.getByTestId(INPUT_ID);
       expect(input).toHaveValue(mockValue);
     });
-    it("The input field should have the correct value", () => {
+    it('The input field should have the correct value', () => {
       const mockValue = 'test';
       render(
         <Provider store={store}>

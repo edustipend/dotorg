@@ -23,23 +23,23 @@ export const ModalContextProvider = ({ children }) => {
 
   const handleVerifyEmailModal = () => {
     setVerifyPopModal((prev) => !prev);
-  }
+  };
 
   const handleNewApplicationModal = () => {
     setNewApplicationModal((prev) => !prev);
-  }
+  };
 
   const handleVerifyCurrentUser = () => {
     setVerifyCurrentUser((prev) => !prev);
-  }
+  };
 
   const handleRedirectModal = () => {
     setRedirectModal((prev) => !prev);
-  }
+  };
 
   const handleToggleTransactionModal = () => {
     setTransactionModal((prev) => !prev);
-  }
+  };
 
   const value = {
     handleNotifyModal,

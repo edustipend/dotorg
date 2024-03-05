@@ -1,2 +1,2 @@
-import { DonationRange } from "./DonationRange";
-export default DonationRange
+import { DonationRange } from './DonationRange';
+export default DonationRange;

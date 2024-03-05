@@ -1,7 +1,3 @@
-import { defaultShare, twitterShare, instagramShare } from "./SharePosts";
+import { defaultShare, twitterShare, instagramShare } from './SharePosts';
 
-export {
-    defaultShare,
-    twitterShare,
-    instagramShare
-}
+export { defaultShare, twitterShare, instagramShare };

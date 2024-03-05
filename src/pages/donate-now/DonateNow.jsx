@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import styles from './DonateNow.module.css';
-import {  aishaPng, info, infoArrow, quoteLeft, quoteRight } from '../../assets';
+import { aishaPng, info, infoArrow, quoteLeft, quoteRight } from '../../assets';
 import { TestId, constants } from './constants';
 import Input from '../../components/Input';
 import Header from '../../components/Header';
