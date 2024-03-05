@@ -5,10 +5,10 @@ export const TestId = {
 };
 
 export const NAVBAR_LINKS = [
-  {
-    label: 'Support A Learner',
-    to: '/support-a-learner'
-  },
+  // {
+  //   label: 'Support A Learner',
+  //   to: '/support-a-learner'
+  // },
   {
     label: 'Ambassador Program',
     to: '/ambassador-program'
