@@ -9,7 +9,7 @@ import { NavHashLink } from 'react-router-hash-link';
 import Container from '../../../components/Container';
 import { Texts, quotesArray } from './contants';
 
-export const HeroSection = () => {
+const HeroSection = () => {
   const [currentQuoteIndex, setCurrentQuoteIndex] = useState(0);
   const [animationKey, setAnimationKey] = useState(0);
 
@@ -78,3 +78,5 @@ export const HeroSection = () => {
     </div>
   );
 };
+
+export default HeroSection;
