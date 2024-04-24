@@ -1,0 +1,211 @@
+.container {
+  width: 100%;
+  padding: 120px 0;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Manrope';
+}
+
+.desc {
+  width: 100%;
+  max-width: 669px;
+}
+
+.desc h1 {
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 35.2px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.desc p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 21.86px;
+  text-align: center;
+}
+
+.reportsContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.filters {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap-reverse;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 40px 0;
+  max-width: 1260px;
+}
+
+.filter {
+  width: 166px;
+  padding: 11px 12px 11px 21px;
+  gap: 12px;
+  border-radius: 5px 0px 0px 0px;
+  border: 0.4px 0px 0px 0px;
+  opacity: 0px;
+  border-color: #dedede;
+}
+
+.option {
+  min-width: 80px;
+  height: 46px;
+  padding: 6px 8px 6px 12px;
+  gap: 8px;
+  display: flex;
+  justify-items: space-between;
+  align-items: center;
+  border-radius: 8px 0px 0px 0px;
+  border: 0.5px 0px 0px 0px;
+  border-color: #5801ff1a;
+  background: #5801ff1a;
+  color: #475367;
+  font-size: 14px;
+
+  img {
+    cursor: pointer;
+  }
+}
+
+.reports {
+  display: grid;
+  margin-bottom: 80px;
+  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.reportCard {
+  width: 100%;
+  max-width: 400px;
+  border: 0.5px solid #cccccc;
+  border-radius: 16px;
+  transition: box-shadow 0.3s ease;
+
+  img {
+    border-radius: 16px 16px 0 0;
+  }
+
+  .content {
+    margin: 20px 20px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    h1 {
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 24.59px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #737373;
+    }
+
+    h2 {
+      font-family: 'Poppins';
+      font-size: 36px;
+      font-weight: 500;
+      line-height: 54px;
+      color: #2d3740;
+    }
+  }
+}
+
+.reportCard:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.modalWrapper {
+  width: 100vw;
+}
+.modalContent {
+  display: flex;
+  gap: 15px;
+  height: 90dvh;
+  margin-top: 10dvh;
+}
+
+.frame {
+  width: 80vw;
+  border: none;
+}
+
+.closeModal {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  border: none;
+  background-color: transparent;
+  color: #333;
+  font-size: 16px;
+  padding: 8px 12px;
+  margin: 0 4px;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+  border-radius: 4px;
+}
+
+.pagination button:hover {
+  background-color: #f0f0f0;
+}
+
+.active {
+  background-color: var(--primary) !important;
+  color: #fff !important;
+}
+
+.pagination button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 100%;
+    padding: 172px 36px;
+  }
+  .filters {
+    flex-direction: row;
+  }
+  .desc h1 {
+    font-size: 64px;
+    line-height: 70.4px;
+    text-align: left;
+  }
+
+  .desc p {
+    font-size: 20px;
+    line-height: 27.32px;
+    text-align: left;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .container {
+    width: 100%;
+    padding: 172px 0;
+  }
+}
