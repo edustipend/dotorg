@@ -4,6 +4,7 @@ import styles from '../LatestDonations/LatestDonations.module.css';
 import Header from '../../../components/Header';
 import Text from '../../../components/Text';
 import { ITEMS_PER_PAGE, Texts, donations } from './constants';
+import emoji from "../../../assets/donation.png"
 
 const LatestDonations = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -55,7 +56,10 @@ const LatestDonations = () => {
     <div className={styles.container}>
       <Container>
         <div className={styles.headerContainer}>
-          <Header size={'large'}>{Texts.HEADER}</Header>
+          <div className={styles.headerWrap}>
+            <Header size={'large'}>{Texts.HEADER}</Header>
+            <img src={emoji} alt="emoji" />
+          </div>
           <Text content={Texts.SUB_HEADER} />
         </div>
         <div className={styles.donations}>

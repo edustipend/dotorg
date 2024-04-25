@@ -1,6 +1,6 @@
 .container {
   width: 100%;
-  padding: 30px 10px 150px;
+  padding: 30px 0px 50px;
   background-color: var(--in-view-backer);
 }
 
@@ -24,8 +24,15 @@
   font-family: 'Manrope';
   width: 100%;
   color: var(--edustipend-black);
-  margin-top: 40px;
+  margin-top: 20px;
   font-weight: 400;
+}
+
+.headerWrap {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
 }
 
 .donations {
@@ -138,6 +145,11 @@
   align-items: center;
 }
 
+.headerWrap img {
+  width: 20px;
+  height: 20px;
+}
+
 @media only screen and (min-width: 650px) {
   .container {
     flex-direction: row;
@@ -160,6 +172,14 @@
     line-height: 45px;
     margin-top: 60px;
   }
+
+  .donations {
+    margin-top: 220px;
+  }
+}
+
+.pagination button {
+  padding: 0;
 }
 
 @media only screen and (min-width: 1024px) {
@@ -212,5 +232,10 @@
 
   .paginationWrap {
     margin-top: 48px;
+  }
+
+  .headerWrap img {
+    width: 30px;
+    height: 30px;
   }
 }
