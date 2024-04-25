@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import { HeroSection } from '../HeroSection';
+import HeroSection from '../HeroSection';
 import { Texts } from '../contants';
 
 describe('HeroSection component', () => {
@@ -14,15 +14,23 @@ describe('HeroSection component', () => {
 
     await waitFor(() => {
       const smallHeaders = screen.queryAllByText(Texts.SMALL_HEADER_TEXT);
-      expect(smallHeaders.length).toBe(2);
+      expect(smallHeaders).toHaveLength(2);
+    });
 
+    await waitFor(() => {
       const largeHeaders = screen.queryAllByText(Texts.LARGE_HEADER_TEXT);
-      expect(largeHeaders.length).toBe(2);
+      expect(largeHeaders).toHaveLength(2);
+    });
 
+    await waitFor(() => {
       expect(screen.getByText(Texts.CONTENT)).toBeInTheDocument();
+    });
 
+    await waitFor(() => {
       expect(screen.getByText(Texts.SUPPORT_TEXT)).toBeInTheDocument();
+    });
 
+    await waitFor(() => {
       expect(screen.getByText(Texts.DONATE_TEXT)).toBeInTheDocument();
     });
   });
