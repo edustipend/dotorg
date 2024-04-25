@@ -244,7 +244,7 @@ export const donations = [
 export const ITEMS_PER_PAGE = 6;
 
 export const Texts = {
-  HEADER: 'Great futures are built with a little charity',
+  HEADER: 'Latest Donations',
   SUB_HEADER:
     'Every donation brings us closer to a world where every learner has the tools to succeed. Thank you for making education a reality for those in need',
   PREV_TEXT: 'Prev',
