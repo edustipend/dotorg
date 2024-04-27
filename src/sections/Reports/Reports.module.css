@@ -258,13 +258,13 @@
 }
 .modalContent {
   display: flex;
-  gap: 15px;
+  gap: 5px;
   height: 90dvh;
   margin-top: 10dvh;
 }
 
 .frame {
-  width: 80vw;
+  width: 85vw;
   border: none;
 }
 
@@ -326,6 +326,10 @@
     font-size: 20px;
     line-height: 27.32px;
     text-align: left;
+  }
+
+  .modalContent {
+    gap: 15px;
   }
 }
 
