@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { func, array, object } from 'prop-types';
-import Button from '../../components/Button';
-import { Calendar, DropDown, Person } from '../../components/Icons';
-import styles from './Reports.module.css';
+import Button from '../../../components/Button';
+import { Calendar, DropDown, Person } from '../../../components/Icons';
+import styles from '../Reports.module.css';
 
 export const Filter = ({ handleAddOptions, activeOption, setActiveOption, handleShowResults }) => {
   const [showDropDown, setShowDropDown] = useState(false);

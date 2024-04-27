@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Reports.module.css';
+import styles from '../Reports.module.css';
 
 // eslint-disable-next-line react/prop-types
 const Pagination = ({ currentPage, totalPages, onPageChange }) => {

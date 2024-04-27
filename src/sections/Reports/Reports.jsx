@@ -6,8 +6,8 @@ import Modal from '../../components/Modal';
 import styles from './Reports.module.css';
 import { HEAD_TEXT, SUB_TEXT, getFilteredReports, reports } from './constants';
 import { ModalContext } from '../../context/ModalContext';
-import Pagination from './Pagination';
-import { Filter } from './Filter';
+import Pagination from './internals/Pagination';
+import { Filter } from './internals/Filter';
 
 export const Reports = () => {
   const [options, setOptions] = useState([]);
