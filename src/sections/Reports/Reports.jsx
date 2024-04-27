@@ -15,7 +15,7 @@ export const Reports = () => {
   const [filteredReports, setFilteredReports] = useState([]);
   const [page, setPage] = useState(0);
   const { setIsActive } = useContext(ModalContext) || {};
-
+  const isMobile = window.innerWidth < 768;
   const data = filteredReports.length > 0 ? filteredReports : reports;
   const filteredOptions = options.filter((opt) => opt !== null);
 
@@ -30,7 +30,6 @@ export const Reports = () => {
       setOptions((prev) => prev.filter((p) => p !== value));
     }
   };
-
   const handleShowModal = () => {
     setIsActive((isActive) => !isActive);
   };
@@ -80,14 +79,14 @@ export const Reports = () => {
                     <div className={styles.content}>
                       <h1>{r.title}</h1>
                       <h2>{r.date}</h2>
-                      <Button
-                        label="View report"
-                        icon={File_Icon}
-                        iconPosition="back"
-                        size="medium"
-                        onClick={handleShowModal}
-                        className={styles.reportBtn}
-                      />
+
+                      {isMobile ? (
+                        <a href={r.link} target="_blank" rel="noreferrer">
+                          <Button label="View report" icon={File_Icon} iconPosition="back" size="medium" className={styles.reportBtn} />
+                        </a>
+                      ) : (
+                        <Button label="View report" icon={File_Icon} iconPosition="back" size="medium" onClick={handleShowModal} />
+                      )}
                     </div>
                   </div>
                   <Modal className={styles.modalWrapper} key={r.title}>
