@@ -27,7 +27,7 @@ export const Filter = ({ handleAddOptions, activeOption, setActiveOption, handle
               setShowDropDown(false);
             }}>
             <Calendar />
-            <span>2022</span>
+            <span className={styles.year}>2022</span>
           </div>
           <div
             className={`${styles.filteredOption} ${activeOption.year === 2023 ? styles.activeOption : ''}`}
@@ -36,7 +36,7 @@ export const Filter = ({ handleAddOptions, activeOption, setActiveOption, handle
               setShowDropDown(false);
             }}>
             <Calendar />
-            <span>2023</span>
+            <span className={styles.year}>2023</span>
           </div>
           <div
             className={`${styles.filteredOption} ${activeOption.year === 2024 ? styles.activeOption : ''}`}
@@ -45,7 +45,7 @@ export const Filter = ({ handleAddOptions, activeOption, setActiveOption, handle
               setShowDropDown(false);
             }}>
             <Calendar />
-            <span>2024</span>
+            <span className={styles.year}>2024</span>
           </div>
         </div>
         <div className={styles.category}>
@@ -57,7 +57,7 @@ export const Filter = ({ handleAddOptions, activeOption, setActiveOption, handle
               setShowDropDown(false);
             }}>
             <Person />
-            <span>Applications</span>
+            <span className={styles.year}>Applications</span>
           </div>
           <div
             className={`${styles.filteredOption} ${activeOption.category === 'Beneficiaries' ? styles.activeOption : ''}`}
@@ -66,7 +66,7 @@ export const Filter = ({ handleAddOptions, activeOption, setActiveOption, handle
               setShowDropDown(false);
             }}>
             <Person />
-            <span>Beneficiaries</span>
+            <span className={styles.year}>Beneficiaries</span>
           </div>
         </div>
 
