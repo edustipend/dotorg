@@ -16,6 +16,7 @@ export const Reports = () => {
   const [page, setPage] = useState(0);
   const { setIsActive } = useContext(ModalContext) || {};
   const isMobile = window.innerWidth < 768;
+
   const data = filteredReports.length > 0 ? filteredReports : reports;
   const filteredOptions = options.filter((opt) => opt !== null);
 
@@ -37,7 +38,8 @@ export const Reports = () => {
   const handlePageChange = (newPage) => {
     setPage(newPage - 1);
   };
-
+  console.log(options);
+  console.log(filteredOptions);
   const handleShowResults = () => {
     const filteredOptions = options.filter((opt) => opt !== null);
     setFilteredReports(getFilteredReports(filteredOptions));
@@ -73,29 +75,27 @@ export const Reports = () => {
           <div className={styles.reports}>
             {data.slice(page * 3, (page + 1) * 3).map((report) =>
               report.map((r, i) => (
-                <>
-                  <div className={styles.reportCard} key={r.title}>
-                    <img src={i % 2 ? Chart : Insight} alt="insight" />
-                    <div className={styles.content}>
-                      <h1>{r.title}</h1>
-                      <h2>{r.date}</h2>
+                <div className={styles.reportCard} key={r.title}>
+                  <img src={i % 2 ? Chart : Insight} alt="insight" />
+                  <div className={styles.content}>
+                    <h1>{r.title}</h1>
+                    <h2>{r.date}</h2>
 
-                      {isMobile ? (
-                        <a href={r.link} target="_blank" rel="noreferrer">
-                          <Button label="View report" icon={File_Icon} iconPosition="back" size="medium" className={styles.reportBtn} />
-                        </a>
-                      ) : (
-                        <Button label="View report" icon={File_Icon} iconPosition="back" size="medium" onClick={handleShowModal} />
-                      )}
-                    </div>
+                    {isMobile ? (
+                      <a href={r.link} target="_blank" rel="noreferrer">
+                        <Button label="View report" icon={File_Icon} iconPosition="back" size="medium" className={styles.reportBtn} />
+                      </a>
+                    ) : (
+                      <Button label="View report" icon={File_Icon} iconPosition="back" size="medium" onClick={handleShowModal} />
+                    )}
                   </div>
-                  <Modal className={styles.modalWrapper} key={r.title}>
+                  <Modal className={styles.modalWrapper}>
                     <div className={styles.modalContent}>
                       <iframe src={r.link} title="pdf" className={styles.frame}></iframe>
                       <img src={Close} alt="close" onClick={handleShowModal} className={styles.closeModal} />
                     </div>
                   </Modal>
-                </>
+                </div>
               ))
             )}
           </div>
