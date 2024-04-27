@@ -7,29 +7,33 @@ import styles from './Reports.module.css';
 import { HEAD_TEXT, SUB_TEXT, getFilteredReports, reports } from './constants';
 import { ModalContext } from '../../context/ModalContext';
 import Pagination from './Pagination';
+import { Filter } from './Filter';
 
 export const Reports = () => {
   const [options, setOptions] = useState([]);
+  const [activeOption, setActiveOption] = useState({ year: null, category: null });
   const [filteredReports, setFilteredReports] = useState([]);
   const [link, setLink] = useState(null);
   const [page, setPage] = useState(0);
   const { setIsActive } = useContext(ModalContext) || {};
 
-  const handleAddOptions = (e) => {
-    const selectedOption = e.target.value;
-    if (!options.includes(selectedOption)) {
-      setOptions((prev) => [...prev, selectedOption]);
-    }
+  const data = filteredReports.length > 0 ? filteredReports : reports;
+
+  const filteredOptions = options.filter((opt) => opt !== null);
+
+  const pdfLink = link && link.name && URL.createObjectURL(link);
+
+  const handleAddOptions = (value, category) => {
+    category === 'year' ? setActiveOption((prev) => ({ ...prev, year: value })) : setActiveOption((prev) => ({ ...prev, category: value }));
     setPage(0);
   };
 
-  const handleRemoveOption = (selectedOption) => {
-    if (options.includes(selectedOption)) {
-      setOptions((prev) => prev.filter((p) => p !== selectedOption));
+  const handleRemoveOption = (value) => {
+    if (options.includes(value)) {
+      activeOption.year === value ? setActiveOption((prev) => ({ ...prev, year: null })) : setActiveOption((prev) => ({ ...prev, category: null }));
+      setOptions((prev) => prev.filter((p) => p !== value));
     }
   };
-
-  const pdfLink = link && link.name && URL.createObjectURL(link);
 
   const handleShowModal = () => {
     setIsActive((isActive) => !isActive);
@@ -39,10 +43,18 @@ export const Reports = () => {
     setPage(newPage - 1);
   };
 
-  const data = filteredReports.length > 0 ? filteredReports : reports;
+  const handleShowResults = () => {
+    const filteredOptions = options.filter((opt) => opt !== null);
+    setFilteredReports(getFilteredReports(filteredOptions));
+  };
 
   useEffect(() => {
-    setFilteredReports(getFilteredReports(options));
+    setOptions(Object.values(activeOption));
+  }, [activeOption]);
+
+  useEffect(() => {
+    const filteredOptions = options.filter((opt) => opt !== null);
+    setFilteredReports(getFilteredReports(filteredOptions));
   }, [options]);
 
   return (
@@ -55,39 +67,35 @@ export const Reports = () => {
         <input type="file" onChange={(e) => setLink(e.target.files[0])} />
         <div className={styles.reportsContainer}>
           <div className={styles.filters}>
-            {options.map((option) => (
+            {filteredOptions.map((option) => (
               <div key={option} className={styles.option}>
                 {option}
                 <img src={close} alt="close" width={10} height={10} onClick={() => handleRemoveOption(option)} />
               </div>
             ))}
-            <select name="filter" id="filter" className={styles.filter} onChange={handleAddOptions} value="">
-              <option value="" disabled hidden>
-                Filter
-              </option>
-              <option value="Beneficiaries">Beneficiaries</option>
-              <option value="Application">Application</option>
-              <option value="2023">2023</option>
-              <option value="2024">2024</option>
-            </select>
+            <Filter handleAddOptions={handleAddOptions} activeOption={activeOption} handleShowResults={handleShowResults} options={options} />
           </div>
 
           <div className={styles.reports}>
-            {data
-              .toReversed()
-              .slice(page * 3, (page + 1) * 3)
-              .map((report) =>
-                report.map((r, i) => (
-                  <div className={styles.reportCard} key={r.title}>
-                    <img src={i % 2 ? Chart : Insight} alt="insight" />
-                    <div className={styles.content}>
-                      <h1>{r.title}</h1>
-                      <h2>{r.date}</h2>
-                      <Button label="View report" icon={File_Icon} iconPosition="back" size="medium" onClick={handleShowModal} />
-                    </div>
+            {data.slice(page * 3, (page + 1) * 3).map((report) =>
+              report.map((r, i) => (
+                <div className={styles.reportCard} key={r.title}>
+                  <img src={i % 2 ? Chart : Insight} alt="insight" />
+                  <div className={styles.content}>
+                    <h1>{r.title}</h1>
+                    <h2>{r.date}</h2>
+                    <Button
+                      label="View report"
+                      icon={File_Icon}
+                      iconPosition="back"
+                      size="medium"
+                      onClick={handleShowModal}
+                      className={styles.reportBtn}
+                    />
                   </div>
-                ))
-              )}
+                </div>
+              ))
+            )}
           </div>
 
           <Pagination currentPage={page + 1} totalPages={Math.ceil(data.length / 3)} onPageChange={handlePageChange} />
