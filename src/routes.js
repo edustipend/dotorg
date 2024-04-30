@@ -17,6 +17,7 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import ProtecteAuthRoute from './components/ProtectedRoute/ProtectAuthRoute';
 import SupportALearner from './pages/support-a-learner';
 import DonateNow from './pages/donate-now';
+import MeetOurTeam from './pages/about-us/MeetOurTeam';
 const {
   AMBASSADOR_PROGRAM,
   REQUEST,
@@ -55,16 +56,14 @@ const Routes = () => {
           <ProtectedRoute>
             <Welcome />
           </ProtectedRoute>
-        }
-      ></Route>
+        }></Route>
       <Route
         path={DASHBOARD}
         element={
           <ProtectedRoute>
             <LearnerDashboard />
           </ProtectedRoute>
-        }
-      >
+        }>
         <Route index element={<Home />} />
         <Route path="home" element={<Home />} />
         <Route path="submissions" element={<Submissions />} />
@@ -73,6 +72,9 @@ const Routes = () => {
       {/* <Route path="/" element={V2_FEATURE_FLAG_ON ? <LandingPageV2 /> : <LandingPage />} /> */}
       <Route path="/" element={<LandingPageV2 />} />
       <Route path={AT_ONE} element={<AtOne />} />
+
+      {/* ABOUT US ROUTE - JUST FOR TEST */}
+      <Route path="about-us" element={<MeetOurTeam />} />
     </AppRoutes>
   );
 };
