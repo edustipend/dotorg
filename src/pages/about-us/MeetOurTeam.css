@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Manrope:wght@400;500;600;700;800&family=Poppins:wght@400;700;900&display=swap');
 
 .meet-our-team {
-  margin-top: 83px;
+  margin-top: 60px;
   /* background-color: orange; */
 
   padding: 50px 15px;
@@ -147,7 +147,7 @@
   .meet-our-team__heading,
   .meet-our-team__heading--span {
     font-size: 60px;
-    width: 42%;
+    width: 44%;
   }
 
   .team-image__info--name {
