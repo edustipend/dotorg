@@ -1,0 +1,54 @@
+.container {
+  width: 100%;
+  padding: 100px 0px 40px;
+}
+
+.wrap {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.leftwrap h1 {
+  font-size: 32px;
+}
+
+.desc {
+  font-size: 12px;
+  line-height: 24px;
+  font-family: 'Manrope';
+  width: 100%;
+  color: var(--edustipend-black);
+  font-weight: 400;
+  margin-top: 10px;
+}
+
+.rightwrap {
+  display: none;
+}
+
+@media only screen and (min-width: 1024px) {
+  .container {
+    padding: 100px 70px 50px;
+  }
+
+  .wrap {
+    padding-top: 50px;
+  }
+
+  .leftwrap h1 {
+    font-size: 64px;
+  }
+
+  .desc {
+    font-size: 24px;
+    line-height: 37px;
+    margin-top: 20px;
+    width: 764px;
+  }
+
+  .rightwrap {
+    display: flex;
+  }
+}
