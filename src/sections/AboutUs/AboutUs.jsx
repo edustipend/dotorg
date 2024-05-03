@@ -22,6 +22,22 @@ const AboutUs = () => {
             <img src={about} alt="about-us" />
           </div>
         </div>
+        <div className={styles.missvis}>
+          <div className={styles.mission}>
+            <Text color="primary" content="OUR MISSION" />
+            <h4>
+              To stoke the flames of a learner’s dream and to keep it from dying and build a critical mass of people who are willing to take a chance
+              on others
+            </h4>
+          </div>
+          <div className={styles.vision}>
+            <Text color="primary" content="OUR VISION" />
+            <h4>
+              To increase the range of our services to meet the needs of beneficiaries and will build strategic partnerships to allow us expand to
+              into other countries in Africa
+            </h4>
+          </div>
+        </div>
       </Container>
     </div>
   );
