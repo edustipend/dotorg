@@ -7,15 +7,15 @@ import { NavHashLink } from 'react-router-hash-link';
 import Button from '../../../components/Button';
 
 const Supports = () => {
-  const amountRaised = 2400000;
+  const amountRaised = 1155000;
   const maxValue = 5400000;
 
   const progressPercentage = (amountRaised / maxValue) * 100;
 
-  const innerGradientColor = `conic-gradient(#5801ff 0deg ${progressPercentage}%, #fff ${progressPercentage}deg 360deg)`;
+  const innerColor = `conic-gradient(#5801ff 0deg ${progressPercentage}%, #febd1c33 ${progressPercentage}deg 360deg)`;
 
-  const innerCircleStyle = {
-    backgroundImage: innerGradientColor
+  const innerStyle = {
+    background: innerColor
   };
 
   return (
@@ -61,9 +61,9 @@ const Supports = () => {
               GOAL: <span className={styles.target}>₦5,400,000</span>
             </p>
             <div className={styles.progresswrap}>
-              <div className={styles.outer}>
-                <div className={styles.inner} style={innerCircleStyle}>
-                  ₦{amountRaised.toLocaleString()}
+              <div style={innerStyle} className={styles.outer}>
+                <div className={styles.inner}>
+                  <p className={styles.amtraised}>₦{amountRaised.toLocaleString()}</p>
                   <p className={styles.raised}>raised</p>
                 </div>
               </div>
@@ -83,7 +83,7 @@ const Supports = () => {
             to={{
               pathname: '/support-a-learner/donate'
             }}>
-            <Button label={'Donate Now'} size={'medium'} type={'primary'} />
+            <Button label={'Donate Now'} size={'large'} type={'secondary'} />
           </NavHashLink>
         </div>
       </Container>

@@ -78,12 +78,12 @@
   justify-content: center;
   align-items: center;
   animation: fillUp 1s forwards;
+  background-color: var(--white);
 }
 
 .outer {
   width: 250px;
   height: 250px;
-  border: 40px solid #5801ff33;
   border-radius: 50%;
   position: relative;
   display: flex;
@@ -110,6 +110,11 @@
   display: none;
 }
 
+.amtraised {
+  color: var(--edustipend-purple);
+  font-weight: 700;
+}
+
 .raised {
   font-size: 19px;
   text-transform: uppercase;
@@ -123,8 +128,6 @@
   font-weight: 500;
 }
 
-
-
 @media only screen and (min-width: 1024px) {
   .headerWrap h1 {
     font-size: 36px;
@@ -132,8 +135,8 @@
   }
 
   .headerWrap p {
-    font-size: 24px;
-    line-height: 30px;
+    font-size: 16px;
+    line-height: 24px;
     margin-top: 20px;
   }
 
@@ -159,13 +162,13 @@
 
   .line {
     width: 310px;
-    height: 5px;
+    height: 1px;
     margin-top: 10px;
   }
 
   .inner {
-    width: 420px;
-    height: 420px;
+    width: 400px;
+    height: 400px;
     font-size: 48px;
   }
 
