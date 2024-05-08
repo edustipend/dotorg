@@ -3,11 +3,11 @@ import Container from '../../../components/Container';
 import styles from '../LatestDonations/LatestDonations.module.css';
 import Header from '../../../components/Header';
 import Text from '../../../components/Text';
-import { ITEMS_PER_PAGE, Texts, donations } from './constants';
-import emoji from "../../../assets/donation.png"
+import { CURRENT_PAGE, ITEMS_PER_PAGE, TestId, Texts, donations } from './constants';
+import emoji from '../../../assets/donation.png';
 
 const LatestDonations = () => {
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(CURRENT_PAGE);
 
   const totalPages = Math.ceil(donations.length / ITEMS_PER_PAGE);
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
@@ -53,14 +53,16 @@ const LatestDonations = () => {
   };
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} data-testid={TestId.WRAPPER}>
       <Container>
         <div className={styles.headerContainer}>
           <div className={styles.headerWrap}>
-            <Header size={'large'}>{Texts.HEADER}</Header>
-            <img src={emoji} alt="emoji" />
+            <Header size={'large'} dataTest={TestId.HEAD_TEXT}>
+              {Texts.HEADER}
+            </Header>
+            <img src={emoji} alt="emoji" data-testid={TestId.IMAGE} />
           </div>
-          <Text content={Texts.SUB_HEADER} />
+          <Text dataTest={TestId.SUB_HEADER} content={Texts.SUB_HEADER} />
         </div>
         <div className={styles.donations}>
           {currentDonations.map((donation) => (

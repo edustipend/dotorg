@@ -63,7 +63,6 @@ const HeroSection = () => {
                 }}>
                 <Button label={Texts.SUPPORT_TEXT} size={'medium'} type={'secondary'} />
               </NavHashLink>
-
               <NavHashLink
                 to={{
                   pathname: '/support-a-learner',
