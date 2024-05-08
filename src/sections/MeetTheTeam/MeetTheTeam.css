@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Manrope:wght@400;500;600;700;800&family=Poppins:wght@400;700;900&display=swap');
+
+.meet-our-team {
+  margin-top: 60px;
+  /* background-color: orange; */
+
+  padding: 50px 15px;
+
+  font-family: 'Lato', sans-serif;
+  /* font-weight: 400; */
+}
+
+.meet-our-team__heading {
+  color: var(--black);
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.meet-our-team__heading--span {
+  color: var(--primary);
+  font-family: 'Grape Nuts', cursive;
+  font-size: 32px;
+}
+
+.meet-our-team__description {
+  font-size: 16px;
+  width: 100%;
+  font-family: 'Manrope';
+  text-align: justify;
+}
+
+.meet-our-team__carousel {
+  margin-top: 32px;
+  /* position: relative; */
+}
+
+.team-image {
+  object-fit: cover;
+}
+
+.image-box {
+  position: relative;
+  max-width: 90%;
+  margin-left: 20px;
+}
+
+.team-image__info {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 13px;
+
+  width: 80%;
+
+  position: absolute;
+  bottom: 20px;
+  left: 10px;
+}
+
+.team-image__info--name {
+  color: var(--edustipend-purple);
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.team-image__info--title {
+  color: var(--light-black);
+  font-size: 15px;
+}
+
+.slick-slider {
+  margin-right: 15px;
+}
+
+.slick-arrow {
+  background: var(--edustipend-yellow);
+  height: 40px;
+  width: 40px;
+  border-radius: 10px;
+}
+
+.slick-prev {
+  left: -10px;
+  z-index: 10000;
+}
+
+.slick-prev:before {
+  content: '\2190';
+  font-family: 'none';
+  opacity: 1;
+}
+
+.slick-next:before {
+  content: '\2192';
+  font-family: 'none';
+  opacity: 1;
+}
+
+/* 768px */
+@media screen and (min-width: 768px) {
+  .meet-our-team {
+    padding: 50px 30px;
+  }
+  .meet-our-team__heading {
+    width: 65%;
+    margin-bottom: 20px;
+  }
+
+  .meet-our-team__heading,
+  .meet-our-team__heading--span {
+    font-size: 44px;
+  }
+
+  .meet-our-team__description {
+    font-size: 12px;
+    width: 70%;
+  }
+
+  .team-image__info--name {
+    font-size: 16px;
+  }
+
+  .team-image__info--title {
+    font-size: 12px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .meet-our-team__heading,
+  .meet-our-team__heading--span {
+    font-size: 60px;
+  }
+
+  .meet-our-team__description {
+    font-size: 14px;
+    width: 50%;
+  }
+
+  .slick-next {
+    right: -10px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .meet-our-team__description {
+    font-size: 20px;
+  }
+  .meet-our-team__heading,
+  .meet-our-team__heading--span {
+    font-size: 60px;
+    width: 44%;
+  }
+
+  .team-image__info--name {
+    font-size: 20px;
+  }
+
+  .team-image__info--title {
+    font-size: 16px;
+  }
+}
