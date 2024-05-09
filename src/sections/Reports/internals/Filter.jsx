@@ -3,8 +3,9 @@ import { func, array, object } from 'prop-types';
 import Button from '../../../components/Button';
 import { Calendar, DropDown, Person } from '../../../components/Icons';
 import styles from '../Reports.module.css';
+import { TestId } from '../constants';
 
-export const Filter = ({ handleAddOptions, activeOption, setActiveOption, handleShowResults }) => {
+export const Filter = ({ handleAddOptions, activeOption, handleShowResults }) => {
   const [showDropDown, setShowDropDown] = useState(false);
 
   const showResults = () => {
@@ -13,11 +14,11 @@ export const Filter = ({ handleAddOptions, activeOption, setActiveOption, handle
   };
   return (
     <div className={styles.filterContainer}>
-      <div className={styles.filterTop} onClick={() => setShowDropDown((prev) => !prev)}>
+      <div className={styles.filterTop} onClick={() => setShowDropDown((prev) => !prev)} data-testid={TestId.FILTER_BTN}>
         <h1 className={styles.label}> Filters</h1>
         <DropDown className={showDropDown ? styles.rotate : styles.rotateAlt} />
       </div>
-      <div className={showDropDown ? styles.showDropDown : styles.hideDropDown}>
+      <div className={showDropDown ? styles.showDropDown : styles.hideDropDown} data-testid={TestId.DROP_DOWN}>
         <div className={styles.category}>
           <h1 className={styles.categoryLabel}>Year</h1>
           <div
@@ -80,6 +81,5 @@ Filter.propTypes = {
   handleAddOptions: func,
   handleShowResults: func,
   options: array,
-  activeOption: object,
-  setActiveOption: func
+  activeOption: object
 };

@@ -3,11 +3,11 @@ import { Chart, File_Icon, Insight, close, Close } from '../../assets';
 import Button from '../../components/Button';
 import Container from '../../components/Container';
 import Modal from '../../components/Modal';
-import styles from './Reports.module.css';
-import { HEAD_TEXT, SUB_TEXT, getFilteredReports, reports } from './constants';
+import { BTN, HEAD_TEXT, SUB_TEXT, TestId, getFilteredReports, reports } from './constants';
 import { ModalContext } from '../../context/ModalContext';
 import Pagination from './internals/Pagination';
 import { Filter } from './internals/Filter';
+import styles from './Reports.module.css';
 
 export const Reports = () => {
   const [options, setOptions] = useState([]);
@@ -31,6 +31,7 @@ export const Reports = () => {
       setOptions((prev) => prev.filter((p) => p !== value));
     }
   };
+
   const handleShowModal = () => {
     setIsActive((isActive) => !isActive);
   };
@@ -38,8 +39,7 @@ export const Reports = () => {
   const handlePageChange = (newPage) => {
     setPage(newPage - 1);
   };
-  console.log(options);
-  console.log(filteredOptions);
+
   const handleShowResults = () => {
     const filteredOptions = options.filter((opt) => opt !== null);
     setFilteredReports(getFilteredReports(filteredOptions));
@@ -55,11 +55,11 @@ export const Reports = () => {
   }, [options]);
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} data-testid={TestId.REPORT_DOC}>
       <Container>
         <div className={styles.desc}>
-          <h1>{HEAD_TEXT}</h1>
-          <p>{SUB_TEXT}</p>
+          <h1 data-testid={TestId.HEAD_TEXT}>{HEAD_TEXT}</h1>
+          <p data-testid={TestId.SUB_TEXT}>{SUB_TEXT}</p>
         </div>
         <div className={styles.reportsContainer}>
           <div className={styles.filters}>
@@ -72,7 +72,7 @@ export const Reports = () => {
             <Filter handleAddOptions={handleAddOptions} activeOption={activeOption} handleShowResults={handleShowResults} options={options} />
           </div>
 
-          <div className={styles.reports}>
+          <div className={styles.reports} data-testid={TestId.REPORTS}>
             {data.slice(page * 3, (page + 1) * 3).map((report) =>
               report.map((r, i) => (
                 <div className={styles.reportCard} key={r.title}>
@@ -83,13 +83,20 @@ export const Reports = () => {
 
                     {isMobile ? (
                       <a href={r.link} target="_blank" rel="noreferrer">
-                        <Button label="View report" icon={File_Icon} iconPosition="back" size="medium" className={styles.reportBtn} />
+                        <Button label={BTN.label} icon={File_Icon} iconPosition={BTN.iconPosition} size={BTN.size} className={styles.reportBtn} />
                       </a>
                     ) : (
-                      <Button label="View report" icon={File_Icon} iconPosition="back" size="medium" onClick={handleShowModal} />
+                      <Button
+                        label={BTN.label}
+                        icon={File_Icon}
+                        iconPosition={BTN.iconPosition}
+                        size={BTN.size}
+                        onClick={handleShowModal}
+                        dataTest={TestId.REPORT_BTN}
+                      />
                     )}
                   </div>
-                  <Modal className={styles.modalWrapper}>
+                  <Modal className={styles.modalWrapper} datatest={TestId.MODAL}>
                     <div className={styles.modalContent}>
                       <iframe src={r.link} title="pdf" className={styles.frame}></iframe>
                       <img src={Close} alt="close" onClick={handleShowModal} className={styles.closeModal} />

@@ -171,3 +171,21 @@ export const getFilteredReports = (options) => {
 
   return r;
 };
+
+export const BTN = {
+  label: 'View report',
+  size: 'medium',
+  iconPosition: 'back'
+};
+
+export const TestId = {
+  REPORT_DOC: 'report-document',
+  HEAD_TEXT: 'head-text',
+  SUB_TEXT: 'sub-text',
+  REPORTS: 'reports',
+  REPORT_BTN: 'report-btn',
+  MODAL: 'modal',
+  FILTER_BTN: 'filter-btn',
+  DROP_DOWN: 'drop-down',
+  PAGINATION_CONTAINER: 'pagination',
+};
