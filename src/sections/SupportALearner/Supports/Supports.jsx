@@ -5,68 +5,66 @@ import Header from '../../../components/Header';
 import Text from '../../../components/Text';
 import { NavHashLink } from 'react-router-hash-link';
 import Button from '../../../components/Button';
+import {
+  AMT_RAISED,
+  AMT_RAISED_TEXT,
+  TestId,
+  content1,
+  content2,
+  content3,
+  content4,
+  content5,
+  headText,
+  innerStyle,
+  progressText1,
+  progressText2,
+  subHeadText
+} from './constants';
 
 const Supports = () => {
-  const amountRaised = 1155000;
-  const maxValue = 5400000;
-
-  const progressPercentage = (amountRaised / maxValue) * 100;
-
-  const innerColor = `conic-gradient(#5801ff 0deg ${progressPercentage}%, #febd1c33 ${progressPercentage}deg 360deg)`;
-
-  const innerStyle = {
-    background: innerColor
-  };
-
   return (
-    <div className={styles.container}>
+    <div className={styles.container} data-testid={TestId.WRAPPER}>
       <Container>
         <div className={styles.wrapper}>
           <div className={styles.leftwrap}>
             <div className={styles.headerWrap}>
-              <Header size={'large'}>Support a Learner</Header>
+              <Header size={'large'} dataTest={TestId.HEAD_TEXT}>
+                {headText}
+              </Header>
               <div className={styles.line}></div>
-              <h2 className={styles.about}>About this project</h2>
-              <Text
-                content={'Over the past year, Edustipend has empowered over 500 Nigerians to pursue their aspirations by providing learning stipends'}
-              />
+              <h2 className={styles.about} data-testid={TestId.SUB_HEAD_TEXT}>
+                {subHeadText}
+              </h2>
+              <Text dataTest={TestId.CONTENT1} content={content1} />
 
-              <Text
-                content={
-                  'Our stipends encompass essential resources such as laptops, course vouchers, and data subscriptions, benefiting an average of 37 young Nigerians monthly across all 36 states of Nigeria.'
-                }
-              />
+              <Text dataTest={TestId.CONTENT2} content={content2} />
 
-              <Text
-                content={
-                  'The impact of our support has been remarkable, manifesting in the form of newfound employment opportunities, accelerated skill development, and the establishment of sustainable businesses. We are committed to sustaining this positive change and invite your collaboration in achieving this goal.'
-                }
-              />
+              <Text dataTest={TestId.CONTENT3} content={content3} />
 
-              <Text
-                content={
-                  'In pursuit of our mission, we aim to raise N5.4 million, which will facilitate the provision of stipends for the coming nine months. These funds will enable us to award five laptops, 27 Data subscriptions, and a Course/School fees stipend to 37 young persons.'
-                }
-              />
+              <Text dataTest={TestId.CONTENT4} content={content4} />
 
-              <Text
-                content={
-                  'We invite you to join us on this mission of empowering our young talents to achieve their dreams by removing the barriers to their learning. You can take action by donating, and sharing with your network as well.'
-                }
-              />
+              <Text dataTest={TestId.CONTENT5} content={content5} />
             </div>
           </div>
           <div className={styles.rightwrap}>
-            <p className={styles.goal}>
-              GOAL: <span className={styles.target}>₦5,400,000</span>
+            <p className={styles.goal} data-testid={TestId.progressText1}>
+              {progressText1}{' '}
+              <span className={styles.target} data-testid={TestId.progressText2}>
+                {progressText2}
+              </span>
             </p>
             <div className={styles.progresswrap}>
-              <div style={innerStyle} className={styles.outer}>
-                <div className={styles.inner}>
-                  <p className={styles.amtraised}>₦{amountRaised.toLocaleString()}</p>
-                  <p className={styles.raised}>raised</p>
+              <div style={innerStyle} className={styles.outer} data-testid={TestId.OUTER_DIV}>
+                <div className={styles.inner} data-testid={TestId.INNER_DIV}>
+                  <p className={styles.amtraised} data-testid={TestId.AMT_RAISED}>
+                    ₦{AMT_RAISED.toLocaleString()}
+                  </p>
+                  <p className={styles.raised} data-testid={TestId.AMT_RAISED_TEXT}>
+                    {AMT_RAISED_TEXT}
+                  </p>
                 </div>
               </div>
+
               <div className={styles.cta}>
                 <NavHashLink
                   to={{
