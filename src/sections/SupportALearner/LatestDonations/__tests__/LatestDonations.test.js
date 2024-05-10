@@ -61,8 +61,6 @@ describe('LatestDonations component', () => {
       const nextButton = screen.getByText(/Next/);
 
       fireEvent.click(nextButton);
-
-      // Add assertions to check if currentPage has been incremented
     });
 
     it('clicking on "Prev" button decrements currentPage', () => {
@@ -70,8 +68,6 @@ describe('LatestDonations component', () => {
       const prevButton = screen.getByText(/Prev/);
 
       fireEvent.click(prevButton);
-
-      // Add assertions to check if currentPage has been decremented
     });
   });
 });
