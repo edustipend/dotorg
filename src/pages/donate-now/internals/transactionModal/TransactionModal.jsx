@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from './TransactionModal.module.css';
-import { failed_tran, success, share, close } from '../../../../assets';
+import { failed_tran, success,  close } from '../../../../assets';
 import Button from '../../../../components/Button';
 import { constants } from './constants';
 import { defaultShare, twitterShare, instagramShare } from '../sharePosts';
@@ -48,6 +48,10 @@ export const TransactionModal = ({ error, handleToggleTransactionModal, message,
    */
   let content = (
     <section className={styles.contentContainer}>
+      <button onClick={handleToggleTransactionModal} className={styles.closeBtn}>
+        <img src={close} alt={constants.close} className={`${styles.closeIcn} ${styles.closeIcn2}`} />
+      </button>
+
       <section className={styles.content}>
         <img src={success} alt={constants.success} className={styles.img} />
         <div className={styles.textContent}>
@@ -57,7 +61,7 @@ export const TransactionModal = ({ error, handleToggleTransactionModal, message,
         <div className={styles.btnContainer}>
           <Button
             label={constants.Home}
-            type={constants.secondary}
+            type={constants.plain}
             effectClass={styles.btn}
             onClick={() => {
               handleToggleTransactionModal();
@@ -67,9 +71,9 @@ export const TransactionModal = ({ error, handleToggleTransactionModal, message,
           />
           <Button
             iconPosition={constants.right}
-            icon={share}
+            // icon={share}
             label={constants.Share_on_social_media}
-            type={constants.plain}
+            type={constants.secondary}
             onClick={() => setShareUI(true)}
             effectClass={styles.btn}
             className={`${styles.btn2} ${styles.btn2Alt}`}
@@ -85,7 +89,9 @@ export const TransactionModal = ({ error, handleToggleTransactionModal, message,
         <div className={styles.shareContent}>
           <div className={styles.heading}>
             <p className={styles.share}>{constants.share}</p>
-            <img src={close} alt={constants.close} onClick={handleToggleTransactionModal} className={styles.closeIcn} />
+            <button onClick={handleToggleTransactionModal} className={styles.closeBtn}>
+              <img src={close} alt={constants.close} className={`${styles.closeIcn}`} />
+            </button>
           </div>
           <div className={styles.handle}>
             {constants.socials.map((itm) => {

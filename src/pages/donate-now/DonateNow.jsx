@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import styles from './DonateNow.module.css';
-import {  aishaPng, info, infoArrow, quoteLeft, quoteRight } from '../../assets';
+import { aishaPng, info, infoArrow, quoteLeft, quoteRight } from '../../assets';
 import { TestId, constants } from './constants';
 import Input from '../../components/Input';
 import Header from '../../components/Header';
@@ -12,30 +12,38 @@ import RedirectModal from './internals/redirectModal';
 import TransactionModal from './internals/transactionModal';
 import { ModalContext } from '../../context/ModalContext';
 import formatNumber from '../../utils/numberFormatter';
+import { checkEmail } from '../../utils/EmailChecker/emailChecker';
 
 const initial = {
   fullname: '',
   email: '',
   phone: '',
-  company: ''
+  company: '',
+  title: '',
+  message: '',
+  toggle: false,
+  focus: false,
+  errorMessage: ''
 };
+
 export const DonateNow = () => {
   const location = useLocation();
   const { value } = location.state || { value: 1000 };
   const [amount, setAmount] = useState(value);
-  const [toggle, setToggle] = useState(false);
-  const [focus, setFocus] = useState(false);
-  const [title, setTitle] = useState('');
-  const [message, setMessage] = useState('');
   const [userData, setUserData] = useState(initial);
-  const { redirectModal, transactionModal, handleToggleTransactionModal } = useContext(ModalContext) || {};
   const formattedNumber = formatNumber(amount);
+  const { redirectModal, transactionModal, handleToggleTransactionModal, handleRedirectModal } = useContext(ModalContext) || {};
+  console.log(handleRedirectModal);
+
+  const { fullname, email, phone, company, toggle, focus, title, message, errorMessage } = userData;
+  console.log(errorMessage);
+
   const handleFocus = () => {
-    setFocus(true);
+    setUserData((prev) => ({ ...prev, focus: !focus }));
   };
 
   const handleBlur = () => {
-    setFocus(false);
+    setUserData((prev) => ({ ...prev, focus: !focus }));
   };
 
   const phoneInfo = (
@@ -50,9 +58,10 @@ export const DonateNow = () => {
   );
 
   const handleDonation = () => {
-    handleToggleTransactionModal();
-    setTitle(constants.donation_success_header);
-    setMessage(constants.donation_success);
+    if (!handleValidate()) return;
+
+    handleRedirectModal();
+    setUserData((prev) => ({ ...prev, title: constants.donation_success_header, message: constants.donation_success }));
   };
 
   //input value should not be greater than 1000000
@@ -62,6 +71,27 @@ export const DonateNow = () => {
     if (value >= 0 && value <= max) {
       setAmount(value);
     }
+  };
+
+  const handleValidate = () => {
+    switch (true) {
+      case amount < 1000:
+        action(constants.invalidAmount);
+        return false;
+      case fullname.length < 3:
+        action(constants.invalidName);
+        return false;
+      case !checkEmail(email):
+        action(constants.invalidEmail);
+        return false;
+      default:
+        setUserData((prev) => ({ ...prev, errorMessage: '' }));
+        return true;
+    }
+  };
+
+  const action = (message) => {
+    setUserData((prev) => ({ ...prev, errorMessage: message }));
   };
 
   return (
@@ -103,13 +133,15 @@ export const DonateNow = () => {
                   />
                   <div className={styles.toggleContainer}>
                     <p className={styles.anon}>{constants.anonymous}</p>
-                    <div onClick={() => setToggle((prev) => !prev)} className={toggle ? `${styles.toggle} ${styles.toggleAlt}` : `${styles.toggle}`}>
+                    <div
+                      onClick={() => setUserData((prev) => ({ ...prev, toggle: !toggle }))}
+                      className={toggle ? `${styles.toggle} ${styles.toggleAlt}` : `${styles.toggle}`}>
                       <div className={toggle ? `${styles.ballAlt}` : `${styles.ball}`} />
                     </div>
                   </div>
                 </div>
                 <Input
-                  value={userData.email}
+                  value={email}
                   onChange={(e) => {
                     setUserData((prev) => ({ ...prev, email: e.target.value }));
                   }}
@@ -120,7 +152,7 @@ export const DonateNow = () => {
                 />
                 {toggle && (
                   <Input
-                    value={userData.company}
+                    value={company}
                     onChange={(e) => {
                       setUserData((prev) => ({ ...prev, company: e.target.value }));
                     }}
@@ -130,7 +162,7 @@ export const DonateNow = () => {
                   />
                 )}
                 <Input
-                  value={userData.phone.toString()}
+                  value={phone.toString()}
                   onChange={(e) => {
                     setUserData((prev) => ({ ...prev, phone: e.target.value }));
                   }}
@@ -152,7 +184,7 @@ export const DonateNow = () => {
               </div>
               <div className={styles.btnContainer}>
                 <Button
-                  disabled={amount < 1000}
+                  // disabled={!handleDisableButton && amount < 1000}
                   dataTest={TestId.BUTTON_ID}
                   label={`${'Donate'} ₦${formattedNumber}`}
                   onClick={handleDonation}
@@ -160,7 +192,9 @@ export const DonateNow = () => {
                   effectClass={styles.effect}
                   className={styles.btn}
                 />
+              
               </div>
+              <small className={styles.small}>{errorMessage}</small>
             </section>
             <p className={styles.footnote}>{constants.quote}</p>
           </section>

@@ -7,7 +7,26 @@
     background-color: var(--white);
     padding: 30px 24px;
     border-radius: 16px;
+    display: flex;
+    flex-direction: column;
 }
+
+.closeBtn {
+    width: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-end;
+    padding: 0;
+    background-color: transparent;
+}
+
+.closeIcn {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
 
 .content {
     display: flex;
@@ -55,13 +74,13 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    color: var(--navy-blue);
+    color: var(--edustipend-purple);
     font-size: 18px;
     font-weight: 700;
 }
 
 .btn2Alt {
-    color: var(--edustipend-purple);
+    color: var(--navy-blue);
 }
 
 .shareContent {
@@ -77,11 +96,6 @@
     justify-content: space-between;
 }
 
-.closeIcn {
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-}
 
 .share {
     font-weight: var(--navy-blue);
@@ -197,7 +211,7 @@
     }
 
     .closeIcn {
-        width: 23px;
-        height: 23px;
+        width: 27px;
+        height: 27px;
     }
 }
