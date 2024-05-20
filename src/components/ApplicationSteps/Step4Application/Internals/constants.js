@@ -67,7 +67,7 @@ export const constants = {
     'Kogi',
     'Kwara',
     'Lagos',
-    'Nassarawa',
+    'Nasarawa',
     'Niger',
     'Ogun',
     'Ondo',
