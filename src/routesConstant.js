@@ -10,5 +10,6 @@ export const routesConstant = {
   WELCOME: '/welcome',
   AT_ONE: '/at-one',
   LOGIN: '/login',
-  DONATION: '/donation'
+  DONATION: '/donation',
+  REPORTS: '/impact-reports'
 };
