@@ -17,6 +17,7 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import ProtecteAuthRoute from './components/ProtectedRoute/ProtectAuthRoute';
 import SupportALearner from './pages/support-a-learner';
 import DonateNow from './pages/donate-now';
+import ReportsPage from './pages/reports';
 import AboutUs from './pages/about-us/AboutUs';
 const {
   AMBASSADOR_PROGRAM,
@@ -30,6 +31,7 @@ const {
   LOGIN,
   SUPPORT_A_LEARNER,
   DONATE_NOW,
+  REPORTS,
   ABOUT_US
 } = routesConstant;
 
@@ -42,6 +44,7 @@ const Routes = () => {
       <Route path={FORGOT_PASSWORD} element={<ForgotPassword />} />
       <Route path={RESET_PASSWORD} element={<ResetPassword />} />
       <Route path={SUPPORT_A_LEARNER} element={<SupportALearner />} />
+      <Route path={REPORTS} element={<ReportsPage />} />
       <Route path={DONATE_NOW} element={<DonateNow />} />
       <Route path={ABOUT_US} element={<AboutUs />} />
       <Route
@@ -59,6 +62,7 @@ const Routes = () => {
             <Welcome />
           </ProtectedRoute>
         }></Route>
+        
       <Route
         path={DASHBOARD}
         element={
@@ -66,6 +70,7 @@ const Routes = () => {
             <LearnerDashboard />
           </ProtectedRoute>
         }>
+       
         <Route index element={<Home />} />
         <Route path="home" element={<Home />} />
         <Route path="submissions" element={<Submissions />} />

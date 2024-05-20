@@ -3,7 +3,8 @@ import Container from '../../../components/Container';
 import styles from '../LatestDonations/LatestDonations.module.css';
 import Header from '../../../components/Header';
 import Text from '../../../components/Text';
-import { CURRENT_PAGE, ITEMS_PER_PAGE, TestId, Texts, donations } from './constants';
+import { CURRENT_PAGE, ITEMS_PER_PAGE, TestId, Texts } from './constants';
+import { donations } from './donations.mock.js';
 import emoji from '../../../assets/donation.png';
 
 const LatestDonations = () => {
