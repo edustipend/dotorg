@@ -1,7 +1,9 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import LatestDonations from '../LatestDonations';
 import { BrowserRouter } from 'react-router-dom';
-import { TestId, donations, headText } from '../constants';
+import { TestId, headText } from '../constants';
+import { donations } from '../donations.mock';
+
 
 describe('LatestDonations component', () => {
   describe('renders the correct LatestDonations component', () => {
