@@ -4,14 +4,22 @@ import 'slick-carousel/slick/slick-theme.css';
 
 import Slider from 'react-slick';
 
-import Uduak from '../../assets/Uduak.png';
-import Blessing from '../../assets/Blessing.png';
-import Joshua from '../../assets/Joshua.png';
+import linkToUduakImage from '../../assets/Uduak.png';
+import linkToBlessingImage from '../../assets/Blessing.png';
+import linkToJoshuaImage from '../../assets/Joshua.png';
+// import linkToBlossomImage from '../../assets/team/Blossom Imikan - Social Media Manager .jpg';
 import Container from '../../components/Container';
 
 import './MeetTheTeam.css';
 
 function MeetTheTeam() {
+  const teamMembers = [
+    { name: 'Uduak Obong-Eren', role: 'Founder', img: linkToUduakImage },
+    { name: 'Blessing Akpan', role: 'Program Manager', img: linkToBlessingImage },
+    { name: 'Joshua Alhassan', role: 'Community Manager', img: linkToJoshuaImage }
+    // { name: 'Blossom Imikan', role: 'Social Media Manager', img: linkToBlossomImage }
+  ];
+
   var settings = {
     dots: false,
     infinite: true,
@@ -63,34 +71,16 @@ function MeetTheTeam() {
         <div className="meet-our-team__carousel carousel">
           <Slider {...settings}>
             {/* ----------- */}
-            <div className="image-box box">
-              <img className="team-image team-1" src={Uduak} alt="" />
 
-              <div className="team-image__info">
-                <p className="team-image__info--name">Uduak Obong-Eren</p>
-                <small className="team-image__info--title">Founder</small>
+            {teamMembers.map((member, index) => (
+              <div key={index} className="image-box box">
+                <img className="team-image team-1" src={member.img} alt={member.name} />
+                <div className="team-image__info">
+                  <p className="team-image__info--name">{member.name}</p>
+                  <small className="team-image__info--title">{member.role}</small>
+                </div>
               </div>
-            </div>
-
-            {/* ----------- */}
-            <div className="image-box box">
-              <img className="team-image team-1" src={Blessing} alt="" />
-
-              <div className="team-image__info">
-                <p className="team-image__info--name">Blessing Akpan</p>
-                <small className="team-image__info--title">Program Manager</small>
-              </div>
-            </div>
-
-            {/* ----------- */}
-            <div className="image-box box">
-              <img className="team-image team-1" src={Joshua} alt="" />
-
-              <div className="team-image__info">
-                <p className="team-image__info--name">Joshua Alhassan</p>
-                <small className="team-image__info--title">Community Manager</small>
-              </div>
-            </div>
+            ))}
           </Slider>
         </div>
       </div>
