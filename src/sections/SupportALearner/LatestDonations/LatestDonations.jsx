@@ -44,9 +44,6 @@ const LatestDonations = () => {
 
     if (totalPages > 3) {
       addEllipsis();
-    }
-
-    if (totalPages > 3) {
       addPageNumber(totalPages);
     }
 
