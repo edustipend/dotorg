@@ -20,58 +20,58 @@ import linkToUbonImage from '../../assets/team/ubon.png';
 import Container from '../../components/Container';
 
 import './MeetTheTeam.css';
+const teamMembers = [
+  { name: 'Uduak Obong-Eren', role: 'Founder', img: linkToUduakImage },
+  { name: 'Blessing Akpan', role: 'Program Manager', img: linkToBlessingImage },
+  { name: 'Joshua Alhassan', role: 'Community Manager', img: linkToJoshuaImage },
+  { name: 'Blossom Imikan', role: 'Social Media Manager', img: linkToBlossomImage },
+  { name: 'Adeboye Joseph', role: 'Graphics Designer', img: linkToAdeboyeImage },
+  { name: 'Chijioke Ezeh', role: 'Frontend Engineer', img: linkToEzehImage },
+  { name: 'Deborah Odimayo', role: 'Social Media Manager', img: linkToDeborahImage },
+  { name: 'Enobong Akpan', role: 'UX Researcher', img: linkToAnkpaImage },
+  { name: 'Isiaq Ridwan', role: 'Frontend Engineer', img: linkToIsiaqImage },
+  { name: 'Oluwatosin Aduroja', role: 'Graphics Designer', img: linkToTosinImage },
+  { name: 'Pelumi Adetoye', role: 'Frontend Engineer', img: linkToPelzImage },
+  { name: 'Teniloluwa Sogbesan', role: 'Business Data Analyst', img: linkToTeniImage },
+  { name: 'Ubon Udonkang', role: 'UIUX Designer', img: linkToUbonImage }
+];
+
+var settings = {
+  dots: false,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 4,
+  slidesToScroll: 4,
+  initialSlide: 0,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        infinite: true,
+        dots: false
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        initialSlide: 2
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+  ]
+};
 
 function MeetTheTeam() {
-  const teamMembers = [
-    { name: 'Uduak Obong-Eren', role: 'Founder', img: linkToUduakImage },
-    { name: 'Blessing Akpan', role: 'Program Manager', img: linkToBlessingImage },
-    { name: 'Joshua Alhassan', role: 'Community Manager', img: linkToJoshuaImage },
-    { name: 'Blossom Imikan', role: 'Social Media Manager', img: linkToBlossomImage },
-    { name: 'Adeboye Joseph', role: 'Graphics Designer', img: linkToAdeboyeImage },
-    { name: 'Chijioke Ezeh', role: 'Frontend Engineer', img: linkToEzehImage },
-    { name: 'Deborah Odimayo', role: 'Social Media Manager', img: linkToDeborahImage },
-    { name: 'Enobong Akpan', role: 'UX Researcher', img: linkToAnkpaImage },
-    { name: 'Isiaq Ridwan', role: 'Frontend Engineer', img: linkToIsiaqImage },
-    { name: 'Oluwatosin Aduroja', role: 'Graphics Designer', img: linkToTosinImage },
-    { name: 'Pelumi Adetoye', role: 'Frontend Engineer', img: linkToPelzImage },
-    { name: 'Teniloluwa Sogbesan', role: 'Business Data Analyst', img: linkToTeniImage },
-    { name: 'Ubon Udonkang', role: 'UIUX Designer', img: linkToUbonImage }
-  ];
-
-  var settings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 4,
-    initialSlide: 0,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: false
-        }
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2
-        }
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ]
-  };
   return (
     <Container>
       <div className="meet-our-team">
