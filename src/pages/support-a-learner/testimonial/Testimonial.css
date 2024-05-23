@@ -1,7 +1,13 @@
+.testimonial-bkg-wrapper {
+  background: radial-gradient(ellipse, #ffca43c7, #000000);
+}
+
 .testimonial__testimonies-container {
   overflow-x: auto;
   white-space: wrap;
   display: flex;
+  justify-content: center;
+  gap: 10px;
   scroll-behavior: smooth; /* Enable smooth scrolling */
   transition: transform 0.3s ease-in-out;
 }
@@ -13,7 +19,7 @@
 
 .testimonial__section {
   /* background-color: #333; */
-  background: radial-gradient(ellipse, #ffca43c7, #000000);
+
   /*border-radius: 50%;  This will create an ellipse shape */
   padding: 50px;
   color: #fff;
@@ -50,10 +56,9 @@
 
 .testimonial__testimonies {
   /* overflow: scroll; */
+  width: 100%;
   margin-top: 100px;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
+  /* gap: 20px; */
   scroll-behavior: smooth; /* Enable smooth scrolling */
   transition: transform 0.3s ease-in-out;
 }
@@ -85,6 +90,10 @@
   width: 40px;
   height: auto;
 }
+
+/* .slick-arrow {
+  display: block;
+} */
 
 @media screen {
 }

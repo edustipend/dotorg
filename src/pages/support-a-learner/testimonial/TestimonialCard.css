@@ -1,14 +1,11 @@
 .testimonial__card {
-  /* display: inline-block; */
   padding: 25px;
   background-color: #fff;
   color: #333;
 
-  /* flex: 0 0 auto; */
-
   border-radius: 25px;
 
-  width: 400px;
+  width: 300px;
   height: fit-content;
 }
 
@@ -75,4 +72,10 @@
   text-transform: uppercase;
   text-decoration: none;
   font-size: 11px;
+}
+
+@media screen and (max-width: 425px) {
+  .testimonial__card {
+    width: 323px;
+  }
 }
