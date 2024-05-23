@@ -7,7 +7,16 @@ import Slider from 'react-slick';
 import linkToUduakImage from '../../assets/Uduak.png';
 import linkToBlessingImage from '../../assets/Blessing.png';
 import linkToJoshuaImage from '../../assets/Joshua.png';
-// import linkToBlossomImage from '../../assets/team/Blossom Imikan - Social Media Manager .jpg';
+import linkToBlossomImage from '../../assets/team/BlossomImikan.png';
+import linkToAdeboyeImage from '../../assets/team/AdeboyeJoseph.png';
+import linkToEzehImage from '../../assets/team/ChijiokeEzeh.png';
+import linkToDeborahImage from '../../assets/team/Deborah-ODIMAYO.png';
+import linkToAnkpaImage from '../../assets/team/Eno-obongAkpan.png';
+import linkToIsiaqImage from '../../assets/team/IsiaqRidwanBukola.png';
+import linkToTosinImage from '../../assets/team/Oluwatosin.png';
+import linkToPelzImage from '../../assets/team/PelumiAdetoye.png';
+import linkToTeniImage from '../../assets/team/teni-oluwa.png';
+import linkToUbonImage from '../../assets/team/ubon.png';
 import Container from '../../components/Container';
 
 import './MeetTheTeam.css';
@@ -16,8 +25,17 @@ function MeetTheTeam() {
   const teamMembers = [
     { name: 'Uduak Obong-Eren', role: 'Founder', img: linkToUduakImage },
     { name: 'Blessing Akpan', role: 'Program Manager', img: linkToBlessingImage },
-    { name: 'Joshua Alhassan', role: 'Community Manager', img: linkToJoshuaImage }
-    // { name: 'Blossom Imikan', role: 'Social Media Manager', img: linkToBlossomImage }
+    { name: 'Joshua Alhassan', role: 'Community Manager', img: linkToJoshuaImage },
+    { name: 'Blossom Imikan', role: 'Social Media Manager', img: linkToBlossomImage },
+    { name: 'Adeboye Joseph', role: 'Graphics Designer', img: linkToAdeboyeImage },
+    { name: 'Chijioke Ezeh', role: 'Frontend Engineer', img: linkToEzehImage },
+    { name: 'Deborah Odimayo', role: 'Social Media Manager', img: linkToDeborahImage },
+    { name: 'Enobong Akpan', role: 'UX Researcher', img: linkToAnkpaImage },
+    { name: 'Isiaq Ridwan', role: 'Frontend Engineer', img: linkToIsiaqImage },
+    { name: 'Oluwatosin Aduroja', role: 'Graphics Designer', img: linkToTosinImage },
+    { name: 'Pelumi Adetoye', role: 'Frontend Engineer', img: linkToPelzImage },
+    { name: 'Teniloluwa Sogbesan', role: 'Business Data Analyst', img: linkToTeniImage },
+    { name: 'Ubon Udonkang', role: 'UIUX Designer', img: linkToUbonImage }
   ];
 
   var settings = {
