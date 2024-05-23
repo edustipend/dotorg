@@ -247,8 +247,8 @@
 }
 
 .small {
-  align-self: center;
   width: 100%;
+  align-self: center;
   text-align: center;
   font-size: 18px;
   color: var(--red-accent);

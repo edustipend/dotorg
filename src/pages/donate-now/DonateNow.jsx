@@ -1,5 +1,5 @@
-import React, { useContext, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
+import { useLocation, useSearchParams, useNavigate } from 'react-router-dom';
 import styles from './DonateNow.module.css';
 import { aishaPng, info, infoArrow, quoteLeft, quoteRight } from '../../assets';
 import { TestId, constants } from './constants';
@@ -13,6 +13,7 @@ import TransactionModal from './internals/transactionModal';
 import { ModalContext } from '../../context/ModalContext';
 import formatNumber from '../../utils/numberFormatter';
 import { checkEmail } from '../../utils/EmailChecker/emailChecker';
+// import { postData } from '../../services/ApiClient';
 
 const initial = {
   fullname: '',
@@ -21,22 +22,59 @@ const initial = {
   company: '',
   title: '',
   message: '',
+  status: '',
   toggle: false,
   focus: false,
+  error: false,
   errorMessage: ''
 };
 
 export const DonateNow = () => {
   const location = useLocation();
+  const nav = useNavigate();
+  const [params] = useSearchParams();
   const { value } = location.state || { value: 1000 };
   const [amount, setAmount] = useState(value);
   const [userData, setUserData] = useState(initial);
+  const [displayModal, setDisplayModal] = useState(false);
   const formattedNumber = formatNumber(amount);
-  const { redirectModal, transactionModal, handleToggleTransactionModal, handleRedirectModal } = useContext(ModalContext) || {};
-  console.log(handleRedirectModal);
+  const { redirectModal, handleRedirectModal } = useContext(ModalContext) || {};
+  const { fullname, email, phone, company, toggle, focus, title, message, error, errorMessage } = userData;
 
-  const { fullname, email, phone, company, toggle, focus, title, message, errorMessage } = userData;
-  console.log(errorMessage);
+  const handleFeedback = useCallback(() => {
+    let status = '';
+    if (params.has('status')) {
+      status = params.get('status');
+      if (status === 'successful') {
+        setUserData((prev) => ({
+          ...prev,
+          title: constants.donation_success_header,
+          message: constants.donation_success
+        }));
+        setDisplayModal(true);
+      } else if (status !== 'successful') {
+        setUserData((prev) => ({
+          ...prev,
+          error: true,
+          title: constants.donation_failed_header,
+          message: constants.donation_failed
+        }));
+        setDisplayModal(true);
+      }
+    } else {
+      setDisplayModal(false);
+    }
+
+    for (const key of params.keys()) {
+      params.delete(key);
+    }
+
+    nav({ search: params.toString() }, { replace: true });
+  }, [params, setUserData, nav]);
+
+  useEffect(() => {
+    handleFeedback();
+  }, [handleFeedback]);
 
   const handleFocus = () => {
     setUserData((prev) => ({ ...prev, focus: !focus }));
@@ -57,11 +95,50 @@ export const DonateNow = () => {
     </div>
   );
 
-  const handleDonation = () => {
+  const handleDonation = async () => {
     if (!handleValidate()) return;
 
     handleRedirectModal();
-    setUserData((prev) => ({ ...prev, title: constants.donation_success_header, message: constants.donation_success }));
+    const response = await fetch('https://8436-102-91-92-183.ngrok-free.app/v1/donate', {
+      method: 'POST',
+      cache: 'no-cache',
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      redirect: 'follow',
+      referrerPolicy: 'no-referrer',
+      body: JSON.stringify({
+        amount: amount,
+        redirect_url: 'http://localhost:3000/support-a-learner/donate',
+        payment_options: 'card',
+        currency: 'NGN',
+        customer: {
+          email: email,
+          name: fullname,
+          phonenumber: phone
+        }
+      })
+    });
+
+    // const response = await postData('donate', {
+    //   amount: amount,
+    //   redirect_url: 'http://localhost:3000/support-a-learner/donate',
+    //   payment_options: 'card',
+    //   currency: 'NGN',
+    //   customer: {
+    //     email: email,
+    //     name: fullname,
+    //     phonenumber: phone
+    //   }
+    // });
+
+    const result = await response?.json();
+
+    if (result?.status) {
+      handleRedirectModal();
+      window.location.href = result?.data?.link;
+    }
   };
 
   //input value should not be greater than 1000000
@@ -183,6 +260,7 @@ export const DonateNow = () => {
                 />
               </div>
               <div className={styles.btnContainer}>
+                <small className={styles.small}>{errorMessage}</small>
                 <Button
                   // disabled={!handleDisableButton && amount < 1000}
                   dataTest={TestId.BUTTON_ID}
@@ -192,9 +270,7 @@ export const DonateNow = () => {
                   effectClass={styles.effect}
                   className={styles.btn}
                 />
-              
               </div>
-              <small className={styles.small}>{errorMessage}</small>
             </section>
             <p className={styles.footnote}>{constants.quote}</p>
           </section>
@@ -203,8 +279,8 @@ export const DonateNow = () => {
       <UseModal isActive={redirectModal}>
         <RedirectModal />
       </UseModal>
-      <UseModal isActive={transactionModal}>
-        <TransactionModal title={title} message={message} handleToggleTransactionModal={handleToggleTransactionModal} />
+      <UseModal isActive={displayModal}>
+        <TransactionModal error={error} title={title} message={message} setDisplayModal={setDisplayModal} />
       </UseModal>
     </div>
   );
