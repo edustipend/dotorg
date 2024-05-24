@@ -38,11 +38,14 @@ const NavbarNavs = ({ showMenu, closeMenu }) => {
       {showMenu ? (
         <nav className="mobile-nav">
           <div className="mobile-links">
-            {NAVBAR_LINKS.map((link) => (
-              <HashLink key={link.label} to={{ pathname: link.to, hash: link.hash }} onClick={() => closeMenu(!showMenu)}>
-                {link.label}
-              </HashLink>
-            ))}
+            {NAVBAR_LINKS.map((link) => {
+              const supportALearnerInDev = checkLocation(link.to);
+              return (
+                <HashLink key={link.label} to={{ pathname: link.to, hash: link.hash }} onClick={() => closeMenu(!showMenu)}>
+                  {supportALearnerInDev && isDevelopment ? link.label : !supportALearnerInDev ? link.label : null}
+                </HashLink>
+              );
+            })}
           </div>
           <div className="mobile-nav-btn">
             <Button
