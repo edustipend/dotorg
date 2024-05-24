@@ -39,7 +39,7 @@ export const DonationRange = () => {
   };
 
   return (
-    <section data-testid={TestId.COMPONENT_ID} className={styles.main}>
+    <section id="how-much-can-i-donate" data-testid={TestId.COMPONENT_ID} className={styles.main}>
       <Container>
         <section className={styles.content}>
           <p data-testid={TestId.TITLE_ID} className={styles.title}>
