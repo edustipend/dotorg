@@ -46,6 +46,9 @@ export const DonateNow = () => {
       case fullname.length < 3:
         invalidInput(constants.invalidName);
         return false;
+      case phone.length < 11:
+        invalidInput(constants.Enter_Phone_number);
+        return false;
       case !checkEmail(email):
         invalidInput(constants.invalidEmail);
         return false;
