@@ -17,12 +17,9 @@
 }
 
 .testimonial__card-header--user-profile {
-  /* background-color: orange; */
   display: flex;
   gap: 10px;
   align-items: center;
-  /* width: 100%;
-    height: 50px; */
 }
 
 .user-profile--image {
@@ -70,7 +67,6 @@
 }
 
 .platform {
-  /* color: rgb(83, 83, 218); */
   text-transform: uppercase;
   text-decoration: none;
   font-size: 11px;
