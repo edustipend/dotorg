@@ -4,9 +4,9 @@ import 'slick-carousel/slick/slick-theme.css';
 
 import Slider from 'react-slick';
 
-import linkToUduakImage from '../../assets/Uduak.png';
-import linkToBlessingImage from '../../assets/Blessing.png';
-import linkToJoshuaImage from '../../assets/Joshua.png';
+import linkToUduakImage from '../../assets/team/Uduak.png';
+import linkToBlessingImage from '../../assets/team/Blessing.png';
+import linkToJoshuaImage from '../../assets/team/Joshua.png';
 import linkToBlossomImage from '../../assets/team/BlossomImikan.png';
 import linkToAdeboyeImage from '../../assets/team/AdeboyeJoseph.png';
 import linkToEzehImage from '../../assets/team/ChijiokeEzeh.png';
