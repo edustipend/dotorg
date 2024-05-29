@@ -1,4 +1,37 @@
-export const constants = {
+const handleFocus = (setUserData, focus) => {
+  setUserData((prev) => ({ ...prev, focus: !focus }));
+};
+
+const handleBlur = (setUserData, focus) => {
+  setUserData((prev) => ({ ...prev, focus: !focus }));
+};
+
+const initial = {
+  fullname: '',
+  email: '',
+  phone: '',
+  company: '',
+  title: '',
+  message: '',
+  status: '',
+  toggle: false,
+  focus: false,
+  error: false,
+  errorMessage: ''
+};
+
+const TestId = {
+  AMOUNT_ID: 'donation_amount',
+  COMPONENT_ID: 'donate_now_id',
+  CONTENT_ID: 'content_id',
+  IMAGE_ID: 'donate_now_image_id',
+  HEADER_ID: 'donate_now_header',
+  TEXT_ID: 'donate_now_text',
+  FORM_ID: 'donate_now_form_id',
+  BUTTON_ID: 'donate_button_id'
+};
+
+const constants = {
   aisha:
     "I didn't have sufficient data to pull through the duration of my course, but Edustipend came to my rescue. And now I made it to the final stage, where my team and I organized clean up program, and also provided character bins to curb plastic waste in our University( the project was achieved through grants from LEAP).",
   name: 'Aisha Daodu',
@@ -28,16 +61,11 @@ export const constants = {
   secondary: 'secondary',
   invalidEmail: 'Please enter a valid email address',
   invalidAmount: 'Amoumt can not be less than 1000',
-  invalidName: 'Please provide your first and last names'
+  invalidName: 'Please provide your first and last names',
+  redirect_dev: 'http://localhost:3000/support-a-learner/donate',
+  redirect_prod: 'https://www.edustipend.org/support-a-learner/donate'
 };
 
-export const TestId = {
-  AMOUNT_ID: 'donation_amount',
-  COMPONENT_ID: 'donate_now_id',
-  CONTENT_ID: 'content_id',
-  IMAGE_ID: 'donate_now_image_id',
-  HEADER_ID: 'donate_now_header',
-  TEXT_ID: 'donate_now_text',
-  FORM_ID: 'donate_now_form_id',
-  BUTTON_ID: 'donate_button_id'
-};
+
+
+export { constants, handleFocus, handleBlur, initial, TestId };

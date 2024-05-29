@@ -33,8 +33,8 @@ export const constants = {
     plain: "plain",
     Try_again: "Try again",
     secondary: "secondary",
-    Home: "Home",
-    right: "right",
+    recent: "See recent donations",
+    right: "front",
     Share_on_social_media: "Share on social media",
     media: "media",
     close: "close"

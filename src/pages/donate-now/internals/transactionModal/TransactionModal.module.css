@@ -84,7 +84,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    color: var(--edustipend-black);
+    color: var(--edustipend-purple);
     font-size: 18px;
     font-weight: 700;
 }

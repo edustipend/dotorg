@@ -45,7 +45,7 @@ export const TransactionModal = ({ error, setDisplayModal, message, title }) => 
                 effectClass={styles.btn}
                 className={styles.btn2}
               />
-              <Button label={constants.Try_again} type={constants.secondary} effectClass={styles.btn} className={styles.btn2} />
+              
             </div>
           </section>
         </section>
@@ -73,7 +73,7 @@ export const TransactionModal = ({ error, setDisplayModal, message, title }) => 
         </div>
         <div className={styles.btnContainer}>
           <Button
-            label={constants.Home}
+            label={constants.recent}
             type={constants.plain}
             effectClass={styles.btn}
             onClick={() => {
@@ -83,7 +83,7 @@ export const TransactionModal = ({ error, setDisplayModal, message, title }) => 
             className={styles.btn2}
           />
           <Button
-            iconPosition={constants.right}
+            // iconPosition={constants.right}
             // icon={share}
             label={constants.Share_on_social_media}
             type={constants.secondary}

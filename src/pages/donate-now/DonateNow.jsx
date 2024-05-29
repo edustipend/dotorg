@@ -2,7 +2,7 @@ import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { useLocation, useSearchParams, useNavigate } from 'react-router-dom';
 import styles from './DonateNow.module.css';
 import { aishaPng, info, infoArrow, quoteLeft, quoteRight } from '../../assets';
-import { TestId, constants } from './constants';
+import { TestId, constants, handleBlur, handleFocus, initial } from './constants';
 import Input from '../../components/Input';
 import Header from '../../components/Header';
 import Text from '../../components/Text';
@@ -13,25 +13,13 @@ import TransactionModal from './internals/transactionModal';
 import { ModalContext } from '../../context/ModalContext';
 import formatNumber from '../../utils/numberFormatter';
 import { checkEmail } from '../../utils/EmailChecker/emailChecker';
-// import { postData } from '../../services/ApiClient';
-
-const initial = {
-  fullname: '',
-  email: '',
-  phone: '',
-  company: '',
-  title: '',
-  message: '',
-  status: '',
-  toggle: false,
-  focus: false,
-  error: false,
-  errorMessage: ''
-};
+import { postData } from '../../services/ApiClient';
+import getEnvironment from '../../utils/getEnvironment';
 
 export const DonateNow = () => {
-  const location = useLocation();
   const nav = useNavigate();
+  const location = useLocation();
+  const currentEnv = getEnvironment();
   const [params] = useSearchParams();
   const { value } = location.state || { value: 1000 };
   const [amount, setAmount] = useState(value);
@@ -41,6 +29,61 @@ export const DonateNow = () => {
   const { redirectModal, handleRedirectModal } = useContext(ModalContext) || {};
   const { fullname, email, phone, company, toggle, focus, title, message, error, errorMessage } = userData;
 
+  //input value should not be greater than 1000000
+  const handleAmountChange = (e) => {
+    const max = 1000000;
+    const value = e.target.value;
+    if (value >= 0 && value <= max) {
+      setAmount(value);
+    }
+  };
+
+  const handleValidation = () => {
+    switch (true) {
+      case amount < 1000:
+        invalidInput(constants.invalidAmount);
+        return false;
+      case fullname.length < 3:
+        invalidInput(constants.invalidName);
+        return false;
+      case !checkEmail(email):
+        invalidInput(constants.invalidEmail);
+        return false;
+      default:
+        setUserData((prev) => ({ ...prev, errorMessage: '' }));
+        return true;
+    }
+  };
+
+  const invalidInput = (message) => {
+    setUserData((prev) => ({ ...prev, errorMessage: message }));
+  };
+
+  const handleDonation = async () => {
+    if (!handleValidation()) return;
+    handleRedirectModal();
+
+    const response = await postData('donate', {
+      amount: amount,
+      redirect_url: currentEnv ? constants.redirect_prod : constants.redirect_dev,
+      payment_options: 'card',
+      currency: 'NGN',
+      customer: {
+        email: email,
+        name: fullname,
+        phonenumber: phone
+      }
+    });
+    const result = await response;
+    if (result?.status) {
+      setUserData(initial);
+      window.location.href = result?.data?.link;
+    } else {
+      handleRedirectModal();
+    }
+  };
+
+  //Render either the success or error modal then delete the params.
   const handleFeedback = useCallback(() => {
     let status = '';
     if (params.has('status')) {
@@ -61,14 +104,11 @@ export const DonateNow = () => {
         }));
         setDisplayModal(true);
       }
-    } else {
-      setDisplayModal(false);
     }
 
     for (const key of params.keys()) {
       params.delete(key);
     }
-
     nav({ search: params.toString() }, { replace: true });
   }, [params, setUserData, nav]);
 
@@ -76,16 +116,16 @@ export const DonateNow = () => {
     handleFeedback();
   }, [handleFeedback]);
 
-  const handleFocus = () => {
-    setUserData((prev) => ({ ...prev, focus: !focus }));
-  };
-
-  const handleBlur = () => {
-    setUserData((prev) => ({ ...prev, focus: !focus }));
-  };
+  useEffect(() => {
+    if (toggle) {
+      setUserData((prev) => ({ ...prev, fullname: 'Anonymous' }));
+    } else {
+      setUserData((prev) => ({ ...prev, fullname: '' }));
+    }
+  }, [toggle]);
 
   const phoneInfo = (
-    <div className={styles.phoneInfo} onFocus={handleFocus} onBlur={handleBlur} tabIndex="0">
+    <div className={styles.phoneInfo} onFocus={() => handleFocus(setUserData, focus)} onBlur={() => handleBlur(setUserData, focus)} tabIndex="0">
       <img src={info} alt="info" className={styles.img} />
       <div className={`${styles.info} ${focus && styles.infoFocus}`}>
         <p className={styles.titleInfo}>{constants.tooltip_title}</p>
@@ -94,82 +134,6 @@ export const DonateNow = () => {
       </div>
     </div>
   );
-
-  const handleDonation = async () => {
-    if (!handleValidate()) return;
-
-    handleRedirectModal();
-    const response = await fetch('https://8436-102-91-92-183.ngrok-free.app/v1/donate', {
-      method: 'POST',
-      cache: 'no-cache',
-      credentials: 'same-origin',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      redirect: 'follow',
-      referrerPolicy: 'no-referrer',
-      body: JSON.stringify({
-        amount: amount,
-        redirect_url: 'http://localhost:3000/support-a-learner/donate',
-        payment_options: 'card',
-        currency: 'NGN',
-        customer: {
-          email: email,
-          name: fullname,
-          phonenumber: phone
-        }
-      })
-    });
-
-    // const response = await postData('donate', {
-    //   amount: amount,
-    //   redirect_url: 'http://localhost:3000/support-a-learner/donate',
-    //   payment_options: 'card',
-    //   currency: 'NGN',
-    //   customer: {
-    //     email: email,
-    //     name: fullname,
-    //     phonenumber: phone
-    //   }
-    // });
-
-    const result = await response?.json();
-
-    if (result?.status) {
-      handleRedirectModal();
-      window.location.href = result?.data?.link;
-    }
-  };
-
-  //input value should not be greater than 1000000
-  const handleAmountChange = (e) => {
-    const max = 1000000;
-    const value = e.target.value;
-    if (value >= 0 && value <= max) {
-      setAmount(value);
-    }
-  };
-
-  const handleValidate = () => {
-    switch (true) {
-      case amount < 1000:
-        action(constants.invalidAmount);
-        return false;
-      case fullname.length < 3:
-        action(constants.invalidName);
-        return false;
-      case !checkEmail(email):
-        action(constants.invalidEmail);
-        return false;
-      default:
-        setUserData((prev) => ({ ...prev, errorMessage: '' }));
-        return true;
-    }
-  };
-
-  const action = (message) => {
-    setUserData((prev) => ({ ...prev, errorMessage: message }));
-  };
 
   return (
     <div data-testid={TestId.COMPONENT_ID} className={styles.background}>
