@@ -2,6 +2,7 @@ export const routesConstant = {
   AMBASSADOR_PROGRAM: '/ambassador-program',
   SUPPORT_A_LEARNER: '/support-a-learner',
   DONATE_NOW: '/support-a-learner/donate',
+  ABOUT_US: '/about-us',
   APPLICATION: '/application',
   DASHBOARD: '/dashboard',
   FORGOT_PASSWORD: '/forgot-password',
@@ -10,5 +11,6 @@ export const routesConstant = {
   WELCOME: '/welcome',
   AT_ONE: '/at-one',
   LOGIN: '/login',
-  DONATION: '/donation'
+  DONATION: '/donation',
+  REPORTS: '/impact-reports'
 };

@@ -1,0 +1,64 @@
+.container {
+  width: 100%;
+  padding: 30px 0px 0px;
+  background-color: var(--in-view-backer);
+}
+
+.headerWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.headerWrap h1 {
+  font-size: 18px;
+  font-family: 'Poppins';
+  font-weight: 600;
+  letter-spacing: 5%;
+  text-transform: uppercase;
+  color: var(--edustipend-black);
+}
+
+.headerWrap p {
+  font-size: 12px;
+  font-family: 'Manrope';
+  width: 100%;
+  color: var(--edustipend-black);
+  font-weight: 400;
+  text-align: center;
+  line-height: 16px;
+}
+
+.collaborate {
+  font-weight: 500;
+}
+
+.partners {
+  display: flex;
+  flex-shrink: 0;
+  overflow-x: scroll;
+  flex-direction: row;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+@media only screen and (min-width: 650px) {
+  .container {
+    padding: 120px 30px 40px;
+  }
+
+  .headerWrap h1 {
+    font-size: 36px;
+  }
+
+  .headerWrap p {
+    font-size: 24px;
+    line-height: 45px;
+  }
+
+  .partners {
+    margin-top: 60px;
+    gap: 80px;
+  }
+}

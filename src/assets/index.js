@@ -41,7 +41,7 @@ import Edit_Icon from './edit_icon.svg';
 import Menu_Icon from './three_dots.svg';
 import info from './info.svg';
 import infoArrow from './info-arrow.svg';
-import share from "./share.svg"
+import share from './share.svg';
 import failed_tran from './failed_tran.svg';
 import insta_share from './insta_share.svg';
 import linkedIn_share from './linkedIn_share.svg';
@@ -49,10 +49,13 @@ import facebook_share from './facebook_share.svg';
 import twitter_share from './twitter_share.svg';
 import close from './closeIcn.svg';
 import screenBackgroung from './screenBackground.svg';
-import screenPlatform from './screenPlatform.svg'
+import screenPlatform from './screenPlatform.svg';
 import Our_Impact from './our-impacts.png';
-import   donateScreen from "./donate_screen.svg";
-import aishaPng from './aishabeneficiary.png'
+import donateScreen from './donate_screen.svg';
+import aishaPng from './aishabeneficiary.png';
+import Insight from './report-insights.png';
+import Chart from './pie-chart.png';
+import File_Icon from './file-icon.png';
 
 export {
   Hero1,
@@ -109,5 +112,8 @@ export {
   screenBackgroung,
   screenPlatform,
   Our_Impact,
-  aishaPng
+  aishaPng,
+  Insight,
+  Chart,
+  File_Icon
 };

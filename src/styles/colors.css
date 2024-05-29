@@ -33,12 +33,14 @@
   --approved: #008753;
   --in-view: #ff8000;
   --in-view-light:#F2ECDD;
+  --in-view-backer: #f7f7f7 ;
   --denied: #f20b07;
   --linear-gradient-one: #5801ff33;
   --linear-gradient-one-light: #5801ff77;
   --linear-gradient-two: #00babb33;
   --linear-gradient-two-light: #00babb77;
   --text: #5801ff0d;
+ 
 }
 
 .background-lightblue {

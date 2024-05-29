@@ -40,15 +40,14 @@ export const NAVBAR_AMBASSADOR_LINKS = [
 export const SUPPORT_LEARNER_LINKS = [
   {
     label: 'Donate Now',
-    path: '/support-a-learner',
-    hash: '#donate'
+    path: '/support-a-learner/donate',
+    hash: ''
   },
   {
     label: 'How It Works',
     path: '/support-a-learner',
-    hash: '#howitworks'
-  },
-  
+    hash: '#how-it-works'
+  }
 ];
 
 export const BUTTON_LABEL = 'Request stipend';

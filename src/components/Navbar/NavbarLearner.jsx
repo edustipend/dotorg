@@ -11,7 +11,7 @@ const NavbarLearner = ({ showMenu, closeMenu }) => {
       <nav className="navbarNavs navAlt" data-testid={NAVBAR_LINKS_ID}>
         <div className="navContent">
           {SUPPORT_LEARNER_LINKS.map((link) => (
-            <HashLink key={link.label} to={{ pathname: link.path, hash: link.hash }}>
+            <HashLink key={link.label} to={{ pathname: link.path, hash: link.hash }} onClick={() => closeMenu(!showMenu)}>
               {link.label}
             </HashLink>
           ))}
@@ -23,6 +23,13 @@ const NavbarLearner = ({ showMenu, closeMenu }) => {
 
       {showMenu ? (
         <nav className="mobile-nav">
+          <div className="mobileNavContent">
+            {SUPPORT_LEARNER_LINKS.map((link) => (
+              <HashLink key={link.label} to={{ pathname: link.path, hash: link.hash }} onClick={() => closeMenu(!showMenu)}>
+                {link.label}
+              </HashLink>
+            ))}
+          </div>
           <HashLink to={{ pathname: '/support-a-learner/donate' }}>
             <Button label="Donate now" type={'secondary'} className="navBtn" onClick={() => closeMenu(!showMenu)} />
           </HashLink>

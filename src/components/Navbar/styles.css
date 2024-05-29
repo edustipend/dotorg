@@ -112,6 +112,12 @@ a {
   color: var(--edustipend-yellow);
 }
 
+.mobileNavContent{
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
 .user-profile {
   display: flex;
   align-items: center;
