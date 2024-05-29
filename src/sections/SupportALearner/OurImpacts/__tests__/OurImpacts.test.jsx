@@ -40,6 +40,7 @@ describe('OurImpacts component', () => {
       );
       expect(screen.getByTestId(TestId.DESCRIPTION)).toHaveTextContent(description);
     });
+    
     it('shows the description sub text', () => {
       render(
         <BrowserRouter>

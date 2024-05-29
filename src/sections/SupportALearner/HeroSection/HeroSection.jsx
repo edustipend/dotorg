@@ -9,7 +9,7 @@ import { NavHashLink } from 'react-router-hash-link';
 import Container from '../../../components/Container';
 import { Texts, quotesArray } from './contants';
 
-export const HeroSection = () => {
+const HeroSection = () => {
   const [currentQuoteIndex, setCurrentQuoteIndex] = useState(0);
   const [animationKey, setAnimationKey] = useState(0);
 
@@ -17,7 +17,7 @@ export const HeroSection = () => {
     const intervalId = setInterval(() => {
       setCurrentQuoteIndex((prevIndex) => (prevIndex + 1) % quotesArray.length);
       setAnimationKey((prevKey) => prevKey + 1);
-    }, 10000);
+    }, 20000);
 
     return () => clearInterval(intervalId);
   }, []);
@@ -28,21 +28,23 @@ export const HeroSection = () => {
     <div className={styles.bg}>
       <Container>
         <div className={styles.container}>
-          <div className={styles.quotes} key={animationKey} style={{ animation: `${styles.fadeIn} 0.5s ease-in-out` }}>
+          <div className={styles.quotes} key={animationKey}>
             <div className={styles.benimagediv}>
               <img src={currentQuote.image} alt="beneficiary-quote" className={styles.benimage} />
             </div>
-            <div className={styles.quotecont} style={{ animation: `${styles.fade} 0.5s ease-in` }}>
+            <div className={styles.quotecont}>
               <div className={styles.quot}>
                 <img src={quoteU} alt="quote-icon" className="quoteU" style={{ alignSelf: 'flex-start' }} />
                 <Text data-testid="quote-content" content={currentQuote.content} className={styles.quote} />
                 <img src={quoteD} alt="quote-icon" className="quoteD" style={{ alignSelf: 'flex-end' }} />
               </div>
-              <div className={styles.ben}>
-                <Text content={currentQuote.author} className={styles.benName} />
-              </div>
-              <div className={styles.ben}>
-                <Text content={currentQuote.when} className={styles.when} />
+              <div className={styles.benwhen}>
+                <div className={styles.ben}>
+                  <Text content={currentQuote.author} className={styles.benName} />
+                </div>
+                <div className={styles.ben}>
+                  <Text content={currentQuote.when} className={styles.when} />
+                </div>
               </div>
             </div>
           </div>
@@ -61,11 +63,10 @@ export const HeroSection = () => {
                 }}>
                 <Button label={Texts.SUPPORT_TEXT} size={'medium'} type={'secondary'} />
               </NavHashLink>
-
               <NavHashLink
                 to={{
                   pathname: '/support-a-learner',
-                  hash: '#how-much-can-I-donate'
+                  hash: '#how-much-can-i-donate'
                 }}>
                 <Button label={Texts.DONATE_TEXT} size={'medium'} type={'plain'} />
               </NavHashLink>
@@ -76,3 +77,5 @@ export const HeroSection = () => {
     </div>
   );
 };
+
+export default HeroSection;

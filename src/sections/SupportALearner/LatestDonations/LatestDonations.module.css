@@ -1,0 +1,241 @@
+.container {
+  width: 100%;
+  padding: 30px 0px 50px;
+  background-color: var(--in-view-backer);
+}
+
+.headerContainer {
+  border-bottom: 1px solid var(--edustipend-yellow);
+  height: 37px;
+}
+
+.headerContainer h1 {
+  font-size: 18px;
+  font-family: 'Poppins';
+  font-weight: 600;
+  letter-spacing: 5%;
+  text-transform: uppercase;
+  color: var(--edustipend-black);
+}
+
+.headerContainer p {
+  font-size: 12px;
+  line-height: 16px;
+  font-family: 'Manrope';
+  width: 100%;
+  color: var(--edustipend-black);
+  margin-top: 20px;
+  font-weight: 400;
+}
+
+.headerWrap {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}
+
+.donations {
+  margin-top: 110px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.donation {
+  width: 100%;
+  height: 92px;
+  background-color: var(--white);
+  box-shadow: 0px 0px 2px 0px #00000040;
+  border-radius: 17px;
+  padding: 17px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  cursor: pointer;
+}
+
+.name {
+  width: 55px;
+  height: 55px;
+  border-radius: 100%;
+  background-color: var(--edustipend-yellow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.name p {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--edustipend-black);
+}
+
+.donatedetails {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.backer {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.when {
+  font-size: 11px;
+  color: var(--gray);
+}
+
+.donated {
+  font-size: 11px;
+}
+
+.amount {
+  font-size: 14px;
+  color: var(--edustipend-purple);
+  font-weight: 700;
+}
+
+.paginationWrap {
+  margin-top: 28px;
+  display: flex;
+  justify-content: center;
+}
+
+.pagination {
+  display: flex;
+  gap: 6px;
+}
+
+.currentPage {
+  background-color: var(--linear-gradient-one);
+  width: 35px;
+  height: 40px;
+  border-radius: 10px;
+}
+
+.otherPage {
+  background-color: var(--white);
+  width: 35px;
+  height: 40px;
+  border-radius: 10px;
+}
+
+.Prev,
+.Next,
+.otherPage,
+.currentPage {
+  font-size: 14px;
+}
+
+.Prev,
+.Next,
+.ellipsis {
+  background-color: var(--white);
+  width: 35px;
+  height: 40px;
+  border-radius: 10px;
+}
+
+.ellipsis {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.headerWrap img {
+  width: 20px;
+  height: 20px;
+}
+
+@media only screen and (min-width: 650px) {
+  .container {
+    flex-direction: row;
+    padding: 80px 30px 80px;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .headerContainer {
+    height: 57px;
+  }
+
+  .headerContainer h1 {
+    font-size: 36px;
+    line-height: 30.52px;
+  }
+
+  .headerContainer p {
+    font-size: 24px;
+    line-height: 45px;
+    margin-top: 60px;
+  }
+
+  .donations {
+    margin-top: 220px;
+  }
+}
+
+.pagination button {
+  padding: 0;
+}
+
+@media only screen and (min-width: 1024px) {
+  .headerContainer p {
+    max-width: 939px;
+  }
+
+  .donations {
+    margin-top: 200px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 48px;
+  }
+
+  .name {
+    width: 100px;
+    height: 100px;
+  }
+
+  .name p {
+    font-size: 48px;
+  }
+
+  .backer {
+    font-size: 24px;
+  }
+
+  .when {
+    font-size: 20px;
+  }
+
+  .donated {
+    font-size: 20px;
+  }
+
+  .amount {
+    font-size: 25px;
+  }
+
+  .donatedetails {
+    gap: 8px;
+  }
+
+  .donation {
+    gap: 41px;
+    padding: 32px;
+    height: 167px;
+    border-radius: 32px;
+  }
+
+  .paginationWrap {
+    margin-top: 48px;
+  }
+
+  .headerWrap img {
+    width: 30px;
+    height: 30px;
+  }
+}
