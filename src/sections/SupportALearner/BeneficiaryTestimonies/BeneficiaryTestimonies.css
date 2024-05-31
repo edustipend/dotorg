@@ -44,11 +44,15 @@
   font-weight: 900;
   display: inline-block;
   padding: 15px 40px;
-  background-color: orange;
+  background-color: rgba(254, 189, 28, 1);
   border-radius: 50px;
   text-decoration: none;
   border: 5px solid rgba(0, 0, 0, 0.3);
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.horizontal__line {
+  border: 1px solid rgba(254, 189, 28, 1);
 }
 
 .testimonial__testimonies {

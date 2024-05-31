@@ -100,7 +100,9 @@ function BeneficiaryTestimonies() {
           <Header size="medium" color="secondary" dataTest="another-header-test" className="custom-header-class">
             Testimonials
           </Header>
+          <div className="horizontal__line"></div>
           <p className="testimonial__description">{testimonialDescription}</p>
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a href="#" className="testimonial__support-link">
             Support a learner
           </a>
