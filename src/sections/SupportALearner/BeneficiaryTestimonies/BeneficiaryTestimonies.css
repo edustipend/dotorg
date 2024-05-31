@@ -18,7 +18,7 @@
 }
 
 .testimonial__section {
-  padding: 50px;
+  padding: 50px 0;
   color: #fff;
 
   position: relative;
@@ -121,4 +121,10 @@
 
 .slick-next:before {
   content: '→';
+}
+
+@media screen and (max-width: 425px) {
+  .testimonial__testimonies {
+    margin-top: 50px;
+  }
 }

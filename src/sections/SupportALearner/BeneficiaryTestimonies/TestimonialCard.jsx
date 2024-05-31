@@ -14,7 +14,7 @@ function TestimonialCard({ username, userhandle, content, postDate, seeLink, hre
           <img className="user-profile--image" src={source} alt={username} />
 
           <div className="user-profile--username">
-            <p className="user-name">{username}</p>
+            <p className="username">{username}</p>
             <p className="user-handle">{userhandle}</p>
           </div>
         </div>
