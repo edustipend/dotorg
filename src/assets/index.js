@@ -56,6 +56,8 @@ import aishaPng from './aishabeneficiary.png';
 import Insight from './report-insights.png';
 import Chart from './pie-chart.png';
 import File_Icon from './file-icon.png';
+import User_Icon from './user-target.svg';
+import Goal_Icon from './goal.svg';
 
 export {
   Hero1,
@@ -115,5 +117,7 @@ export {
   aishaPng,
   Insight,
   Chart,
-  File_Icon
+  File_Icon,
+  User_Icon,
+  Goal_Icon
 };

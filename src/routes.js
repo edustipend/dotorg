@@ -19,6 +19,7 @@ import SupportALearner from './pages/support-a-learner';
 import DonateNow from './pages/donate-now';
 import ReportsPage from './pages/reports';
 import AboutUs from './pages/about-us/AboutUs';
+import TransparencyDashboard from './sections/TransaprencyDashboard';
 const {
   AMBASSADOR_PROGRAM,
   REQUEST,
@@ -32,7 +33,8 @@ const {
   SUPPORT_A_LEARNER,
   DONATE_NOW,
   REPORTS,
-  ABOUT_US
+  ABOUT_US,
+  TRANSPARENCY_DASHBOARD
 } = routesConstant;
 
 const Routes = () => {
@@ -47,6 +49,7 @@ const Routes = () => {
       <Route path={REPORTS} element={<ReportsPage />} />
       <Route path={DONATE_NOW} element={<DonateNow />} />
       <Route path={ABOUT_US} element={<AboutUs />} />
+      <Route path={TRANSPARENCY_DASHBOARD} element={<TransparencyDashboard />} />
       <Route
         path={LOGIN}
         element={
@@ -62,7 +65,7 @@ const Routes = () => {
             <Welcome />
           </ProtectedRoute>
         }></Route>
-        
+
       <Route
         path={DASHBOARD}
         element={
@@ -70,7 +73,6 @@ const Routes = () => {
             <LearnerDashboard />
           </ProtectedRoute>
         }>
-       
         <Route index element={<Home />} />
         <Route path="home" element={<Home />} />
         <Route path="submissions" element={<Submissions />} />
