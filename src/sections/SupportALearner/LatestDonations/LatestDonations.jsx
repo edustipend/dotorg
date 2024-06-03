@@ -6,48 +6,16 @@ import Text from '../../../components/Text';
 import { CURRENT_PAGE, ITEMS_PER_PAGE, TestId, Texts } from './constants';
 import { donations } from './donations.mock';
 import emoji from '../../../assets/donation.png';
+import Pagination from '../../../components/Pagination/Pagination';
 
 const LatestDonations = () => {
   const [currentPage, setCurrentPage] = useState(CURRENT_PAGE);
-
-  const totalPages = Math.ceil(donations.length / ITEMS_PER_PAGE);
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
   const endIndex = startIndex + ITEMS_PER_PAGE;
   const currentDonations = donations.slice(startIndex, endIndex);
 
   const changePage = (page) => {
     setCurrentPage(page);
-  };
-
-  const renderPageNumbers = () => {
-    const pageNumbers = [];
-
-    const addPageNumber = (number) => {
-      pageNumbers.push(
-        <button key={number} onClick={() => changePage(number)} className={currentPage === number ? styles.currentPage : styles.otherPage}>
-          {number}
-        </button>
-      );
-    };
-
-    const addEllipsis = () => {
-      pageNumbers.push(
-        <span key="ellipsis" className={styles.ellipsis}>
-          ....
-        </span>
-      );
-    };
-
-    for (let i = 1; i <= Math.min(3, totalPages); i++) {
-      addPageNumber(i);
-    }
-
-    if (totalPages > 3) {
-      addEllipsis();
-      addPageNumber(totalPages);
-    }
-
-    return pageNumbers;
   };
 
   return (
@@ -78,18 +46,7 @@ const LatestDonations = () => {
             </div>
           ))}
         </div>
-
-        <div className={styles.paginationWrap}>
-          <div className={styles.pagination}>
-            <button className={styles.Prev} disabled={currentPage === 1} onClick={() => changePage(currentPage - 1)}>
-              {Texts.PREV_TEXT}
-            </button>
-            {renderPageNumbers()}
-            <button className={styles.Next} disabled={currentPage === totalPages} onClick={() => changePage(currentPage + 1)}>
-              {Texts.NEXT_TEXT}
-            </button>
-          </div>
-        </div>
+        <Pagination currentPage={currentPage} onPageChange={changePage} ITEMS_PER_PAGE={ITEMS_PER_PAGE} showViewAll={true} />
       </Container>
     </div>
   );
