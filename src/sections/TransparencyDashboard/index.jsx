@@ -1,3 +1,3 @@
-import { TransparencyDashboard } from './TransparencyDashboard';
+import TransparencyDashboard from './TransparencyDashboard';
 
 export default TransparencyDashboard;

@@ -1,6 +1,6 @@
 import { formatMoney } from '../../../utils/numberFormatter/NumberFormatter';
 import styles from '../TransparencyDashboard.module.css';
-import { donations } from '../constants';
+import { donations } from '../../TransparencyDashboard/constants';
 
 export const DonationsFilter = () => {
   return (
