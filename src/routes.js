@@ -19,7 +19,7 @@ import SupportALearner from './pages/support-a-learner';
 import DonateNow from './pages/donate-now';
 import ReportsPage from './pages/reports';
 import AboutUs from './pages/about-us/AboutUs';
-import TransparencyDashboard from './sections/TransparencyDashboard';
+import TransparencyDashboard from './sections/TransaprencyDashboard';
 const {
   AMBASSADOR_PROGRAM,
   REQUEST,
