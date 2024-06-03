@@ -1,16 +1,34 @@
-import React from 'react';
+import { paths, data as resData } from './constants';
 import Container from '../../components/Container';
-import BreadCrumbs from '../../components/BreadCrumbs';
-import { paths } from './constants';
-
+import { useCallback, useEffect, useState } from 'react';
+import Goals from './internals/Goals';
 import styles from './TransparencyDashboard.module.css';
+import BreadCrumbs from '../../components/BreadCrumbs';
+// import { getData } from '../../services/ApiClient';
 
-export const TransparencyDashboard = () => {
+const TransparencyDashboard = () => {
+  const [data, setData] = useState('');
+
+  const fetchTransactions = useCallback(() => {
+    //   const res = getData('');
+    const res = {
+      data: resData
+    };
+    setData(res?.data);
+  }, []);
+
+  useEffect(() => {
+    fetchTransactions();
+  }, []);
+
   return (
-    <div className={styles.container}>
+    <div className={styles.contatiner}>
       <Container>
         <BreadCrumbs paths={paths} />
+        <Goals data={data} />
       </Container>
     </div>
   );
 };
+
+export default TransparencyDashboard;
