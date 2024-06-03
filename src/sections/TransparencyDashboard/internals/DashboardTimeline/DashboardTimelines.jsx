@@ -1,25 +1,23 @@
-import { formatMoney } from '../../../../utils/numberFormatter/NumberFormatter';
+import TableRow from './TableRow';
+import TableHead from './TableHead';
+import { donations, tableHeads, title } from './constants';
+
 import styles from './DashboardTimelines.module.css';
 
 export const DashboardTimelines = () => {
   return (
     <div className={styles.tableContainer}>
-      <h1 className={styles.timelinesTitle}>Donations</h1>
+      <h1 className={styles.timelinesTitle}>{title}</h1>
       <table className={styles.table}>
         <thead>
-          <th>Name</th>
-          <th>Amount</th>
-          <th>Date</th>
+          {tableHeads.map((title) => (
+            <TableHead title={title} key={title} />
+          ))}
         </thead>
         <tbody>
-          <tr>
-            <td>
-              <div className={styles.avatar}>OP</div>
-              <span>Olamide</span>
-            </td>
-            <td>{formatMoney(50000)}</td>
-            <td>Jan 4, 2024</td>
-          </tr>
+          {donations.map((item, i) => (
+            <TableRow item={item} key={i} />
+          ))}
         </tbody>
         <tfoot>{/* Pagination */}</tfoot>
       </table>

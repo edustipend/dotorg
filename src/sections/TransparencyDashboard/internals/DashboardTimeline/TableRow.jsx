@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { formatMoney } from '../../../../utils/numberFormatter/NumberFormatter';
-import styles from './DashboardTimelines';
+import styles from './DashboardTimelines.module.css';
 
 const getInitials = (name) => {
   const names = name?.split(' ');
@@ -15,8 +15,8 @@ const TableRow = ({ item }) => {
         <div className={styles.avatar}>{getInitials(item?.name)}</div>
         <span>{item?.name}</span>
       </td>
-      <td>{formatMoney(item?.amount)}</td>
-      <td>{item?.date}</td>
+      <td className={styles.amount}>{formatMoney(item?.amount)}</td>
+      <td className={styles.date}>{item?.date}</td>
     </tr>
   );
 };
