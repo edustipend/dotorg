@@ -47,7 +47,7 @@ const Pagination = ({ onPageChange, currentPage, ITEMS_PER_PAGE, showViewAll }) 
         </button>
         {renderPageNumbers()}
         {showViewAll ? (
-          <Link to="#">
+          <Link to={Texts.PATH}>
             <button className={styles.Next}>{Texts.VIEW_ALL_TEXT}</button>
           </Link>
         ) : (
