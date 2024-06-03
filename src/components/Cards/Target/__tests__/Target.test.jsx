@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import Target from '../Target';
-import { targets } from '../../../../sections/TransaprencyDashboard/constants';
+import { targets } from '../../../../sections/TransparencyDashboard/constants';
 import { Testid } from '../constants';
 
 describe('Target', () => {

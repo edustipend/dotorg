@@ -1,8 +1,9 @@
-import { data as resData } from './constants';
+import { paths, data as resData } from './constants';
 import Container from '../../components/Container';
 import { useCallback, useEffect, useState } from 'react';
 import Goals from './internals/Goals';
 import styles from './TransparencyDashboard.module.css';
+import BreadCrumbs from '../../components/BreadCrumbs';
 // import { getData } from '../../services/ApiClient';
 
 const TransparencyDashboard = () => {
@@ -23,6 +24,7 @@ const TransparencyDashboard = () => {
   return (
     <div className={styles.contatiner}>
       <Container>
+        <BreadCrumbs paths={paths} />
         <Goals data={data} />
       </Container>
     </div>
