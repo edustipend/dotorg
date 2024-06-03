@@ -44,8 +44,6 @@ const Goals = ({ data }) => {
   );
 };
 
-export default Goals;
-
 Goals.propTypes = {
   data: PropTypes.object
 };

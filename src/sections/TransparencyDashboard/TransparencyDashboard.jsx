@@ -1,5 +1,5 @@
 import Container from '../../components/Container';
-import { DashboardTimelines } from './internals';
+import { DashboardTimelines } from '../TransaprencyDashboard/internals';
 
 import styles from './Transparency.module.css';
 

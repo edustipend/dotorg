@@ -1,6 +1,3 @@
 import DashboardTimelines from './DashboardTimeline';
 
-export {
-    DashboardTimelines,
-
-};
+export { DashboardTimelines };
