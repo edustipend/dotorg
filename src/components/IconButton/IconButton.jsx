@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const IconButton = ({ children, className, onClick }) => {
+export const IconButton = ({ children, className, onClick, dataTest }) => {
   return (
-    <button className={className} onClick={onClick}>
+    <button data-testid={dataTest} className={className} onClick={onClick}>
       {children}
     </button>
   );
@@ -12,5 +12,6 @@ export const IconButton = ({ children, className, onClick }) => {
 IconButton.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  dataTest: PropTypes.string,
   onClick: PropTypes.func
 };

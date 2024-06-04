@@ -23,7 +23,7 @@ export const TransactionModal = ({ error, setDisplayModal, message, title }) => 
   };
 
   const closeModal = (
-    <IconButton onClick={() => setDisplayModal((prev) => !prev)} className={styles.closeBtn}>
+    <IconButton dataTest={constants.ICON_BUTTON} onClick={() => setDisplayModal((prev) => !prev)} className={styles.closeBtn}>
       <img src={close} alt={constants.close} className={`${styles.closeIcn}`} />
     </IconButton>
   );
