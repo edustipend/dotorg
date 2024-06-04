@@ -22,7 +22,9 @@ export const data = {
 
 export const donations = {
   title: 'Total Donations',
-  raised: 956789
+  weekly: 956789,
+  monthly: 1000000,
+  daily: 95300
 };
 
 export const btn = {
@@ -41,3 +43,9 @@ export const paths = [
     path: '/transparency-dashboard'
   }
 ];
+
+export const TestId = {
+  DONATIONS_FILTER_ID: 'donations-filter-id',
+  SELECT_OPTION: 'select-option',
+  AMOUNT_RAISED: 'amount-raised'
+};
