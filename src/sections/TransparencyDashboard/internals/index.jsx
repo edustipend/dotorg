@@ -1,7 +1,4 @@
-import { DonationsFilter } from "./DonationsFilter";
-import { Goals } from "./Goals";
+import { DonationsFilter } from './DonationsFilter';
+import { Goals } from './Goals';
 
-export {
-
-    Goals, DonationsFilter
-}
+export { Goals, DonationsFilter };
