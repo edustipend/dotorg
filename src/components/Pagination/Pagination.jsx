@@ -5,8 +5,8 @@ import { Texts } from './constants';
 import { donations } from '../../sections/SupportALearner/LatestDonations/donations.mock';
 import { Link } from 'react-router-dom';
 
-const Pagination = ({ onPageChange, currentPage, ITEMS_PER_PAGE, showViewAll }) => {
-  const totalPages = Math.ceil(donations.length / ITEMS_PER_PAGE);
+const Pagination = ({ onPageChange, currentPage, itemsPerPage, showViewAll, noOfPages }) => {
+  const totalPages = Math.ceil(noOfPages ? noOfPages : donations.length / itemsPerPage);
 
   const renderPageNumbers = () => {
     const pageNumbers = [];
@@ -27,11 +27,13 @@ const Pagination = ({ onPageChange, currentPage, ITEMS_PER_PAGE, showViewAll }) 
       );
     };
 
-    for (let i = 1; i <= Math.min(3, totalPages); i++) {
+    const maxPagesToShow = Math.min(noOfPages || 3, totalPages);
+
+    for (let i = 1; i <= maxPagesToShow; i++) {
       addPageNumber(i);
     }
 
-    if (totalPages > 3) {
+    if (totalPages > maxPagesToShow) {
       addEllipsis();
       addPageNumber(totalPages);
     }
@@ -63,8 +65,9 @@ const Pagination = ({ onPageChange, currentPage, ITEMS_PER_PAGE, showViewAll }) 
 Pagination.propTypes = {
   currentPage: PropTypes.number.isRequired,
   onPageChange: PropTypes.func.isRequired,
-  ITEMS_PER_PAGE: PropTypes.number.isRequired,
-  showViewAll: PropTypes.bool
+  itemsPerPage: PropTypes.number.isRequired,
+  showViewAll: PropTypes.bool,
+  noOfPages: PropTypes.number
 };
 
 export default Pagination;

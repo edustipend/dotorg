@@ -3,15 +3,15 @@ import Container from '../../../components/Container';
 import styles from '../LatestDonations/LatestDonations.module.css';
 import Header from '../../../components/Header';
 import Text from '../../../components/Text';
-import { CURRENT_PAGE, ITEMS_PER_PAGE, TestId, Texts } from './constants';
+import { theCurrentPageNumber, itemsPerPage, TestId, Texts } from './constants';
 import { donations } from './donations.mock';
 import emoji from '../../../assets/donation.png';
 import Pagination from '../../../components/Pagination/Pagination';
 
 const LatestDonations = () => {
-  const [currentPage, setCurrentPage] = useState(CURRENT_PAGE);
-  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-  const endIndex = startIndex + ITEMS_PER_PAGE;
+  const [currentPage, setCurrentPage] = useState(theCurrentPageNumber);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
   const currentDonations = donations.slice(startIndex, endIndex);
 
   const changePage = (page) => {
@@ -46,7 +46,13 @@ const LatestDonations = () => {
             </div>
           ))}
         </div>
-        <Pagination currentPage={currentPage} onPageChange={changePage} ITEMS_PER_PAGE={ITEMS_PER_PAGE} showViewAll={true} />
+        <Pagination
+          currentPage={currentPage}
+          onPageChange={changePage}
+          itemsPerPage={itemsPerPage}
+          showViewAll={true}
+          noOfPages={3}
+        />
       </Container>
     </div>
   );
