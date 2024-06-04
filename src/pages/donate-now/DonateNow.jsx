@@ -2,7 +2,7 @@ import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { useLocation, useSearchParams, useNavigate } from 'react-router-dom';
 import styles from './DonateNow.module.css';
 import { aishaPng, info, infoArrow, quoteLeft, quoteRight } from '../../assets';
-import { TestId, constants, handleBlur, handleFocus, initial } from './constants';
+import { TestId, constants, initial } from './constants';
 import Input from '../../components/Input';
 import Header from '../../components/Header';
 import Text from '../../components/Text';
@@ -14,7 +14,7 @@ import { ModalContext } from '../../context/ModalContext';
 import formatNumber from '../../utils/numberFormatter';
 import { checkEmail } from '../../utils/EmailChecker/emailChecker';
 import { postData } from '../../services/ApiClient';
-import getEnvironment from '../../utils/getEnvironment';
+import { getEnvironment } from '../../utils/getEnvironment';
 
 export const DonateNow = () => {
   const nav = useNavigate();
@@ -27,7 +27,15 @@ export const DonateNow = () => {
   const [displayModal, setDisplayModal] = useState(false);
   const formattedNumber = formatNumber(amount);
   const { redirectModal, handleRedirectModal } = useContext(ModalContext) || {};
-  const { fullname, email, phone, company, toggle, focus, title, message, error, errorMessage } = userData;
+  const { fullname, email, phone, company, toggleShowName, focus, title, message, error, errorMessage } = userData;
+
+  const handleFocus = (setUserData, focus) => {
+    setUserData((prev) => ({ ...prev, focus: !focus }));
+  };
+
+  const handleBlur = (setUserData, focus) => {
+    setUserData((prev) => ({ ...prev, focus: !focus }));
+  };
 
   //input value should not be greater than 1000000
   const handleAmountChange = (e) => {
@@ -98,7 +106,7 @@ export const DonateNow = () => {
           message: constants.donation_success
         }));
         setDisplayModal(true);
-      } else if (status !== 'successful') {
+      } else {
         setUserData((prev) => ({
           ...prev,
           error: true,
@@ -109,9 +117,17 @@ export const DonateNow = () => {
       }
     }
 
+    /**
+     * On success or On failure, flutterwave redirects the user to the specified route with two params attached
+     * E.g base/support-a-learner/donate?status=cancelled&tx_ref=edustipend-txref-z5EWyXkjJrVrCDMdECqc5
+     *
+     * after reading the status of the transcation, we need to clean up our url string.
+     */
+
     for (const key of params.keys()) {
       params.delete(key);
     }
+
     nav({ search: params.toString() }, { replace: true });
   }, [params, setUserData, nav]);
 
@@ -120,12 +136,12 @@ export const DonateNow = () => {
   }, [handleFeedback]);
 
   useEffect(() => {
-    if (toggle) {
+    if (toggleShowName) {
       setUserData((prev) => ({ ...prev, fullname: 'Anonymous' }));
     } else {
       setUserData((prev) => ({ ...prev, fullname: '' }));
     }
-  }, [toggle]);
+  }, [toggleShowName]);
 
   const phoneInfo = (
     <div className={styles.phoneInfo} onFocus={() => handleFocus(setUserData, focus)} onBlur={() => handleBlur(setUserData, focus)} tabIndex="0">
@@ -166,21 +182,21 @@ export const DonateNow = () => {
                   <Input
                     type={constants.text}
                     value={userData.fullname}
-                    disabled={toggle}
+                    disabled={toggleShowName}
                     required={false}
                     label={constants.fullName}
                     placeholder={constants.fullName}
                     onChange={(e) => {
                       setUserData((prev) => ({ ...prev, fullname: e.target.value }));
                     }}
-                    className={toggle ? `${styles.fullname}` : ''}
+                    className={toggleShowName ? `${styles.fullname}` : ''}
                   />
                   <div className={styles.toggleContainer}>
                     <p className={styles.anon}>{constants.anonymous}</p>
                     <div
-                      onClick={() => setUserData((prev) => ({ ...prev, toggle: !toggle }))}
-                      className={toggle ? `${styles.toggle} ${styles.toggleAlt}` : `${styles.toggle}`}>
-                      <div className={toggle ? `${styles.ballAlt}` : `${styles.ball}`} />
+                      onClick={() => setUserData((prev) => ({ ...prev, toggleShowName: !toggleShowName }))}
+                      className={toggleShowName ? `${styles.toggle} ${styles.toggleAlt}` : `${styles.toggle}`}>
+                      <div className={toggleShowName ? `${styles.ballAlt}` : `${styles.ball}`} />
                     </div>
                   </div>
                 </div>
@@ -194,7 +210,7 @@ export const DonateNow = () => {
                   placeholder={constants.Enter_Email_Address}
                   required={false}
                 />
-                {toggle && (
+                {toggleShowName && (
                   <Input
                     value={company}
                     onChange={(e) => {
@@ -229,7 +245,6 @@ export const DonateNow = () => {
               <div className={styles.btnContainer}>
                 <small className={styles.small}>{errorMessage}</small>
                 <Button
-                  // disabled={!handleDisableButton && amount < 1000}
                   dataTest={TestId.BUTTON_ID}
                   label={`${'Donate'} ₦${formattedNumber}`}
                   onClick={handleDonation}

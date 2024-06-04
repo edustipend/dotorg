@@ -6,6 +6,7 @@ import Button from '../../../../components/Button';
 import { constants } from './constants';
 import { defaultShare, twitterShare, instagramShare } from '../sharePosts';
 import { useNavigate } from 'react-router-dom';
+import IconButton from '../../../../components/IconButton';
 
 export const TransactionModal = ({ error, setDisplayModal, message, title }) => {
   const [shareUI, setShareUI] = useState(false);
@@ -21,14 +22,18 @@ export const TransactionModal = ({ error, setDisplayModal, message, title }) => 
     }
   };
 
+  const closeModal = (
+    <IconButton onClick={() => setDisplayModal((prev) => !prev)} className={styles.closeBtn}>
+      <img src={close} alt={constants.close} className={`${styles.closeIcn}`} />
+    </IconButton>
+  );
+
   // render the error modal UI if error
   if (error) {
     return (
       <main className={styles.main}>
         <section className={styles.contentContainer}>
-          <button onClick={() => setDisplayModal((prev) => !prev)} className={styles.closeBtn}>
-            <img src={close} alt={constants.close} className={`${styles.closeIcn} ${styles.closeIcn2}`} />
-          </button>
+          {closeModal}
           <section className={styles.content}>
             <div className={styles.imgContainer}>
               <img src={failed_tran} alt={constants.failed} className={styles.img} />
@@ -45,7 +50,6 @@ export const TransactionModal = ({ error, setDisplayModal, message, title }) => 
                 effectClass={styles.btn}
                 className={styles.btn2}
               />
-              
             </div>
           </section>
         </section>
@@ -59,10 +63,7 @@ export const TransactionModal = ({ error, setDisplayModal, message, title }) => 
    */
   let content = (
     <section className={styles.contentContainer}>
-      <button onClick={() => setDisplayModal((prev) => !prev)} className={styles.closeBtn}>
-        <img src={close} alt={constants.close} className={`${styles.closeIcn} ${styles.closeIcn2}`} />
-      </button>
-
+      {closeModal}
       <section className={styles.content}>
         <div className={styles.imgContainer}>
           <img src={success} alt={constants.success} className={styles.img} />
@@ -83,8 +84,6 @@ export const TransactionModal = ({ error, setDisplayModal, message, title }) => 
             className={styles.btn2}
           />
           <Button
-            // iconPosition={constants.right}
-            // icon={share}
             label={constants.Share_on_social_media}
             type={constants.secondary}
             onClick={() => setShareUI(true)}
@@ -102,9 +101,9 @@ export const TransactionModal = ({ error, setDisplayModal, message, title }) => 
         <div className={styles.shareContent}>
           <div className={styles.heading}>
             <p className={styles.share}>{constants.share}</p>
-            <button onClick={() => setDisplayModal((prev) => !prev)} className={styles.closeBtn}>
+            <IconButton onClick={() => setDisplayModal((prev) => !prev)} className={styles.closeBtn}>
               <img src={close} alt={constants.close} className={`${styles.closeIcn}`} />
-            </button>
+            </IconButton>
           </div>
           <div className={styles.handle}>
             {constants.socials.map((itm) => {

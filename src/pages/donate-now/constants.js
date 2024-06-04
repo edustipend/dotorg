@@ -1,10 +1,4 @@
-const handleFocus = (setUserData, focus) => {
-  setUserData((prev) => ({ ...prev, focus: !focus }));
-};
 
-const handleBlur = (setUserData, focus) => {
-  setUserData((prev) => ({ ...prev, focus: !focus }));
-};
 
 const initial = {
   fullname: '',
@@ -14,7 +8,7 @@ const initial = {
   title: '',
   message: '',
   status: '',
-  toggle: false,
+  toggleShowName: false,
   focus: false,
   error: false,
   errorMessage: ''
@@ -60,7 +54,7 @@ const constants = {
   NGN: 'NGN',
   secondary: 'secondary',
   invalidEmail: 'Please enter a valid email address',
-  invalidAmount: 'Amoumt can not be less than 1000',
+  invalidAmount: 'Amount can not be less than 1000',
   invalidName: 'Please provide your first and last names',
   redirect_dev: 'http://localhost:3000/support-a-learner/donate',
   redirect_prod: 'https://www.edustipend.org/support-a-learner/donate'
@@ -68,4 +62,4 @@ const constants = {
 
 
 
-export { constants, handleFocus, handleBlur, initial, TestId };
+export { constants, initial, TestId };
