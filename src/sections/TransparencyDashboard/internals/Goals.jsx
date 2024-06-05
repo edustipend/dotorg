@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import styles from '../TransparencyDashboard.module.css';
 import Button from '../../../components/Button';
 
-const Goals = ({ data }) => {
+export const Goals = ({ data }) => {
   return (
     <div className={styles.goals} data={data}>
       <div className={styles.top}>
@@ -43,8 +43,6 @@ const Goals = ({ data }) => {
     </div>
   );
 };
-
-export default Goals;
 
 Goals.propTypes = {
   data: PropTypes.object
