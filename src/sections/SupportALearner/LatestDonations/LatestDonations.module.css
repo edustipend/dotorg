@@ -98,53 +98,6 @@
   font-weight: 700;
 }
 
-.paginationWrap {
-  margin-top: 28px;
-  display: flex;
-  justify-content: center;
-}
-
-.pagination {
-  display: flex;
-  gap: 6px;
-}
-
-.currentPage {
-  background-color: var(--linear-gradient-one);
-  width: 35px;
-  height: 40px;
-  border-radius: 10px;
-}
-
-.otherPage {
-  background-color: var(--white);
-  width: 35px;
-  height: 40px;
-  border-radius: 10px;
-}
-
-.Prev,
-.Next,
-.otherPage,
-.currentPage {
-  font-size: 14px;
-}
-
-.Prev,
-.Next,
-.ellipsis {
-  background-color: var(--white);
-  width: 35px;
-  height: 40px;
-  border-radius: 10px;
-}
-
-.ellipsis {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .headerWrap img {
   width: 20px;
   height: 20px;
@@ -178,9 +131,7 @@
   }
 }
 
-.pagination button {
-  padding: 0;
-}
+
 
 @media only screen and (min-width: 1024px) {
   .headerContainer p {
@@ -228,10 +179,6 @@
     padding: 32px;
     height: 167px;
     border-radius: 32px;
-  }
-
-  .paginationWrap {
-    margin-top: 48px;
   }
 
   .headerWrap img {
