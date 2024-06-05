@@ -13,5 +13,6 @@ export const routesConstant = {
   LOGIN: '/login',
   DONATION: '/donation',
   REPORTS: '/impacts/reports',
+  IMPACTS: '/impacts',
   TRANSPARENCY_DASHBOARD: '/transparency-dashboard'
 };

@@ -144,9 +144,7 @@
     font-size: 24px;
     margin-top: 32px;
   }
-  .container {
-    padding: 90px 30px 70px;
-  }
+
   .wrapper {
     flex-direction: row;
     gap: 80px;
@@ -158,6 +156,10 @@
 
   .rightwrap {
     width: 40%;
+  }
+
+  .container {
+    padding: 90px 30px 70px;
   }
 
   .line {
