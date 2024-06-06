@@ -56,9 +56,9 @@
 
 .progressTop h1 {
   font-family: 'Manrope';
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 700;
-  line-height: 20px;
+  line-height: 24px;
   text-align: left;
   color: var(--edustipend-black);
 }
@@ -183,6 +183,13 @@
   outline: none;
   box-shadow: 0px 1px 2px 0px #1018280d;
   border: 1px solid #d0d5dd;
+}
+
+@media (min-width: 380px) {
+  .progressTop h1 {
+    font-size: 24px;
+    line-height: 20px;
+  }
 }
 
 @media (min-width: 768px) {

@@ -25,7 +25,7 @@
 }
 
 .value {
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 700;
   line-height: 20px;
   text-align: left;
@@ -39,4 +39,10 @@
   text-align: left;
   color: #475467;
   text-transform: capitalize;
+}
+
+@media (min-width: 380px) {
+  .value {
+    font-size: 24px;
+  }
 }
