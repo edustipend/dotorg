@@ -27,6 +27,7 @@
 .table {
   width: 100%;
   border-collapse: collapse;
+  background: white;
 }
 
 .table thead {
@@ -56,6 +57,10 @@
   border-bottom: 1px solid #e4e7ec;
 }
 
+.paginationContainer {
+  width: 100%;
+  padding-bottom: 40px;
+}
 .avatar {
   display: inline-flex;
   justify-content: center;

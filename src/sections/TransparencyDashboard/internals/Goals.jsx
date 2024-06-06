@@ -1,15 +1,15 @@
 import React from 'react';
 import { formatMoney } from '../../../utils/numberFormatter/formatMoney';
 import Target from '../../../components/Cards/Target';
-import { btn, targets } from '../constants';
+import { TestId, btn, targets } from '../constants';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from '../TransparencyDashboard.module.css';
 import Button from '../../../components/Button';
 
-const Goals = ({ data }) => {
+export const Goals = ({ data }) => {
   return (
-    <div className={styles.goals} data={data}>
+    <div className={styles.goals} data={data} data-testid={TestId.GOALS_ID}>
       <div className={styles.top}>
         {targets.map((t) => (
           <Target

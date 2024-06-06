@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
-import { formatMoney } from '../../../../utils/numberFormatter/NumberFormatter';
 import styles from './DashboardTimelines.module.css';
+import { formatMoney } from '../../../../utils/numberFormatter/formatMoney';
 
 const getInitials = (name) => {
   const names = name?.split(' ');
