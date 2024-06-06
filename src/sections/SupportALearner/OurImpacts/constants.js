@@ -27,7 +27,7 @@ export const numbers = [
 export const btnLabels = {
   view: {
     label: 'View our impact',
-    path: '/impact-reports',
+    path: '/impacts',
     type: 'plain'
   },
   support: {
