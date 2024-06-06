@@ -2,6 +2,7 @@ import React from 'react';
 import styles from '../impacts.module.css';
 import { TestId, Texts } from '../constants';
 import Header from '../../../components/Header';
+import Video from '../../../components/Video';
 
 const OurImpacts = () => {
   return (
@@ -11,18 +12,10 @@ const OurImpacts = () => {
       </Header>
 
       <p data-testid={TestId.SUB_HEADER_TEXT} className={styles.subheader}>
-        {Texts.SUB_HEADER}{' '}
+        {Texts.SUB_HEADER}
       </p>
 
-      <div className={styles.videoContainer}>
-        <iframe
-          width="100%"
-          src="https://www.youtube.com/embed/8OQ0vLPRcqs"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          title="YouTube Video"></iframe>
-      </div>
+      <Video src={Texts.VIDEO} isIFrame={true} />
     </div>
   );
 };

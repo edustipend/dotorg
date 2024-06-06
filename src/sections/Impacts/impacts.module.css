@@ -33,14 +33,7 @@
   line-height: 24px;
 }
 
-.videoContainer {
-  margin-top: 40px;
-  width: 100%;
-}
 
-iframe {
-  height: 286px;
-}
 
 @media only screen and (min-width: 650px) {
   .headerWrap {
@@ -56,13 +49,6 @@ iframe {
     line-height: 28px;
   }
 
-  iframe {
-    height: 500px;
-  }
-
-  .videoContainer {
-    margin-top: 60px;
-  }
 }
 
 @media only screen and (min-width: 1024px) {
@@ -74,8 +60,3 @@ iframe {
   }
 }
 
-@media only screen and (min-width: 1440px) {
-  iframe {
-    height: 700px;
-  }
-}
