@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from './TransactionModal.module.css';
-import { failed_tran, success, share, close } from '../../../../assets';
+import { failed_tran, success, close } from '../../../../assets';
 import Button from '../../../../components/Button';
 import { constants } from './constants';
 import { defaultShare, twitterShare, instagramShare } from '../sharePosts';
 import { useNavigate } from 'react-router-dom';
+import IconButton from '../../../../components/IconButton';
 
-export const TransactionModal = ({ error, handleToggleTransactionModal, message, title }) => {
+export const TransactionModal = ({ error, setDisplayModal, message, title }) => {
   const [shareUI, setShareUI] = useState(false);
   const nav = useNavigate();
 
@@ -21,20 +22,34 @@ export const TransactionModal = ({ error, handleToggleTransactionModal, message,
     }
   };
 
+  const closeModal = (
+    <IconButton dataTest={constants.ICON_BUTTON} onClick={() => setDisplayModal((prev) => !prev)} className={styles.closeBtn}>
+      <img src={close} alt={constants.close} className={`${styles.closeIcn}`} />
+    </IconButton>
+  );
+
   // render the error modal UI if error
   if (error) {
     return (
       <main className={styles.main}>
         <section className={styles.contentContainer}>
+          {closeModal}
           <section className={styles.content}>
-            <img src={failed_tran} alt={constants.failed} className={styles.img} />
+            <div className={styles.imgContainer}>
+              <img src={failed_tran} alt={constants.failed} className={styles.img} />
+            </div>
             <div className={styles.textContent}>
               <p className={styles.title}>{title}</p>
               <p className={styles.message}>{message}</p>
             </div>
             <div className={styles.btnContainer}>
-              <Button label={constants.cancel} type={constants.plain} effectClass={styles.btn} className={styles.btn2} />
-              <Button label={constants.Try_again} type={constants.secondary} effectClass={styles.btn} className={styles.btn2} />
+              <Button
+                onClick={() => setDisplayModal((prev) => !prev)}
+                label={constants.cancel}
+                type={constants.plain}
+                effectClass={styles.btn}
+                className={styles.btn2}
+              />
             </div>
           </section>
         </section>
@@ -48,28 +63,29 @@ export const TransactionModal = ({ error, handleToggleTransactionModal, message,
    */
   let content = (
     <section className={styles.contentContainer}>
+      {closeModal}
       <section className={styles.content}>
-        <img src={success} alt={constants.success} className={styles.img} />
+        <div className={styles.imgContainer}>
+          <img src={success} alt={constants.success} className={styles.img} />
+        </div>
         <div className={styles.textContent}>
           <p className={styles.title}>{title}</p>
           <p className={styles.message}>{message}</p>
         </div>
         <div className={styles.btnContainer}>
           <Button
-            label={constants.Home}
-            type={constants.secondary}
+            label={constants.recent}
+            type={constants.plain}
             effectClass={styles.btn}
             onClick={() => {
-              handleToggleTransactionModal();
+              setDisplayModal((prev) => !prev);
               nav('/support-a-learner');
             }}
             className={styles.btn2}
           />
           <Button
-            iconPosition={constants.right}
-            icon={share}
             label={constants.Share_on_social_media}
-            type={constants.plain}
+            type={constants.secondary}
             onClick={() => setShareUI(true)}
             effectClass={styles.btn}
             className={`${styles.btn2} ${styles.btn2Alt}`}
@@ -85,13 +101,17 @@ export const TransactionModal = ({ error, handleToggleTransactionModal, message,
         <div className={styles.shareContent}>
           <div className={styles.heading}>
             <p className={styles.share}>{constants.share}</p>
-            <img src={close} alt={constants.close} onClick={handleToggleTransactionModal} className={styles.closeIcn} />
+            <IconButton onClick={() => setDisplayModal((prev) => !prev)} className={styles.closeBtn}>
+              <img src={close} alt={constants.close} className={`${styles.closeIcn}`} />
+            </IconButton>
           </div>
           <div className={styles.handle}>
             {constants.socials.map((itm) => {
               return (
                 <div key={itm.id} onClick={() => handleShare(itm.media)} className={styles.media}>
-                  <img src={itm.img} alt={constants.media} className={styles.mediaImg} />
+                  <div className={styles.mediaImgContainer}>
+                    <img src={itm.img} alt={constants.media} className={styles.mediaImg} />
+                  </div>
                   <p className={styles.name}>{itm.media}</p>
                 </div>
               );
@@ -109,15 +129,15 @@ export const TransactionModal = ({ error, handleToggleTransactionModal, message,
 };
 
 TransactionModal.propTypes = {
-  error: PropTypes.string,
+  error: PropTypes.bool,
   message: PropTypes.string,
-  handleToggleTransactionModal: PropTypes.func,
+  setDisplayModal: PropTypes.func,
   title: PropTypes.string
 };
 
 TransactionModal.defaultProps = {
-  error: '',
+  error: false,
   message: '',
-  handleToggleTransactionModal: () => {},
+  setDisplayModal: () => {},
   title: ''
 };
