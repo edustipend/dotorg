@@ -1,27 +1,28 @@
 // BeneficiaryTestimonies.test.jsx
 
 import React from 'react';
-import PropTypes from 'prop-types';
 import { render, screen } from '@testing-library/react';
 import BeneficiaryTestimonies from './BeneficiaryTestimonies';
 import '@testing-library/jest-dom/extend-expect';
 
 // Mock the Slider component from 'react-slick'
 jest.mock('react-slick', () => {
-  const Slider = ({ children }) => <div>{children}</div>;
-  Slider.displayName = 'Slider';
+  const PropTypes = require('prop-types');
+  const MockSlider = ({ children }) => <div>{children}</div>;
+  MockSlider.displayName = 'Slider';
 
   // Define prop types for the mock component
-  Slider.propTypes = {
+  MockSlider.propTypes = {
     children: PropTypes.node.isRequired
   };
 
-  return Slider;
+  return MockSlider;
 });
 
 // Mock the TestimonialCard component
 jest.mock('./TestimonialCard', () => {
-  const TestimonialCard = ({ username, userhandle, content, postDate, seeLink, hrefLink, source }) => (
+  const PropTypes = require('prop-types');
+  const MockTestimonialCard = ({ username, userhandle, content, postDate, seeLink, hrefLink, source }) => (
     <div data-testid="testimonial-card">
       <img src={source} alt={`${username}'s testimonial`} />
       <p>{username}</p>
@@ -32,10 +33,10 @@ jest.mock('./TestimonialCard', () => {
     </div>
   );
 
-  TestimonialCard.displayName = 'TestimonialCard';
+  MockTestimonialCard.displayName = 'TestimonialCard';
 
   // Define prop types for the mock component
-  TestimonialCard.propTypes = {
+  MockTestimonialCard.propTypes = {
     username: PropTypes.string.isRequired,
     userhandle: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,
@@ -45,7 +46,7 @@ jest.mock('./TestimonialCard', () => {
     source: PropTypes.string.isRequired
   };
 
-  return TestimonialCard;
+  return MockTestimonialCard;
 });
 
 describe('BeneficiaryTestimonies Component', () => {
@@ -67,7 +68,7 @@ describe('BeneficiaryTestimonies Component', () => {
 
     // Check for the testimonial cards
     const testimonialCards = screen.getAllByTestId('testimonial-card');
-    expect(testimonialCards).toHaveLength(3); // Adjust the length based on your unique testimonials
+    expect(testimonialCards).toHaveLength(4); // Adjust the length based on your unique testimonials
 
     // Check the content of a specific testimonial card
     expect(screen.getByText('@NonsoBoy70')).toBeInTheDocument();
