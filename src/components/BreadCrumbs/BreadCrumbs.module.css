@@ -8,7 +8,7 @@
   display: flex;
   align-items: center;
   /* gap: 16px; */
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 500;
   line-height: 30px;
 }
@@ -27,6 +27,6 @@
 
 @media only screen and (min-width: 768px) {
   .breadcrumbItem {
-    font-size: 20px;
+    font-size: 24px;
   }
 }

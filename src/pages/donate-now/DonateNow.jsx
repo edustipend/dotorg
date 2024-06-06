@@ -1,8 +1,8 @@
-import React, { useContext, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
+import { useLocation, useSearchParams, useNavigate } from 'react-router-dom';
 import styles from './DonateNow.module.css';
-import {  aishaPng, info, infoArrow, quoteLeft, quoteRight } from '../../assets';
-import { TestId, constants } from './constants';
+import { aishaPng, info, infoArrow, quoteLeft, quoteRight } from '../../assets';
+import { TestId, constants, initial } from './constants';
 import Input from '../../components/Input';
 import Header from '../../components/Header';
 import Text from '../../components/Text';
@@ -12,47 +12,29 @@ import RedirectModal from './internals/redirectModal';
 import TransactionModal from './internals/transactionModal';
 import { ModalContext } from '../../context/ModalContext';
 import formatNumber from '../../utils/numberFormatter';
+import { checkEmail } from '../../utils/EmailChecker/emailChecker';
+import { postData } from '../../services/ApiClient';
+import { getEnvironment } from '../../utils/getEnvironment';
 
-const initial = {
-  fullname: '',
-  email: '',
-  phone: '',
-  company: ''
-};
 export const DonateNow = () => {
+  const nav = useNavigate();
   const location = useLocation();
+  const currentEnv = getEnvironment();
+  const [params] = useSearchParams();
   const { value } = location.state || { value: 1000 };
   const [amount, setAmount] = useState(value);
-  const [toggle, setToggle] = useState(false);
-  const [focus, setFocus] = useState(false);
-  const [title, setTitle] = useState('');
-  const [message, setMessage] = useState('');
   const [userData, setUserData] = useState(initial);
-  const { redirectModal, transactionModal, handleToggleTransactionModal } = useContext(ModalContext) || {};
+  const [displayModal, setDisplayModal] = useState(false);
   const formattedNumber = formatNumber(amount);
-  const handleFocus = () => {
-    setFocus(true);
+  const { redirectModal, handleRedirectModal } = useContext(ModalContext) || {};
+  const { fullname, email, phone, company, toggleShowName, focus, title, message, error, errorMessage } = userData;
+
+  const handleFocus = (setUserData, focus) => {
+    setUserData((prev) => ({ ...prev, focus: !focus }));
   };
 
-  const handleBlur = () => {
-    setFocus(false);
-  };
-
-  const phoneInfo = (
-    <div className={styles.phoneInfo} onFocus={handleFocus} onBlur={handleBlur} tabIndex="0">
-      <img src={info} alt="info" className={styles.img} />
-      <div className={`${styles.info} ${focus && styles.infoFocus}`}>
-        <p className={styles.titleInfo}>{constants.tooltip_title}</p>
-        <p className={styles.subtitleInfo}>{constants.tooltip_subtitle}</p>
-        <img src={infoArrow} alt="infoArrow" className={styles.infoArrow} />
-      </div>
-    </div>
-  );
-
-  const handleDonation = () => {
-    handleToggleTransactionModal();
-    setTitle(constants.donation_success_header);
-    setMessage(constants.donation_success);
+  const handleBlur = (setUserData, focus) => {
+    setUserData((prev) => ({ ...prev, focus: !focus }));
   };
 
   //input value should not be greater than 1000000
@@ -63,6 +45,114 @@ export const DonateNow = () => {
       setAmount(value);
     }
   };
+
+  const handleValidation = () => {
+    switch (true) {
+      case amount < 1000:
+        invalidInput(constants.invalidAmount);
+        return false;
+      case fullname.length < 3:
+        invalidInput(constants.invalidName);
+        return false;
+      case phone.length < 11:
+        invalidInput(constants.Enter_Phone_number);
+        return false;
+      case !checkEmail(email):
+        invalidInput(constants.invalidEmail);
+        return false;
+      default:
+        setUserData((prev) => ({ ...prev, errorMessage: '' }));
+        return true;
+    }
+  };
+
+  const invalidInput = (message) => {
+    setUserData((prev) => ({ ...prev, errorMessage: message }));
+  };
+
+  const handleDonation = async () => {
+    if (!handleValidation()) return;
+    handleRedirectModal();
+
+    const response = await postData('donate', {
+      amount: amount,
+      redirect_url: currentEnv ? constants.redirect_prod : constants.redirect_dev,
+      payment_options: 'card',
+      currency: 'NGN',
+      customer: {
+        email: email,
+        name: fullname,
+        phonenumber: phone
+      }
+    });
+    const result = await response;
+    if (result?.status) {
+      setUserData(initial);
+      window.location.href = result?.data?.link;
+    } else {
+      handleRedirectModal();
+    }
+  };
+
+  //Render either the success or error modal then delete the params.
+  const handleFeedback = useCallback(() => {
+    let status = '';
+    if (params.has('status')) {
+      status = params.get('status');
+      if (status === 'successful') {
+        setUserData((prev) => ({
+          ...prev,
+          title: constants.donation_success_header,
+          message: constants.donation_success
+        }));
+        setDisplayModal(true);
+      } else {
+        setUserData((prev) => ({
+          ...prev,
+          error: true,
+          title: constants.donation_failed_header,
+          message: constants.donation_failed
+        }));
+        setDisplayModal(true);
+      }
+    }
+
+    /**
+     * On success or On failure, flutterwave redirects the user to the specified route with two params attached
+     * E.g base/support-a-learner/donate?status=cancelled&tx_ref=edustipend-txref-z5EWyXkjJrVrCDMdECqc5
+     *
+     * after reading the status of the transcation, we need to clean up our url string.
+     */
+
+    for (const key of params.keys()) {
+      params.delete(key);
+    }
+
+    nav({ search: params.toString() }, { replace: true });
+  }, [params, setUserData, nav]);
+
+  useEffect(() => {
+    handleFeedback();
+  }, [handleFeedback]);
+
+  useEffect(() => {
+    if (toggleShowName) {
+      setUserData((prev) => ({ ...prev, fullname: 'Anonymous' }));
+    } else {
+      setUserData((prev) => ({ ...prev, fullname: '' }));
+    }
+  }, [toggleShowName]);
+
+  const phoneInfo = (
+    <div className={styles.phoneInfo} onFocus={() => handleFocus(setUserData, focus)} onBlur={() => handleBlur(setUserData, focus)} tabIndex="0">
+      <img src={info} alt="info" className={styles.img} />
+      <div className={`${styles.info} ${focus && styles.infoFocus}`}>
+        <p className={styles.titleInfo}>{constants.tooltip_title}</p>
+        <p className={styles.subtitleInfo}>{constants.tooltip_subtitle}</p>
+        <img src={infoArrow} alt="infoArrow" className={styles.infoArrow} />
+      </div>
+    </div>
+  );
 
   return (
     <div data-testid={TestId.COMPONENT_ID} className={styles.background}>
@@ -92,24 +182,26 @@ export const DonateNow = () => {
                   <Input
                     type={constants.text}
                     value={userData.fullname}
-                    disabled={toggle}
+                    disabled={toggleShowName}
                     required={false}
                     label={constants.fullName}
                     placeholder={constants.fullName}
                     onChange={(e) => {
                       setUserData((prev) => ({ ...prev, fullname: e.target.value }));
                     }}
-                    className={toggle ? `${styles.fullname}` : ''}
+                    className={toggleShowName ? `${styles.fullname}` : ''}
                   />
                   <div className={styles.toggleContainer}>
                     <p className={styles.anon}>{constants.anonymous}</p>
-                    <div onClick={() => setToggle((prev) => !prev)} className={toggle ? `${styles.toggle} ${styles.toggleAlt}` : `${styles.toggle}`}>
-                      <div className={toggle ? `${styles.ballAlt}` : `${styles.ball}`} />
+                    <div
+                      onClick={() => setUserData((prev) => ({ ...prev, toggleShowName: !toggleShowName }))}
+                      className={toggleShowName ? `${styles.toggle} ${styles.toggleAlt}` : `${styles.toggle}`}>
+                      <div className={toggleShowName ? `${styles.ballAlt}` : `${styles.ball}`} />
                     </div>
                   </div>
                 </div>
                 <Input
-                  value={userData.email}
+                  value={email}
                   onChange={(e) => {
                     setUserData((prev) => ({ ...prev, email: e.target.value }));
                   }}
@@ -118,9 +210,9 @@ export const DonateNow = () => {
                   placeholder={constants.Enter_Email_Address}
                   required={false}
                 />
-                {toggle && (
+                {toggleShowName && (
                   <Input
-                    value={userData.company}
+                    value={company}
                     onChange={(e) => {
                       setUserData((prev) => ({ ...prev, company: e.target.value }));
                     }}
@@ -130,7 +222,7 @@ export const DonateNow = () => {
                   />
                 )}
                 <Input
-                  value={userData.phone.toString()}
+                  value={phone.toString()}
                   onChange={(e) => {
                     setUserData((prev) => ({ ...prev, phone: e.target.value }));
                   }}
@@ -151,8 +243,8 @@ export const DonateNow = () => {
                 />
               </div>
               <div className={styles.btnContainer}>
+                <small className={styles.small}>{errorMessage}</small>
                 <Button
-                  disabled={amount < 1000}
                   dataTest={TestId.BUTTON_ID}
                   label={`${'Donate'} ₦${formattedNumber}`}
                   onClick={handleDonation}
@@ -169,8 +261,8 @@ export const DonateNow = () => {
       <UseModal isActive={redirectModal}>
         <RedirectModal />
       </UseModal>
-      <UseModal isActive={transactionModal}>
-        <TransactionModal title={title} message={message} handleToggleTransactionModal={handleToggleTransactionModal} />
+      <UseModal isActive={displayModal}>
+        <TransactionModal error={error} title={title} message={message} setDisplayModal={setDisplayModal} />
       </UseModal>
     </div>
   );

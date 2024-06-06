@@ -20,6 +20,7 @@ import DonateNow from './pages/donate-now';
 import ReportsPage from './pages/reports';
 import AboutUs from './pages/about-us/AboutUs';
 import TransparencyDashboard from './sections/TransparencyDashboard';
+import Impacts from './sections/Impacts';
 const {
   AMBASSADOR_PROGRAM,
   REQUEST,
@@ -34,7 +35,8 @@ const {
   DONATE_NOW,
   REPORTS,
   ABOUT_US,
-  TRANSPARENCY_DASHBOARD
+  TRANSPARENCY_DASHBOARD,
+  IMPACTS
 } = routesConstant;
 
 const Routes = () => {
@@ -50,6 +52,7 @@ const Routes = () => {
       <Route path={DONATE_NOW} element={<DonateNow />} />
       <Route path={ABOUT_US} element={<AboutUs />} />
       <Route path={TRANSPARENCY_DASHBOARD} element={<TransparencyDashboard />} />
+      <Route path={IMPACTS} element={<Impacts />} />
       <Route
         path={LOGIN}
         element={

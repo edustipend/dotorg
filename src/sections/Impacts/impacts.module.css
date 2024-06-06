@@ -1,0 +1,62 @@
+.container {
+  width: 100%;
+  padding: 30px 0px 0px;
+}
+
+.wrapper {
+  padding: 90px 0;
+}
+
+.headerWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: start;
+  margin-top: 32px;
+}
+
+.headerWrap h1 {
+  font-size: 32px;
+  font-family: 'Poppins';
+  font-weight: 600;
+  letter-spacing: 5%;
+  color: var(--edustipend-black);
+}
+
+.headerWrap p {
+  font-size: 16px;
+  font-family: 'Manrope';
+  width: 100%;
+  color: var(--edustipend-black);
+  font-weight: 400;
+  text-align: left;
+  line-height: 24px;
+}
+
+
+
+@media only screen and (min-width: 650px) {
+  .headerWrap {
+    gap: 0px;
+  }
+
+  .headerWrap h1 {
+    font-size: 48px;
+  }
+
+  .headerWrap p {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+}
+
+@media only screen and (min-width: 1024px) {
+  .container {
+    padding: 100px 30px 70px;
+  }
+  .wrapper {
+    padding: 50px 0;
+  }
+}
+
