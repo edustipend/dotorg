@@ -10,11 +10,9 @@ const OurImpacts = () => {
       <Header size={'large'} dataTest={TestId.HEAD_TEXT}>
         {Texts.HEADER}
       </Header>
-
       <p data-testid={TestId.SUB_HEADER_TEXT} className={styles.subheader}>
         {Texts.SUB_HEADER}
       </p>
-
       <Video src={Texts.VIDEO} isIFrame={true} />
     </div>
   );

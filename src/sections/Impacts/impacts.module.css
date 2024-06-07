@@ -15,6 +15,19 @@
   margin-top: 32px;
 }
 
+.partnerWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: start;
+  /* margin-top: 32px; */
+}
+
+.partnerWrap h1 {
+  color: var(--white);
+  font-size: 32px;
+}
+
 .headerWrap h1 {
   font-size: 32px;
   font-family: 'Poppins';
@@ -33,6 +46,54 @@
   line-height: 24px;
 }
 
+.partnerWrap p {
+  font-size: 18px;
+  font-family: 'Manrope';
+  width: 80%;
+  color: var(--white);
+  font-weight: 400;
+  text-align: center;
+  line-height: 24px;
+}
+
+.bgContainer {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: url('/src/assets/partnerwithus.png');
+  background-size: cover;
+  background-position: center;
+  margin-top: 40px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.partnerText {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 2em;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.cta {
+  margin-top: 20px;
+}
 
 
 @media only screen and (min-width: 650px) {
@@ -48,7 +109,14 @@
     font-size: 20px;
     line-height: 28px;
   }
+}
 
+@media only screen and (min-width: 768px) {
+ 
+
+  .partnerWrap h1 {
+    font-size: 48px;
+  }
 }
 
 @media only screen and (min-width: 1024px) {
@@ -58,5 +126,22 @@
   .wrapper {
     padding: 50px 0;
   }
-}
 
+  .partnerWrap {
+    height: 514px;
+    width: 100%;
+  }
+
+  .partnerWrap h1 {
+    font-size: 60px;
+  }
+
+  .partnerWrap p {
+    width: 62%;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .partnerWrap {
+    height: 614px;
+  }
+}
