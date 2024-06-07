@@ -11,29 +11,29 @@
   height: fit-content;
 }
 
-.testimonial__card-header {
+.testimonial__card_header {
   display: flex;
   justify-content: space-between;
 }
 
-.testimonial__card-header--user-profile {
+.testimonial__card_headerUser_profile {
   display: flex;
   gap: 10px;
   align-items: center;
 }
 
-.user-profile--image {
+.user_profile__image {
   background-color: #333;
   width: 50px;
   height: 50px;
   border-radius: 50%;
 }
 
-.user-name {
+.username {
   font-weight: 700;
 }
 
-.user-handle {
+.user_handle {
   font-size: 14px;
   margin-top: 5px;
   color: rgba(51, 51, 51, 0.651);
@@ -70,6 +70,11 @@
   text-transform: uppercase;
   text-decoration: none;
   font-size: 11px;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  opacity: 0;
 }
 
 @media screen and (max-width: 1024px) {

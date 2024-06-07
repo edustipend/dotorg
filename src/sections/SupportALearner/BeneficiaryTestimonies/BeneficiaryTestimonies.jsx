@@ -1,5 +1,5 @@
 import React from 'react';
-import './BeneficiaryTestimonies.css';
+import BeneficiaryStyle from './BeneficiaryTestimonies.module.css';
 import TestimonialCard from './TestimonialCard';
 import { Container } from '../../../components/Container/ContainerComponent';
 import nonsoImg from '../../../assets/testimonials/nonso-boy.jpg';
@@ -94,20 +94,20 @@ var settings = {
 
 function BeneficiaryTestimonies() {
   return (
-    <div className="testimonial-bkg-wrapper">
+    <div className={BeneficiaryStyle.testimonialBigWrapper}>
       <Container>
-        <div className="testimonial__section">
+        <div className={BeneficiaryStyle.testimonial__section}>
           <Header size="medium" color="secondary" dataTest="another-header-test" className="custom-header-class">
             Testimonials
           </Header>
-          <div className="horizontal__line"></div>
-          <p className="testimonial__description">{testimonialDescription}</p>
+          <div className={BeneficiaryStyle.horizontal__line}></div>
+          <p className={BeneficiaryStyle.testimonial__description}>{testimonialDescription}</p>
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-          <a href="#" className="testimonial__support-link">
+          <a href="#" className={BeneficiaryStyle.testimonial__supportLink}>
             Support a learner
           </a>
           {/* Scrollable Testimonial Cards */}
-          <div className="testimonial__testimonies slider-container">
+          <div className={`${BeneficiaryStyle.testimonial__testimonies} slider-container`}>
             <Slider {...settings}>
               {testimonialsData.map((testimonial, index) => (
                 <TestimonialCard
