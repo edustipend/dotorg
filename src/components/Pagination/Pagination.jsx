@@ -2,12 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Pagination.module.css';
 import { Texts } from './constants';
-import { donations } from '../../sections/SupportALearner/LatestDonations/donations.mock';
 import { Link } from 'react-router-dom';
 
-const Pagination = ({ onPageChange, currentPage, itemsPerPage, showViewAll, noOfPages }) => {
-  const totalPages = Math.ceil(noOfPages ? noOfPages : donations.length / itemsPerPage);
-
+const Pagination = ({ onPageChange, currentPage, showViewAll, totalPages }) => {
   const renderPageNumbers = () => {
     const pageNumbers = [];
 
@@ -19,22 +16,32 @@ const Pagination = ({ onPageChange, currentPage, itemsPerPage, showViewAll, noOf
       );
     };
 
-    const addEllipsis = () => {
+    const addEllipsis = (key) => {
       pageNumbers.push(
-        <span key="ellipsis" className={styles.ellipsis}>
-          ....
+        <span key={key} className={styles.ellipsis}>
+          ...
         </span>
       );
     };
 
-    const maxPagesToShow = Math.min(noOfPages || 3, totalPages);
+    const leftSide = Math.max(1, currentPage - 1);
+    const rightSide = Math.min(totalPages, currentPage + 1);
 
-    for (let i = 1; i <= maxPagesToShow; i++) {
+    if (leftSide > 1) {
+      addPageNumber(1);
+      if (leftSide > 2) {
+        addEllipsis('left-ellipsis');
+      }
+    }
+
+    for (let i = leftSide; i <= rightSide; i++) {
       addPageNumber(i);
     }
 
-    if (totalPages > maxPagesToShow) {
-      addEllipsis();
+    if (rightSide < totalPages) {
+      if (rightSide < totalPages - 1) {
+        addEllipsis('right-ellipsis');
+      }
       addPageNumber(totalPages);
     }
 
@@ -67,7 +74,7 @@ Pagination.propTypes = {
   onPageChange: PropTypes.func.isRequired,
   itemsPerPage: PropTypes.number.isRequired,
   showViewAll: PropTypes.bool,
-  noOfPages: PropTypes.number
+  totalPages: PropTypes.number.isRequired
 };
 
 export default Pagination;
