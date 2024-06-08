@@ -1,4 +1,4 @@
-import { HeroSection } from "./HeroSection";
+import { HeroSection } from './HeroSection';
 import { BrowserRouter } from 'react-router-dom';
 
 export default {
