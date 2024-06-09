@@ -20,7 +20,7 @@ jest.mock('react-slick', () => {
 });
 
 // Mock the TestimonialCard component
-jest.mock('./TestimonialCard', () => {
+jest.mock('../../../components/TestimonialCard/TestimonialCard', () => {
   const PropTypes = require('prop-types');
   const MockTestimonialCard = ({ username, userhandle, content, postDate, seeLink, hrefLink, source }) => (
     <div data-testid="testimonial-card">

@@ -1,11 +1,13 @@
 import React from 'react';
-import BeneficiaryStyle from './BeneficiaryTestimonies.module.css';
-import TestimonialCard from './TestimonialCard';
+import './BeneficiaryTestimonies.css';
+import TestimonialCard from '../../../components/TestimonialCard';
 import { Container } from '../../../components/Container/ContainerComponent';
 import nonsoImg from '../../../assets/testimonials/nonso-boy.jpg';
 import ulenyoImg from '../../../assets/testimonials/ulenyo.jpg';
 import FawazImg from '../../../assets/testimonials/fawaz_code.jpg';
 import Header from '../../../components/Header';
+
+import BeneficiaryStyle from './BeneficiaryTestimonies.module.css';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
