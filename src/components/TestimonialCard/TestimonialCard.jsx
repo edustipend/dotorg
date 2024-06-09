@@ -1,34 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './TestimonialCard.css';
+import TestimonialStyle from './TestimonialCard.module.css';
 
 function TestimonialCard({ username, userhandle, content, postDate, seeLink, hrefLink, source }) {
   return (
-    <div className="testimonial__card">
-      {/* Testimonial Card Header */}
-      <div className="testimonial__card-header">
-        <div className="testimonial__card-header--user-profile">
-          {/* <div className="user-profile--image">
-          </div> */}
-          <img className="user-profile--image" src={source} alt={username} />
+    <div className={TestimonialStyle.testimonial__card}>
+      <div className={TestimonialStyle.testimonial__card_header}>
+        <div className={TestimonialStyle.testimonial__card_headerUser_profile}>
+          <img className={TestimonialStyle.user_profile__image} src={source} alt={username} />
 
-          <div className="user-profile--username">
-            <p className="username">{username}</p>
-            <p className="user-handle">{userhandle}</p>
+          <div className={TestimonialStyle.user_profile__username}>
+            <p className={TestimonialStyle.username}>{username}</p>
+            <p className={TestimonialStyle.user_handle}>{userhandle}</p>
           </div>
         </div>
 
-        <p className="beneficiary__tag">Beneficiary</p>
+        <p className={TestimonialStyle.beneficiary__tag}>Beneficiary</p>
       </div>
 
-      {/* Testimonial Card Body */}
-      <div className="testimony__content">{content}</div>
+      <div className={TestimonialStyle.testimony__content}>{content}</div>
 
-      {/* Footer */}
-      <div className="testimony__footer">
-        <span className="date">{postDate}</span>
-        <a href={hrefLink} target="blank" className="platform">
+      <div className={TestimonialStyle.testimony__footer}>
+        <span className={TestimonialStyle.date}>{postDate}</span>
+        <a href={hrefLink} target="blank" className={TestimonialStyle.platform}>
           {seeLink}
         </a>
       </div>

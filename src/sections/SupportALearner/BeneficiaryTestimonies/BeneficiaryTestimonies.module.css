@@ -1,4 +1,4 @@
-.testimonial-bkg-wrapper {
+.testimonialBigWrapper {
   background: radial-gradient(ellipse, #ffca43c7, #000000);
 }
 
@@ -38,7 +38,7 @@
   line-height: 1.5;
 }
 
-.testimonial__support-link {
+.testimonial__supportLink {
   margin: 15px 0;
   color: #333;
   font-weight: 900;
