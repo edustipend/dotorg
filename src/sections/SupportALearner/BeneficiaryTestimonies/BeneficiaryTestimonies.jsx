@@ -1,5 +1,5 @@
 import React from 'react';
-import TestimonialCard from '../../../components/TestimonialCard';
+import TestimonialCard from '../../../components/TestimonialCard/TestimonialCard';
 import { Container } from '../../../components/Container/ContainerComponent';
 import nonsoImg from '../../../assets/testimonials/nonso-boy.jpg';
 import ulenyoImg from '../../../assets/testimonials/ulenyo.jpg';
