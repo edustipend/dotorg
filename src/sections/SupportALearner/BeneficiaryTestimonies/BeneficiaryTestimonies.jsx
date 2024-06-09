@@ -1,5 +1,4 @@
 import React from 'react';
-import './BeneficiaryTestimonies.css';
 import TestimonialCard from '../../../components/TestimonialCard';
 import { Container } from '../../../components/Container/ContainerComponent';
 import nonsoImg from '../../../assets/testimonials/nonso-boy.jpg';
