@@ -9,7 +9,13 @@ export const paths = [
   }
 ];
 
-export const Texts = {
+export const totalAmount = 238700;
+export const beneficiaries = '400';
+
+export const ImpactLabels = {
+  TOTAL_DISBURSED: 'TOTAL DISBURSED',
+  BENEFICIARIES: 'BENEFICIARIES',
+  IMPACT_REPORT: 'View Impact Report',
   HEADER: 'Our Impact',
   OVERVIEW: 'Overview of our impact numbers',
   PATH: '/impacts/reports',
