@@ -5,6 +5,7 @@ import DonationRange from '../../sections/SupportALearner/DonationRange';
 import LatestDonations from '../../sections/SupportALearner/LatestDonations';
 import Partners from '../../sections/SupportALearner/Partners';
 import Supports from '../../sections/SupportALearner/Supports';
+import BeneficiaryTestimonies from '../../sections/SupportALearner/BeneficiaryTestimonies/BeneficiaryTestimonies';
 
 export const SupportALearner = () => {
   return (
@@ -15,6 +16,7 @@ export const SupportALearner = () => {
       <LatestDonations />
       <Supports />
       <DonationRange />
+      <BeneficiaryTestimonies />
       <HowWeSelect />
     </>
   );

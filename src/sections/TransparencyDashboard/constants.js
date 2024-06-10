@@ -14,17 +14,126 @@ export const targets = [
 ];
 
 export const data = {
+  title: 'Donations',
   goal: 10000000,
   contributors: 114,
   raised: 956000,
-  completed: 9
-};
-
-export const donations = {
-  title: 'Total Donations',
+  completed: 9,
   weekly: 956789,
   monthly: 1000000,
-  daily: 95300
+  daily: 95300,
+  donations: [
+    {
+      name: 'Olivia Rhye',
+      amount: 50000,
+      date: 'Jan 4, 2024'
+    },
+    {
+      name: 'Anonymous',
+      amount: 50000,
+      date: 'Jan 4, 2024'
+    },
+    {
+      name: 'Lana Steiner',
+      amount: 50000,
+      date: 'Jan 4, 2024'
+    },
+    {
+      name: 'Anonymous',
+      amount: 50000,
+      date: 'Jan 4, 2024'
+    },
+    {
+      name: 'Candice Wu',
+      amount: 50000,
+      date: 'Jan 4, 2024'
+    },
+    {
+      name: 'Stephen Smith',
+      amount: 50000,
+      date: 'Jan 4, 2024'
+    },
+    {
+      name: 'Cole Smith',
+      amount: 50000,
+      date: 'Jan 4, 2024'
+    },
+    {
+      name: 'Anonymous',
+      amount: 50000,
+      date: 'Jan 4, 2024'
+    },
+    {
+      name: 'Wanda Wu',
+      amount: 50000,
+      date: 'Jan 4, 2024'
+    },
+    {
+      name: 'Li Wu',
+      amount: 50000,
+      date: 'Jan 4, 2024'
+    },
+    {
+      name: 'Anonymous',
+      amount: 50000,
+      date: 'Jan 4, 2024'
+    },
+    {
+      name: 'Olivia Rhye',
+      amount: 50000,
+      date: 'Jan 4, 2024'
+    },
+    {
+      name: 'Anonymous',
+      amount: 50000,
+      date: 'Jan 4, 2024'
+    },
+    {
+      name: 'Lana Steiner',
+      amount: 50000,
+      date: 'Jan 4, 2024'
+    },
+    {
+      name: 'Anonymous',
+      amount: 50000,
+      date: 'Jan 4, 2024'
+    },
+    {
+      name: 'Candice Wu',
+      amount: 50000,
+      date: 'Jan 4, 2024'
+    },
+    {
+      name: 'Stephen Smith',
+      amount: 50000,
+      date: 'Jan 4, 2024'
+    },
+    {
+      name: 'Cole Smith',
+      amount: 50000,
+      date: 'Jan 4, 2024'
+    },
+    {
+      name: 'Anonymous',
+      amount: 50000,
+      date: 'Jan 4, 2024'
+    },
+    {
+      name: 'Wanda Wu',
+      amount: 50000,
+      date: 'Jan 4, 2024'
+    },
+    {
+      name: 'Li Wu',
+      amount: 50000,
+      date: 'Jan 4, 2024'
+    },
+    {
+      name: 'Anonymous',
+      amount: 50000,
+      date: 'Jan 4, 2024'
+    }
+  ]
 };
 
 export const btn = {
@@ -47,5 +156,8 @@ export const paths = [
 export const TestId = {
   DONATIONS_FILTER_ID: 'donations-filter-id',
   SELECT_OPTION: 'select-option',
-  AMOUNT_RAISED: 'amount-raised'
+  AMOUNT_RAISED: 'amount-raised',
+  TRANSPARENCY_DASHBOARD_ID: 'transport-dashboard-id',
+  GOALS_ID: 'goals-id',
+  TABLE_ID: 'table-id'
 };

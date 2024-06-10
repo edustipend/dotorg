@@ -1,12 +1,13 @@
-import { donations, paths, data as resData } from './constants';
+import { TestId, paths, data as resData } from './constants';
 import Container from '../../components/Container';
 import { useCallback, useEffect, useState } from 'react';
-import styles from './TransparencyDashboard.module.css';
-import { DonationsFilter, Goals } from './internals';
+import { DashboardTimelines, DonationsFilter, Goals } from './internals';
 import BreadCrumbs from '../../components/BreadCrumbs';
 // import { getData } from '../../services/ApiClient';
 
-const TransparencyDashboard = () => {
+import styles from './TransparencyDashboard.module.css';
+
+export const TransparencyDashboard = () => {
   const [target, setTarget] = useState('daily');
   const [data, setData] = useState('');
   const [amountRaised, setAmountRaised] = useState({});
@@ -20,26 +21,24 @@ const TransparencyDashboard = () => {
       data: resData
     };
     setData(res?.data);
-  }, []);
-  const fetchAmountRaised = useCallback(() => {
-    //  const res = getData(`donations?amountRaised=${target}`);
-    setAmountRaised(donations[target]);
+
+    setAmountRaised(res.data[target]);
   }, [target]);
 
   useEffect(() => {
     fetchTransactions();
-    fetchAmountRaised();
-  }, [fetchAmountRaised, fetchTransactions]);
+  }, [fetchTransactions]);
 
   return (
-    <div className={styles.contatiner}>
+    <div className={styles.container} data-testid={TestId.TRANSPARENCY_DASHBOARD_ID}>
       <Container>
         <BreadCrumbs paths={paths} />
-        <DonationsFilter amountRaised={amountRaised} handleOptionChange={handleOptionChange} />
-        <Goals data={data} />
+        <div className={styles.topSection}>
+          <DonationsFilter amountRaised={amountRaised} handleOptionChange={handleOptionChange} />
+          <Goals data={data} />
+        </div>
+        <DashboardTimelines donations={data.donations} />
       </Container>
     </div>
   );
 };
-
-export default TransparencyDashboard;

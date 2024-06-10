@@ -46,13 +46,7 @@ const LatestDonations = () => {
             </div>
           ))}
         </div>
-        <Pagination
-          currentPage={currentPage}
-          onPageChange={changePage}
-          itemsPerPage={itemsPerPage}
-          showViewAll={true}
-          noOfPages={3}
-        />
+        <Pagination currentPage={currentPage} onPageChange={changePage} showViewAll={true} totalPages={3} />
       </Container>
     </div>
   );

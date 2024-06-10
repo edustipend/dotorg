@@ -1,5 +1,17 @@
-.contatiner {
-  padding: 150px 0;
+.container {
+  padding: 120px 0;
+  width: 100%;
+  max-width: 1030px;
+  margin: 0 auto;
+  background: #f9fafb;
+}
+.topSection {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: space-between;
+  margin-top: 32px;
+  margin-bottom: 32px;
 }
 .goals {
   width: 100%;
@@ -7,7 +19,7 @@
   display: flex;
   gap: 16px;
   flex-direction: column;
-  border-radius: 16px 0px 0px 0px;
+  border-radius: 16px;
 }
 
 .top {
@@ -32,7 +44,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 16px;
 }
 
 .progressTop {
@@ -44,9 +56,9 @@
 
 .progressTop h1 {
   font-family: 'Manrope';
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 700;
-  line-height: 20px;
+  line-height: 24px;
   text-align: left;
   color: var(--edustipend-black);
 }
@@ -67,7 +79,6 @@
 .progressContainer {
   display: flex;
   flex-direction: column;
-  gap: 6px;
 }
 .completion {
   align-self: self-end;
@@ -103,7 +114,7 @@
 .donationsFilter {
   width: 100%;
   max-width: 472px;
-  height: 196px;
+  min-height: 196px;
   padding: 24px;
   display: flex;
   flex-direction: column;
@@ -111,6 +122,7 @@
   border-radius: 8px;
   border: 1px solid #e4e7ec;
   box-shadow: 0px 0px 6px -2px #1018280d;
+  background: white;
 }
 
 .filterTop {
@@ -173,9 +185,25 @@
   border: 1px solid #d0d5dd;
 }
 
+@media (min-width: 380px) {
+  .progressTop h1 {
+    font-size: 24px;
+    line-height: 20px;
+  }
+}
+
 @media (min-width: 768px) {
+  .container {
+    padding: 150px 0;
+    background: white;
+  }
   .goals,
   .top {
-    gap: 35px;
+    gap: 32px;
+  }
+  .topSection {
+    flex-direction: row;
+    margin-top: 50px;
+    margin-bottom: 53px;
   }
 }
