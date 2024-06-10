@@ -11,6 +11,8 @@ export const paths = [
 
 export const Texts = {
   HEADER: 'Our Impact',
+  SUPPORT: 'Support a Learner',
+  DONATE: '/support-a-learner/donate',
   PARTNER_HEADER: 'MAKE AN IMPACT WITH US',
   VIDEO: 'https://www.youtube.com/embed/8OQ0vLPRcqs',
   SUB_HEADER: 'Watch the stories of our beneficiaries and see the tangible impact of our support programs.',

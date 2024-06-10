@@ -22,9 +22,9 @@ const PartnerWithUs = () => {
           <div className={styles.cta}>
             <NavHashLink
               to={{
-                pathname: '/support-a-learner/donate'
+                pathname: Texts.DONATE
               }}>
-              <Button label={'Support a Learner'} size={'large'} type={'secondary'} />
+              <Button label={Texts.SUPPORT} size={'large'} type={'secondary'} />
             </NavHashLink>
           </div>
         </div>
