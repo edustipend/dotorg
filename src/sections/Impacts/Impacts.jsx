@@ -5,6 +5,7 @@ import BreadCrumbs from '../../components/BreadCrumbs';
 import { paths } from './constants';
 import OurImpacts from './internals/OurImpacts';
 import PartnerWithUs from './internals/PartnerWithUs';
+import Overview from './internals/Overview';
 
 const Impacts = () => {
   return (
@@ -14,6 +15,7 @@ const Impacts = () => {
           <div className={styles.wrapper}>
             <BreadCrumbs paths={paths} />
             <OurImpacts />
+            <Overview />
           </div>
         </Container>
       </div>
@@ -21,5 +23,4 @@ const Impacts = () => {
     </>
   );
 };
-
 export default Impacts;

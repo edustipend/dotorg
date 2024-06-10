@@ -36,6 +36,16 @@
   color: var(--edustipend-black);
 }
 
+.overviewheader {
+  font-size: 20px;
+  font-family: 'Poppins';
+  font-weight: 600;
+  letter-spacing: 5%;
+  color: var(--edustipend-black);
+
+  margin-top: 32px;
+}
+
 .headerWrap p {
   font-size: 16px;
   font-family: 'Manrope';
@@ -95,8 +105,23 @@
   margin-top: 20px;
 }
 
+.ImpactNumbersWrap {
+  width: 100%;
+  margin-top: 32px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 24px;
+}
 
-@media only screen and (min-width: 650px) {
+.ImpactBtn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 18px;
+}
+
+@media only screen and (min-width: 640px) {
   .headerWrap {
     gap: 0px;
   }
@@ -112,10 +137,17 @@
 }
 
 @media only screen and (min-width: 768px) {
- 
-
   .partnerWrap h1 {
     font-size: 48px;
+  }
+
+  .overviewheader {
+    font-size: 36px;
+    margin-top: 40px;
+  }
+
+  .ImpactBtn {
+    justify-content: end;
   }
 }
 
@@ -138,6 +170,11 @@
 
   .partnerWrap p {
     width: 62%;
+  }
+
+  .overviewheader {
+    font-size: 48px;
+    margin-top: 60px;
   }
 }
 @media only screen and (min-width: 1440px) {

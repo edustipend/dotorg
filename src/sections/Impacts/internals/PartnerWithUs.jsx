@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from '../impacts.module.css';
-import { TestId, Texts } from '../constants';
+import { TestId, ImpactLabels } from '../constants';
 import Header from '../../../components/Header';
 import { NavHashLink } from 'react-router-hash-link';
 import Button from '../../../components/Button';
@@ -12,19 +12,19 @@ const PartnerWithUs = () => {
         <div className={styles.overlay}></div>
         <div className={styles.partnerText}>
           <Header size={'large'} dataTest={TestId.PARTNER_HEAD_TEXT}>
-            {Texts.PARTNER_HEADER}
+            {ImpactLabels.PARTNER_HEADER}
           </Header>
 
           <p data-testid={TestId.PARTNER_SUB_HEADER_TEXT} className={styles.partnersubheader}>
-            {Texts.PARTNER_SUB_HEADER}
+            {ImpactLabels.PARTNER_SUB_HEADER}
           </p>
 
           <div className={styles.cta}>
             <NavHashLink
               to={{
-                pathname: Texts.DONATE
+                pathname: ImpactLabels.DONATE
               }}>
-              <Button label={Texts.SUPPORT} size={'large'} type={'secondary'} />
+              <Button label={ImpactLabels.SUPPORT} size={'large'} type={'secondary'} />
             </NavHashLink>
           </div>
         </div>
