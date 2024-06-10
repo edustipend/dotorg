@@ -1,0 +1,105 @@
+.tableContainer {
+  width: 100%;
+  max-width: 1030px;
+  margin: 0 auto;
+  height: auto;
+  gap: 0px;
+  border-radius: 12px;
+  border: 1px;
+  box-shadow: 0px 0px 3px 0px #1018281a;
+  border: 1px solid #e4e7ec;
+  overflow-x: auto;
+}
+
+.timelinesTitle {
+  background: #ffffff;
+  padding: 20px 8px;
+  width: 100%;
+  gap: 16px;
+  font-family: 'Poppins';
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: left;
+  color: var(--edustipend-black);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+.table thead {
+  width: 100%;
+  background: #f9fafb;
+  border-bottom: 1px solid #e4e7ec;
+}
+
+.table thead th {
+  padding: 16px 8px;
+  font-family: 'Manrope';
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: left;
+  color: #475467;
+}
+
+.table tbody td {
+  font-family: 'Manrope';
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
+  text-align: left;
+  color: #101828;
+  padding: 12px 8px;
+  border-bottom: 1px solid #e4e7ec;
+}
+
+.paginationContainer {
+  width: 100%;
+  padding-bottom: 40px;
+}
+.avatar {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 6px;
+  border-radius: 32px;
+  background: #f9f5ff;
+  font-family: 'Inter';
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 19px;
+  color: #5801ff;
+  margin-right: 10px;
+}
+
+@media only screen and (min-width: 768px) {
+  .timelinesTitle {
+    padding: 20px 24px;
+    font-size: 24px;
+    line-height: 20px;
+  }
+  .avatar {
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    border-radius: 40px;
+    font-size: 16px;
+    margin-right: 12px;
+    line-height: 24px;
+  }
+  .table thead th {
+    padding: 24px;
+    font-family: 'Manrope';
+    font-size: 20px;
+  }
+  .table tbody td {
+    font-size: 20px;
+    padding: 16px 12px;
+  }
+}
