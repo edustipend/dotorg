@@ -80,7 +80,8 @@ const Supports = () => {
           <NavHashLink
             to={{
               pathname: '/support-a-learner/donate'
-            }}>
+            }}
+            id="donate-now-page">
             <Button label={'Donate Now'} size={'large'} type={'secondary'} />
           </NavHashLink>
         </div>

@@ -18,7 +18,6 @@ import TagManager from 'react-gtm-module';
 initFirebaseApp();
 const { REACT_APP_GTM } = process.env;
 
-
 function App() {
   const { isLoading } = useContext(ModalContext);
   const scrollOnRoute = useScrollToTop();
@@ -32,11 +31,19 @@ function App() {
     }),
     [gtmId]
   );
-
   //initialize the process everytime the user enters the site as this is the app's entry point
   useEffect(() => {
     TagManager.initialize(tagManagerArgs);
   }, [tagManagerArgs]);
+
+  // useEffect(() => {
+  //   TagManager.dataLayer({
+  //     dataLayer: {
+  //       event: 'pageview',
+  //       page: location.pathname
+  //     }
+  //   });
+  // }, [location]);
 
   return isOnline ? (
     <>

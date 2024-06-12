@@ -100,7 +100,7 @@ export const OurImpacts = () => {
           <Link to={btnLabels.view.path} data-testid={TestId.VIEW_OUR_IMPACT}>
             <Button label={btnLabels.view.label} type={btnLabels.view.type} className={styles.viewBtn} />
           </Link>
-          <Link to={btnLabels.support.path}>
+          <Link to={btnLabels.support.path} id="donate-now-page">
             <Button label={btnLabels.support.label} type={btnLabels.support.type} />
           </Link>
         </div>

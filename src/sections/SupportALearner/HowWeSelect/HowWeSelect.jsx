@@ -24,7 +24,7 @@ export const HowWeSelect = () => {
           ))}
           <div className={styles.process}>
             <h2>{process}</h2>
-            <Link to={btnLabel.path}>
+            <Link to={btnLabel.path} id="donate-now-page">
               <Button label={btnLabel.label} type={btnLabel.type} dataTest={TestId.SUPPORT_CTA} />
             </Link>
           </div>

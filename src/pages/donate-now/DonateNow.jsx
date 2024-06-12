@@ -29,6 +29,8 @@ export const DonateNow = () => {
   const { redirectModal, handleRedirectModal } = useContext(ModalContext) || {};
   const { fullname, email, phone, company, toggleShowName, focus, title, message, error, errorMessage } = userData;
 
+
+
   const handleFocus = (setUserData, focus) => {
     setUserData((prev) => ({ ...prev, focus: !focus }));
   };

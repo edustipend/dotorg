@@ -6,6 +6,7 @@ import { TestId, constants } from './constants';
 import Button from '../../../components/Button';
 import { useNavigate } from 'react-router-dom';
 import formatNumber from '../../../utils/numberFormatter';
+import { userInteraction } from '../../../utils/googleTagManager';
 
 export const DonationRange = () => {
   const [value, setValue] = useState(1000);
@@ -75,7 +76,10 @@ export const DonationRange = () => {
                   <p className={styles.sum}>₦{`${formattedNumber} can get ${4} Laptops for ${4} learners`}</p>
                 </div>
               </div>
-              <div className={styles.btnContainer}>
+              <div
+                className={styles.btnContainer}
+                id="donate-now-page"
+                onClick={() => userInteraction('button', 'donate-now-trigger', `Donate ₦${formattedNumber}`)}>
                 <Button
                   data-testid={TestId.DONATION_BUTTON}
                   disabled={value === 0}

@@ -16,7 +16,7 @@ const NavbarLearner = ({ showMenu, closeMenu }) => {
             </HashLink>
           ))}
         </div>
-        <HashLink to={{ pathname: '/support-a-learner/donate' }}>
+        <HashLink className={'donate-now'} to={{ pathname: '/support-a-learner/donate' }}>
           <Button label="Donate now" type={'secondary'} className="navBtn" />
         </HashLink>
       </nav>

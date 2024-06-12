@@ -8,10 +8,19 @@ import quoteD from '../../../assets/quotedown.png';
 import { NavHashLink } from 'react-router-hash-link';
 import Container from '../../../components/Container';
 import { Texts, quotesArray } from './contants';
+import { userInteraction } from '../../../utils/googleTagManager';
 
 const HeroSection = () => {
   const [currentQuoteIndex, setCurrentQuoteIndex] = useState(0);
   const [animationKey, setAnimationKey] = useState(0);
+
+  // const abf = () => {
+  //   window.dataLayer.push({
+  //     event: 'virtualPageview',
+  //     pageUrl: window.location.href,
+  //     pageTitle: 'Donate Now'
+  //   });
+  // };
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -23,6 +32,7 @@ const HeroSection = () => {
   }, []);
 
   const currentQuote = quotesArray[currentQuoteIndex];
+  console.log(document.getElementById('donate-now-page'), 'lppp');
 
   return (
     <div className={styles.bg}>
@@ -60,7 +70,9 @@ const HeroSection = () => {
               <NavHashLink
                 to={{
                   pathname: '/support-a-learner/donate'
-                }}>
+                }}
+                onClick={() => userInteraction('button', 'donate-now-trigger', 'Support a Learner')}
+                className="donate-now">
                 <Button label={Texts.SUPPORT_TEXT} size={'medium'} type={'secondary'} />
               </NavHashLink>
               <NavHashLink
