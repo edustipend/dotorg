@@ -50,7 +50,7 @@ export const DonateNow = () => {
   const handleValidation = () => {
     switch (true) {
       case amount < 1000:
-        invalidInput("");
+        invalidInput('');
         return false;
       case fullname.length < 3:
         invalidInput(constants.invalidName);
@@ -83,7 +83,10 @@ export const DonateNow = () => {
       customer: {
         email: email,
         name: fullname,
-        phonenumber: phone
+        phone_number: phone
+      },
+      meta: {
+        companyName: company
       }
     });
     const result = await response;
