@@ -18,7 +18,7 @@ const root = createRoot(container);
 let persistor = persistStore(store);
 root.render(
   <BrowserRouter>
-    <React.StrictMode>
+    {/* <React.StrictMode> */}
       <Provider store={store}>
         <ModalContextProvider>
           <SidebarProvider>
@@ -28,7 +28,7 @@ root.render(
           </SidebarProvider>
         </ModalContextProvider>
       </Provider>
-    </React.StrictMode>
+    {/* </React.StrictMode> */}
   </BrowserRouter>
 );
 // If you want to start measuring performance in your app, pass a function

@@ -15,8 +15,10 @@ import formatNumber from '../../utils/numberFormatter';
 import { checkEmail } from '../../utils/EmailChecker/emailChecker';
 import { postData } from '../../services/ApiClient';
 import { getEnvironment } from '../../utils/getEnvironment';
+import usePageView from '../../hooks/usePageView';
 
 export const DonateNow = () => {
+  usePageView("Donate")
   const nav = useNavigate();
   const location = useLocation();
   const currentEnv = getEnvironment();

@@ -2,9 +2,10 @@ import { Link } from 'react-router-dom';
 import Container from '../../../components/Container';
 import Button from '../../../components/Button';
 import { TestId, btnLabel, headText, how, process } from './constants';
-
 import styles from './HowWeSelect.module.css';
-
+import { tagEvents } from '../../../utils/googleTagManager/tagEvents';
+import { userInteraction } from '../../../utils/googleTagManager/googleTagManager';
+const { supportButton, donateNow, buttonCategory, donateBtnLabel } = tagEvents;
 export const HowWeSelect = () => {
   return (
     <div className={styles.wrapper} data-testid={TestId.WRAPPER}>
@@ -24,7 +25,7 @@ export const HowWeSelect = () => {
           ))}
           <div className={styles.process}>
             <h2>{process}</h2>
-            <Link to={btnLabel.path} id="donate-now-page">
+            <Link to={btnLabel.path} id="donate-now-page" onClick={() => userInteraction(supportButton, buttonCategory, donateNow, donateBtnLabel)}>
               <Button label={btnLabel.label} type={btnLabel.type} dataTest={TestId.SUPPORT_CTA} />
             </Link>
           </div>

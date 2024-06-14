@@ -6,8 +6,10 @@ import LatestDonations from '../../sections/SupportALearner/LatestDonations';
 import Partners from '../../sections/SupportALearner/Partners';
 import Supports from '../../sections/SupportALearner/Supports';
 import BeneficiaryTestimonies from '../../sections/SupportALearner/BeneficiaryTestimonies/BeneficiaryTestimonies';
+import usePageView from '../../hooks/usePageView';
 
 export const SupportALearner = () => {
+  usePageView('Support-a-learner');
   return (
     <>
       <HeroSection />

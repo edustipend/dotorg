@@ -36,14 +36,6 @@ function App() {
     TagManager.initialize(tagManagerArgs);
   }, [tagManagerArgs]);
 
-  // useEffect(() => {
-  //   TagManager.dataLayer({
-  //     dataLayer: {
-  //       event: 'pageview',
-  //       page: location.pathname
-  //     }
-  //   });
-  // }, [location]);
 
   return isOnline ? (
     <>

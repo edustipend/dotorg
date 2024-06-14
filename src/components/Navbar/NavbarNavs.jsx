@@ -45,7 +45,11 @@ const NavbarNavs = ({ showMenu, closeMenu }) => {
             {NAVBAR_LINKS.map((link) => {
               const supportALearnerInDev = checkLocation(link.to);
               return (
-                <HashLink key={link.label} to={{ pathname: link.to, hash: link.hash }} onClick={() => closeMenu(!showMenu)}>
+                <HashLink
+                  key={link.label}
+                  to={{ pathname: link.to, hash: link.hash }}
+                  id={link.to === '/support-a-learner' && 'support-a-learner'}
+                  onClick={() => closeMenu(!showMenu)}>
                   {supportALearnerInDev && isDevelopment ? link.label : !supportALearnerInDev ? link.label : null}
                 </HashLink>
               );

@@ -8,19 +8,13 @@ import quoteD from '../../../assets/quotedown.png';
 import { NavHashLink } from 'react-router-hash-link';
 import Container from '../../../components/Container';
 import { Texts, quotesArray } from './contants';
-import { userInteraction } from '../../../utils/googleTagManager';
+import { userInteraction } from '../../../utils/googleTagManager/googleTagManager';
+import { tagEvents } from '../../../utils/googleTagManager/tagEvents';
 
+const { supportButton, donateNow, buttonCategory, donateBtnLabel } = tagEvents;
 const HeroSection = () => {
   const [currentQuoteIndex, setCurrentQuoteIndex] = useState(0);
   const [animationKey, setAnimationKey] = useState(0);
-
-  // const abf = () => {
-  //   window.dataLayer.push({
-  //     event: 'virtualPageview',
-  //     pageUrl: window.location.href,
-  //     pageTitle: 'Donate Now'
-  //   });
-  // };
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -71,7 +65,7 @@ const HeroSection = () => {
                 to={{
                   pathname: '/support-a-learner/donate'
                 }}
-                onClick={() => userInteraction('button', 'donate-now-trigger', 'Support a Learner')}
+                onClick={() => userInteraction(supportButton, buttonCategory, donateNow, donateBtnLabel)}
                 className="donate-now">
                 <Button label={Texts.SUPPORT_TEXT} size={'medium'} type={'secondary'} />
               </NavHashLink>

@@ -6,8 +6,10 @@ import { TestId, constants } from './constants';
 import Button from '../../../components/Button';
 import { useNavigate } from 'react-router-dom';
 import formatNumber from '../../../utils/numberFormatter';
-import { userInteraction } from '../../../utils/googleTagManager';
+import { userInteraction } from '../../../utils/googleTagManager/googleTagManager';
+import { tagEvents } from '../../../utils/googleTagManager/tagEvents';
 
+const { supportButton, donateNow, buttonCategory} = tagEvents;
 export const DonationRange = () => {
   const [value, setValue] = useState(1000);
   const [step, setStep] = useState(4000);
@@ -78,8 +80,7 @@ export const DonationRange = () => {
               </div>
               <div
                 className={styles.btnContainer}
-                id="donate-now-page"
-                onClick={() => userInteraction('button', 'donate-now-trigger', `Donate ₦${formattedNumber}`)}>
+                onClick={() => userInteraction(supportButton, buttonCategory, donateNow, `Donate ${formattedNumber}`)}>
                 <Button
                   data-testid={TestId.DONATION_BUTTON}
                   disabled={value === 0}

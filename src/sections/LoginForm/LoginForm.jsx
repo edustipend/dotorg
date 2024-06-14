@@ -10,12 +10,14 @@ import { postData } from '../../services/ApiClient';
 import { Link, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import Cookies from 'js-cookie';
-import { storeUser,setAuthenticated  } from '../../store/reducers/UserReducer';
+import { storeUser, setAuthenticated } from '../../store/reducers/UserReducer';
 import { jwtDecode } from 'jwt-decode';
 import { useDispatch } from 'react-redux';
+import usePageView from '../../hooks/usePageView';
 const { EMAIL, EMAIL_PH, EMAIL_TYPE, PASSWORD, PASSWORD_PH, PASSWORD_TYPE, LOGIN, SECONDARY, NEUTRAL, SMALL, RESET } = parameters;
 
 export const LoginForm = () => {
+  usePageView('Login');
   const [isLoading, setisLoading] = useState(false);
   const [email, setEmail] = useState('');
   const dispatch = useDispatch();
@@ -29,7 +31,6 @@ export const LoginForm = () => {
     } else {
       setDisable(true);
     }
-
   }, [email, password]);
 
   const handleSubmit = async (e) => {

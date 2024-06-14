@@ -20,6 +20,9 @@ import {
   progressText2,
   subHeadText
 } from './constants';
+import { userInteraction } from '../../../utils/googleTagManager/googleTagManager';
+import { tagEvents } from '../../../utils/googleTagManager/tagEvents';
+const { supportButton, donateNow, buttonCategory, donateBtnLabel } = tagEvents;
 
 const Supports = () => {
   return (
@@ -81,7 +84,7 @@ const Supports = () => {
             to={{
               pathname: '/support-a-learner/donate'
             }}
-            id="donate-now-page">
+            onClick={() => userInteraction(supportButton, buttonCategory, donateNow, donateBtnLabel)}>
             <Button label={'Donate Now'} size={'large'} type={'secondary'} />
           </NavHashLink>
         </div>
