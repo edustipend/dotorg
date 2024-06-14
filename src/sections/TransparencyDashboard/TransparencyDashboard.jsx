@@ -13,9 +13,8 @@ export const TransparencyDashboard = () => {
   const [nextCall, setNextCall] = useState('');
   const [date, setDate] = useState({
     startDate: getStartDate('weekly').toISOString().split('T')[0],
-    endDate: new Date().toISOString().split('T')[0]
+    endDate: getStartDate('tommorow').toISOString().split('T')[0]
   });
-
   const handleOptionChange = (e) => {
     const frequency = e.target.value;
     setFrequency(frequency);
@@ -40,7 +39,7 @@ export const TransparencyDashboard = () => {
       raised: overview?.data?.totalAmount || prevData.raised,
       completed: Math.round((overview?.data?.totalAmount / prevData.goal) * 100),
       donations: [...prevData.donations, ...(timelines || [])],
-      amountRaised: range?.data?.totalAmount ?? prevData.amountRaised,
+      amountRaised: range?.data?.totalAmount,
       next: `?start=${timeline?.data?.next}` || prevData.next
     }));
   }, [date.endDate, date.startDate, nextCall]);

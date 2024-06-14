@@ -52,6 +52,10 @@ export const getStartDate = (frequency) => {
       newStartDate = new Date(today);
       newStartDate.setDate(today.getDate() - 30);
       break;
+    case 'tommorow':
+      newStartDate = new Date(today);
+      newStartDate.setDate(today.getDate() + 1);
+      break;
     default:
       newStartDate = new Date(today);
   }

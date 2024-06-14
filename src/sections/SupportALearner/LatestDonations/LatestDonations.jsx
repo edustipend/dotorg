@@ -8,12 +8,11 @@ import emoji from '../../../assets/donation.png';
 import Pagination from '../../../components/Pagination/Pagination';
 import { getData } from '../../../services/ApiClient';
 import { getInitials } from '../../TransparencyDashboard/internals/DashboardTimeline/TableRow';
-import { donations } from './donations.mock';
 
 const LatestDonations = () => {
   const [currentPage, setCurrentPage] = useState(theCurrentPageNumber);
-  const [currentDonations, setCurrentDonations] = useState(donations);
-  const [total, setTotal] = useState(3);
+  const [currentDonations, setCurrentDonations] = useState([]);
+  const [total, setTotal] = useState(1);
 
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
@@ -42,6 +41,8 @@ const LatestDonations = () => {
   useEffect(() => {
     fetchTransactions();
   }, [fetchTransactions]);
+
+  if (currentDonations.length < 6) return null;
 
   return (
     <div className={styles.container} data-testid={TestId.WRAPPER}>
