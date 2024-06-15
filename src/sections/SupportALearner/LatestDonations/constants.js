@@ -16,3 +16,5 @@ export const TestId = {
   SUB_HEADER: 'desc-el',
   PAGINATION: 'pagination-el'
 };
+
+export const DONATIONS_DASHBOARD = '/transparency-dashboard';

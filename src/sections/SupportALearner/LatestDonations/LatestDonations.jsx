@@ -3,19 +3,25 @@ import Container from '../../../components/Container';
 import styles from '../LatestDonations/LatestDonations.module.css';
 import Header from '../../../components/Header';
 import Text from '../../../components/Text';
-import { theCurrentPageNumber, TestId, Texts, itemsPerPage } from './constants';
+import { theCurrentPageNumber, TestId, Texts, itemsPerPage, DONATIONS_DASHBOARD } from './constants';
 import emoji from '../../../assets/donation.png';
 import Pagination from '../../../components/Pagination/Pagination';
 import { getData } from '../../../services/ApiClient';
 import { getInitials } from '../../TransparencyDashboard/internals/DashboardTimeline/TableRow';
+import { useNavigate } from 'react-router-dom';
 
 const LatestDonations = () => {
   const [currentPage, setCurrentPage] = useState(theCurrentPageNumber);
   const [currentDonations, setCurrentDonations] = useState([]);
   const [total, setTotal] = useState(1);
+  const nav = useNavigate();
 
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
+
+  const handleShowAll = () => {
+    nav(DONATIONS_DASHBOARD);
+  };
 
   const changePage = (page) => {
     setCurrentPage(page);
@@ -42,7 +48,7 @@ const LatestDonations = () => {
     fetchTransactions();
   }, [fetchTransactions]);
 
-  if (currentDonations.length < 6) return null;
+  if (currentDonations?.length < 6) return null;
 
   return (
     <div className={styles.container} data-testid={TestId.WRAPPER}>
@@ -72,7 +78,7 @@ const LatestDonations = () => {
             </div>
           ))}
         </div>
-        <Pagination currentPage={currentPage} onPageChange={changePage} showViewAll={true} totalPages={total} handleNextCall={() => {}} />
+        <Pagination currentPage={currentPage} onPageChange={changePage} showViewAll={true} totalPages={total} handleNextCall={handleShowAll} />
       </Container>
     </div>
   );

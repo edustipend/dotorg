@@ -137,7 +137,7 @@ export const data = {
 };
 
 export const resData = {
-  goal: 10000000,
+  goal: 11000000,
   contributors: 0,
   raised: 0,
   completed: 0,
