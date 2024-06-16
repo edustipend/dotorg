@@ -31,7 +31,7 @@ export const DonateNow = () => {
   const { redirectModal, handleRedirectModal } = useContext(ModalContext) || {};
   const { fullname, email, phone, company, toggleShowName, focus, title, message, error, errorMessage } = userData;
 
-
+console.log(displayModal);
 
   const handleFocus = (setUserData, focus) => {
     setUserData((prev) => ({ ...prev, focus: !focus }));
@@ -265,7 +265,7 @@ export const DonateNow = () => {
       <UseModal isActive={redirectModal}>
         <RedirectModal />
       </UseModal>
-      <UseModal isActive={displayModal}>
+      <UseModal isActive={true}>
         <TransactionModal error={error} title={title} message={message} setDisplayModal={setDisplayModal} />
       </UseModal>
     </div>
