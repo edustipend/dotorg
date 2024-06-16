@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useSpring, animated } from 'react-spring';
 
 export const AnimatedNumber = ({ value, money }) => {
-  const p = useSpring({ number: value, from: { number: 0 }, config: { duration: 10000 } });
+  const p = useSpring({ number: value, from: { number: 0 }, config: { duration: 6000 } });
   return (
     <animated.span>
       {p.number.to((val) =>

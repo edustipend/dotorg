@@ -136,6 +136,17 @@ export const data = {
   ]
 };
 
+export const resData = {
+  goal: 11000000,
+  contributors: 0,
+  raised: 0,
+  completed: 0,
+  donations: [],
+  amountRaised: 0,
+  total: 0,
+  next: ''
+};
+
 export const btn = {
   label: 'Support a learner',
   path: '/support-a-learner',
