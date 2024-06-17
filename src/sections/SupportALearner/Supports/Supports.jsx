@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './Supports.module.css';
 import Container from '../../../components/Container';
 import Header from '../../../components/Header';
@@ -15,13 +15,35 @@ import {
   content4,
   content5,
   headText,
-  innerStyle,
+  maxValue,
   progressText1,
   progressText2,
   subHeadText
 } from './constants';
 
 const Supports = () => {
+  const [displayedAmount, setDisplayedAmount] = useState(0);
+  const [progressPercentage, setProgressPercentage] = useState(0);
+
+  useEffect(() => {
+    let amount = 0;
+    const interval = setInterval(() => {
+      if (amount < AMT_RAISED) {
+        amount += 10000;
+        if (amount > AMT_RAISED) amount = AMT_RAISED;
+        setDisplayedAmount(amount);
+        setProgressPercentage((amount / maxValue) * 100);
+      } else {
+        clearInterval(interval);
+      }
+    }, 50);
+    return () => clearInterval(interval);
+  }, []);
+
+  const innerStyle = {
+    background: `conic-gradient(#5801ff 0deg ${progressPercentage}%, #febd1c33 ${progressPercentage}deg 360deg)`
+  };
+
   return (
     <div id="how-it-works" className={styles.container} data-testid={TestId.WRAPPER}>
       <Container>
@@ -57,7 +79,7 @@ const Supports = () => {
               <div style={innerStyle} className={styles.outer} data-testid={TestId.OUTER_DIV}>
                 <div className={styles.inner} data-testid={TestId.INNER_DIV}>
                   <p className={styles.amtraised} data-testid={TestId.AMT_RAISED}>
-                    ₦{AMT_RAISED.toLocaleString()}
+                    ₦{displayedAmount.toLocaleString()}
                   </p>
                   <p className={styles.raised} data-testid={TestId.AMT_RAISED_TEXT}>
                     {AMT_RAISED_TEXT}

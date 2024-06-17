@@ -33,11 +33,3 @@ export const TestId = {
 
 export const AMT_RAISED = 1155000;
 export const maxValue = 5400000;
-
-export const progressPercentage = (AMT_RAISED / maxValue) * 100;
-
-export const innerColor = `conic-gradient(#5801ff 0deg ${progressPercentage}%, #febd1c33 ${progressPercentage}deg 360deg)`;
-
-export const innerStyle = {
-  background: innerColor
-};
