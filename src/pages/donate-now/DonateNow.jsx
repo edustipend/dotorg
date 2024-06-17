@@ -67,7 +67,7 @@ export const DonateNow = () => {
         invalidInput(constants.invalidEmail);
         return false;
       case phone.includes('-') || phone.length !== 11:
-        invalidInput(constants.Enter_Phone_number);
+        invalidInput(constants.invalidPhoneNumber);
         return false;
       default:
         setUserData((prev) => ({ ...prev, errorMessage: '' }));
@@ -251,12 +251,14 @@ export const DonateNow = () => {
                   element={phoneInfo}
                   type={constants.number}
                   label={constants.Phone_number}
-                  placeholder={constants.invalidPhoneNumber}
+                  placeholder={constants.Enter_Phone_number}
                 />
                 <div>
                   <Input
                     data-testid={TestId.AMOUNT_ID}
-                    value={Number(amount).toString()}
+                    value={Number(amount)
+                      .toString()
+                      .replace(/[^0-9]./g, '')}
                     required={false}
                     type={constants.number}
                     label={constants.Amount}
