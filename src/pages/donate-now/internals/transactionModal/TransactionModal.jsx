@@ -5,12 +5,13 @@ import { failed_tran, success, close } from '../../../../assets';
 import Button from '../../../../components/Button';
 import { constants } from './constants';
 import { defaultShare, twitterShare, instagramShare } from '../sharePosts';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import IconButton from '../../../../components/IconButton';
+import { NavHashLink } from 'react-router-hash-link';
 
 export const TransactionModal = ({ error, setDisplayModal, message, title }) => {
   const [shareUI, setShareUI] = useState(false);
-  const nav = useNavigate();
+  // const nav = useNavigate();
 
   const handleShare = (intent) => {
     if (intent === 'LinkedIn' || intent === 'Facebook') {
@@ -73,16 +74,22 @@ export const TransactionModal = ({ error, setDisplayModal, message, title }) => 
           <p className={styles.message}>{message}</p>
         </div>
         <div className={styles.btnContainer}>
-          <Button
-            label={constants.recent}
-            type={constants.plain}
-            effectClass={styles.btn}
-            onClick={() => {
-              setDisplayModal((prev) => !prev);
-              nav('/support-a-learner');
-            }}
-            className={styles.btn2}
-          />
+          <NavHashLink
+            to={{
+              pathname: '/support-a-learner',
+              hash: '#recent-donations'
+            }}>
+            <Button
+              label={constants.recent}
+              type={constants.plain}
+              effectClass={styles.btn}
+              onClick={() => {
+                setDisplayModal((prev) => !prev);
+                // nav('/support-a-learner');
+              }}
+              className={styles.btn2}
+            />
+          </NavHashLink>
           <Button
             label={constants.Share_on_social_media}
             type={constants.secondary}
