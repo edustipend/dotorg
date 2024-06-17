@@ -19,7 +19,7 @@ export const NavbarToShow = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const isAmbassador = pathname === '/ambassador-program';
-  const isSupportALearner = pathname === '/support-a-learner' || '/support-a-learner/donate';
+  const isSupportALearner = pathname === '/support-a-learner' || pathname === '/support-a-learner/donate';
   const isRequestStipend = pathname === '/application';
   const isLogin = pathname === '/login';
   const isDashboard = pathname === '/dashboard';
