@@ -121,7 +121,7 @@ export const DonateNow = () => {
     let status = '';
     if (params.has('status')) {
       status = params.get('status');
-      if (status === 'successful') {
+      if (status === 'successful' || status === 'completed') {
         setUserData((prev) => ({
           ...prev,
           title: constants.donation_success_header,
