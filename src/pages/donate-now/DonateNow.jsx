@@ -16,6 +16,7 @@ import { checkEmail } from '../../utils/EmailChecker/emailChecker';
 import { postData } from '../../services/ApiClient';
 import { getEnvironment } from '../../utils/getEnvironment';
 import DonationQuotation from '../../components/DonationQuotation';
+import toast from 'react-hot-toast';
 
 export const DonateNow = () => {
   const nav = useNavigate();
@@ -43,8 +44,17 @@ export const DonateNow = () => {
     const max = 1000000;
     const value = e.target.value;
     if (value >= 0 && value <= max) {
-      setAmount(value);
+      setAmount(handleValidAmount(value) ?? 0);
     }
+  };
+
+  const handleValidAmount = (amt) => {
+    const cleanedAmount = Number(amt)
+      .toString()
+      .replace(/[^0-9.]/g, '');
+    const amount = parseFloat(cleanedAmount);
+    if (isNaN(amount)) return;
+    return amount;
   };
 
   const handleValidation = () => {
@@ -55,11 +65,11 @@ export const DonateNow = () => {
       case fullname.length < 3:
         invalidInput(constants.invalidName);
         return false;
-      case phone.length < 11:
-        invalidInput(constants.Enter_Phone_number);
-        return false;
       case !checkEmail(email):
         invalidInput(constants.invalidEmail);
+        return false;
+      case phone.includes('-') || phone.length < 11:
+        invalidInput(constants.Enter_Phone_number);
         return false;
       default:
         setUserData((prev) => ({ ...prev, errorMessage: '' }));
@@ -73,10 +83,10 @@ export const DonateNow = () => {
 
   const handleDonation = async () => {
     if (!handleValidation()) return;
-    handleRedirectModal();
+    handleRedirectModal(true);
 
     const response = await postData('donate', {
-      amount: amount,
+      amount: handleValidAmount(amount),
       redirect_url: currentEnv ? constants.redirect_prod : constants.redirect_dev,
       payment_options: 'card',
       currency: 'NGN',
@@ -89,12 +99,20 @@ export const DonateNow = () => {
         companyName: company
       }
     });
-    const result = await response;
-    if (result?.status) {
-      setUserData(initial);
-      window.location.href = result?.data?.link;
-    } else {
-      handleRedirectModal();
+
+    try {
+      const result = await response;
+      if (result?.status) {
+        setUserData(initial);
+        window.location.href = result?.data?.link;
+      } else {
+        handleRedirectModal(false);
+        toast.error('Failed to connect');
+      }
+    } catch (error) {
+      handleRedirectModal(false);
+    } finally {
+      handleRedirectModal(false);
     }
   };
 
@@ -232,14 +250,14 @@ export const DonateNow = () => {
                   }}
                   required={false}
                   element={phoneInfo}
-                  type={constants.number}
+                  type={constants.tel}
                   label={constants.Phone_number}
                   placeholder={constants.Enter_Phone_number}
                 />
                 <div>
                   <Input
                     data-testid={TestId.AMOUNT_ID}
-                    value={amount.toString()}
+                    value={Number(amount).toString()}
                     required={false}
                     type={constants.number}
                     label={constants.Amount}

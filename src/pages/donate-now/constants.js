@@ -1,5 +1,3 @@
-
-
 const initial = {
   fullname: '',
   email: '',
@@ -49,17 +47,15 @@ const constants = {
   company_name: 'Enter company name',
   number: 'number',
   Phone_number: 'Phone Number',
-  Enter_Phone_number: 'Enter a valid phone number',
+  Enter_Phone_number: 'Please enter a valid phone number',
   Amount: 'Amount',
   NGN: 'NGN',
   secondary: 'secondary',
   invalidEmail: 'Please enter a valid email address',
-  invalidAmount: 'Amount can not be less than 1000',
+  invalidAmount: 'Please enter a valid amount',
   invalidName: 'Please provide your first and last names',
   redirect_dev: 'http://localhost:3000/support-a-learner/donate',
   redirect_prod: 'https://www.edustipend.org/support-a-learner/donate'
 };
-
-
 
 export { constants, initial, TestId };
