@@ -56,7 +56,7 @@ const constants = {
   invalidEmail: 'Please enter a valid email address',
   invalidAmount: 'Amount can not be less than 1000',
   invalidName: 'Please provide your first and last names',
-  redirect_dev: 'https://edustipenddotorg--pr173-feat-donation-quotat-wqr4ldlg.web.app/support-a-learner/donate',
+  redirect_dev: 'http://localhost:3000/support-a-learner/donate',
   redirect_prod: 'https://www.edustipend.org/support-a-learner/donate'
 };
 
