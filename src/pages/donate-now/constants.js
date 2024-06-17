@@ -49,7 +49,7 @@ const constants = {
   company_name: 'Enter company name',
   number: 'number',
   Phone_number: 'Phone Number',
-  Enter_Phone_number: 'Enter Phone number',
+  Enter_Phone_number: 'Enter a valid phone number',
   Amount: 'Amount',
   NGN: 'NGN',
   secondary: 'secondary',
