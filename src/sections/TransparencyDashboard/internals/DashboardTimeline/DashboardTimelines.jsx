@@ -7,14 +7,17 @@ import PropTypes from 'prop-types';
 import styles from './DashboardTimelines.module.css';
 import { TestId } from '../../constants';
 
-export const DashboardTimelines = ({ donations }) => {
+export const DashboardTimelines = ({ donations, total, next, setNextCall }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = Math.ceil(donations?.length / itemToRender);
+  const totalPages = Math.ceil(total / itemToRender);
   const startIndex = (currentPage - 1) * itemToRender;
   const endIndex = startIndex + itemToRender;
   const currentDonations = donations?.slice(startIndex, endIndex);
   const changePage = (page) => {
     setCurrentPage(page);
+  };
+  const handleNextCall = () => {
+    setNextCall(next);
   };
 
   return (
@@ -22,8 +25,8 @@ export const DashboardTimelines = ({ donations }) => {
       <h1 className={styles.timelinesTitle}>{title}</h1>
       <table className={styles.table}>
         <thead>
-          {tableHeads.map((title) => (
-            <TableHead title={title} key={title} />
+          {tableHeads.map((title, i) => (
+            <TableHead title={title} key={i} />
           ))}
         </thead>
         <tbody>
@@ -33,7 +36,7 @@ export const DashboardTimelines = ({ donations }) => {
         </tbody>
         <tfoot>
           <td colSpan={'100%'} className={styles.paginationContainer}>
-            <Pagination currentPage={currentPage} onPageChange={changePage} totalPages={totalPages} />
+            <Pagination currentPage={currentPage} onPageChange={changePage} totalPages={totalPages} handleNextCall={handleNextCall} />
           </td>
         </tfoot>
       </table>
@@ -42,5 +45,8 @@ export const DashboardTimelines = ({ donations }) => {
 };
 
 DashboardTimelines.propTypes = {
-  donations: PropTypes.array
+  donations: PropTypes.array,
+  total: PropTypes.number,
+  next: PropTypes.string,
+  setNextCall: PropTypes.func
 };

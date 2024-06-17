@@ -10,18 +10,16 @@ import { AnimatedNumber } from './AnimatedNumber';
 
 export const OurImpacts = () => {
   const [animatedNumbers, setAnimatedNumbers] = useState(false);
+  const [hasAnimated, setHasAnimated] = useState(false);
   const sectionRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (
-        sectionRef.current &&
-        sectionRef.current.getBoundingClientRect().top < window.innerHeight &&
-        sectionRef.current.getBoundingClientRect().bottom > 0
-      ) {
-        setAnimatedNumbers(true);
-      } else {
-        setAnimatedNumbers(false);
+      if (sectionRef.current && sectionRef.current.getBoundingClientRect().top < window.innerHeight) {
+        if (!hasAnimated) {
+          setAnimatedNumbers(true);
+          setHasAnimated(true);
+        }
       }
     };
 
@@ -30,7 +28,7 @@ export const OurImpacts = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [hasAnimated]);
 
   useEffect(() => {
     if (animatedNumbers) {

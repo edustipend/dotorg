@@ -4,13 +4,20 @@ import styles from './Pagination.module.css';
 import { Texts } from './constants';
 import { Link } from 'react-router-dom';
 
-const Pagination = ({ onPageChange, currentPage, showViewAll, totalPages }) => {
+const Pagination = ({ onPageChange, currentPage, showViewAll, totalPages, handleNextCall }) => {
+  const handlePageChange = (pageNumber) => {
+    onPageChange(pageNumber);
+    if (pageNumber > currentPage && pageNumber % 3 === 0) {
+      handleNextCall && handleNextCall();
+    }
+  };
+
   const renderPageNumbers = () => {
     const pageNumbers = [];
 
     const addPageNumber = (number) => {
       pageNumbers.push(
-        <button key={number} onClick={() => onPageChange(number)} className={currentPage === number ? styles.currentPage : styles.otherPage}>
+        <button key={number} onClick={() => handlePageChange(number)} className={currentPage === number ? styles.currentPage : styles.otherPage}>
           {number}
         </button>
       );
@@ -48,10 +55,15 @@ const Pagination = ({ onPageChange, currentPage, showViewAll, totalPages }) => {
     return pageNumbers;
   };
 
+  const handleNext = () => {
+    const nextPage = currentPage + 1;
+    handlePageChange(nextPage);
+  };
+
   return (
     <div className={styles.paginationWrap}>
       <div className={styles.pagination}>
-        <button className={styles.Prev} disabled={currentPage === 1} onClick={() => onPageChange(currentPage - 1)}>
+        <button className={styles.Prev} disabled={currentPage === 1} onClick={() => handlePageChange(currentPage - 1)}>
           {Texts.PREV_TEXT}
         </button>
         {renderPageNumbers()}
@@ -60,7 +72,7 @@ const Pagination = ({ onPageChange, currentPage, showViewAll, totalPages }) => {
             <button className={styles.Next}>{Texts.VIEW_ALL_TEXT}</button>
           </Link>
         ) : (
-          <button className={styles.Next} disabled={currentPage === totalPages} onClick={() => onPageChange(currentPage + 1)}>
+          <button className={styles.Next} disabled={currentPage === totalPages} onClick={handleNext}>
             {Texts.NEXT_TEXT}
           </button>
         )}
@@ -72,9 +84,9 @@ const Pagination = ({ onPageChange, currentPage, showViewAll, totalPages }) => {
 Pagination.propTypes = {
   currentPage: PropTypes.number.isRequired,
   onPageChange: PropTypes.func.isRequired,
-  itemsPerPage: PropTypes.number.isRequired,
   showViewAll: PropTypes.bool,
-  totalPages: PropTypes.number.isRequired
+  totalPages: PropTypes.number.isRequired,
+  handleNextCall: PropTypes.func
 };
 
 export default Pagination;

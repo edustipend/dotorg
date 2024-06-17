@@ -27,12 +27,12 @@ export const DonationQuotation = ({ amount }) => {
       feedback = (
         <div className={styles.feedback}>
           {dataArr.map((itm, idx) => {
-            const { text, textAlt, cost } = itm;
+            const { text, textAlt, category, cost } = itm;
             const units = Math.floor(parsedAmount / cost);
             if (units >= 1) {
               return (
                 <p className={styles.cover} key={idx}>
-                  ₦{amount} can cover {units} {units > 1 ? textAlt : text} for {units} {units > 1 ? 'learners' : 'learner'}
+                  ₦{amount} {category === "laptop" && units > 1 ? textAlt : text} for {units} {units > 1 ? 'learners' : 'learner'}
                 </p>
               );
             }
@@ -43,7 +43,7 @@ export const DonationQuotation = ({ amount }) => {
     } else if (parsedAmount < 1000) {
       feedback = <p>{invalidAmount}</p>;
     } else if (parsedAmount < 10000) {
-      feedback = <p className={styles.invalidAmount}>{gratitude(amount)}</p>;
+      feedback = <p className={styles.invalidAmount}>{gratitude}</p>;
     } else {
       feedback = '';
     }
