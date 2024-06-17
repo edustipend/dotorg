@@ -111,8 +111,6 @@ export const DonateNow = () => {
       }
     } catch (error) {
       handleRedirectModal(false);
-    } finally {
-      handleRedirectModal(false);
     }
   };
 
