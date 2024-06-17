@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import styles from './Supports.module.css';
 import Container from '../../../components/Container';
 import Header from '../../../components/Header';
@@ -6,7 +6,6 @@ import Text from '../../../components/Text';
 import { NavHashLink } from 'react-router-hash-link';
 import Button from '../../../components/Button';
 import {
-  AMT_RAISED,
   AMT_RAISED_TEXT,
   TestId,
   content1,
@@ -20,17 +19,35 @@ import {
   progressText2,
   subHeadText
 } from './constants';
+import { getData } from '../../../services/ApiClient';
 
 const Supports = () => {
   const [displayedAmount, setDisplayedAmount] = useState(0);
   const [progressPercentage, setProgressPercentage] = useState(0);
+  const [TotalAmountRaised, setTotalAmountRaised] = useState(0);
+
+  const innerStyle = {
+    background: `conic-gradient(#5801ff 0deg ${progressPercentage}%, #febd1c33 ${progressPercentage}deg 360deg)`
+  };
+
+  const fetchTransactions = useCallback(async () => {
+    const response = await getData(`donate/timeline`);
+    if (response.status) {
+      const AmountRaised = response?.data?.donations.reduce((sum, donation) => sum + donation?.transaction?.amount, 0);
+      setTotalAmountRaised(AmountRaised);
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchTransactions();
+  }, [fetchTransactions]);
 
   useEffect(() => {
     let amount = 0;
     const interval = setInterval(() => {
-      if (amount < AMT_RAISED) {
+      if (amount < TotalAmountRaised) {
         amount += 10000;
-        if (amount > AMT_RAISED) amount = AMT_RAISED;
+        if (amount > TotalAmountRaised) amount = TotalAmountRaised;
         setDisplayedAmount(amount);
         setProgressPercentage((amount / maxValue) * 100);
       } else {
@@ -38,11 +55,7 @@ const Supports = () => {
       }
     }, 50);
     return () => clearInterval(interval);
-  }, []);
-
-  const innerStyle = {
-    background: `conic-gradient(#5801ff 0deg ${progressPercentage}%, #febd1c33 ${progressPercentage}deg 360deg)`
-  };
+  }, [TotalAmountRaised]);
 
   return (
     <div id="how-it-works" className={styles.container} data-testid={TestId.WRAPPER}>

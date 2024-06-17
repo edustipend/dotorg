@@ -169,14 +169,14 @@
   }
 
   .inner {
-    width: 400px;
-    height: 400px;
+    width: 300px;
+    height: 300px;
     font-size: 48px;
   }
 
   .outer {
-    width: 500px;
-    height: 500px;
+    width: 400px;
+    height: 400px;
   }
 
   .cta {

@@ -10,7 +10,7 @@ export const content4 =
 export const content5 =
   'We invite you to join us on this mission of empowering our young talents to achieve their dreams by removing the barriers to their learning. You can take action by donating, and sharing with your network as well.';
 export const progressText1 = 'GOAL:';
-export const progressText2 = '₦5,400,000';
+export const progressText2 = '₦5,000,000';
 export const AMT_RAISED_TEXT = 'raised';
 export const AMOUNT_RAISED = '₦1,155,000';
 
