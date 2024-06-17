@@ -17,6 +17,7 @@ export const Input = ({ element, placeholder, label, includeLabel, value, type, 
         name="input"
         placeholder={placeholder}
         value={value}
+        
         {...props}
         className={`${styles.input} ${styles[size]} ${className}`}
       />

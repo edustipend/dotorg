@@ -14,14 +14,12 @@ import { ModalContext } from '../../context/ModalContext';
 import formatNumber from '../../utils/numberFormatter';
 import { checkEmail } from '../../utils/EmailChecker/emailChecker';
 import { postData } from '../../services/ApiClient';
-import { getEnvironment } from '../../utils/getEnvironment';
 import DonationQuotation from '../../components/DonationQuotation';
 import toast from 'react-hot-toast';
 
 export const DonateNow = () => {
   const nav = useNavigate();
   const location = useLocation();
-  const currentEnv = getEnvironment();
   const [params] = useSearchParams();
   const { value } = location.state || { value: 1000 };
   const [amount, setAmount] = useState(value);
@@ -68,7 +66,7 @@ export const DonateNow = () => {
       case !checkEmail(email):
         invalidInput(constants.invalidEmail);
         return false;
-      case phone.includes('-') || phone.length < 11:
+      case phone.includes('-') || phone.length !== 11:
         invalidInput(constants.Enter_Phone_number);
         return false;
       default:
@@ -87,7 +85,7 @@ export const DonateNow = () => {
 
     const response = await postData('donate', {
       amount: handleValidAmount(amount),
-      redirect_url: currentEnv ? constants.redirect_prod : constants.redirect_dev,
+      redirect_url: window.location.href,
       payment_options: 'card',
       currency: 'NGN',
       customer: {
@@ -152,7 +150,10 @@ export const DonateNow = () => {
   }, [params, setUserData, nav]);
 
   useEffect(() => {
-    handleFeedback();
+    const timeout = setTimeout(() => {
+      handleFeedback();
+    }, 800);
+    return () => clearTimeout(timeout);
   }, [handleFeedback]);
 
   useEffect(() => {
@@ -248,9 +249,9 @@ export const DonateNow = () => {
                   }}
                   required={false}
                   element={phoneInfo}
-                  type={constants.tel}
+                  type={constants.number}
                   label={constants.Phone_number}
-                  placeholder={constants.Enter_Phone_number}
+                  placeholder={constants.invalidPhoneNumber}
                 />
                 <div>
                   <Input
