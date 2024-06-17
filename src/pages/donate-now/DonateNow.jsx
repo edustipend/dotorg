@@ -48,8 +48,8 @@ export const DonateNow = () => {
 
   const handleValidAmount = (amt) => {
     const cleanedAmount = Number(amt)
-      .toString()
-      .replace(/[^0-9.]/g, '');
+      ?.toString()
+      ?.replace(/[^0-9.]/g, '');
     const amount = parseFloat(cleanedAmount);
     if (isNaN(amount)) return;
     return amount;
@@ -257,8 +257,8 @@ export const DonateNow = () => {
                   <Input
                     data-testid={TestId.AMOUNT_ID}
                     value={Number(amount)
-                      .toString()
-                      .replace(/[^0-9]./g, '')}
+                      ?.toString()
+                      ?.replace(/[^0-9]./g, '')}
                     required={false}
                     type={constants.number}
                     label={constants.Amount}
