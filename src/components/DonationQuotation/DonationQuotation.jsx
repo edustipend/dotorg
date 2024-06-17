@@ -32,7 +32,8 @@ export const DonationQuotation = ({ amount }) => {
             if (units >= 1) {
               return (
                 <p className={styles.cover} key={idx}>
-                  ₦{amount} {category === "laptop" && units > 1 ? textAlt : text} for {units} {units > 1 ? 'learners' : 'learner'}
+                  ₦{amount} {category === 'laptop' && units > 1 ? textAlt : text} for {units} {units > 1 ? 'learners' : 'learner'}{' '}
+                  {idx !== dataArr.length - 1 ? 'OR' : ''}
                 </p>
               );
             }
