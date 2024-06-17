@@ -14,6 +14,7 @@ export const Reports = () => {
   const [activeOption, setActiveOption] = useState({ year: null, category: null });
   const [filteredReports, setFilteredReports] = useState([]);
   const [page, setPage] = useState(0);
+  const [selectedReport, setSelectedReport] = useState(null);
   const { setIsActive } = useContext(ModalContext) || {};
   const isMobile = window.innerWidth < 768;
 
@@ -32,7 +33,8 @@ export const Reports = () => {
     }
   };
 
-  const handleShowModal = () => {
+  const handleShowModal = (report) => {
+    setSelectedReport(report);
     setIsActive((isActive) => !isActive);
   };
 
@@ -91,17 +93,11 @@ export const Reports = () => {
                         icon={File_Icon}
                         iconPosition={BTN.iconPosition}
                         size={BTN.size}
-                        onClick={handleShowModal}
+                        onClick={() => handleShowModal(r)}
                         dataTest={TestId.REPORT_BTN}
                       />
                     )}
                   </div>
-                  <Modal className={styles.modalWrapper} datatest={TestId.MODAL}>
-                    <div className={styles.modalContent}>
-                      <iframe src={r.link} title="pdf" className={styles.frame}></iframe>
-                      <img src={Close} alt="close" onClick={handleShowModal} className={styles.closeModal} />
-                    </div>
-                  </Modal>
                 </div>
               ))
             )}
@@ -110,6 +106,22 @@ export const Reports = () => {
           <Pagination currentPage={page + 1} totalPages={Math.ceil(data.length / 3)} onPageChange={handlePageChange} />
         </div>
       </Container>
+      {selectedReport && (
+        <Modal className={styles.modalWrapper} datatest={TestId.MODAL}>
+          <div className={styles.modalContent}>
+            <iframe src={selectedReport.link} title="pdf" className={styles.frame}></iframe>
+            <img
+              src={Close}
+              alt="close"
+              onClick={() => {
+                setIsActive(false);
+                setSelectedReport(null);
+              }}
+              className={styles.closeModal}
+            />
+          </div>
+        </Modal>
+      )}
     </div>
   );
 };
