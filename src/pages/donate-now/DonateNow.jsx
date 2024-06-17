@@ -14,13 +14,13 @@ import { ModalContext } from '../../context/ModalContext';
 import formatNumber from '../../utils/numberFormatter';
 import { checkEmail } from '../../utils/EmailChecker/emailChecker';
 import { postData } from '../../services/ApiClient';
-import { getEnvironment } from '../../utils/getEnvironment';
+// import { getEnvironment } from '../../utils/getEnvironment';
 import DonationQuotation from '../../components/DonationQuotation';
 
 export const DonateNow = () => {
   const nav = useNavigate();
   const location = useLocation();
-  const currentEnv = getEnvironment();
+  // const currentEnv = getEnvironment();
   const [params] = useSearchParams();
   const { value } = location.state || { value: 1000 };
   const [amount, setAmount] = useState(value);
@@ -77,7 +77,7 @@ export const DonateNow = () => {
 
     const response = await postData('donate', {
       amount: amount,
-      redirect_url: currentEnv ? constants.redirect_prod : constants.redirect_dev,
+      redirect_url: constants.redirect_dev,
       payment_options: 'card',
       currency: 'NGN',
       customer: {
