@@ -14,7 +14,8 @@ export const TestId = {
   HEAD_TEXT: 'head_text-el',
   IMAGE: 'image-el',
   SUB_HEADER: 'desc-el',
-  PAGINATION: 'pagination-el'
+  PAGINATION: 'pagination-el',
+  ID: 'recent-donations'
 };
 
 export const DONATIONS_DASHBOARD = '/transparency-dashboard';

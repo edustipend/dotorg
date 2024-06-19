@@ -1,3 +1,7 @@
+import { Drop_Down } from '../../assets';
+import { routesConstant } from '../../routesConstant';
+const { AMBASSADOR_PROGRAM, LOGIN, SUPPORT_A_LEARNER, REPORTS, ABOUT_US, TRANSPARENCY_DASHBOARD, IMPACTS } = routesConstant;
+
 export const TestId = {
   DEFAULT_NAVBAR_TEST_ID: 'navbar-id',
   NAVBAR_LOGO: '<p>edustipend</p>',
@@ -7,11 +11,11 @@ export const TestId = {
 export const NAVBAR_LINKS = [
   {
     label: 'Support A Learner',
-    to: '/support-a-learner'
+    to: SUPPORT_A_LEARNER
   },
   {
     label: 'Ambassador Program',
-    to: '/ambassador-program'
+    to: AMBASSADOR_PROGRAM
   },
   {
     label: 'How It Works',
@@ -20,32 +24,81 @@ export const NAVBAR_LINKS = [
   },
   {
     label: 'Login',
-    to: '/login'
+    to: LOGIN
   }
 ];
 
 export const NAVBAR_AMBASSADOR_LINKS = [
   {
     label: 'About the Program',
-    path: '/ambassador-program',
+    path: AMBASSADOR_PROGRAM,
     hash: '#about'
   },
   {
     label: 'Eligibility',
-    path: '/ambassador-program',
+    path: AMBASSADOR_PROGRAM,
     hash: '#eligibility'
   }
 ];
 
 export const SUPPORT_LEARNER_LINKS = [
   {
-    label: 'Donate Now',
-    path: '/support-a-learner/donate',
-    hash: ''
+    label: 'About Us',
+    icon: Drop_Down,
+    links: [
+      {
+        label: 'Team',
+        path: ABOUT_US,
+        hash: '#team'
+      },
+      {
+        label: 'Our Mission',
+        path: ABOUT_US,
+        hash: '#OUR MISSION'
+      },
+      {
+        label: 'Our Vision',
+        path: ABOUT_US,
+        hash: '#OUR VISION'
+      },
+      {
+        label: 'Contact Us',
+        path: 'mailto:contact@edustipend.org'
+      }
+    ]
+  },
+  {
+    label: 'Our Impact',
+    icon: Drop_Down,
+    links: [
+      {
+        label: 'Overview',
+        path: IMPACTS
+      },
+      {
+        label: 'Impact Reports',
+        path: REPORTS
+      }
+    ]
+  },
+  {
+    label: 'Donations',
+    icon: Drop_Down,
+    links: [
+      {
+        label: 'Recent Donations',
+        path: SUPPORT_A_LEARNER,
+        hash: '#recent-donations'
+      },
+      {
+        label: 'Donations Dashboard',
+        path: TRANSPARENCY_DASHBOARD
+      }
+    ]
   },
   {
     label: 'How It Works',
-    path: '/support-a-learner',
+    path: SUPPORT_A_LEARNER,
     hash: '#how-it-works'
   }
 ];
