@@ -29,24 +29,28 @@ export const formatDate = (dateStr) => {
  * Gets the start date based on the given frequency.
  *
  * @param {string} frequency - The frequency to calculate the start date for.
- * Possible values are 'daily', 'weekly', and 'monthly'.
- * - 'daily': Start date is 1 day before today.
- * - 'weekly': Start date is 7 days before today.
+ * Possible values are 'today', 'thisWeek', 'monthly', and 'tomorrow'.
+ * - 'today': Start date is 1 day before today.
+ * - 'thisWeek': Start date is the beginning of the current week.
  * - 'monthly': Start date is 30 days before today.
+ * - 'tomorrow': Start date is 1 day after today.
  * @returns {Date} The calculated start date.
  */
 export const getStartDate = (frequency) => {
   const today = new Date();
   let newStartDate;
+  let dayOfWeek;
 
   switch (frequency) {
-    case 'daily':
+    case 'today':
       newStartDate = new Date(today);
       newStartDate.setDate(today.getDate() - 1);
       break;
-    case 'weekly':
+    case 'thisWeek':
       newStartDate = new Date(today);
-      newStartDate.setDate(today.getDate() - 7);
+      dayOfWeek = today.getDay(); // 0 (Sunday) to 6 (Saturday)
+      // Subtract the current day of the week from the current date to get the previous Sunday
+      newStartDate.setDate(today.getDate() - dayOfWeek);
       break;
     case 'monthly':
       newStartDate = new Date(today);
