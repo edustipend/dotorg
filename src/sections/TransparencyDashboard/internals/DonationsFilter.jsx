@@ -8,10 +8,10 @@ export const DonationsFilter = ({ amountRaised, handleOptionChange }) => {
     <div className={styles.donationsFilter} data-testid={TestId.DONATIONS_FILTER_ID}>
       <div className={styles.filterTop}>
         <h1 className={styles.totalDonations}>{data.title}</h1>
-        <select className={styles.select} onChange={(e) => handleOptionChange(e)} data-testid={TestId.SELECT_OPTION} defaultValue={'weekly'}>
-          <option value="daily">Daily</option>
-          <option value="weekly">Weekly</option>
-          <option value="monthly">Monthly</option>
+        <select className={styles.select} onChange={(e) => handleOptionChange(e)} data-testid={TestId.SELECT_OPTION} defaultValue={'thisWeek'}>
+          <option value="today">Today</option>
+          <option value="thisWeek">This Week</option>
+          <option value="allTime">All Time</option>
         </select>
       </div>
       <div>

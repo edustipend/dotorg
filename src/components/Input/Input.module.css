@@ -23,9 +23,23 @@
   font-weight: 700;
 }
 
+.inputContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.currency {
+  position: absolute;
+  padding-left: 19px;
+  font-size: 16px;
+  color: var(--dark-navy-blue);
+}
+
 .input {
   width: 100%;
   padding: 17px 19px;
+  padding-top: 19px;
   height: 65px;
   font-size: 16px;
   color: var(--navy-blue);
@@ -33,6 +47,12 @@
   background-color: var(--white);
   border-radius: 15px;
   outline: none;
+}
+
+.inputAlt{
+  padding-left: 55px;
+  font-weight: 500
+
 }
 
 .input[type='date']::-webkit-calendar-picker-indicator {
@@ -76,10 +96,14 @@
     font-size: 18px;
   }
 
-  .input {
+  .input,.inputAlt,.currency {
     font-size: 18px;
   }
 
+ 
+  .inputAlt{
+    padding-left: 60px;
+  }
   .input::placeholder {
     font-size: 18px;
   }

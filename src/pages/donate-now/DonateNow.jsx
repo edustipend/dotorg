@@ -260,6 +260,7 @@ export const DonateNow = () => {
                       ?.toString()
                       ?.replace(/[^0-9]./g, '')}
                     required={false}
+                    currency="NGN"
                     type={constants.number}
                     label={constants.Amount}
                     placeholder={constants.NGN}

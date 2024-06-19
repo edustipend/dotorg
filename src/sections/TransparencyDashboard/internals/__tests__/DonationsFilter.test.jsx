@@ -34,9 +34,9 @@ describe('DonationsFilter', () => {
         </BrowserRouter>
       );
       const select = screen.getByRole('combobox');
-      fireEvent.change(select, { target: { value: 'weekly' } });
+      fireEvent.change(select, { target: { value: 'thisWeek' } });
       expect(handleOptionChange).toHaveBeenCalled();
-      expect(screen.getByTestId(TestId.SELECT_OPTION).value).toBe('weekly');
+      expect(screen.getByTestId(TestId.SELECT_OPTION).value).toBe('thisWeek');
     });
   });
 });

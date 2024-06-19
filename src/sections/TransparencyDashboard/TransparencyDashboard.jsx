@@ -8,11 +8,11 @@ import { getStartDate } from '../../utils/dateTimeUtils/dateTimeUtil';
 import styles from './TransparencyDashboard.module.css';
 
 export const TransparencyDashboard = () => {
-  const [frequency, setFrequency] = useState('weekly');
+  const [frequency, setFrequency] = useState('thisWeek');
   const [data, setData] = useState(resData);
   const [nextCall, setNextCall] = useState('');
   const [date, setDate] = useState({
-    startDate: getStartDate('weekly').toISOString().split('T')[0],
+    startDate: getStartDate('thisWeek').toISOString().split('T')[0],
     endDate: getStartDate('tommorow').toISOString().split('T')[0]
   });
   const handleOptionChange = (e) => {
@@ -21,9 +21,10 @@ export const TransparencyDashboard = () => {
   };
 
   const fetchTransactions = useCallback(async () => {
+    const params = frequency === 'allTime' ? '' : `?startDate=${date.startDate}&endDate=${date.endDate}`;
     const overview = await getData('donate/overview');
     const timeline = await getData(`donate/timeline?${nextCall || ''}`);
-    const range = await getData(`donate/range?startDate=${date.startDate}&endDate=${date.endDate}`);
+    const range = await getData(`donate/range${params}`);
 
     const timelines = timeline?.data?.donations?.map((donation) => ({
       id: donation._id,
@@ -42,7 +43,7 @@ export const TransparencyDashboard = () => {
       amountRaised: range?.data?.totalAmount,
       next: `?start=${timeline?.data?.next}` || prevData.next
     }));
-  }, [date.endDate, date.startDate, nextCall]);
+  }, [date.endDate, date.startDate, frequency, nextCall]);
 
   useEffect(() => {
     const calculatedStartDate = getStartDate(frequency);
