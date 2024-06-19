@@ -268,7 +268,9 @@ export const DonateNow = () => {
                     placeholder={constants.Enter_Phone_number}
                     disabled={toggleAnonymous}
                   />
-                  {invalidPhoneNumber && <small className={`${styles.small} ${styles.smallAlt}`}>{constants.invalidPhoneNumber}</small>}
+                  {!toggleAnonymous && (
+                    <small className={`${styles.small} ${styles.smallAlt}`}>{invalidPhoneNumber && constants.invalidPhoneNumber}</small>
+                  )}
                 </div>
                 <div>
                   <Input
