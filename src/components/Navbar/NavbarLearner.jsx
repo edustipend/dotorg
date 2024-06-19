@@ -12,7 +12,7 @@ const NavbarLearner = ({ showMenu, closeMenu, path }) => {
   const [activeLink, setActiveLink] = useState(path);
 
   const handleMouseEnter = (label) => {
-    setActiveDropdown(label);
+    setActiveDropdown((prev) => (prev === label ? null : label));
   };
 
   const handleMouseLeave = () => {
@@ -21,6 +21,7 @@ const NavbarLearner = ({ showMenu, closeMenu, path }) => {
 
   const handleClick = (linkPath) => {
     setActiveLink(linkPath);
+    handleMouseLeave();
     closeMenu(!showMenu);
   };
 
@@ -30,7 +31,6 @@ const NavbarLearner = ({ showMenu, closeMenu, path }) => {
         key={link.label}
         onMouseEnter={() => handleMouseEnter(link.label)}
         onMouseLeave={handleMouseLeave}
-        onClick={() => setActiveDropdown((prev) => (prev === link.label ? null : link.label))}
         className={`navItem ${activeDropdown === link.label ? 'active' : ''}`}>
         {link.links ? (
           <>

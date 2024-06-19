@@ -18,4 +18,4 @@ export const TestId = {
   ID: 'recent-donations'
 };
 
-export const DONATIONS_DASHBOARD = '/transparency-dashboard';
+export const DONATIONS_DASHBOARD = '/support-a-learner/transparency-dashboard';
