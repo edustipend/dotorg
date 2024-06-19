@@ -29,7 +29,7 @@ export const DonateNow = () => {
   const { fullname, email, phone, company, toggleAnonymous, invalidPhoneNumber, focus, title, message, error, errorMessage } = userData;
 
   //a random uuid used to generate an email address for anon
-  const uuid = window.crypto.randomUUID();
+  const uuid = window?.crypto?.randomUUID();
 
   const handleFocus = (setUserData, focus) => {
     setUserData((prev) => ({ ...prev, focus: !focus }));
