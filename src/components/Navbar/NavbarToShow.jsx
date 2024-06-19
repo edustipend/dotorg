@@ -19,10 +19,9 @@ export const NavbarToShow = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const isAmbassador = pathname === '/ambassador-program';
-  const isSupportALearner = pathname === '/support-a-learner';
+  const isSupportALearner = pathname === '/support-a-learner' || pathname === '/support-a-learner/donate';
   const isRequestStipend = pathname === '/application';
   const isLogin = pathname === '/login';
-  const isDonation = pathname === '/donation';
   const isDashboard = pathname === '/dashboard';
 
   const storeData = useSelector((state) => state?.user);
@@ -46,14 +45,14 @@ export const NavbarToShow = () => {
     navigate('/login');
   };
 
-  const showNav = () => !isDashboard && !isRequestStipend && !isLogin && !isDonation;
+  const showNav = () => !isDashboard && !isRequestStipend && !isLogin;
 
   return showNav() ? (
     <>
       {isAmbassador ? (
         <NavbarAmbassadorNavs showMenu={isToggle} closeMenu={setIsToggle} />
       ) : isSupportALearner ? (
-        <NavbarLearner showMenu={isToggle} closeMenu={setIsToggle} />
+        <NavbarLearner showMenu={isToggle} closeMenu={setIsToggle} path={pathname} />
       ) : (
         <NavbarNavs showMenu={isToggle} closeMenu={setIsToggle} />
       )}
