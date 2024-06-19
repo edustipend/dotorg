@@ -7,6 +7,14 @@
   position: relative;
 }
 
+.disabled {
+  opacity: 0.5;
+}
+
+.disabled:hover {
+  cursor: not-allowed;
+}
+
 .label {
   font-size: 16px;
   display: flex;
@@ -49,10 +57,13 @@
   outline: none;
 }
 
-.inputAlt{
+.inputAlt {
   padding-left: 55px;
   font-weight: 500
+}
 
+.disabled {
+  cursor: not-allowed;
 }
 
 .input[type='date']::-webkit-calendar-picker-indicator {
@@ -96,14 +107,17 @@
     font-size: 18px;
   }
 
-  .input,.inputAlt,.currency {
+  .input,
+  .inputAlt,
+  .currency {
     font-size: 18px;
   }
 
- 
-  .inputAlt{
+
+  .inputAlt {
     padding-left: 60px;
   }
+
   .input::placeholder {
     font-size: 18px;
   }

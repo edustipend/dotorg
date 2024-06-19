@@ -14,7 +14,6 @@ import { ModalContext } from '../../context/ModalContext';
 import formatNumber from '../../utils/numberFormatter';
 import { checkEmail } from '../../utils/EmailChecker/emailChecker';
 import { postData } from '../../services/ApiClient';
-import DonationQuotation from '../../components/DonationQuotation';
 import toast from 'react-hot-toast';
 
 export const DonateNow = () => {
@@ -27,7 +26,10 @@ export const DonateNow = () => {
   const [displayModal, setDisplayModal] = useState(false);
   const formattedNumber = formatNumber(amount);
   const { redirectModal, handleRedirectModal } = useContext(ModalContext) || {};
-  const { fullname, email, phone, company, toggleShowName, focus, title, message, error, errorMessage } = userData;
+  const { fullname, email, phone, company, toggleAnonymous, invalidPhoneNumber, focus, title, message, error, errorMessage } = userData;
+
+  //a random uuid used to generate an email address for anon
+  const uuid = window.crypto.randomUUID();
 
   const handleFocus = (setUserData, focus) => {
     setUserData((prev) => ({ ...prev, focus: !focus }));
@@ -55,15 +57,19 @@ export const DonateNow = () => {
     return amount;
   };
 
+  const invalidInput = (message) => {
+    setUserData((prev) => ({ ...prev, errorMessage: message }));
+  };
+
   const handleValidation = () => {
     switch (true) {
       case amount < 1000:
-        invalidInput('');
+        invalidInput(constants.invalidAmount);
         return false;
       case fullname.length < 3:
         invalidInput(constants.invalidName);
         return false;
-      case !checkEmail(email):
+      case !toggleAnonymous && !checkEmail(email):
         invalidInput(constants.invalidEmail);
         return false;
       case phone.includes('-') || phone.length !== 11:
@@ -75,12 +81,16 @@ export const DonateNow = () => {
     }
   };
 
-  const invalidInput = (message) => {
-    setUserData((prev) => ({ ...prev, errorMessage: message }));
+  const handleValidationAnon = () => {
+    if (amount < 1000) {
+      invalidInput(constants.invalidAmount);
+      return;
+    }
+    return true;
   };
 
   const handleDonation = async () => {
-    if (!handleValidation()) return;
+    if (toggleAnonymous ? !handleValidationAnon() : !handleValidation()) return;
     handleRedirectModal(true);
 
     const response = await postData('donate', {
@@ -89,9 +99,9 @@ export const DonateNow = () => {
       payment_options: 'card',
       currency: 'NGN',
       customer: {
-        email: email,
+        email: toggleAnonymous ? `${uuid.substring(0, 10)}@anon.com}` : email,
         name: fullname,
-        phone_number: phone
+        phone_number: toggleAnonymous ? '' : phone
       },
       meta: {
         companyName: company
@@ -157,12 +167,12 @@ export const DonateNow = () => {
   }, [handleFeedback]);
 
   useEffect(() => {
-    if (toggleShowName) {
+    if (toggleAnonymous) {
       setUserData((prev) => ({ ...prev, fullname: 'Anonymous' }));
     } else {
       setUserData((prev) => ({ ...prev, fullname: '' }));
     }
-  }, [toggleShowName]);
+  }, [toggleAnonymous]);
 
   const phoneInfo = (
     <div className={styles.phoneInfo} onFocus={() => handleFocus(setUserData, focus)} onBlur={() => handleBlur(setUserData, focus)} tabIndex="0">
@@ -203,21 +213,21 @@ export const DonateNow = () => {
                   <Input
                     type={constants.text}
                     value={userData.fullname}
-                    disabled={toggleShowName}
+                    disabled={toggleAnonymous}
                     required={false}
                     label={constants.fullName}
                     placeholder={constants.fullName}
                     onChange={(e) => {
                       setUserData((prev) => ({ ...prev, fullname: e.target.value }));
+                      phone.length < 11 && setUserData((prev) => ({ ...prev, phone: e.target.value }));
                     }}
-                    className={toggleShowName ? `${styles.fullname}` : ''}
                   />
                   <div className={styles.toggleContainer}>
                     <p className={styles.anon}>{constants.anonymous}</p>
                     <div
-                      onClick={() => setUserData((prev) => ({ ...prev, toggleShowName: !toggleShowName }))}
-                      className={toggleShowName ? `${styles.toggle} ${styles.toggleAlt}` : `${styles.toggle}`}>
-                      <div className={toggleShowName ? `${styles.ballAlt}` : `${styles.ball}`} />
+                      onClick={() => setUserData((prev) => ({ ...prev, toggleAnonymous: !toggleAnonymous }))}
+                      className={toggleAnonymous ? `${styles.toggle} ${styles.toggleAlt}` : `${styles.toggle}`}>
+                      <div className={toggleAnonymous ? `${styles.ballAlt}` : `${styles.ball}`} />
                     </div>
                   </div>
                 </div>
@@ -229,36 +239,43 @@ export const DonateNow = () => {
                   type={constants.email}
                   label={constants.Email_Address}
                   placeholder={constants.Enter_Email_Address}
+                  disabled={toggleAnonymous}
                   required={false}
                 />
-                {toggleShowName && (
-                  <Input
-                    value={company}
-                    onChange={(e) => {
-                      setUserData((prev) => ({ ...prev, company: e.target.value }));
-                    }}
-                    required={false}
-                    label={constants.company}
-                    placeholder={constants.company_name}
-                  />
-                )}
                 <Input
-                  value={phone.toString()}
+                  value={company}
                   onChange={(e) => {
-                    setUserData((prev) => ({ ...prev, phone: e.target.value }));
+                    setUserData((prev) => ({ ...prev, company: e.target.value }));
                   }}
                   required={false}
-                  element={phoneInfo}
-                  type={constants.number}
-                  label={constants.Phone_number}
-                  placeholder={constants.Enter_Phone_number}
+                  label={constants.company}
+                  placeholder={constants.company_name}
+                  disabled={toggleAnonymous}
                 />
+                <div className={styles.phoneContainer}>
+                  <Input
+                    value={phone.toString()}
+                    onChange={(e) => {
+                      setUserData((prev) => ({ ...prev, phone: e.target.value }));
+                      phone.trim().length !== 10
+                        ? setUserData((prev) => ({ ...prev, invalidPhoneNumber: true }))
+                        : setUserData((prev) => ({ ...prev, invalidPhoneNumber: false }));
+                    }}
+                    required={false}
+                    element={phoneInfo}
+                    type={constants.number}
+                    label={constants.Phone_number}
+                    placeholder={constants.Enter_Phone_number}
+                    disabled={toggleAnonymous}
+                  />
+                  {invalidPhoneNumber && <small className={`${styles.small} ${styles.smallAlt}`}>{constants.invalidPhoneNumber}</small>}
+                </div>
                 <div>
                   <Input
                     data-testid={TestId.AMOUNT_ID}
                     value={Number(amount)
                       ?.toString()
-                      ?.replace(/[^0-9]./g, '')}
+                      ?.replace(/[^0-9].,,/g, '')}
                     required={false}
                     currency="NGN"
                     type={constants.number}
@@ -266,11 +283,10 @@ export const DonateNow = () => {
                     placeholder={constants.NGN}
                     onChange={handleAmountChange}
                   />
-                  <DonationQuotation amount={formattedNumber} />
                 </div>
               </div>
               <div className={styles.btnContainer}>
-                <small className={styles.small}>{errorMessage}</small>
+                {!toggleAnonymous && <small className={styles.small}>{errorMessage}</small>}
                 <Button
                   dataTest={TestId.BUTTON_ID}
                   label={`${'Donate'} ₦${formattedNumber}`}

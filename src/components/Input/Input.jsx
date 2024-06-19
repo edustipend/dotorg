@@ -3,9 +3,9 @@ import styles from './Input.module.css';
 import { TestId } from './constants';
 const { LABEL_ID, INPUT_ID } = TestId;
 
-export const Input = ({ currency, element, placeholder, label, includeLabel, value, type, size, className, required, ...props }) => {
+export const Input = ({ currency, element, placeholder, label, includeLabel, value, type, size, className, disabled, required, ...props }) => {
   return (
-    <section className={styles.main}>
+    <section className={`${styles.main} ${disabled && styles.disabled}`}>
       {includeLabel ? (
         <label data-testid={LABEL_ID} htmlFor="input" className={styles.label}>
           {label} {required && <span className={styles.required}>*</span>} {element}
@@ -15,12 +15,13 @@ export const Input = ({ currency, element, placeholder, label, includeLabel, val
         {currency && <span className={styles.currency}>{currency}</span>}
         <input
           data-testid={INPUT_ID}
+          disabled={disabled}
           type={type}
           name="input"
           placeholder={placeholder}
           value={value}
           {...props}
-          className={`${styles.input} ${styles[size]} ${currency && styles.inputAlt} ${className}`}
+          className={`${styles.input} ${styles[size]} ${currency && styles.inputAlt} ${disabled && styles.disabled} ${className}`}
         />
       </div>
     </section>
@@ -37,6 +38,7 @@ Input.propTypes = {
   type: PropTypes.string,
   size: PropTypes.string,
   className: PropTypes.string,
+  disabled: PropTypes.bool,
   required: PropTypes.bool
 };
 
@@ -50,5 +52,6 @@ Input.defaultProps = {
   type: 'text',
   size: '',
   className: '',
+  disabled: false,
   required: true
 };
