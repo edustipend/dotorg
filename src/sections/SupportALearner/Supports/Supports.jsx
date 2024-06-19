@@ -23,7 +23,7 @@ import {
 
 const Supports = () => {
   return (
-    <div id="how-it-works" className={styles.container} data-testid={TestId.WRAPPER}>
+    <div className={styles.container} data-testid={TestId.WRAPPER}>
       <Container>
         <div className={styles.wrapper}>
           <div className={styles.leftwrap}>

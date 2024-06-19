@@ -97,9 +97,9 @@ export const SUPPORT_LEARNER_LINKS = [
     ]
   },
   {
-    label: 'How It Works',
+    label: 'How much can I Donate?',
     path: SUPPORT_A_LEARNER,
-    hash: '#how-it-works'
+    hash: '#how-much-can-i-donate'
   }
 ];
 
