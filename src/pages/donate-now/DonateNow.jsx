@@ -14,13 +14,11 @@ import { ModalContext } from '../../context/ModalContext';
 import formatNumber from '../../utils/numberFormatter';
 import { checkEmail } from '../../utils/EmailChecker/emailChecker';
 import { postData } from '../../services/ApiClient';
-import { getEnvironment } from '../../utils/getEnvironment';
-import DonationQuotation from '../../components/DonationQuotation';
+import toast from 'react-hot-toast';
 
 export const DonateNow = () => {
   const nav = useNavigate();
   const location = useLocation();
-  const currentEnv = getEnvironment();
   const [params] = useSearchParams();
   const { value } = location.state || { value: 1000 };
   const [amount, setAmount] = useState(value);
@@ -28,7 +26,10 @@ export const DonateNow = () => {
   const [displayModal, setDisplayModal] = useState(false);
   const formattedNumber = formatNumber(amount);
   const { redirectModal, handleRedirectModal } = useContext(ModalContext) || {};
-  const { fullname, email, phone, company, toggleShowName, focus, title, message, error, errorMessage } = userData;
+  const { fullname, email, phone, company, toggleAnonymous, invalidPhoneNumber, focus, title, message, error, errorMessage } = userData;
+
+  //a random uuid used to generate an email address for anon
+  const uuid = window?.crypto?.randomUUID();
 
   const handleFocus = (setUserData, focus) => {
     setUserData((prev) => ({ ...prev, focus: !focus }));
@@ -43,23 +44,36 @@ export const DonateNow = () => {
     const max = 1000000;
     const value = e.target.value;
     if (value >= 0 && value <= max) {
-      setAmount(value);
+      setAmount(handleValidAmount(value) ?? 0);
     }
+  };
+
+  const handleValidAmount = (amt) => {
+    const cleanedAmount = Number(amt)
+      ?.toString()
+      ?.replace(/[^0-9.]/g, '');
+    const amount = parseFloat(cleanedAmount);
+    if (isNaN(amount)) return;
+    return amount;
+  };
+
+  const invalidInput = (message) => {
+    setUserData((prev) => ({ ...prev, errorMessage: message }));
   };
 
   const handleValidation = () => {
     switch (true) {
       case amount < 1000:
-        invalidInput('');
+        invalidInput(constants.invalidAmount);
         return false;
       case fullname.length < 3:
         invalidInput(constants.invalidName);
         return false;
-      case phone.length < 11:
-        invalidInput(constants.Enter_Phone_number);
-        return false;
-      case !checkEmail(email):
+      case !toggleAnonymous && !checkEmail(email):
         invalidInput(constants.invalidEmail);
+        return false;
+      case phone.includes('-') || phone.length !== 11:
+        invalidInput(constants.invalidPhoneNumber);
         return false;
       default:
         setUserData((prev) => ({ ...prev, errorMessage: '' }));
@@ -67,34 +81,44 @@ export const DonateNow = () => {
     }
   };
 
-  const invalidInput = (message) => {
-    setUserData((prev) => ({ ...prev, errorMessage: message }));
+  const handleValidationAnon = () => {
+    if (amount < 1000) {
+      invalidInput(constants.invalidAmount);
+      return;
+    }
+    return true;
   };
 
   const handleDonation = async () => {
-    if (!handleValidation()) return;
-    handleRedirectModal();
+    if (toggleAnonymous ? !handleValidationAnon() : !handleValidation()) return;
+    handleRedirectModal(true);
 
     const response = await postData('donate', {
-      amount: amount,
-      redirect_url: currentEnv ? constants.redirect_prod : constants.redirect_dev,
+      amount: handleValidAmount(amount),
+      redirect_url: window.location.href,
       payment_options: 'card',
       currency: 'NGN',
       customer: {
-        email: email,
+        email: toggleAnonymous ? `${uuid.substring(0, 10)}@anon.com}` : email,
         name: fullname,
-        phone_number: phone
+        phone_number: toggleAnonymous ? '' : phone
       },
       meta: {
         companyName: company
       }
     });
-    const result = await response;
-    if (result?.status) {
-      setUserData(initial);
-      window.location.href = result?.data?.link;
-    } else {
-      handleRedirectModal();
+
+    try {
+      const result = await response;
+      if (result?.status) {
+        setUserData(initial);
+        window.location.href = result?.data?.link;
+      } else {
+        handleRedirectModal(false);
+        toast.error('Failed to connect');
+      }
+    } catch (error) {
+      handleRedirectModal(false);
     }
   };
 
@@ -103,7 +127,7 @@ export const DonateNow = () => {
     let status = '';
     if (params.has('status')) {
       status = params.get('status');
-      if (status === 'successful') {
+      if (status === 'successful' || status === 'completed') {
         setUserData((prev) => ({
           ...prev,
           title: constants.donation_success_header,
@@ -136,16 +160,19 @@ export const DonateNow = () => {
   }, [params, setUserData, nav]);
 
   useEffect(() => {
-    handleFeedback();
+    const timeout = setTimeout(() => {
+      handleFeedback();
+    }, 800);
+    return () => clearTimeout(timeout);
   }, [handleFeedback]);
 
   useEffect(() => {
-    if (toggleShowName) {
+    if (toggleAnonymous) {
       setUserData((prev) => ({ ...prev, fullname: 'Anonymous' }));
     } else {
       setUserData((prev) => ({ ...prev, fullname: '' }));
     }
-  }, [toggleShowName]);
+  }, [toggleAnonymous]);
 
   const phoneInfo = (
     <div className={styles.phoneInfo} onFocus={() => handleFocus(setUserData, focus)} onBlur={() => handleBlur(setUserData, focus)} tabIndex="0">
@@ -186,22 +213,21 @@ export const DonateNow = () => {
                   <Input
                     type={constants.text}
                     value={userData.fullname}
-                    disabled={toggleShowName}
+                    disabled={toggleAnonymous}
                     required={false}
                     label={constants.fullName}
                     placeholder={constants.fullName}
                     onChange={(e) => {
                       setUserData((prev) => ({ ...prev, fullname: e.target.value }));
+                      phone.length < 11 && setUserData((prev) => ({ ...prev, phone: e.target.value }));
                     }}
-                    className={toggleShowName ? `${styles.fullname}` : ''}
                   />
                   <div className={styles.toggleContainer}>
                     <p className={styles.anon}>{constants.anonymous}</p>
                     <div
-                      onClick={() => setUserData((prev) => ({ ...prev, toggleShowName: !toggleShowName }))}
-                      className={toggleShowName ? `${styles.toggle} ${styles.toggleAlt}` : `${styles.toggle}`}
-                    >
-                      <div className={toggleShowName ? `${styles.ballAlt}` : `${styles.ball}`} />
+                      onClick={() => setUserData((prev) => ({ ...prev, toggleAnonymous: !toggleAnonymous }))}
+                      className={toggleAnonymous ? `${styles.toggle} ${styles.toggleAlt}` : `${styles.toggle}`}>
+                      <div className={toggleAnonymous ? `${styles.ballAlt}` : `${styles.ball}`} />
                     </div>
                   </div>
                 </div>
@@ -213,45 +239,56 @@ export const DonateNow = () => {
                   type={constants.email}
                   label={constants.Email_Address}
                   placeholder={constants.Enter_Email_Address}
+                  disabled={toggleAnonymous}
                   required={false}
                 />
-                {toggleShowName && (
-                  <Input
-                    value={company}
-                    onChange={(e) => {
-                      setUserData((prev) => ({ ...prev, company: e.target.value }));
-                    }}
-                    required={false}
-                    label={constants.company}
-                    placeholder={constants.company_name}
-                  />
-                )}
                 <Input
-                  value={phone.toString()}
+                  value={company}
                   onChange={(e) => {
-                    setUserData((prev) => ({ ...prev, phone: e.target.value }));
+                    setUserData((prev) => ({ ...prev, company: e.target.value }));
                   }}
                   required={false}
-                  element={phoneInfo}
-                  type={constants.number}
-                  label={constants.Phone_number}
-                  placeholder={constants.Enter_Phone_number}
+                  label={constants.company}
+                  placeholder={constants.company_name}
+                  disabled={toggleAnonymous}
                 />
+                <div className={styles.phoneContainer}>
+                  <Input
+                    value={phone.toString()}
+                    onChange={(e) => {
+                      setUserData((prev) => ({ ...prev, phone: e.target.value }));
+                      phone.trim().length !== 10
+                        ? setUserData((prev) => ({ ...prev, invalidPhoneNumber: true }))
+                        : setUserData((prev) => ({ ...prev, invalidPhoneNumber: false }));
+                    }}
+                    required={false}
+                    element={phoneInfo}
+                    type={constants.number}
+                    label={constants.Phone_number}
+                    placeholder={constants.Enter_Phone_number}
+                    disabled={toggleAnonymous}
+                  />
+                  {!toggleAnonymous && (
+                    <small className={`${styles.small} ${styles.smallAlt}`}>{invalidPhoneNumber && constants.invalidPhoneNumber}</small>
+                  )}
+                </div>
                 <div>
                   <Input
                     data-testid={TestId.AMOUNT_ID}
-                    value={amount.toString()}
+                    value={Number(amount)
+                      ?.toString()
+                      ?.replace(/[^0-9].,,/g, '')}
                     required={false}
+                    currency="NGN"
                     type={constants.number}
                     label={constants.Amount}
                     placeholder={constants.NGN}
                     onChange={handleAmountChange}
                   />
-                  <DonationQuotation amount={formattedNumber} />
                 </div>
               </div>
               <div className={styles.btnContainer}>
-                <small className={styles.small}>{errorMessage}</small>
+                {!toggleAnonymous && <small className={styles.small}>{errorMessage}</small>}
                 <Button
                   dataTest={TestId.BUTTON_ID}
                   label={`${'Donate'} ₦${formattedNumber}`}

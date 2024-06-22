@@ -135,6 +135,14 @@
   margin-top: 12px;
 }
 
+.phoneContainer{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+
+
 .toggle {
   position: relative;
   width: 32px;
@@ -253,6 +261,13 @@
   font-size: 18px;
   color: var(--red-accent);
   font-weight: 500;
+}
+
+.smallAlt{
+  position: absolute;
+  text-align: initial;
+  bottom: -1.5rem;
+  left: 0;
 }
 
 .img:hover~.info {
