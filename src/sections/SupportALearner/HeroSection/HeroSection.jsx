@@ -9,6 +9,7 @@ import { NavHashLink } from 'react-router-hash-link';
 import Container from '../../../components/Container';
 import { Texts, quotesArray } from './contants';
 
+
 const HeroSection = () => {
   const [currentQuoteIndex, setCurrentQuoteIndex] = useState(0);
   const [animationKey, setAnimationKey] = useState(0);
