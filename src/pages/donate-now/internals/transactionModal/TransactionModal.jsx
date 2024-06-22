@@ -79,7 +79,7 @@ export const TransactionModal = ({ error, setDisplayModal, message, title }) => 
             effectClass={styles.btn}
             onClick={() => {
               setDisplayModal((prev) => !prev);
-              nav('/support-a-learner');
+              nav('/support-a-learner/transparency-dashboard');
             }}
             className={styles.btn2}
           />

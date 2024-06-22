@@ -160,7 +160,7 @@ export const paths = [
   },
   {
     title: 'Donations',
-    path: '/transparency-dashboard'
+    path: '/support-a-learner/transparency-dashboard'
   }
 ];
 

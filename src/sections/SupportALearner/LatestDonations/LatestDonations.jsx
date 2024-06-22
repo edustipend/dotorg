@@ -51,7 +51,7 @@ const LatestDonations = () => {
   if (!currentDonations || currentDonations?.length < 6) return null;
 
   return (
-    <div className={styles.container} data-testid={TestId.WRAPPER}>
+    <div className={styles.container} data-testid={TestId.WRAPPER} id={TestId.ID}>
       <Container>
         <div className={styles.headerContainer}>
           <div className={styles.headerWrap}>

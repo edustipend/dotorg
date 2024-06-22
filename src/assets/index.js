@@ -58,6 +58,7 @@ import Chart from './pie-chart.png';
 import File_Icon from './file-icon.png';
 import User_Icon from './user-target.svg';
 import Goal_Icon from './goal.svg';
+import Drop_Down from './drop-down3.svg';
 
 export {
   Hero1,
@@ -119,5 +120,6 @@ export {
   Chart,
   File_Icon,
   User_Icon,
-  Goal_Icon
+  Goal_Icon,
+  Drop_Down
 };

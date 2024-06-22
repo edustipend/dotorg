@@ -15,6 +15,7 @@ import formatNumber from '../../utils/numberFormatter';
 import { checkEmail } from '../../utils/EmailChecker/emailChecker';
 import { postData } from '../../services/ApiClient';
 import { getEnvironment } from '../../utils/getEnvironment';
+import DonationQuotation from '../../components/DonationQuotation';
 
 export const DonateNow = () => {
   const nav = useNavigate();
@@ -49,7 +50,7 @@ export const DonateNow = () => {
   const handleValidation = () => {
     switch (true) {
       case amount < 1000:
-        invalidInput(constants.invalidAmount);
+        invalidInput('');
         return false;
       case fullname.length < 3:
         invalidInput(constants.invalidName);
@@ -82,7 +83,10 @@ export const DonateNow = () => {
       customer: {
         email: email,
         name: fullname,
-        phonenumber: phone
+        phone_number: phone
+      },
+      meta: {
+        companyName: company
       }
     });
     const result = await response;
@@ -195,7 +199,8 @@ export const DonateNow = () => {
                     <p className={styles.anon}>{constants.anonymous}</p>
                     <div
                       onClick={() => setUserData((prev) => ({ ...prev, toggleShowName: !toggleShowName }))}
-                      className={toggleShowName ? `${styles.toggle} ${styles.toggleAlt}` : `${styles.toggle}`}>
+                      className={toggleShowName ? `${styles.toggle} ${styles.toggleAlt}` : `${styles.toggle}`}
+                    >
                       <div className={toggleShowName ? `${styles.ballAlt}` : `${styles.ball}`} />
                     </div>
                   </div>
@@ -232,15 +237,18 @@ export const DonateNow = () => {
                   label={constants.Phone_number}
                   placeholder={constants.Enter_Phone_number}
                 />
-                <Input
-                  data-testid={TestId.AMOUNT_ID}
-                  value={amount.toString()}
-                  required={false}
-                  type={constants.number}
-                  label={constants.Amount}
-                  placeholder={constants.NGN}
-                  onChange={handleAmountChange}
-                />
+                <div>
+                  <Input
+                    data-testid={TestId.AMOUNT_ID}
+                    value={amount.toString()}
+                    required={false}
+                    type={constants.number}
+                    label={constants.Amount}
+                    placeholder={constants.NGN}
+                    onChange={handleAmountChange}
+                  />
+                  <DonationQuotation amount={formattedNumber} />
+                </div>
               </div>
               <div className={styles.btnContainer}>
                 <small className={styles.small}>{errorMessage}</small>
