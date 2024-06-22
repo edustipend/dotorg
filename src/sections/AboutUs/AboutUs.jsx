@@ -7,8 +7,6 @@ import about from '../../assets/about-img.png';
 import { TestId, desc, headText, missionAndVisionData } from './constant';
 
 const AboutUs = () => {
- 
-
   return (
     <div className={styles.container} data-testid={TestId.WRAPPER}>
       <Container>
@@ -26,7 +24,7 @@ const AboutUs = () => {
 
         <div className={styles.missvis}>
           {missionAndVisionData.map((item, index) => (
-            <div key={index} className={styles.mission}>
+            <div key={index} className={styles.mission} id={item.title}>
               <Text color="primary" content={item.title} />
               <h4>{item.description}</h4>
             </div>

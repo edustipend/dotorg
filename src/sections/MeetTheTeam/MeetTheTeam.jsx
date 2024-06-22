@@ -74,7 +74,7 @@ var settings = {
 function MeetTheTeam() {
   return (
     <Container>
-      <div className="meet-our-team">
+      <div className="meet-our-team" id="team">
         <div className="meet-our-team__typography">
           <h2 className="meet-our-team__heading">
             Meet our team of <span className="meet-our-team__heading--span">leaders</span>, creators, and world class individuals

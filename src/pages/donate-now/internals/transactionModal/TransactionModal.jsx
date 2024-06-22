@@ -8,7 +8,6 @@ import { defaultShare, twitterShare, instagramShare } from '../sharePosts';
 import { useNavigate } from 'react-router-dom';
 import IconButton from '../../../../components/IconButton';
 
-
 export const TransactionModal = ({ error, setDisplayModal, message, title }) => {
   const [shareUI, setShareUI] = useState(false);
   const nav = useNavigate();

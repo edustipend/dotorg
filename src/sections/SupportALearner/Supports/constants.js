@@ -10,12 +10,12 @@ export const content4 =
 export const content5 =
   'We invite you to join us on this mission of empowering our young talents to achieve their dreams by removing the barriers to their learning. You can take action by donating, and sharing with your network as well.';
 export const progressText1 = 'GOAL:';
-export const progressText2 = '₦5,400,000';
+export const progressText2 = '₦11,000,000';
 export const AMT_RAISED_TEXT = 'raised';
 export const AMOUNT_RAISED = '₦1,155,000';
 
 export const TestId = {
-  WRAPPER: 'wrapper-el',
+  WRAPPER: 'support-wrapper-div',
   HEAD_TEXT: 'head_text-el',
   SUB_HEAD_TEXT: 'desc-el',
   CONTENT1: 'cont-el-1',
@@ -25,19 +25,11 @@ export const TestId = {
   CONTENT5: 'cont-el-5',
   progressText1: 'progress-el-1',
   progressText2: 'progress-el-2',
-  OUTER_DIV: 'outer-div',
-  INNER_DIV: 'inner-div',
+  PROGRESS_BAR_CONTAINER: 'progress-bar-container',
+  PROGRESS_BAR_AMOUNT_LABEL: 'progress-bar-amount-label',
   AMT_RAISED_TEXT: 'amt-text-el',
   AMT_RAISED: 'amt-el'
 };
 
 export const AMT_RAISED = 1155000;
 export const maxValue = 5400000;
-
-export const progressPercentage = (AMT_RAISED / maxValue) * 100;
-
-export const innerColor = `conic-gradient(#5801ff 0deg ${progressPercentage}%, #febd1c33 ${progressPercentage}deg 360deg)`;
-
-export const innerStyle = {
-  background: innerColor
-};

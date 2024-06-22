@@ -1,62 +1,60 @@
 .main {
-    margin-top: 1rem;
-    font-family: var(--font-family-poopins);
+  margin-top: 1rem;
+  font-family: var(--font-family-poopins);
 }
 
 .feedback {
-    display: flex;
-    flex-direction: column;
-    gap: .3rem;
-    font-family: var(--font-family-poopins);
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-family: var(--font-family-poopins);
 }
 
 .cover {
-    text-align: left;
-    animation: animate 300ms ease-in-out forwards;
-    transform: translateX(50px);
+  text-align: left;
+  animation: animate 300ms ease-in-out forwards;
+  transform: translateX(50px);
 }
 
 .main,
 .feedback,
 .cover {
-    font-family: var(--font-family-manrope);
-    font-weight: 400;
-    font-size: 16px;
-    font-weight: 500;
+  font-family: var(--font-family-manrope);
+  font-weight: 400;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 @media screen and (max-width: 550px) {
-
-    .main,
-    .cover,
-    .feedback {
-        gap: 1rem;
-        font-size: 15px;
-    }
+  .main,
+  .cover,
+  .feedback {
+    gap: 1rem;
+    font-size: 15px;
+  }
 }
 
 @media screen and (max-width: 425px) {
-
-    .main,
-    .cover,
-    .feedback {
-        gap: 1.3rem;
-        font-size: 14px;
-    }
+  .main,
+  .cover,
+  .feedback {
+    gap: 1.3rem;
+    font-size: 14px;
+  }
 }
 
 @keyframes animate {
-    0% {
-        opacity: 0;
-        transform: translateX(100px);
-    }
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
 
-    50% {
-        opacity: .5;
-    }
+  50% {
+    opacity: 0.5;
+  }
 
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
