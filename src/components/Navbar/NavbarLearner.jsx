@@ -31,7 +31,8 @@ const NavbarLearner = ({ showMenu, closeMenu, path }) => {
         key={link.label}
         onMouseEnter={() => handleMouseEnter(link.label)}
         onMouseLeave={handleMouseLeave}
-        className={`navItem ${activeDropdown === link.label ? 'active' : ''}`}>
+        className={`navItem ${activeDropdown === link.label ? 'active' : ''}`}
+      >
         {link.links ? (
           <>
             <div className="navCont">
@@ -49,7 +50,8 @@ const NavbarLearner = ({ showMenu, closeMenu, path }) => {
                     href={sublink.path}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`dropdownItem ${activeLink === sublink.path ? 'activeLink' : ''}`}>
+                    className={`dropdownItem ${activeLink === sublink.path ? 'activeLink' : ''}`}
+                  >
                     {sublink.label}
                   </a>
                 ) : (
@@ -57,7 +59,8 @@ const NavbarLearner = ({ showMenu, closeMenu, path }) => {
                     key={sublink.label}
                     to={{ pathname: sublink.path, hash: sublink.hash }}
                     className={`dropdownItem ${activeLink === sublink.path ? 'activeLink' : ''}`}
-                    onClick={() => handleClick(sublink.path)}>
+                    onClick={() => handleClick(sublink.path)}
+                  >
                     {sublink.label}
                   </HashLink>
                 )

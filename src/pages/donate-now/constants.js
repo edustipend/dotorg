@@ -1,5 +1,3 @@
-
-
 const initial = {
   fullname: '',
   email: '',
@@ -59,7 +57,5 @@ const constants = {
   redirect_dev: 'http://localhost:3000/support-a-learner/donate',
   redirect_prod: 'https://www.edustipend.org/support-a-learner/donate'
 };
-
-
 
 export { constants, initial, TestId };

@@ -9,7 +9,6 @@ import { NavHashLink } from 'react-router-hash-link';
 import Container from '../../../components/Container';
 import { Texts, quotesArray } from './contants';
 
-
 const HeroSection = () => {
   const [currentQuoteIndex, setCurrentQuoteIndex] = useState(0);
   const [animationKey, setAnimationKey] = useState(0);
@@ -61,14 +60,16 @@ const HeroSection = () => {
               <NavHashLink
                 to={{
                   pathname: '/support-a-learner/donate'
-                }}>
+                }}
+              >
                 <Button label={Texts.SUPPORT_TEXT} size={'medium'} type={'secondary'} />
               </NavHashLink>
               <NavHashLink
                 to={{
                   pathname: '/support-a-learner',
                   hash: '#how-much-can-i-donate'
-                }}>
+                }}
+              >
                 <Button label={Texts.DONATE_TEXT} size={'medium'} type={'plain'} />
               </NavHashLink>
             </div>

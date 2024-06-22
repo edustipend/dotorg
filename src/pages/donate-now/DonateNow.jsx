@@ -199,7 +199,8 @@ export const DonateNow = () => {
                     <p className={styles.anon}>{constants.anonymous}</p>
                     <div
                       onClick={() => setUserData((prev) => ({ ...prev, toggleShowName: !toggleShowName }))}
-                      className={toggleShowName ? `${styles.toggle} ${styles.toggleAlt}` : `${styles.toggle}`}>
+                      className={toggleShowName ? `${styles.toggle} ${styles.toggleAlt}` : `${styles.toggle}`}
+                    >
                       <div className={toggleShowName ? `${styles.ballAlt}` : `${styles.ball}`} />
                     </div>
                   </div>
