@@ -77,7 +77,6 @@ const Supports = () => {
         if (amount < totalAmountRaised) {
           amount += 20000;
           if (amount > totalAmountRaised) amount = totalAmountRaised;
-          console.log('Updating displayedAmount:', amount);
           setDisplayedAmount(amount);
           setProgressPercentage((amount / maxValue) * 100);
         } else {
@@ -95,7 +94,7 @@ const Supports = () => {
         <div className={styles.wrapper}>
           <div className={styles.leftwrap}>
             <div className={styles.headerWrap}>
-              <Header size={'large'} dataTest={TestId.HEAD_TEXT}>
+              <Header size="large" dataTest={TestId.HEAD_TEXT}>
                 {headText}
               </Header>
               <div className={styles.line}></div>
@@ -121,8 +120,8 @@ const Supports = () => {
               </span>
             </p>
             <div className={styles.progresswrap}>
-              <div style={innerStyle} className={styles.outer} data-testid={TestId.OUTER_DIV}>
-                <div className={styles.inner} data-testid={TestId.INNER_DIV}>
+              <div style={innerStyle} className={styles.outer} data-testid={TestId.PROGRESS_BAR_CONTAINER}>
+                <div className={styles.inner} data-testid={TestId.PROGRESS_BAR_AMOUNT_LABEL}>
                   <p className={styles.amtraised} data-testid={TestId.AMT_RAISED}>
                     ₦{displayedAmount.toLocaleString()}
                   </p>
@@ -136,7 +135,8 @@ const Supports = () => {
                 <NavHashLink
                   to={{
                     pathname: '/support-a-learner/donate'
-                  }}>
+                  }}
+                >
                   <Button label={'Donate Now'} size={'medium'} type={'primary'} />
                 </NavHashLink>
               </div>
@@ -147,7 +147,8 @@ const Supports = () => {
           <NavHashLink
             to={{
               pathname: '/support-a-learner/donate'
-            }}>
+            }}
+          >
             <Button label={'Donate Now'} size={'large'} type={'secondary'} />
           </NavHashLink>
         </div>
