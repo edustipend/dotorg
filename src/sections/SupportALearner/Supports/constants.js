@@ -6,7 +6,7 @@ export const content2 =
 export const content3 =
   'The impact of our support has been remarkable, manifesting in the form of newfound employment opportunities, accelerated skill development, and the establishment of sustainable businesses. We are committed to sustaining this positive change and invite your collaboration in achieving this goal.';
 export const content4 =
-  'In pursuit of our mission, we aim to raise N5.4 million, which will facilitate the provision of stipends for the coming nine months. These funds will enable us to award five laptops, 27 Data subscriptions, and a Course/School fees stipend to 37 young persons.';
+  'In pursuit of our mission, we aim to raise N11 million, which will facilitate the provision of stipends for the coming nine months. These funds will enable us to award five laptops, 27 Data subscriptions, and a Course/School fees stipend to 37 young persons.';
 export const content5 =
   'We invite you to join us on this mission of empowering our young talents to achieve their dreams by removing the barriers to their learning. You can take action by donating, and sharing with your network as well.';
 export const progressText1 = 'GOAL:';
@@ -32,4 +32,4 @@ export const TestId = {
 };
 
 export const AMT_RAISED = 1155000;
-export const maxValue = 5400000;
+export const maxValue = 11000000;

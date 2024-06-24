@@ -21,6 +21,7 @@ import {
 } from './constants';
 import { getData } from '../../../services/ApiClient';
 import { scroller } from 'react-scroll';
+import { formatMoney } from '../../../utils/numberFormatter/formatMoney';
 
 const Supports = () => {
   const sectionRef = useRef(null);
@@ -123,7 +124,7 @@ const Supports = () => {
               <div style={innerStyle} className={styles.outer} data-testid={TestId.PROGRESS_BAR_CONTAINER}>
                 <div className={styles.inner} data-testid={TestId.PROGRESS_BAR_AMOUNT_LABEL}>
                   <p className={styles.amtraised} data-testid={TestId.AMT_RAISED}>
-                    ₦{displayedAmount.toLocaleString()}
+                    {formatMoney(displayedAmount)}
                   </p>
                   <p className={styles.raised} data-testid={TestId.AMT_RAISED_TEXT}>
                     {AMT_RAISED_TEXT}
@@ -135,8 +136,7 @@ const Supports = () => {
                 <NavHashLink
                   to={{
                     pathname: '/support-a-learner/donate'
-                  }}
-                >
+                  }}>
                   <Button label={'Donate Now'} size={'medium'} type={'primary'} />
                 </NavHashLink>
               </div>
@@ -147,8 +147,7 @@ const Supports = () => {
           <NavHashLink
             to={{
               pathname: '/support-a-learner/donate'
-            }}
-          >
+            }}>
             <Button label={'Donate Now'} size={'large'} type={'secondary'} />
           </NavHashLink>
         </div>
