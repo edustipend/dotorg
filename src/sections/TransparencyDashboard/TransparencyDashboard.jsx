@@ -26,12 +26,15 @@ export const TransparencyDashboard = () => {
     const timeline = await getData(`donate/timeline?${nextCall || ''}`);
     const range = await getData(`donate/range${params}`);
 
-    const timelines = timeline?.data?.donations?.map((donation) => ({
+    const newDonations = timeline?.data?.donations?.map((donation) => ({
       id: donation._id,
       name: donation?.donor?.name,
       amount: donation?.transaction?.amount,
       date: donation?.createdAt
     }));
+    const uniqueDonations = Array.from(new Set([...data.donations, ...(newDonations || [])].map((donation) => donation.id))).map((id) => {
+      return [...data.donations, ...(newDonations || [])].find((donation) => donation.id === id);
+    });
 
     setData((prevData) => ({
       ...prevData,
@@ -39,10 +42,11 @@ export const TransparencyDashboard = () => {
       contributors: overview?.data?.uniqueDonorsCount || prevData.contributors,
       raised: overview?.data?.totalAmount || prevData.raised,
       completed: Math.round((overview?.data?.totalAmount / prevData.goal) * 100),
-      donations: [...prevData.donations, ...(timelines || [])],
+      donations: uniqueDonations,
       amountRaised: range?.data?.totalAmount,
-      next: `?start=${timeline?.data?.next}` || prevData.next
+      next: `start=${timeline?.data?.next}` || prevData.next
     }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [date.endDate, date.startDate, frequency, nextCall]);
 
   useEffect(() => {
