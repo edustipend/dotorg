@@ -6,7 +6,7 @@ import Text from '../../../components/Text';
 import { theCurrentPageNumber, TestId, Texts, itemsPerPage } from './constants';
 import emoji from '../../../assets/donation.png';
 import Pagination from '../../../components/Pagination/Pagination';
-import { getData } from '../../../services/ApiClient';
+import { DONATION, getData } from '../../../services/ApiClient';
 import { getInitials } from '../../TransparencyDashboard/internals/DashboardTimeline/TableRow';
 
 const LatestDonations = () => {
@@ -22,7 +22,7 @@ const LatestDonations = () => {
   };
 
   const fetchTransactions = useCallback(async () => {
-    const timeline = await getData(`donate/timeline`);
+    const timeline = await getData(`${DONATION}/timeline`);
     const timelines = timeline?.data?.donations?.map((donation) => ({
       id: donation._id,
       name: getInitials(donation?.donor?.name),
