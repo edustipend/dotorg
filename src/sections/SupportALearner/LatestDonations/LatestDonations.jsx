@@ -1,25 +1,51 @@
-import React, { useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import Container from '../../../components/Container';
 import styles from '../LatestDonations/LatestDonations.module.css';
 import Header from '../../../components/Header';
 import Text from '../../../components/Text';
-import { theCurrentPageNumber, itemsPerPage, TestId, Texts } from './constants';
-import { donations } from './donations.mock';
+import { theCurrentPageNumber, TestId, Texts, itemsPerPage } from './constants';
 import emoji from '../../../assets/donation.png';
 import Pagination from '../../../components/Pagination/Pagination';
+import { DONATION, getData } from '../../../services/ApiClient';
+import { getInitials } from '../../TransparencyDashboard/internals/DashboardTimeline/TableRow';
 
 const LatestDonations = () => {
   const [currentPage, setCurrentPage] = useState(theCurrentPageNumber);
+  const [currentDonations, setCurrentDonations] = useState([]);
+  const [total, setTotal] = useState(1);
+
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
-  const currentDonations = donations.slice(startIndex, endIndex);
 
   const changePage = (page) => {
     setCurrentPage(page);
   };
 
+  const fetchTransactions = useCallback(async () => {
+    const timeline = await getData(`${DONATION}/timeline`);
+    const timelines = timeline?.data?.donations?.map((donation) => ({
+      id: donation._id,
+      name: getInitials(donation?.donor?.name),
+      backer: donation?.donor?.name,
+      when: new Date(donation?.createdAt).toUTCString(),
+      amount: donation?.transaction?.amount,
+      cause: 'Edustipend'
+    }));
+
+    setCurrentDonations(timelines);
+
+    const totalDonations = timelines?.length;
+    setTotal(totalDonations > 18 ? 3 : Math.ceil(totalDonations / itemsPerPage));
+  }, [setCurrentDonations]);
+
+  useEffect(() => {
+    fetchTransactions();
+  }, [fetchTransactions]);
+
+  if (!currentDonations || currentDonations?.length < 6) return null;
+
   return (
-    <div className={styles.container} data-testid={TestId.WRAPPER}>
+    <div className={styles.container} data-testid={TestId.WRAPPER} id={TestId.ID}>
       <Container>
         <div className={styles.headerContainer}>
           <div className={styles.headerWrap}>
@@ -31,7 +57,7 @@ const LatestDonations = () => {
           <Text dataTest={TestId.SUB_HEADER} content={Texts.SUB_HEADER} />
         </div>
         <div className={styles.donations}>
-          {currentDonations.map((donation) => (
+          {currentDonations?.slice(startIndex, endIndex).map((donation) => (
             <div key={donation.id} className={styles.donation}>
               <div className={styles.name}>
                 <p>{donation.name}</p>
@@ -46,7 +72,7 @@ const LatestDonations = () => {
             </div>
           ))}
         </div>
-        <Pagination currentPage={currentPage} onPageChange={changePage} showViewAll={true} totalPages={3} />
+        <Pagination currentPage={currentPage} onPageChange={changePage} showViewAll={true} totalPages={total} />
       </Container>
     </div>
   );

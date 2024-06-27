@@ -73,7 +73,8 @@ const HeroSection = () => {
                 to={{
                   pathname: '/support-a-learner',
                   hash: '#how-much-can-i-donate'
-                }}>
+                }}
+              >
                 <Button label={Texts.DONATE_TEXT} size={'medium'} type={'plain'} />
               </NavHashLink>
             </div>

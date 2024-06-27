@@ -11,6 +11,9 @@ import { LOGOUT, authorizedPost } from '../../services/ApiClient';
 import toast from 'react-hot-toast';
 import Cookies from 'js-cookie';
 import NavbarLearner from './NavbarLearner';
+import { routesConstant } from '../../routesConstant';
+const { AMBASSADOR_PROGRAM, LOGIN, DASHBOARD, APPLICATION, SUPPORT_A_LEARNER, REPORTS, ABOUT_US, TRANSPARENCY_DASHBOARD, IMPACTS, DONATE_NOW } =
+  routesConstant;
 
 export const NavbarToShow = () => {
   const [isToggle, setIsToggle] = useState(false);
@@ -18,12 +21,11 @@ export const NavbarToShow = () => {
   const { pathname } = useLocation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const isAmbassador = pathname === '/ambassador-program';
-  const isSupportALearner = pathname === '/support-a-learner';
-  const isRequestStipend = pathname === '/application';
-  const isLogin = pathname === '/login';
-  const isDonation = pathname === '/donation';
-  const isDashboard = pathname === '/dashboard';
+  const isAmbassador = pathname === AMBASSADOR_PROGRAM;
+  const isRequestStipend = pathname === APPLICATION;
+  const isLogin = pathname === LOGIN;
+  const isDashboard = pathname === DASHBOARD;
+  const isSupportALearner = [SUPPORT_A_LEARNER, REPORTS, ABOUT_US, TRANSPARENCY_DASHBOARD, IMPACTS, DONATE_NOW].includes(pathname);
 
   const storeData = useSelector((state) => state?.user);
   let firstN = '';
@@ -46,14 +48,14 @@ export const NavbarToShow = () => {
     navigate('/login');
   };
 
-  const showNav = () => !isDashboard && !isRequestStipend && !isLogin && !isDonation;
+  const showNav = () => !isDashboard && !isRequestStipend && !isLogin;
 
   return showNav() ? (
     <>
       {isAmbassador ? (
         <NavbarAmbassadorNavs showMenu={isToggle} closeMenu={setIsToggle} />
       ) : isSupportALearner ? (
-        <NavbarLearner showMenu={isToggle} closeMenu={setIsToggle} />
+        <NavbarLearner showMenu={isToggle} closeMenu={setIsToggle} path={pathname} />
       ) : (
         <NavbarNavs showMenu={isToggle} closeMenu={setIsToggle} />
       )}

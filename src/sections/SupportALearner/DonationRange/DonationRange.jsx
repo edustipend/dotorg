@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import formatNumber from '../../../utils/numberFormatter';
 import { userInteraction } from '../../../utils/googleTagManager/googleTagManager';
 import { tagEvents } from '../../../utils/googleTagManager/tagEvents';
+import DonationQuotation from '../../../components/DonationQuotation';
 
 const { supportButton, donateNow, buttonCategory} = tagEvents;
 export const DonationRange = () => {
@@ -28,7 +29,7 @@ export const DonationRange = () => {
     if (value === 0) {
       setStep(1000);
     } else {
-      setStep(5000);
+      setStep(1000); //will come back to this; if we increment my 5,000 or 10,000 those who want to donate 2 - 4,000 will be skipped.
     }
   }, []);
 
@@ -75,7 +76,8 @@ export const DonationRange = () => {
                       className={styles.rangeInput}
                     />
                   </div>
-                  <p className={styles.sum}>₦{`${formattedNumber} can get ${4} Laptops for ${4} learners`}</p>
+                  <DonationQuotation amount={formattedNumber} />
+                  {/* <p className={styles.sum}>₦{`${formattedNumber} can get ${4} Laptops for ${4} learners`}</p> */}
                 </div>
               </div>
               <div
