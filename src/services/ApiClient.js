@@ -12,6 +12,7 @@ export const NEW_APPLICATION = 'stipend/apply';
 export const ONE_CLICK_APPLY = 'stipend/apply/one-click';
 export const LOGOUT = 'logout';
 export const APPLICATION_WINDOW_STATUS = 'application-window';
+export const DONATION = 'donation';
 
 export const authorizedPost = async function (route = '', data = {}) {
   const url = `${API_ENDPOINT}${route}?jwt=${token}`;

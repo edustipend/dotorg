@@ -3,7 +3,7 @@ import Container from '../../components/Container';
 import { useCallback, useEffect, useState } from 'react';
 import { DashboardTimelines, DonationsFilter, Goals } from './internals';
 import BreadCrumbs from '../../components/BreadCrumbs';
-import { getData } from '../../services/ApiClient';
+import { DONATION, getData } from '../../services/ApiClient';
 import { getStartDate } from '../../utils/dateTimeUtils/dateTimeUtil';
 import styles from './TransparencyDashboard.module.css';
 
@@ -22,16 +22,19 @@ export const TransparencyDashboard = () => {
 
   const fetchTransactions = useCallback(async () => {
     const params = frequency === 'allTime' ? '' : `?startDate=${date.startDate}&endDate=${date.endDate}`;
-    const overview = await getData('donate/overview');
-    const timeline = await getData(`donate/timeline?${nextCall || ''}`);
-    const range = await getData(`donate/range${params}`);
+    const overview = await getData(`${DONATION}/overview`);
+    const timeline = await getData(`${DONATION}/timeline?${nextCall || ''}`);
+    const range = await getData(`${DONATION}/range${params}`);
 
-    const timelines = timeline?.data?.donations?.map((donation) => ({
+    const newDonations = timeline?.data?.donations?.map((donation) => ({
       id: donation._id,
       name: donation?.donor?.name,
       amount: donation?.transaction?.amount,
       date: donation?.createdAt
     }));
+    const uniqueDonations = Array.from(new Set([...data.donations, ...(newDonations || [])].map((donation) => donation.id))).map((id) => {
+      return [...data.donations, ...(newDonations || [])].find((donation) => donation.id === id);
+    });
 
     setData((prevData) => ({
       ...prevData,
@@ -39,10 +42,11 @@ export const TransparencyDashboard = () => {
       contributors: overview?.data?.uniqueDonorsCount || prevData.contributors,
       raised: overview?.data?.totalAmount || prevData.raised,
       completed: Math.round((overview?.data?.totalAmount / prevData.goal) * 100),
-      donations: [...prevData.donations, ...(timelines || [])],
+      donations: uniqueDonations,
       amountRaised: range?.data?.totalAmount,
-      next: `?start=${timeline?.data?.next}` || prevData.next
+      next: `start=${timeline?.data?.next}` || prevData.next
     }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [date.endDate, date.startDate, frequency, nextCall]);
 
   useEffect(() => {
