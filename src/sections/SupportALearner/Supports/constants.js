@@ -12,7 +12,7 @@ export const content5 =
 export const progressText1 = 'GOAL:';
 export const progressText2 = '₦11,000,000';
 export const AMT_RAISED_TEXT = 'raised';
-export const AMOUNT_RAISED = '₦1,155,000';
+export const maxValue = 11000000;
 
 export const TestId = {
   WRAPPER: 'support-wrapper-div',
@@ -31,5 +31,3 @@ export const TestId = {
   AMT_RAISED: 'amt-el'
 };
 
-export const AMT_RAISED = 1155000;
-export const maxValue = 11000000;
