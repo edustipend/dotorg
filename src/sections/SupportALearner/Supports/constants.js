@@ -31,5 +31,3 @@ export const TestId = {
   AMT_RAISED: 'amt-el'
 };
 
-export const maxValue = 11000000;
-
