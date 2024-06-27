@@ -3,7 +3,7 @@ import Container from '../../components/Container';
 import { useCallback, useEffect, useState } from 'react';
 import { DashboardTimelines, DonationsFilter, Goals } from './internals';
 import BreadCrumbs from '../../components/BreadCrumbs';
-import { getData } from '../../services/ApiClient';
+import { DONATION, getData } from '../../services/ApiClient';
 import { getStartDate } from '../../utils/dateTimeUtils/dateTimeUtil';
 import styles from './TransparencyDashboard.module.css';
 
@@ -22,9 +22,9 @@ export const TransparencyDashboard = () => {
 
   const fetchTransactions = useCallback(async () => {
     const params = frequency === 'allTime' ? '' : `?startDate=${date.startDate}&endDate=${date.endDate}`;
-    const overview = await getData('donate/overview');
-    const timeline = await getData(`donate/timeline?${nextCall || ''}`);
-    const range = await getData(`donate/range${params}`);
+    const overview = await getData(`${DONATION}/overview`);
+    const timeline = await getData(`${DONATION}/timeline?${nextCall || ''}`);
+    const range = await getData(`${DONATION}/range${params}`);
 
     const newDonations = timeline?.data?.donations?.map((donation) => ({
       id: donation._id,
