@@ -40,7 +40,7 @@ const LatestDonations = () => {
 
     setCurrentDonations(timelines);
 
-    const totalDonations = timelines.length;
+    const totalDonations = timelines?.length;
     setTotal(totalDonations > 18 ? 3 : Math.ceil(totalDonations / itemsPerPage));
   }, [setCurrentDonations]);
 
