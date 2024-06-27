@@ -15,17 +15,17 @@ function generateReports(month, year, links) {
   return [
     {
       title: 'Beneficiaries List',
-      date: `${month}, ${year}`,
+      date: `${month} ${year}`,
       link: links[0]
     },
     {
       title: 'Applications Report',
-      date: `${month}, ${year}`,
+      date: `${month} ${year}`,
       link: links[1]
     },
     {
       title: 'Beneficiaries Report',
-      date: `${month}, ${year}`,
+      date: `${month} ${year}`,
       link: links[2]
     }
   ];
