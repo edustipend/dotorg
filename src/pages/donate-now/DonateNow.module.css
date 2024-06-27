@@ -283,11 +283,11 @@
 }
 
 .animText {
-  opacity: 1;
-
+  font-family: var(--font-family-manrope);
 }
 
 .animTextAlt {
+  font-family: var(--font-family-manrope);
   opacity: 0;
   animation: anim 700ms ease-in-out forwards;
 }
@@ -309,6 +309,11 @@
 
   .small {
     font-size: 16px;
+  }
+
+  .animText,
+  .animTextAlt {
+    font-size: 14px;
   }
 }
 
