@@ -33,8 +33,8 @@ export const ModalContextProvider = ({ children }) => {
     setVerifyCurrentUser((prev) => !prev);
   }
 
-  const handleRedirectModal = () => {
-    setRedirectModal((prev) => !prev);
+  const handleRedirectModal = (bool) => {
+    setRedirectModal(bool);
   }
 
   const handleToggleTransactionModal = () => {
