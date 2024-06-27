@@ -15,17 +15,17 @@ function generateReports(month, year, links) {
   return [
     {
       title: 'Beneficiaries List',
-      date: `${month}, ${year}`,
+      date: `${month} ${year}`,
       link: links[0]
     },
     {
       title: 'Applications Report',
-      date: `${month}, ${year}`,
+      date: `${month} ${year}`,
       link: links[1]
     },
     {
       title: 'Beneficiaries Report',
-      date: `${month}, ${year}`,
+      date: `${month} ${year}`,
       link: links[2]
     }
   ];
@@ -103,7 +103,12 @@ export const reports = [
   ]),
   generateReports('March', 2024, [
     `${HOST_URL}2024%2F03%2FEdustipend%20Beneficiaries%20List%20-%20March%202024.pdf?alt=media`,
-    `${HOST_URL}2024%2F03%2FEdustipend%20Applications%20Report%20-%20March%202024.pdf?alt=media`
+    `${HOST_URL}2024%2F03%2FEdustipend%20Applications%20Report%20-%20March%202024.pdf?alt=media`,
+    `${HOST_URL}2024%2F03%2FEdustipend%20Beneficiaries%20Report%20-%20March%202024.pdf?alt=media`
+  ]),
+  generateReports('May', 2024, [
+    `${HOST_URL}2024%2F05%2FEdustipend%20Beneficiaries%20List%20-%20May%202024.pdf?alt=media`,
+    `${HOST_URL}2024%2F05%2FEdustipend%20Applications%20Report%20-%20May%202024.pdf?alt=media`
   ])
 ].reverse();
 
