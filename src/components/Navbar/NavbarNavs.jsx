@@ -10,25 +10,16 @@ const { NAVBAR_LINKS_ID } = TestId;
 
 const NavbarNavs = ({ showMenu, closeMenu }) => {
   const { buttonLabel, handleCTAClick } = useHandleCTAClick();
-  const isDevelopment = process.env.NODE_ENV === 'development';
-
-  const checkLocation = (path) => {
-    const isSupportALearner = path === NAVBAR_LINKS[0].to;
-    return isSupportALearner;
-  };
 
   return (
     <>
       <nav className="navbarNavs" data-testid={NAVBAR_LINKS_ID}>
         <div className="navContent">
-          {NAVBAR_LINKS.map((link) => {
-            const supportALearnerInDev = checkLocation(link.to);
-            return (
-              <HashLink key={link.label} to={{ pathname: link.to, hash: link.hash }}>
-                {supportALearnerInDev && isDevelopment ? link.label : !supportALearnerInDev ? link.label : null}
-              </HashLink>
-            );
-          })}
+          {NAVBAR_LINKS.map((link) => (
+            <HashLink key={link.label} to={{ pathname: link.to, hash: link.hash }}>
+              {link.label}
+            </HashLink>
+          ))}
         </div>
         <div className="navAction">
           <Button label={buttonLabel} type={BUTTON_TYPE} onClick={() => handleCTAClick()} className="navBtn" />
@@ -38,14 +29,11 @@ const NavbarNavs = ({ showMenu, closeMenu }) => {
       {showMenu ? (
         <nav className="mobile-nav">
           <div className="mobile-links">
-            {NAVBAR_LINKS.map((link) => {
-              const supportALearnerInDev = checkLocation(link.to);
-              return (
-                <HashLink key={link.label} to={{ pathname: link.to, hash: link.hash }} onClick={() => closeMenu(!showMenu)}>
-                  {supportALearnerInDev && isDevelopment ? link.label : !supportALearnerInDev ? link.label : null}
-                </HashLink>
-              );
-            })}
+            {NAVBAR_LINKS.map((link) => (
+              <HashLink key={link.label} to={{ pathname: link.to, hash: link.hash }} onClick={() => closeMenu(!showMenu)}>
+                {link.label}
+              </HashLink>
+            ))}
           </div>
           <div className="mobile-nav-btn">
             <Button
