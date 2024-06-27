@@ -13,7 +13,7 @@ import TransactionModal from './internals/transactionModal';
 import { ModalContext } from '../../context/ModalContext';
 import formatNumber from '../../utils/numberFormatter';
 import { checkEmail } from '../../utils/EmailChecker/emailChecker';
-import { postData } from '../../services/ApiClient';
+import { DONATION, postData } from '../../services/ApiClient';
 import toast from 'react-hot-toast';
 
 export const DonateNow = () => {
@@ -93,7 +93,7 @@ export const DonateNow = () => {
     if (toggleAnonymous ? !handleValidationAnon() : !handleValidation()) return;
     handleRedirectModal(true);
 
-    const response = await postData('donate', {
+    const response = await postData(`${DONATION}`, {
       amount: handleValidAmount(amount),
       redirect_url: window.location.href,
       payment_options: 'card',

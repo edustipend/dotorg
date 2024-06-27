@@ -19,7 +19,7 @@ import {
   progressText2,
   subHeadText
 } from './constants';
-import { getData } from '../../../services/ApiClient';
+import { DONATION, getData } from '../../../services/ApiClient';
 import { scroller } from 'react-scroll';
 import { formatMoney } from '../../../utils/numberFormatter/formatMoney';
 
@@ -37,7 +37,7 @@ const Supports = () => {
   };
 
   const fetchTransactions = useCallback(async () => {
-    const response = await getData(`donate/overview`);
+    const response = await getData(`${DONATION}/overview`);
     if (response.status) {
       const amountRaised = response?.data?.totalAmount;
       setTotalAmountRaised(amountRaised);
