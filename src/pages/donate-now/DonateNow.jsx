@@ -100,7 +100,7 @@ export const DonateNow = () => {
       payment_options: 'card',
       currency: 'NGN',
       customer: {
-        email: toggleAnonymous ? `${uuid.substring(0, 10)}@anon.com}` : email,
+        email: toggleAnonymous ? `${uuid.substring(0, 10)}@anon.com` : email,
         name: fullname,
         phone_number: toggleAnonymous ? '' : phone
       },
