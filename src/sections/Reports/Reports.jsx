@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Chart, File_Icon, Insight, close, Close } from '../../assets';
+import { File_Icon, Report_Lines, close, Close } from '../../assets';
 import Button from '../../components/Button';
 import Container from '../../components/Container';
 import Modal from '../../components/Modal';
@@ -78,7 +78,7 @@ export const Reports = () => {
             {data.slice(page * 3, (page + 1) * 3).map((report) =>
               report.map((r, i) => (
                 <div className={styles.reportCard} key={r.title}>
-                  <img src={i % 2 ? Chart : Insight} alt="insight" />
+                  <img src={r.image} alt="insight" />
                   <div className={styles.content}>
                     <h1>{r.title}</h1>
                     <h2>{r.date}</h2>
@@ -97,6 +97,9 @@ export const Reports = () => {
                         dataTest={TestId.REPORT_BTN}
                       />
                     )}
+                  </div>
+                  <div className={styles.lines}>
+                    <img src={Report_Lines} alt="LINES" />
                   </div>
                 </div>
               ))
