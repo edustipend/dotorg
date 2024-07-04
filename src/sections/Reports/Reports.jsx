@@ -85,7 +85,14 @@ export const Reports = () => {
 
                     {isMobile ? (
                       <a href={r.link} target="_blank" rel="noreferrer">
-                        <Button label={BTN.label} icon={File_Icon} iconPosition={BTN.iconPosition} size={BTN.size} className={styles.reportBtn} />
+                        <Button
+                          label={BTN.label}
+                          icon={File_Icon}
+                          iconPosition={BTN.iconPosition}
+                          size={BTN.size}
+                          className={styles.reportBtn}
+                          type={BTN.type}
+                        />
                       </a>
                     ) : (
                       <Button
@@ -95,6 +102,7 @@ export const Reports = () => {
                         size={BTN.size}
                         onClick={() => handleShowModal(r)}
                         dataTest={TestId.REPORT_BTN}
+                        type={BTN.type}
                       />
                     )}
                   </div>

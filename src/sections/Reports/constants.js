@@ -153,7 +153,8 @@ export const getFilteredReports = (options) => {
 export const BTN = {
   label: 'View report',
   size: 'medium',
-  iconPosition: 'back'
+  iconPosition: 'back',
+  type: 'secondary'
 };
 
 export const TestId = {
