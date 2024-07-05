@@ -1,3 +1,5 @@
+import { AR_Image, BL_Image, BR_Image } from '../../assets';
+
 export const HEAD_TEXT = 'Monthly Reports';
 export const SUB_TEXT =
   'Explore our monthly Edustipend applications report and gain insight into how we have empowered the lives of thousands of learners';
@@ -14,19 +16,22 @@ function generateReports(month, year, links) {
 
   return [
     {
-      title: 'Beneficiaries List',
-      date: `${month} ${year}`,
-      link: links[0]
-    },
-    {
       title: 'Applications Report',
       date: `${month} ${year}`,
-      link: links[1]
+      link: links[1],
+      image: AR_Image
+    },
+    {
+      title: 'Beneficiaries List',
+      date: `${month} ${year}`,
+      link: links[0],
+      image: BL_Image
     },
     {
       title: 'Beneficiaries Report',
       date: `${month} ${year}`,
-      link: links[2]
+      link: links[2],
+      image: BR_Image
     }
   ];
 }
@@ -148,7 +153,8 @@ export const getFilteredReports = (options) => {
 export const BTN = {
   label: 'View report',
   size: 'medium',
-  iconPosition: 'back'
+  iconPosition: 'back',
+  type: 'secondary'
 };
 
 export const TestId = {
