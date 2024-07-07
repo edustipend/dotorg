@@ -56,7 +56,7 @@ export const Footer = (props) => {
             </div>
             <div>
               <p className="paragraph-xs secondary" style={{ fontSize: '.9rem' }}>
-                &copy; 2023 All rights reserved.
+                &copy; {new Date().getFullYear()} All rights reserved.
               </p>
             </div>
           </div>
