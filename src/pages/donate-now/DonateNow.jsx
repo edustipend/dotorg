@@ -16,6 +16,8 @@ import { checkEmail } from '../../utils/EmailChecker/emailChecker';
 import { DONATION, postData } from '../../services/ApiClient';
 import toast from 'react-hot-toast';
 
+const campaignSource = 'utm_source';
+const referrerSource = 'utm_referrer';
 export const DonateNow = () => {
   const nav = useNavigate();
   const location = useLocation();
@@ -39,9 +41,9 @@ export const DonateNow = () => {
     (alternate) => {
       for (const key of params.keys()) {
         if (alternate) {
-          params.delete('utm_referrer');
-          params.delete('utm_source');
-        } else if (key !== 'utm_referrer' && key !== 'utm_source') {
+          params.delete(referrerSource);
+          params.delete(campaignSource);
+        } else if (key !== referrerSource && key !== campaignSource) {
           params.delete(key);
         }
       }
@@ -123,8 +125,8 @@ export const DonateNow = () => {
       redirect_url: urlWithoutParams,
       payment_options: 'card',
       currency: 'NGN',
-      campaign: params?.get('utm_source') ? params.get('utm_source') : '',
-      referrer: params?.get('utm_referrer') ? params.get('utm_referrer') : '',
+      campaign: params?.get(campaignSource) ? params.get(campaignSource) : '',
+      referrer: params?.get(referrerSource) ? params.get(referrerSource) : '',
       customer: {
         email: toggleAnonymous ? `${uuid.substring(0, 10)}@anon.com}` : email,
         name: fullname,
