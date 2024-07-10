@@ -28,6 +28,27 @@ export const DonateNow = () => {
   const { redirectModal, handleRedirectModal } = useContext(ModalContext) || {};
   const { fullname, email, phone, company, toggleAnonymous, invalidPhoneNumber, focus, title, message, error, errorMessage } = userData;
 
+  /**
+   * On success or On failure, flutterwave redirects the user to the specified route with two params attached
+   * E.g base/support-a-learner/donate?status=cancelled&tx_ref=edustipend-txref-z5EWyXkjJrVrCDMdECqc5
+   * Additional we want to also clean the url after extracting the information we need.
+   *
+   * after reading the status of the transcation, we need to clean up our url string.
+   */
+  const cleanURL = useCallback(
+    (alternate) => {
+      for (const key of params.keys()) {
+        if (alternate) {
+          params.delete('utm_referrer');
+          params.delete('utm_source');
+        } else if (key !== 'utm_referrer' && key !== 'utm_source') {
+          params.delete(key);
+        }
+      }
+      nav({ search: params.toString() }, { replace: true });
+    },
+    [nav, params]
+  );
   //a random uuid used to generate an email address for anon
   const uuid = window?.crypto?.randomUUID();
 
@@ -93,11 +114,17 @@ export const DonateNow = () => {
     if (toggleAnonymous ? !handleValidationAnon() : !handleValidation()) return;
     handleRedirectModal(true);
 
+    const currentUrl = window.location.href;
+    const urlObject = new URL(currentUrl);
+    const urlWithoutParams = `${urlObject.origin}${urlObject.pathname}`;
+
     const response = await postData(`${DONATION}`, {
       amount: handleValidAmount(amount),
-      redirect_url: window.location.href,
+      redirect_url: urlWithoutParams,
       payment_options: 'card',
       currency: 'NGN',
+      campaign: params?.get('utm_source') ? params.get('utm_source') : '',
+      referrer: params?.get('utm_referrer') ? params.get('utm_referrer') : '',
       customer: {
         email: toggleAnonymous ? `${uuid.substring(0, 10)}@anon.com}` : email,
         name: fullname,
@@ -112,12 +139,15 @@ export const DonateNow = () => {
       const result = await response;
       if (result?.status) {
         setUserData(initial);
+        cleanURL(true);
         window.location.href = result?.data?.link;
       } else {
         handleRedirectModal(false);
+        cleanURL(true);
         toast.error('Failed to connect');
       }
     } catch (error) {
+      cleanURL(true);
       handleRedirectModal(false);
     }
   };
@@ -145,19 +175,8 @@ export const DonateNow = () => {
       }
     }
 
-    /**
-     * On success or On failure, flutterwave redirects the user to the specified route with two params attached
-     * E.g base/support-a-learner/donate?status=cancelled&tx_ref=edustipend-txref-z5EWyXkjJrVrCDMdECqc5
-     *
-     * after reading the status of the transcation, we need to clean up our url string.
-     */
-
-    for (const key of params.keys()) {
-      params.delete(key);
-    }
-
-    nav({ search: params.toString() }, { replace: true });
-  }, [params, setUserData, nav]);
+    cleanURL();
+  }, [params, setUserData, cleanURL]);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
