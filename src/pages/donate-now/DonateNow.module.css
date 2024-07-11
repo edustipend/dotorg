@@ -135,7 +135,7 @@
   margin-top: 12px;
 }
 
-.phoneContainer{
+.phoneContainer {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -263,7 +263,7 @@
   font-weight: 500;
 }
 
-.smallAlt{
+.smallAlt {
   position: absolute;
   text-align: initial;
   bottom: -1.5rem;
@@ -282,6 +282,28 @@
   display: none;
 }
 
+.animText {
+  margin-top: 3px;
+  font-family: var(--font-family-manrope);
+}
+
+.animTextAlt {
+  font-family: var(--font-family-manrope);
+  margin-top: 3px;
+  opacity: 0;
+  animation: anim 700ms ease-in-out forwards;
+}
+
+@keyframes anim {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 @media screen and (max-width:500px) {
   .left {
     display: none;
@@ -289,6 +311,11 @@
 
   .small {
     font-size: 16px;
+  }
+
+  .animText,
+  .animTextAlt {
+    font-size: 14px;
   }
 }
 

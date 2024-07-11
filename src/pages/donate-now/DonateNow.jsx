@@ -15,6 +15,7 @@ import formatNumber from '../../utils/numberFormatter';
 import { checkEmail } from '../../utils/EmailChecker/emailChecker';
 import { DONATION, postData } from '../../services/ApiClient';
 import toast from 'react-hot-toast';
+import useDonationPrompt from '../../hooks/useDonationPrompt';
 
 export const DonateNow = () => {
   const nav = useNavigate();
@@ -27,6 +28,7 @@ export const DonateNow = () => {
   const formattedNumber = formatNumber(amount);
   const { redirectModal, handleRedirectModal } = useContext(ModalContext) || {};
   const { fullname, email, phone, company, toggleAnonymous, invalidPhoneNumber, focus, title, message, error, errorMessage } = userData;
+  const { currentText, nextText, swapText, setSwapText } = useDonationPrompt(amount);
 
   //a random uuid used to generate an email address for anon
   const uuid = window?.crypto?.randomUUID();
@@ -41,6 +43,7 @@ export const DonateNow = () => {
 
   //input value should not be greater than 1000000
   const handleAmountChange = (e) => {
+    setSwapText(false);
     const max = 1000000;
     const value = e.target.value;
     if (value >= 0 && value <= max) {
@@ -285,6 +288,7 @@ export const DonateNow = () => {
                     placeholder={constants.NGN}
                     onChange={handleAmountChange}
                   />
+                  {!swapText ? <p className={styles.animText}>{currentText}</p> : <p className={styles.animTextAlt}>{nextText}</p>}
                 </div>
               </div>
               <div className={styles.btnContainer}>
