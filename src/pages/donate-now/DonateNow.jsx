@@ -16,8 +16,8 @@ import { checkEmail } from '../../utils/EmailChecker/emailChecker';
 import { DONATION, postData } from '../../services/ApiClient';
 import toast from 'react-hot-toast';
 
-const campaignSource = 'utm_source';
-const referrerSource = 'utm_referrer';
+const UTM_CAMPAIGN_SOURCE = 'utm_source';
+const UTM_REFERRER = 'utm_referrer';
 export const DonateNow = () => {
   const nav = useNavigate();
   const location = useLocation();
@@ -38,12 +38,12 @@ export const DonateNow = () => {
    * after reading the status of the transcation, we need to clean up our url string.
    */
   const cleanURL = useCallback(
-    (alternate) => {
+    (deleteUtmParams) => {
       for (const key of params.keys()) {
-        if (alternate) {
-          params.delete(referrerSource);
-          params.delete(campaignSource);
-        } else if (key !== referrerSource && key !== campaignSource) {
+        if (deleteUtmParams) {
+          params.delete(UTM_REFERRER);
+          params.delete(UTM_CAMPAIGN_SOURCE);
+        } else if (key !== UTM_REFERRER && key !== UTM_CAMPAIGN_SOURCE) {
           params.delete(key);
         }
       }
@@ -125,8 +125,8 @@ export const DonateNow = () => {
       redirect_url: urlWithoutParams,
       payment_options: 'card',
       currency: 'NGN',
-      campaign: params?.get(campaignSource) ? params.get(campaignSource) : '',
-      referrer: params?.get(referrerSource) ? params.get(referrerSource) : '',
+      campaign: params?.get(UTM_CAMPAIGN_SOURCE) ?? '',
+      referrer: params?.get(UTM_REFERRER) ?? '',
       customer: {
         email: toggleAnonymous ? `${uuid.substring(0, 10)}@anon.com}` : email,
         name: fullname,
@@ -141,13 +141,12 @@ export const DonateNow = () => {
       const result = await response;
       if (result?.status) {
         setUserData(initial);
-        cleanURL(true);
         window.location.href = result?.data?.link;
       } else {
         handleRedirectModal(false);
-        cleanURL(true);
         toast.error('Failed to connect');
       }
+      cleanURL(true);
     } catch (error) {
       cleanURL(true);
       handleRedirectModal(false);
