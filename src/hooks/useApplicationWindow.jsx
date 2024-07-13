@@ -3,7 +3,7 @@ import { APPLICATION_WINDOW_STATUS, getData } from '../services/ApiClient';
 import toast from 'react-hot-toast';
 
 const useApplicationWindowStatus = () => {
-  const [isWindowClosed, setIsWindowClosed] = useState(true);
+  const [isWindowClosed, setIsWindowClosed] = useState(false);
 
   useEffect(() => {
     const checkWindowStatus = async () => {
