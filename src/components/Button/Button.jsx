@@ -20,16 +20,16 @@ const getButtonMode = (type) => {
 export const Button = ({
   className,
   effectClass,
-  dataTest,
-  disabled,
-  effectAlt,
+  dataTest = TestId.DEFAULT_BUTTON_TEST_ID,
+  disabled = false,
+  effectAlt = false,
   label,
   icon,
   iconPosition,
-  isLoading,
-  loaderSize,
-  loaderVariant,
-  size,
+  isLoading = false,
+  loaderSize = 'medium',
+  loaderVariant = 'primary',
+  size = 'medium',
   type,
   onClick,
   ...props
@@ -45,7 +45,9 @@ export const Button = ({
       className={`${
         type === ButtonType.PRIMARY ? 'effect' : type === ButtonType.SECONDARY ? 'effect effect_alt' : type === ButtonType.PLAIN ? 'effect' : ''
       }
-  ${disabled ? 'disabled' : ''} ${effectAlt ? 'effectAlt' : ''} ${effectClass} `}>
+      ${disabled ? 'disabled' : ''}
+      ${effectAlt ? 'effectAlt' : ''} ${effectClass}`}
+    >
       <button
         data-testid={dataTest}
         type="button"
@@ -58,7 +60,8 @@ export const Button = ({
           `${className} `,
           mode
         ].join(' ')}
-        {...props}>
+        {...props}
+      >
         {isLoading ? <Loader variant={loaderVariant} size={loaderSize} /> : label || DEFAULT_BUTTON_LABEL}
         {icon && (
           <div className={iconPosition === IconPosition.BACK ? 'icon back-icon' : iconPosition === IconPosition.FRONT ? 'icon front-icon' : ''}>
@@ -86,19 +89,4 @@ Button.propTypes = {
   onClick: PropTypes.func,
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   type: PropTypes.oneOf(['plain', 'primary', 'secondary'])
-};
-
-Button.defaultProps = {
-  className: '',
-  dataTest: TestId.DEFAULT_BUTTON_TEST_ID,
-  disabled: false,
-  effectAlt: false,
-  icon: '',
-  iconPosition: 'front',
-  isLoading: false,
-  label: 'Click me',
-  loaderSize: 'medium',
-  loaderVariant: 'primary',
-  onClick: undefined,
-  size: 'medium'
 };

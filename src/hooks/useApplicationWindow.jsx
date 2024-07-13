@@ -14,7 +14,7 @@ const useApplicationWindowStatus = () => {
         toast.error(`Unable to fetch application window status. ${error.message}!`);
       }
     };
-    checkWindowStatus();
+    console.log(checkWindowStatus);
   }, []);
 
   return isWindowClosed;

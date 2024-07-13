@@ -7,7 +7,16 @@ import { TestId } from './constants';
 import { useDispatch } from 'react-redux';
 const { LABEL_ID, INPUT_ID, OPTIONS_ID } = TestId;
 
-export const Select = ({ dispatchType, label, includeLabel, placeholder, options, size, value, className }) => {
+export const Select = ({
+  dispatchType = () => {},
+  label = 'Some label',
+  includeLabel = true,
+  placeholder = 'Select an option',
+  options = [],
+  size = '',
+  value,
+  className
+}) => {
   const [option, setOption] = useState(value);
   const [active, setActive] = useState(false);
   const dispatch = useDispatch();
@@ -76,15 +85,4 @@ Select.propTypes = {
   size: PropTypes.string,
   value: PropTypes.string,
   className: PropTypes.string
-};
-
-Select.defaultProps = {
-  dispatchType: () => {},
-  label: 'Some label',
-  includeLabel: true,
-  placeholder: 'Select an option',
-  options: [],
-  size: '',
-  value: '',
-  className: ''
 };

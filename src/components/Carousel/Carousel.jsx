@@ -7,7 +7,7 @@ import arrRight from '../../assets/arrow-right.svg';
 import { TestConstants } from './constants';
 import { slideReducer, initialState, types } from './carouselReducer';
 
-const Carousel = ({ cardData }) => {
+const Carousel = ({ cardData = [] }) => {
   const [state, dispatch] = useReducer(slideReducer, initialState);
   const { slideIndex, touchStartEvent, touchEndEvent } = state;
   const { leftBtnTestId, rightBtnTestId, paginationTestId, pagTestId } = TestConstants;
@@ -92,8 +92,4 @@ export default Carousel;
 
 Carousel.propTypes = {
   cardData: PropTypes.array
-};
-
-Carousel.defaultProps = {
-  cardData: []
 };
