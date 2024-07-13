@@ -5,7 +5,7 @@ import Logo from '../../assets/favicon.png';
 import './styles.css';
 import { useLocation } from 'react-router-dom';
 
-export const Footer = (props) => {
+export const Footer = ({ version = '' }) => {
   const { pathname } = useLocation();
   const isDashboard = pathname === '/dashboard';
   const isDonation = pathname === '/donation';
@@ -49,7 +49,7 @@ export const Footer = (props) => {
 
           <div className="footer-icons-container footer-copyright">
             <div className="footer-icon">
-              <Link to={{ pathname: '/', version: props.version }}>
+              <Link to={{ pathname: '/', version }}>
                 <img src={Logo} height="32" alt="edustipend-logo" aria-label="Edustipend Logo" />
                 <p className="logo-text white">edustipend</p>
               </Link>
@@ -68,8 +68,4 @@ export const Footer = (props) => {
 
 Footer.propTypes = {
   version: PropTypes.string
-};
-
-Footer.defaultProps = {
-  version: ''
 };

@@ -15,8 +15,3 @@ Text.propTypes = {
   className: PropTypes.string,
   dataTest: PropTypes.string
 };
-
-Text.defaultProps = {
-  content: 'Default	 text',
-  className: ''
-};

@@ -8,7 +8,14 @@ const HeaderSizes = {
   large: 'h1'
 };
 
-export const Header = ({ className, children, color = 'primary', dataTest, size, subheader }) => {
+export const Header = ({
+  className,
+  children = null,
+  color = 'primary',
+  dataTest = TestId.DEFAULT_HEADER_TEST_ID,
+  size = 'large',
+  subheader = false
+}) => {
   const HeaderComponent = HeaderSizes[size];
   return (
     <HeaderComponent
@@ -26,13 +33,4 @@ Header.propTypes = {
   dataTest: PropTypes.string,
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   subheader: PropTypes.bool
-};
-
-Header.defaultProps = {
-  className: '',
-  children: <>Some default header text</>,
-  color: 'primary',
-  dataTest: TestId.DEFAULT_HEADER_TEST_ID,
-  size: 'large',
-  subheader: false
 };

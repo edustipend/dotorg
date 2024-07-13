@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Card.module.css';
 import PropTypes from 'prop-types';
 
-const Card = ({ itm, offset }) => {
+const Card = ({ itm = null, offset = 0 }) => {
   let active = offset === 0 ? true : null;
   const { id, name, status, testimonial, socials, image } = itm;
   return (
@@ -42,9 +42,4 @@ export default Card;
 Card.propTypes = {
   itm: PropTypes.object,
   offset: PropTypes.number
-};
-
-Card.defaultProps = {
-  itm: null,
-  offset: 0
 };
