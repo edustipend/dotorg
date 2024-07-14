@@ -131,7 +131,7 @@ export const DonateNow = () => {
       campaign: params?.get(UTM_CAMPAIGN_SOURCE) ?? '',
       referrer: params?.get(UTM_REFERRER) ?? '',
       customer: {
-        email: toggleAnonymous ? `${uuid.substring(0, 10)}@anon.com}` : email,
+        email: toggleAnonymous ? `${uuid.substring(0, 10)}@anon.com` : email,
         name: fullname,
         phone_number: toggleAnonymous ? '' : phone
       },
