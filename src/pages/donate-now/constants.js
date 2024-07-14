@@ -48,7 +48,7 @@ const constants = {
   company_name: 'Enter company name',
   number: 'number',
   Phone_number: 'Phone Number',
-  Enter_Phone_number: 'Use this format 08103913750',
+  Enter_Phone_number: 'Please enter your phone number',
   Amount: 'Amount',
   NGN: 'NGN 5000',
   secondary: 'secondary',

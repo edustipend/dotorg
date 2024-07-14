@@ -280,7 +280,7 @@ export const DonateNow = () => {
                     value={phone.toString()}
                     onChange={(e) => {
                       setUserData((prev) => ({ ...prev, phone: e.target.value }));
-                      phone.trim().length !== 10
+                      phone.trim().length < 1
                         ? setUserData((prev) => ({ ...prev, invalidPhoneNumber: true }))
                         : setUserData((prev) => ({ ...prev, invalidPhoneNumber: false }));
                     }}
