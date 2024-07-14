@@ -1,13 +1,19 @@
-import React from 'react';
-import { useLocation } from 'react-router-dom';
-import { NavbarAmbassador } from './NavbarAmbassador';
-import { NavbarLanding } from './NavbarLanding';
+import PropTypes from 'prop-types';
+import { TestId } from './constants';
+import NavbarLogo from './NavbarLogo';
+import { NavbarToShow } from './NavbarToShow';
+
 import './styles.css';
 
+export const Navbar = ({ dataTest = TestId.DEFAULT_NAVBAR_TEST_ID }) => {
+  return (
+    <header className="navbar" data-testid={dataTest}>
+      <NavbarLogo />
+      <NavbarToShow />
+    </header>
+  );
+};
 
-export const Navbar = () => {
-	const { pathname } = useLocation();
-	const isAmbassador = pathname === '/ambassador-program';
-	const NavbarToShow = isAmbassador ? <NavbarAmbassador /> : <NavbarLanding />
-	return NavbarToShow
-}
+Navbar.propTypes = {
+  dataTest: PropTypes.string
+};

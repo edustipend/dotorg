@@ -1,0 +1,32 @@
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+}
+
+.breadcrumbItem {
+  display: flex;
+  align-items: center;
+  /* gap: 16px; */
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
+}
+
+.inactive {
+  color: #858585;
+}
+
+.separator {
+  margin: 0 16px;
+}
+
+.active {
+  color: #2d3740;
+}
+
+@media only screen and (min-width: 768px) {
+  .breadcrumbItem {
+    font-size: 24px;
+  }
+}

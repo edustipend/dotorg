@@ -1,0 +1,143 @@
+.container {
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  background: #fff;
+  padding: 30px 20px;
+  box-shadow: 0px 30px 40px 0px rgba(7, 109, 243, 0.05);
+}
+
+.img {
+  width: 60px;
+  height: 60px;
+}
+
+.headText {
+  color: var(--Edustipend-Text-Black, #2d3740);
+  font-family: 'Poppins';
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+.subText {
+  color: var(--Edustipend-Text-Black, #2d3740);
+  text-align: center;
+  font-family: 'Manrope';
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+  /* 150% */
+  margin-bottom: 10px;
+}
+
+.form {
+  width: 100%;
+  max-width: 500px;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 40px;
+  padding: 0 7px;
+}
+
+.btn {
+  width: 240px;
+}
+
+.error,
+.success {
+  color: red;
+  text-align: center;
+  font-family: 'Manrope';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  margin-top: -30px;
+  margin-bottom: 30px;
+}
+
+.success {
+  color: green;
+}
+
+.lastText {
+  color: var(--Edustipend-Text-Black, #2d3740);
+  text-align: center;
+  font-family: 'Manrope';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 30px;
+  /* 187.5% */
+  margin-top: 28px;
+  text-decoration: underline;
+}
+
+@media screen and (min-width: 375px) {
+  .btn {
+    width: 248px;
+  }
+
+  .container {
+    padding: 38px 30px;
+  }
+}
+
+@media screen and (min-width: 425px) {
+  .btn {
+    width: 310px;
+  }
+}
+
+@media screen and (min-width: 375px) {
+  .btn {
+    width: 248px;
+  }
+
+  .container {
+    padding: 38px 30px;
+  }
+}
+
+@media screen and (min-width: 425px) {
+  .btn {
+    width: 310px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .img {
+    width: 54px;
+    height: 54px;
+  }
+
+  .headText {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .subText {
+    width: 200px;
+    font-feature-settings:
+      'clig' off,
+      'liga' off;
+    font-family: 'Manrope';
+    font-size: 16px;
+    line-height: 20px;
+    /* 125% */
+  }
+
+  @media screen and (max-width: 320px) {
+    .headText {
+      font-size: 20px;
+    }
+  }
+}

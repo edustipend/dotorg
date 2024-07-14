@@ -1,46 +1,45 @@
 /** Social Media Icons **/
 .social-icon {
-	height: 28px;
-	width: 28px;
+  height: 28px;
+  width: 28px;
 }
 
 .fb-icon {
-	background-image: url("../assets/social/icon-fb-hover.svg");
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: 70% 50%;
+  background-image: url('../assets/social/icon-fb-hover.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 70% 50%;
 }
 
 .fb-icon:hover {
-	background-image: url("../assets/social/icon-fb.svg");
+  background-image: url('../assets/social/icon-fb.svg');
 }
 
 .ig-icon {
-	background-image: url("../assets/social/icon-insta-hover.svg");
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: 70% 50%;
+  background-image: url('../assets/social/icon-insta-hover.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 70% 50%;
 }
 
 .ig-icon:hover {
-	background-image: url("../assets/social/icon-insta.svg");
+  background-image: url('../assets/social/icon-insta.svg');
 }
 
 .tw-icon {
-	background-image: url("../assets/social/icon-tw-hover.svg");
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: 70% 50%;
+  background-image: url('../assets/social/icon-tw-hover.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 70% 50%;
 }
 
 .tw-icon:hover {
-	background-image: url("../assets/social/icon-tw.svg");
+  background-image: url('../assets/social/icon-tw.svg');
 }
 
-
 @media screen and (min-width: 660px) {
-	.social-icon {
-		height: 36px;
-		width: 36px;
-	}
+  .social-icon {
+    height: 36px;
+    width: 36px;
+  }
 }

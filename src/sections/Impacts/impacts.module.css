@@ -1,0 +1,184 @@
+.container {
+  width: 100%;
+  padding: 30px 0px 0px;
+}
+
+.wrapper {
+  padding: 90px 0 0px;
+}
+
+.headerWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: start;
+  margin-top: 32px;
+}
+
+.partnerWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: start;
+  /* margin-top: 32px; */
+}
+
+.partnerWrap h1 {
+  color: var(--white);
+  font-size: 32px;
+}
+
+.headerWrap h1 {
+  font-size: 32px;
+  font-family: 'Poppins';
+  font-weight: 600;
+  letter-spacing: 5%;
+  color: var(--edustipend-black);
+}
+
+.overviewheader {
+  font-size: 20px;
+  font-family: 'Poppins';
+  font-weight: 600;
+  letter-spacing: 5%;
+  color: var(--edustipend-black);
+
+  margin-top: 32px;
+}
+
+.headerWrap p {
+  font-size: 16px;
+  font-family: 'Manrope';
+  width: 100%;
+  color: var(--edustipend-black);
+  font-weight: 400;
+  text-align: left;
+  line-height: 24px;
+}
+
+.partnerWrap p {
+  font-size: 18px;
+  font-family: 'Manrope';
+  width: 80%;
+  color: var(--white);
+  font-weight: 400;
+  text-align: center;
+  line-height: 24px;
+}
+
+.bgContainer {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: url('/src/assets/partnerwithus.png');
+  background-size: cover;
+  background-position: center;
+  margin-top: 40px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.partnerText {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 2em;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.cta {
+  margin-top: 20px;
+}
+
+.ImpactNumbersWrap {
+  width: 100%;
+  margin-top: 32px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.ImpactBtn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 18px;
+}
+
+@media only screen and (min-width: 640px) {
+  .headerWrap {
+    gap: 0px;
+  }
+
+  .headerWrap h1 {
+    font-size: 48px;
+  }
+
+  .headerWrap p {
+    font-size: 20px;
+    line-height: 28px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .partnerWrap h1 {
+    font-size: 48px;
+  }
+
+  .overviewheader {
+    font-size: 36px;
+    margin-top: 40px;
+  }
+
+  .ImpactBtn {
+    justify-content: end;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .container {
+    padding: 100px 30px 0px;
+  }
+  .wrapper {
+    padding: 50px 0;
+  }
+
+  .partnerWrap {
+    height: 514px;
+    width: 100%;
+  }
+
+  .partnerWrap h1 {
+    font-size: 60px;
+  }
+
+  .partnerWrap p {
+    width: 62%;
+  }
+
+  .overviewheader {
+    font-size: 48px;
+    margin-top: 60px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .partnerWrap {
+    height: 614px;
+  }
+}

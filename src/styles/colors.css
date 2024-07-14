@@ -1,22 +1,57 @@
 /** Brand Colors **/
 :root {
-	--accent: #FF914D;
-	--edustipend-yellow: #FEBD1C;
-	--edustipend-purple: #5800FF;
-	--primary: #5800FF;
-	--primaryHover: #3700A1;
-	--primaryDark: #270072;
-	--lightblue: #E4EDFF;
+  --accent: #ff914d;
+  --edustipend-orange:#FD5A33;
+  --edustipend-black: #2d3740;
+  --edustipend-yellow: #febd1c;
+  --edustipend-purple: #5800ff;
+  --edustipend-turquioise: #cbffff;
+  --primary: #5800ff;
+  --primaryHover: #3700a1;
+  --primaryDark: #270072;
+  --lightblue: #e4edff;
+  --white: #ffffff;
+  --light-purple: #F4F4F4;
+  --black: #000;
+  --light-black: #202020;
+  --dim-white:#f5f5f5;
+  --light-white:#efefef;
+  --navy-blue: #2d3740;
+  --gray: #7d7d7d;
+  --red-accent: #f20b07;
+  --darker-navy-blue: #2d374033;
+  --dark-navy-blue: #828282;
+  --box-shadow: #076df30d;
+  --darker-accent: #1b1b1b4d;
+  --line: #c4c4c433;
+  --line-alt: #00000014;
+  --light-gray: #f2f2f2;
+  --dashboard-bg: #e9edf440;
+  --tab-btn: #5801ff1a;
+  --tab-btn-alt: #0000001a;
+  --modal-background: #000000cc;
+  --table-head-bg: #ecedef;
+  --approved: #008753;
+  --in-view: #ff8000;
+  --in-view-light:#F2ECDD;
+  --in-view-backer: #f7f7f7 ;
+  --denied: #f20b07;
+  --linear-gradient-one: #5801ff33;
+  --linear-gradient-one-light: #5801ff77;
+  --linear-gradient-two: #00babb33;
+  --linear-gradient-two-light: #00babb77;
+  --text: #5801ff0d;
+ 
 }
 
 .background-lightblue {
-	background-color: var(--lightblue);
+  background-color: var(--lightblue);
 }
 
 .color-accent {
-	color: var(--accent);
+  color: var(--accent);
 }
 
 .color-primary {
-	color: var(--primary);
+  color: var(--primary);
 }

@@ -1,0 +1,128 @@
+.main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Manrope';
+  gap: 0.4rem;
+  position: relative;
+}
+
+.disabled {
+  opacity: 0.5;
+}
+
+.disabled:hover {
+  cursor: not-allowed;
+}
+
+.label {
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  margin-left: 0.45rem;
+  color: var(--navy-blue);
+}
+
+.required {
+  margin-top: 10px;
+  font-size: 24px;
+  color: var(--red-accent);
+  font-weight: 700;
+}
+
+.inputContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.currency {
+  position: absolute;
+  padding-left: 19px;
+  font-size: 16px;
+  color: var(--dark-navy-blue);
+}
+
+.input {
+  width: 100%;
+  padding: 17px 19px;
+  padding-top: 19px;
+  height: 65px;
+  font-size: 16px;
+  color: var(--navy-blue);
+  border: 1px solid var(--darker-navy-blue);
+  background-color: var(--white);
+  border-radius: 15px;
+  outline: none;
+}
+
+.inputAlt {
+  padding-left: 55px;
+  font-weight: 500
+}
+
+.disabled {
+  cursor: not-allowed;
+}
+
+.input[type='date']::-webkit-calendar-picker-indicator {
+  display: none;
+  width: 20px;
+  height: 20px;
+  padding-right: 0.5rem;
+}
+
+.input[type='date']:hover::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+}
+
+.input:focus {
+  border: 0.5px solid transparent;
+  border-radius: 15px;
+  background: linear-gradient(to right, white, white), linear-gradient(to right, #5801ff77, #00babb77);
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+}
+
+.input::placeholder {
+  color: var(--darker-accent);
+  font-size: 16px;
+}
+
+.small {
+  width: 15%;
+}
+
+.medium {
+  width: 20%;
+}
+
+.large {
+  width: 25%;
+}
+
+@media screen and (min-width: 768px) {
+  .label {
+    font-size: 18px;
+  }
+
+  .input,
+  .inputAlt,
+  .currency {
+    font-size: 18px;
+  }
+
+
+  .inputAlt {
+    padding-left: 60px;
+  }
+
+  .input::placeholder {
+    font-size: 18px;
+  }
+
+  .input[type='date']::-webkit-calendar-picker-indicator {
+    display: initial;
+  }
+}

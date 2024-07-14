@@ -1,0 +1,134 @@
+.testimonialBigWrapper {
+  background: radial-gradient(ellipse, #ffca43c7, #000000);
+}
+
+.testimonial__testimonies-container {
+  overflow-x: auto;
+  white-space: wrap;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  scroll-behavior: smooth;
+  transition: transform 0.3s ease-in-out;
+}
+
+.testimonial__testimonies-container::-webkit-scrollbar {
+  width: 1px;
+  display: none;
+}
+
+.testimonial__section {
+  padding: 50px 0;
+  color: #fff;
+
+  position: relative;
+}
+
+.testimonial__heading {
+  font-size: 34px;
+  margin-top: 20px;
+  padding-bottom: 15px;
+  text-transform: uppercase;
+  border-bottom: 3px solid orange;
+}
+
+.testimonial__description {
+  margin: 40px 0;
+  font-size: 25px;
+  line-height: 1.5;
+}
+
+.testimonial__supportLink {
+  margin: 15px 0;
+  color: #333;
+  font-weight: 900;
+  display: inline-block;
+  padding: 15px 40px;
+  background-color: rgba(254, 189, 28, 1);
+  border-radius: 50px;
+  text-decoration: none;
+  border: 5px solid rgba(0, 0, 0, 0.3);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.horizontal__line {
+  border: 1px solid rgba(254, 189, 28, 1);
+}
+
+.testimonial__testimonies {
+  width: 100%;
+  margin-top: 100px;
+  scroll-behavior: smooth;
+  transition: transform 0.3s ease-in-out;
+}
+
+.slick-prev:before {
+  background-color: orange;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #333;
+}
+
+.slick-prev,
+.slick-next {
+  font-size: 0;
+  line-height: 0;
+
+  position: absolute;
+  top: 50%;
+
+  display: block;
+
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  -webkit-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+
+  cursor: pointer;
+
+  color: transparent;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  font-family: 'slick';
+  font-size: 20px;
+  line-height: 1;
+
+  background-color: orange;
+  padding: 10px;
+  border-radius: 6px;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.slick-prev {
+  left: -15px !important;
+  z-index: 10 !important;
+}
+
+.slick-prev:before {
+  content: '←';
+}
+
+.slick-next {
+  right: 5px !important;
+}
+
+.slick-next:before {
+  content: '→';
+}
+
+@media screen and (max-width: 425px) {
+  .testimonial__testimonies {
+    margin-top: 50px;
+  }
+}

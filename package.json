@@ -3,57 +3,77 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@reduxjs/toolkit": "^1.8.1",
+    "@fullstory/browser": "^1.7.1",
+    "@reduxjs/toolkit": "^1.9.5",
+    "@storybook/components": "^8.1.6",
+    "dayjs": "^1.11.9",
+    "dotenv": "^16.4.5",
     "firebase": "9.6.11",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "jest": "^27.5.1",
+    "js-cookie": "^3.0.5",
+    "jsonwebtoken": "^9.0.2",
+    "jwt-decode": "^4.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-firebase-hooks": "5.0.3",
+    "react-hot-toast": "^2.4.1",
+    "react-intersection-observer": "^9.10.3",
+    "react-query": "^3.39.3",
+    "react-redux": "^8.1.2",
     "react-router-dom": "^6.3.0",
     "react-router-hash-link": "^2.4.3",
     "react-scripts": "5.0.1",
+    "react-scroll": "^1.9.0",
+    "react-slick": "^0.30.2",
+    "react-spring": "^9.7.3",
+    "redux-mock-store": "^1.5.4",
+    "redux-persist": "^6.0.0",
+    "slick-carousel": "^1.8.1",
     "web-vitals": "2.1.4"
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "7.21.11",
+    "@chromatic-com/storybook": "^1",
     "@storybook/addon-essentials": "7.0.26",
     "@storybook/addon-interactions": "7.0.26",
     "@storybook/addon-links": "7.0.26",
+    "@storybook/addon-onboarding": "^8.1.6",
     "@storybook/blocks": "7.0.26",
+    "@storybook/icons": "^1.2.9",
     "@storybook/preset-create-react-app": "7.0.26",
     "@storybook/react": "7.0.26",
     "@storybook/react-webpack5": "7.0.26",
-    "@storybook/testing-library": "0.0.14-next.2",
-    "@testing-library/jest-dom": "5.16.4",
-    "@testing-library/react": "13.3.0",
+    "@storybook/test": "^8.1.6",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "13.5.0",
     "babel-plugin-named-exports-order": "0.0.2",
+    "dotenv-cli": "^7.4.2",
     "eslint": "^8.44.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-storybook": "^0.6.12",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.3",
     "prettier": "^3.0.0",
-    "prop-types": "15.8.1",
+    "prop-types": "^15.8.1",
     "storybook": "7.0.26",
     "webpack": "5.88.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
-    "lint": "eslint .",
-    "lint:fix": "eslint --fix",
-    "test": "react-scripts test",
+    "build": "echo \"Please use build:dev or build:prod \" && exit 1",
+    "build:dev": "dotenv -e .env.development react-scripts build",
+    "build:prod": "dotenv -e .env.production react-scripts build",
+    "build-storybook": "storybook build",
     "eject": "react-scripts eject",
+    "execute-husky": "npx husky install && npx husky add .husky/pre-commit \"npx --no-install lint-staged\"",
+    "format": "prettier --write src/**/*.{js,jsx,ts,tsx,css,md,json} --config ./.prettierrc",
+    "lint": "eslint .",
+    "lint:fix": "eslint --ext .js --fix",
+    "start": "react-scripts start",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest",
-      "plugin:storybook/recommended"
-    ]
+    "test": "react-scripts test --env=jsdom"
   },
   "husky": {
     "hooks": {
@@ -61,7 +81,11 @@
     }
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+    "src/**/*.{js,jsx,ts,tsx,md,json}": [
+      "prettier --write",
+      "eslint --ext .js --fix"
+    ],
+    "src/**/*.{css,}": [
       "prettier --write"
     ]
   },

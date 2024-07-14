@@ -1,74 +1,317 @@
-.logo {
-	height: 40px;
-	margin-right: 8px;
+.navbar {
+  position: fixed;
+  display: flex;
+  width: 100%;
+  padding: 30px 90px;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(233, 237, 244, 0.25);
+  background: linear-gradient(161deg, #f15343 0%, #5801ff 52.52%);
+  z-index: 1100;
+  top: 0;
 }
 
-.logo-link {
-	text-decoration: none;
-}
-
-.logo-wrapper {
-	display: flex;
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 .nav-cta {
-	background-color: #5800FF;
-	text-decoration: none;
-	color: white;
-	padding: .5rem .75rem;
-	border-radius: 22px;
-	height: 24px;
-}
-
-.nav-link {
-	text-decoration: none;
-	color: black;
-	margin-right: .5rem;
-	font-weight: bold;
-	padding-bottom: .25rem;
-}
-
-.nav-link:hover {
-	border-bottom: 2px solid #5800FF;
-}
-
-.nav-links {
-	display: none;
-}
-
-.nav-wrapper {
-	box-sizing: border-box;
-	height: 70px;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	max-width: 1280px;
-	margin: 0 auto;
-	padding: .75rem;
+  background: var(--edustipend-yellow);
+  padding: 0.6rem 0.9rem;
+  border-radius: 22px;
 }
 
 .nav-cta:hover {
-	background-color: var(--primaryHover);
+  background-color: var(--primaryHover);
 }
 
+.navbarLogo {
+  display: flex;
+  width: 169px;
+  height: 43px;
+  align-items: center;
+}
 
-@media screen and (min-width: 560px) {
-	.nav-cta {
-		padding: .75rem 1.25rem;
-		font-weight: 600;
-	}
+.navbarLogo img {
+  width: 54.217px;
+  height: 43px;
+  object-fit: contain;
+}
 
-	.nav-link {
-		margin-right: 1rem;
-	}
+.navbarLogo p {
+  color: #fff;
+  font-size: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  margin-left: 2px;
+}
 
-	.nav-links {
-		display: flex;
-		align-items: center;
-		font-size: 1.0625rem;
-	}
+.navbarNavs {
+  display: flex;
+  justify-content: space-between;
+  height: 24.24px;
+  align-items: center;
+  gap: 32px;
+}
 
-	.nav-wrapper {
-		padding: 1rem;
-	}
+.navAlt {
+  width: 65%;
+}
+
+.navContent {
+  display: flex;
+  gap: 32px;
+  margin-top: 0.35rem;
+}
+
+.navAction {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.navBtn {
+  width: 175px;
+  height: 40px;
+  padding: 14px;
+  font-size: 15.5px;
+  font-weight: 600;
+}
+
+.mobile-nav {
+  padding: 2rem 1.5rem;
+  display: flex;
+}
+
+.mobile-nav-btn {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.mobile-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.navbarNavs a,
+.mobile-nav a {
+  text-decoration: none;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  width: max-content;
+}
+
+.navbarNavs a:hover,
+.mobile-nav a:hover {
+  color: var(--edustipend-yellow);
+}
+
+.mobileNavContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  margin-left: 8px;
+  position: relative;
+  width: 65px;
+}
+
+.user-initials {
+  background: var(--white);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-name {
+  font-family: 'Poppins';
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 103.4%;
+  /* 20.68px */
+}
+
+.log-out-container {
+  position: absolute;
+  margin-top: 50px;
+  margin-left: 9px;
+  width: 95px;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.log-out {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.drop-down {
+  position: absolute;
+  display: flex;
+  width: 95px;
+  height: 40px;
+  margin-top: 28px;
+  border-radius: 7px;
+  background: #fff;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.1));
+  justify-content: center;
+  align-items: center;
+  color: #1b1b1b;
+  padding: 0;
+  font-family: 'Manrope';
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0.15px;
+  cursor: pointer;
+}
+.navCont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+  width: max-content;
+}
+.navItem {
+  position: relative;
+}
+
+.navLabel {
+  cursor: pointer;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  width: max-content;
+  display: flex;
+  gap: 10px;
+}
+
+.dropdownMenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: -20px;
+  background: white;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  min-width: 135px;
+  border-radius: 12px;
+  padding: 0 12px;
+}
+.dropdownMenu a {
+  color: #2d3740;
+  font-family: 'Manrope';
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: left;
+}
+.dropdownMenu a:not(:last-of-type) {
+  width: 100%;
+  border-bottom: 1px solid #2d37401a;
+}
+.dropdownMenu.visible {
+  display: block;
+}
+
+.dropdownItem {
+  padding: 12px 0;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+}
+
+.activeLink {
+  color: #febd1c;
+}
+.activeBar {
+  width: 41px;
+  height: 4px;
+  background: white;
+}
+
+.menu-icon {
+  display: none;
+  cursor: pointer;
+}
+
+.mobile-nav {
+  display: none;
+}
+
+@media only screen and (max-width: 1300px) {
+  .navbar {
+    padding: 20px;
+  }
+
+  .drop-down {
+    margin-right: 50px;
+  }
+}
+
+@media only screen and (max-width: 1350px) {
+  .navbar {
+    padding: 20px 40px;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  .navbarNavs {
+    display: none;
+  }
+
+  .mobile-nav {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: calc(100dvh - 83px);
+    background: #000;
+    opacity: 0.9;
+    justify-content: flex-start;
+    gap: 32px;
+    top: 83px;
+    left: 0;
+    z-index: 100;
+    transition: all 500ms ease-in;
+    transform: translateX(0);
+  }
+
+  .mobile-nav.out {
+    transform: translateX(-200vw);
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .navbar {
+    padding: 20px 15px;
+  }
+  .dropdownMenu {
+    left: 0;
+  }
 }
