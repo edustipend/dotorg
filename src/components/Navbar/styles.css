@@ -188,6 +188,12 @@ a {
   letter-spacing: 0.15px;
   cursor: pointer;
 }
+
+.dropdownIcon {
+  width: 14px;
+  height: 14px;
+}
+
 .navCont {
   display: flex;
   flex-direction: column;
@@ -206,6 +212,7 @@ a {
   font-family: 'Poppins', sans-serif;
   width: max-content;
   display: flex;
+  align-items: center;
   gap: 10px;
 }
 
