@@ -144,6 +144,7 @@ export const DonateNow = () => {
       const result = await response;
       if (result?.status) {
         setUserData(initial);
+        handleRedirectModal(false);
         window.location.href = result?.data?.link;
       } else {
         handleRedirectModal(false);
@@ -241,7 +242,7 @@ export const DonateNow = () => {
                     label={constants.fullName}
                     placeholder={constants.fullName}
                     onChange={(e) => {
-                      setUserData((prev) => ({ ...prev, fullname: e.target.value }))
+                      setUserData((prev) => ({ ...prev, fullname: e.target.value }));
                     }}
                   />
                   <div className={styles.toggleContainer}>
