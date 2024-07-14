@@ -56,10 +56,6 @@ a {
   gap: 32px;
 }
 
-.navAlt {
-  width: 65%;
-}
-
 .navContent {
   display: flex;
   gap: 32px;
@@ -283,7 +279,9 @@ a {
   .navbar {
     padding: 20px 40px;
   }
+}
 
+@media only screen and (max-width: 1100px) {
   .menu-icon {
     display: block;
   }
