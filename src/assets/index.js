@@ -59,6 +59,10 @@ import File_Icon from './file-icon.png';
 import User_Icon from './user-target.svg';
 import Goal_Icon from './goal.svg';
 import Drop_Down from './drop-down3.svg';
+import AR_Image from './app-report.png';
+import BL_Image from './ben-list.png';
+import BR_Image from './ben-report.png';
+import Report_Lines from './report-lines.svg';
 
 export {
   Hero1,
@@ -121,5 +125,9 @@ export {
   File_Icon,
   User_Icon,
   Goal_Icon,
-  Drop_Down
+  Drop_Down,
+  AR_Image,
+  BL_Image,
+  BR_Image,
+  Report_Lines
 };

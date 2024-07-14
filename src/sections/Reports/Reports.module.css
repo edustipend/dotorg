@@ -183,6 +183,7 @@ svg {
 }
 
 .reportCard {
+  position: relative;
   width: 100%;
   max-width: 400px;
   border: 0.5px solid #cccccc;
@@ -195,13 +196,17 @@ svg {
 
 .reportCard > img {
   border-radius: 16px 16px 0 0;
+  width: 100%;
+  max-width: 297px;
+  margin: 0 auto;
+  height: 130px;
 }
 
 .content {
   margin: 10px 10px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
 }
 
 .content > h1 {
@@ -219,6 +224,12 @@ svg {
   color: #2d3740;
   font-size: 16px;
   line-height: 24px;
+}
+
+.lines {
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 
 .reportCard:hover {
@@ -325,9 +336,11 @@ svg {
 
   .content {
     margin: 20px 20px 10px;
-    gap: 15px;
+    gap: 10px;
   }
-
+  .reportCard > img {
+    height: 250px;
+  }
   .content > h1 {
     font-size: 18px;
     line-height: 24.59px;

@@ -16,7 +16,10 @@ import { checkEmail } from '../../utils/EmailChecker/emailChecker';
 import usePageView from '../../hooks/usePageView';
 import { DONATION, postData } from '../../services/ApiClient';
 import toast from 'react-hot-toast';
+import useDonationPrompt from '../../hooks/useDonationPrompt';
 
+const UTM_CAMPAIGN_SOURCE = 'utm_source';
+const UTM_REFERRER = 'utm_referrer';
 export const DonateNow = () => {
   usePageView('Donate');
   const nav = useNavigate();
@@ -29,7 +32,29 @@ export const DonateNow = () => {
   const formattedNumber = formatNumber(amount);
   const { redirectModal, handleRedirectModal } = useContext(ModalContext) || {};
   const { fullname, email, phone, company, toggleAnonymous, invalidPhoneNumber, focus, title, message, error, errorMessage } = userData;
+  const { currentText, nextText, swapText, setSwapText } = useDonationPrompt(amount);
 
+  /**
+   * On success or On failure, flutterwave redirects the user to the specified route with two params attached
+   * E.g base/support-a-learner/donate?status=cancelled&tx_ref=edustipend-txref-z5EWyXkjJrVrCDMdECqc5
+   * Additional we want to also clean the url after extracting the information we need.
+   *
+   * after reading the status of the transcation, we need to clean up our url string.
+   */
+  const cleanURL = useCallback(
+    (deleteUtmParams) => {
+      for (const key of params.keys()) {
+        if (deleteUtmParams) {
+          params.delete(UTM_REFERRER);
+          params.delete(UTM_CAMPAIGN_SOURCE);
+        } else if (key !== UTM_REFERRER && key !== UTM_CAMPAIGN_SOURCE) {
+          params.delete(key);
+        }
+      }
+      nav({ search: params.toString() }, { replace: true });
+    },
+    [nav, params]
+  );
   //a random uuid used to generate an email address for anon
   const uuid = window?.crypto?.randomUUID();
   const handleFocus = (setUserData, focus) => {
@@ -42,6 +67,7 @@ export const DonateNow = () => {
 
   //input value should not be greater than 1000000
   const handleAmountChange = (e) => {
+    setSwapText(false);
     const max = 1000000;
     const value = e.target.value;
     if (value >= 0 && value <= max) {
@@ -94,11 +120,17 @@ export const DonateNow = () => {
     if (toggleAnonymous ? !handleValidationAnon() : !handleValidation()) return;
     handleRedirectModal(true);
 
+    const currentUrl = window.location.href;
+    const urlObject = new URL(currentUrl);
+    const urlWithoutParams = `${urlObject.origin}${urlObject.pathname}`;
+
     const response = await postData(`${DONATION}`, {
       amount: handleValidAmount(amount),
-      redirect_url: window.location.href,
+      redirect_url: urlWithoutParams,
       payment_options: 'card',
       currency: 'NGN',
+      campaign: params?.get(UTM_CAMPAIGN_SOURCE) ?? '',
+      referrer: params?.get(UTM_REFERRER) ?? '',
       customer: {
         email: toggleAnonymous ? `${uuid.substring(0, 10)}@anon.com` : email,
         name: fullname,
@@ -118,7 +150,9 @@ export const DonateNow = () => {
         handleRedirectModal(false);
         toast.error('Failed to connect');
       }
+      cleanURL(true);
     } catch (error) {
+      cleanURL(true);
       handleRedirectModal(false);
     }
   };
@@ -146,19 +180,8 @@ export const DonateNow = () => {
       }
     }
 
-    /**
-     * On success or On failure, flutterwave redirects the user to the specified route with two params attached
-     * E.g base/support-a-learner/donate?status=cancelled&tx_ref=edustipend-txref-z5EWyXkjJrVrCDMdECqc5
-     *
-     * after reading the status of the transcation, we need to clean up our url string.
-     */
-
-    for (const key of params.keys()) {
-      params.delete(key);
-    }
-
-    nav({ search: params.toString() }, { replace: true });
-  }, [params, setUserData, nav]);
+    cleanURL();
+  }, [params, setUserData, cleanURL]);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -286,6 +309,7 @@ export const DonateNow = () => {
                     placeholder={constants.NGN}
                     onChange={handleAmountChange}
                   />
+                  {!swapText ? <p className={styles.animText}>{currentText}</p> : <p className={styles.animTextAlt}>{nextText}</p>}
                 </div>
               </div>
               <div className={styles.btnContainer}>

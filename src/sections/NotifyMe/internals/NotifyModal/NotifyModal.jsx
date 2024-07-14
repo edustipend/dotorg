@@ -17,7 +17,3 @@ NotifyModal.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string
 };
-
-NotifyModal.defaultProps = {
-  className: ''
-};

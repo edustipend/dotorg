@@ -5,7 +5,7 @@ import { NavbarToShow } from './NavbarToShow';
 
 import './styles.css';
 
-export const Navbar = ({ dataTest }) => {
+export const Navbar = ({ dataTest = TestId.DEFAULT_NAVBAR_TEST_ID }) => {
   return (
     <header className="navbar" data-testid={dataTest}>
       <NavbarLogo />
@@ -16,8 +16,4 @@ export const Navbar = ({ dataTest }) => {
 
 Navbar.propTypes = {
   dataTest: PropTypes.string
-};
-
-Navbar.defaultProps = {
-  dataTest: TestId.DEFAULT_NAVBAR_TEST_ID
 };
