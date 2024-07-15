@@ -5,7 +5,7 @@ export const paths = [
   },
   {
     title: 'Our Impact',
-    path: '/impacts'
+    path: '/impact'
   }
 ];
 
@@ -21,8 +21,8 @@ export const ImpactLabels = {
   DONATE: '/support-a-learner/donate',
   PARTNER_HEADER: 'MAKE AN IMPACT WITH US',
   OVERVIEW: 'Overview of our impact numbers',
-  PATH: '/impacts/reports',
-  VIDEO: 'https://www.youtube.com/embed/8OQ0vLPRcqs',
+  PATH: '/impact/reports',
+  VIDEO: 'https://www.youtube.com/embed/e6aNgMiaQ30',
   SUB_HEADER: 'Watch the stories of our beneficiaries and see the tangible impact of our support programs.',
   PARTNER_SUB_HEADER: 'Partner with us to expand our reach and provide education opportunities to those who need them most.'
 };
@@ -32,5 +32,5 @@ export const TestId = {
   PARTNER_HEAD_TEXT: 'partner_head_text-el',
   SUB_HEADER_TEXT: 'sub_header_text-el',
   PARTNER_SUB_HEADER_TEXT: 'sub_header_text-el',
-  OVERVIEW_TEXT: 'overview-el',
+  OVERVIEW_TEXT: 'overview-el'
 };
