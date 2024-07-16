@@ -20,7 +20,7 @@ const HeroSection = () => {
     const intervalId = setInterval(() => {
       setCurrentQuoteIndex((prevIndex) => (prevIndex + 1) % quotesArray.length);
       setAnimationKey((prevKey) => prevKey + 1);
-    }, 20000);
+    }, 8000);
 
     return () => clearInterval(intervalId);
   }, []);
@@ -75,7 +75,7 @@ const HeroSection = () => {
                   hash: '#how-much-can-i-donate'
                 }}
               >
-                <Button label={Texts.DONATE_TEXT} size={'medium'} type={'plain'} />
+                <Button label={Texts.DONATE_TEXT} size='medium' type='plain' />
               </NavHashLink>
             </div>
           </div>

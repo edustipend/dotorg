@@ -37,7 +37,7 @@ export const process =
   'Our selection process ensures equitable opportunities for individuals with a genuine passion for learning and a drive to excel';
 
 export const btnLabel = {
-  label: 'Support a Beneficiary',
+  label: 'Support a Learner',
   path: '/support-a-learner/donate',
   type: 'secondary'
 };

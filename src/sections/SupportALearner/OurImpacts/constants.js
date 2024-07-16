@@ -3,31 +3,31 @@ export const headText = 'OUR IMPACT SO FAR';
 export const description = 'We are committed to securing futures through providing learning resources';
 
 export const subText =
-  'Since 2021, we have served various learners from various socio-economic, ethnic and religious backgrounds, empowering them with laptops, data stipends and course certification fees.';
+  'Since 2022, we have served learners from different socio-economic, ethnic and religious backgrounds, empowering them with laptops, data stipends and course certification fees.';
 
 export const numbers = [
   {
     label: 'Beneficiaries',
-    value: 5000
+    value: 600
   },
   {
     label: 'Disbursed',
-    value: 15238700
+    value: 32833036
   },
   {
     label: 'States Reached',
-    value: 30
+    value: 36
   },
   {
-    label: 'Community Partnership',
-    value: 20
+    label: 'Community Partnerships',
+    value: 5
   }
 ];
 
 export const btnLabels = {
   view: {
     label: 'View our impact',
-    path: '/impacts',
+    path: '/impact',
     type: 'plain'
   },
   support: {

@@ -1,16 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import TestimonialCard from '../../../components/TestimonialCard/TestimonialCard';
 import { Container } from '../../../components/Container/ContainerComponent';
 import nonsoImg from '../../../assets/testimonials/nonso-boy.jpg';
 import ulenyoImg from '../../../assets/testimonials/ulenyo.jpg';
 import FawazImg from '../../../assets/testimonials/fawaz_code.jpg';
 import Header from '../../../components/Header';
-
 import BeneficiaryStyle from './BeneficiaryTestimonies.module.css';
-
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-
 import Slider from 'react-slick';
 
 const testimonialsData = [
@@ -103,10 +101,9 @@ function BeneficiaryTestimonies() {
           </Header>
           <div className={BeneficiaryStyle.horizontal__line}></div>
           <p className={BeneficiaryStyle.testimonial__description}>{testimonialDescription}</p>
-          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-          <a href="#" className={BeneficiaryStyle.testimonial__supportLink}>
-            Support a learner
-          </a>
+          <Link to="/support-a-learner/donate" className={BeneficiaryStyle.testimonial__supportLink}>
+            Support a Learner
+          </Link>
           {/* Scrollable Testimonial Cards */}
           <div className={`${BeneficiaryStyle.testimonial__testimonies} slider-container`}>
             <Slider {...settings}>

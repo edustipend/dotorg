@@ -2,7 +2,7 @@
   position: fixed;
   display: flex;
   width: 100%;
-  padding: 30px 90px;
+  padding: 30px 60px;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid rgba(233, 237, 244, 0.25);
@@ -54,10 +54,6 @@ a {
   height: 24.24px;
   align-items: center;
   gap: 32px;
-}
-
-.navAlt {
-  width: 65%;
 }
 
 .navContent {
@@ -188,6 +184,12 @@ a {
   letter-spacing: 0.15px;
   cursor: pointer;
 }
+
+.dropdownIcon {
+  width: 14px;
+  height: 14px;
+}
+
 .navCont {
   display: flex;
   flex-direction: column;
@@ -206,6 +208,7 @@ a {
   font-family: 'Poppins', sans-serif;
   width: max-content;
   display: flex;
+  align-items: center;
   gap: 10px;
 }
 
@@ -276,7 +279,9 @@ a {
   .navbar {
     padding: 20px 40px;
   }
+}
 
+@media only screen and (max-width: 1100px) {
   .menu-icon {
     display: block;
   }

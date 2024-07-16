@@ -58,7 +58,16 @@ export const OurImpacts = () => {
           <div className={styles.numbers}>
             <div className={styles.left}>
               <div className={styles.box}>
-                <h2>{animatedNumbers ? <AnimatedNumber value={numbers[0].value} /> : numbers[0].value}</h2>
+                <h2>
+                  {animatedNumbers ? (
+                    <>
+                      <AnimatedNumber value={numbers[0].value} />
+                      {'+'}
+                    </>
+                  ) : (
+                    <>{`${numbers[0].value}+`}</>
+                  )}
+                </h2>
                 <p>{numbers[0].label}</p>
               </div>
               <div className={styles.box}>
