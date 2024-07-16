@@ -1,19 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import Supports from '../Supports';
-import {
-  AMT_RAISED_TEXT,
-  TestId,
-  content1,
-  content2,
-  content3,
-  content4,
-  content5,
-  headText,
-  progressText1,
-  progressText2,
-  subHeadText
-} from '../constants';
+import { AMT_RAISED_TEXT, TestId, content1, content2, content3, content4, headText, progressText1, progressText2, subHeadText } from '../constants';
 
 describe('Supports component', () => {
   describe('renders the correct Supports component', () => {
@@ -78,15 +66,6 @@ describe('Supports component', () => {
         </BrowserRouter>
       );
       expect(screen.getByTestId(TestId.CONTENT4)).toHaveTextContent(content4);
-    });
-
-    it('shows Supports content 5', () => {
-      render(
-        <BrowserRouter>
-          <Supports />
-        </BrowserRouter>
-      );
-      expect(screen.getByTestId(TestId.CONTENT5)).toHaveTextContent(content5);
     });
 
     it('shows Supports progress Text 1', () => {

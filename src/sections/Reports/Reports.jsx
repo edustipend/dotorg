@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { File_Icon, Report_Lines, close, Close } from '../../assets';
+import Header from '../../components/Header';
 import Button from '../../components/Button';
 import Container from '../../components/Container';
 import Modal from '../../components/Modal';
@@ -60,7 +61,10 @@ export const Reports = () => {
     <div className={styles.container} data-testid={TestId.REPORT_DOC}>
       <Container>
         <div className={styles.desc}>
-          <h1 data-testid={TestId.HEAD_TEXT}>{HEAD_TEXT}</h1>
+          {/* <h1 data-testid={TestId.HEAD_TEXT}>{HEAD_TEXT}</h1> */}
+          <Header size="medium" dataTest={TestId.HEAD_TEXT} className={styles.overviewheader}>
+            {HEAD_TEXT}
+          </Header>
           <p data-testid={TestId.SUB_TEXT}>{SUB_TEXT}</p>
         </div>
         <div className={styles.reportsContainer}>

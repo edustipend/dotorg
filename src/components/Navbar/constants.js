@@ -97,7 +97,7 @@ export const SUPPORT_LEARNER_LINKS = [
     ]
   },
   {
-    label: 'How much can I Donate?',
+    label: 'How much can I donate?',
     path: SUPPORT_A_LEARNER,
     hash: '#how-much-can-i-donate'
   }

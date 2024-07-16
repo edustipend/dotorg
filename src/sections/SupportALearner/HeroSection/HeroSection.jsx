@@ -17,7 +17,7 @@ const HeroSection = () => {
     const intervalId = setInterval(() => {
       setCurrentQuoteIndex((prevIndex) => (prevIndex + 1) % quotesArray.length);
       setAnimationKey((prevKey) => prevKey + 1);
-    }, 20000);
+    }, 8000);
 
     return () => clearInterval(intervalId);
   }, []);
@@ -62,7 +62,7 @@ const HeroSection = () => {
                   pathname: '/support-a-learner/donate'
                 }}
               >
-                <Button label={Texts.SUPPORT_TEXT} size={'medium'} type={'secondary'} />
+                <Button label={Texts.SUPPORT_TEXT} size="medium" type="secondary" />
               </NavHashLink>
               <NavHashLink
                 to={{

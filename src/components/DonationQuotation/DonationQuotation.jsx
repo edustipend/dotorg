@@ -53,5 +53,5 @@ export const DonationQuotation = ({ amount }) => {
 };
 
 DonationQuotation.propTypes = {
-  amount: PropTypes.number
+  amount: PropTypes.string
 };

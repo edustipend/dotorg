@@ -9,21 +9,24 @@ export const paths = [
   }
 ];
 
-export const totalAmount = 238700;
-export const beneficiaries = '400';
+export const totalAmount = 32833036;
+export const beneficiaries = '600+';
 
 export const ImpactLabels = {
-  TOTAL_DISBURSED: 'TOTAL DISBURSED',
-  BENEFICIARIES: 'BENEFICIARIES',
+  TOTAL_DISBURSED: 'TOTAL AMOUNT DISBURSED',
+  COMMUNITY_PARTNERSHIPS: 'COMMUNITY PARTNERSHIPS',
+  BENEFICIARIES: 'NO OF BENEFICIARIES',
+  STATES_REACHED: 'STATES REACHED',
+  VIEW_REPORT_BUTTON_LABEL: 'See Monthly Reports',
   IMPACT_REPORT: 'View Impact Report',
   HEADER: 'Our Impact',
-  SUPPORT: 'Support a Learner',
+  SUPPORT: 'Donate Now',
   DONATE: '/support-a-learner/donate',
   PARTNER_HEADER: 'MAKE AN IMPACT WITH US',
-  OVERVIEW: 'Overview of our impact numbers',
-  PATH: '/impact/reports',
-  VIDEO: 'https://www.youtube.com/embed/e6aNgMiaQ30',
-  SUB_HEADER: 'Watch the stories of our beneficiaries and see the tangible impact of our support programs.',
+  OVERVIEW: 'Overview of Our Impact Numbers',
+  REPORTS_PATH: '/impact/reports',
+  VIDEO: 'https://www.youtube.com/embed/e6aNgMiaQ30?si=rIpgEGm-0sBa_Brx&autoplay=1',
+  SUB_HEADER: 'Watch the interview below with one of our beneficiaries and see the tangible impact of our monthly stipend program.',
   PARTNER_SUB_HEADER: 'Partner with us to expand our reach and provide education opportunities to those who need them most.'
 };
 
