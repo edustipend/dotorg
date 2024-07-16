@@ -13,7 +13,7 @@ jest.mock('react-slick', () => {
 
   // Define prop types for the mock component
   MockSlider.propTypes = {
-    children: PropTypes.node.isRequired
+    children: PropTypes.node.isRequired,
   };
 
   return MockSlider;
@@ -43,7 +43,7 @@ jest.mock('../../../components/TestimonialCard/TestimonialCard', () => {
     postDate: PropTypes.string.isRequired,
     seeLink: PropTypes.string.isRequired,
     hrefLink: PropTypes.string.isRequired,
-    source: PropTypes.string.isRequired
+    source: PropTypes.string.isRequired,
   };
 
   return MockTestimonialCard;
@@ -51,7 +51,7 @@ jest.mock('../../../components/TestimonialCard/TestimonialCard', () => {
 
 describe('BeneficiaryTestimonies Component', () => {
   test('renders the component and displays the testimonials', () => {
-    render(<BeneficiaryTestimonies />);
+    render(<BeneficiaryTestimonies />); // Ensure the component renders correctly
 
     // Check for the header
     const header = screen.getByText('Testimonials');
@@ -64,7 +64,7 @@ describe('BeneficiaryTestimonies Component', () => {
     // Check for the support link
     const supportLink = screen.getByText('Support a learner');
     expect(supportLink).toBeInTheDocument();
-    expect(supportLink).toHaveAttribute('href', '#');
+    expect(supportLink).toHaveAttribute('href', '/support-a-learner/donate');
 
     // Check for the testimonial cards
     const testimonialCards = screen.getAllByTestId('testimonial-card');

@@ -110,13 +110,13 @@ function BeneficiaryTestimonies() {
               {testimonialsData.map((testimonial, index) => (
                 <TestimonialCard
                   key={index}
-                  username={testimonial.username}
-                  userhandle={testimonial.userhandle}
-                  content={testimonial.content}
-                  postDate={testimonial.postDate}
-                  seeLink={testimonial.seeLink}
-                  hrefLink={testimonial.hrefLink}
-                  source={testimonial.source}
+                  username={testimonial?.username}
+                  userhandle={testimonial?.userhandle}
+                  content={testimonial?.content}
+                  postDate={testimonial?.postDate}
+                  seeLink={testimonial?.seeLink}
+                  hrefLink={testimonial?.hrefLink}
+                  source={testimonial?.source}
                 />
               ))}
             </Slider>
