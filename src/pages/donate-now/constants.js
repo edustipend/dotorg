@@ -38,7 +38,7 @@ const constants = {
   donation_success:
     'Thank you for choosing to donate to Edustipend. By donating, you are making a significant difference in learners’ lives, empowering them with the tools they need to thrive in their learning journey.',
   donation_failed_header: 'Transaction Unsuccessful',
-  donation_failed: 'Your donation could not be completed at this time. Try again or use a different card.',
+  donation_failed: 'Your donation could not be completed at this time.',
   text: 'text',
   fullName: 'First name and last name',
   email: 'email',
