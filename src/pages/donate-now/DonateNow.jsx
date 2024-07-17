@@ -25,7 +25,7 @@ export const DonateNow = () => {
   const nav = useNavigate();
   const location = useLocation();
   const [params] = useSearchParams();
-  const { value } = location.state || { value: 1000 };
+  const { value } = location.state || { value: 5000 };
   const [amount, setAmount] = useState(value);
   const [userData, setUserData] = useState(initial);
   const [displayModal, setDisplayModal] = useState(false);

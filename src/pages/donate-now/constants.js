@@ -53,7 +53,7 @@ const constants = {
   NGN: 'NGN 5000',
   secondary: 'secondary',
   invalidEmail: 'Please enter a valid email address',
-  invalidAmount: "Amount can't be lower than ₦1,000",
+  invalidAmount: "Oops! Sorry, amount can't be less than ₦1,000",
   invalidName: 'Please provide your first and last names',
   invalidPhoneNumber: 'Please enter a valid phone number',
   redirect_dev: 'http://localhost:3000/support-a-learner/donate',

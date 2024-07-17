@@ -15,6 +15,6 @@ export const constant = {
       cost: 10000
     }
   ],
-  invalidAmount: "Amount can't be lower than ₦1,000",
+  invalidAmount: "Oops! Sorry, amount can't be less than ₦1,000",
   gratitude: 'This amount will help us empower a learner'
 };
