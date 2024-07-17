@@ -15,6 +15,7 @@ import useDetectInternet from './hooks/useDetectInternet';
 import NoInternet from './components/NoInternet/NoInternet';
 import { Toaster } from 'react-hot-toast';
 initFirebaseApp();
+
 function App() {
   const { isLoading } = useContext(ModalContext);
   const scrollOnRoute = useScrollToTop();
