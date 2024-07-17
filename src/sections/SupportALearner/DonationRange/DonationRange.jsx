@@ -9,7 +9,7 @@ import formatNumber from '../../../utils/numberFormatter';
 import DonationQuotation from '../../../components/DonationQuotation';
 
 export const DonationRange = () => {
-  const [value, setValue] = useState(1000);
+  const [value, setValue] = useState(5000);
   const [step, setStep] = useState(4000);
   const nav = useNavigate();
 

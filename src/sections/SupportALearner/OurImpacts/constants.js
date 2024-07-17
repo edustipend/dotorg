@@ -11,7 +11,7 @@ export const numbers = [
     value: 600
   },
   {
-    label: 'Disbursed',
+    label: 'Amount Disbursed',
     value: 32833036
   },
   {
