@@ -12,7 +12,7 @@ import DonationQuotation from '../../../components/DonationQuotation';
 
 const { supportButton, donateNow, buttonCategory} = tagEvents;
 export const DonationRange = () => {
-  const [value, setValue] = useState(1000);
+  const [value, setValue] = useState(5000);
   const [step, setStep] = useState(4000);
   const nav = useNavigate();
 
@@ -21,7 +21,7 @@ export const DonationRange = () => {
     const el = event.target;
     el.style.setProperty('--value', el.value);
     el.style.setProperty('--min', el.min === '' ? '0' : el.min);
-    el.style.setProperty('--max', el.max === '' ? '1000000' : el.max);
+    el.style.setProperty('--max', el.max === '' ? '500000' : el.max);
     el.style.setProperty('--value', el.value);
   };
 
@@ -69,7 +69,7 @@ export const DonationRange = () => {
                       data-testid={TestId.DONATION_INPUT}
                       type="range"
                       min={0}
-                      max={1000000}
+                      max={500000}
                       step={step}
                       value={value}
                       onChange={(e) => handleChange(e)}
