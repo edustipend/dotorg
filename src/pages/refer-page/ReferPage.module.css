@@ -67,3 +67,46 @@
   color: rgba(88, 1, 255, 1);
   cursor: pointer;
 }
+
+@media screen and (max-width: 768px) {
+  .donationNetwork {
+    padding-top: 70px;
+  }
+  .referFormSection {
+    margin: 95px 100px 0 100px;
+    padding-bottom: 100px;
+  }
+}
+
+/* 717 */
+@media screen and (max-width: 717px) {
+  .donationNetwork {
+    display: none;
+  }
+
+  .referHeader {
+    padding-top: 48px;
+  }
+  .referFormSection {
+    margin: 35px 10px 0 10px;
+  }
+
+  .referParagraph {
+    margin-bottom: 30px;
+  }
+}
+
+/* 537 */
+@media screen and (max-width: 537px) {
+  .referHeader {
+    margin-bottom: 24px;
+  }
+  .referParagraph {
+    font-size: 18px;
+    text-align: justify;
+  }
+
+  .referralLinkCopy {
+    display: none;
+  }
+}
