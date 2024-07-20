@@ -4,6 +4,7 @@ import donationNetworkSVG from '../../assets/refer-frame.svg';
 import Header from '../../components/Header';
 import FormInput from '../../components/FormInput/FormInput';
 import Button from '../../components/Button';
+import referPageTexts from './ReferPageText';
 
 function ReferPage() {
   return (
@@ -14,11 +15,10 @@ function ReferPage() {
         </div>
 
         <div className={styles.referFormSection}>
-          {/* Temporal Test */}
           <div className={styles.referHeader}>
-            <Header size="medium">Refer a Friend</Header>
+            <Header size="medium">{referPageTexts.referHeader}</Header>
           </div>
-          <p className={styles.referParagraph}>Enter your name and email address below to generate a personalized link and share with your friends</p>
+          <p className={styles.referParagraph}>{referPageTexts.referParagraph}</p>
 
           <form action="" className={styles.referForm}>
             <FormInput label="Name" type="text" placeholder="Enter name" />
@@ -28,10 +28,10 @@ function ReferPage() {
               <Button size="medium" type="secondary" label="Generate Link" />
             </div>
 
-            <p className={styles.referralText}>Share your unique referral link</p>
+            <p className={styles.referralText}>{referPageTexts.referralText}</p>
             <div className={styles.referralLink}>
-              <p>https/edustipend.com/refer/ezebillions</p>
-              <p className={styles.referralLinkCopy}>Copy</p>
+              <p>{referPageTexts.referralLink}</p>
+              <p className={styles.referralLinkCopy}>{referPageTexts.referralLinkCopy}</p>
             </div>
           </form>
         </div>
