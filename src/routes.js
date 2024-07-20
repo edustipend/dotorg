@@ -37,7 +37,8 @@ const {
   REPORTS,
   ABOUT_US,
   TRANSPARENCY_DASHBOARD,
-  IMPACTS
+  IMPACTS,
+  REFERRAL_PAGE
 } = routesConstant;
 
 const Routes = () => {
@@ -85,7 +86,7 @@ const Routes = () => {
       {/* <Route path="/" element={V2_FEATURE_FLAG_ON ? <LandingPageV2 /> : <LandingPage />} /> */}
       <Route path="/" element={<LandingPageV2 />} />
       <Route path={AT_ONE} element={<AtOne />} />
-      <Route path="refer-page" element={<ReferPage />} />
+      <Route path={REFERRAL_PAGE} element={<ReferPage />} />
     </AppRoutes>
   );
 };
