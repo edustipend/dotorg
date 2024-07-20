@@ -6,9 +6,11 @@ import LatestDonations from '../../sections/SupportALearner/LatestDonations';
 import Partners from '../../sections/SupportALearner/Partners';
 import Supports from '../../sections/SupportALearner/Supports';
 import BeneficiaryTestimonies from '../../sections/SupportALearner/BeneficiaryTestimonies/BeneficiaryTestimonies';
+import usePageView from '../../hooks/usePageView';
 import { SeoFragment } from '../../components/SeoFragment/SeoFragment';
 
 export const SupportALearner = () => {
+  usePageView('Support-a-learner');
   return (
     <>
       <SeoFragment

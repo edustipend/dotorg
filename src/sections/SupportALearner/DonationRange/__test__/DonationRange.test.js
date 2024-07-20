@@ -48,7 +48,7 @@ describe("DonationRange component", () => {
     fireEvent.click(donationButton);
     expect(useNavigate).toHaveBeenCalled();
     expect(navigateMock).toHaveBeenCalledWith("/support-a-learner/donate", {
-      state: { value: 1000 }
+      state: { value: 5000 }
     });
   });
 });

@@ -13,6 +13,7 @@ import TransactionModal from './internals/transactionModal';
 import { ModalContext } from '../../context/ModalContext';
 import formatNumber from '../../utils/numberFormatter';
 import { checkEmail } from '../../utils/EmailChecker/emailChecker';
+import usePageView from '../../hooks/usePageView';
 import { DONATION, postData } from '../../services/ApiClient';
 import toast from 'react-hot-toast';
 import useDonationPrompt from '../../hooks/useDonationPrompt';
@@ -22,6 +23,7 @@ const UTM_REFERRER = 'utm_referrer';
 const PHONE_NUMBER_REGEX = /^(\+[1-9]{1}[0-9]{3,14})?([0-9]{9,14})$/;
 
 export const DonateNow = () => {
+  usePageView('Donate');
   const nav = useNavigate();
   const location = useLocation();
   const [params] = useSearchParams();
@@ -57,7 +59,6 @@ export const DonateNow = () => {
   );
   //a random uuid used to generate an email address for anon
   const uuid = window?.crypto?.randomUUID();
-
   const handleFocus = (setUserData, focus) => {
     setUserData((prev) => ({ ...prev, focus: !focus }));
   };

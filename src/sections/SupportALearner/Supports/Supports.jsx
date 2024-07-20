@@ -21,6 +21,9 @@ import {
 import { DONATION, getData } from '../../../services/ApiClient';
 import { scroller } from 'react-scroll';
 import { formatMoney } from '../../../utils/numberFormatter/formatMoney';
+import { userInteraction } from '../../../utils/googleTagManager/googleTagManager';
+import { tagEvents } from '../../../utils/googleTagManager/tagEvents';
+const { supportButton, donateNow, buttonCategory, donateBtnLabel } = tagEvents;
 
 const Supports = () => {
   const sectionRef = useRef(null);
@@ -133,8 +136,7 @@ const Supports = () => {
                 <NavHashLink
                   to={{
                     pathname: '/support-a-learner/donate'
-                  }}
-                >
+                  }}>
                   <Button label="Donate Now" size="medium" type="primary" />
                 </NavHashLink>
               </div>
@@ -146,7 +148,7 @@ const Supports = () => {
             to={{
               pathname: '/support-a-learner/donate'
             }}
-          >
+            onClick={() => userInteraction(supportButton, buttonCategory, donateNow, donateBtnLabel)}>
             <Button label="Donate Now" size="large" type="secondary" />
           </NavHashLink>
         </div>

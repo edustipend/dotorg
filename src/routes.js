@@ -21,6 +21,7 @@ import ReportsPage from './pages/reports';
 import AboutUs from './pages/about-us/AboutUs';
 import TransparencyDashboard from './sections/TransparencyDashboard';
 import Impacts from './sections/Impacts';
+
 const {
   AMBASSADOR_PROGRAM,
   REQUEST,
@@ -38,6 +39,8 @@ const {
   TRANSPARENCY_DASHBOARD,
   IMPACTS
 } = routesConstant;
+
+
 
 const Routes = () => {
   return (

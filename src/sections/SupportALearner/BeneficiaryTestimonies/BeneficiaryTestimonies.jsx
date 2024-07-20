@@ -93,7 +93,7 @@ var settings = {
 
 function BeneficiaryTestimonies() {
   return (
-    <div className={BeneficiaryStyle.testimonialBigWrapper}>
+    <div data-testid={"Testimonial"} className={BeneficiaryStyle.testimonialBigWrapper}>
       <Container>
         <div className={BeneficiaryStyle.testimonial__section}>
           <Header size="medium" color="secondary" dataTest="another-header-test" className="custom-header-class">
