@@ -68,6 +68,12 @@
   cursor: pointer;
 }
 
+.copySuccess {
+  color: green;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
 @media screen and (max-width: 768px) {
   .donationNetwork {
     padding-top: 70px;

@@ -15,5 +15,5 @@ export const routesConstant = {
   REPORTS: '/impacts/reports',
   IMPACTS: '/impacts',
   TRANSPARENCY_DASHBOARD: '/support-a-learner/transparency-dashboard',
-  REFERRAL_PAGE: '/referral-page'
+  REFERRAL_PAGE: '/support-a-learner/refer-a-friend'
 };

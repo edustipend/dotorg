@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import ReferPage from './ReferPage';
-import referPageTexts from './ReferPageText';
+import referPageTexts from './constants';
 
 describe('ReferPage', () => {
   test('renders ReferPage correctly', () => {
@@ -11,7 +11,7 @@ describe('ReferPage', () => {
 
     expect(screen.getByText(referPageTexts.referParagraph)).toBeInTheDocument();
 
-    expect(screen.getByText('Generate Link')).toBeInTheDocument();
+    expect(screen.getByText(referPageTexts.generateLink)).toBeInTheDocument();
 
     expect(screen.getByText(referPageTexts.referralText)).toBeInTheDocument();
 

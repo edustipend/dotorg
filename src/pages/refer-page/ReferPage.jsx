@@ -1,12 +1,27 @@
+import React, { useState } from 'react';
 import Container from '../../components/Container';
 import styles from './ReferPage.module.css';
 import donationNetworkSVG from '../../assets/refer-frame.svg';
 import Header from '../../components/Header';
-import FormInput from '../../components/FormInput/FormInput';
 import Button from '../../components/Button';
-import referPageTexts from './ReferPageText';
+import referralPageCopy from './constants';
+import Input from '../../components/Input';
 
 function ReferPage() {
+  const [copySuccess, setCopySuccess] = useState('');
+
+  const handleCopyClick = () => {
+    const referralLink = referralPageCopy.referralLink;
+    navigator.clipboard.writeText(referralLink).then(
+      () => {
+        setCopySuccess('Copied!');
+        setTimeout(() => setCopySuccess(''), 2000); // Clear message after 2 seconds
+      },
+      (err) => {
+        setCopySuccess('Failed to copy');
+      }
+    );
+  };
   return (
     <main className={styles.referPage}>
       <Container>
@@ -16,23 +31,26 @@ function ReferPage() {
 
         <div className={styles.referFormSection}>
           <div className={styles.referHeader}>
-            <Header size="medium">{referPageTexts.referHeader}</Header>
+            <Header size="medium">{referralPageCopy.referHeader}</Header>
           </div>
-          <p className={styles.referParagraph}>{referPageTexts.referParagraph}</p>
+          <p className={styles.referParagraph}>{referralPageCopy.referParagraph}</p>
 
           <form action="" className={styles.referForm}>
-            <FormInput label="Name" type="text" placeholder="Enter name" />
-            <FormInput label="Email" type="email" placeholder="Enter email address" />
+            <Input value="Enter name" label="Name" placeholder="Enter name" className={styles.entry} />
+            <Input value="Enter email" label="Email" placeholder="Enter email" className={styles.entry} />
 
             <div className={styles.referFormButton}>
               <Button size="medium" type="secondary" label="Generate Link" />
             </div>
 
-            <p className={styles.referralText}>{referPageTexts.referralText}</p>
+            <p className={styles.referralText}>{referralPageCopy.referralText}</p>
             <div className={styles.referralLink}>
-              <p>{referPageTexts.referralLink}</p>
-              <p className={styles.referralLinkCopy}>{referPageTexts.referralLinkCopy}</p>
+              <p>{referralPageCopy.referralLink}</p>
+              <p className={styles.referralLinkCopy} onClick={handleCopyClick}>
+                {referralPageCopy.referralLinkCopy}
+              </p>
             </div>
+            {copySuccess && <p className={styles.copySuccess}>{copySuccess}</p>}
           </form>
         </div>
       </Container>
