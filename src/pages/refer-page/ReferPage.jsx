@@ -9,6 +9,9 @@ import Input from '../../components/Input';
 
 function ReferPage() {
   const [copySuccess, setCopySuccess] = useState('');
+  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
+  const [generatedLink, setGeneratedLink] = useState('');
 
   const handleCopyClick = () => {
     const referralLink = referralPageCopy.referralLink;
@@ -22,6 +25,13 @@ function ReferPage() {
       }
     );
   };
+
+  const handleGenerateLink = () => {
+    //@TODO: Make api call to generate link and paste it input field
+    // Clean this up when api call to geenerate link is implemented
+    setGeneratedLink(referralPageCopy.referralLink);
+  };
+
   return (
     <main className={styles.referPage}>
       <Container>
@@ -36,16 +46,17 @@ function ReferPage() {
           <p className={styles.referParagraph}>{referralPageCopy.referParagraph}</p>
 
           <form action="" className={styles.referForm}>
-            <Input value="Enter name" label="Name" placeholder="Enter name" className={styles.entry} />
-            <Input value="Enter email" label="Email" placeholder="Enter email" className={styles.entry} />
+            <Input value={name} label="Name" placeholder="Enter name" className={styles.entry} onChange={(e) => setName(e.target.value)} />
+            <Input value={email} label="Email" placeholder="Enter email" className={styles.entry} onChange={(e) => setEmail(e.target.value)} />
 
             <div className={styles.referFormButton}>
-              <Button size="medium" type="secondary" label="Generate Link" />
+              <Button size="medium" type="secondary" label="Generate Link" onClick={handleGenerateLink} />
             </div>
 
             <p className={styles.referralText}>{referralPageCopy.referralText}</p>
             <div className={styles.referralLink}>
-              <p>{referralPageCopy.referralLink}</p>
+              <p>{generatedLink}</p>
+
               <p className={styles.referralLinkCopy} onClick={handleCopyClick}>
                 {referralPageCopy.referralLinkCopy}
               </p>

@@ -15,7 +15,6 @@ describe('ReferPage', () => {
 
     expect(screen.getByText(referPageTexts.referralText)).toBeInTheDocument();
 
-    expect(screen.getByText(referPageTexts.referralLink)).toBeInTheDocument();
     expect(screen.getByText(referPageTexts.referralLinkCopy)).toBeInTheDocument();
   });
 
