@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 import Container from '../../components/Container';
 import styles from './ReferPage.module.css';
 import donationNetworkSVG from '../../assets/refer-frame.svg';
@@ -8,20 +8,20 @@ import referralPageCopy from './constants';
 import Input from '../../components/Input';
 
 function ReferPage() {
-  const [copySuccess, setCopySuccess] = useState('');
+  // const [copySuccess, setCopySuccess] = useState('');
 
-  const handleCopyClick = () => {
-    const referralLink = referralPageCopy.referralLink;
-    navigator.clipboard.writeText(referralLink).then(
-      () => {
-        setCopySuccess('Copied!');
-        setTimeout(() => setCopySuccess(''), 2000); // Clear message after 2 seconds
-      },
-      (err) => {
-        setCopySuccess('Failed to copy');
-      }
-    );
-  };
+  // const handleCopyClick = () => {
+  //   const referralLink = referralPageCopy.referralLink;
+  //   navigator.clipboard.writeText(referralLink).then(
+  //     () => {
+  //       setCopySuccess('Copied!');
+  //       setTimeout(() => setCopySuccess(''), 2000); // Clear message after 2 seconds
+  //     },
+  //     (err) => {
+  //       setCopySuccess('Failed to copy');
+  //     }
+  //   );
+  // };
   return (
     <main className={styles.referPage}>
       <Container>
@@ -44,13 +44,8 @@ function ReferPage() {
             </div>
 
             <p className={styles.referralText}>{referralPageCopy.referralText}</p>
-            <div className={styles.referralLink}>
-              <p>{referralPageCopy.referralLink}</p>
-              <p className={styles.referralLinkCopy} onClick={handleCopyClick}>
-                {referralPageCopy.referralLinkCopy}
-              </p>
-            </div>
-            {copySuccess && <p className={styles.copySuccess}>{copySuccess}</p>}
+            <div>Just a test to see if it works</div>
+            {/* {copySuccess && <p className={styles.copySuccess}>{copySuccess}</p>} */}
           </form>
         </div>
       </Container>
