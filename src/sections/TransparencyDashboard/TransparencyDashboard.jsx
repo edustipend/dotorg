@@ -12,8 +12,8 @@ export const TransparencyDashboard = () => {
   const [data, setData] = useState(resData);
   const [nextCall, setNextCall] = useState('');
   const [date, setDate] = useState({
-    startDate: getStartDate('thisWeek').toISOString().split('T')[0],
-    endDate: getStartDate('tommorow').toISOString().split('T')[0]
+    startDate: getStartDate('thisWeek'),
+    endDate: getStartDate('tommorow').toISOString()
   });
   const handleOptionChange = (e) => {
     const frequency = e.target.value;
@@ -21,7 +21,7 @@ export const TransparencyDashboard = () => {
   };
 
   const fetchTransactions = useCallback(async () => {
-    const params = frequency === 'allTime' ? '' : `?startDate=${date.startDate}&endDate=${date.endDate}`;
+    const params = frequency === 'allTime' ? '' : `?startDate=${date.startDate}T00:00:00&endDate=${date.endDate}`;
     const overview = await getData(`${DONATION}/overview`);
     const timeline = await getData(`${DONATION}/timeline?${nextCall || ''}`);
     const range = await getData(`${DONATION}/range${params}`);
