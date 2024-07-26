@@ -21,7 +21,7 @@ export const TransparencyDashboard = () => {
   };
 
   const fetchTransactions = useCallback(async () => {
-    const params = frequency === 'allTime' ? '' : `?startDate=${date.startDate}T00:00:00&endDate=${date.endDate}`;
+    const params = frequency === 'allTime' ? '' : `?startDate=${date.startDate}&endDate=${date.endDate}`;
     const overview = await getData(`${DONATION}/overview`);
     const timeline = await getData(`${DONATION}/timeline?${nextCall || ''}`);
     const range = await getData(`${DONATION}/range${params}`);
