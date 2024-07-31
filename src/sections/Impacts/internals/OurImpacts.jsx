@@ -7,7 +7,7 @@ import Video from '../../../components/Video';
 const OurImpacts = () => {
   return (
     <div className={styles.headerWrap}>
-      <Header size={'large'} dataTest={TestId.HEAD_TEXT}>
+      <Header size="large" dataTest={TestId.HEAD_TEXT}>
         {ImpactLabels.HEADER}
       </Header>
       <p data-testid={TestId.SUB_HEADER_TEXT} className={styles.subheader}>

@@ -6,7 +6,7 @@ const laptop = 400000,
   course = 25000,
   data = 10000;
 const constant = {
-  invalidAmount: "Amount can't be lower than ₦1,000"
+  invalidAmount: "Sorry, donation can't be less than ₦1,000"
 };
 
 const useDonationPrompt = (amount) => {
@@ -23,22 +23,22 @@ const useDonationPrompt = (amount) => {
     const nextAmount = amount * 2;
     if (nextAmount >= laptop) {
       return setNextText(
-        `${formatMoney(nextAmount)} can help get ${handleUnits(amount, laptop) > 1 ? 'laptops' : 'a laptop'} 
+        `${formatMoney(nextAmount)} can get ${handleUnits(amount, laptop) > 1 ? 'laptops' : 'a laptop'} 
         for ${handleUnits(nextAmount, laptop)} ${handleUnits(nextAmount, laptop) > 1 ? 'learners' : 'learner'} 
-        OR can pay for a course online for ${handleUnits(nextAmount, course)} ${handleUnits(nextAmount, course) > 1 ? 'learners' : 'learner'} 
-        OR can help get data subscription for ${handleUnits(nextAmount, data)} ${handleUnits(nextAmount, data) > 1 ? 'learners' : 'learner'}`
+        OR pay for a course online for ${handleUnits(nextAmount, course)} ${handleUnits(nextAmount, course) > 1 ? 'learners' : 'learner'} 
+        OR get data subscription for ${handleUnits(nextAmount, data)} ${handleUnits(nextAmount, data) > 1 ? 'learners' : 'learner'}`
       );
     }
     if (amount >= course) {
       return setNextText(
-        `${formatMoney(nextAmount)} is a great start and can pay for a course online 
+        `${formatMoney(nextAmount)} can pay for a course online 
         for ${handleUnits(nextAmount, course)} ${handleUnits(nextAmount, course) > 1 ? 'learners' : 'learner'} 
-        OR can help get data subscription for ${handleUnits(nextAmount, data)} ${handleUnits(nextAmount, data) > 1 ? 'learners' : 'learner'}`
+        OR get data subscription for ${handleUnits(nextAmount, data)} ${handleUnits(nextAmount, data) > 1 ? 'learners' : 'learner'}`
       );
     }
     if (amount >= data) {
       return setNextText(
-        `${formatMoney(nextAmount)} is a great start and can get data subscription 
+        `${formatMoney(nextAmount)} can get data subscription 
         for ${handleUnits(nextAmount, data)} ${handleUnits(nextAmount, data) > 1 ? 'learners' : 'learner'}`
       );
     }
@@ -46,46 +46,46 @@ const useDonationPrompt = (amount) => {
   }, []);
 
   useEffect(() => {
-    const Amount = Number(amount);
+    const amountAsNumber = Number(amount);
     //next donation is pegged at x2 the current donation (can be reviewed)
     const next = () => {
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current);
       }
       timeoutRef.current = setTimeout(() => {
-        handleNextText(Amount);
+        handleNextText(amountAsNumber);
         setSwapText((prev) => !prev);
-      }, 2000);
+      }, 5500);
     };
 
     const units = (stipendType) => `${handleUnits(amount, stipendType) > 1 ? 'learners' : 'learner'}`;
 
-    if (Amount < 1000) {
+    if (amountAsNumber < 1000) {
       setCurrentText(constant.invalidAmount);
       setNextText('');
-    } else if (Amount >= laptop) {
+    } else if (amountAsNumber >= laptop) {
       setCurrentText(
         `${formatMoney(amount)} can help get ${handleUnits(amount, laptop) > 1 ? 'laptops' : 'a laptop'} 
         for ${handleUnits(amount, laptop)} ${units(laptop)} 
-        OR can pay for a course online for ${handleUnits(amount, course)} ${units(course)} 
-        OR can help get data subscription for ${handleUnits(amount, data)} ${units(data)}`
+        OR pay for a course online for ${handleUnits(amount, course)} ${units(course)} 
+        OR get data subscription for ${handleUnits(amount, data)} ${units(data)}`
       );
       setSwapText(false);
       setNextText('');
-    } else if (Amount >= course) {
+    } else if (amountAsNumber >= course) {
       setCurrentText(
-        `${formatMoney(amount)} is a great start and can pay for a course online 
+        `${formatMoney(amount)} can pay for a course online 
         for ${handleUnits(amount, course)} ${units(course)} 
-        OR can help get data subscription for ${handleUnits(amount, data)} ${units(data)}`
+        OR get data subscription for ${handleUnits(amount, data)} ${units(data)}`
       );
       next();
-    } else if (Amount >= data) {
-      setCurrentText(`${formatMoney(amount)} is a great start and can get data subscription 
+    } else if (amountAsNumber >= data) {
+      setCurrentText(`${formatMoney(amount)} can get data subscription 
       for ${handleUnits(amount, data)} ${units(data)}`);
       setNextText('');
       next();
     } else {
-      setCurrentText(`${formatMoney(amount)} is a great start`);
+      setCurrentText(`${formatMoney(amount)} will go a long way to help a learner`);
       setNextText('');
     }
 

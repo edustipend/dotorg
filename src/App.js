@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useMemo } from 'react';
 import Routes from './routes';
 import initFirebaseApp from './firebaseConfig';
 import Navbar from './components/Navbar';
@@ -14,11 +14,29 @@ import LoadingMessage from './components/LoadingMessage';
 import useDetectInternet from './hooks/useDetectInternet';
 import NoInternet from './components/NoInternet/NoInternet';
 import { Toaster } from 'react-hot-toast';
+import TagManager from 'react-gtm-module';
 initFirebaseApp();
+const { REACT_APP_GTM } = process.env;
+
 function App() {
   const { isLoading } = useContext(ModalContext);
   const scrollOnRoute = useScrollToTop();
   const isOnline = useDetectInternet();
+  const gtmId = REACT_APP_GTM;
+
+  //get the gtmId from the env file then hold the value in a  memo
+  const tagManagerArgs = useMemo(
+    () => ({
+      gtmId
+    }),
+    [gtmId]
+  );
+  //initialize the process everytime the user enters the site as this is the app's entry point
+  useEffect(() => {
+    TagManager.initialize(tagManagerArgs);
+  }, [tagManagerArgs]);
+
+
   return isOnline ? (
     <>
       {scrollOnRoute}
@@ -44,6 +62,7 @@ function App() {
         position="top-center"
         reverseOrder={false}
       />
+
       <Navbar />
       <Routes />
       <Footer />

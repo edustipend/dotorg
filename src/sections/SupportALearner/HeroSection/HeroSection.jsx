@@ -8,7 +8,10 @@ import quoteD from '../../../assets/quotedown.png';
 import { NavHashLink } from 'react-router-hash-link';
 import Container from '../../../components/Container';
 import { Texts, quotesArray } from './contants';
+import { userInteraction } from '../../../utils/googleTagManager/googleTagManager';
+import { tagEvents } from '../../../utils/googleTagManager/tagEvents';
 
+const { supportButton, donateNow, buttonCategory, donateBtnLabel } = tagEvents;
 const HeroSection = () => {
   const [currentQuoteIndex, setCurrentQuoteIndex] = useState(0);
   const [animationKey, setAnimationKey] = useState(0);
@@ -17,12 +20,13 @@ const HeroSection = () => {
     const intervalId = setInterval(() => {
       setCurrentQuoteIndex((prevIndex) => (prevIndex + 1) % quotesArray.length);
       setAnimationKey((prevKey) => prevKey + 1);
-    }, 20000);
+    }, 8000);
 
     return () => clearInterval(intervalId);
   }, []);
 
   const currentQuote = quotesArray[currentQuoteIndex];
+  console.log(document.getElementById('donate-now-page'), 'lppp');
 
   return (
     <div className={styles.bg}>
@@ -61,7 +65,8 @@ const HeroSection = () => {
                 to={{
                   pathname: '/support-a-learner/donate'
                 }}
-              >
+                onClick={() => userInteraction(supportButton, buttonCategory, donateNow, donateBtnLabel)}
+                className="donate-now">
                 <Button label={Texts.SUPPORT_TEXT} size={'medium'} type={'secondary'} />
               </NavHashLink>
               <NavHashLink
@@ -70,7 +75,7 @@ const HeroSection = () => {
                   hash: '#how-much-can-i-donate'
                 }}
               >
-                <Button label={Texts.DONATE_TEXT} size={'medium'} type={'plain'} />
+                <Button label={Texts.DONATE_TEXT} size='medium' type='plain' />
               </NavHashLink>
             </div>
           </div>

@@ -23,8 +23,9 @@ const PartnerWithUs = () => {
             <NavHashLink
               to={{
                 pathname: ImpactLabels.DONATE
-              }}>
-              <Button label={ImpactLabels.SUPPORT} size={'large'} type={'secondary'} />
+              }}
+            >
+              <Button label={ImpactLabels.SUPPORT} size="large" type="secondary" />
             </NavHashLink>
           </div>
         </div>

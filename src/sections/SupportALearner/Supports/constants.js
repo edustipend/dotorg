@@ -1,14 +1,14 @@
 export const headText = 'SUPPORT A LEARNER';
 export const subHeadText = 'ABOUT THIS PROJECT';
-export const content1 = 'Over the past year, Edustipend has empowered over 500 Nigerians to pursue their aspirations by providing learning stipends.';
+export const content1 =
+  'Over the past two years, Edustipend has empowered over 600 Nigerians to pursue their aspirations by providing learning stipends. Our stipends encompass learning resources such as laptops, course vouchers, and data subscriptions, benefiting an average of 32 Nigerians monthly across all 36 states of Nigeria.';
 export const content2 =
-  'Our stipends encompass essential resources such as laptops, course vouchers, and data subscriptions, benefiting an average of 37 young Nigerians monthly across all 36 states of Nigeria.';
+  'The impact of our support has been remarkable, manifesting as new employment opportunities, accelerated skill development, and the establishment of sustainable businesses. We are committed to sustaining this positive change and need your support to reach more people.';
 export const content3 =
-  'The impact of our support has been remarkable, manifesting in the form of newfound employment opportunities, accelerated skill development, and the establishment of sustainable businesses. We are committed to sustaining this positive change and invite your collaboration in achieving this goal.';
+  'To this effect, we aim to raise N11 million, which will help increase the impact of our program by awarding 5 laptops monthly in the next one year, allow us partner with more communities and increase our service offerings.';
+
 export const content4 =
-  'In pursuit of our mission, we aim to raise N11 million, which will facilitate the provision of stipends for the coming nine months. These funds will enable us to award five laptops, 27 Data subscriptions, and a Course/School fees stipend to 37 young persons.';
-export const content5 =
-  'We invite you to join us on this mission of empowering our young talents to achieve their dreams by removing the barriers to their learning. You can take action by donating, and sharing with your network as well.';
+  'We invite you to join us on this mission of empowering learners in Nigeria to achieve their dreams by removing the barriers to their learning and improve their outcomes. You can take action by donating, and sharing with your network as well.';
 export const progressText1 = 'GOAL:';
 export const progressText2 = '₦11,000,000';
 export const AMT_RAISED_TEXT = 'raised';
@@ -30,4 +30,3 @@ export const TestId = {
   AMT_RAISED_TEXT: 'amt-text-el',
   AMT_RAISED: 'amt-el'
 };
-

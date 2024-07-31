@@ -44,7 +44,7 @@ export const getStartDate = (frequency) => {
   switch (frequency) {
     case 'today':
       newStartDate = new Date(today);
-      newStartDate.setDate(today.getDate() - 1);
+      newStartDate.setDate(today.getDate());
       break;
     case 'thisWeek':
       newStartDate = new Date(today);

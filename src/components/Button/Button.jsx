@@ -24,6 +24,7 @@ export const Button = ({
   disabled = false,
   effectAlt = false,
   label,
+  id,
   icon,
   iconPosition,
   isLoading = false,
@@ -49,6 +50,7 @@ export const Button = ({
       ${effectAlt ? 'effectAlt' : ''} ${effectClass}`}
     >
       <button
+        id={id}
         data-testid={dataTest}
         type="button"
         disabled={disabled}
@@ -79,6 +81,7 @@ Button.propTypes = {
   disabled: PropTypes.bool,
   effectAlt: PropTypes.bool,
   effectClass: PropTypes.string,
+  id: PropTypes.string,
   icon: PropTypes.string,
   iconPosition: PropTypes.oneOf(['back', 'front']),
   isLoading: PropTypes.bool,

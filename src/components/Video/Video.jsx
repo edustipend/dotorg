@@ -7,13 +7,14 @@ const VideoPlayer = ({ src, isIFrame, width = '100%', height, controls = true, a
     <div className={styles.videoContainer}>
       <iframe
         width={width}
-        height={height}
         src={src}
-        frameBorder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-        title="Video"
-        className={styles.iframe}></iframe>
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        className={styles.iframe}
+        allowfullscreen
+      ></iframe>
     </div>
   ) : (
     <div className={styles.videoContainer}>

@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 import './styles.css';
 import { Button } from '../Button/Button';
 import { SUPPORT_LEARNER_LINKS, TestId } from './constants';
+import { userInteraction } from '../../utils/googleTagManager/googleTagManager';
+import { tagEvents } from '../../utils/googleTagManager/tagEvents';
+const { supportButton, donateNow, buttonCategory, donateBtnLabel } = tagEvents;
 
 const NavbarLearner = ({ showMenu, closeMenu, path }) => {
   const { NAVBAR_LINKS_ID } = TestId;
@@ -20,6 +23,9 @@ const NavbarLearner = ({ showMenu, closeMenu, path }) => {
   };
 
   const handleClick = (linkPath) => {
+    if (linkPath === '/support-a-learner/donate') {
+      userInteraction(supportButton, buttonCategory, donateNow, donateBtnLabel);
+    }
     setActiveLink(linkPath);
     handleMouseLeave();
     closeMenu(!showMenu);
@@ -31,8 +37,7 @@ const NavbarLearner = ({ showMenu, closeMenu, path }) => {
         key={link.label}
         onMouseEnter={() => handleMouseEnter(link.label)}
         onMouseLeave={handleMouseLeave}
-        className={`navItem ${activeDropdown === link.label ? 'active' : ''}`}
-      >
+        className={`navItem ${activeDropdown === link.label ? 'active' : ''}`}>
         {link.links ? (
           <>
             <div className="navCont">
@@ -50,8 +55,7 @@ const NavbarLearner = ({ showMenu, closeMenu, path }) => {
                     href={sublink.path}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`dropdownItem ${activeLink === sublink.path ? 'activeLink' : ''}`}
-                  >
+                    className={`dropdownItem ${activeLink === sublink.path ? 'activeLink' : ''}`}>
                     {sublink.label}
                   </a>
                 ) : (
@@ -59,8 +63,7 @@ const NavbarLearner = ({ showMenu, closeMenu, path }) => {
                     key={sublink.label}
                     to={{ pathname: sublink.path, hash: sublink.hash }}
                     className={`dropdownItem ${activeLink === sublink.path ? 'activeLink' : ''}`}
-                    onClick={() => handleClick(sublink.path)}
-                  >
+                    onClick={() => handleClick(sublink.path)}>
                     {sublink.label}
                   </HashLink>
                 )
@@ -97,7 +100,9 @@ const NavbarLearner = ({ showMenu, closeMenu, path }) => {
               <Button label="Support a learner" type="secondary" className="navBtn" onClick={() => closeMenu(!showMenu)} />
             </HashLink>
           ) : (
-            <HashLink to={{ pathname: '/support-a-learner/donate' }}>
+            <HashLink
+              to={{ pathname: '/support-a-learner/donate' }}
+              onClick={() => userInteraction(supportButton, buttonCategory, donateNow, donateBtnLabel)}>
               <Button label="Donate now" type="secondary" className="navBtn" onClick={() => closeMenu(!showMenu)} />
             </HashLink>
           )}

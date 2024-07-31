@@ -12,8 +12,8 @@ export const TransparencyDashboard = () => {
   const [data, setData] = useState(resData);
   const [nextCall, setNextCall] = useState('');
   const [date, setDate] = useState({
-    startDate: getStartDate('thisWeek').toISOString().split('T')[0],
-    endDate: getStartDate('tommorow').toISOString().split('T')[0]
+    startDate: getStartDate('thisWeek'),
+    endDate: getStartDate('tommorow').toISOString()
   });
   const handleOptionChange = (e) => {
     const frequency = e.target.value;

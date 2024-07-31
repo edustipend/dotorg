@@ -7,6 +7,9 @@ import styles from './OurImpacts.module.css';
 import { TestId, btnLabels, description, headText, numbers, subText } from './constants';
 import { Link } from 'react-router-dom';
 import { AnimatedNumber } from './AnimatedNumber';
+import { tagEvents } from '../../../utils/googleTagManager/tagEvents';
+import { userInteraction } from '../../../utils/googleTagManager/googleTagManager';
+const { supportButton, donateNow, buttonCategory, donateBtnLabel } = tagEvents;
 
 export const OurImpacts = () => {
   const [animatedNumbers, setAnimatedNumbers] = useState(false);
@@ -55,7 +58,16 @@ export const OurImpacts = () => {
           <div className={styles.numbers}>
             <div className={styles.left}>
               <div className={styles.box}>
-                <h2>{animatedNumbers ? <AnimatedNumber value={numbers[0].value} /> : numbers[0].value}</h2>
+                <h2>
+                  {animatedNumbers ? (
+                    <>
+                      <AnimatedNumber value={numbers[0].value} />
+                      {'+'}
+                    </>
+                  ) : (
+                    <>{`${numbers[0].value}+`}</>
+                  )}
+                </h2>
                 <p>{numbers[0].label}</p>
               </div>
               <div className={styles.box}>
@@ -98,7 +110,7 @@ export const OurImpacts = () => {
           <Link to={btnLabels.view.path} data-testid={TestId.VIEW_OUR_IMPACT}>
             <Button label={btnLabels.view.label} type={btnLabels.view.type} className={styles.viewBtn} />
           </Link>
-          <Link to={btnLabels.support.path}>
+          <Link to={btnLabels.support.path} onClick={() => userInteraction(supportButton, buttonCategory, donateNow, donateBtnLabel)}>
             <Button label={btnLabels.support.label} type={btnLabels.support.type} />
           </Link>
         </div>
