@@ -24,7 +24,7 @@ export const Footer = ({ version = '' }) => {
                 Become an Ambassador
               </Link>
               <Link className="footer-link" to="/ambassador-program">
-                Eligbility
+                Eligibility
               </Link>
               <Link className="footer-link" to="/">
                 Home

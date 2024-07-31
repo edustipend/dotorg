@@ -4,7 +4,7 @@ import 'slick-carousel/slick/slick-theme.css';
 
 import Slider from 'react-slick';
 
-import linkToUduakImage from '../../assets/team/Uduak.png';
+import linkToUduakImage from '../../assets/team/Uduak001.jpg';
 import linkToBlessingImage from '../../assets/team/Blessing.png';
 import linkToJoshuaImage from '../../assets/team/Joshua.png';
 import linkToBlossomImage from '../../assets/team/BlossomImikan.png';

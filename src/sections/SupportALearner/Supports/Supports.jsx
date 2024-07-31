@@ -12,7 +12,6 @@ import {
   content2,
   content3,
   content4,
-  content5,
   headText,
   maxValue,
   progressText1,
@@ -22,6 +21,9 @@ import {
 import { DONATION, getData } from '../../../services/ApiClient';
 import { scroller } from 'react-scroll';
 import { formatMoney } from '../../../utils/numberFormatter/formatMoney';
+import { userInteraction } from '../../../utils/googleTagManager/googleTagManager';
+import { tagEvents } from '../../../utils/googleTagManager/tagEvents';
+const { supportButton, donateNow, buttonCategory, donateBtnLabel } = tagEvents;
 
 const Supports = () => {
   const sectionRef = useRef(null);
@@ -106,11 +108,9 @@ const Supports = () => {
 
               <Text dataTest={TestId.CONTENT2} content={content2} />
 
-              <Text dataTest={TestId.CONTENT3} content={content3} />
+              <Text dataTest={TestId.CONTENT3} content={content3} className={styles.mainText} />
 
               <Text dataTest={TestId.CONTENT4} content={content4} />
-
-              <Text dataTest={TestId.CONTENT5} content={content5} />
             </div>
           </div>
           <div className={styles.rightwrap}>
@@ -137,7 +137,7 @@ const Supports = () => {
                   to={{
                     pathname: '/support-a-learner/donate'
                   }}>
-                  <Button label={'Donate Now'} size={'medium'} type={'primary'} />
+                  <Button label="Donate Now" size="medium" type="primary" />
                 </NavHashLink>
               </div>
             </div>
@@ -147,8 +147,9 @@ const Supports = () => {
           <NavHashLink
             to={{
               pathname: '/support-a-learner/donate'
-            }}>
-            <Button label={'Donate Now'} size={'large'} type={'secondary'} />
+            }}
+            onClick={() => userInteraction(supportButton, buttonCategory, donateNow, donateBtnLabel)}>
+            <Button label="Donate Now" size="large" type="secondary" />
           </NavHashLink>
         </div>
       </Container>

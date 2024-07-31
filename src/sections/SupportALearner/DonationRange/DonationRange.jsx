@@ -6,10 +6,13 @@ import { TestId, constants } from './constants';
 import Button from '../../../components/Button';
 import { useNavigate } from 'react-router-dom';
 import formatNumber from '../../../utils/numberFormatter';
+import { userInteraction } from '../../../utils/googleTagManager/googleTagManager';
+import { tagEvents } from '../../../utils/googleTagManager/tagEvents';
 import DonationQuotation from '../../../components/DonationQuotation';
 
+const { supportButton, donateNow, buttonCategory} = tagEvents;
 export const DonationRange = () => {
-  const [value, setValue] = useState(1000);
+  const [value, setValue] = useState(5000);
   const [step, setStep] = useState(4000);
   const nav = useNavigate();
 
@@ -18,7 +21,7 @@ export const DonationRange = () => {
     const el = event.target;
     el.style.setProperty('--value', el.value);
     el.style.setProperty('--min', el.min === '' ? '0' : el.min);
-    el.style.setProperty('--max', el.max === '' ? '1000000' : el.max);
+    el.style.setProperty('--max', el.max === '' ? '500000' : el.max);
     el.style.setProperty('--value', el.value);
   };
 
@@ -66,7 +69,7 @@ export const DonationRange = () => {
                       data-testid={TestId.DONATION_INPUT}
                       type="range"
                       min={0}
-                      max={1000000}
+                      max={500000}
                       step={step}
                       value={value}
                       onChange={(e) => handleChange(e)}
@@ -77,7 +80,9 @@ export const DonationRange = () => {
                   {/* <p className={styles.sum}>₦{`${formattedNumber} can get ${4} Laptops for ${4} learners`}</p> */}
                 </div>
               </div>
-              <div className={styles.btnContainer}>
+              <div
+                className={styles.btnContainer}
+                onClick={() => userInteraction(supportButton, buttonCategory, donateNow, `Donate ${formattedNumber}`)}>
                 <Button
                   data-testid={TestId.DONATION_BUTTON}
                   disabled={value === 0}

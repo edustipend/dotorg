@@ -1,11 +1,11 @@
 export const headText = 'PARTNERS';
 export const description = 'We have collaborated with';
-export const STATS = '100+ brands that share our vision and mission';
+export const STATS = 'the following communities that share our vision and mission';
 
 export const Texts = {
   HEADER: 'PARTNERS',
   COLLABORATE: 'We have collaborated with',
-  STATS: '100+ brands that share our vision and mission'
+  STATS: 'the following communities that share our vision and mission'
 };
 
 export const TestId = {

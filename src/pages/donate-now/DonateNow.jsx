@@ -13,17 +13,21 @@ import TransactionModal from './internals/transactionModal';
 import { ModalContext } from '../../context/ModalContext';
 import formatNumber from '../../utils/numberFormatter';
 import { checkEmail } from '../../utils/EmailChecker/emailChecker';
+import usePageView from '../../hooks/usePageView';
 import { DONATION, postData } from '../../services/ApiClient';
 import toast from 'react-hot-toast';
 import useDonationPrompt from '../../hooks/useDonationPrompt';
 
 const UTM_CAMPAIGN_SOURCE = 'utm_source';
 const UTM_REFERRER = 'utm_referrer';
+const PHONE_NUMBER_REGEX = /^(\+[1-9]{1}[0-9]{3,14})?([0-9]{9,14})$/;
+
 export const DonateNow = () => {
+  usePageView('Donate');
   const nav = useNavigate();
   const location = useLocation();
   const [params] = useSearchParams();
-  const { value } = location.state || { value: 1000 };
+  const { value } = location.state || { value: 5000 };
   const [amount, setAmount] = useState(value);
   const [userData, setUserData] = useState(initial);
   const [displayModal, setDisplayModal] = useState(false);
@@ -55,7 +59,6 @@ export const DonateNow = () => {
   );
   //a random uuid used to generate an email address for anon
   const uuid = window?.crypto?.randomUUID();
-
   const handleFocus = (setUserData, focus) => {
     setUserData((prev) => ({ ...prev, focus: !focus }));
   };
@@ -64,10 +67,10 @@ export const DonateNow = () => {
     setUserData((prev) => ({ ...prev, focus: !focus }));
   };
 
-  //input value should not be greater than 1000000
+  //input value should not be greater than 500000
   const handleAmountChange = (e) => {
     setSwapText(false);
-    const max = 1000000;
+    const max = 500000;
     const value = e.target.value;
     if (value >= 0 && value <= max) {
       setAmount(handleValidAmount(value) ?? 0);
@@ -89,7 +92,7 @@ export const DonateNow = () => {
 
   const handleValidation = () => {
     switch (true) {
-      case amount < 1000:
+      case amount < 1000 || amount > 500000:
         invalidInput(constants.invalidAmount);
         return false;
       case fullname.length < 3:
@@ -98,7 +101,7 @@ export const DonateNow = () => {
       case !toggleAnonymous && !checkEmail(email):
         invalidInput(constants.invalidEmail);
         return false;
-      case phone.includes('-') || phone.length !== 11:
+      case !PHONE_NUMBER_REGEX.test(phone):
         invalidInput(constants.invalidPhoneNumber);
         return false;
       default:
@@ -131,7 +134,7 @@ export const DonateNow = () => {
       campaign: params?.get(UTM_CAMPAIGN_SOURCE) ?? '',
       referrer: params?.get(UTM_REFERRER) ?? '',
       customer: {
-        email: toggleAnonymous ? `${uuid.substring(0, 10)}@anon.com}` : email,
+        email: toggleAnonymous ? `${uuid.substring(0, 10)}@edustipend.org` : email,
         name: fullname,
         phone_number: toggleAnonymous ? '' : phone
       },
@@ -144,6 +147,7 @@ export const DonateNow = () => {
       const result = await response;
       if (result?.status) {
         setUserData(initial);
+        handleRedirectModal(false);
         window.location.href = result?.data?.link;
       } else {
         handleRedirectModal(false);
@@ -242,14 +246,14 @@ export const DonateNow = () => {
                     placeholder={constants.fullName}
                     onChange={(e) => {
                       setUserData((prev) => ({ ...prev, fullname: e.target.value }));
-                      phone.length < 11 && setUserData((prev) => ({ ...prev, phone: e.target.value }));
                     }}
                   />
                   <div className={styles.toggleContainer}>
                     <p className={styles.anon}>{constants.anonymous}</p>
                     <div
                       onClick={() => setUserData((prev) => ({ ...prev, toggleAnonymous: !toggleAnonymous }))}
-                      className={toggleAnonymous ? `${styles.toggle} ${styles.toggleAlt}` : `${styles.toggle}`}>
+                      className={toggleAnonymous ? `${styles.toggle} ${styles.toggleAlt}` : `${styles.toggle}`}
+                    >
                       <div className={toggleAnonymous ? `${styles.ballAlt}` : `${styles.ball}`} />
                     </div>
                   </div>
@@ -280,7 +284,7 @@ export const DonateNow = () => {
                     value={phone.toString()}
                     onChange={(e) => {
                       setUserData((prev) => ({ ...prev, phone: e.target.value }));
-                      phone.trim().length !== 10
+                      phone.trim().length < 1
                         ? setUserData((prev) => ({ ...prev, invalidPhoneNumber: true }))
                         : setUserData((prev) => ({ ...prev, invalidPhoneNumber: false }));
                     }}

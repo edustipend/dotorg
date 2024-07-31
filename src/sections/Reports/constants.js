@@ -1,8 +1,7 @@
 import { AR_Image, BL_Image, BR_Image } from '../../assets';
 
 export const HEAD_TEXT = 'Monthly Reports';
-export const SUB_TEXT =
-  'Explore our monthly Edustipend applications report and gain insight into how we have empowered the lives of thousands of learners';
+export const SUB_TEXT = 'Explore our monthly reports and gain insight into how we continue to empower hundreds of learners.';
 
 // Helper function to generate reports data for a specific month
 function generateReports(month, year, links) {
@@ -113,7 +112,8 @@ export const reports = [
   ]),
   generateReports('May', 2024, [
     `${HOST_URL}2024%2F05%2FEdustipend%20Beneficiaries%20List%20-%20May%202024.pdf?alt=media`,
-    `${HOST_URL}2024%2F05%2FEdustipend%20Applications%20Report%20-%20May%202024.pdf?alt=media`
+    `${HOST_URL}2024%2F05%2FEdustipend%20Applications%20Report%20-%20May%202024.pdf?alt=media`,
+    `${HOST_URL}2024%2F05%2FEdustipend%20Beneficiaries%20Report%20-%20May%202024.pdf?alt=media`
   ])
 ].reverse();
 

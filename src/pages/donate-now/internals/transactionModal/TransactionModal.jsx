@@ -7,6 +7,9 @@ import { constants } from './constants';
 import { defaultShare, twitterShare, instagramShare } from '../sharePosts';
 import { useNavigate } from 'react-router-dom';
 import IconButton from '../../../../components/IconButton';
+import { userInteraction } from '../../../../utils/googleTagManager/googleTagManager';
+import { tagEvents } from '../../../../utils/googleTagManager/tagEvents';
+const {successModalButton, buttonCategory, closeDonationSuccessModal, closeBtnLabel} = tagEvents;
 
 export const TransactionModal = ({ error, setDisplayModal, message, title }) => {
   const [shareUI, setShareUI] = useState(false);
@@ -22,8 +25,13 @@ export const TransactionModal = ({ error, setDisplayModal, message, title }) => 
     }
   };
 
+  const handleCloseModal = () => {
+    setDisplayModal((prev) => !prev);
+    userInteraction(successModalButton, buttonCategory, closeDonationSuccessModal, closeBtnLabel);
+  };
+
   const closeModal = (
-    <IconButton dataTest={constants.ICON_BUTTON} onClick={() => setDisplayModal((prev) => !prev)} className={styles.closeBtn}>
+    <IconButton dataTest={constants.ICON_BUTTON} onClick={handleCloseModal} className={styles.closeBtn}>
       <img src={close} alt={constants.close} className={`${styles.closeIcn}`} />
     </IconButton>
   );
