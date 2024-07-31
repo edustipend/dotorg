@@ -11,7 +11,6 @@ import ForgotPassword from './pages/forgot-password';
 import ResetPassword from './pages/reset-password';
 import AtOne from './pages/at-one';
 import Welcome from './sections/Welcome';
-import { routesConstant } from './routesConstant';
 import Login from './pages/login';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import ProtecteAuthRoute from './components/ProtectedRoute/ProtectAuthRoute';
@@ -21,6 +20,9 @@ import ReportsPage from './pages/reports';
 import AboutUs from './pages/about-us/AboutUs';
 import TransparencyDashboard from './sections/TransparencyDashboard';
 import Impacts from './sections/Impacts';
+import ReferPage from './pages/refer-page/ReferPage';
+import { routesConstant } from './routesConstant';
+
 
 const {
   AMBASSADOR_PROGRAM,
@@ -37,7 +39,8 @@ const {
   REPORTS,
   ABOUT_US,
   TRANSPARENCY_DASHBOARD,
-  IMPACTS
+  IMPACTS,
+  REFERRAL_PAGE
 } = routesConstant;
 
 
@@ -84,9 +87,9 @@ const Routes = () => {
         <Route path="submissions" element={<Submissions />} />
         <Route path="account" element={<MyAccount />} />
       </Route>
-      {/* <Route path="/" element={V2_FEATURE_FLAG_ON ? <LandingPageV2 /> : <LandingPage />} /> */}
       <Route path="/" element={<LandingPageV2 />} />
       <Route path={AT_ONE} element={<AtOne />} />
+      <Route path={REFERRAL_PAGE} element={<ReferPage />} />
     </AppRoutes>
   );
 };
