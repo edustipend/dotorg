@@ -12,14 +12,8 @@ export const routesConstant = {
   AT_ONE: '/at-one',
   LOGIN: '/login',
   DONATION: '/donation',
-<<<<<<< HEAD
   REPORTS: '/impact/reports',
   IMPACTS: '/impact',
-  TRANSPARENCY_DASHBOARD: '/support-a-learner/transparency-dashboard'
-=======
-  REPORTS: '/impacts/reports',
-  IMPACTS: '/impacts',
   TRANSPARENCY_DASHBOARD: '/support-a-learner/transparency-dashboard',
   REFERRAL_PAGE: '/support-a-learner/refer-a-friend'
->>>>>>> develop
 };
