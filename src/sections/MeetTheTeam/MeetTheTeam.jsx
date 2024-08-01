@@ -5,7 +5,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
 
 import linkToUduakImage from '../../assets/team/Uduak001.jpg';
-import linkToBlessingImage from '../../assets/team/Blessing.png';
+import linkToBlessingImage from '../../assets/team/BlessingAkpan.jpg';
 import linkToJoshuaImage from '../../assets/team/Joshua.png';
 import linkToBlossomImage from '../../assets/team/BlossomImikan.png';
 import linkToAdeboyeImage from '../../assets/team/AdeboyeJoseph.png';
@@ -17,6 +17,9 @@ import linkToTosinImage from '../../assets/team/Oluwatosin.png';
 import linkToPelzImage from '../../assets/team/PelumiAdetoye.png';
 import linkToTeniImage from '../../assets/team/teni-oluwa.png';
 import linkToUbonImage from '../../assets/team/ubon.png';
+import chimezuoImage from '../../assets/team/Akujobi Chiemezuo - Backend Engineer.jpg';
+import TiwoImage from '../../assets/team/Tiwo Oluwayemisi H - Graphics Designer .jpg';
+import NesterImage from '../../assets/team/Nester Nwadike - UX Researcher.jpeg';
 import Container from '../../components/Container';
 
 import './MeetTheTeam.css';
@@ -33,7 +36,10 @@ const teamMembers = [
   { name: 'Oluwatosin Aduroja', role: 'Graphics Designer', img: linkToTosinImage },
   { name: 'Pelumi Adetoye', role: 'Frontend Engineer', img: linkToPelzImage },
   { name: 'Teniloluwa Sogbesan', role: 'Business Data Analyst', img: linkToTeniImage },
-  { name: 'Ubon Udonkang', role: 'UIUX Designer', img: linkToUbonImage }
+  { name: 'Ubon Udonkang', role: 'UIUX Designer', img: linkToUbonImage },
+  { name: 'Akujobi Chiemezuo', role: 'Backend Engineer', img: chimezuoImage },
+  { name: 'Tiwo Oluwayemisi', role: 'Graphic Designer', img: TiwoImage },
+  { name: 'Nester Nwadike', role: 'Ux Researcher', img: NesterImage }
 ];
 
 var settings = {
@@ -88,8 +94,6 @@ function MeetTheTeam() {
 
         <div className="meet-our-team__carousel carousel">
           <Slider {...settings}>
-            {/* ----------- */}
-
             {teamMembers.map((member, index) => (
               <div key={index} className="image-box box">
                 <img className="team-image team-1" src={member.img} alt={member.name} />

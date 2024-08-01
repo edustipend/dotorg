@@ -33,6 +33,9 @@
 
 .team-image {
   object-fit: cover;
+  width: 266px;
+  height: 266px;
+  border-radius: 15px;
 }
 
 .image-box {
