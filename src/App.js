@@ -29,7 +29,7 @@ function App() {
   const searchParams = new URLSearchParams(location.search);
 
   /**
-   * On page load, get search params which must include utm_referrer
+   * On app load, get search params which must include utm_referrer
    * if available, store the params in the cookies with a life span of 7 days
    *
    * on successful/completed donation, clear the user's referral params.
