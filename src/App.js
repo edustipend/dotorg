@@ -15,14 +15,36 @@ import useDetectInternet from './hooks/useDetectInternet';
 import NoInternet from './components/NoInternet/NoInternet';
 import { Toaster } from 'react-hot-toast';
 import TagManager from 'react-gtm-module';
+import { useLocation } from 'react-router-dom';
+import Cookies from 'js-cookie';
 initFirebaseApp();
 const { REACT_APP_GTM } = process.env;
 
 function App() {
+  const location = useLocation();
   const { isLoading } = useContext(ModalContext);
   const scrollOnRoute = useScrollToTop();
   const isOnline = useDetectInternet();
   const gtmId = REACT_APP_GTM;
+  const searchParams = new URLSearchParams(location.search);
+
+  /**
+   * On page load, get search params if available then store them in the cookies with a life span of 7 days
+   * 
+   * and on successful/completed donation, clear the user's referral params.
+   */
+  const paramsObject = {};
+  for (const [key, value] of searchParams.entries()) {
+    paramsObject[key] = value;
+  }
+
+  if (searchParams.get('status') === 'successful' || searchParams.get('status') === 'completed') {
+    Cookies.remove('referralParams');
+  } else if (Object.keys(paramsObject).length > 0) {
+    Cookies.set('referralParams', JSON.stringify(paramsObject),{
+      expires: 7
+    });
+  }
 
   //get the gtmId from the env file then hold the value in a  memo
   const tagManagerArgs = useMemo(
@@ -35,7 +57,6 @@ function App() {
   useEffect(() => {
     TagManager.initialize(tagManagerArgs);
   }, [tagManagerArgs]);
-
 
   return isOnline ? (
     <>

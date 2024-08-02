@@ -26,7 +26,6 @@ const HeroSection = () => {
   }, []);
 
   const currentQuote = quotesArray[currentQuoteIndex];
-  console.log(document.getElementById('donate-now-page'), 'lppp');
 
   return (
     <div className={styles.bg}>
