@@ -5,7 +5,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
 
 import linkToUduakImage from '../../assets/team/Uduak001.jpg';
-import linkToBlessingImage from '../../assets/team/Blessing.png';
+import linkToBlessingImage from '../../assets/team/BlessingAkpan.jpg';
 import linkToJoshuaImage from '../../assets/team/Joshua.png';
 import linkToBlossomImage from '../../assets/team/BlossomImikan.png';
 import linkToAdeboyeImage from '../../assets/team/AdeboyeJoseph.png';
@@ -17,6 +17,9 @@ import linkToTosinImage from '../../assets/team/Oluwatosin.png';
 import linkToPelzImage from '../../assets/team/PelumiAdetoye.png';
 import linkToTeniImage from '../../assets/team/teni-oluwa.png';
 import linkToUbonImage from '../../assets/team/ubon.png';
+import linkToAkujobiImage from '../../assets/team/Akujobi-Chiemezuo.jpg';
+import linkToNesterImage from '../../assets/team/Nester-Nwadike.jpeg';
+import linkToTiwoImage from '../../assets/team/Tiwo-Oluwayemisi.jpg';
 import Container from '../../components/Container';
 
 import './MeetTheTeam.css';
@@ -33,7 +36,10 @@ const teamMembers = [
   { name: 'Oluwatosin Aduroja', role: 'Graphics Designer', img: linkToTosinImage },
   { name: 'Pelumi Adetoye', role: 'Frontend Engineer', img: linkToPelzImage },
   { name: 'Teniloluwa Sogbesan', role: 'Business Data Analyst', img: linkToTeniImage },
-  { name: 'Ubon Udonkang', role: 'UIUX Designer', img: linkToUbonImage }
+  { name: 'Ubon Udonkang', role: 'UIUX Designer', img: linkToUbonImage },
+  { name: 'Akujobi Chiemezuo', role: 'Backend Developer', img: linkToAkujobiImage },
+  { name: 'Nester Nwadike', role: 'UX Researcher', img: linkToNesterImage },
+  { name: 'Tiwo Oluwayemisi', role: 'Graphic Designer', img: linkToTiwoImage }
 ];
 
 var settings = {
