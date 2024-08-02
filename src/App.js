@@ -29,9 +29,10 @@ function App() {
   const searchParams = new URLSearchParams(location.search);
 
   /**
-   * On page load, get search params if available then store them in the cookies with a life span of 7 days
-   * 
-   * and on successful/completed donation, clear the user's referral params.
+   * On page load, get search params which must include utm_referrer
+   * if available, store the params in the cookies with a life span of 7 days
+   *
+   * on successful/completed donation, clear the user's referral params.
    */
   const paramsObject = {};
   for (const [key, value] of searchParams.entries()) {
@@ -40,8 +41,8 @@ function App() {
 
   if (searchParams.get('status') === 'successful' || searchParams.get('status') === 'completed') {
     Cookies.remove('referralParams');
-  } else if (Object.keys(paramsObject).length > 0) {
-    Cookies.set('referralParams', JSON.stringify(paramsObject),{
+  } else if (searchParams.get('utm_referrer') && Object.keys(paramsObject).length > 0) {
+    Cookies.set('referralParams', JSON.stringify(paramsObject), {
       expires: 7
     });
   }
