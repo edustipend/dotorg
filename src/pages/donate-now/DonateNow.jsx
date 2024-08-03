@@ -17,7 +17,7 @@ import usePageView from '../../hooks/usePageView';
 import { DONATION, postData } from '../../services/ApiClient';
 import toast from 'react-hot-toast';
 import useDonationPrompt from '../../hooks/useDonationPrompt';
-
+import useExtractURLParams from '../../hooks/useExtractURLParams';
 const UTM_CAMPAIGN_SOURCE = 'utm_source';
 const UTM_REFERRER = 'utm_referrer';
 const PHONE_NUMBER_REGEX = /^(\+[1-9]{1}[0-9]{3,14})?([0-9]{9,14})$/;
@@ -35,6 +35,7 @@ export const DonateNow = () => {
   const { redirectModal, handleRedirectModal } = useContext(ModalContext) || {};
   const { fullname, email, phone, company, toggleAnonymous, invalidPhoneNumber, focus, title, message, error, errorMessage } = userData;
   const { currentText, nextText, swapText, setSwapText } = useDonationPrompt(amount);
+  const { referralObject } = useExtractURLParams();
 
   /**
    * On success or On failure, flutterwave redirects the user to the specified route with two params attached
@@ -131,8 +132,10 @@ export const DonateNow = () => {
       redirect_url: urlWithoutParams,
       payment_options: 'card',
       currency: 'NGN',
-      campaign: params?.get(UTM_CAMPAIGN_SOURCE) ?? '',
-      referrer: params?.get(UTM_REFERRER) ?? '',
+      campaign: referralObject?.utm_campaign ?? '',
+      referrer: referralObject?.utm_referrer ?? '',
+      medium: referralObject?.utm_medium ?? '',
+      source: referralObject?.utm_source ?? '',
       customer: {
         email: toggleAnonymous ? `${uuid.substring(0, 10)}@edustipend.org` : email,
         name: fullname,
@@ -147,7 +150,6 @@ export const DonateNow = () => {
       const result = await response;
       if (result?.status) {
         setUserData(initial);
-        handleRedirectModal(false);
         window.location.href = result?.data?.link;
       } else {
         handleRedirectModal(false);
@@ -252,8 +254,7 @@ export const DonateNow = () => {
                     <p className={styles.anon}>{constants.anonymous}</p>
                     <div
                       onClick={() => setUserData((prev) => ({ ...prev, toggleAnonymous: !toggleAnonymous }))}
-                      className={toggleAnonymous ? `${styles.toggle} ${styles.toggleAlt}` : `${styles.toggle}`}
-                    >
+                      className={toggleAnonymous ? `${styles.toggle} ${styles.toggleAlt}` : `${styles.toggle}`}>
                       <div className={toggleAnonymous ? `${styles.ballAlt}` : `${styles.ball}`} />
                     </div>
                   </div>

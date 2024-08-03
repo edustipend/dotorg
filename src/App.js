@@ -15,15 +15,19 @@ import useDetectInternet from './hooks/useDetectInternet';
 import NoInternet from './components/NoInternet/NoInternet';
 import { Toaster } from 'react-hot-toast';
 import TagManager from 'react-gtm-module';
+import useExtractURLParams from './hooks/useExtractURLParams';
 initFirebaseApp();
 const { REACT_APP_GTM } = process.env;
-
 function App() {
+  const { extractUrlParams } = useExtractURLParams();
   const { isLoading } = useContext(ModalContext);
   const scrollOnRoute = useScrollToTop();
   const isOnline = useDetectInternet();
   const gtmId = REACT_APP_GTM;
 
+  //extract the referral from the url and store them in the browser cookies
+  extractUrlParams();
+  
   //get the gtmId from the env file then hold the value in a  memo
   const tagManagerArgs = useMemo(
     () => ({
@@ -35,7 +39,6 @@ function App() {
   useEffect(() => {
     TagManager.initialize(tagManagerArgs);
   }, [tagManagerArgs]);
-
 
   return isOnline ? (
     <>
