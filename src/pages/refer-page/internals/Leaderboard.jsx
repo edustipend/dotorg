@@ -19,7 +19,7 @@ export const Leaderboard = () => {
       </Header>
       <div className={styles.filter}>
         <h1 className={styles.filterTitle}>View by:</h1>
-        <select className={styles.select} onChange={(e) => handleOptionChange(e)} data-testid={TestId.SELECT_OPTION}>
+        <select className={styles.select} onChange={(e) => handleOptionChange(e)}>
           {options.map((option) => (
             <option key={option.value} value={option.value}>
               {option.title}
