@@ -15,38 +15,19 @@ import useDetectInternet from './hooks/useDetectInternet';
 import NoInternet from './components/NoInternet/NoInternet';
 import { Toaster } from 'react-hot-toast';
 import TagManager from 'react-gtm-module';
-import { useLocation } from 'react-router-dom';
-import Cookies from 'js-cookie';
+import useExtractURLParams from './hooks/useExtractURLParams';
 initFirebaseApp();
 const { REACT_APP_GTM } = process.env;
-
 function App() {
-  const location = useLocation();
+  const { extractUrlParams } = useExtractURLParams();
   const { isLoading } = useContext(ModalContext);
   const scrollOnRoute = useScrollToTop();
   const isOnline = useDetectInternet();
   const gtmId = REACT_APP_GTM;
-  const searchParams = new URLSearchParams(location.search);
 
-  /**
-   * On app load, get search params which must include utm_referrer
-   * if available, store the params in the cookies with a life span of 7 days
-   *
-   * on successful/completed donation, clear the user's referral params.
-   */
-  const paramsObject = {};
-  for (const [key, value] of searchParams.entries()) {
-    paramsObject[key] = value;
-  }
-
-  if (searchParams.get('status') === 'successful' || searchParams.get('status') === 'completed') {
-    Cookies.remove('referralParams');
-  } else if (searchParams.get('utm_referrer') && Object.keys(paramsObject).length > 0) {
-    Cookies.set('referralParams', JSON.stringify(paramsObject), {
-      expires: 7
-    });
-  }
-
+  //extract the referral from the url and store them in the browser cookies
+  extractUrlParams();
+  
   //get the gtmId from the env file then hold the value in a  memo
   const tagManagerArgs = useMemo(
     () => ({
