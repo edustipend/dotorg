@@ -30,7 +30,11 @@ const useExtractURLParams = () => {
   const getReferralParams = () => {
     const referralParams = Cookies.get(UTM_REFERRAL_PARAMS_COOKIE_KEY);
     if (referralParams) {
-      return JSON.parse(referralParams);
+      try {
+        return JSON.parse(referralParams);
+      } catch (e) {
+        return null;
+      }
     }
     return null;
   };
