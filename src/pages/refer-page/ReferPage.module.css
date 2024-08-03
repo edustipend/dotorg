@@ -10,8 +10,9 @@
 }
 
 .referFormSection {
-  margin: 95px 200px 0 200px;
-  /* background-color: orange; */
+  width: 100%;
+  max-width: 1057px;
+  margin: 95px auto 0;
   padding-bottom: 200px;
 }
 
@@ -80,8 +81,16 @@
     padding-top: 70px;
   }
   .referFormSection {
-    margin: 95px 100px 0 100px;
+    margin-top: 95px;
     padding-bottom: 100px;
+  }
+  .referForm {
+    padding: 40px 16px;
+  }
+  .header {
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 35.2px;
   }
 }
 
@@ -95,7 +104,7 @@
     padding-top: 48px;
   }
   .referFormSection {
-    margin: 35px 10px 0 10px;
+    margin-top: 35px;
   }
 
   .referParagraph {

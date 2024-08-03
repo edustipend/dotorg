@@ -1,0 +1,150 @@
+.header {
+  text-align: center;
+}
+
+.tableContainer {
+  width: 100%;
+  max-width: 1057px;
+  margin: 0 auto;
+  height: auto;
+  gap: 0px;
+  border-radius: 12px;
+  border: 1px;
+  box-shadow: 0px 0px 3px 0px #1018281a;
+  border: 1px solid #e4e7ec;
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+.table thead {
+  width: 100%;
+  background: #f9fafb;
+  border-bottom: 1px solid #e4e7ec;
+}
+
+.table thead th {
+  padding: 16px 8px;
+  font-family: 'Manrope';
+  font-size: 16spx;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: center;
+  color: #475467;
+}
+
+.table tbody td {
+  font-family: 'Manrope';
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  text-align: center;
+  color: #101828;
+  padding: 12px 8px;
+  border-bottom: 1px solid #e4e7ec;
+}
+
+.leftAlign {
+  text-align: left !important;
+}
+
+.paginationContainer {
+  width: 100%;
+  padding-bottom: 40px;
+}
+
+.avatar {
+  display: none;
+}
+
+.filter {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  align-items: center;
+  width: 100%;
+  max-width: 1057px;
+  margin: 64px auto 16px;
+}
+
+.filterTitle {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  text-align: right;
+}
+
+.select {
+  width: 164px;
+  height: 44px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px 0px 0px 0px;
+  border: 1px 0px 0px 0px;
+  font-size: 16px;
+  color: '#101828';
+  border-radius: 8px;
+  background-color: #fff;
+  appearance: none;
+  background-image: url('../../../assets/chevron-down.svg');
+  background-repeat: no-repeat;
+  background-position: right 5px center;
+  background-size: 16px;
+  box-shadow: 0px 1px 2px 0px #1018280d;
+  border: 1px solid #d0d5dd;
+}
+
+.select option {
+  background-color: #fff;
+  color: #1e2022;
+  padding: 20px;
+}
+
+.select:focus {
+  outline: none;
+  box-shadow: 0px 1px 2px 0px #1018280d;
+  border: 1px solid #d0d5dd;
+}
+
+@media only screen and (max-width: 768px) {
+  .header {
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 35.2px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .avatar {
+    display: inline-flex;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    border-radius: 40px;
+    font-size: 16px;
+    margin-right: 12px;
+    line-height: 24px;
+    justify-content: center;
+    align-items: center;
+    background: #f9f5ff;
+    font-family: 'Inter';
+    font-weight: 500;
+    color: #5801ff;
+  }
+  .table thead th {
+    padding: 24px;
+    font-family: 'Manrope';
+    font-size: 20px;
+  }
+  .table tbody td {
+    font-size: 20px;
+    padding: 16px 24px;
+  }
+}

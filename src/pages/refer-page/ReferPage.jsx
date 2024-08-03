@@ -6,6 +6,7 @@ import Header from '../../components/Header';
 import Button from '../../components/Button';
 import referralPageCopy from './constants';
 import Input from '../../components/Input';
+import Leaderboard from './internals';
 
 function ReferPage() {
   const [copySuccess, setCopySuccess] = useState('');
@@ -41,7 +42,9 @@ function ReferPage() {
 
         <div className={styles.referFormSection}>
           <div className={styles.referHeader}>
-            <Header size="medium">{referralPageCopy.referHeader}</Header>
+            <Header className={styles.header} size="medium">
+              {referralPageCopy.referHeader}
+            </Header>
           </div>
           <p className={styles.referParagraph}>{referralPageCopy.referParagraph}</p>
 
@@ -64,6 +67,7 @@ function ReferPage() {
             {copySuccess && <p className={styles.copySuccess}>{copySuccess}</p>}
           </form>
         </div>
+        <Leaderboard />
       </Container>
     </main>
   );
