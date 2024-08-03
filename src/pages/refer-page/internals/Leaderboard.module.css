@@ -1,3 +1,8 @@
+.leaderboard {
+  margin: 74px auto 200px;
+  padding-bottom: 200px;
+}
+
 .header {
   text-align: center;
 }
@@ -68,7 +73,7 @@
   align-items: center;
   width: 100%;
   max-width: 1057px;
-  margin: 64px auto 16px;
+  margin: 40px auto 16px;
 }
 
 .filterTitle {
@@ -122,6 +127,12 @@
 }
 
 @media only screen and (min-width: 768px) {
+  .leaderboard {
+    margin: 84px auto 0;
+  }
+  .filter {
+    margin: 60px auto 16px;
+  }
   .avatar {
     display: inline-flex;
     width: 40px;

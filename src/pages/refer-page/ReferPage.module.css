@@ -13,7 +13,6 @@
   width: 100%;
   max-width: 1057px;
   margin: 95px auto 0;
-  padding-bottom: 200px;
 }
 
 .referHeader {
@@ -82,7 +81,6 @@
   }
   .referFormSection {
     margin-top: 95px;
-    padding-bottom: 100px;
   }
   .referForm {
     padding: 40px 16px;

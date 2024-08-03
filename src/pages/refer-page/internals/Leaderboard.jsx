@@ -13,7 +13,7 @@ export const Leaderboard = () => {
   };
 
   return (
-    <div data-testid={TestId.LEADERBOARD}>
+    <div className={styles.leaderboard} data-testid={TestId.LEADERBOARD}>
       <Header className={styles.header} size="medium" dataTest={TestId.LEADERBOARD_HEADER}>
         {leaderboardTitle}
       </Header>
