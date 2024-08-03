@@ -19,10 +19,10 @@ const TableRow = ({ item }) => {
 export default TableRow;
 
 TableRow.propTypes = {
-  item: {
+  item: PropTypes.shape({
     index: PropTypes.number,
     referrer: PropTypes.string,
     count: PropTypes.number,
     totalAmount: PropTypes.number
-  }
+  })
 };
