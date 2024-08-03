@@ -31,18 +31,18 @@ const teamMembers = [
   { name: 'Adeboye Joseph', role: 'Graphics Designer', img: linkToAdeboyeImage },
   { name: 'Chijioke Ezeh', role: 'Frontend Engineer', img: linkToEzehImage },
   { name: 'Deborah Odimayo', role: 'Social Media Manager', img: linkToDeborahImage },
-  { name: 'Enobong Akpan', role: 'UX Researcher', img: linkToAnkpaImage },
+  { name: 'Enobong Akpan', role: 'UI/UX Researcher', img: linkToAnkpaImage },
   { name: 'Isiaq Ridwan', role: 'Frontend Engineer', img: linkToIsiaqImage },
   { name: 'Oluwatosin Aduroja', role: 'Graphics Designer', img: linkToTosinImage },
   { name: 'Pelumi Adetoye', role: 'Frontend Engineer', img: linkToPelzImage },
   { name: 'Teniloluwa Sogbesan', role: 'Business Data Analyst', img: linkToTeniImage },
-  { name: 'Ubon Udonkang', role: 'UIUX Designer', img: linkToUbonImage },
-  { name: 'Akujobi Chiemezuo', role: 'Backend Developer', img: linkToAkujobiImage },
-  { name: 'Nester Nwadike', role: 'UX Researcher', img: linkToNesterImage },
+  { name: 'Ubon Udonkang', role: 'UI/UX Designer', img: linkToUbonImage },
+  { name: 'Akujobi Chiemezuo', role: 'Backend Engineer', img: linkToAkujobiImage },
+  { name: 'Nester Nwadike', role: 'UI/UX Researcher', img: linkToNesterImage },
   { name: 'Tiwo Oluwayemisi', role: 'Graphic Designer', img: linkToTiwoImage }
 ];
 
-var settings = {
+const settings = {
   dots: false,
   infinite: true,
   speed: 500,
