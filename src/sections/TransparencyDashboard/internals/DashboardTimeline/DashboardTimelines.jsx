@@ -1,5 +1,5 @@
+import TableHead from '../../../../components/Table/TableHead';
 import TableRow from './TableRow';
-import TableHead from './TableHead';
 import { itemToRender, tableHeads, title } from './constants';
 import Pagination from '../../../../components/Pagination/Pagination';
 import { useState } from 'react';

@@ -2,13 +2,8 @@ import PropTypes from 'prop-types';
 import styles from './DashboardTimelines.module.css';
 import { formatMoney } from '../../../../utils/numberFormatter/formatMoney';
 import { formatDate } from '../../../../utils/dateTimeUtils/dateTimeUtil';
+import { getInitials } from '../../../../utils/getInitials';
 
-export const getInitials = (name) => {
-  const names = name?.split(' ');
-  const inits = names.map((name) => name.charAt(0));
-
-  return inits.join('');
-};
 const TableRow = ({ item }) => {
   return (
     <tr>

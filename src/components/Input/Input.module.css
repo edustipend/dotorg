@@ -19,7 +19,7 @@
   font-size: 16px;
   display: flex;
   align-items: center;
-  gap: .5rem;
+  gap: 0.5rem;
   margin-left: 0.45rem;
   color: var(--navy-blue);
 }
@@ -34,7 +34,13 @@
 .inputContainer {
   position: relative;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+}
+
+.error {
+  text-align: left;
+  font-size: 0.8rem;
+  color: var(--red-accent);
 }
 
 .currency {
@@ -59,7 +65,7 @@
 
 .inputAlt {
   padding-left: 55px;
-  font-weight: 500
+  font-weight: 500;
 }
 
 .disabled {
@@ -112,7 +118,6 @@
   .currency {
     font-size: 18px;
   }
-
 
   .inputAlt {
     padding-left: 60px;

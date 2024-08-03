@@ -6,11 +6,14 @@ import Header from '../../components/Header';
 import Button from '../../components/Button';
 import referralPageCopy from './constants';
 import Input from '../../components/Input';
+import Leaderboard from './internals';
 
 function ReferPage() {
   const [copySuccess, setCopySuccess] = useState('');
   const [email, setEmail] = useState('');
+  const [emailError, setEmailError] = useState('');
   const [name, setName] = useState('');
+  const [nameError, setNameError] = useState('');
   const [generatedLink, setGeneratedLink] = useState('');
 
   const handleCopyClick = () => {
@@ -26,9 +29,32 @@ function ReferPage() {
     );
   };
 
-  const handleGenerateLink = () => {
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+    if (emailError) {
+      setEmailError('');
+    }
+  };
+
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+    if (nameError) {
+      setNameError('');
+    }
+  };
+
+  const handleGenerateLink = (e) => {
+    e.preventDefault();
     //@TODO: Make api call to generate link and paste it input field
     // Clean this up when api call to geenerate link is implemented
+    if (!name) {
+      setNameError('Please provide a name');
+      return;
+    }
+    if (!email) {
+      setEmailError('Please provide an email address');
+      return;
+    }
     setGeneratedLink(referralPageCopy.referralLink);
   };
 
@@ -41,16 +67,27 @@ function ReferPage() {
 
         <div className={styles.referFormSection}>
           <div className={styles.referHeader}>
-            <Header size="medium">{referralPageCopy.referHeader}</Header>
+            <Header className={styles.header} size="medium">
+              {referralPageCopy.referHeader}
+            </Header>
           </div>
           <p className={styles.referParagraph}>{referralPageCopy.referParagraph}</p>
 
-          <form action="" className={styles.referForm}>
-            <Input value={name} label="Name" placeholder="Enter name" className={styles.entry} onChange={(e) => setName(e.target.value)} />
-            <Input value={email} label="Email" placeholder="Enter email" className={styles.entry} onChange={(e) => setEmail(e.target.value)} />
+          <form className={styles.referForm} onSubmit={handleGenerateLink}>
+            <Input value={name} error={nameError} label="Name" placeholder="Enter name" className={styles.entry} onChange={handleNameChange} />
+
+            <Input
+              error={emailError}
+              value={email}
+              label="Email"
+              placeholder="Enter email"
+              className={styles.entry}
+              type="email"
+              onChange={handleEmailChange}
+            />
 
             <div className={styles.referFormButton}>
-              <Button size="medium" type="secondary" label="Generate Link" onClick={handleGenerateLink} />
+              <Button size="medium" type="secondary" label="Generate Link" submit={true} />
             </div>
 
             <p className={styles.referralText}>{referralPageCopy.referralText}</p>
@@ -64,6 +101,7 @@ function ReferPage() {
             {copySuccess && <p className={styles.copySuccess}>{copySuccess}</p>}
           </form>
         </div>
+        <Leaderboard />
       </Container>
     </main>
   );

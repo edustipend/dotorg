@@ -31,6 +31,7 @@ export const Button = ({
   loaderSize = 'medium',
   loaderVariant = 'primary',
   size = 'medium',
+  submit,
   type,
   onClick,
   ...props
@@ -52,9 +53,9 @@ export const Button = ({
       <button
         id={id}
         data-testid={dataTest}
-        type="button"
+        type={submit ? 'submit' : 'button'}
         disabled={disabled}
-        onClick={handleClick}
+        onClick={submit ? () => {} : handleClick}
         className={[
           `${ClassName.ROOT_BUTTON} `,
           `${ClassName.ROOT_BUTTON}--${size} `,
@@ -91,5 +92,6 @@ Button.propTypes = {
   next: PropTypes.bool,
   onClick: PropTypes.func,
   size: PropTypes.oneOf(['small', 'medium', 'large']),
+  submit: PropTypes.bool,
   type: PropTypes.oneOf(['plain', 'primary', 'secondary'])
 };

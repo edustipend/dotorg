@@ -7,7 +7,7 @@ import { theCurrentPageNumber, TestId, Texts, itemsPerPage } from './constants';
 import emoji from '../../../assets/donation.png';
 import Pagination from '../../../components/Pagination/Pagination';
 import { DONATION, getData } from '../../../services/ApiClient';
-import { getInitials } from '../../TransparencyDashboard/internals/DashboardTimeline/TableRow';
+import { getInitials } from '../../../utils/getInitials';
 
 const LatestDonations = () => {
   const [currentPage, setCurrentPage] = useState(theCurrentPageNumber);

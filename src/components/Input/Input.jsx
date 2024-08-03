@@ -3,7 +3,21 @@ import styles from './Input.module.css';
 import { TestId } from './constants';
 const { LABEL_ID, INPUT_ID } = TestId;
 
-export const Input = ({ currency, element, placeholder, label, includeLabel, value, type, size, className, disabled, required, ...props }) => {
+export const Input = ({
+  className,
+  currency,
+  disabled,
+  element,
+  error = '',
+  includeLabel,
+  label,
+  placeholder,
+  required,
+  size,
+  type,
+  value,
+  ...props
+}) => {
   return (
     <section className={`${styles.main} ${disabled && styles.disabled}`}>
       {includeLabel ? (
@@ -23,6 +37,7 @@ export const Input = ({ currency, element, placeholder, label, includeLabel, val
           {...props}
           className={`${styles.input} ${styles[size]} ${currency && styles.inputAlt} ${disabled && styles.disabled} ${className}`}
         />
+        {error ? <label className={styles.error}>{error}</label> : <></>}
       </div>
     </section>
   );
@@ -30,6 +45,7 @@ export const Input = ({ currency, element, placeholder, label, includeLabel, val
 
 Input.propTypes = {
   currency: PropTypes.string,
+  error: PropTypes.string,
   element: PropTypes.node,
   placeholder: PropTypes.string,
   label: PropTypes.string,

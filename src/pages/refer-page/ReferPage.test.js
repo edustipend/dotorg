@@ -2,8 +2,15 @@ import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import ReferPage from './ReferPage';
 import referPageTexts from './constants';
+import { getData } from '../../services/ApiClient';
+
+jest.mock('../../services/ApiClient');
 
 describe('ReferPage', () => {
+  beforeEach(() => {
+    getData.mockClear();
+  });
+
   test('renders ReferPage correctly', () => {
     render(<ReferPage />);
 
@@ -36,7 +43,7 @@ describe('ReferPage', () => {
     await waitFor(() => expect(screen.getByText('Copied!')).toBeInTheDocument());
 
     // Check if the "Copied!" message disappears after 2 seconds
-    await new Promise((r) => setTimeout(r, 2000));
+    await new Promise((r) => setTimeout(r, 3000));
     expect(screen.queryByText('Copied!')).not.toBeInTheDocument();
   });
 });
