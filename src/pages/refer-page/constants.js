@@ -14,9 +14,9 @@ const referralPageCopy = {
   REFERRAL_AMOUNT,
   REFERRAL_COUNT,
   tableHeads: {
-    [REFERRAL_COUNT]: ['Rank', 'Referrel Name', 'No of Referrals'],
-    [REFERRAL_AMOUNT]: ['Rank', 'Referrel Name', 'Amount Donated'],
-    mobile: ['Rank', 'Referrel Name', '#']
+    [REFERRAL_COUNT]: ['Rank', 'Referrer Name', 'No of Referrals'],
+    [REFERRAL_AMOUNT]: ['Rank', 'Referrer Name', 'Amount Donated'],
+    mobile: ['Rank', 'Referrer Name', '#']
   },
   options: [
     {
