@@ -7,6 +7,8 @@ import Button from '../../components/Button';
 import referralPageCopy from './constants';
 import Input from '../../components/Input';
 import Leaderboard from './internals';
+import { postData, REFERRAL_LINK } from '../../services/ApiClient';
+import toast from 'react-hot-toast';
 
 function ReferPage() {
   const [copySuccess, setCopySuccess] = useState('');
@@ -15,10 +17,10 @@ function ReferPage() {
   const [name, setName] = useState('');
   const [nameError, setNameError] = useState('');
   const [generatedLink, setGeneratedLink] = useState('');
+  const [isLoading, setisLoading] = useState(false);
 
   const handleCopyClick = () => {
-    const referralLink = referralPageCopy.referralLink;
-    navigator.clipboard.writeText(referralLink).then(
+    navigator.clipboard.writeText(generatedLink).then(
       () => {
         setCopySuccess('Copied!');
         setTimeout(() => setCopySuccess(''), 2000); // Clear message after 2 seconds
@@ -43,19 +45,43 @@ function ReferPage() {
     }
   };
 
-  const handleGenerateLink = (e) => {
+  const handleGenerateLink = async (e) => {
     e.preventDefault();
-    //@TODO: Make api call to generate link and paste it input field
-    // Clean this up when api call to geenerate link is implemented
+
+    setisLoading(true);
+
     if (!name) {
       setNameError('Please provide a name');
+      setisLoading(false);
       return;
     }
+
     if (!email) {
       setEmailError('Please provide an email address');
+      setisLoading(false);
       return;
     }
-    setGeneratedLink(referralPageCopy.referralLink);
+
+    try {
+      const res = await postData(`${REFERRAL_LINK}`, { name, email });
+
+      if (res.status) {
+        toast('Referral link has been generated');
+        setGeneratedLink(res.data.originalURL);
+
+        // Clean up after successful link generation
+        setName('');
+        setEmail('');
+        setNameError('');
+        setEmailError('');
+      } else {
+        toast('Failed to generate referral link');
+      }
+    } catch (error) {
+      toast('Error generating the referral link');
+    } finally {
+      setisLoading(false);
+    }
   };
 
   return (
@@ -87,16 +113,25 @@ function ReferPage() {
             />
 
             <div className={styles.referFormButton}>
-              <Button size="medium" type="secondary" label="Generate Link" submit={true} />
+              <Button
+                size="medium"
+                type="secondary"
+                label="Generate Link"
+                submit={true}
+                loaderSize="small"
+                loaderVariant="neutral"
+                isLoading={isLoading}
+              />
             </div>
 
             <p className={styles.referralText}>{referralPageCopy.referralText}</p>
             <div className={styles.referralLink}>
-              <p>{generatedLink}</p>
-
-              <p className={styles.referralLinkCopy} onClick={handleCopyClick}>
-                {referralPageCopy.referralLinkCopy}
-              </p>
+              {generatedLink && <p className={styles.genLink}>{generatedLink}</p>}
+              {generatedLink && (
+                <p className={styles.referralLinkCopy} onClick={handleCopyClick}>
+                  {referralPageCopy.referralLinkCopy}
+                </p>
+              )}
             </div>
             {copySuccess && <p className={styles.copySuccess}>{copySuccess}</p>}
           </form>

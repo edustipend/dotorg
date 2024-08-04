@@ -15,6 +15,7 @@ export const APPLICATION_WINDOW_STATUS = 'application-window';
 export const DONATION = 'donation';
 export const REFERRAL_BY_AMOUNT = 'referral/top-referrers-by-amount';
 export const REFERRAL_BY_COUNT = 'referral/top-referrers-by-count';
+export const REFERRAL_LINK = 'referral/link';
 
 export const authorizedPost = async function (route = '', data = {}) {
   const url = `${API_ENDPOINT}${route}?jwt=${token}`;
