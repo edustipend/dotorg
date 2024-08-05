@@ -1,14 +1,27 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import ReferPage from './ReferPage';
-import referPageTexts from './constants';
-import { getData } from '../../services/ApiClient';
+import referPageTexts, { TestId } from './constants';
+import { getData, postData } from '../../services/ApiClient';
 
 jest.mock('../../services/ApiClient');
 
 describe('ReferPage', () => {
   beforeEach(() => {
     getData.mockClear();
+    postData.mockResolvedValue({
+      status: true,
+      data: {
+        _id: '66ab237667ccd655df8bb8d6',
+        email: 'test@user.com',
+        name: 'Test User',
+        originalURL:
+          'https://www.edustipend.org/support-a-learner?utm_campaign=Edustipend%20at%202&utm_medium=test@user.com&utm_referrer=Test%20User&utm_source=',
+        secureShortURL: 'https://go.edustipend.org/5KXHNv',
+        shortURL: 'http://go.edustipend.org/5KXHNv',
+        title: 'Edustipend | Support A Learner - Refer a Friend: Test User'
+      }
+    });
   });
 
   test('renders ReferPage correctly', () => {
@@ -21,8 +34,23 @@ describe('ReferPage', () => {
     expect(screen.getByText(referPageTexts.generateLink)).toBeInTheDocument();
 
     expect(screen.getByText(referPageTexts.referralText)).toBeInTheDocument();
+  });
 
-    // expect(screen.getByText(referPageTexts.referralLinkCopy)).toBeInTheDocument();
+  test('clicking on generate link shows the spinner when loading', async () => {
+    render(<ReferPage />);
+
+    // Get the input elements
+    const emailInput = screen.getByTestId(TestId.EMAIL_INPUT);
+    const nameInput = screen.getByTestId(TestId.NAME_INPUT);
+
+    // Change the value of the input elements
+    fireEvent.change(emailInput, { target: { value: 'test@user.com' } });
+    fireEvent.change(nameInput, { target: { value: 'Test User' } });
+
+    // Simulate clicking the "Generate Link" button
+    fireEvent.click(screen.getByText(referPageTexts.generateLink));
+
+    expect(screen.getByTestId('loader-id')).toBeInTheDocument();
   });
 
   test('copies referral link to clipboard', async () => {
@@ -32,18 +60,27 @@ describe('ReferPage', () => {
     const writeTextMock = jest.fn().mockResolvedValue();
     navigator.clipboard = { writeText: writeTextMock };
 
+    // Get the input elements
+    const emailInput = screen.getByTestId(TestId.EMAIL_INPUT);
+    const nameInput = screen.getByTestId(TestId.NAME_INPUT);
+
+    // Change the value of the input fields
+    fireEvent.change(emailInput, { target: { value: 'test@user.com' } });
+    fireEvent.change(nameInput, { target: { value: 'Test User' } });
+
+    expect(emailInput.value).toBe('test@user.com');
+    expect(nameInput.value).toBe('Test User');
+
+    // Simulate clicking the "Generate Link" button
+    fireEvent.click(screen.getByText(referPageTexts.generateLink));
+
+    // Simulate 2 seconds delay
+    await new Promise((r) => setTimeout(r, 2000));
+
     // Simulate clicking the "Copy" button
-    // fireEvent.click(screen.getByText(referPageTexts.referralLinkCopy));
+    fireEvent.click(screen.getByText(referPageTexts.referralLinkCopy));
 
-    // Check if the referral link was copied to the clipboard
-    // expect(writeTextMock).toHaveBeenCalledWith(referPageTexts.referralLink);
-
-    // Check if the "Copied!" message is displayed
-    // eslint-disable-next-line testing-library/prefer-find-by
-    // await waitFor(() => expect(screen.getByText('Copied!')).toBeInTheDocument());
-
-    // Check if the "Copied!" message disappears after 2 seconds
-    await new Promise((r) => setTimeout(r, 3000));
-    expect(screen.queryByText('Copied!')).not.toBeInTheDocument();
+    await new Promise((r) => setTimeout(r, 2000));
+    expect(screen.getByText('Copied!')).toBeInTheDocument();
   });
 });

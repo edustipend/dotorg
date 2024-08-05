@@ -7,6 +7,7 @@ export const Input = ({
   className,
   currency,
   disabled,
+  dataTestId = INPUT_ID,
   element,
   error = '',
   includeLabel,
@@ -28,7 +29,7 @@ export const Input = ({
       <div className={styles.inputContainer}>
         {currency && <span className={styles.currency}>{currency}</span>}
         <input
-          data-testid={INPUT_ID}
+          data-testid={dataTestId}
           disabled={disabled}
           type={type}
           name="input"
@@ -45,6 +46,7 @@ export const Input = ({
 
 Input.propTypes = {
   currency: PropTypes.string,
+  dataTestId: PropTypes.string,
   error: PropTypes.string,
   element: PropTypes.node,
   placeholder: PropTypes.string,

@@ -4,7 +4,7 @@ import styles from './ReferPage.module.css';
 import donationNetworkSVG from '../../assets/refer-frame.svg';
 import Header from '../../components/Header';
 import Button from '../../components/Button';
-import referralPageCopy from './constants';
+import referralPageCopy, { TestId } from './constants';
 import Input from '../../components/Input';
 import Leaderboard from './internals';
 import { postData, REFERRAL_LINK } from '../../services/ApiClient';
@@ -98,9 +98,18 @@ function ReferPage() {
           <p className={styles.referParagraph}>{referralPageCopy.referParagraph}</p>
 
           <form className={styles.referForm} onSubmit={handleGenerateLink}>
-            <Input value={name} error={nameError} label="Name" placeholder="Enter name" className={styles.entry} onChange={handleNameChange} />
+            <Input
+              dataTestId={TestId.NAME_INPUT}
+              value={name}
+              error={nameError}
+              label="Name"
+              placeholder="Enter name"
+              className={styles.entry}
+              onChange={handleNameChange}
+            />
 
             <Input
+              dataTestId={TestId.EMAIL_INPUT}
               error={emailError}
               value={email}
               label="Email"
@@ -125,11 +134,9 @@ function ReferPage() {
             <p className={styles.referralText}>{referralPageCopy.referralText}</p>
             <div className={styles.referralLink}>
               {generatedLink && <p className={styles.genLink}>{generatedLink}</p>}
-              {generatedLink && (
-                <p className={styles.referralLinkCopy} onClick={handleCopyClick}>
-                  {referralPageCopy.referralLinkCopy}
-                </p>
-              )}
+              <p className={styles.referralLinkCopy} onClick={generatedLink ? handleCopyClick : () => {}}>
+                {generatedLink ? referralPageCopy.referralLinkCopy : ''}
+              </p>
             </div>
             {copySuccess && <p className={styles.copySuccess}>{copySuccess}</p>}
           </form>

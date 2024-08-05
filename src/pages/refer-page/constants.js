@@ -6,7 +6,6 @@ const referralPageCopy = {
   referParagraph: 'Enter your name and email address below to generate a personalized link and share with your friends',
   generateLinkButtonLabel: 'Generate Link',
   referralText: 'Share your unique referral link',
-  referralLink: 'https://edustipend.com/refer/ezebillions',
   referralLinkCopy: 'Copy',
   generateLink: 'Generate Link',
   leaderboardTitle: 'Referral Leaderboard',
@@ -31,6 +30,8 @@ const referralPageCopy = {
 };
 
 export const TestId = {
+  EMAIL_INPUT: 'referral-email-input',
+  NAME_INPUT: 'referral-name-input',
   LEADERBOARD: 'leaderboard-id',
   LEADERBOARD_HEADER: 'leaderboard-header-id',
   LEADERBOARD_TABLE: 'leaderboard-table-id'
