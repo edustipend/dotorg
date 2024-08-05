@@ -7,7 +7,7 @@ const { leaderboardTitle, tabs } = referralPageCopy;
 
 export const Leaderboard = () => {
   const [referralType, setReferralType] = useState(tabs[1].value);
-  const handleChange = (type) => {
+  const handleSwitch = (type) => {
     setReferralType(type);
   };
 
@@ -21,7 +21,7 @@ export const Leaderboard = () => {
           <button
             className={`${styles.tab} ${referralType === option.value ? styles.activeTab : ''}`}
             key={option.value}
-            onClick={() => handleChange(option.value)}>
+            onClick={() => handleSwitch(option.value)}>
             {option.title}
           </button>
         ))}
