@@ -23,7 +23,7 @@ function ReferPage() {
     navigator.clipboard.writeText(generatedLink).then(
       () => {
         setCopySuccess('Copied!');
-        setTimeout(() => setCopySuccess(''), 2000); // Clear message after 2 seconds
+        setTimeout(() => setCopySuccess(''), 4000); // Clear message after 4 seconds
       },
       (err) => {
         setCopySuccess('Failed to copy');
@@ -48,26 +48,24 @@ function ReferPage() {
   const handleGenerateLink = async (e) => {
     e.preventDefault();
 
-    setisLoading(true);
-
     if (!name) {
       setNameError('Please provide a name');
-      setisLoading(false);
       return;
     }
 
     if (!email) {
       setEmailError('Please provide an email address');
-      setisLoading(false);
       return;
     }
+
+    setisLoading(true);
 
     try {
       const res = await postData(`${REFERRAL_LINK}`, { name, email });
 
       if (res.status) {
-        toast('Referral link has been generated');
-        setGeneratedLink(res.data.originalURL);
+        toast('Referral link has been generated. Copy to share it with friends');
+        setGeneratedLink(res?.data?.secureShortURL ?? '');
 
         // Clean up after successful link generation
         setName('');
