@@ -1,6 +1,8 @@
 .leaderboard {
   margin: 74px auto 0;
   padding-bottom: 200px;
+  width: 100%;
+  max-width: 1057px;
 }
 
 .header {
@@ -9,7 +11,6 @@
 
 .tableContainer {
   width: 100%;
-  max-width: 1057px;
   margin: 0 auto;
   height: auto;
   gap: 0px;
@@ -66,56 +67,29 @@
   display: none;
 }
 
-.filter {
+.tabs {
   display: flex;
-  justify-content: flex-end;
-  gap: 16px;
-  align-items: center;
   width: 100%;
-  max-width: 1057px;
-  margin: 40px auto 16px;
+  margin-top: 44px;
+  margin-bottom: 32px;
 }
 
-.filterTitle {
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 24px;
-  text-align: right;
+.tab {
+  width: 50%;
+  font-size: 14px;
+  padding: 0;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.005em;
+  text-align: center;
+  background: #e1e1e1;
+  color: var(--edustipend-black);
+  border-radius: 4px;
 }
 
-.select {
-  width: 164px;
-  height: 44px;
-  padding: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 8px;
-  border-radius: 8px 0px 0px 0px;
-  border: 1px 0px 0px 0px;
-  font-size: 16px;
-  color: '#101828';
-  border-radius: 8px;
-  background-color: #fff;
-  appearance: none;
-  background-image: url('../../../assets/chevron-down.svg');
-  background-repeat: no-repeat;
-  background-position: right 5px center;
-  background-size: 16px;
-  box-shadow: 0px 1px 2px 0px #1018280d;
-  border: 1px solid #d0d5dd;
-}
-
-.select option {
-  background-color: #fff;
-  color: #1e2022;
-  padding: 20px;
-}
-
-.select:focus {
-  outline: none;
-  box-shadow: 0px 1px 2px 0px #1018280d;
-  border: 1px solid #d0d5dd;
+.activeTab {
+  background: var(--edustipend-purple);
+  color: var(--white);
 }
 
 @media only screen and (max-width: 768px) {
@@ -130,8 +104,11 @@
   .leaderboard {
     margin: 84px auto 0;
   }
-  .filter {
-    margin: 60px auto 16px;
+  .tabs {
+    margin-top: 56px;
+  }
+  .tab {
+    font-size: 20px;
   }
   .avatar {
     display: inline-flex;

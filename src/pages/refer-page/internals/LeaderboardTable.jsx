@@ -19,7 +19,7 @@ export const LeaderboardTable = ({ referralType }) => {
   const total = leaderboard?.length >= 20 ? 20 : leaderboard?.length;
   const totalPages = Math.ceil(total / itemToRender);
   const isMobile = window.innerWidth <= 768;
-  const tableHeadings = isMobile ? tableHeads.mobile : tableHeads[referralType];
+  const tableHeadings = isMobile ? tableHeads[referralType].mobile : tableHeads[referralType].desktop;
 
   const changePage = (page) => {
     setCurrentPage(page);

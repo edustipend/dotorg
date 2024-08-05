@@ -1,5 +1,6 @@
 const REFERRAL_AMOUNT = 'byAmount';
 const REFERRAL_COUNT = 'byCount';
+const headongs = ['Rank', 'Referrer Name'];
 
 const referralPageCopy = {
   referHeader: 'Refer a Friend',
@@ -13,18 +14,17 @@ const referralPageCopy = {
   REFERRAL_AMOUNT,
   REFERRAL_COUNT,
   tableHeads: {
-    [REFERRAL_COUNT]: ['Rank', 'Referrer Name', 'No of Referrals'],
-    [REFERRAL_AMOUNT]: ['Rank', 'Referrer Name', 'Amount Donated'],
-    mobile: ['Rank', 'Referrer Name', '#']
+    [REFERRAL_COUNT]: { desktop: [...headongs, 'No of Referrals'], mobile: [...headongs, '#'] },
+    [REFERRAL_AMOUNT]: { desktop: [...headongs, 'Amount Donated'], mobile: [...headongs, 'Amount Donated'] }
   },
-  options: [
-    {
-      value: REFERRAL_COUNT,
-      title: 'Referral Count'
-    },
+  tabs: [
     {
       value: REFERRAL_AMOUNT,
-      title: 'Referral Amount'
+      title: 'By Referral Amount'
+    },
+    {
+      value: REFERRAL_COUNT,
+      title: 'By Referral Count'
     }
   ]
 };
