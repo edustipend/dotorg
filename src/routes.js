@@ -21,8 +21,8 @@ import AboutUs from './pages/about-us/AboutUs';
 import TransparencyDashboard from './sections/TransparencyDashboard';
 import Impacts from './sections/Impacts';
 import ReferPage from './pages/refer-page/ReferPage';
+import AtTwo from './pages/at-two/AtTwo';
 import { routesConstant } from './routesConstant';
-
 
 const {
   AMBASSADOR_PROGRAM,
@@ -40,10 +40,9 @@ const {
   ABOUT_US,
   TRANSPARENCY_DASHBOARD,
   IMPACTS,
-  REFERRAL_PAGE
+  REFERRAL_PAGE,
+  AT_TWO
 } = routesConstant;
-
-
 
 const Routes = () => {
   return (
@@ -90,6 +89,7 @@ const Routes = () => {
       <Route path="/" element={<LandingPageV2 />} />
       <Route path={AT_ONE} element={<AtOne />} />
       <Route path={REFERRAL_PAGE} element={<ReferPage />} />
+      <Route path={AT_TWO} element={<AtTwo />} />
     </AppRoutes>
   );
 };

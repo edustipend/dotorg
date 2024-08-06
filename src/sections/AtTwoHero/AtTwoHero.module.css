@@ -1,0 +1,85 @@
+.heroImage {
+  padding: 100px 80px;
+  width: 100%;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../../assets/black-woman-rejoices-front-computer-1.png');
+  height: 740px;
+  background-position: top;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heroHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  gap: 48px;
+}
+
+.heroTitle {
+  font-family: Poppins;
+  font-size: 64px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 1);
+}
+
+.heroParagraph {
+  font-family: Manrope;
+  font-size: 20px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 1);
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .heroTitle {
+    font-size: 58px;
+  }
+
+  .heroParagraph {
+    font-size: 18px;
+  }
+
+  .heroHeader {
+    gap: 38px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .heroImage {
+    padding: 100px 20px;
+  }
+  .heroTitle {
+    font-size: 40px;
+  }
+
+  .heroParagraph {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .heroHeader {
+    height: 500px;
+  }
+  .heroTitle {
+    font-size: 32px;
+  }
+
+  .heroParagraph {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .heroTitle {
+    font-size: 28px;
+  }
+
+  .heroParagraph {
+    font-size: 12px;
+  }
+}
