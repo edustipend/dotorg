@@ -68,7 +68,8 @@
 
 .platform {
   text-transform: uppercase;
-  text-decoration: none;
+  text-decoration: underline;
+  color: blue;
   font-size: 11px;
 }
 
