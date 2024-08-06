@@ -27,7 +27,7 @@ export const steps = [
     description: '6 laptops are available to be won through this path.',
     steps: [
       'Generate a Personalized Flier',
-      'Make a social media post using the hashtag #EdustipendAt2 and #SupportALearner',
+      'Make a social media post using the hashtag <strong> #EdustipendAt2 <strong /> and <strong >#SupportALearner <strong />',
       'The top 6 posts with the highest social media engagement across all four social media channels (Facebook, Instagram, LinkedIn, X) win the laptops'
     ],
     btn: {
@@ -66,8 +66,8 @@ export const stepPropShape = {
 };
 
 export const TestId = {
-  HOW_TO_WIN : 'how_to_win',
-  HEAD_TEXT : 'HEAD_TEXT',
-  SUB_TEXT : 'sub_text',
-  STEPS:'steps'
-}
+  HOW_TO_WIN: 'how_to_win',
+  HEAD_TEXT: 'HEAD_TEXT',
+  SUB_TEXT: 'sub_text',
+  STEPS: 'steps'
+};

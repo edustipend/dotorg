@@ -13,7 +13,7 @@ const Step = ({ step }) => {
       <h2 className={styles.stepp}>Steps</h2>
       <ol className={styles.lists}>
         {step.steps.map((item) => (
-          <li key={item}>{item}</li>
+          <li key={item} dangerouslySetInnerHTML={{ __html: item }} />
         ))}
       </ol>
       <Link className={styles.link} to={step.btn.path}>
