@@ -1,6 +1,5 @@
 .container {
   margin: 120px auto;
-  background: rgba(247, 247, 247, 1);
 }
 
 .header {
@@ -101,6 +100,9 @@
 }
 
 @media only screen and (max-width: 768px) {
+  .container {
+    margin: 80px auto;
+  }
   .header {
     font-size: 32px;
     font-weight: 500;
@@ -108,5 +110,8 @@
   }
   .text {
     font-size: 16px;
+  }
+  .lists {
+    margin-left: 16px;
   }
 }
