@@ -3,13 +3,12 @@ import referralPageCopy, { TestId } from '../constants';
 import { LeaderboardTable } from './LeaderboardTable';
 import styles from './Leaderboard.module.css';
 import { useState } from 'react';
-const { leaderboardTitle, options } = referralPageCopy;
+const { leaderboardTitle, tabs } = referralPageCopy;
 
 export const Leaderboard = () => {
-  const [referralType, setReferralType] = useState(options[0].value);
-  const handleOptionChange = (e) => {
-    const referralType = e.target.value;
-    setReferralType(referralType);
+  const [referralType, setReferralType] = useState(tabs[1].value);
+  const handleSwitch = (type) => {
+    setReferralType(type);
   };
 
   return (
@@ -17,15 +16,15 @@ export const Leaderboard = () => {
       <Header className={styles.header} size="medium" dataTest={TestId.LEADERBOARD_HEADER}>
         {leaderboardTitle}
       </Header>
-      <div className={styles.filter}>
-        <h1 className={styles.filterTitle}>View by:</h1>
-        <select className={styles.select} onChange={(e) => handleOptionChange(e)}>
-          {options.map((option) => (
-            <option key={option.value} value={option.value}>
-              {option.title}
-            </option>
-          ))}
-        </select>
+      <div className={styles.tabs}>
+        {tabs.map((option) => (
+          <button
+            className={`${styles.tab} ${referralType === option.value ? styles.activeTab : ''}`}
+            key={option.value}
+            onClick={() => handleSwitch(option.value)}>
+            {option.title}
+          </button>
+        ))}
       </div>
       <LeaderboardTable referralType={referralType} />
     </div>

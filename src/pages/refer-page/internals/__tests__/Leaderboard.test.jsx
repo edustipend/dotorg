@@ -55,7 +55,7 @@ describe('Leaderboard Table', () => {
 
     render(<LeaderboardTable referralType={REFERRAL_COUNT} />);
 
-    referralPageCopy.tableHeads.mobile.forEach((heading) => {
+    referralPageCopy.tableHeads[REFERRAL_COUNT].mobile.forEach((heading) => {
       expect(screen.getByText(heading)).toBeInTheDocument();
     });
 
@@ -65,11 +65,7 @@ describe('Leaderboard Table', () => {
   it('renders correct table headings based on referral type', () => {
     render(<LeaderboardTable referralType={REFERRAL_AMOUNT} />);
 
-    referralPageCopy.tableHeads[REFERRAL_AMOUNT].forEach((heading) => {
-      expect(screen.getByText(heading)).toBeInTheDocument();
-    });
-
-    referralPageCopy.tableHeads[REFERRAL_AMOUNT].forEach((heading) => {
+    referralPageCopy.tableHeads[REFERRAL_AMOUNT].desktop.forEach((heading) => {
       expect(screen.getByText(heading)).toBeInTheDocument();
     });
   });
