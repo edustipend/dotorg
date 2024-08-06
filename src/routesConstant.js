@@ -10,6 +10,7 @@ export const routesConstant = {
   RESET_PASSWORD: '/reset-password',
   WELCOME: '/welcome',
   AT_ONE: '/at-one',
+  AT_TWO: '/at-two',
   LOGIN: '/login',
   DONATION: '/donation',
   REPORTS: '/impact/reports',

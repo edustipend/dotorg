@@ -10,6 +10,7 @@ import StartApplication from './sections/StartApplication';
 import ForgotPassword from './pages/forgot-password';
 import ResetPassword from './pages/reset-password';
 import AtOne from './pages/at-one';
+import AtTwo from './pages/at-two';
 import Welcome from './sections/Welcome';
 import Login from './pages/login';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
@@ -23,7 +24,6 @@ import Impacts from './sections/Impacts';
 import ReferPage from './pages/refer-page/ReferPage';
 import { routesConstant } from './routesConstant';
 
-
 const {
   AMBASSADOR_PROGRAM,
   REQUEST,
@@ -33,6 +33,7 @@ const {
   WELCOME,
   DASHBOARD,
   AT_ONE,
+  AT_TWO,
   LOGIN,
   SUPPORT_A_LEARNER,
   DONATE_NOW,
@@ -42,8 +43,6 @@ const {
   IMPACTS,
   REFERRAL_PAGE
 } = routesConstant;
-
-
 
 const Routes = () => {
   return (
@@ -73,7 +72,8 @@ const Routes = () => {
           <ProtectedRoute>
             <Welcome />
           </ProtectedRoute>
-        }></Route>
+        }
+      ></Route>
 
       <Route
         path={DASHBOARD}
@@ -81,7 +81,8 @@ const Routes = () => {
           <ProtectedRoute>
             <LearnerDashboard />
           </ProtectedRoute>
-        }>
+        }
+      >
         <Route index element={<Home />} />
         <Route path="home" element={<Home />} />
         <Route path="submissions" element={<Submissions />} />
@@ -89,6 +90,7 @@ const Routes = () => {
       </Route>
       <Route path="/" element={<LandingPageV2 />} />
       <Route path={AT_ONE} element={<AtOne />} />
+      <Route path={AT_TWO} element={<AtTwo />} />
       <Route path={REFERRAL_PAGE} element={<ReferPage />} />
     </AppRoutes>
   );
