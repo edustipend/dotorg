@@ -10,6 +10,7 @@ import StartApplication from './sections/StartApplication';
 import ForgotPassword from './pages/forgot-password';
 import ResetPassword from './pages/reset-password';
 import AtOne from './pages/at-one';
+import AtTwo from './pages/at-two';
 import Welcome from './sections/Welcome';
 import Login from './pages/login';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
@@ -22,7 +23,6 @@ import TransparencyDashboard from './sections/TransparencyDashboard';
 import Impacts from './sections/Impacts';
 import ReferPage from './pages/refer-page/ReferPage';
 import { routesConstant } from './routesConstant';
-import { AtTwo } from './pages/at-two/AtTwo';
 
 const {
   AMBASSADOR_PROGRAM,
