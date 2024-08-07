@@ -63,6 +63,9 @@ import AR_Image from './app-report.png';
 import BL_Image from './ben-list.png';
 import BR_Image from './ben-report.png';
 import Report_Lines from './report-lines.svg';
+import Referrals_Icon from './referrals.svg';
+import Engagement_Icon from './engagement.svg';
+import Application_Icon from './application.svg';
 
 export {
   Hero1,
@@ -129,5 +132,8 @@ export {
   AR_Image,
   BL_Image,
   BR_Image,
-  Report_Lines
+  Report_Lines,
+  Referrals_Icon,
+  Engagement_Icon,
+  Application_Icon
 };

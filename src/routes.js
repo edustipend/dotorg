@@ -72,8 +72,7 @@ const Routes = () => {
           <ProtectedRoute>
             <Welcome />
           </ProtectedRoute>
-        }
-      ></Route>
+        }></Route>
 
       <Route
         path={DASHBOARD}
@@ -81,8 +80,7 @@ const Routes = () => {
           <ProtectedRoute>
             <LearnerDashboard />
           </ProtectedRoute>
-        }
-      >
+        }>
         <Route index element={<Home />} />
         <Route path="home" element={<Home />} />
         <Route path="submissions" element={<Submissions />} />
