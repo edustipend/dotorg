@@ -114,4 +114,9 @@
   .lists {
     margin-left: 16px;
   }
+  .link {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
 }
