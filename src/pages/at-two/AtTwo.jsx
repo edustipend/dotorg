@@ -1,11 +1,11 @@
 import React from 'react';
+import { TestId } from './constants';
 import AtTwoHero from '../../sections/AtTwo/AtTwoHero/AtTwoHero';
-
-import style from './AtTwo.module.css';
+import styles from './AtTwo.module.css';
 
 function AtTwo() {
   return (
-    <main className={style.main}>
+    <main data-testid={TestId.AT_TWO} className={styles.main}>
       <AtTwoHero />
     </main>
   );
