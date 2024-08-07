@@ -10,11 +10,11 @@ export const routesConstant = {
   RESET_PASSWORD: '/reset-password',
   WELCOME: '/welcome',
   AT_ONE: '/at-one',
+  AT_TWO: '/at-two',
   LOGIN: '/login',
   DONATION: '/donation',
   REPORTS: '/impact/reports',
   IMPACTS: '/impact',
   TRANSPARENCY_DASHBOARD: '/support-a-learner/transparency-dashboard',
-  REFERRAL_PAGE: '/support-a-learner/refer-a-friend',
-  AT_TWO: '/at-two'
+  REFERRAL_PAGE: '/support-a-learner/refer-a-friend'
 };

@@ -10,6 +10,7 @@ import StartApplication from './sections/StartApplication';
 import ForgotPassword from './pages/forgot-password';
 import ResetPassword from './pages/reset-password';
 import AtOne from './pages/at-one';
+import AtTwo from './pages/at-two';
 import Welcome from './sections/Welcome';
 import Login from './pages/login';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
@@ -21,7 +22,6 @@ import AboutUs from './pages/about-us/AboutUs';
 import TransparencyDashboard from './sections/TransparencyDashboard';
 import Impacts from './sections/Impacts';
 import ReferPage from './pages/refer-page/ReferPage';
-import AtTwo from './pages/at-two/AtTwo';
 import { routesConstant } from './routesConstant';
 
 const {
@@ -33,6 +33,7 @@ const {
   WELCOME,
   DASHBOARD,
   AT_ONE,
+  AT_TWO,
   LOGIN,
   SUPPORT_A_LEARNER,
   DONATE_NOW,
@@ -40,8 +41,7 @@ const {
   ABOUT_US,
   TRANSPARENCY_DASHBOARD,
   IMPACTS,
-  REFERRAL_PAGE,
-  AT_TWO
+  REFERRAL_PAGE
 } = routesConstant;
 
 const Routes = () => {
@@ -88,6 +88,7 @@ const Routes = () => {
       </Route>
       <Route path="/" element={<LandingPageV2 />} />
       <Route path={AT_ONE} element={<AtOne />} />
+      <Route path={AT_TWO} element={<AtTwo />} />
       <Route path={REFERRAL_PAGE} element={<ReferPage />} />
       <Route path={AT_TWO} element={<AtTwo />} />
     </AppRoutes>

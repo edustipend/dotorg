@@ -18,7 +18,7 @@ const testimonialsData = [
     content:
       '@edustipend I thank you so much for this opportunity, the joy I felt recieving the laptop was indescribable. Thank you for rooting for us. God bless the edustipend team for this. I also want to use this opportunity to thank my mentor @t_chukwure for taking a chance on me.',
     postDate: 'March 17, 2023',
-    seeLink: 'See on X &rarr;',
+    seeLink: 'See on X',
     hrefLink: 'https://x.com/edustipend/status/1630614305447223297?s=20',
     source: nonsoImg
   },
@@ -28,7 +28,7 @@ const testimonialsData = [
     content:
       "This feels a lot like a dreeeaaam. I have been barely coping with coding on mobile and borrowed systems and so I couldn't contain my surprise when I got the mail. Words still fail me. Thank you a million times @edustipend team and @meekg33k for taking a chance on me.",
     postDate: 'March 1, 2023',
-    seeLink: 'See on X &rarr;',
+    seeLink: 'See on X',
     hrefLink: 'https://twitter.com/ulenyo/status/1630710032156246018',
     source: ulenyoImg
   },
@@ -38,7 +38,7 @@ const testimonialsData = [
     content:
       'I just received an alert of 10K into my MTN account. This is a great source of motivation for me to continue my journey and by the grace of God, I will make good use of it. Thank you @edustipend. Thank you to everyone that has contributed..',
     postDate: 'January 9, 2023',
-    seeLink: 'See on X &rarr;',
+    seeLink: 'See on X',
     hrefLink: 'https://twitter.com/edustipend/status/1630614305447223297',
     source: FawazImg
   },
@@ -48,7 +48,7 @@ const testimonialsData = [
     content:
       'I just received an alert of 10K into my MTN account. This is a great source of motivation for me to continue my journey and by the grace of God, I will make good use of it. Thank you @edustipend. Thank you to everyone that has contributed..',
     postDate: 'January 9, 2023',
-    seeLink: 'See on X &rarr;',
+    seeLink: 'See on X',
     hrefLink: 'https://twitter.com/edustipend/status/1630614305447223297',
     source: FawazImg
   }
@@ -56,7 +56,7 @@ const testimonialsData = [
 const testimonialDescription = `Discover what the community has to say about the transformative power of Edustipend. Real stories, real impact. Here are some testimonials
   from individuals whose lives have been touched.`;
 
-var settings = {
+const settings = {
   dots: false,
   infinite: false,
   speed: 500,
@@ -93,7 +93,7 @@ var settings = {
 
 function BeneficiaryTestimonies() {
   return (
-    <div data-testid={"Testimonial"} className={BeneficiaryStyle.testimonialBigWrapper}>
+    <div data-testid={'Testimonial'} className={BeneficiaryStyle.testimonialBigWrapper}>
       <Container>
         <div className={BeneficiaryStyle.testimonial__section}>
           <Header size="medium" color="secondary" dataTest="another-header-test" className="custom-header-class">
