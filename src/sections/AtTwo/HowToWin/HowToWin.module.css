@@ -1,0 +1,117 @@
+.container {
+  margin: 120px auto;
+}
+
+.header {
+  text-align: center;
+}
+
+.text {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 27.32px;
+  text-align: center;
+  color: var(--edustipend-black);
+  margin: 24px auto 64px;
+}
+
+.steps {
+  display: grid;
+  gap: 20px;
+  width: 100%;
+  max-width: 1312px;
+  margin: 0 auto;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  justify-items: center;
+}
+
+.step {
+  position: relative;
+  width: 100%;
+  max-width: 405.33px;
+  min-height: 576.81px;
+  padding: 32px 16px 32px 16px;
+  gap: 16px;
+  border-radius: 16px;
+  border: 12px;
+  box-shadow: 0px 1px 4px 0px #0c0c0d0d;
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icon {
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32.78px;
+  text-align: center;
+  color: var(--edustipend-black);
+}
+
+.desc {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 21.86px;
+  text-align: center;
+  color: #00000080;
+}
+
+.line {
+  width: 100%;
+  height: 1px;
+  background: #edecec;
+}
+
+.stepp {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 21.86px;
+  text-align: center;
+  color: var(--edustipend-purple);
+}
+
+.lists {
+  margin-left: 28px;
+  text-align: left;
+  color: var(--edustipend-black);
+}
+
+.lists li {
+  list-style: decimal;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 21.86px;
+  margin: 4px 0;
+}
+
+.link {
+  margin: auto auto 0;
+}
+
+.btn {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 18.72px;
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    margin: 80px auto;
+  }
+  .header {
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 35.2px;
+  }
+  .text {
+    font-size: 16px;
+  }
+  .lists {
+    margin-left: 16px;
+  }
+}

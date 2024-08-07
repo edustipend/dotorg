@@ -13,9 +13,9 @@ function AtTwoHero() {
       <div className={style.heroHeader}>
         <h1 className={style.heroTitle}>{header.heroTitle}</h1>
         <p className={style.heroParagraph}>{header.heroParagrah}</p>
-        <>
+        <a href="#how-to-win">
           <Button size="large" type="secondary" label="How to win" />
-        </>
+        </a>
       </div>
     </div>
   );

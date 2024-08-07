@@ -15,7 +15,6 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
   gap: 48px;
 }
 
@@ -52,8 +51,14 @@
   .heroImage {
     padding: 100px 20px;
   }
+
+  .heroHeader {
+    gap: 20px;
+  }
+
   .heroTitle {
     font-size: 40px;
+    text-align: center;
   }
 
   .heroParagraph {
