@@ -1,6 +1,6 @@
 import React from 'react';
 import style from './AtTwoHero.module.css';
-import Button from '../../components/Button';
+import Button from '../../../components/Button';
 
 const header = {
   heroTitle: 'Edustipend is 2!!!',
