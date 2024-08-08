@@ -13,11 +13,11 @@ export const steps = [
       'Create a Personalized Link',
       'Refer a Friend or Individual',
       'Encourage your referrals to make a donation to the Support A Learner campaign using your personalized link.',
-      'The top 5 by amount donated and top 5 by number of referrals automatically win the laptops.'
+      'The top 5 by amount donated and top 5 by number of referrals automatically win the laptops. Minimum amount expected is N50,000.'
     ],
     btn: {
       label: 'Create Personalized Link',
-      path: '/support-a-learner/refer-a-friend',
+      path: '/refer-a-friend',
       variant: 'secondary'
     }
   },
@@ -32,7 +32,7 @@ export const steps = [
     ],
     btn: {
       label: 'Generate Personalized Flyer',
-      path: '/support-a-learner/refer-a-friend',
+      path: 'https://getdp.co/pA1',
       variant: 'secondary'
     }
   },
@@ -47,7 +47,7 @@ export const steps = [
     ],
     btn: {
       label: 'Apply Now',
-      path: '/application',
+      path: 'https://forms.gle/2vBKRjRpDEVQWSz78',
       variant: 'secondary'
     }
   }

@@ -16,9 +16,15 @@ const Step = ({ step }) => {
           <li key={item} dangerouslySetInnerHTML={{ __html: item }} />
         ))}
       </ol>
-      <Link className={styles.link} to={step.btn.path}>
-        <Button className={styles.btn} type={step.btn.variant} label={step.btn.label} />
-      </Link>
+      {step.title === 'Direct Application' ? (
+        <Link className={styles.link} to={step.btn.path} target="_blank" rel="noopener noreferrer">
+          <Button className={styles.btn} type={step.btn.variant} label={step.btn.label} />
+        </Link>
+      ) : (
+        <Link className={styles.link} to={step.btn.path}>
+          <Button className={styles.btn} type={step.btn.variant} label={step.btn.label} />
+        </Link>
+      )}
     </div>
   );
 };
