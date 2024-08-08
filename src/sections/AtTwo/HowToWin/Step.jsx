@@ -16,7 +16,7 @@ const Step = ({ step }) => {
           <li key={item} dangerouslySetInnerHTML={{ __html: item }} />
         ))}
       </ol>
-      {step.title === 'Direct Application' ? (
+      {step.title !== 'Referrals' ? (
         <Link className={styles.link} to={step.btn.path} target="_blank" rel="noopener noreferrer">
           <Button className={styles.btn} type={step.btn.variant} label={step.btn.label} />
         </Link>
