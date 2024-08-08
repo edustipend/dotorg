@@ -28,7 +28,7 @@ export const steps = [
     steps: [
       'Generate a Personalized Flier',
       'Make a social media post using the hashtag <strong> #EdustipendAt2 <strong /> and <strong >#SupportALearner <strong />',
-      'The top 6 posts with the highest social media engagement across all four social media channels (Facebook, Instagram, LinkedIn, X) win the laptops'
+      'The top 6 posts with the highest social media engagement across all four social media channels (Facebook, Instagram, LinkedIn, X) win the laptops.'
     ],
     btn: {
       label: 'Generate Personalized Flyer',
@@ -43,7 +43,7 @@ export const steps = [
     steps: [
       'Complete and submit the monthly stipend application for the laptop category',
       'Your application will be reviewed by our review team.',
-      'TThe top 6 applicants with the strongest applications  win the laptops'
+      'The top 6 applicants with the strongest applications  win the laptops.'
     ],
     btn: {
       label: 'Apply Now',
