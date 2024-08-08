@@ -32,7 +32,7 @@ export const steps = [
     ],
     btn: {
       label: 'Generate Personalized Flyer',
-      path: '/support-a-learner/refer-a-friend',
+      path: 'https://getdp.co/pA1',
       variant: 'secondary'
     }
   },
@@ -47,7 +47,7 @@ export const steps = [
     ],
     btn: {
       label: 'Apply Now',
-      path: '/application',
+      path: 'https://forms.gle/2vBKRjRpDEVQWSz78',
       variant: 'secondary'
     }
   }
