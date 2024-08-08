@@ -7,7 +7,7 @@ import styles from './HowToWin.module.css';
 
 export const HowToWin = () => {
   return (
-    <div className={styles.container} data-testid={TestId.HOW_TO_WIN}>
+    <div className={styles.container} data-testid={TestId.HOW_TO_WIN} id="how-to-win">
       <Container>
         <Header className={styles.header} size="medium" dataTest={TestId.HEAD_TEXT}>
           {title}
