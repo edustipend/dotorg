@@ -13,11 +13,11 @@ export const steps = [
       'Create a Personalized Link',
       'Refer a Friend or Individual',
       'Encourage your referrals to make a donation to the Support A Learner campaign using your personalized link.',
-      'The top 5 by amount donated and top 5 by number of referrals automatically win the laptops.'
+      'The top 5 by amount donated and top 5 by number of referrals automatically win the laptops. Minimum amount expected is N50,000.'
     ],
     btn: {
       label: 'Create Personalized Link',
-      path: '/support-a-learner/refer-a-friend',
+      path: '/refer-a-friend',
       variant: 'secondary'
     }
   },
@@ -28,11 +28,11 @@ export const steps = [
     steps: [
       'Generate a Personalized Flier',
       'Make a social media post using the hashtag <strong> #EdustipendAt2 <strong /> and <strong >#SupportALearner <strong />',
-      'The top 6 posts with the highest social media engagement across all four social media channels (Facebook, Instagram, LinkedIn, X) win the laptops'
+      'The top 6 posts with the highest social media engagement across all four social media channels (Facebook, Instagram, LinkedIn, X) win the laptops.'
     ],
     btn: {
       label: 'Generate Personalized Flyer',
-      path: '/support-a-learner/refer-a-friend',
+      path: 'https://getdp.co/pA1',
       variant: 'secondary'
     }
   },
@@ -43,11 +43,11 @@ export const steps = [
     steps: [
       'Complete and submit the monthly stipend application for the laptop category',
       'Your application will be reviewed by our review team.',
-      'TThe top 6 applicants with the strongest applications  win the laptops'
+      'The top 6 applicants with the strongest applications  win the laptops.'
     ],
     btn: {
       label: 'Apply Now',
-      path: '/application',
+      path: 'https://forms.gle/2vBKRjRpDEVQWSz78',
       variant: 'secondary'
     }
   }
