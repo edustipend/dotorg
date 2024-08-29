@@ -47,7 +47,9 @@
   position: absolute;
   padding-left: 19px;
   font-size: 16px;
+  top: 33%;
   color: var(--dark-navy-blue);
+  height: 100%;
 }
 
 .input {
@@ -117,6 +119,7 @@
   .inputAlt,
   .currency {
     font-size: 18px;
+    top: 32%;
   }
 
   .inputAlt {
