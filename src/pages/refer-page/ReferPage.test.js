@@ -80,7 +80,7 @@ describe('ReferPage', () => {
     // Simulate clicking the "Copy" button
     fireEvent.click(screen.getByText(referPageTexts.referralLinkCopy));
 
-    await new Promise((r) => setTimeout(r, 2000));
+    await new Promise((r) => setTimeout(r, 1000));
     expect(screen.getByText('Copied!')).toBeInTheDocument();
   });
 });

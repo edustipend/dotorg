@@ -16,7 +16,7 @@ export const LeaderboardTable = ({ referralType }) => {
   const endIndex = startIndex + itemToRender;
   const referrals = referralType === REFERRAL_COUNT ? referralByCount : referralByAmount;
   const leaderboard = referrals?.slice(startIndex, endIndex);
-  const total = leaderboard?.length >= 20 ? 20 : leaderboard?.length;
+  const total = referrals?.length;
   const totalPages = Math.ceil(total / itemToRender);
   const isMobile = window.innerWidth <= 768;
   const tableHeadings = isMobile ? tableHeads[referralType].mobile : tableHeads[referralType].desktop;
@@ -46,7 +46,7 @@ export const LeaderboardTable = ({ referralType }) => {
         </thead>
         <tbody>
           {leaderboard?.map((item, i) => (
-            <TableRow item={{ ...item, index: i + 1 }} key={i} />
+            <TableRow item={{ ...item, index: i + 1 + (currentPage - 1) * 10 }} key={i} />
           ))}
         </tbody>
         <tfoot>

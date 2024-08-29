@@ -13,8 +13,8 @@ export const ONE_CLICK_APPLY = 'stipend/apply/one-click';
 export const LOGOUT = 'logout';
 export const APPLICATION_WINDOW_STATUS = 'application-window';
 export const DONATION = 'donation';
-export const REFERRAL_BY_AMOUNT = 'referral/top-referrers-by-amount';
-export const REFERRAL_BY_COUNT = 'referral/top-referrers-by-count';
+export const REFERRAL_BY_AMOUNT = 'referral/top-referrers-by-amount?top=50';
+export const REFERRAL_BY_COUNT = 'referral/top-referrers-by-count?top=50';
 export const REFERRAL_LINK = 'referral/link';
 
 export const authorizedPost = async function (route = '', data = {}) {
