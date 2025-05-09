@@ -1,0 +1,25 @@
+import OurImpacts from '../../../sections/SupportALearner/OurImpacts';
+import LatestDonations from '../../../sections/SupportALearner/LatestDonations';
+import Supports from '../../../sections/SupportALearner/Supports';
+import usePageView from '../../../hooks/usePageView';
+import { SeoFragment } from '../../../components/SeoFragment/SeoFragment';
+
+export const SupportALearnerCampaign = () => {
+  usePageView('campaigns-support-a-learner');
+  return (
+    <>
+      <SeoFragment
+        title="Edustipend | Campaigns | Support A Learner - Report"
+        description="Donate to secure the future of learners in Nigeria"
+        name="Edustipend"
+        type="summary"
+        website="https://www.edustipend.org/campaigns/support-a-learner"
+      />
+      <main>
+        <OurImpacts />
+        <LatestDonations />
+        <Supports />
+      </main>
+    </>
+  );
+};
