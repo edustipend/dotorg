@@ -1,4 +1,3 @@
-import OurImpacts from '../../../sections/SupportALearner/OurImpacts';
 import LatestDonations from '../../../sections/SupportALearner/LatestDonations';
 import Supports from '../../../sections/SupportALearner/Supports';
 import usePageView from '../../../hooks/usePageView';
@@ -16,7 +15,6 @@ export const SupportALearnerCampaign = () => {
         website="https://www.edustipend.org/campaigns/support-a-learner"
       />
       <main>
-        <OurImpacts />
         <LatestDonations />
         <Supports />
       </main>
