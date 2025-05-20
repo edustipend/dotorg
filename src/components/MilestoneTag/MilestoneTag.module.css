@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  align-items: center;
+  background-color: var(--white);
+  border-radius: 12px;
+  padding: 8px 12px;
+  box-shadow: 0 2px 4px var(--modal-background);
+  width: 322px;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.message {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--edustipend-black);
+  margin: 0;
+  font-weight: 600;
+}
