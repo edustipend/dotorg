@@ -66,6 +66,7 @@ import Report_Lines from './report-lines.svg';
 import Referrals_Icon from './referrals.svg';
 import Engagement_Icon from './engagement.svg';
 import Application_Icon from './application.svg';
+import ArrowDownChev from "./arrowChev.svg"
 
 export {
   Hero1,
@@ -135,5 +136,6 @@ export {
   Report_Lines,
   Referrals_Icon,
   Engagement_Icon,
-  Application_Icon
+  Application_Icon,
+  ArrowDownChev
 };

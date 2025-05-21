@@ -19,6 +19,7 @@ const getButtonMode = (type) => {
  */
 export const Button = ({
   className,
+  children,
   effectClass,
   dataTest = TestId.DEFAULT_BUTTON_TEST_ID,
   disabled = false,
@@ -48,8 +49,7 @@ export const Button = ({
         type === ButtonType.PRIMARY ? 'effect' : type === ButtonType.SECONDARY ? 'effect effect_alt' : type === ButtonType.PLAIN ? 'effect' : ''
       }
       ${disabled ? 'disabled' : ''}
-      ${effectAlt ? 'effectAlt' : ''} ${effectClass}`}
-    >
+      ${effectAlt ? 'effectAlt' : ''} ${effectClass}`}>
       <button
         id={id}
         data-testid={dataTest}
@@ -63,14 +63,14 @@ export const Button = ({
           `${className} `,
           mode
         ].join(' ')}
-        {...props}
-      >
+        {...props}>
         {isLoading ? <Loader variant={loaderVariant} size={loaderSize} /> : label || DEFAULT_BUTTON_LABEL}
         {icon && (
           <div className={iconPosition === IconPosition.BACK ? 'icon back-icon' : iconPosition === IconPosition.FRONT ? 'icon front-icon' : ''}>
             <img src={icon} alt="icon" />
           </div>
         )}
+        {children}
       </button>
     </div>
   );
@@ -78,6 +78,7 @@ export const Button = ({
 
 Button.propTypes = {
   className: PropTypes.string,
+  children: PropTypes.node,
   dataTest: PropTypes.string,
   disabled: PropTypes.bool,
   effectAlt: PropTypes.bool,
