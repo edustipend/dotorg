@@ -17,6 +17,7 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import ProtecteAuthRoute from './components/ProtectedRoute/ProtectAuthRoute';
 import SupportALearner from './pages/support-a-learner';
 import DonateNow from './pages/donate-now';
+import ImpactLeaders from './pages/impact-leaders';
 import ReportsPage from './pages/reports';
 import AboutUs from './pages/about-us/AboutUs';
 import TransparencyDashboard from './sections/TransparencyDashboard';
@@ -41,7 +42,8 @@ const {
   ABOUT_US,
   TRANSPARENCY_DASHBOARD,
   IMPACTS,
-  REFERRAL_PAGE
+  REFERRAL_PAGE,
+  IMPACT_LEADERS
 } = routesConstant;
 
 const Routes = () => {
@@ -91,6 +93,7 @@ const Routes = () => {
       <Route path={AT_TWO} element={<AtTwo />} />
       <Route path={REFERRAL_PAGE} element={<ReferPage />} />
       <Route path={AT_TWO} element={<AtTwo />} />
+    
     </AppRoutes>
   );
 };
