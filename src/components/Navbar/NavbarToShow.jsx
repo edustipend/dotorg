@@ -70,7 +70,7 @@ export const NavbarToShow = () => {
       ) : isSupportALearner ? (
         <NavbarLearner showMenu={isToggle} closeMenu={setIsToggle} path={pathname} />
       ) : (
-        <NavbarNavs showMenu={isToggle} closeMenu={setIsToggle} />
+        <NavbarNavs showMenu={isToggle} closeMenu={setIsToggle} path={pathname} />
       )}
 
       <div className="menu-icon" onClick={() => setIsToggle(!isToggle)}>

@@ -1,7 +1,8 @@
+import { SeoFragment } from '../../../components/SeoFragment/SeoFragment';
+import usePageView from '../../../hooks/usePageView';
 import LatestDonations from '../../../sections/SupportALearner/LatestDonations';
 import Supports from '../../../sections/SupportALearner/Supports';
-import usePageView from '../../../hooks/usePageView';
-import { SeoFragment } from '../../../components/SeoFragment/SeoFragment';
+import Reports from '../../../sections/SupportALearner/Reports';
 
 export const SupportALearnerCampaign = () => {
   usePageView('campaigns-support-a-learner');
@@ -17,6 +18,7 @@ export const SupportALearnerCampaign = () => {
       <main>
         <LatestDonations />
         <Supports />
+        <Reports />
       </main>
     </>
   );
