@@ -60,6 +60,7 @@ const Routes = () => {
       <Route path={ABOUT_US} element={<AboutUs />} />
       <Route path={TRANSPARENCY_DASHBOARD} element={<TransparencyDashboard />} />
       <Route path={IMPACTS} element={<Impacts />} />
+      <Route path={IMPACT_LEADERS} element={<ImpactLeaders />} />
       <Route
         path={LOGIN}
         element={

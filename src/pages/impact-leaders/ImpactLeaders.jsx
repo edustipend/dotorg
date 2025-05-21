@@ -1,7 +1,22 @@
-import React from 'react'
+import React from 'react';
 
 export const ImpactLeaders = () => {
   return (
-    <div>ImpactLeaders</div>
-  )
-}
+    <div>
+      <p>lkjobdf</p>
+      <p>lkjobdf</p>
+      <p>lkjobdf</p>
+      <p>lkjobdf</p>
+      <p>lkjobdf</p>
+      <p>lkjobdf</p>
+      <p>lkjobdf</p>
+      <p>lkjobdf</p>
+      <p>lkjobdf</p>
+      <p>lkjobdf</p>
+      <p>lkjobdf</p>
+      <p>lkjobdf</p>
+      <p>lkjobdf</p>
+      <p>lkjobdf</p> <p>lkjobdf</p>
+    </div>
+  );
+};
