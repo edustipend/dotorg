@@ -63,7 +63,7 @@ const Beneficiaries = () => {
                 Our Beneficiaries so far
               </Header>
 
-              <Header className="v2-section-subheader" color="primary" dataTest={TestId.SUB_HEADER_TEST_ID} subheader={true} size="small">
+              <Header className=".v2-section-subheader" color="primary" dataTest={TestId.SUB_HEADER_TEST_ID} subheader={true} size="small">
                 Our Beneficiaries
               </Header>
 

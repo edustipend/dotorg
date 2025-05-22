@@ -11,6 +11,9 @@ const getButtonMode = (type) => {
   if (type === 'secondary') {
     return ClassName.SECONDARY_BUTTON;
   }
+  if (type === 'dark') {
+    return ClassName.DARK_BUTTON;
+  }
   return ClassName.PRIMARY_BUTTON;
 };
 
@@ -45,11 +48,18 @@ export const Button = ({
   return (
     <div
       className={`${
-        type === ButtonType.PRIMARY ? 'effect' : type === ButtonType.SECONDARY ? 'effect effect_alt' : type === ButtonType.PLAIN ? 'effect' : ''
+        type === ButtonType.PRIMARY
+          ? 'effect'
+          : type === ButtonType.SECONDARY
+            ? 'effect effect_alt'
+            : type === ButtonType.PLAIN
+              ? 'effect'
+              : type === ButtonType.DARK
+                ? 'effect'
+                : ''
       }
       ${disabled ? 'disabled' : ''}
-      ${effectAlt ? 'effectAlt' : ''} ${effectClass}`}
-    >
+      ${effectAlt ? 'effectAlt' : ''} ${effectClass}`}>
       <button
         id={id}
         data-testid={dataTest}
@@ -63,8 +73,7 @@ export const Button = ({
           `${className} `,
           mode
         ].join(' ')}
-        {...props}
-      >
+        {...props}>
         {isLoading ? <Loader variant={loaderVariant} size={loaderSize} /> : label || DEFAULT_BUTTON_LABEL}
         {icon && (
           <div className={iconPosition === IconPosition.BACK ? 'icon back-icon' : iconPosition === IconPosition.FRONT ? 'icon front-icon' : ''}>
@@ -93,5 +102,5 @@ Button.propTypes = {
   onClick: PropTypes.func,
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   submit: PropTypes.bool,
-  type: PropTypes.oneOf(['plain', 'primary', 'secondary'])
+  type: PropTypes.oneOf(['plain', 'primary', 'secondary', 'dark'])
 };

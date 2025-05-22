@@ -85,13 +85,14 @@
 }
 
 .view-numbers-btn {
-  margin: 40px 0;
+  margin: 40px 0 0;
 }
 
 @media screen and (min-width: 425px) {
   .view-numbers-btn {
     display: flex;
     flex-direction: column;
+    margin: 40px 0;
   }
 
   .Beneficiaries-text {
@@ -159,11 +160,17 @@
   }
 
   .beneficiaries-bigscreen-container-left {
-    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .Beneficiaries-text-bigscreen {
     width: 70%;
+  }
+
+  .view-numbers-btn {
+    margin: 40px 0 0;
   }
 }
 
