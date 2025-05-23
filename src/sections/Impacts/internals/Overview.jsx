@@ -16,7 +16,7 @@ const Overview = () => {
     <div className={styles.OverviewWrap}>
       <Header size="medium" dataTest={TestId.OVERVIEW_TEXT} className={styles.overviewheader}>
         {ImpactLabels.OVERVIEW}
-      </Header>
+      </Header> 
 
       <div className={styles.ImpactNumbersWrap}>
         <ImpactNumber amount={beneficiaries} label={ImpactLabels.BENEFICIARIES} />
