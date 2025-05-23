@@ -1,22 +1,12 @@
 import React from 'react';
+import { Path } from './internals/path/Path';
+import { Faq } from './internals/faq/Faq';
 
 export const ImpactLeaders = () => {
   return (
-    <div>
-      <p>lkjobdf</p>
-      <p>lkjobdf</p>
-      <p>lkjobdf</p>
-      <p>lkjobdf</p>
-      <p>lkjobdf</p>
-      <p>lkjobdf</p>
-      <p>lkjobdf</p>
-      <p>lkjobdf</p>
-      <p>lkjobdf</p>
-      <p>lkjobdf</p>
-      <p>lkjobdf</p>
-      <p>lkjobdf</p>
-      <p>lkjobdf</p>
-      <p>lkjobdf</p> <p>lkjobdf</p>
-    </div>
+    <main>
+      <Path />
+      <Faq />
+    </main>
   );
 };

@@ -1,0 +1,193 @@
+.main {
+    margin-top: 150px;
+}
+
+.content {
+    background-color: #F8F5FF;
+    border-radius: 32px;
+    padding: 64px 16px;
+}
+
+.heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.header {
+    font-size: 48px;
+    line-height: 50px;
+    text-align: center;
+}
+
+
+.headingText {
+    color: #111111CC;
+    text-align: center;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    margin-top: 80px;
+}
+
+.apply {
+    display: flex;
+    gap: 64px;
+}
+
+.applyImg {
+    width: 50%;
+}
+
+.applyContent {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.applyTitle {
+    font-size: 40px;
+    line-height: 36px;
+    color: var(--edustipend-black);
+    font-family: var(--font-family-poppins);
+    font-weight: 500;
+}
+
+.applyText {
+    font-size: 18px;
+    color: #11111199;
+}
+
+
+.canApply {
+    font-size: 13px;
+    color: #0C1E21;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #E8EDED;
+}
+
+.listContent {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.listItems {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.items {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.listItem {
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--edustipend-black);
+}
+
+.listItemBold {
+    color: var(--edustipend-purple);
+    font-weight: 600;
+}
+
+.groupList {
+    display: flex;
+}
+
+
+
+@media screen and (max-width:768px) {
+    .header {
+        font-size: 24px;
+        line-height: 30px;
+    }
+
+    .apply {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .applyAlt {
+        flex-direction: column-reverse;
+    }
+
+    .applyImg {
+        width: 100%;
+    }
+
+    .applyContent {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    .applyTitle {
+        font-size: 24px;
+    }
+
+    .applyContent {
+        gap: 20px;
+    }
+
+    .applyText {
+        font-size: 16px;
+    }
+
+    .list {
+        margin-top: 40px;
+        gap: 40px;
+    }
+
+    .listItem {
+        font-size: 16px;
+    }
+
+    .btnContainer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .button {
+        display: flex;
+        width: 100%;
+        min-width: 250px;
+    }
+
+    .btnContainer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .button {
+        display: flex;
+        width: 100%;
+        min-width: 250px;
+    }
+}
+
+@media screen and (min-width:768px) {
+    .content {
+        padding-inline: 48px;
+    }
+}
+
+@media screen and (min-width:1400px) {
+    .apply {
+        align-items: center;
+    }
+}
