@@ -121,6 +121,60 @@
   margin-top: 18px;
 }
 
+/* ********************** */
+/* Leadership Call To Action */
+/* ********************** */
+.leadershipContainer {
+  padding: 64px 0px;
+  margin-top: 50px;
+}
+.leadershipOverview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+}
+
+.leadershipLabel {
+  display: inline-block;
+  margin-bottom: 24px;
+}
+
+.programOverviewTitle {
+  color: var(--edustipend-black);
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: -3%;
+  line-height: 44px;
+  font-family: Poppins;
+}
+
+.leadershipTexts {
+  margin-top: 48px;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--program-overview-text-color);
+  line-height: 24px;
+  font-family: Manrope;
+}
+
+.leadershipText:not(:last-child) {
+  margin-bottom: 30px;
+}
+
+.leadershipTimeline {
+  margin-top: 24px;
+}
+
+.leadershipTimeline p:not(:last-child) {
+  margin-bottom: 12px;
+}
+
+.timelineEmphasis {
+  font-weight: 600;
+}
+
 @media only screen and (min-width: 640px) {
   .headerWrap {
     gap: 0px;
@@ -149,6 +203,14 @@
   .ImpactBtn {
     justify-content: end;
   }
+
+  /* ********************** */
+  /* Leadership Call To Action */
+  /* ********************** */
+  .leadershipContainer {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
 }
 
 @media only screen and (min-width: 1024px) {
@@ -176,9 +238,56 @@
     font-size: 48px;
     margin-top: 60px;
   }
+
+  /* ********************** */
+  /* Leadership Call To Action */
+  /* ********************** */
+  .leadershipContainer {
+    padding-left: 40px;
+    padding-right: 40px;
+
+    display: flex;
+
+    margin-top: 120px;
+    margin-bottom: 120px;
+  }
+
+  .leadershipOverview,
+  .impactProgramOverviewInfos {
+    width: 50%;
+  }
+
+  .leadershipOverview {
+    align-items: start;
+    justify-content: start;
+    text-align: left;
+  }
+
+  .leadershipTexts {
+    margin-top: 0;
+    font-size: 16px;
+  }
 }
 @media only screen and (min-width: 1440px) {
   .partnerWrap {
     height: 614px;
+  }
+
+  /* ********************** */
+  /* Leadership Call To Action */
+  /* ********************** */
+
+  .programOverviewTitle {
+    font-size: 48px;
+    line-height: 64px;
+  }
+
+  .leadershipTexts {
+    font-size: 24px;
+    line-height: 34px;
+  }
+
+  .leadershipTimeline {
+    font-size: 24px;
   }
 }

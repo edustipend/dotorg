@@ -1,22 +1,10 @@
 import React from 'react';
+import ImpactProgramOverview from '../../sections/Impacts/internals/ImpactProgramOverview';
 
 export const ImpactLeaders = () => {
   return (
     <div>
-      <p>lkjobdf</p>
-      <p>lkjobdf</p>
-      <p>lkjobdf</p>
-      <p>lkjobdf</p>
-      <p>lkjobdf</p>
-      <p>lkjobdf</p>
-      <p>lkjobdf</p>
-      <p>lkjobdf</p>
-      <p>lkjobdf</p>
-      <p>lkjobdf</p>
-      <p>lkjobdf</p>
-      <p>lkjobdf</p>
-      <p>lkjobdf</p>
-      <p>lkjobdf</p> <p>lkjobdf</p>
+      <ImpactProgramOverview />
     </div>
   );
 };
