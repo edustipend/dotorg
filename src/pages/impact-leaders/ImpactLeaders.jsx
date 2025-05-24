@@ -1,22 +1,10 @@
 import React from 'react';
+import ImpactHeroSection from '../../sections/Impacts/internals/ImpactHeroSection';
 
 export const ImpactLeaders = () => {
   return (
     <div>
-      <p>lkjobdf</p>
-      <p>lkjobdf</p>
-      <p>lkjobdf</p>
-      <p>lkjobdf</p>
-      <p>lkjobdf</p>
-      <p>lkjobdf</p>
-      <p>lkjobdf</p>
-      <p>lkjobdf</p>
-      <p>lkjobdf</p>
-      <p>lkjobdf</p>
-      <p>lkjobdf</p>
-      <p>lkjobdf</p>
-      <p>lkjobdf</p>
-      <p>lkjobdf</p> <p>lkjobdf</p>
+      <ImpactHeroSection />
     </div>
   );
 };
