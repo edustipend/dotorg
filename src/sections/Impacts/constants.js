@@ -37,3 +37,31 @@ export const TestId = {
   PARTNER_SUB_HEADER_TEXT: 'sub_header_text-el',
   OVERVIEW_TEXT: 'overview-el'
 };
+
+export const programBenefits = {
+  TITLE: 'Why Join the Impact Leaders Program?',
+  DESCRIPTION: 'This is more than a program; it is a launchpad for changemakers like you!'
+};
+
+export const benefits = [
+  {
+    icon: '💰',
+    title: 'N500,000 Grant',
+    description: 'Kickstart your project with the funding you need to make real impact—no strings attached, just purpose and execution.'
+  },
+  {
+    icon: '💻',
+    title: 'Laptop Reward',
+    description: 'Complete the program successfully and receive a brand-new laptop to power your work and future projects.'
+  },
+  {
+    icon: '🌍',
+    title: 'Visibility & Recognition',
+    description: 'Get your work seen! Enjoy media exposure, speaking opportunities, and recognition as a rising changemaker.'
+  },
+  {
+    icon: '🚀',
+    title: 'Level Up Your Leadership Skills',
+    description: 'Gain hands-on experience, expert mentorship, and the confidence to lead bold, community-driven initiatives.'
+  }
+];
