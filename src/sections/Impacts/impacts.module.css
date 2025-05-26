@@ -121,128 +121,6 @@
   margin-top: 18px;
 }
 
-/* ****************** */
-/* Impact Program Benefit Styles */
-/* ****************** */
-
-.programBenefitSection {
-  background-color: var(--program-benefits-background);
-  margin-top: 83px;
-  padding: 64px 16px;
-  border-radius: 32px;
-
-  font-family: Manrope;
-
-  color: var(--edustipend-black);
-}
-
-.programBenefitHeader,
-.impactResponsibilitiesHeader {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 24px;
-}
-
-.programBenefitsTitle,
-.impactResponsibilitiesTitle {
-  text-align: center;
-  font-size: 32px;
-  font-weight: 500;
-  font-family: Poppins;
-  line-height: 44px;
-}
-
-.programBenefitDescription {
-  text-align: center;
-}
-
-.programBenefitCards,
-.impactResponsibilitiesCards {
-  margin-top: 64px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 40px;
-}
-
-.benefitCard {
-  padding: 40px 24px;
-  background-color: var(--white);
-  border-radius: 32px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 40px;
-  transition: all 0.2s ease-in-out;
-
-  max-width: 325px;
-}
-
-.benefitCard:hover {
-  background-color: var(--edustipend-purple);
-  color: var(--white);
-}
-
-.benefitCardInfos {
-  text-align: center;
-  font-family: Manrope;
-}
-
-.benefitCardInfos h3 {
-  margin-bottom: 20px;
-}
-
-.programBenefirtCTA {
-  margin-top: 74px;
-  display: flex;
-  justify-content: center;
-}
-
-/* ****************** */
-/* Impact Responsibities Styles */
-/* ****************** */
-.impactResponsibilitiesSection {
-  background-color: var(--impact-responsibities-background);
-  padding: 64px 16px;
-  margin-top: 64px;
-  border-radius: 32px;
-  font-family: Manrope;
-  color: var(--edustipend-black);
-}
-
-.impactResponsibilitiesCards {
-  justify-content: start;
-}
-
-.responsibilityCard {
-  padding: 20px;
-  background-color: var(--white);
-  max-width: 442.6px;
-}
-
-.impactResponsibilitiesCardTitle {
-  font-size: 64px;
-  font-weight: 700;
-  color: var(--edustipend-purple);
-  margin-bottom: 25px;
-}
-
-.impactResponsibilitiesCardSubTitle {
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 32px;
-  margin-bottom: 15px;
-}
-
-.impactResponsibilitiesCardDescription {
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
-  text-align: justify;
-}
-
 @media only screen and (min-width: 640px) {
   .headerWrap {
     gap: 0px;
@@ -271,14 +149,6 @@
   .ImpactBtn {
     justify-content: end;
   }
-
-  /* ****************** */
-  /* Impact Responsibities Styles */
-  /* ****************** */
-
-  .impactResponsibilitiesCards {
-    justify-content: center;
-  }
 }
 
 @media only screen and (min-width: 1024px) {
@@ -306,31 +176,9 @@
     font-size: 48px;
     margin-top: 60px;
   }
-
-  /* ****************** */
-  /* Impact Responsibities Styles */
-  /* ****************** */
-
-  .impactResponsibilitiesCards {
-    justify-content: space-between;
-  }
 }
 @media only screen and (min-width: 1440px) {
   .partnerWrap {
     height: 614px;
-  }
-
-  .programBenefitCards {
-    flex-wrap: nowrap;
-    justify-content: center;
-  }
-
-  /* ****************** */
-  /* Impact Responsibities Styles */
-  /* ****************** */
-
-  .impactResponsibilitiesCards {
-    column-gap: 16px;
-    justify-content: space-between;
   }
 }
