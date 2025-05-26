@@ -41,6 +41,10 @@
   --linear-gradient-two: #00babb33;
   --linear-gradient-two-light: #00babb77;
   --text: #5801ff0d;
+  --program-benefits-background: rgba(254, 189, 28, 0.032);
+  --impact-responsibities-background: #f8f5ff;
+
+  --impact-leader-bg: #0f002a;
 }
 
 .background-lightblue {
