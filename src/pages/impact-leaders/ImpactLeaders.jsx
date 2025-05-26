@@ -3,10 +3,12 @@ import ImpactProgramBenefits from '../../sections/Impacts/internals/ImpactProgra
 import ImpactResponsibilities from '../../sections/Impacts/internals/ImpactResponsibilities';
 import ImpactHeroSection from '../../sections/Impacts/internals/ImpactHeroSection';
 
+import ImpactProgramOverview from '../../sections/Impacts/internals/ImpactProgramOverview';
 export const ImpactLeaders = () => {
   return (
     <div>
       <ImpactHeroSection />
+      <ImpactProgramOverview />
       <ImpactProgramBenefits />
       <ImpactResponsibilities />
     </div>
