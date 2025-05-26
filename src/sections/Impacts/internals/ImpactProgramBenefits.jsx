@@ -8,8 +8,8 @@ import { benefits, programBenefits } from '../constants';
 // import {}
 const ImpactProgramBenefits = () => {
   return (
-    <section className={styles.programBenefitSection}>
-      <Container>
+    <Container>
+      <section className={styles.programBenefitSection}>
         <div className={styles.programBenefitHeader}>
           <label className={styles.programBenefitLabel}>Program Overview</label>
           <h2 className={styles.programBenefitsTitle}>{programBenefits.TITLE}</h2>
@@ -31,8 +31,8 @@ const ImpactProgramBenefits = () => {
         <div className={styles.programBenefirtCTA}>
           <Button label="Join Now" type="secondary" />
         </div>
-      </Container>
-    </section>
+      </section>
+    </Container>
   );
 };
 

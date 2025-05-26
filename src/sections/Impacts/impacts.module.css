@@ -128,14 +128,16 @@
 .programBenefitSection {
   background-color: var(--program-benefits-background);
   margin-top: 83px;
-  padding: 64px 0;
+  padding: 64px 16px;
+  border-radius: 32px;
 
   font-family: Manrope;
 
   color: var(--edustipend-black);
 }
 
-.programBenefitHeader {
+.programBenefitHeader,
+.impactResponsibilitiesHeader {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -143,7 +145,8 @@
   gap: 24px;
 }
 
-.programBenefitsTitle {
+.programBenefitsTitle,
+.impactResponsibilitiesTitle {
   text-align: center;
   font-size: 32px;
   font-weight: 500;
@@ -155,9 +158,9 @@
   text-align: center;
 }
 
-.programBenefitCards {
+.programBenefitCards,
+.impactResponsibilitiesCards {
   margin-top: 64px;
-
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -197,6 +200,49 @@
   justify-content: center;
 }
 
+/* ****************** */
+/* Impact Responsibities Styles */
+/* ****************** */
+.impactResponsibilitiesSection {
+  background-color: var(--impact-responsibities-background);
+  padding: 64px 16px;
+  margin-top: 64px;
+  border-radius: 32px;
+  font-family: Manrope;
+  color: var(--edustipend-black);
+}
+
+.impactResponsibilitiesCards {
+  justify-content: start;
+}
+
+.responsibilityCard {
+  padding: 20px;
+  background-color: var(--white);
+  max-width: 442.6px;
+}
+
+.impactResponsibilitiesCardTitle {
+  font-size: 64px;
+  font-weight: 700;
+  color: var(--edustipend-purple);
+  margin-bottom: 25px;
+}
+
+.impactResponsibilitiesCardSubTitle {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 32px;
+  margin-bottom: 15px;
+}
+
+.impactResponsibilitiesCardDescription {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: justify;
+}
+
 @media only screen and (min-width: 640px) {
   .headerWrap {
     gap: 0px;
@@ -225,6 +271,14 @@
   .ImpactBtn {
     justify-content: end;
   }
+
+  /* ****************** */
+  /* Impact Responsibities Styles */
+  /* ****************** */
+
+  .impactResponsibilitiesCards {
+    justify-content: center;
+  }
 }
 
 @media only screen and (min-width: 1024px) {
@@ -252,6 +306,14 @@
     font-size: 48px;
     margin-top: 60px;
   }
+
+  /* ****************** */
+  /* Impact Responsibities Styles */
+  /* ****************** */
+
+  .impactResponsibilitiesCards {
+    justify-content: space-between;
+  }
 }
 @media only screen and (min-width: 1440px) {
   .partnerWrap {
@@ -261,5 +323,14 @@
   .programBenefitCards {
     flex-wrap: nowrap;
     justify-content: center;
+  }
+
+  /* ****************** */
+  /* Impact Responsibities Styles */
+  /* ****************** */
+
+  .impactResponsibilitiesCards {
+    column-gap: 16px;
+    justify-content: space-between;
   }
 }
