@@ -3,5 +3,6 @@ import applyMobile from './applyMobile.svg';
 import fellow from './fellow.svg';
 import pitch from './pitch.svg';
 import check from "./check.svg"
+import ready from "./ready.svg"
 
-export { apply, applyMobile, fellow, pitch, check };
+export { apply, applyMobile, fellow, pitch, check, ready };
