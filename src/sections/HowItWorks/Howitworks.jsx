@@ -4,6 +4,7 @@ import Container from '../../components/Container';
 import RRRRCard from './internals/RRRRCard';
 import Header from '../../components/Header';
 import { Howitworks, Text } from './constants';
+import { Accordion } from '../../components/Accordion/Accordion';
 
 const HowItWorks = () => {
   return (
@@ -16,6 +17,8 @@ const HowItWorks = () => {
         <Header className="v2-section-subheader ta-center" subheader size="small" color="secondary">
           {Text.SUBHEADER_TEXT}
         </Header>
+
+        <Accordion title='hello' content={<h1>ade</h1>}/>
 
         {/* Request, Review, Receive - RRR */}
         <div className="card-main-wrapper">
