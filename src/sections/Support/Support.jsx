@@ -30,10 +30,10 @@ const SupportALearnerSection = () => {
             </div>
             <div className="support-ctas mobile">
               <Link to={CTA.SUPPORT_A_LEARNER} target="_blank" rel="noopener noreferrer">
-                <Button size="small" label="I want to support a learner" type="primary" className="support-cta" dataTest={TEST_ID.SUPPORT_CTA} />
+                <Button label="I want to support a learner" type="primary" dataTest={TEST_ID.SUPPORT_CTA} />
               </Link>
               <Link to={CTA.VIEW_IMPACT} target="_blank" rel="noopener noreferrer">
-                <Button size="small" label="View our impact stories" type="dark" className="support-cta" dataTest={TEST_ID.IMPACT_CTA} />
+                <Button label="View our impact stories" type="dark" dataTest={TEST_ID.IMPACT_CTA} />
               </Link>
             </div>
           </div>
