@@ -16,8 +16,8 @@ export const SupportALearnerCampaign = () => {
         website="https://www.edustipend.org/campaigns/support-a-learner"
       />
       <main>
-        <LatestDonations />
         <Supports />
+        <LatestDonations />
         <Reports />
       </main>
     </>
