@@ -5,14 +5,17 @@ import Text from '../../../../components/Text';
 import styles from './Faq.module.css';
 import { constant } from '../../constant';
 import Accordion from '../../../../components/Accordion';
-
+import BatchTag from '../../../../components/BatchTag/BatchTag';
+import { question } from '../../../../assets';
 const { faq } = constant;
+
 export const Faq = () => {
   return (
     <main className={styles.main}>
       <Container>
         <section className={styles.section}>
           <section className={styles.heading}>
+            <BatchTag label='FAQ' iconSrc={question}/>
             <Header className={styles.header}>{faq.title}</Header>
             <Text className={styles.headingText} content={faq.subtitle} />
           </section>

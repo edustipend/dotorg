@@ -6,6 +6,8 @@ import Text from '../../../../components/Text';
 import { constant } from '../../constant';
 import { check } from '../../../../assets/impactL';
 import Button from '../../../../components/Button';
+import BatchTag from '../../../../components/BatchTag/BatchTag';
+import { activity } from '../../../../assets';
 
 const { title, subtitle, apply, pitch, fellow } = constant;
 export const Path = () => {
@@ -14,6 +16,7 @@ export const Path = () => {
       <Container>
         <section className={styles.content}>
           <section className={styles.heading}>
+            <BatchTag label="How it works" iconSrc={activity} />
             <Header className={styles.header}>{title}</Header>
             <Text className={styles.headingText} content={subtitle} />
           </section>
