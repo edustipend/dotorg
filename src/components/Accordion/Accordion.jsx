@@ -6,7 +6,7 @@ import { ArrowDownChev } from '../../assets';
 
 const DEFAULT_ACCORDION_TEST_ID = 'accordion-component';
 
-export const Accordion = ({ question, answer, className, dataTest = DEFAULT_ACCORDION_TEST_ID }) => {
+export const Accordion = ({ title, content, className, dataTest = DEFAULT_ACCORDION_TEST_ID }) => {
   const [isOpen, setIsOpen] = useState(false);
   const answerRef = useRef(null);
 
@@ -38,27 +38,17 @@ export const Accordion = ({ question, answer, className, dataTest = DEFAULT_ACCO
   return (
     <div
       className={`${styles.accordion} ${className || ''} ${isOpen ? styles.open : ''}`}
-      data-testid={dataTest} // Applying the data-testid here
+      data-testid={dataTest}
     >
       <div className={styles.header} onClick={toggleAccordion} data-testid={`${dataTest}-header`}>
-        <h3 className={styles.question}>{question}</h3>
-        <Button
-          type="secondary"
-          size="sm"
-          label=" "
-          effectClass={styles.effect}
-          className={styles.button}
-          style={{ width: '40px', height: '40px', marginTop: '-1px', border: 'none', cursor: 'pointer' }}
-          dataTest={`${dataTest}-toggle-button`}
-        >
+        <h3 className={styles.question}>{title}</h3>
+        <Button type="secondary" size="sm" effectClass={styles.effect} className={styles.button} dataTest={`${dataTest}-toggle-button`}>
           <img src={ArrowDownChev} alt="" className={`${styles.btnIcon} ${isOpen ? styles.rotate : ''}`} />
         </Button>
       </div>
       <div ref={answerRef} className={styles.answerContainer} data-testid={`${dataTest}-answer-container`}>
         <hr className={styles.divider} />
-        <div className={styles.answer}>
-          <p>{answer}</p>
-        </div>
+        <div className={styles.answer}>{content}</div>
       </div>
     </div>
   );
@@ -66,7 +56,7 @@ export const Accordion = ({ question, answer, className, dataTest = DEFAULT_ACCO
 
 Accordion.propTypes = {
   className: PropTypes.string,
-  question: PropTypes.string.isRequired,
-  answer: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  content: PropTypes.node.isRequired,
   dataTest: PropTypes.string
 };

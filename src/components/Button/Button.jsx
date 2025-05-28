@@ -64,7 +64,7 @@ export const Button = ({
           mode
         ].join(' ')}
         {...props}>
-        {isLoading ? <Loader variant={loaderVariant} size={loaderSize} /> : label || DEFAULT_BUTTON_LABEL}
+        {isLoading ? <Loader variant={loaderVariant} size={loaderSize} /> : label ? label || DEFAULT_BUTTON_LABEL : ''}
         {icon && (
           <div className={iconPosition === IconPosition.BACK ? 'icon back-icon' : iconPosition === IconPosition.FRONT ? 'icon front-icon' : ''}>
             <img src={icon} alt="icon" />
