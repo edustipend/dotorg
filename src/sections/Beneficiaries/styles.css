@@ -85,7 +85,7 @@
 }
 
 .view-numbers-btn {
-  margin: 40px 0 0;
+  margin: 40px 0 40px;
 }
 
 @media screen and (min-width: 425px) {

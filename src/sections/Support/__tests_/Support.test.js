@@ -16,7 +16,8 @@ describe('SupportALearnerSection', () => {
 
     expect(screen.getByTestId(TEST_ID.SUPPORT_CONTAINER)).toBeInTheDocument();
     expect(screen.getByTestId(TEST_ID.SUPPORT_IMAGE)).toBeInTheDocument();
-    expect(screen.getByTestId(TEST_ID.SUPPORT_TITLE)).toHaveTextContent(SUPPORT_CONTENT.HEADER)
+    expect(screen.getByTestId(TEST_ID.SUPPORT_TITLE)).toHaveTextContent(SUPPORT_CONTENT.HEADER);
+    expect(screen.getByTestId(TEST_ID.SUPPORT_SUBTITLE)).toHaveTextContent(SUPPORT_CONTENT.SUB_HEADER);
     expect(screen.getByTestId(TEST_ID.SUPPORT_SUBTEXT)).toHaveTextContent(SUPPORT_CONTENT.DESCRIPTION);
   });
 
@@ -24,17 +25,11 @@ describe('SupportALearnerSection', () => {
     renderComponent();
 
     const supportButtons = screen.getAllByTestId(TEST_ID.SUPPORT_CTA);
-    const impactButtons = screen.getAllByTestId(TEST_ID.IMPACT_CTA);
 
-    expect(supportButtons.length).toBe(2); // one for desktop, one for mobile
-    expect(impactButtons.length).toBe(2);
+    expect(supportButtons.length).toBe(1);
 
     supportButtons.forEach((button) => {
       expect(button).toHaveTextContent(SUPPORT_CONTENT.SUPPORT_BUTTON_TEXT);
-    });
-
-    impactButtons.forEach((button) => {
-      expect(button).toHaveTextContent(SUPPORT_CONTENT.IMPACT_BUTTON_TEXT);
     });
   });
 });

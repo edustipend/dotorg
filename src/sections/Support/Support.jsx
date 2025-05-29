@@ -16,26 +16,16 @@ const SupportALearnerSection = () => {
             <img className="support-image" src={supportImage} alt="support" data-testid={TEST_ID.SUPPORT_IMAGE} />
           </div>
           <div className="support-right">
-            <Header className="support-header" dataTest={TEST_ID.SUPPORT_TITLE} color="primary" size="small">
+            <Header className="support-header" dataTest={TEST_ID.SUPPORT_TITLE} color="primary" size="large">
               {SUPPORT_CONTENT.HEADER}
             </Header>
+            <Header className="support-subheader" color="primary" dataTest={TEST_ID.SUPPORT_SUBTITLE} subheader={true} size="small">
+              {SUPPORT_CONTENT.SUB_HEADER}
+            </Header>
             <Text color="primary" content={SUPPORT_CONTENT.DESCRIPTION} className="support-subtext" dataTest={TEST_ID.SUPPORT_SUBTEXT} />
-            <div className="support-ctas bigscreen">
-              <Link to={CTA.SUPPORT_A_LEARNER} target="_blank" rel="noopener noreferrer">
-                <Button size="large" label="I want to support a learner" type="primary" className="support-cta" dataTest={TEST_ID.SUPPORT_CTA} />
-              </Link>
-              <Link to={CTA.VIEW_IMPACT} target="_blank" rel="noopener noreferrer">
-                <Button size="large" label="View our impact stories" type="dark" className="support-cta" dataTest={TEST_ID.IMPACT_CTA} />
-              </Link>
-            </div>
-            <div className="support-ctas mobile">
-              <Link to={CTA.SUPPORT_A_LEARNER} target="_blank" rel="noopener noreferrer">
-                <Button label="I want to support a learner" type="primary" dataTest={TEST_ID.SUPPORT_CTA} />
-              </Link>
-              <Link to={CTA.VIEW_IMPACT} target="_blank" rel="noopener noreferrer">
-                <Button label="View our impact stories" type="dark" dataTest={TEST_ID.IMPACT_CTA} />
-              </Link>
-            </div>
+            <Link to={CTA.SUPPORT_A_LEARNER} target="_blank" rel="noopener noreferrer" className="support-cta">
+              <Button label={SUPPORT_CONTENT.SUPPORT_BUTTON_TEXT} type="primary" dataTest={TEST_ID.SUPPORT_CTA}  />
+            </Link>
           </div>
         </div>
       </Container>
