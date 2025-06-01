@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import MilestoneTag from '../MilestoneTag';
+import Tag from '../Tag';
 
 describe('MilestoneTag', () => {
   const message = 'You did it! You’ve completed the program.';
@@ -8,12 +8,12 @@ describe('MilestoneTag', () => {
   const altText = 'Achievement Icon';
 
   it('renders the message correctly', () => {
-    render(<MilestoneTag message={message} />);
+    render(<Tag message={message} />);
     expect(screen.getByText(message)).toBeInTheDocument();
   });
 
   it('renders the icon when iconSrc is provided', () => {
-    render(<MilestoneTag message={message} iconSrc={iconSrc} altText={altText} />);
+    render(<Tag message={message} iconSrc={iconSrc} altText={altText} />);
     const img = screen.getByRole('img');
     expect(img).toBeInTheDocument();
     expect(img).toHaveAttribute('src', iconSrc);
@@ -21,13 +21,13 @@ describe('MilestoneTag', () => {
   });
 
   it('does not render an img when iconSrc is not provided', () => {
-    render(<MilestoneTag message={message} />);
+    render(<Tag message={message} />);
     const img = screen.queryByRole('img');
     expect(img).not.toBeInTheDocument();
   });
 
   it('applies additional className when provided', () => {
-    render(<MilestoneTag message={message} className="custom-class" />);
+    render(<Tag message={message} className="custom-class" />);
     const container = screen.getByText(message).parentElement;
     expect(container.className).toMatch(/custom-class/);
   });

@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './MilestoneTag.module.css';
+import styles from './Tag.module.css';
 
-const MilestoneTag = ({ message, iconSrc, altText = '', className = '' }) => {
+const Tag = ({ message, iconSrc, altText = '', className = '' }) => {
   const combinedClassName = [styles.container, className].join(' ').trim();
 
   return (
@@ -13,7 +13,7 @@ const MilestoneTag = ({ message, iconSrc, altText = '', className = '' }) => {
   );
 };
 
-MilestoneTag.propTypes = {
+Tag.propTypes = {
   message: PropTypes.string.isRequired,
   iconSrc: PropTypes.string,
   altText: PropTypes.string,
