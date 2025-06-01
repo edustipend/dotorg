@@ -7,6 +7,7 @@ import { constant } from '../../constant';
 import { check } from '../../../../assets/impactL';
 import Button from '../../../../components/Button';
 import BatchTag from '../../../../components/BatchTag/BatchTag';
+import { NavLink } from 'react-router-dom';
 import { activity } from '../../../../assets';
 
 const { title, subtitle, apply, pitch, fellow } = constant;
@@ -84,7 +85,9 @@ export const Path = () => {
                 <p className={styles.applyTitle}>{fellow.title}</p>
                 <p className={styles.applyText}>{fellow.text}</p>
                 <div className={styles.btnContainer}>
-                  <Button className={styles.button} label="Join Now" size="medium" type="secondary" />
+                  <NavLink target="_blank" to="https://forms.gle/fSB58ZQKf2RVGLLz9">
+                    <Button className={styles.button} label="Join Now" size="medium" type="secondary" />
+                  </NavLink>
                 </div>
               </div>
             </section>

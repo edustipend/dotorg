@@ -17,12 +17,12 @@
 
 
 .headingText {
-    color: #111111CC;
+    color: var(--text-dark-2);
     text-align: center;
 }
 
 .section {
-    background-color: #FEBD1C08;
+    background-color: var(--section-bg);
     border-radius: 32px;
     padding: 54px 16px;
 }
@@ -32,6 +32,11 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+.title {
+    padding-bottom: 5px;
+    font-weight: 700;
 }
 
 @media screen and (max-width:768px) {

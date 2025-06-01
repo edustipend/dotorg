@@ -4,6 +4,7 @@ import Text from '../../../../components/Text';
 import { ready } from '../../../../assets/impactL';
 import Container from '../../../../components/Container';
 import styles from './Ready.module.css';
+import { NavLink } from 'react-router-dom';
 import Button from '../../../../components/Button';
 
 export const Ready = () => {
@@ -18,9 +19,9 @@ export const Ready = () => {
               className={styles.headingText}
               content="Apply now, unlock funding, and join a network of passionate changemakers shaping the future!"
             />
-            <div className={styles.btnContainer}>
+            <NavLink target="_blank" to="https://forms.gle/fSB58ZQKf2RVGLLz9" className={styles.btnContainer}>
               <Button className={styles.button} label="Join Now" size="medium" type="secondary" />
-            </div>
+            </NavLink>
           </div>
         </Container>
       </section>

@@ -1,9 +1,9 @@
 .main {
-    margin-top: 150px;
+    margin-top: 120px;
 }
 
 .content {
-    background-color: #F8F5FF;
+    background-color: var(--alt-bg);
     border-radius: 32px;
     padding: 64px 16px;
 }
@@ -23,7 +23,7 @@
 
 
 .headingText {
-    color: #111111CC;
+    color: var(--text-dark-2);
     text-align: center;
 }
 
@@ -60,15 +60,15 @@
 
 .applyText {
     font-size: 18px;
-    color: #11111199;
+    color: var(--text-dark-2);
 }
 
 
 .canApply {
     font-size: 13px;
-    color: #0C1E21;
+    color: var(--alt-text);
     padding-bottom: 8px;
-    border-bottom: 1px solid #E8EDED;
+    border-bottom: 1px solid var(--light-gray-2);
 }
 
 .listContent {
