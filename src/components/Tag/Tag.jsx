@@ -20,4 +20,4 @@ Tag.propTypes = {
   className: PropTypes.string
 };
 
-export default MilestoneTag;
+export default Tag;
