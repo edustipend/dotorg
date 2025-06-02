@@ -23,6 +23,7 @@ import AboutUs from './pages/about-us/AboutUs';
 import TransparencyDashboard from './sections/TransparencyDashboard';
 import Impacts from './sections/Impacts';
 import ReferPage from './pages/refer-page/ReferPage';
+import SupportALearnerCampaign from './pages/campaigns/support-a-learner-campaign';
 import { routesConstant } from './routesConstant';
 
 const {
@@ -43,7 +44,8 @@ const {
   TRANSPARENCY_DASHBOARD,
   IMPACTS,
   REFERRAL_PAGE,
-  IMPACT_LEADERS
+  IMPACT_LEADERS,
+  SUPPORT_A_LEARNER_CAMPAIGN
 } = routesConstant;
 
 const Routes = () => {
@@ -61,6 +63,7 @@ const Routes = () => {
       <Route path={TRANSPARENCY_DASHBOARD} element={<TransparencyDashboard />} />
       <Route path={IMPACTS} element={<Impacts />} />
       <Route path={IMPACT_LEADERS} element={<ImpactLeaders />} />
+      <Route path={SUPPORT_A_LEARNER_CAMPAIGN} element={<SupportALearnerCampaign />} />
       <Route
         path={LOGIN}
         element={
@@ -94,7 +97,6 @@ const Routes = () => {
       <Route path={AT_TWO} element={<AtTwo />} />
       <Route path={REFERRAL_PAGE} element={<ReferPage />} />
       <Route path={AT_TWO} element={<AtTwo />} />
-    
     </AppRoutes>
   );
 };

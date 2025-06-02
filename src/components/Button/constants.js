@@ -3,7 +3,8 @@ export const DEFAULT_BUTTON_LABEL = 'Add button';
 export const ButtonType = {
   PRIMARY: 'primary',
   SECONDARY: 'secondary',
-  PLAIN: 'plain'
+  PLAIN: 'plain',
+  DARK: 'dark'
 };
 
 export const ClassName = {
@@ -11,7 +12,8 @@ export const ClassName = {
   PRIMARY_BUTTON: 'edustipend-button--primary',
   SECONDARY_BUTTON: 'edustipend-button--secondary',
   ICON: 'icon-button',
-  PLAIN_BUTTON: 'edustipend-button--plain'
+  PLAIN_BUTTON: 'edustipend-button--plain',
+  DARK_BUTTON: 'edustipend-button--dark'
 };
 
 export const IconPosition = {
