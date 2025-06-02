@@ -24,6 +24,7 @@
   --box-shadow: #076df30d;
   --darker-accent: #1b1b1b4d;
   --line: #c4c4c433;
+  --shadow:#0000001a;
   --line-alt: #00000014;
   --light-gray: #f2f2f2;
   --dashboard-bg: #e9edf440;
@@ -41,6 +42,8 @@
   --linear-gradient-two: #00babb33;
   --linear-gradient-two-light: #00babb77;
   --text: #5801ff0d;
+  --text-light:#2d3740;
+  --divider:#bbbbbb5e
  
 }
 
