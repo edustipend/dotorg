@@ -44,6 +44,12 @@
   box-shadow: none;
 }
 
+.edustipend-button--dark {
+  background-color: var(--edustipend-black);
+  box-shadow: none;
+  color: white;
+}
+
 .edustipend-button--small {
   font-size: 14px;
   padding: 10px 16px;
