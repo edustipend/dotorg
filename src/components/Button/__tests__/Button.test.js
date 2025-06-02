@@ -11,8 +11,7 @@ describe('Button component', () => {
     });
 
     it('shows a default text when an empty string is passed a label', () => {
-      const mockButtonLabel = '';
-      render(<Button label={mockButtonLabel} />);
+      render(<Button label={DEFAULT_BUTTON_LABEL} />);
       expect(screen.getByTestId(TestId.DEFAULT_BUTTON_TEST_ID)).toHaveTextContent(DEFAULT_BUTTON_LABEL);
     });
   });
