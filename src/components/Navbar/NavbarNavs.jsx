@@ -1,25 +1,20 @@
 import PropTypes from 'prop-types';
-import { HashLink } from 'react-router-hash-link';
 import Button from '../Button';
 import { BUTTON_TYPE, NAVBAR_LINKS, TestId } from './constants';
 import './styles.css';
 import useHandleCTAClick from '../../hooks/useHandleCTAClick';
-// import LoginModal from '../LoginModal';
+import { RenderLinks } from './RenderLinks';
 
 const { NAVBAR_LINKS_ID } = TestId;
 
-const NavbarNavs = ({ showMenu, closeMenu }) => {
+const NavbarNavs = ({ showMenu, closeMenu, path }) => {
   const { buttonLabel, handleCTAClick } = useHandleCTAClick();
 
   return (
     <>
       <nav className="navbarNavs" data-testid={NAVBAR_LINKS_ID}>
         <div className="navContent">
-          {NAVBAR_LINKS.map((link) => (
-            <HashLink key={link.label} to={{ pathname: link.to, hash: link.hash }}>
-              {link.label}
-            </HashLink>
-          ))}
+          <RenderLinks showMenu={showMenu} closeMenu={closeMenu} links={NAVBAR_LINKS} path={path} />
         </div>
         <div className="navAction">
           <Button label={buttonLabel} type={BUTTON_TYPE} onClick={() => handleCTAClick()} className="navBtn" />
@@ -28,12 +23,8 @@ const NavbarNavs = ({ showMenu, closeMenu }) => {
 
       {showMenu ? (
         <nav className="mobile-nav">
-          <div className="mobile-links">
-            {NAVBAR_LINKS.map((link) => (
-              <HashLink key={link.label} to={{ pathname: link.to, hash: link.hash }} onClick={() => closeMenu(!showMenu)}>
-                {link.label}
-              </HashLink>
-            ))}
+          <div className="mobileNavContent">
+            <RenderLinks showMenu={showMenu} closeMenu={closeMenu} links={NAVBAR_LINKS} path={path} />
           </div>
           <div className="mobile-nav-btn">
             <Button
@@ -56,7 +47,8 @@ const NavbarNavs = ({ showMenu, closeMenu }) => {
 
 NavbarNavs.propTypes = {
   showMenu: PropTypes.bool,
-  closeMenu: PropTypes.func
+  closeMenu: PropTypes.func,
+  path: PropTypes.string
 };
 
 export default NavbarNavs;

@@ -12,8 +12,19 @@ import toast from 'react-hot-toast';
 import Cookies from 'js-cookie';
 import NavbarLearner from './NavbarLearner';
 import { routesConstant } from '../../routesConstant';
-const { AMBASSADOR_PROGRAM, LOGIN, DASHBOARD, APPLICATION, SUPPORT_A_LEARNER, REPORTS, ABOUT_US, TRANSPARENCY_DASHBOARD, IMPACTS, DONATE_NOW } =
-  routesConstant;
+const {
+  AMBASSADOR_PROGRAM,
+  LOGIN,
+  DASHBOARD,
+  APPLICATION,
+  SUPPORT_A_LEARNER,
+  REPORTS,
+  ABOUT_US,
+  TRANSPARENCY_DASHBOARD,
+  IMPACTS,
+  DONATE_NOW,
+  SUPPORT_A_LEARNER_CAMPAIGN
+} = routesConstant;
 
 export const NavbarToShow = () => {
   const [isToggle, setIsToggle] = useState(false);
@@ -25,7 +36,9 @@ export const NavbarToShow = () => {
   const isRequestStipend = pathname === APPLICATION;
   const isLogin = pathname === LOGIN;
   const isDashboard = pathname === DASHBOARD;
-  const isSupportALearner = [SUPPORT_A_LEARNER, REPORTS, ABOUT_US, TRANSPARENCY_DASHBOARD, IMPACTS, DONATE_NOW].includes(pathname);
+  const isSupportALearner = [SUPPORT_A_LEARNER, REPORTS, ABOUT_US, TRANSPARENCY_DASHBOARD, IMPACTS, DONATE_NOW, SUPPORT_A_LEARNER_CAMPAIGN].includes(
+    pathname
+  );
 
   const storeData = useSelector((state) => state?.user);
   let firstN = '';
@@ -57,7 +70,7 @@ export const NavbarToShow = () => {
       ) : isSupportALearner ? (
         <NavbarLearner showMenu={isToggle} closeMenu={setIsToggle} path={pathname} />
       ) : (
-        <NavbarNavs showMenu={isToggle} closeMenu={setIsToggle} />
+        <NavbarNavs showMenu={isToggle} closeMenu={setIsToggle} path={pathname} />
       )}
 
       <div className="menu-icon" onClick={() => setIsToggle(!isToggle)}>

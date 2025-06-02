@@ -4,6 +4,7 @@
   width: 100%;
   padding: 30px 60px;
   justify-content: space-between;
+  gap: 24px;
   align-items: center;
   border-bottom: 1px solid rgba(233, 237, 244, 0.25);
   background: linear-gradient(161deg, #f15343 0%, #5801ff 52.52%);
