@@ -11,6 +11,9 @@ const getButtonMode = (type) => {
   if (type === 'secondary') {
     return ClassName.SECONDARY_BUTTON;
   }
+  if (type === 'dark') {
+    return ClassName.DARK_BUTTON;
+  }
   return ClassName.PRIMARY_BUTTON;
 };
 
@@ -46,7 +49,15 @@ export const Button = ({
   return (
     <div
       className={`${
-        type === ButtonType.PRIMARY ? 'effect' : type === ButtonType.SECONDARY ? 'effect effect_alt' : type === ButtonType.PLAIN ? 'effect' : ''
+        type === ButtonType.PRIMARY
+          ? 'effect'
+          : type === ButtonType.SECONDARY
+            ? 'effect effect_alt'
+            : type === ButtonType.PLAIN
+              ? 'effect'
+              : type === ButtonType.DARK
+                ? 'effect'
+                : ''
       }
       ${disabled ? 'disabled' : ''}
       ${effectAlt ? 'effectAlt' : ''} ${effectClass}`}>
@@ -94,5 +105,5 @@ Button.propTypes = {
   onClick: PropTypes.func,
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   submit: PropTypes.bool,
-  type: PropTypes.oneOf(['plain', 'primary', 'secondary'])
+  type: PropTypes.oneOf(['plain', 'primary', 'secondary', 'dark'])
 };
