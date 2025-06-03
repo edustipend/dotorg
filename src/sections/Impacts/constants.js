@@ -37,3 +37,16 @@ export const TestId = {
   PARTNER_SUB_HEADER_TEXT: 'sub_header_text-el',
   OVERVIEW_TEXT: 'overview-el'
 };
+
+export const HERO_TITLE = 'Empowering Leaders, Transforming Communities';
+
+export const HERO_DESCRIPTION = 'Join a network of visionary leaders transforming communities through education and skills development.';
+
+export const BUTTON_LABEL = 'Join Now';
+
+export const HERO_IMAGE_ALT = 'Black man holding a Microphone';
+
+export const HERO_MESSAGES = {
+  COMPLETION: 'You did it! You’ve completed the program, your leadership is shaping the future!',
+  CERTIFICATION: 'You’re officially an Edustipend Impact Leader! Let’s make a difference together!'
+};

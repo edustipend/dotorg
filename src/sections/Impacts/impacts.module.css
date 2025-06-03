@@ -121,6 +121,82 @@
   margin-top: 18px;
 }
 
+/* ******************* */
+/* Impact Leaders Hero Section */
+/* ******************* */
+
+.heroHeader {
+  margin-top: 80px;
+}
+
+.heroHeaderInfo {
+  color: var(--white);
+  text-align: center;
+
+  font-family: var(--font-family-poppins);
+
+  background-color: var(--impact-leader-bg);
+  background-image: url('../../assets/curve-arc.svg');
+  background-repeat: no-repeat;
+  padding: 61px 24px;
+}
+
+.heroHeaderTitle {
+  font-size: 40px;
+  line-height: 48px;
+}
+
+.heroHeaderDescription {
+  font-size: 16px;
+  line-height: 24px;
+  font-family: var(--font-family-manrope);
+}
+
+.heroHeaderTitle,
+.heroHeaderDescription {
+  margin-bottom: 24px;
+}
+
+.impactHeroBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.impactHeroImage {
+  height: 100%;
+  width: 100%;
+
+  position: relative;
+}
+
+.impactHeroImg {
+  object-fit: cover;
+  width: 100%;
+}
+
+.impactYouDidIt,
+.impactHeroCert {
+  padding: 8px 12px;
+  font-weight: 600;
+  font-size: 13px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  width: 275px;
+}
+
+.impactYouDidIt {
+  position: absolute;
+  bottom: 27%;
+  left: 3%;
+}
+
+.impactHeroCert {
+  position: absolute;
+  bottom: 7%;
+  left: 10%;
+}
+
 @media only screen and (min-width: 640px) {
   .headerWrap {
     gap: 0px;
@@ -149,6 +225,37 @@
   .ImpactBtn {
     justify-content: end;
   }
+
+  /* ****************** */
+  /* Impact Leadership  */
+  /* ***************** */
+
+  .heroHeaderDescription {
+    font-size: 18px;
+  }
+
+  .heroHeaderInfo {
+    padding-left: 30px;
+    padding-right: 30px;
+
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  .impactYouDidIt,
+  .impactHeroCert {
+    width: 40%;
+  }
+
+  .impactYouDidIt {
+    bottom: 40%;
+    left: 13%;
+  }
+
+  .impactHeroCert {
+    bottom: 25%;
+    left: 21%;
+  }
 }
 
 @media only screen and (min-width: 1024px) {
@@ -176,9 +283,73 @@
     font-size: 48px;
     margin-top: 60px;
   }
+
+  /* **************** */
+  /* Impact Leadership */
+  /* **************** */
+  .heroHeader {
+    display: flex;
+  }
+
+  .heroHeaderInfo {
+    text-align: left;
+    padding: 50px;
+  }
+
+  .heroHeaderInfo,
+  .impactHeroImage {
+    width: 50%;
+  }
+
+  .impactHeroBtn {
+    justify-content: start;
+  }
+
+  .heroHeaderTitle,
+  .heroHeaderDescription {
+    margin-bottom: 30px;
+  }
+
+  .impactHeroImg {
+    object-fit: cover;
+  }
+
+  .impactYouDidIt,
+  .impactHeroCert {
+    width: 60%;
+  }
 }
 @media only screen and (min-width: 1440px) {
   .partnerWrap {
     height: 614px;
+  }
+
+  /* ************* */
+  /* Hero Impact Leadership */
+  /* ************* */
+
+  .heroHeaderInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+
+    padding-left: 80px;
+  }
+
+  .heroHeaderTitle {
+    font-size: 60px;
+    line-height: 1.2;
+    font-weight: 500;
+  }
+
+  .heroHeaderDescription {
+    font-size: 22px;
+    line-height: 36px;
+  }
+
+  .impactYouDidIt,
+  .impactHeroCert {
+    width: 40%;
   }
 }

@@ -17,6 +17,7 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import ProtecteAuthRoute from './components/ProtectedRoute/ProtectAuthRoute';
 import SupportALearner from './pages/support-a-learner';
 import DonateNow from './pages/donate-now';
+import ImpactLeaders from './pages/impact-leaders';
 import ReportsPage from './pages/reports';
 import AboutUs from './pages/about-us/AboutUs';
 import TransparencyDashboard from './sections/TransparencyDashboard';
@@ -43,6 +44,7 @@ const {
   TRANSPARENCY_DASHBOARD,
   IMPACTS,
   REFERRAL_PAGE,
+  IMPACT_LEADERS,
   SUPPORT_A_LEARNER_CAMPAIGN
 } = routesConstant;
 
@@ -60,6 +62,7 @@ const Routes = () => {
       <Route path={ABOUT_US} element={<AboutUs />} />
       <Route path={TRANSPARENCY_DASHBOARD} element={<TransparencyDashboard />} />
       <Route path={IMPACTS} element={<Impacts />} />
+      <Route path={IMPACT_LEADERS} element={<ImpactLeaders />} />
       <Route path={SUPPORT_A_LEARNER_CAMPAIGN} element={<SupportALearnerCampaign />} />
       <Route
         path={LOGIN}
