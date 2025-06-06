@@ -3,7 +3,10 @@ import { apply, applyMobile, pitch, fellow } from '../../assets/impactL';
 export const constant = {
   title: 'Your Path to Impact',
   subtitle: 'From application to action, here’s your journey to becoming an Impact Leader',
-
+  ButtonLabel:"Join Now",
+  FormLink:"https://forms.gle/fSB58ZQKf2RVGLLz9",
+  ReadyText:"Apply now, unlock funding, and join a network of passionate changemakers shaping the future!",
+  BatchTag:"How it works",
   apply: {
     image: apply,
     imageMobile: applyMobile,

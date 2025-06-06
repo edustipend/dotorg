@@ -1,7 +1,16 @@
 import { Drop_Down } from '../../assets';
 import { routesConstant } from '../../routesConstant';
-const { AMBASSADOR_PROGRAM, LOGIN, SUPPORT_A_LEARNER, REPORTS, ABOUT_US, TRANSPARENCY_DASHBOARD, IMPACTS, SUPPORT_A_LEARNER_CAMPAIGN } =
-  routesConstant;
+const {
+  AMBASSADOR_PROGRAM,
+  LOGIN,
+  SUPPORT_A_LEARNER,
+  REPORTS,
+  ABOUT_US,
+  TRANSPARENCY_DASHBOARD,
+  IMPACTS,
+  SUPPORT_A_LEARNER_CAMPAIGN,
+  IMPACT_LEADERS
+} = routesConstant;
 
 export const TestId = {
   DEFAULT_NAVBAR_TEST_ID: 'navbar-id',
@@ -52,6 +61,11 @@ export const NAVBAR_LINKS = [
   {
     label: 'Support A Learner',
     path: SUPPORT_A_LEARNER
+  },
+  {
+    label: 'Impact Leaders',
+    path: IMPACT_LEADERS,
+    hash: ''
   },
   {
     label: 'Login',

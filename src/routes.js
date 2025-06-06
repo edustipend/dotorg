@@ -97,7 +97,6 @@ const Routes = () => {
       <Route path={AT_TWO} element={<AtTwo />} />
       <Route path={REFERRAL_PAGE} element={<ReferPage />} />
       <Route path={AT_TWO} element={<AtTwo />} />
-    
     </AppRoutes>
   );
 };

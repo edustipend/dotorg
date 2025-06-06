@@ -6,6 +6,7 @@ import Container from '../../../../components/Container';
 import styles from './Ready.module.css';
 import { NavLink } from 'react-router-dom';
 import Button from '../../../../components/Button';
+import { constant } from '../../constant';
 
 export const Ready = () => {
   return (
@@ -15,11 +16,8 @@ export const Ready = () => {
         <Container>
           <div className={styles.content}>
             <Header className={styles.header}>Ready to Lead & Make an Impact?</Header>
-            <Text
-              className={styles.headingText}
-              content="Apply now, unlock funding, and join a network of passionate changemakers shaping the future!"
-            />
-            <NavLink target="_blank" to="https://forms.gle/fSB58ZQKf2RVGLLz9" className={styles.btnContainer}>
+            <Text className={styles.headingText} content={constant.ReadyText} />
+            <NavLink target="_blank" to={constant.FormLink} className={styles.btnContainer}>
               <Button className={styles.button} label="Join Now" size="medium" type="secondary" />
             </NavLink>
           </div>

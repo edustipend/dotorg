@@ -17,7 +17,7 @@ export const Path = () => {
       <Container>
         <section className={styles.content}>
           <section className={styles.heading}>
-            <BatchTag label="How it works" iconSrc={activity} />
+            <BatchTag label={constant.BatchTag} iconSrc={activity} />
             <Header className={styles.header}>{title}</Header>
             <Text className={styles.headingText} content={subtitle} />
           </section>
@@ -85,8 +85,8 @@ export const Path = () => {
                 <p className={styles.applyTitle}>{fellow.title}</p>
                 <p className={styles.applyText}>{fellow.text}</p>
                 <div className={styles.btnContainer}>
-                  <NavLink target="_blank" to="https://forms.gle/fSB58ZQKf2RVGLLz9">
-                    <Button className={styles.button} label="Join Now" size="medium" type="secondary" />
+                  <NavLink target="_blank" to={constant.FormLink}>
+                    <Button className={styles.button} label={constant.ButtonLabel} size="medium" type="secondary" />
                   </NavLink>
                 </div>
               </div>
