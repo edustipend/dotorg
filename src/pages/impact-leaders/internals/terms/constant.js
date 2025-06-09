@@ -9,7 +9,7 @@ export const TERMS_AND_CONDITIONS_DATA = {
     {
       title: '2. Eligibility',
       items: [
-        'Must be a Nigerian citizen aged 18–35.',
+        'Must be a Nigerian citizen aged 20–35.',
         'Must have an active project or clear proposal addressing social impact in an underserved community.',
         'Must commit to the full duration of the program and all associated activities.'
       ]
