@@ -1,8 +1,7 @@
 import React from 'react';
 import styles from '../impacts.module.css';
 import { Button } from '../../../components/Button/Button';
-import { Link } from 'react-router-dom';
-
+import { NavLink } from 'react-router-dom';
 import impactLeaderImg from '../../../assets/impactLeader.png';
 
 import { HERO_TITLE, HERO_DESCRIPTION, BUTTON_LABEL, HERO_IMAGE_ALT, HERO_MESSAGES } from '../constants';
@@ -15,9 +14,9 @@ const ImpactHeroSection = () => {
         <p className={styles.heroHeaderDescription}>{HERO_DESCRIPTION}</p>
 
         <div className={styles.impactHeroBtn}>
-          <Link to="#">
-            <Button label={BUTTON_LABEL} type="secondary" />
-          </Link>
+          <NavLink target="_blank" to={HERO_MESSAGES.FormLink} className={styles.btnContainer}>
+            <Button className={styles.button} label={BUTTON_LABEL} size="medium" type="secondary" />
+          </NavLink>
         </div>
       </div>
 

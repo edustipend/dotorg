@@ -20,10 +20,9 @@
   object-fit: contain;
 }
 
-/* Variants */
 .batchTag.default {
-  background-color: #f3e8ff;
-  color: #6b21a8;
+  background-color: #5801FF1A;
+  color: var(--edustipend-purple);
 }
 
 .batchTag.info {
