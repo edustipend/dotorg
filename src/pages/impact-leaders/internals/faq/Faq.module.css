@@ -1,5 +1,5 @@
 .main {
-    margin-block: 120px;
+    margin-block: 60px;
 }
 
 .heading {
@@ -49,5 +49,8 @@
 @media screen and (min-width:768px) {
     .section {
         padding: 48px;
+    }
+    .main {
+        margin-block: 120px;
     }
 }

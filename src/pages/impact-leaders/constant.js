@@ -37,12 +37,8 @@ export const constant = {
         text: 'Can the initiative be successfully executed within three months?'
       },
       {
-        title: 'Experience Level',
-        text: 'The applicant’s track record in leading social impact initiatives.'
-      },
-      {
         title: 'Impact Scale',
-        text: 'The applicant’s track record in leading social impact initiatives.'
+        text: 'The number of individuals and communities that will benefit'
       },
       {
         title: 'Monitoring & Evaluation',
@@ -99,22 +95,22 @@ export const constant = {
     ContentC: {
       title: 'Fellows will receive:',
       list: [
-        'N500,000 grant to launch and sustain their project.',
-        'Laptop award for successful program completion.',
-        'Mentorship & networking opportunities with industry leaders.',
-        'Visibility & recognition for their work.'
+        '- N250,000 to N500,000 grant to launch and sustain their project.',
+        '- Laptop award for successful program completion.',
+        '- Mentorship & networking opportunities with industry leaders.',
+        '- Visibility & recognition for their work.'
       ]
     },
     ContentD: {
       title: 'The selection process includes:',
       list: [
-        'Application Review - We assess your experience and project proposal.',
-        'Project Pitch - Shortlisted candidates will present their initiative to a panel.',
-        'Final Selection - Five outstanding candidates will be chosen based on impact potential, leadership, and feasibility.'
+        '- Application Review : We assess your experience and project proposal.',
+        '- Project Pitch : Shortlisted candidates will present their initiative to a panel.',
+        '- Final Selection : 3 to 5 outstanding candidates will be chosen based on impact potential, leadership, and feasibility.'
       ]
     },
     ContentE: {
-      list: ['Application Deadline: May 14, 2025 (11:59 PM WAT)', 'Program Duration: June - August 2025']
+      list: ['- Application Deadline: 30th June, 2025 (11:59 PM WAT)', '- Program Duration: August - October 2025']
     },
     ContentF: `Yes! As long as you can commit to executing your project within the program timeline, you are welcome to apply`,
     ContentG: `Yes! Fellows become part of the Edustipend Impact Network, where they can access ongoing mentorship, collaboration opportunities, and additional resources.`

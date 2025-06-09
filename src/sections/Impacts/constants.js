@@ -46,8 +46,8 @@ export const leadershipCallToAction = {
     'Selected Fellows will lead high-impact projects, engage with key stakeholders, and create lasting solutions that enhance youth empowerment and educational accessibility. By joining this program, you become part of a dynamic network of change-makers committed to shaping a better future.',
   TIMELINE_ONE: 'Application Deadline:',
   TIMELINE_TWO: 'Program Timeline:',
-  APPLICATION_START_DATE: '14th May 2025, 11:59 PM WAT Program',
-  APPLICATOIN_END_DATE: 'June – August 2025'
+  APPLICATION_START_DATE: '30th June 2025, 11:59 PM WAT Program',
+  APPLICATOIN_END_DATE: 'August - October 2025'
 };
 export const HERO_TITLE = 'Empowering Leaders, Transforming Communities';
 
