@@ -14,7 +14,6 @@ const Terms = () => {
             <section key={index} className={styles.termsSection}>
               <h2>{section.title}</h2>
               {section.content && <p>{section.content}</p>}
-
               {section.intro && <p>{section.intro}</p>}
               {section.items && (
                 <div className={styles.radioGroup}>
