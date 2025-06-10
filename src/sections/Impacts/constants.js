@@ -1,3 +1,6 @@
+import starSvg from '../../assets/impactL/Shape.svg';
+import certificateSvg from '../../assets/diploma.svg';
+
 export const paths = [
   {
     title: 'Home',
@@ -46,7 +49,7 @@ export const programBenefits = {
 export const benefits = [
   {
     icon: '💰',
-    title: 'N500,000 Grant',
+    title: 'N250,000 - N500,000 Grant',
     description: 'Kickstart your project with the funding you need to make real impact—no strings attached, just purpose and execution.'
   },
   {
@@ -67,6 +70,7 @@ export const benefits = [
 ];
 
 export const impactResponsibilities = {
+  LABEL: 'Responsibilities',
   TITLE: 'What You Will Do as a Fellow',
   DESCRIPTION:
     'As an Impact Leader, you will spearhead initiatives that uplift your community, engage with local stakeholders, and report on the impact of your work.'
@@ -91,6 +95,7 @@ export const responsibilities = [
       'Provide regular progress updates, success stories, and challenges faced. Fellows are encouraged to document their journey through case studies, testimonials, and media content.'
   }
 ];
+
 export const HERO_TITLE = 'Empowering Leaders, Transforming Communities';
 
 export const HERO_DESCRIPTION = 'Join a network of visionary leaders transforming communities through education and skills development.';
@@ -101,7 +106,10 @@ export const HERO_IMAGE_ALT = 'Black man holding a Microphone';
 
 export const HERO_MESSAGES = {
   COMPLETION: 'You did it! You’ve completed the program, your leadership is shaping the future!',
-  CERTIFICATION: 'You’re officially an Edustipend Impact Leader! Let’s make a difference together!'
+  CERTIFICATION: 'You’re officially an Edustipend Impact Leader! Let’s make a difference together!',
+  ICON_ALT: 'Certificate Icon',
+  ICON_SRC_1: starSvg,
+  ICON_SRC_2: certificateSvg
 };
 
 export const leadershipCallToAction = {
@@ -113,5 +121,7 @@ export const leadershipCallToAction = {
   TIMELINE_ONE: 'Application Deadline:',
   TIMELINE_TWO: 'Program Timeline:',
   APPLICATION_START_DATE: '14th May 2025, 11:59 PM WAT Program',
-  APPLICATOIN_END_DATE: 'June – August 2025'
+  APPLICATOIN_END_DATE: 'June – August 2025',
+  CERTIFICATION: 'You’re officially an Edustipend Impact Leader! Let’s make a difference together!',
+  FormLink: 'https://forms.gle/fSB58ZQKf2RVGLLz9'
 };

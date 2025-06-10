@@ -5,13 +5,16 @@ import styles from '../impacts.module.css';
 import benefitVector from '../../../assets/benefit-vector.png';
 
 import { benefits, programBenefits } from '../constants';
-// import {}
+import BatchTag from '../../../components/BatchTag/BatchTag';
+import { activity } from '../../../assets';
 const ImpactProgramBenefits = () => {
   return (
     <Container>
       <section className={styles.programBenefitSection}>
         <div className={styles.programBenefitHeader}>
-          <label className={styles.programBenefitLabel}>Program Overview</label>
+          <label className={styles.programBenefitLabel}>
+            <BatchTag label="Program Benefits" iconSrc={activity} />
+          </label>
           <h2 className={styles.programBenefitsTitle}>{programBenefits.TITLE}</h2>
           <p className={styles.programBenefitDescription}> {programBenefits.DESCRIPTION} </p>
         </div>

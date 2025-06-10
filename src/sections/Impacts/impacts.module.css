@@ -134,6 +134,13 @@
 
   color: var(--edustipend-black);
 }
+/* ********************** */
+/* Leadership Call To Action */
+/* ********************** */
+.leadershipContainer {
+  padding: 64px 0px;
+  margin-top: 50px;
+}
 
 .programBenefitHeader,
 .impactResponsibilitiesHeader {
@@ -240,6 +247,9 @@
   font-weight: 400;
   line-height: 24px;
   text-align: justify;
+}
+.timelineEmphasis {
+  font-weight: 600;
 }
 /* ******************* */
 /* Impact Leaders Hero Section */
@@ -397,6 +407,14 @@
   .ImpactBtn {
     justify-content: end;
   }
+
+  /* ********************** */
+  /* Leadership Call To Action */
+  /* ********************** */
+  .leadershipContainer {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
   /* ****************** */
   /* Impact Responsibities Styles */
   /* ****************** */
@@ -472,9 +490,32 @@
   /* ****************** */
   /* Impact Responsibities Styles */
   /* ****************** */
+  /* ********************** */
+  /* Leadership Call To Action */
+  /* ********************** */
+  .leadershipContainer {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
 
   .impactResponsibilitiesCards {
     justify-content: space-between;
+  }
+
+  .leadershipOverview,
+  .impactProgramOverviewInfos {
+    width: 50%;
+  }
+
+  .leadershipOverview {
+    align-items: start;
+    justify-content: start;
+    text-align: left;
+  }
+
+  .leadershipTexts {
+    margin-top: 0;
+    font-size: 16px;
   }
   /* **************** */
   /* Impact Leadership */
@@ -549,6 +590,14 @@
     flex-wrap: nowrap;
     justify-content: center;
   }
+  /* ********************** */
+  /* Leadership Call To Action */
+  /* ********************** */
+
+  .programOverviewTitle {
+    font-size: 48px;
+    line-height: 64px;
+  }
 
   /* ****************** */
   /* Impact Responsibities Styles */
@@ -557,6 +606,9 @@
   .impactResponsibilitiesCards {
     column-gap: 16px;
     justify-content: space-between;
+  }
+  .leadershipTimeline {
+    font-size: 24px;
   }
   /* ************* */
   /* Hero Impact Leadership */

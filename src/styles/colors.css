@@ -1,5 +1,8 @@
 /** Brand Colors **/
 :root {
+  --alt-bg: #f8f5ff;
+  --alt-text: #0c1e21;
+  --section-bg: #febd1c08;
   --accent: #ff914d;
   --edustipend-orange: #fd5a33;
   --edustipend-black: #2d3740;
@@ -16,6 +19,9 @@
   --light-black: #202020;
   --dim-white: #f5f5f5;
   --light-white: #efefef;
+  --light-gray-2: #e8eded;
+  --dim-white: #f5f5f5;
+  --light-white: #efefef;
   --navy-blue: #2d3740;
   --gray: #7d7d7d;
   --red-accent: #f20b07;
@@ -30,6 +36,7 @@
   --dashboard-bg: #e9edf440;
   --tab-btn: #5801ff1a;
   --tab-btn-alt: #0000001a;
+  --text-dark-2: #11111199;
   --modal-background: #000000cc;
   --table-head-bg: #ecedef;
   --approved: #008753;

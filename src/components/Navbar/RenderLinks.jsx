@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { userInteraction } from '../../utils/googleTagManager/googleTagManager';
 import { tagEvents } from '../../utils/googleTagManager/tagEvents';
 import './styles.css';
-
 const { supportButton, donateNow, buttonCategory, donateBtnLabel } = tagEvents;
 
 export const RenderLinks = ({ links, path, closeMenu, showMenu }) => {
@@ -69,8 +68,8 @@ export const RenderLinks = ({ links, path, closeMenu, showMenu }) => {
       ) : (
         <HashLink to={{ pathname: link.path, hash: link.hash }} onClick={() => handleClick(link.hash)}>
           <div className="navCont">
-            <span className={`navLink  ${activeLink === link.hash ? 'activeLink' : ''}`}>{link.label}</span>
-            <div className={` ${activeLink === link.hash ? 'activeBar' : ''}`} />
+            <span className={`navLink  ${path !== '/' && activeLink === link.hash ? 'activeLink' : ''}`}>{link.label}</span>
+            <div className={` ${path !== '/' && activeLink === link.hash ? 'activeBar' : ''}`} />
           </div>
         </HashLink>
       )}
