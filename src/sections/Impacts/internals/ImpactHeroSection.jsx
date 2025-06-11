@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom';
 import impactLeaderImg from '../../../assets/impactLeader.png';
 
 import { HERO_TITLE, HERO_DESCRIPTION, BUTTON_LABEL, HERO_IMAGE_ALT, HERO_MESSAGES } from '../constants';
+import Tag from '../../../components/Tag/Tag';
 
 const ImpactHeroSection = () => {
   return (
@@ -23,9 +24,19 @@ const ImpactHeroSection = () => {
       <div className={styles.impactHeroImage}>
         <img src={impactLeaderImg} alt={HERO_IMAGE_ALT} className={styles.impactHeroImg} />
 
-        <div className={styles.impactYouDidIt}>{HERO_MESSAGES.COMPLETION}</div>
+        <Tag
+          message={HERO_MESSAGES.COMPLETION}
+          iconSrc={HERO_MESSAGES.ICON_SRC_1}
+          altText={HERO_MESSAGES.ICON_ALT}
+          className={styles.impactYouDidIt}
+        />
 
-        <div className={styles.impactHeroCert}>{HERO_MESSAGES.CERTIFICATION}</div>
+        <Tag
+          message={HERO_MESSAGES.CERTIFICATION}
+          iconSrc={HERO_MESSAGES.ICON_SRC_2}
+          altText={HERO_MESSAGES.ICON_ALT}
+          className={styles.impactHeroCert}
+        />
       </div>
     </header>
   );
