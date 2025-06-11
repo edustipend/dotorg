@@ -22,6 +22,7 @@ const getButtonMode = (type) => {
  */
 export const Button = ({
   className,
+  children,
   effectClass,
   dataTest = TestId.DEFAULT_BUTTON_TEST_ID,
   disabled = false,
@@ -74,12 +75,13 @@ export const Button = ({
           mode
         ].join(' ')}
         {...props}>
-        {isLoading ? <Loader variant={loaderVariant} size={loaderSize} /> : label || DEFAULT_BUTTON_LABEL}
+        {isLoading ? <Loader variant={loaderVariant} size={loaderSize} /> : label ? label || DEFAULT_BUTTON_LABEL : ''}
         {icon && (
           <div className={iconPosition === IconPosition.BACK ? 'icon back-icon' : iconPosition === IconPosition.FRONT ? 'icon front-icon' : ''}>
             <img src={icon} alt="icon" />
           </div>
         )}
+        {children}
       </button>
     </div>
   );
@@ -87,6 +89,7 @@ export const Button = ({
 
 Button.propTypes = {
   className: PropTypes.string,
+  children: PropTypes.node,
   dataTest: PropTypes.string,
   disabled: PropTypes.bool,
   effectAlt: PropTypes.bool,

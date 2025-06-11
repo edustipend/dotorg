@@ -1,6 +1,16 @@
 import { Drop_Down } from '../../assets';
 import { routesConstant } from '../../routesConstant';
-const { AMBASSADOR_PROGRAM, LOGIN, SUPPORT_A_LEARNER, REPORTS, ABOUT_US, TRANSPARENCY_DASHBOARD, IMPACTS } = routesConstant;
+const {
+  AMBASSADOR_PROGRAM,
+  LOGIN,
+  SUPPORT_A_LEARNER,
+  REPORTS,
+  ABOUT_US,
+  TRANSPARENCY_DASHBOARD,
+  IMPACTS,
+  SUPPORT_A_LEARNER_CAMPAIGN,
+  IMPACT_LEADERS
+} = routesConstant;
 
 export const TestId = {
   DEFAULT_NAVBAR_TEST_ID: 'navbar-id',
@@ -10,21 +20,56 @@ export const TestId = {
 
 export const NAVBAR_LINKS = [
   {
+    label: 'About Us',
+    icon: Drop_Down,
+    links: [
+      {
+        label: 'Team',
+        path: ABOUT_US,
+        hash: '#team'
+      },
+      {
+        label: 'Our Mission',
+        path: ABOUT_US,
+        hash: '#OUR MISSION'
+      },
+      {
+        label: 'Our Vision',
+        path: ABOUT_US,
+        hash: '#OUR VISION'
+      },
+      {
+        label: 'Contact Us',
+        path: 'mailto:contact@edustipend.org'
+      }
+    ]
+  },
+  {
+    label: 'Our Impact',
+    icon: Drop_Down,
+    links: [
+      {
+        label: 'Overview',
+        path: IMPACTS
+      },
+      {
+        label: 'Impact Reports',
+        path: REPORTS
+      }
+    ]
+  },
+  {
     label: 'Support A Learner',
-    to: SUPPORT_A_LEARNER
+    path: SUPPORT_A_LEARNER
   },
   {
-    label: 'Ambassador Program',
-    to: AMBASSADOR_PROGRAM
-  },
-  {
-    label: 'How It Works',
-    to: '/',
-    hash: '#how-it-works'
+    label: 'Impact Leaders',
+    path: IMPACT_LEADERS,
+    hash: ''
   },
   {
     label: 'Login',
-    to: LOGIN
+    path: LOGIN
   }
 ];
 
@@ -93,6 +138,16 @@ export const SUPPORT_LEARNER_LINKS = [
       {
         label: 'Donations Dashboard',
         path: TRANSPARENCY_DASHBOARD
+      }
+    ]
+  },
+  {
+    label: 'Campaigns',
+    icon: Drop_Down,
+    links: [
+      {
+        label: 'Support A Learner',
+        path: SUPPORT_A_LEARNER_CAMPAIGN
       }
     ]
   },

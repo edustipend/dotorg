@@ -37,3 +37,28 @@ export const TestId = {
   PARTNER_SUB_HEADER_TEXT: 'sub_header_text-el',
   OVERVIEW_TEXT: 'overview-el'
 };
+
+export const leadershipCallToAction = {
+  CALL_TO_ACTION_TITLE: 'Real Leaders Don’t Just Talk, They Take Action.',
+  PARAGRAPH_ONE:
+    'The Edustipend Impact Leaders Program is a transformative initiative dedicated to equipping young social impact leaders across Nigeria with the resources, mentorship, and skills needed to drive meaningful change in their communities. Focused on education and skills development, this program targets underserved areas, fostering sustainable community-driven initiatives.',
+  PARAGRAPH_TWO:
+    'Selected Fellows will lead high-impact projects, engage with key stakeholders, and create lasting solutions that enhance youth empowerment and educational accessibility. By joining this program, you become part of a dynamic network of change-makers committed to shaping a better future.',
+  TIMELINE_ONE: 'Application Deadline:',
+  TIMELINE_TWO: 'Program Timeline:',
+  APPLICATION_START_DATE: '14th May 2025, 11:59 PM WAT Program',
+  APPLICATOIN_END_DATE: 'June – August 2025'
+};
+export const HERO_TITLE = 'Empowering Leaders, Transforming Communities';
+
+export const HERO_DESCRIPTION = 'Join a network of visionary leaders transforming communities through education and skills development.';
+
+export const BUTTON_LABEL = 'Join Now';
+
+export const HERO_IMAGE_ALT = 'Black man holding a Microphone';
+
+export const HERO_MESSAGES = {
+  COMPLETION: 'You did it! You’ve completed the program, your leadership is shaping the future!',
+  CERTIFICATION: 'You’re officially an Edustipend Impact Leader! Let’s make a difference together!',
+  FormLink:"https://forms.gle/fSB58ZQKf2RVGLLz9"
+};
