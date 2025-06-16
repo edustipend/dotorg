@@ -121,6 +121,19 @@
   margin-top: 18px;
 }
 
+/* ****************** */
+/* Impact Program Benefit Styles */
+/* ****************** */
+
+.programBenefitSection {
+  background-color: var(--program-benefits-background);
+  padding: 64px 16px;
+  border-radius: 32px;
+
+  font-family: Manrope;
+
+  color: var(--edustipend-black);
+}
 /* ********************** */
 /* Leadership Call To Action */
 /* ********************** */
@@ -128,49 +141,113 @@
   padding: 64px 0px;
   margin-top: 50px;
 }
-.leadershipOverview {
+
+.programBenefitHeader,
+.impactResponsibilitiesHeader {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
 
+.programBenefitsTitle,
+.impactResponsibilitiesTitle {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 500;
+  font-family: Poppins;
+  line-height: 44px;
+}
+
+.programBenefitDescription {
   text-align: center;
 }
 
-.leadershipLabel {
-  display: inline-block;
-  margin-bottom: 24px;
+.programBenefitCards,
+.impactResponsibilitiesCards {
+  margin-top: 64px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
 }
 
-.programOverviewTitle {
-  color: var(--edustipend-black);
-  font-size: 40px;
-  font-weight: 500;
-  letter-spacing: -3%;
-  line-height: 44px;
-  font-family: Poppins;
+.benefitCard {
+  padding: 40px 24px;
+  background-color: var(--white);
+  border-radius: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  transition: all 0.2s ease-in-out;
+
+  max-width: 325px;
 }
 
-.leadershipTexts {
-  margin-top: 48px;
-  font-size: 15px;
-  font-weight: 400;
-  color: var(--program-overview-text-color);
-  line-height: 24px;
+.benefitCard:hover {
+  background-color: var(--edustipend-purple);
+  color: var(--white);
+}
+
+.benefitCardInfos {
+  text-align: center;
   font-family: Manrope;
 }
 
-.leadershipText:not(:last-child) {
-  margin-bottom: 30px;
+.benefitCardInfos h3 {
+  margin-bottom: 20px;
 }
 
-.leadershipTimeline {
-  margin-top: 24px;
+.programBenefirtCTA {
+  margin-top: 74px;
+  display: flex;
+  justify-content: center;
 }
 
-.leadershipTimeline p:not(:last-child) {
-  margin-bottom: 12px;
+/* ****************** */
+/* Impact Responsibities Styles */
+/* ****************** */
+.impactResponsibilitiesSection {
+  background-color: var(--impact-responsibities-background);
+  padding: 64px 16px;
+  margin-top: 64px;
+  border-radius: 32px;
+  font-family: Manrope;
+  color: var(--edustipend-black);
 }
 
+.impactResponsibilitiesCards {
+  justify-content: start;
+}
+
+.responsibilityCard {
+  padding: 20px;
+  background-color: var(--white);
+  max-width: 442.6px;
+}
+
+.impactResponsibilitiesCardTitle {
+  font-size: 64px;
+  font-weight: 700;
+  color: var(--edustipend-purple);
+  margin-bottom: 25px;
+}
+
+.impactResponsibilitiesCardSubTitle {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 32px;
+  margin-bottom: 15px;
+}
+
+.impactResponsibilitiesCardDescription {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: justify;
+}
 .timelineEmphasis {
   font-weight: 600;
 }
@@ -249,6 +326,58 @@
   bottom: 7%;
   left: 10%;
 }
+/* ********************** */
+/* Leadership Call To Action */
+/* ********************** */
+.leadershipContainer {
+  padding: 64px 0px;
+}
+.leadershipOverview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+}
+
+.leadershipLabel {
+  display: inline-block;
+  margin-bottom: 24px;
+}
+
+.programOverviewTitle {
+  color: var(--edustipend-black);
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: -3%;
+  line-height: 44px;
+  font-family: Poppins;
+}
+
+.leadershipTexts {
+  margin-top: 48px;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--program-overview-text-color);
+  line-height: 24px;
+  font-family: Manrope;
+}
+
+.leadershipText:not(:last-child) {
+  margin-bottom: 30px;
+}
+
+.leadershipTimeline {
+  margin-top: 24px;
+}
+
+.leadershipTimeline p:not(:last-child) {
+  margin-bottom: 12px;
+}
+
+.timelineEmphasis {
+  font-weight: 600;
+}
 
 @media only screen and (min-width: 640px) {
   .headerWrap {
@@ -287,9 +416,15 @@
     padding-right: 40px;
   }
   /* ****************** */
+  /* Impact Responsibities Styles */
+  /* ****************** */
+
+  .impactResponsibilitiesCards {
+    justify-content: center;
+  }
+
   /* Impact Leadership  */
   /* ***************** */
-
   .heroHeaderDescription {
     font-size: 18px;
   }
@@ -315,6 +450,14 @@
   .impactHeroCert {
     bottom: 25%;
     left: 21%;
+  }
+
+  /* ********************** */
+  /* Leadership Call To Action */
+  /* ********************** */
+  .leadershipContainer {
+    padding-left: 40px;
+    padding-right: 40px;
   }
 }
 
@@ -344,17 +487,19 @@
     margin-top: 60px;
   }
 
+  /* ****************** */
+  /* Impact Responsibities Styles */
+  /* ****************** */
   /* ********************** */
   /* Leadership Call To Action */
   /* ********************** */
   .leadershipContainer {
     padding-left: 40px;
     padding-right: 40px;
+  }
 
-    display: flex;
-
-    margin-top: 120px;
-    margin-bottom: 120px;
+  .impactResponsibilitiesCards {
+    justify-content: space-between;
   }
 
   .leadershipOverview,
@@ -406,12 +551,45 @@
   .impactHeroCert {
     width: 60%;
   }
+  /* ********************** */
+  /* Leadership Call To Action */
+  /* ********************** */
+  .leadershipContainer {
+    padding-left: 40px;
+    padding-right: 40px;
+
+    display: flex;
+
+    margin-top: 120px;
+    margin-bottom: 120px;
+  }
+
+  .leadershipOverview,
+  .impactProgramOverviewInfos {
+    width: 50%;
+  }
+
+  .leadershipOverview {
+    align-items: start;
+    justify-content: start;
+    text-align: left;
+  }
+
+  .leadershipTexts {
+    margin-top: 0;
+    font-size: 16px;
+  }
 }
+
 @media only screen and (min-width: 1440px) {
   .partnerWrap {
     height: 614px;
   }
 
+  .programBenefitCards {
+    flex-wrap: nowrap;
+    justify-content: center;
+  }
   /* ********************** */
   /* Leadership Call To Action */
   /* ********************** */
@@ -421,18 +599,20 @@
     line-height: 64px;
   }
 
-  .leadershipTexts {
-    font-size: 24px;
-    line-height: 34px;
-  }
+  /* ****************** */
+  /* Impact Responsibities Styles */
+  /* ****************** */
 
+  .impactResponsibilitiesCards {
+    column-gap: 16px;
+    justify-content: space-between;
+  }
   .leadershipTimeline {
     font-size: 24px;
   }
   /* ************* */
   /* Hero Impact Leadership */
   /* ************* */
-
   .heroHeaderInfo {
     display: flex;
     flex-direction: column;
@@ -456,5 +636,22 @@
   .impactYouDidIt,
   .impactHeroCert {
     width: 40%;
+  }
+  /* ********************** */
+  /* Leadership Call To Action */
+  /* ********************** */
+
+  .programOverviewTitle {
+    font-size: 48px;
+    line-height: 64px;
+  }
+
+  .leadershipTexts {
+    font-size: 24px;
+    line-height: 34px;
+  }
+
+  .leadershipTimeline {
+    font-size: 24px;
   }
 }

@@ -1,3 +1,6 @@
+import starSvg from '../../assets/impactL/Shape.svg';
+import certificateSvg from '../../assets/diploma.svg';
+
 export const paths = [
   {
     title: 'Home',
@@ -47,8 +50,67 @@ export const leadershipCallToAction = {
   TIMELINE_ONE: 'Application Deadline:',
   TIMELINE_TWO: 'Program Timeline:',
   APPLICATION_START_DATE: '30th June 2025, 11:59 PM WAT Program',
-  APPLICATOIN_END_DATE: 'August - October 2025'
+  APPLICATOIN_END_DATE: 'August - October 2025',
+  CERTIFICATION: 'You’re officially an Edustipend Impact Leader! Let’s make a difference together!',
+  FormLink: 'https://forms.gle/fSB58ZQKf2RVGLLz9'
 };
+
+export const programBenefits = {
+  TITLE: 'Why Join the Impact Leaders Program?',
+  DESCRIPTION: 'This is more than a program; it is a launchpad for changemakers like you!',
+    FormLink: 'https://forms.gle/fSB58ZQKf2RVGLLz9'
+};
+
+export const benefits = [
+  {
+    icon: '💰',
+    title: 'N250,000 - N500,000 Grant',
+    description: 'Kickstart your project with the funding you need to make real impact—no strings attached, just purpose and execution.'
+  },
+  {
+    icon: '💻',
+    title: 'Laptop Reward',
+    description: 'Complete the program successfully and receive a brand-new laptop to power your work and future projects.'
+  },
+  {
+    icon: '🌍',
+    title: 'Visibility & Recognition',
+    description: 'Get your work seen! Enjoy media exposure, speaking opportunities, and recognition as a rising changemaker.'
+  },
+  {
+    icon: '🚀',
+    title: 'Level Up Your Leadership Skills',
+    description: 'Gain hands-on experience, expert mentorship, and the confidence to lead bold, community-driven initiatives.'
+  }
+];
+
+export const impactResponsibilities = {
+  LABEL: 'Responsibilities',
+  TITLE: 'What You Will Do as a Fellow',
+  DESCRIPTION:
+    'As an Impact Leader, you will spearhead initiatives that uplift your community, engage with local stakeholders, and report on the impact of your work.'
+};
+
+export const responsibilities = [
+  {
+    number: '1',
+    title: 'Lead Skills Development Initiatives',
+    description:
+      'Organize and lead workshops, training sessions, and mentorship programs to enhance skills in your community. Design and implement a social impact project within your community, focusing on education, skills development, or youth empowerment. Projects should be executed within the approved timeline.'
+  },
+  {
+    number: '2',
+    title: 'Engage with Local Stakeholders',
+    description: 'Partner with NGOs, community organizations, and relevant stakeholders to maximize reach and effectiveness.'
+  },
+  {
+    number: '3',
+    title: 'Report and Showcase Impact',
+    description:
+      'Provide regular progress updates, success stories, and challenges faced. Fellows are encouraged to document their journey through case studies, testimonials, and media content.'
+  }
+];
+
 export const HERO_TITLE = 'Empowering Leaders, Transforming Communities';
 
 export const HERO_DESCRIPTION = 'Join a network of visionary leaders transforming communities through education and skills development.';
@@ -60,5 +122,8 @@ export const HERO_IMAGE_ALT = 'Black man holding a Microphone';
 export const HERO_MESSAGES = {
   COMPLETION: 'You did it! You’ve completed the program, your leadership is shaping the future!',
   CERTIFICATION: 'You’re officially an Edustipend Impact Leader! Let’s make a difference together!',
-  FormLink:"https://forms.gle/fSB58ZQKf2RVGLLz9"
+  ICON_ALT: 'Certificate Icon',
+  ICON_SRC_1: starSvg,
+  ICON_SRC_2: certificateSvg,
+   FormLink: 'https://forms.gle/fSB58ZQKf2RVGLLz9'
 };
