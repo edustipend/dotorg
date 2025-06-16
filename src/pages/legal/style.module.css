@@ -1,0 +1,292 @@
+.main {
+  font-family: var(--font-family-poppins);
+  background: var(--white-exe);
+}
+
+.pageContent {
+  padding-top: 50px;
+  padding-bottom: 44px;
+  color: var(--gray-ne);
+
+}
+
+
+
+
+.top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.header {
+  font-size: 24px;
+}
+
+@media (min-width: 768px) {
+  .pageContent {
+    padding-top: 100px;
+  }
+
+  .header {
+    font-size: 48px;
+  }
+}
+
+.contentWrapper {
+  display: flex;
+  gap: 48px;
+}
+
+
+
+.sidebar {
+  display: none;
+  width: 450px;
+}
+
+@media (min-width: 1024px) {
+  .sidebar {
+    display: block;
+  }
+}
+
+.tableOfContents {
+  background-color: var(--white);
+  border-radius: 24px;
+  padding: 24px;
+  margin-bottom: 24px;
+  position: sticky;
+  top: 150px;
+  box-shadow: 0px 30px 40px 0px #076DF30D;
+}
+
+.tableOfContentsTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 16px;
+}
+
+.sidebarList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 300px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebarItem {
+  position: relative;
+}
+
+.sidebarMainItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  cursor: pointer;
+}
+
+.sidebarMainItem:last-child {
+  border-bottom: none;
+}
+
+.sidebarLink {
+  width: 100%;
+  font-size: 14px;
+  color: var(--gray-ne);
+  transition: color 0.3s ease;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.sidebarLink:hover {
+  color: var(--black);
+}
+
+.sidebarLinkActive {
+  width: 100%;
+  color: var(--navy-blue);
+  font-weight: 600;
+  background-color: var(--white-alt);
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin: -8px -12px;
+  border-left: 3px solid var(--edustipend-purple);
+}
+
+.sidebarNumber {
+  font-weight: 600;
+  color: #9ca3af;
+  margin-right: 8px;
+}
+
+
+.subItemsList {
+  list-style: none;
+  margin: 10px 0 0px 20px;
+  display: none;
+  flex-direction: column;
+  width: 89%;
+}
+
+.subItemsListExpanded {
+  display: flex;
+}
+
+
+.subItemLink {
+  font-size: 13px;
+  color: var(--gray-ne);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  display: block;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.subItemLink:hover {
+  color: #4b5563;
+  background-color: #f3f4f6;
+}
+
+.subItemLinkActive {
+  color: var(--navy-blue);
+  font-weight: 500;
+  background-color: var(--white-alt);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background-color: var(--white);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0px 30px 40px 0px #076DF30D;
+}
+
+@media (min-width: 1024px) {
+  .content {
+    padding: 40px;
+  }
+}
+
+.introText {
+  display: flex;
+  font-size: 16px;
+  color: #4E4E4E;
+}
+
+@media (min-width: 1024px) {
+  .introText {
+    font-size: 18px;
+  }
+}
+
+.sectionsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  scroll-margin-top: 150px;
+}
+
+.sectionLarge {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  scroll-margin-top: 150px;
+}
+
+
+.sectionTitle {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--black);
+}
+
+@media (min-width: 1024px) {
+  .sectionTitle {
+    font-size: 24px;
+  }
+}
+
+.sectionContent {
+  white-space: pre-line;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 16px;
+}
+
+.sectionContent span {
+  margin-bottom: 0;
+  margin-left: 20px;
+}
+
+.sectionContentAlt {
+  width: 100%;
+  font-size: 16px;
+  scroll-margin-top: 150px;
+  background-color: var(--white-alt);
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin: -8px 0px;
+  border-left: 3px solid var(--edustipend-purple);
+}
+
+
+
+@media (min-width: 768px) {
+  .sectionContent {
+    font-size: 18px;
+  }
+}
+
+
+
+.sectionContent .spaceTop {
+  margin-top: 20px;
+}
+
+.sectionContent .spaceBottom {
+  margin-bottom: 20px;
+}
+
+.boldText {
+  font-family: var(--bold-font, inherit);
+  font-weight: bold;
+  color: var(--black);
+}
+
+.coloredText {
+  color: var(--black);
+}
+
+.sidebarList ul {
+  padding-left: 1.5em;
+}
+
+.subItemsList {
+  padding-left: 1.5em;
+}
+
+.sidebarList ul ul {
+  padding-left: 2em;
+}
+
+.sidebarList ul ul ul {
+  padding-left: 3em;
+}

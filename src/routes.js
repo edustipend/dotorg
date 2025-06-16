@@ -24,6 +24,7 @@ import TransparencyDashboard from './sections/TransparencyDashboard';
 import Impacts from './sections/Impacts';
 import ReferPage from './pages/refer-page/ReferPage';
 import SupportALearnerCampaign from './pages/campaigns/support-a-learner-campaign';
+import { Terms, Privacy } from './pages/legal';
 import { routesConstant } from './routesConstant';
 
 const {
@@ -45,7 +46,9 @@ const {
   IMPACTS,
   REFERRAL_PAGE,
   IMPACT_LEADERS,
-  SUPPORT_A_LEARNER_CAMPAIGN
+  SUPPORT_A_LEARNER_CAMPAIGN,
+  TERMS,
+  PRIVACY
 } = routesConstant;
 
 const Routes = () => {
@@ -63,6 +66,8 @@ const Routes = () => {
       <Route path={TRANSPARENCY_DASHBOARD} element={<TransparencyDashboard />} />
       <Route path={IMPACTS} element={<Impacts />} />
       <Route path={IMPACT_LEADERS} element={<ImpactLeaders />} />
+      <Route path={TERMS} element={<Terms />} />
+      <Route path={PRIVACY} element={<Privacy />} />
       <Route path={SUPPORT_A_LEARNER_CAMPAIGN} element={<SupportALearnerCampaign />} />
       <Route
         path={LOGIN}
