@@ -15,6 +15,6 @@ test('renders learn react link', () => {
       </Provider>
     </BrowserRouter>
   );
-  const linkElement = screen.getByText(/mission/i);
+  const linkElement = screen.getByText(/Stipend Programme/i);
   expect(linkElement).toBeInTheDocument();
 });

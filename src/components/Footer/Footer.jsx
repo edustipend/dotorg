@@ -19,7 +19,7 @@ export const Footer = ({ version = '' }) => {
       <div className="footer-container">
         <div className="footer-top">
           <div>
-            <p className="footer-link-title">{footerLinks.programmes.title}</p>
+            <h1 className="footer-link-title">{footerLinks.programmes.title}</h1>
 
             {footerLinks.programmes.links.map((link, i) => (
               <Link key={i} className="footer-link" to={link.path}>
@@ -29,7 +29,7 @@ export const Footer = ({ version = '' }) => {
           </div>
 
           <div>
-            <p className="footer-link-title">{footerLinks.resources.title}</p>
+            <h1 className="footer-link-title">{footerLinks.resources.title}</h1>
 
             {footerLinks.resources.links.map((link, i) => (
               <Link key={i} className="footer-link" to={link.path}>
@@ -39,7 +39,7 @@ export const Footer = ({ version = '' }) => {
           </div>
 
           <div>
-            <p className="footer-link-title">{footerLinks.company.title}</p>
+            <h1 className="footer-link-title">{footerLinks.company.title}</h1>
 
             {footerLinks.company.links.map((link, i) => (
               <HashLink key={i} className="footer-link" to={{ pathname: link.path, hash: link.hash }}>
@@ -50,7 +50,7 @@ export const Footer = ({ version = '' }) => {
 
           <div>
             <div>
-              <p className="footer-link-title">{footerLinks.contact.title}</p>
+              <h1 className="footer-link-title">{footerLinks.contact.title}</h1>
 
               {footerLinks.contact.links.map((link, i) => (
                 <a className="footer-link" key={i} href={link.path} target="_blank" rel="noopener noreferrer">
@@ -60,7 +60,7 @@ export const Footer = ({ version = '' }) => {
             </div>
 
             <div>
-              <p className="footer-link-title">{footerLinks.social.title}</p>
+              <h1 className="footer-link-title">{footerLinks.social.title}</h1>
 
               <div className="footer-social-icons">
                 {footerLinks.social.links.map((link, i) => (
@@ -77,7 +77,7 @@ export const Footer = ({ version = '' }) => {
           <div className="footer-icon">
             <Link to={{ pathname: footerLinks.footer.logo.path, version }}>
               <img src={footerLinks.footer.logo.icon} height="32" alt={footerLinks.footer.logo.title} aria-label={footerLinks.footer.logo.title} />
-              <p className="logo-text white">{footerLinks.footer.logo.title}</p>
+              <h1 className="logo-text white">{footerLinks.footer.logo.title}</h1>
             </Link>
           </div>
 
