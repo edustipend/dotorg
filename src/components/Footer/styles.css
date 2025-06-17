@@ -135,6 +135,11 @@
   gap: 40px;
 }
 
+.footer-terms-link {
+  font-size: 14px;
+  font-weight: 400;
+}
+
 @media screen and (min-width: 560px) {
   .display-card {
     height: 220px;

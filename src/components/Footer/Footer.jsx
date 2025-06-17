@@ -87,8 +87,8 @@ export const Footer = ({ version = '' }) => {
 
           <div className="footer-terms">
             {footerLinks.footer.terms.map((link, i) => (
-              <Link key={i} to={link.path}>
-                <p className="paragraph-xs white"> {link.title}</p>
+              <Link key={i} to={link.path} className="footer-terms-link">
+                {link.title}
               </Link>
             ))}
           </div>
