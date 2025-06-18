@@ -106,11 +106,11 @@ export const constant = {
       list: [
         '- Application Review : We assess your experience and project proposal.',
         '- Project Pitch : Shortlisted candidates will present their initiative to a panel.',
-        '- Final Selection : 3 to 5 outstanding candidates will be chosen based on impact potential, leadership, and feasibility.'
+        '- Final Selection : 5 to 8 outstanding candidates will be chosen based on impact potential, leadership, and feasibility.'
       ]
     },
     ContentE: {
-      list: ['- Application Deadline: 30th June, 2025 (11:59 PM WAT)', '- Program Duration: August - October 2025']
+      list: ['- Application Deadline: 11th July, 2025 (11:59 PM WAT)', '- Program Duration: August - October 2025']
     },
     ContentF: `Yes! As long as you can commit to executing your project within the program timeline, you are welcome to apply`,
     ContentG: `Yes! Fellows become part of the Edustipend Impact Network, where they can access ongoing mentorship, collaboration opportunities, and additional resources.`
