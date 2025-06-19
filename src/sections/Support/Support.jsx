@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import supportImage from '../../assets/sal-image-two.png';
+import supportImage from '../../assets/sal-landing-image.png';
 import Button from '../../components/Button';
 import Container from '../../components/Container';
 import Header from '../../components/Header';
@@ -24,7 +24,7 @@ const SupportALearnerSection = () => {
             </Header>
             <Text color="primary" content={SUPPORT_CONTENT.DESCRIPTION} className="support-subtext" dataTest={TEST_ID.SUPPORT_SUBTEXT} />
             <Link to={CTA.SUPPORT_A_LEARNER} target="_blank" rel="noopener noreferrer" className="support-cta">
-              <Button label={SUPPORT_CONTENT.SUPPORT_BUTTON_TEXT} type="primary" dataTest={TEST_ID.SUPPORT_CTA}  />
+              <Button label={SUPPORT_CONTENT.SUPPORT_BUTTON_TEXT} type="primary" dataTest={TEST_ID.SUPPORT_CTA} />
             </Link>
           </div>
         </div>

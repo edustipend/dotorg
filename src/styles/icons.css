@@ -37,6 +37,13 @@
   background-image: url('../assets/social/icon-tw.svg');
 }
 
+.in-icon {
+  background-image: url('../assets/social/icon-in.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 70% 50%;
+}
+
 @media screen and (min-width: 660px) {
   .social-icon {
     height: 36px;

@@ -67,7 +67,7 @@ export const Faq = () => {
             })}
           </section>
           <div className={styles.termsContainer}>
-            <NavLink to="/terms-condition">
+            <NavLink to="/terms-service">
               <p className={styles.terms}>Terms and Conditions Apply</p>
             </NavLink>
           </div>

@@ -66,9 +66,11 @@ import Report_Lines from './report-lines.svg';
 import Referrals_Icon from './referrals.svg';
 import Engagement_Icon from './engagement.svg';
 import Application_Icon from './application.svg';
-import ArrowDownChev from "./arrowChev.svg";
-import activity from "./activity.svg";
-import question from "./question.svg"
+import ArrowDownChev from './arrowChev.svg';
+import activity from './activity.svg';
+import question from './question.svg';
+import map from './map.svg';
+import mail from './mail.svg';
 
 export {
   Hero1,
@@ -141,5 +143,7 @@ export {
   Application_Icon,
   ArrowDownChev,
   activity,
-  question
+  question,
+  map,
+  mail
 };

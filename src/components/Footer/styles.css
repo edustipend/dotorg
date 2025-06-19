@@ -54,9 +54,15 @@
 .footer-copyright {
   display: flex;
   justify-content: space-between;
-  border-top: 1px solid darkgray;
-  padding: 0.5rem 1rem;
-  margin-top: 0.5rem;
+  border-top: 1px solid white;
+  padding: 40px 0;
+  margin-top: 40px 0;
+  gap: 12px;
+}
+
+.footer-copy {
+  font-size: 12px;
+  text-align: center;
 }
 
 .footer-follow-us {
@@ -72,8 +78,9 @@
 .footer-social-icons {
   display: flex;
   align-items: center;
+  justify-content: center;
   font-size: 0.75rem;
-  padding-left: 8px;
+  margin: 1rem 0;
 }
 
 .footer-social-icons > * {
@@ -84,26 +91,53 @@
   display: flex;
   padding: 1rem;
   flex-direction: column;
+  align-items: center;
 }
 
 .footer-top {
   display: flex;
   padding: 1.5rem;
+  flex-direction: column;
+  align-items: center;
 }
 
 .footer-top > div {
-  width: 50%;
+  max-width: 311px;
+  margin: 10px auto;
+  text-align: center;
+}
+
+.footer-link-title {
+  font-weight: 700;
+  font-size: 18px;
 }
 
 .footer-link {
   color: white;
-  display: block;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  gap: 8px;
   text-decoration: none;
   margin: 1rem 0;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .footer-link:hover {
   text-decoration: underline;
+}
+
+.footer-terms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.footer-terms-link {
+  font-size: 14px;
+  font-weight: 400;
 }
 
 @media screen and (min-width: 560px) {
@@ -116,9 +150,19 @@
   .logo-text {
     display: flex;
     font-family: 'Poppins', sans-serif;
-    font-size: 1.5rem;
+    font-size: 20px;
     margin: auto;
-    font-weight: bold;
+    font-weight: 500;
+  }
+
+  .footer-top {
+    flex-direction: row;
+    align-items: start;
+  }
+
+  .footer-top > div {
+    width: 50%;
+    text-align: left;
   }
 
   .footer-follow-us {
@@ -129,5 +173,14 @@
     display: flex;
     padding: 1rem;
     flex-direction: row;
+  }
+
+  .footer-social-icons {
+    justify-content: start;
+  }
+
+  .footer-link {
+    justify-content: start;
+    text-align: left;
   }
 }

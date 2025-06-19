@@ -19,6 +19,6 @@ export const routesConstant = {
   REFERRAL_PAGE: '/refer-a-friend',
   IMPACT_LEADERS: '/impact-leaders',
   SUPPORT_A_LEARNER_CAMPAIGN: '/campaigns/support-a-learner',
-  TERMS:"/terms-condition",
-  PRIVACY:"/privacy-policy"
+  TERMS: '/terms-service',
+  PRIVACY: '/privacy-policy'
 };
