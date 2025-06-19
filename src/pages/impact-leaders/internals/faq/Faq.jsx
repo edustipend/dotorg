@@ -7,6 +7,7 @@ import { constant } from '../../constant';
 import Accordion from '../../../../components/Accordion';
 import BatchTag from '../../../../components/BatchTag/BatchTag';
 import { question } from '../../../../assets';
+import { NavLink } from 'react-router-dom';
 const { faq } = constant;
 
 const contantA = <span>{faq.ContentA}</span>;
@@ -65,6 +66,11 @@ export const Faq = () => {
               );
             })}
           </section>
+          <div className={styles.termsContainer}>
+            <NavLink to="/terms-service">
+              <p className={styles.terms}>Terms and Conditions Apply</p>
+            </NavLink>
+          </div>
         </section>
       </Container>
     </main>

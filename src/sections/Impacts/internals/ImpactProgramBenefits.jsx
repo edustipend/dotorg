@@ -3,10 +3,11 @@ import Container from '../../../components/Container';
 import Button from '../../../components/Button';
 import styles from '../impacts.module.css';
 import benefitVector from '../../../assets/benefit-vector.png';
-
-import { benefits, programBenefits } from '../constants';
+import { NavLink } from 'react-router-dom';
+import { benefits, programBenefits, BUTTON_LABEL } from '../constants';
 import BatchTag from '../../../components/BatchTag/BatchTag';
 import { activity } from '../../../assets';
+
 const ImpactProgramBenefits = () => {
   return (
     <Container>
@@ -32,7 +33,9 @@ const ImpactProgramBenefits = () => {
         </div>
 
         <div className={styles.programBenefirtCTA}>
-          <Button label="Join Now" type="secondary" />
+          <NavLink target="_blank" to={programBenefits.FormLink} className={styles.btnContainer}>
+            <Button className={styles.button} label={BUTTON_LABEL} size="medium" type="secondary" />
+          </NavLink>
         </div>
       </section>
     </Container>
