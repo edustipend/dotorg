@@ -1,9 +1,9 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import Logo from '../../assets/favicon.png';
-import './styles.css';
 import { useLocation } from 'react-router-dom';
+import { footerLinks } from './constants';
+import { HashLink } from 'react-router-hash-link';
+import './styles.css';
 
 export const Footer = ({ version = '' }) => {
   const { pathname } = useLocation();
@@ -13,56 +13,88 @@ export const Footer = ({ version = '' }) => {
   if (isDonation || isDashboard) {
     return;
   }
+
   return (
-    !isDashboard && (
-      <footer className="footer-wrapper ">
-        <div className="footer-container">
-          <div className="footer-top">
+    <footer className="footer-wrapper ">
+      <div className="footer-container">
+        <div className="footer-top">
+          <div>
+            <h1 className="footer-link-title">{footerLinks.programmes.title}</h1>
+
+            {footerLinks.programmes.links.map((link, i) => (
+              <Link key={i} className="footer-link" to={link.path}>
+                {link.title}
+              </Link>
+            ))}
+          </div>
+
+          <div>
+            <h1 className="footer-link-title">{footerLinks.resources.title}</h1>
+
+            {footerLinks.resources.links.map((link, i) => (
+              <Link key={i} className="footer-link" to={link.path}>
+                {link.title}
+              </Link>
+            ))}
+          </div>
+
+          <div>
+            <h1 className="footer-link-title">{footerLinks.company.title}</h1>
+
+            {footerLinks.company.links.map((link, i) => (
+              <HashLink key={i} className="footer-link" to={{ pathname: link.path, hash: link.hash }}>
+                {link.title}
+              </HashLink>
+            ))}
+          </div>
+
+          <div>
             <div>
-              <p style={{ fontWeight: 600 }}>CONTACT</p>
-              <Link className="footer-link" to="/ambassador-program">
-                Become an Ambassador
-              </Link>
-              <Link className="footer-link" to="/ambassador-program">
-                Eligibility
-              </Link>
-              <Link className="footer-link" to="/">
-                Home
-              </Link>
+              <h1 className="footer-link-title">{footerLinks.contact.title}</h1>
+
+              {footerLinks.contact.links.map((link, i) => (
+                <a className="footer-link" key={i} href={link.path} target="_blank" rel="noopener noreferrer">
+                  <img src={link.icon} alt={link.title} /> <span> {link.title}</span>
+                </a>
+              ))}
             </div>
 
             <div>
-              <p style={{ fontWeight: 600 }}>FOLLOW US</p>
+              <h1 className="footer-link-title">{footerLinks.social.title}</h1>
+
               <div className="footer-social-icons">
-                <a href="https://www.facebook.com/edustipend" target="_blank" rel="noopener noreferrer">
-                  <div className="social-icon fb-icon"></div>
-                </a>
-                <a href="https://www.instagram.com/edustipend" target="_blank" rel="noopener noreferrer">
-                  <div className="social-icon ig-icon"></div>
-                </a>
-                <a href="https://www.twitter.com/edustipend" target="_blank" rel="noopener noreferrer">
-                  <div className="social-icon tw-icon"></div>
-                </a>
+                {footerLinks.social.links.map((link, i) => (
+                  <a key={i} href={link.path} target="_blank" rel="noopener noreferrer">
+                    <div className={link.icon} />
+                  </a>
+                ))}
               </div>
             </div>
           </div>
+        </div>
 
-          <div className="footer-icons-container footer-copyright">
-            <div className="footer-icon">
-              <Link to={{ pathname: '/', version }}>
-                <img src={Logo} height="32" alt="edustipend-logo" aria-label="Edustipend Logo" />
-                <p className="logo-text white">edustipend</p>
+        <div className="footer-icons-container footer-copyright">
+          <div className="footer-icon">
+            <Link to={{ pathname: footerLinks.footer.logo.path, version }}>
+              <img src={footerLinks.footer.logo.icon} height="32" alt={footerLinks.footer.logo.title} aria-label={footerLinks.footer.logo.title} />
+              <h1 className="logo-text white">{footerLinks.footer.logo.title}</h1>
+            </Link>
+          </div>
+
+          <div>
+            <p className="footer-copy">{footerLinks.footer.copyright}</p>
+          </div>
+
+          <div className="footer-terms">
+            {footerLinks.footer.terms.map((link, i) => (
+              <Link key={i} to={link.path} className="footer-terms-link">
+                {link.title}
               </Link>
-            </div>
-            <div>
-              <p className="paragraph-xs secondary" style={{ fontSize: '.9rem' }}>
-                &copy; {new Date().getFullYear()} All rights reserved.
-              </p>
-            </div>
+            ))}
           </div>
         </div>
-      </footer>
-    )
+      </div>
+    </footer>
   );
 };
 
