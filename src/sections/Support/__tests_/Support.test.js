@@ -21,15 +21,12 @@ describe('SupportALearnerSection', () => {
     expect(screen.getByTestId(TEST_ID.SUPPORT_SUBTEXT)).toHaveTextContent(SUPPORT_CONTENT.DESCRIPTION);
   });
 
-  it('displays correct button labels', () => {
+  it('renders exactly one button with correct label', () => {
     renderComponent();
 
-    const supportButtons = screen.getAllByTestId(TEST_ID.SUPPORT_CTA);
+    const button = screen.getByTestId(TEST_ID.SUPPORT_CTA);
 
-    expect(supportButtons.length).toBe(1);
-
-    supportButtons.forEach((button) => {
-      expect(button).toHaveTextContent(SUPPORT_CONTENT.SUPPORT_BUTTON_TEXT);
-    });
+    expect(button).toBeInTheDocument();
+    expect(button).toHaveTextContent(SUPPORT_CONTENT.SUPPORT_BUTTON_TEXT);
   });
 });
