@@ -20,5 +20,6 @@ export const routesConstant = {
   IMPACT_LEADERS: '/impact-leaders',
   SUPPORT_A_LEARNER_CAMPAIGN: '/campaigns/support-a-learner',
   TERMS: '/terms-service',
-  PRIVACY: '/privacy-policy'
+  PRIVACY: '/privacy-policy',
+  COMMUNITIES: '/communities'
 };

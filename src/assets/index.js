@@ -71,6 +71,10 @@ import activity from './activity.svg';
 import question from './question.svg';
 import map from './map.svg';
 import mail from './mail.svg';
+import bulb from './bulb.png';
+import globe from './globe.png';
+import communityheroImg from './communities-hero.png';
+import handShake from './handShake.svg';
 
 export {
   Hero1,
@@ -145,5 +149,9 @@ export {
   activity,
   question,
   map,
-  mail
+  mail,
+  bulb,
+  globe,
+  handShake,
+  communityheroImg
 };
