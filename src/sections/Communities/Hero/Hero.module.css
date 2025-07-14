@@ -1,0 +1,104 @@
+.bg {
+  background: #fafafa;
+}
+
+.hero {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 183px 50px 80px;
+}
+
+.top {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+.top h1 {
+  color: var(--edustipend-text-black, #2d3740);
+  text-align: center;
+  font-weight: 600;
+  line-height: 84px;
+  letter-spacing: -2.1px;
+  max-width: 887px;
+  min-height: 168px;
+}
+
+.top p {
+  color: var(--edustipend-text-black, #2d3740);
+  text-align: center;
+  font-size: 24px;
+}
+
+.top img {
+  margin-top: 60px;
+}
+
+@media only screen and (max-width: 1100px) {
+  .top h1 {
+    font-size: 55px;
+    margin-bottom: 5px;
+  }
+
+  .top p {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .top h1 {
+    font-size: 45px;
+    line-height: 60px;
+  }
+
+  .top p {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 670px) {
+  .top h1 {
+    width: 400px;
+    font-size: 42px;
+    line-height: 60px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .hero {
+    padding: 160px 20px 0;
+    justify-content: space-between;
+  }
+
+  .hero .down-section {
+    margin-bottom: 0px;
+  }
+
+  .top h1 {
+    font-size: 48px;
+    line-height: 60px;
+    width: 300px;
+  }
+
+  .top p {
+    font-size: 20px;
+    margin-top: 20px;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .top h1 {
+    width: 280px;
+    font-size: 24;
+  }
+
+  .top p {
+    font-size: 15px;
+  }
+}
