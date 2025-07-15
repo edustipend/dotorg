@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import ImportantInformation from './ImportantInformation';
-import { importantInfo } from './constant';
+import ImportantInformation from '../ImportantInformation';
+import { importantInfo } from '../constant';
 
 describe('ImportantInformation Component', () => {
   test('renders title and description', () => {
