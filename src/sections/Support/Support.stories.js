@@ -6,7 +6,7 @@ export default {
   tags: ['autodocs']
 };
 
-export const TakeOffBurden = {
+export const SupportALearner = {
   args: {
     content: 'Support a Learner'
   }
