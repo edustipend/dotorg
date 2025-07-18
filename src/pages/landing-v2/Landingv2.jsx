@@ -5,6 +5,7 @@ import BeneficiariesSection from '../../sections/Beneficiaries';
 import TakeOffBurdenSection from '../../sections/TakeOffBurden';
 import RequestSection from '../../sections/Request';
 import SupportALearnerSection from '../../sections/Support';
+import CommunitiesSection from '../../sections/Communities';
 
 export const LandingV2 = () => {
   return (
@@ -13,6 +14,7 @@ export const LandingV2 = () => {
       <HowItWorksSection />
       <BeneficiariesSection />
       <SupportALearnerSection />
+      <CommunitiesSection />
       <TakeOffBurdenSection />
       <TestimonialsSection />
       <RequestSection />

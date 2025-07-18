@@ -14,7 +14,7 @@ const contantC = (
   <div>
     <p className={styles.title}>{faq.ContentC.title}</p>
     <div>
-      {faq.ContentC.list.map((itm) => (
+      {faq?.ContentC?.list.map((itm) => (
         <p key={itm}>{itm}</p>
       ))}
     </div>
@@ -32,15 +32,8 @@ const contantD = (
   </div>
 );
 
-const contantE = (
-  <div>
-    {faq.ContentE.list.map((itm) => (
-      <p key={itm}>{itm}</p>
-    ))}
-  </div>
-);
 
-const list = [contantA, contantB, contantC, contantD, contantE];
+const list = [contantA, contantB, contantC, contantD];
 
 const CommunityFaq = () => {
   return (
