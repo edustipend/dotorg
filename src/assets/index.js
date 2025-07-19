@@ -75,6 +75,7 @@ import bulb from './bulb.png';
 import globe from './globe.png';
 import communityheroImg from './communities-hero.png';
 import handShake from './handShake.svg';
+import applyCommunity from "./apply_community.svg"
 
 export {
   Hero1,
@@ -153,5 +154,6 @@ export {
   bulb,
   globe,
   handShake,
-  communityheroImg
+  communityheroImg,
+  applyCommunity
 };
