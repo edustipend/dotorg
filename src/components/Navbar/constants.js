@@ -9,7 +9,8 @@ const {
   TRANSPARENCY_DASHBOARD,
   IMPACTS,
   SUPPORT_A_LEARNER_CAMPAIGN,
-  IMPACT_LEADERS
+  IMPACT_LEADERS,
+  COMMUNITIES
 } = routesConstant;
 
 export const TestId = {
@@ -59,13 +60,22 @@ export const NAVBAR_LINKS = [
     ]
   },
   {
-    label: 'Support A Learner',
-    path: SUPPORT_A_LEARNER
+    label: 'Programs',
+    icon: Drop_Down,
+    links: [
+      {
+        label: 'Impact Leaders',
+        path: IMPACT_LEADERS
+      },
+      {
+        label: 'Communities',
+        path: COMMUNITIES
+      }
+    ]
   },
   {
-    label: 'Impact Leaders',
-    path: IMPACT_LEADERS,
-    hash: ''
+    label: 'Support A Learner',
+    path: SUPPORT_A_LEARNER
   },
   {
     label: 'Login',

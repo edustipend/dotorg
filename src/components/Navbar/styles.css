@@ -232,6 +232,9 @@ a {
   font-weight: 500;
   line-height: 24px;
   text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .dropdownMenu a:not(:last-of-type) {
   width: 100%;
