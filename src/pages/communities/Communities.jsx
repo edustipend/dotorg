@@ -1,5 +1,7 @@
 import { SeoFragment } from '../../components/SeoFragment/SeoFragment';
-import { Hero, How } from '../../sections/Communities';
+import { Hero, How, Apply, CommunityFaq } from '../../sections/Communities';
+import Eligibility from '../../sections/Communities/Eligibility/Eligibility';
+import ImportantInformation from '../../sections/Communities/ImportantInformation/ImportantInformation';
 
 export const Communities = () => {
   return (
@@ -13,6 +15,10 @@ export const Communities = () => {
       />
       <Hero />
       <How />
+      <Eligibility />
+      <ImportantInformation />
+      <Apply />
+      <CommunityFaq />
     </>
   );
 };
