@@ -70,6 +70,10 @@ export const NAVBAR_LINKS = [
       {
         label: 'Communities',
         path: COMMUNITIES
+      },
+      {
+        label: 'Ambassador Program',
+        path: AMBASSADOR_PROGRAM
       }
     ]
   },
