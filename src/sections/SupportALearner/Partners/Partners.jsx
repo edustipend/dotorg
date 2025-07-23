@@ -7,6 +7,7 @@ import { useLocation } from 'react-router-dom';
 import { routesConstant } from '../../../routesConstant';
 
 const images = [...Array(6)].map((_, index) => require(`../../../assets/partner${index + 1}.svg`));
+const duplicatedImages = [...images, ...images, ...images];
 
 const Partners = () => {
   const { pathname } = useLocation();
@@ -27,11 +28,13 @@ const Partners = () => {
               </span>
             </p>
             <div className={styles.partners}>
-              {images.map((image, index) => (
-                <div key={index}>
-                  <img src={image} alt={`partner ${index + 1}`} />
-                </div>
-              ))}
+              <div className={styles.partnersTrack}>
+                {duplicatedImages.map((image, index) => (
+                  <div key={index} className={styles.partnerItem}>
+                    <img src={image || '/placeholder.svg'} alt={`partner ${(index % images.length) + 1}`} />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

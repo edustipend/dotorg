@@ -2,6 +2,7 @@ import { SeoFragment } from '../../components/SeoFragment/SeoFragment';
 import { Hero, How, Apply, CommunityFaq } from '../../sections/Communities';
 import Eligibility from '../../sections/Communities/Eligibility/Eligibility';
 import ImportantInformation from '../../sections/Communities/ImportantInformation/ImportantInformation';
+import Partners from '../../sections/SupportALearner/Partners/Partners';
 
 export const Communities = () => {
   return (
@@ -14,6 +15,7 @@ export const Communities = () => {
         website="https://www.edustipend.org/communities"
       />
       <Hero />
+      <Partners />
       <How />
       <Eligibility />
       <ImportantInformation />

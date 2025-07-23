@@ -5,7 +5,7 @@ export const content = {
   subText: 'Join our new community-based support initiative to transform local education.',
   btnLabel: 'Apply for Support',
   btnType: 'secondary',
-  linkUrl: 'https://',
+  linkUrl: 'https://docs.google.com/forms',
   linkTarget: '_blank',
   heroImageAlt: 'Community Image',
   heroImage: communityheroImg

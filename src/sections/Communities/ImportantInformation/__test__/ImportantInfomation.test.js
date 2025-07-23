@@ -1,11 +1,15 @@
-import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import { render, screen } from '@testing-library/react';
 import ImportantInformation from '../ImportantInformation';
 import { importantInfo } from '../constant';
 
 describe('ImportantInformation Component', () => {
   test('renders title and description', () => {
-    render(<ImportantInformation />);
+    render(
+      <BrowserRouter>
+        <ImportantInformation />
+      </BrowserRouter>
+    );
 
     // Check if the title is rendered
     expect(screen.getByRole('heading', { name: importantInfo.title })).toBeInTheDocument();
@@ -15,7 +19,11 @@ describe('ImportantInformation Component', () => {
   });
 
   test('renders the button with correct label', () => {
-    render(<ImportantInformation />);
+    render(
+      <BrowserRouter>
+        <ImportantInformation />
+      </BrowserRouter>
+    );
 
     // Check for the button with the label
     const button = screen.getByRole('button', { name: /read terms and conditions/i });

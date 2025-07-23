@@ -50,7 +50,7 @@ describe('Partners component', () => {
       const partnerImages = screen.getAllByAltText((content, element) => {
         return element.tagName.toLowerCase() === 'img' && content.startsWith('partner');
       });
-      expect(partnerImages).toHaveLength(6);
+      expect(partnerImages).toHaveLength(18);
     });
   });
 });
