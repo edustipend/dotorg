@@ -1,5 +1,7 @@
 import { Goal_Icon, User_Icon } from '../../assets';
 
+export const isCampaignActive = false; // This should be dynamically set based on the campaign status
+
 export const targets = [
   {
     icon: Goal_Icon,

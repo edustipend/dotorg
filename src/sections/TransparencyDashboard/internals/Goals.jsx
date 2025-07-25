@@ -7,33 +7,36 @@ import PropTypes from 'prop-types';
 import styles from '../TransparencyDashboard.module.css';
 import Button from '../../../components/Button';
 
-export const Goals = ({ data }) => {
+export const Goals = ({ data, isCampaignActive }) => {
   return (
     <div className={styles.goals} data={data} data-testid={TestId.GOALS_ID}>
       <div className={styles.top}>
-        {targets.map((t) => (
-          <Target
-            key={t.value}
-            value={t.category === 'goal' ? formatMoney(data[t.category]) : data[t.category]}
-            category={t.category}
-            icon={t.icon}
-          />
-        ))}
+        {targets.map((t) => {
+          if (t.category === 'goal' && !isCampaignActive) return null;
+
+          const value = t.category === 'goal' ? formatMoney(data?.[t.category]) : data?.[t.category];
+
+          return <Target key={t.category} value={value} category={t.category} icon={t.icon} />;
+        })}
       </div>
       <div className={styles.bottom}>
         <div className={styles.progress}>
           <div className={styles.progressTop}>
             <h1>
-              {formatMoney(data?.raised)} / <span>{formatMoney(data?.goal)}</span>
+              {formatMoney(data?.raised)}
+              {isCampaignActive && <span> / {formatMoney(data?.goal)}</span>}
             </h1>
             <p>Raised</p>
           </div>
-          <div className={styles.progressContainer}>
-            <div className={styles.progressBar}>
-              <div className={styles.progressFill} style={{ width: `${data?.completed}%` }}></div>
+
+          {isCampaignActive && (
+            <div className={styles.progressContainer}>
+              <div className={styles.progressBar}>
+                <div className={styles.progressFill} style={{ width: `${data?.completed}%` }}></div>
+              </div>
+              <p className={styles.completion}>{data?.completed}% complete</p>
             </div>
-            <p className={styles.completion}>{data?.completed}% complete</p>
-          </div>
+          )}
         </div>
 
         <Link to={btn.path} className={styles.link}>
@@ -45,5 +48,6 @@ export const Goals = ({ data }) => {
 };
 
 Goals.propTypes = {
-  data: PropTypes.object
+  data: PropTypes.object,
+  isCampaignActive: PropTypes.bool
 };

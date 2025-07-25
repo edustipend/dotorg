@@ -26,7 +26,7 @@ import ReferPage from './pages/refer-page/ReferPage';
 import SupportALearnerCampaign from './pages/campaigns/support-a-learner-campaign';
 import { Terms, Privacy } from './pages/legal';
 import { routesConstant } from './routesConstant';
-import { Communities } from './pages/communities';
+import { Communities } from './pages/Communities';
 
 const {
   AMBASSADOR_PROGRAM,
