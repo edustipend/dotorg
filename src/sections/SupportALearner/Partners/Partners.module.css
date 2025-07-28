@@ -1,6 +1,6 @@
 .container {
   width: 100%;
-  padding: 30px 0px 0px;
+  padding: 60px 0px 0px;
   background-color: var(--in-view-backer);
 }
 
@@ -11,7 +11,7 @@
   align-items: center;
 }
 
-.headerWrap h1 {
+.mediumHeader {
   font-size: 18px;
   font-family: 'Poppins';
   font-weight: 600;
@@ -20,7 +20,16 @@
   color: var(--edustipend-black);
 }
 
-.headerWrap p {
+.largeHeader {
+  font-size: 36px;
+  line-height: 40px;
+  font-weight: 600;
+  letter-spacing: 5%;
+  color: var(--edustipend-black);
+  text-align: center;
+}
+
+.text {
   font-size: 12px;
   font-family: 'Manrope';
   width: 100%;
@@ -28,6 +37,14 @@
   font-weight: 400;
   text-align: center;
   line-height: 16px;
+}
+
+.textAlt {
+  color: #4b5563;
+  font-size: 18px;
+  line-height: 28px;
+  max-width: 686px;
+  text-align: center;
 }
 
 .collaborate {
@@ -66,6 +83,9 @@
 .partnerItem img {
   opacity: 0.9;
   transition: opacity 0.3s ease;
+  width: 20vw;
+  height: auto;
+  object-fit: contain;
 }
 
 .partnerItem:hover img {
@@ -86,11 +106,15 @@
     padding: 120px 0 40px;
   }
 
-  .headerWrap h1 {
+  .largeHeader {
+    font-size: 48px;
+  }
+
+  .mediumHeader {
     font-size: 36px;
   }
 
-  .headerWrap p {
+  .text {
     font-size: 24px;
     line-height: 45px;
   }
@@ -101,5 +125,9 @@
 
   .partnersTrack {
     gap: 80px;
+  }
+
+  .partnerItem img {
+    width: auto;
   }
 }

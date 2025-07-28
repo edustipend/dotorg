@@ -60,6 +60,10 @@
 }
 
 @media only screen and (max-width: 450px) {
+  .bg {
+    padding: 64px 0;
+  }
+
   .header {
     font-size: 36px;
     line-height: 40px;
