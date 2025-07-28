@@ -64,16 +64,16 @@ export const NAVBAR_LINKS = [
     icon: Drop_Down,
     links: [
       {
-        label: 'Impact Leaders',
-        path: IMPACT_LEADERS
+        label: 'Ambassador Program',
+        path: AMBASSADOR_PROGRAM
       },
       {
-        label: 'Communities',
+        label: 'Community Support',
         path: COMMUNITIES
       },
       {
-        label: 'Ambassador Program',
-        path: AMBASSADOR_PROGRAM
+        label: 'Impact Leaders',
+        path: IMPACT_LEADERS
       }
     ]
   },

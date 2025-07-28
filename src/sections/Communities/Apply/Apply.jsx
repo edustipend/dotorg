@@ -6,6 +6,8 @@ import Button from '../../../components/Button';
 import Header from '../../../components/Header';
 import Text from '../../../components/Text';
 import { constant } from './constant';
+import { Link } from 'react-router-dom';
+import { content } from '../Hero/constants';
 
 const Apply = () => {
   return (
@@ -17,10 +19,12 @@ const Apply = () => {
               {constant.header}
             </Header>
             <Text content={constant.text} className={styles.text} />
-            <Button type="secondary" label={constant.btnLabel} />
+            <Link to={content.linkUrl} target={content.linkTarget}>
+              <Button type="secondary" label={constant.btnLabel} />
+            </Link>
           </section>
           <section className={styles.imgContainer}>
-            <img src={applyCommunity} alt="apply" className={styles.img}/>
+            <img src={applyCommunity} alt="apply" className={styles.img} />
           </section>
         </section>
       </Container>

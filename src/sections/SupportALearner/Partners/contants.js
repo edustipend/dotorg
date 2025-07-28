@@ -4,6 +4,7 @@ export const STATS = 'the following communities that share our vision and missio
 
 export const Texts = {
   HEADER: 'PARTNERS',
+  COMMUNITIES_HEADER: "Communities We've Supported",
   COLLABORATE: 'We have collaborated with',
   STATS: 'the following communities that share our vision and mission'
 };
