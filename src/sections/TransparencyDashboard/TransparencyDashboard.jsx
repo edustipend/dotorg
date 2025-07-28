@@ -1,4 +1,4 @@
-import { TestId, paths, resData } from './constants';
+import { TestId, isCampaignActive, paths, resData } from './constants';
 import Container from '../../components/Container';
 import { useCallback, useEffect, useState } from 'react';
 import { DashboardTimelines, DonationsFilter, Goals } from './internals';
@@ -66,7 +66,7 @@ export const TransparencyDashboard = () => {
         <BreadCrumbs paths={paths} />
         <div className={styles.topSection}>
           <DonationsFilter amountRaised={data?.amountRaised} handleOptionChange={handleOptionChange} />
-          <Goals data={data} />
+          <Goals data={data} isCampaignActive={isCampaignActive} />
         </div>
         <DashboardTimelines donations={data?.donations} total={data?.total} next={data?.next} setNextCall={setNextCall} />
       </Container>
