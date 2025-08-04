@@ -26,7 +26,7 @@ import ReferPage from './pages/refer-page/ReferPage';
 import SupportALearnerCampaign from './pages/campaigns/support-a-learner-campaign';
 import { Terms, Privacy } from './pages/legal';
 import { routesConstant } from './routesConstant';
-import { Communities } from './pages/Communities';
+// import { Communities } from './pages/Communities';
 
 const {
   AMBASSADOR_PROGRAM,
@@ -71,7 +71,7 @@ const Routes = () => {
       <Route path={TERMS} element={<Terms />} />
       <Route path={PRIVACY} element={<Privacy />} />
       <Route path={SUPPORT_A_LEARNER_CAMPAIGN} element={<SupportALearnerCampaign />} />
-      <Route path={COMMUNITIES} element={<Communities />} />
+      {/* <Route path={COMMUNITIES} element={<Communities />} /> */}
       <Route
         path={LOGIN}
         element={
