@@ -50,7 +50,7 @@ const {
   SUPPORT_A_LEARNER_CAMPAIGN,
   TERMS,
   PRIVACY,
-  COMMUNITIES
+  // COMMUNITIES
 } = routesConstant;
 
 const Routes = () => {
