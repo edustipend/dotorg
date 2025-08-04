@@ -5,22 +5,22 @@ import ImportantInformation from '../../sections/Communities/ImportantInformatio
 import Partners from '../../sections/SupportALearner/Partners/Partners';
 
 export const Communities = () => {
-	return (
-		<>
-			<SeoFragment
-				title="Edustipend | Communities"
-				description="Empowering Communities, One Scholar at a Time"
-				name="Edustipend"
-				type="summary"
-				website="https://www.edustipend.org/communities"
-			/>
-			<Hero />
-			<Partners />
-			<How />
-			<Eligibility />
-			<ImportantInformation />
-			<Apply />
-			<CommunityFaq />
-		</>
-	);
+  return (
+    <>
+      <SeoFragment
+        title="Edustipend | Communities"
+        description="Empowering Communities, One Scholar at a Time"
+        name="Edustipend"
+        type="summary"
+        website="https://www.edustipend.org/communities"
+      />
+      <Hero />
+      <Partners />
+      <How />
+      <Eligibility />
+      <ImportantInformation />
+      <Apply />
+      <CommunityFaq />
+    </>
+  );
 };

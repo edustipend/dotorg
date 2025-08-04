@@ -1,3 +1,3 @@
-import { Communities } from "./CommunitySupport";
+import { Communities } from './CommunitySupport';
 
-export default Communities
+export default Communities;
