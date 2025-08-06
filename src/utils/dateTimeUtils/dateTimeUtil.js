@@ -41,17 +41,21 @@ export const getStartDate = (frequency) => {
   let newStartDate;
   let dayOfWeek;
 
+  if (/^\d{4}$/.test(frequency)) {
+    // If frequency is a year like "2025"
+    return new Date(`${frequency}-01-01`);
+  }
+
   switch (frequency) {
     case 'today':
       newStartDate = new Date(today);
-      newStartDate.setDate(today.getDate());
       break;
     case 'thisWeek':
       newStartDate = new Date(today);
-      dayOfWeek = today.getDay(); // 0 (Sunday) to 6 (Saturday)
-      // Subtract the current day of the week from the current date to get the previous Sunday
+      dayOfWeek = today.getDay(); // 0 (Sun) to 6 (Sat)
       newStartDate.setDate(today.getDate() - dayOfWeek);
       break;
+    case 'thisMonth':
     case 'monthly':
       newStartDate = new Date(today);
       newStartDate.setDate(today.getDate() - 30);

@@ -33,7 +33,7 @@ describe('DonationsFilter', () => {
           <DonationsFilter amountRaised={0} handleOptionChange={handleOptionChange} />
         </BrowserRouter>
       );
-      const select = screen.getByRole('combobox');
+      const select = screen.getByTestId(TestId.SELECT_OPTION);
       fireEvent.change(select, { target: { value: 'thisWeek' } });
       expect(handleOptionChange).toHaveBeenCalled();
       expect(screen.getByTestId(TestId.SELECT_OPTION).value).toBe('thisWeek');
