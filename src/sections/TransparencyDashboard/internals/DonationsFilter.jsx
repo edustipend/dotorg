@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { formatMoney } from '../../../utils/numberFormatter/formatMoney';
 import { TestId, data } from '../constants';
+import { CURRENCY_OPTIONS, DATE_RANGE_OPTIONS } from './DashboardTimeline/constants';
 import styles from '../TransparencyDashboard.module.css';
 
 export const DonationsFilter = ({ amountRaised, handleOptionChange }) => {
@@ -8,11 +9,26 @@ export const DonationsFilter = ({ amountRaised, handleOptionChange }) => {
     <div className={styles.donationsFilter} data-testid={TestId.DONATIONS_FILTER_ID}>
       <div className={styles.filterTop}>
         <h1 className={styles.totalDonations}>{data.title}</h1>
-        <select className={styles.select} onChange={(e) => handleOptionChange(e)} data-testid={TestId.SELECT_OPTION} defaultValue={'thisWeek'}>
-          <option value="today">Today</option>
-          <option value="thisWeek">This Week</option>
-          <option value="allTime">All Time</option>
-        </select>
+        <div className={styles.selectContainer}>
+          <select className={styles.select} onChange={(e) => handleOptionChange(e, 'currency')} defaultValue="NGN">
+            {CURRENCY_OPTIONS.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+          <select
+            className={styles.select}
+            onChange={(e) => handleOptionChange(e, 'date')}
+            data-testid={TestId.SELECT_OPTION}
+            defaultValue="thisWeek">
+            {DATE_RANGE_OPTIONS.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
       <div>
         <h1 className={styles.donatedAmount} data-testid={TestId.AMOUNT_RAISED}>
