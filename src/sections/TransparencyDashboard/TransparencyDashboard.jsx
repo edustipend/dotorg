@@ -14,7 +14,7 @@ export const TransparencyDashboard = () => {
   const [data, setData] = useState(resData);
   const [nextCall, setNextCall] = useState('');
   const [date, setDate] = useState({
-    startDate: getStartDate('thisWeek'),
+    startDate: getStartDate('thisWeek').toISOString(),
     endDate: getStartDate('tommorow').toISOString()
   });
 
@@ -100,26 +100,13 @@ export const TransparencyDashboard = () => {
   };
 
   useEffect(() => {
-    const calculatedStartDate = getStartDate(frequency);
-    const calculatedEndDate = /^\d{4}$/.test(frequency) ? new Date(`${Number(frequency) + 1}-01-01`) : getStartDate('tommorow');
-
-    setDate({
-      startDate: calculatedStartDate.toISOString(),
-      endDate: calculatedEndDate.toISOString()
-    });
-  }, [frequency]);
-
-  useEffect(() => {
+    fetchRange();
     fetchOverview();
   }, []);
 
   useEffect(() => {
     fetchTimeline();
   }, [nextCall]);
-
-  useEffect(() => {
-    fetchRange();
-  }, [frequency, date]);
 
   return (
     <div className={styles.container} data-testid={TestId.TRANSPARENCY_DASHBOARD_ID}>
