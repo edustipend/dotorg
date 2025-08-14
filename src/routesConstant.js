@@ -19,7 +19,7 @@ export const routesConstant = {
   REFERRAL_PAGE: '/refer-a-friend',
   IMPACT_LEADERS: '/impact-leaders',
   SUPPORT_A_LEARNER_CAMPAIGN: '/campaigns/support-a-learner',
-  TERMS: '/terms-service',
+  TERMS: '/terms-of-service',
   PRIVACY: '/privacy-policy',
   COMMUNITIES: '/communities'
 };

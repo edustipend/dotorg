@@ -15,10 +15,10 @@ const Partners = () => {
     <div className={styles.container} data-testid={TestId.WRAPPER}>
       <div className={styles.headerContainer}>
         <div className={styles.headerWrap}>
-          <Header size={'large'} dataTest={TestId.HEAD_TEXT}>
+          <Header size={'large'} dataTest={TestId.HEAD_TEXT} className={isCommunities ? styles.largeHeader : styles.mediumHeader}>
             {isCommunities ? Texts.COMMUNITIES_HEADER : Texts.HEADER}
           </Header>
-          <p data-testid={TestId.DESCRIPTION}>
+          <p data-testid={TestId.DESCRIPTION} className={isCommunities ? styles.textAlt : styles.text}>
             {Texts.COLLABORATE}{' '}
             <span className={styles.collaborate} data-testid={TestId.STATS}>
               {Texts.STATS}

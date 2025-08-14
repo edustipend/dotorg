@@ -26,7 +26,7 @@ import ReferPage from './pages/refer-page/ReferPage';
 import SupportALearnerCampaign from './pages/campaigns/support-a-learner-campaign';
 import { Terms, Privacy } from './pages/legal';
 import { routesConstant } from './routesConstant';
-import { Communities } from './pages/Communities';
+import Communities from './pages/community-support';
 
 const {
   AMBASSADOR_PROGRAM,
@@ -86,7 +86,8 @@ const Routes = () => {
           <ProtectedRoute>
             <Welcome />
           </ProtectedRoute>
-        }></Route>
+        }
+      ></Route>
 
       <Route
         path={DASHBOARD}
@@ -94,7 +95,8 @@ const Routes = () => {
           <ProtectedRoute>
             <LearnerDashboard />
           </ProtectedRoute>
-        }>
+        }
+      >
         <Route index element={<Home />} />
         <Route path="home" element={<Home />} />
         <Route path="submissions" element={<Submissions />} />

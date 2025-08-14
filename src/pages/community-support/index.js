@@ -1,3 +1,3 @@
 import { Communities } from './CommunitySupport';
 
-export { Communities };
+export default Communities;
