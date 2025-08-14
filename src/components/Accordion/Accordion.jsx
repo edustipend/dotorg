@@ -36,10 +36,7 @@ export const Accordion = ({ title, content, className, dataTest = DEFAULT_ACCORD
   }, [isOpen]);
 
   return (
-    <div
-      className={`${styles.accordion} ${className || ''} ${isOpen ? styles.open : ''}`}
-      data-testid={dataTest}
-    >
+    <div className={`${styles.accordion} ${className || ''} ${isOpen ? styles.open : ''}`} data-testid={dataTest}>
       <div className={styles.header} onClick={toggleAccordion} data-testid={`${dataTest}-header`}>
         <h3 className={styles.question}>{title}</h3>
         <Button type="secondary" size="sm" effectClass={styles.effect} className={styles.button} dataTest={`${dataTest}-toggle-button`}>
