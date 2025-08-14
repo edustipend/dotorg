@@ -7,33 +7,35 @@ import Accordion from '../../../components/Accordion';
 import { constant } from './constant';
 const { faq } = constant;
 
-
 const contantA = <span>{faq.ContentA}</span>;
 const contantB = <span>{faq.ContentB}</span>;
-const contantC = (
-  <div>
-    <p className={styles.title}>{faq.ContentC.title}</p>
-    <div>
-      {faq?.ContentC?.list.map((itm) => (
-        <p key={itm}>{itm}</p>
-      ))}
-    </div>
-  </div>
-);
-
+const contantC = <span>{faq.ContentC}</span>;
+const contantF = <span>{faq.ContentF}</span>;
+const contantG = <span>{faq.ContentG}</span>;
 const contantD = (
   <div>
     <p className={styles.title}>{faq.ContentD.title}</p>
     <div>
-      {faq.ContentD.list.map((itm) => (
+      {faq?.ContentD?.list.map((itm) => (
+        <p key={itm}>{itm}</p>
+      ))}
+    </div>
+    <p className={styles.footerContent}>{faq?.ContentD.footer}</p>
+  </div>
+);
+
+const contantE = (
+  <div>
+    <p className={styles.title}>{faq.ContentE.title}</p>
+    <div>
+      {faq.ContentE.list.map((itm) => (
         <p key={itm}>{itm}</p>
       ))}
     </div>
   </div>
 );
 
-
-const list = [contantA, contantB, contantC, contantD];
+const list = [contantA, contantB, contantC, contantD, contantE, contantF, contantG];
 
 const CommunityFaq = () => {
   return (
