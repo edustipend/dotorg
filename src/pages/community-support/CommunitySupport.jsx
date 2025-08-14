@@ -9,7 +9,7 @@ export const Communities = () => {
     <>
       <SeoFragment
         title="Edustipend | Communities"
-        description="Empowering Communities, One Scholar at a Time"
+        description="Empowering Communities, One Learner at a Time"
         name="Edustipend"
         type="summary"
         website="https://www.edustipend.org/communities"
