@@ -5,9 +5,9 @@ import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
 
 import linkToUduakImage from '../../assets/team/Uduak001.jpg';
-import linkToBlessingImage from '../../assets/team/Blessing.png';
+import linkToBlessingImage from '../../assets/team/blessing.png';
 import linkToJoshuaImage from '../../assets/team/Joshua.png';
-import linkToBlossomImage from '../../assets/team/BlossomImikan.png';
+// import linkToBlossomImage from '../../assets/team/BlossomImikan.png';
 import linkToAdeboyeImage from '../../assets/team/AdeboyeJoseph.png';
 import linkToEzehImage from '../../assets/team/ChijiokeEzeh.png';
 import linkToDeborahImage from '../../assets/team/Deborah-ODIMAYO.png';
@@ -15,8 +15,10 @@ import linkToAnkpaImage from '../../assets/team/Eno-obongAkpan.png';
 import linkToIsiaqImage from '../../assets/team/IsiaqRidwanBukola.png';
 import linkToTosinImage from '../../assets/team/Oluwatosin.png';
 import linkToPelzImage from '../../assets/team/PelumiAdetoye.png';
-import linkToTeniImage from '../../assets/team/teni-oluwa.png';
-import linkToUbonImage from '../../assets/team/ubon.png';
+import linkToKb from '../../assets/team/kb.jpg';
+import linkToVictoria from '../../assets/team/victoria.jpg';
+// import linkToTeniImage from '../../assets/team/teni-oluwa.png';
+import linkToUbonImage from '../../assets/team/ubon.jpg';
 import Container from '../../components/Container';
 
 import './MeetTheTeam.css';
@@ -24,7 +26,7 @@ const teamMembers = [
   { name: 'Uduak Obong-Eren', role: 'Founder', img: linkToUduakImage },
   { name: 'Blessing Akpan', role: 'Program Manager', img: linkToBlessingImage },
   { name: 'Joshua Alhassan', role: 'Community Manager', img: linkToJoshuaImage },
-  { name: 'Blossom Imikan', role: 'Social Media Manager', img: linkToBlossomImage },
+  // { name: 'Blossom Imikan', role: 'Social Media Manager', img: linkToBlossomImage },
   { name: 'Adeboye Joseph', role: 'Graphics Designer', img: linkToAdeboyeImage },
   { name: 'Chijioke Ezeh', role: 'Frontend Engineer', img: linkToEzehImage },
   { name: 'Deborah Odimayo', role: 'Social Media Manager', img: linkToDeborahImage },
@@ -32,7 +34,9 @@ const teamMembers = [
   { name: 'Isiaq Ridwan', role: 'Frontend Engineer', img: linkToIsiaqImage },
   { name: 'Oluwatosin Aduroja', role: 'Graphics Designer', img: linkToTosinImage },
   { name: 'Pelumi Adetoye', role: 'Frontend Engineer', img: linkToPelzImage },
-  { name: 'Teniloluwa Sogbesan', role: 'Business Data Analyst', img: linkToTeniImage },
+  { name: 'KB', role: 'Social Media Manager ', img: linkToKb },
+  { name: 'Victoria', role: 'Social Media Manager', img: linkToVictoria },
+  // { name: 'Teniloluwa Sogbesan', role: 'Business Data Analyst', img: linkToTeniImage },
   { name: 'Ubon Udonkang', role: 'UIUX Designer', img: linkToUbonImage }
 ];
 
