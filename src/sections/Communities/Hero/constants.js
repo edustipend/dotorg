@@ -1,7 +1,7 @@
 import { communityheroImg } from '../../../assets';
 
 export const content = {
-  headText: 'Empowering Communities, One Scholar at a Time',
+  headText: 'Empowering Communities, One Learner at a Time',
   subText: 'Join our new community-based support initiative to transform local education.',
   btnLabel: 'Apply for Support',
   btnType: 'secondary',

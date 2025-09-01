@@ -1,4 +1,3 @@
-
 export const constant = {
   faq: {
     title: 'Frequently Asked Questions',
@@ -6,42 +5,61 @@ export const constant = {
 
     QA: [
       {
-        question: 'Who can apply for the Impact Leaders Program?',
+        question: 'What is the Community Stipend program?',
         content: 0
       },
       {
-        question: 'What kind of projects are eligible?',
+        question: 'Who can apply for the community-based stipend?',
         content: 1
       },
       {
-        question: 'What support do selected Fellows receive?',
+        question: 'How does it differ from individual applications?',
         content: 2
       },
       {
-        question: 'How are Fellows selected?',
+        question: 'What can the stipend be used for?',
         content: 3
+      },
+      {
+        question: 'What makes a good application?',
+        content: 4
+      },
+      {
+        question: 'How and when will I know the result?',
+        content: 5
+      },
+      {
+        question: 'If my organization is not officially registered, can we still apply?',
+        content: 6
       }
     ],
-    ContentA: `The program is open to Nigerian citizens aged 20-35 who have at least 2 years of experience in social impact work, especially in education or
-      skills development. Applicants must not be currently enrolled in an undergraduate program.`,
-    ContentB: `They are looking for community-driven initiatives focused on education, skills development, or youth empowerment. Projects should be impactful,
-      feasible within three months, and sustainable beyond the program timeline.`,
-    ContentC: {
-      title: 'Fellows will receive:',
+    ContentA: `The Community Stipend is Edustipend’s way of empowering organizations with the resources they need - whether mobile data, devices, or funding, to help their members learn, grow, and succeed. Think of it as fuel for groups that are already making an impact.`,
+    ContentB: `Any organization with community-based membership who are committed to advancing skills development for its members, can apply - whether you’re a tech-focused network, a youth-led initiative, or a local peer learning circle.`,
+    ContentC: `Previously, Edustipend supported learners individually. Now, we’re focusing on organizations.
+Instead of helping one person at a time, we fund communities - so one grant can create ripple effects for dozens of learners.
+`,
+    ContentD: {
+      title: 'Your community/organization can use the stipend for:',
+      footer: 'As long as it clearly supports education, it’s worth including in your proposal.',
       list: [
-        '- N250,000 to N500,000 grant to launch and sustain their project.',
-        '- Laptop award for successful program completion.',
-        '- Mentorship & networking opportunities with industry leaders.',
-        '- Visibility & recognition for their work.'
+        '- Data subscriptions for members',
+        '- Laptops, tablets, or other digital tools',
+        '- Paid access to online learning platforms',
+        '- Hosting learning workshops/events'
       ]
     },
-    ContentD: {
-      title: 'The selection process includes:',
+    ContentE: {
+      title: 'Great applications show:',
       list: [
-        '- Application Review : We assess your experience and project proposal.',
-        '- Project Pitch : Shortlisted candidates will present their initiative to a panel.',
-        '- Final Selection : 5 to 8 outstanding candidates will be chosen based on impact potential, leadership, and feasibility.'
+        '- Who your members are and how many learners will benefit',
+        '- How the stipend will be distributed fairly',
+        '- A clear leadership structure',
+        '-Your track record (if you’ve run programs or events before)'
       ]
-    }
+    },
+    ContentF: `After applications close, our team will review all entries. We’ll share updates and next steps publicly—because transparency matters to us.
+    `,
+    ContentG: `Unfortunately, we only accept applications from organizations registered with the CAC.
+    `
   }
 };
